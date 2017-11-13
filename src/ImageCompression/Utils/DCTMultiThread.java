@@ -18,54 +18,54 @@ public class DCTMultiThread {//singelton
 
 
 
-    public static short[][] directDCT(short[][] date){
-        short[][] dateOriginal=date;
-        short[][] dateProcessed=new short[SIZEOFBLOCK][SIZEOFBLOCK];
-        return directDCT(dateOriginal,dateProcessed);
+    public static short[][] directDCT(short[][] data){
+        short[][] dataOriginal=data;
+        short[][] dataProcessed=new short[SIZEOFBLOCK][SIZEOFBLOCK];
+        return directDCT(dataOriginal,dataProcessed);
     }
-    public static short[][] reverseDCT(short[][] date){
-        short[][] dateOriginal=date;
-        short[][] dateProcessed=new short[SIZEOFBLOCK][SIZEOFBLOCK];
-        return reverseDCT(dateOriginal,dateProcessed);
+    public static short[][] reverseDCT(short[][] data){
+        short[][] dataOriginal=data;
+        short[][] dataProcessed=new short[SIZEOFBLOCK][SIZEOFBLOCK];
+        return reverseDCT(dataOriginal,dataProcessed);
     }
 
-    public static short[][] directQuantization(TypeQuantization _tq,short[][]date) {
+    public static short[][] directQuantization(TypeQuantization _tq,short[][]data) {
 
         if (_tq == TypeQuantization.luminosity)
             for (int i = 0; i < SIZEOFBLOCK; i++)
                 for (int j = 0; j < SIZEOFBLOCK; j++) {
-                    //dateProcessed[i][j]/=QuantizationTable.getSmart(1,i,j);
-                    date[i][j] /= QuantizationTable.getLuminosity(i, j);
+                    //dataProcessed[i][j]/=QuantizationTable.getSmart(1,i,j);
+                    data[i][j] /= QuantizationTable.getLuminosity(i, j);
                 }
         else if (_tq == TypeQuantization.Chromaticity)
             for (int i = 0; i < SIZEOFBLOCK; i++)
                 for (int j = 0; j < SIZEOFBLOCK; j++) {
-                    // dateProcessed[i][j]/=QuantizationTable.getSmart(3,i,j);
-                    date[i][j] /= QuantizationTable.getChromaticity(i, j);
+                    // dataProcessed[i][j]/=QuantizationTable.getSmart(3,i,j);
+                    data[i][j] /= QuantizationTable.getChromaticity(i, j);
                 }
-        return date;
+        return data;
     }
 
-    public static short[][] reverseQuantization(TypeQuantization _tq,short[][]date) {
+    public static short[][] reverseQuantization(TypeQuantization _tq,short[][]data) {
 
         if (_tq == TypeQuantization.luminosity)
             for (int i = 0; i < SIZEOFBLOCK; i++)
                 for (int j = 0; j < SIZEOFBLOCK; j++) {
-                    // dateProcessed[i][j]*=QuantizationTable.getSmart(1,i,j);
-                    date[i][j] *= QuantizationTable.getLuminosity(i, j);
+                    // dataProcessed[i][j]*=QuantizationTable.getSmart(1,i,j);
+                    data[i][j] *= QuantizationTable.getLuminosity(i, j);
                 }
         else if (_tq == TypeQuantization.Chromaticity)
             for (int i = 0; i < SIZEOFBLOCK; i++)
                 for (int j = 0; j < SIZEOFBLOCK; j++) {
-                    // dateProcessed[i][j]*=QuantizationTable.getSmart(3,i,j);
-                    date[i][j] *= QuantizationTable.getChromaticity(i, j);
+                    // dataProcessed[i][j]*=QuantizationTable.getSmart(3,i,j);
+                    data[i][j] *= QuantizationTable.getChromaticity(i, j);
                 }
-        return date;
+        return data;
 
     }
 
     /*-------main metode---------*/
-    private static short[][] directDCT(short[][] dateOriginal,short[][]dateProcessed) {
+    private static short[][] directDCT(short[][] dataOriginal,short[][]dataProcessed) {
        // minus128();//test
         for(int i=0;i<SIZEOFBLOCK;i++)
         {
@@ -78,27 +78,27 @@ public class DCTMultiThread {//singelton
                     for(int y=0;y<SIZEOFBLOCK;y++)
                     {
                         /*double cos=Cosine.getCos(x,y,i,j);
-                        double buf=dateOriginal[x][y];
+                        double buf=dataOriginal[x][y];
                         double mul=buf*cos;
                         sum+=mul;*/
-                        sum += dateOriginal[x][y] * Cosine.getCos(x, y, i, j);
-                        // sum+=Cosine.getDirectDCTres(i,j,x,y,dateOriginal[x][y]);
+                        sum += dataOriginal[x][y] * Cosine.getCos(x, y, i, j);
+                        // sum+=Cosine.getDirectDCTres(i,j,x,y,dataOriginal[x][y]);
                     }
                 }
                 res*=sum;
-                dateProcessed[i][j]=(short)res;
+                dataProcessed[i][j]=(short)res;
                 /*if(i==0&&j==0)
                     AC=(long)res;
                 else if (res<256&&res>-256)
-                    dateDCT[i][j]=(byte)res;
+                    dataDCT[i][j]=(byte)res;
                 else getAC();*/
 
 
             }
         }
-        return dateProcessed;
+        return dataProcessed;
     }
-    private static short[][] reverseDCT(short[][]dateOriginal,short[][]dateProcessed) {
+    private static short[][] reverseDCT(short[][]dataOriginal,short[][]dataProcessed) {
         for(int x=0;x<SIZEOFBLOCK;x++)
         {
             for(int y=0;y<SIZEOFBLOCK;y++)
@@ -111,32 +111,32 @@ public class DCTMultiThread {//singelton
                     {
                         double Ci=(i==0)?OneDivadMathsqrt2:1.0;
                         double Cj=(j==0)?OneDivadMathsqrt2:1.0;
-                        double buf=Ci*Cj*dateOriginal[i][j]*Cosine.getCos(x,y,i,j);
+                        double buf=Ci*Cj*dataOriginal[i][j]*Cosine.getCos(x,y,i,j);
                         sum+=buf;
                     }
                 }
-                dateProcessed[x][y]=(short)(0.25*sum);
+                dataProcessed[x][y]=(short)(0.25*sum);
             }
         }
        // plus128();//
-        return dateProcessed;
+        return dataProcessed;
     }
 
-    private static short[][] minus128 (short[][]dateOriginal){
+    private static short[][] minus128 (short[][]dataOriginal){
         for(int i=0;i< SIZEOFBLOCK;i++)
             for(int j=0;j<SIZEOFBLOCK;j++)
             {
-                dateOriginal[i][j]-=(short)128;
+                dataOriginal[i][j]-=(short)128;
             }
-        return dateOriginal;
+        return dataOriginal;
     }
-    private static short[][] plus128 (short[][]dateProcessed){
+    private static short[][] plus128 (short[][]dataProcessed){
         for(int i=0;i< SIZEOFBLOCK;i++)
             for(int j=0;j<SIZEOFBLOCK;j++)
             {
-                dateProcessed[i][j]+=(short)128;
+                dataProcessed[i][j]+=(short)128;
             }
-        return dateProcessed;
+        return dataProcessed;
     }
 
     // обопщенно позоционное кодирование

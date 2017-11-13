@@ -7,15 +7,16 @@ import ImageCompression.Utils.AndroidBmpUtil;
 
 public class MyImage {
 
-    interface Bitmap extends AndroidBmpUtil.Bitmap{
+    public interface Bitmap extends AndroidBmpUtil.Bitmap{
         int getPixel(int x,int y);
         int setPixel(int i,int  j,int newPixel);
-        static Bitmap createBitmap(int Width,int Height,int Config) throws Exception {
-            throw new Exception("not implement");
-        }
+
         static int ARGB_4444=4;
     }
-    interface Color{
+    public interface BitmapParser{
+        Bitmap createBitmap(int Width,int Height,int Config);
+    }
+    public interface Color{
         double red(int pixel);
         double blue(int pixel);
         double green(int pixel);
@@ -35,7 +36,7 @@ public class MyImage {
 
     private Color colorParser;
 
-    public MyImage(Bitmap _b, Flag flag) {
+    public MyImage(Bitmap _b, Flag flag,Color colorParser) {
         bitmap = _b;
 
 
@@ -43,13 +44,15 @@ public class MyImage {
         matrix.state = State.bitmap;
         Factory();
 
+        this.colorParser=colorParser;
     }
 
-    public MyImage(Matrix matrix) throws Exception {
+    public MyImage(Matrix matrix,Color colorParser,BitmapParser bitmapParser) throws Exception {
         this.matrix = matrix;
         Factory();
 
-        bitmap = Bitmap.createBitmap(Width, Height, Bitmap.ARGB_4444);
+        bitmap = bitmapParser.createBitmap(Width, Height, Bitmap.ARGB_4444);
+        this.colorParser=colorParser;
     }
 
     //TODO string constructor
@@ -84,9 +87,9 @@ public class MyImage {
                for (int j = 0; j < Height; j++) {
                    int pixelColor = bitmap.getPixel(i, j);
                    // получим цвет каждого пикселя
-                   double pixelRed = Color.red(pixelColor);
-                   double pixelGreen = Color.green(pixelColor);
-                   double pixelBlue = Color.blue(pixelColor);
+                   double pixelRed = colorParser.red(pixelColor);
+                   double pixelGreen = colorParser.green(pixelColor);
+                   double pixelBlue = colorParser.blue(pixelColor);
 
 
                /* double vy=((77.0/256.0)*pixelRed+(150.0/256.0)*pixelGreen+(29.0/256)*pixelBlue);
@@ -113,9 +116,9 @@ public class MyImage {
                 for (int j = 0; j < Height; j++) {
                     int pixelColor = bitmap.getPixel(i, j);
                     // получим цвет каждого пикселя
-                    R[i][j] = (short) (Color.red(pixelColor));
-                    G[i][j] = (short) (Color.green(pixelColor));
-                    B[i][j] = (short) (Color.blue(pixelColor));
+                    R[i][j] = (short) (colorParser.red(pixelColor));
+                    G[i][j] = (short) (colorParser.green(pixelColor));
+                    B[i][j] = (short) (colorParser.blue(pixelColor));
 
                 }
             }
@@ -249,7 +252,7 @@ public class MyImage {
                     int pixelBlue=B[i][j]&0xFF;
                     int pixelRed=R[i][j]&0xFF;
                     int pixelGreen=G[i][j]&0xFF;
-                    int newPixel= Color.argb(
+                    int newPixel= colorParser.argb(
                             pixelAlpha, pixelRed, pixelGreen, pixelBlue);
                     // полученный результат вернём в Bitmap
                     bitmap.setPixel(i, j, newPixel);

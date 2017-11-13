@@ -17,6 +17,9 @@ public class MainForm extends JFrame{
         setContentPane(mainPanel);
         setSize(800,800);
 
+        MyBMP myBMP=new MyBMP("ds");
+        Flag flag= new Flag((short)0);
+//        MyImage myImage=new MyImage();
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
