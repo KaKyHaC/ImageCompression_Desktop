@@ -15,9 +15,7 @@ public class BoxOfOPC {
 
     public BoxOfOPC(int width, int height,boolean isEnlargement) {
         sizeCalculate(width,height);
-        int k=1;
-        if(isEnlargement)
-            k=2;
+        int k=(isEnlargement)?2:1;
 
         width=this.width;
         height=this.height;

@@ -6,7 +6,7 @@ import java.io.File
 import javax.imageio.ImageIO
 
 class MyBMP(url: File):MyImage.Bitmap{
-    var image:BufferedImage = BufferedImage(0,0,BufferedImage.TYPE_3BYTE_BGR)
+    var image:BufferedImage;
 
     init {
         image=ImageIO.read(url)

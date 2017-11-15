@@ -5,8 +5,9 @@ public class Parameters {
     private static long MAXLONG = (long) Math.pow(2, 54); // long = 7x8 bits . why ?
     public int n = 4, m = 4;
     public String password = "0";
-    public String PathReadMassage = "/sdcard/ImageCompresion/massage.txt";
-    public String PathWriteMassage = "/sdcard/ImageCompresion/resultMassage.txt";
+    public String PathAppDir ="/files";
+    public String PathReadMassage = "/files/massage.txt";
+    public String PathWriteMassage = "/files/resultMassage.txt";
     public boolean isSteganography = false;
     private int BitPerNumber;
     private int BinaryValOfPos = 1;

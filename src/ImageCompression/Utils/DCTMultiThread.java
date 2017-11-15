@@ -115,7 +115,7 @@ public class DCTMultiThread {//singelton
                         sum+=buf;
                     }
                 }
-                dataProcessed[x][y]=(short)(0.25*sum);
+                dataProcessed[x][y]=FromDoubleToShort(0.25*sum); // old (short)
             }
         }
        // plus128();//
@@ -142,7 +142,12 @@ public class DCTMultiThread {//singelton
     // обопщенно позоционное кодирование
 
 
-
+    private static short FromDoubleToShort(double d){
+        short res=(short)d;
+        if(d%1>0.5)
+            res++;
+        return res;
+    }
 
 
 
