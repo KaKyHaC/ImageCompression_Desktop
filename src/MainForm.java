@@ -1,8 +1,5 @@
 import ImageCompression.Containers.Matrix;
-import ImageCompression.Objects.ApplicationOPC;
-import ImageCompression.Objects.Flag;
-import ImageCompression.Objects.MyImage;
-import ImageCompression.Objects.Parameters;
+import ImageCompression.Objects.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -20,9 +17,13 @@ public class MainForm extends JFrame{
     private JLabel image;
     private JButton bExe;
     private JLabel lInfo;
+    private JButton bFlag;
+    private JProgressBar progressBar1;
 
     private Parameters parameters = Parameters.getInstanse();
     private ApplicationOPC applicationOPC = ApplicationOPC.getInstance();
+    private Flag flag=new Flag("0");
+    private File file;
 
     public MainForm() throws HeadlessException {
         setVisible(true);
@@ -37,6 +38,9 @@ public class MainForm extends JFrame{
     private void Init(){
         File dir=new File(parameters.PathAppDir);
         dir.mkdir();
+
+        flag.setOneFile(true);
+        flag.setLongCode(true);
     }
     private void setListeners(){
         bSelect.addActionListener(new ActionListener() {
@@ -46,8 +50,33 @@ public class MainForm extends JFrame{
                 jFileChooser.setCurrentDirectory(new File(parameters.PathAppDir));
                 int res=jFileChooser.showDialog(null,"Choose Image");
                 if(res==JFileChooser.APPROVE_OPTION){
-                    File file=jFileChooser.getSelectedFile();
+                    file=jFileChooser.getSelectedFile();
                     onFileSelected(file);
+                }
+            }
+        });
+        bFlag.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FlagForm flagForm=new FlagForm(flag);
+                flagForm.setOnChengeListener(e1 -> {
+                    flag=flagForm.getFlag();
+                });
+            }
+        });
+        bExe.addActionListener(e -> {
+            String name=file.getName();
+            if(name.contains(".bmp")||name.contains(".BMP")||name.contains(".jpg")) {
+                try {
+                    processImage(file);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }else if(name.contains(".bar")){
+                try {
+                    processBar(file);
+                } catch (Exception e1) {
+                    e1.printStackTrace();
                 }
             }
         });
@@ -56,15 +85,9 @@ public class MainForm extends JFrame{
         String name=file.getName();
         lInfo.setText("Name: "+name+" ,Size: "+file.length()/1024+"kB ");
 
-//        if(name.contains(".bmp")||name.contains(".BMP")||name.contains(".jpg"))
+        if(name.contains(".bmp")||name.contains(".BMP")||name.contains(".jpg")) {
             setLableImage(file);
-        try {
-            processImage(file);
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-
-
     }
     private void setLableImage(File imagef){
         try {
@@ -79,10 +102,38 @@ public class MainForm extends JFrame{
             System.out.println(e1.getMessage());
         }
     }
-    private void processImage(File file) throws IOException {
-        BufferedImage  bufferedImage=ImageIO.read(file);
 
+    private void processImage(File file) throws IOException {
+        progressBar1.setValue(0);
+        File toSave=new File(parameters.PathAppDir+"/default");
+        JFileChooser jFileChooser=new JFileChooser(parameters.PathAppDir);
+        if(jFileChooser.showSaveDialog(null)==JFileChooser.APPROVE_OPTION){
+            toSave=jFileChooser.getSelectedFile();
+        }
+        BufferedImage  bufferedImage=ImageIO.read(file);
+        MyBufferedImage myBufferedImage=new MyBufferedImage(bufferedImage,flag);
+        Matrix matrix=myBufferedImage.getYCbCrMatrix();
+
+        applicationOPC.FromMatrixToFile(val -> {
+            System.out.println(val);
+            progressBar1.setValue(val);
+        },matrix,getFileWithOutType(toSave.getAbsolutePath()));
+        progressBar1.setValue(100);
     }
+    private void processBar(File file)throws Exception{
+        Matrix matrix=applicationOPC.FromFileToMatrix(val ->{
+            System.out.println(val);
+            progressBar1.setValue(val);
+        },getFileWithOutType(file.getAbsolutePath() ));
+        MyBufferedImage myBufferedImage=new MyBufferedImage(matrix);
+        BufferedImage bufferedImage=myBufferedImage.getBufferedImage();
+        image.setIcon(new ImageIcon(bufferedImage.getScaledInstance(600,600,Image.SCALE_DEFAULT)));
+    }
+
+    private String getFileWithOutType(String path){
+        return path.substring(0,path.length()-4);
+    }
+
     public static void main(String[] arg){
         new MainForm();
     }

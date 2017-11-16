@@ -23,14 +23,14 @@ public class MyImage {
     private short[][] enlCb,enlCr;
 
 
-    private MyImage(BufferedImage _b, Flag flag) {
+    public MyImage(BufferedImage _b, Flag flag) {
         bitmap = _b;
         matrix = new Matrix(bitmap.getWidth(), bitmap.getHeight(), flag);
         matrix.state = State.bitmap;
         Factory();
     }
 
-    private MyImage(Matrix matrix) throws Exception {
+    public MyImage(Matrix matrix) throws Exception {
         this.matrix = matrix;
         Factory();
         bitmap = new BufferedImage(Width,Height,BufferedImage.TYPE_4BYTE_ABGR);
