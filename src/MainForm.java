@@ -81,12 +81,7 @@ public class MainForm extends JFrame{
     }
     private void processImage(File file) throws IOException {
         BufferedImage  bufferedImage=ImageIO.read(file);
-        MyBMP myBMP=new MyBMP(file);
-        Flag flag=new Flag("0");
-        ColorParser colorParser=new ColorParser();
-        MyImage myImage=new MyImage(myBMP,flag,colorParser);
-        Matrix matrix=myImage.getYenlMatrix();
-        applicationOPC.FromMatrixToFile(val -> System.out.println(val),matrix,file.getAbsolutePath());
+
     }
     public static void main(String[] arg){
         new MainForm();

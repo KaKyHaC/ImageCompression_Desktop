@@ -5,54 +5,35 @@ import ImageCompression.Containers.Matrix;
 import ImageCompression.Containers.State;
 import ImageCompression.Utils.AndroidBmpUtil;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
+
 public class MyImage {
 
-    public interface Bitmap extends AndroidBmpUtil.Bitmap{
-        int getPixel(int x,int y);
-        int setPixel(int i,int  j,int newPixel);
-
-        static int ARGB_4444=4;
-    }
-    public interface BitmapParser{
-        Bitmap createBitmap(int Width,int Height,int Config);
-    }
-    public interface Color{
-        double red(int pixel);
-        double blue(int pixel);
-        double green(int pixel);
-        int argb(int pixelAlpha,int pixelRed,int pixelGreen,int pixelBlue);
-    }
-
+    
     private static final int SIZEOFBLOCK = 8;
     private Matrix matrix;
     private int cWidth,cHeight;
     private int Width,Height;
-    private Bitmap bitmap;
-    private String NameOFFile;
+    private BufferedImage bitmap;
+//    private String NameOFFile;
 
     private short[][] R,G,B;
     private short[][] Y,Cb,Cr;
     private short[][] enlCb,enlCr;
 
-    private Color colorParser;
 
-    public MyImage(Bitmap _b, Flag flag,Color colorParser) {
+    private MyImage(BufferedImage _b, Flag flag) {
         bitmap = _b;
-
-
         matrix = new Matrix(bitmap.getWidth(), bitmap.getHeight(), flag);
         matrix.state = State.bitmap;
         Factory();
-
-        this.colorParser=colorParser;
     }
 
-    public MyImage(Matrix matrix,Color colorParser,BitmapParser bitmapParser) throws Exception {
+    private MyImage(Matrix matrix) throws Exception {
         this.matrix = matrix;
         Factory();
-
-        bitmap = bitmapParser.createBitmap(Width, Height, Bitmap.ARGB_4444);
-        this.colorParser=colorParser;
+        bitmap = new BufferedImage(Width,Height,BufferedImage.TYPE_4BYTE_ABGR);
     }
 
     //TODO string constructor
@@ -79,17 +60,19 @@ public class MyImage {
         System.gc();
     }
 
-   private void FromBitmapToYCbCr() {
+   private void FromBufferedImageToYCbCr() {
 
        if (matrix.state == State.bitmap)
        {
+           int[] rgb =bitmap.getRGB(0,0,Width,Height,null,0,Width);
            for (int i = 0; i < Width; i++) {
                for (int j = 0; j < Height; j++) {
-                   int pixelColor = bitmap.getPixel(i, j);
+//                   int pixelColor = rgb[i*Height + j];
+                   int pixelColor=bitmap.getRGB(i,j);
                    // получим цвет каждого пикселя
-                   double pixelRed = colorParser.red(pixelColor);
-                   double pixelGreen = colorParser.green(pixelColor);
-                   double pixelBlue = colorParser.blue(pixelColor);
+                   double pixelRed = ((pixelColor)>>16&0xFF);
+                   double pixelGreen= ((pixelColor)>>8&0xFF);
+                   double pixelBlue=((pixelColor)&0xFF);
 
 
                /* double vy=((77.0/256.0)*pixelRed+(150.0/256.0)*pixelGreen+(29.0/256)*pixelBlue);
@@ -100,6 +83,15 @@ public class MyImage {
                    double vcb = 128 - (0.168736 * pixelRed) - (0.331264 * pixelGreen) + (0.5 * pixelBlue);
                    double vcr = 128 + (0.5 * pixelRed) - (0.418688 * pixelGreen) - (0.081312 * pixelBlue);
 
+                   //15.11
+//                   if(vy%1>=0.5)
+//                       vy++;
+//                   if(vcb%1>=0.5)
+//                       vcb++;
+//                   if(vcr%1>=0.5)
+//                       vcr++;
+
+
                    Y[i][j] = (short) vy;
                    Cb[i][j] = (short) vcb;
                    Cr[i][j] = (short) vcr;
@@ -109,16 +101,20 @@ public class MyImage {
        }
 
     }
-    private void FromBitmapToRGB() {
+    private void FromBufferedImageToRGB() {
 
-   if(matrix.state==State.bitmap) {
+        if(matrix.state==State.bitmap) {
+
+            int[] rgb =bitmap.getRGB(0,0,Width,Height,null,0,Width);
+
             for (int i = 0; i < Width; i++) {
                 for (int j = 0; j < Height; j++) {
-                    int pixelColor = bitmap.getPixel(i, j);
+//                    int pixelColor = rgb[i*Height + j];
+                    int pixelColor=bitmap.getRGB(i,j);
                     // получим цвет каждого пикселя
-                    R[i][j] = (short) (colorParser.red(pixelColor));
-                    G[i][j] = (short) (colorParser.green(pixelColor));
-                    B[i][j] = (short) (colorParser.blue(pixelColor));
+                    R[i][j] = (short) ((pixelColor)>>16&0xFF);
+                    G[i][j] = (short) ((pixelColor)>>8&0xFF);
+                    B[i][j] = (short) ((pixelColor)&0xFF);
 
                 }
             }
@@ -134,9 +130,17 @@ public class MyImage {
             for(int j=0;j<Height;j++)
             {
                 double r,g,b;
-                r=(short)(Y[i][j]+1.402*(Cr[i][j]-128));
-                g=(short)(Y[i][j]-0.34414*(Cb[i][j]-128)-0.71414*(Cr[i][j]-128));
-                b=(short)(Y[i][j]+1.772*(Cb[i][j]-128));
+                r=(Y[i][j]+1.402*(Cr[i][j]-128));
+                g=(Y[i][j]-0.34414*(Cb[i][j]-128)-0.71414*(Cr[i][j]-128));
+                b=(Y[i][j]+1.772*(Cb[i][j]-128));
+                //add
+//                if(r%1>=0.5)
+//                    r=(short)++r;
+//                if(g%1>=0.5)
+//                    g=(short)++g;
+//                if(b%1>=0.5)
+//                    b=(short)++b;
+                //
 
                 if(g<0)g=0;//new
                 if(r<0)r=0;
@@ -166,6 +170,13 @@ public class MyImage {
                     double vy = (0.299 * pixelRed) + (0.587 * pixelGreen) + (0.114 * pixelBlue);
                     double vcb = 128 - (0.168736 * pixelRed) - (0.331264 * pixelGreen) + (0.5 * pixelBlue);
                     double vcr = 128 + (0.5 * pixelRed) - (0.418688 * pixelGreen) - (0.081312 * pixelBlue);
+                    //15.11
+//                    if(vy%1>=0.5)
+//                        vy++;
+//                    if(vcb%1>=0.5)
+//                        vcb++;
+//                    if(vcr%1>=0.5)
+//                        vcr++;
 
                     Y[i][j] = (short) vy;
                     Cb[i][j] = (short) vcb;
@@ -240,7 +251,7 @@ public class MyImage {
         plus128(matrix.c);
     }
 
-    private void FromRGBtoBitmap(){
+    private void FromRGBtoBufferedImage(){
         if(matrix.state==State.RGB)
         {
             for(int i=0;i<Width;i++)
@@ -248,14 +259,15 @@ public class MyImage {
                 for(int j=0;j<Height;j++)
                 {
 
-                    int pixelAlpha=255;
+                    int pixelAlpha=255; //for argb
                     int pixelBlue=B[i][j]&0xFF;
                     int pixelRed=R[i][j]&0xFF;
                     int pixelGreen=G[i][j]&0xFF;
-                    int newPixel= colorParser.argb(
-                            pixelAlpha, pixelRed, pixelGreen, pixelBlue);
-                    // полученный результат вернём в Bitmap
-                    bitmap.setPixel(i, j, newPixel);
+                    int val =(pixelAlpha<<24)| (pixelRed<<16) | (pixelGreen<<8) | pixelBlue; //for argb
+//                    int val =(pixelRed<<16) | (pixelGreen<<8) | pixelBlue; //for rgb
+
+                    // полученный результат вернём в BufferedImage
+                    bitmap.setRGB(i, j, val);
                 }
             }
             matrix.state=State.bitmap;
@@ -264,14 +276,14 @@ public class MyImage {
 
 
 
-    public Bitmap getBitmap() {
+    public BufferedImage getBufferedImage() {
         switch(matrix.state)
         {
-            case RGB: FromRGBtoBitmap();
+            case RGB: FromRGBtoBufferedImage();
                 break;
-            case YBR: FromYBRtoRGB();FromRGBtoBitmap();
+            case YBR: FromYBRtoRGB();FromRGBtoBufferedImage();
                 break;
-            case Yenl:PixelRestoration();FromYBRtoRGB();FromRGBtoBitmap();
+            case Yenl:PixelRestoration();FromYBRtoRGB();FromRGBtoBufferedImage();
                 break;
             case bitmap:
                 break;
@@ -291,7 +303,7 @@ public class MyImage {
                 break;
             case Yenl:
                 break;
-            case bitmap:FromBitmapToYCbCr();PixelEnlargement();
+            case bitmap:FromBufferedImageToYCbCr();PixelEnlargement();
                 break;
             case DCT:return null;
 
