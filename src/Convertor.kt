@@ -13,24 +13,6 @@ import java.util.*
 
 
 class Convertor() {
-    fun FromBarToBmp(pathToBar: String): Unit {
-        val AppOPC = ApplicationOPC.getInstance();
-        publishProgress(10)
-        val FFTM = AppOPC.FromFileToMatrix({ x -> publishProgress(x) }, getPathWithoutType(pathToBar))
-        publishProgress(50)
-        val bodum1 = BoxOfDUM(FFTM)
-        publishProgress(50);
-        bodum1.dataProcessing();
-        publishProgress(70);
-        val af = MyBufferedImage(bodum1.getMatrix());
-
-        val res = af.bufferedImage
-        publishProgress(90);
-
-        ImageIO.write(res, "bmp", File(getPathWithoutType(pathToBar) + "res.bmp"))
-
-        publishProgress(100);
-    }
 
     fun FromBmpToBar(pathToBmp: String, flag: Flag) {
         val bmp = ImageIO.read(File(pathToBmp))
@@ -51,6 +33,31 @@ class Convertor() {
         AppOPC.FromMatrixToFile({ x -> publishProgress(x) }, bodum.matrix, getPathWithoutType(pathToBmp))
         publishProgress(100)
 
+    }
+
+    fun FromBarToBmp(pathToBar: String): Unit {
+        val AppOPC = ApplicationOPC.getInstance();
+        publishProgress(10)
+        val FFTM = AppOPC.FromFileToMatrix({ x -> publishProgress(x) }, getPathWithoutType(pathToBar))
+        publishProgress(50)
+        val bodum1 = BoxOfDUM(FFTM)
+        publishProgress(50);
+        bodum1.dataProcessing();
+        publishProgress(70);
+        val af = MyBufferedImage(bodum1.getMatrix());
+
+        val res = af.bufferedImage
+        publishProgress(90);
+
+        var file=File(getPathWithoutType(pathToBar) + "res.bmp")
+        file.createNewFile()
+        try {
+            ImageIO.write(res, "bmp", file)
+        }catch (e:Exception){
+            System.out.println(e.message)
+        }
+
+        publishProgress(100);
     }
 
     private fun getPathWithoutType(path: String): String {

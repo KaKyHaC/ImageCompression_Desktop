@@ -82,7 +82,9 @@ public class MainForm extends JFrame{
             }
         });
         convertor.addPublishListener(integer -> {
-            progressBar1.setValue(integer);
+            SwingUtilities.invokeLater(() -> {
+                progressBar1.setValue(integer);
+            });
             return null;
         });
     }
@@ -109,30 +111,10 @@ public class MainForm extends JFrame{
     }
 
     private void processImage(File file) throws IOException {
-        progressBar1.setValue(0);
-        File toSave=new File(parameters.PathAppDir+"/default");
-        JFileChooser jFileChooser=new JFileChooser(parameters.PathAppDir);
-        if(jFileChooser.showSaveDialog(null)==JFileChooser.APPROVE_OPTION){
-            toSave=jFileChooser.getSelectedFile();
-        }
-        BufferedImage  bufferedImage=ImageIO.read(file);
-        MyBufferedImage myBufferedImage=new MyBufferedImage(bufferedImage,flag);
-        Matrix matrix=myBufferedImage.getYCbCrMatrix();
-
-        applicationOPC.FromMatrixToFile(val -> {
-            System.out.println(val);
-            progressBar1.setValue(val);
-        },matrix,getFileWithOutType(toSave.getAbsolutePath()));
-        progressBar1.setValue(100);
+        new Thread(()->convertor.FromBmpToBar(file.getAbsolutePath(),flag)).start();
     }
     private void processBar(File file)throws Exception{
-        Matrix matrix=applicationOPC.FromFileToMatrix(val ->{
-            System.out.println(val);
-            progressBar1.setValue(val);
-        },getFileWithOutType(file.getAbsolutePath() ));
-        MyBufferedImage myBufferedImage=new MyBufferedImage(matrix);
-        BufferedImage bufferedImage=myBufferedImage.getBufferedImage();
-        image.setIcon(new ImageIcon(bufferedImage.getScaledInstance(600,600,Image.SCALE_DEFAULT)));
+        new Thread(()->convertor.FromBarToBmp(file.getAbsolutePath())).start();
     }
 
     private String getFileWithOutType(String path){

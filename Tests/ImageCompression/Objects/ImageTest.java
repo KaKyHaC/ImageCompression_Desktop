@@ -3,8 +3,10 @@ package ImageCompression.Objects;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.Random;
 
 import static org.junit.Assert.*;
@@ -54,6 +56,13 @@ public class ImageTest {
                 assertEquals(arr[i*h+j],bufferedImage.getRGB(i,j));
             }
         }
+    }
+    @Test
+    public void TestImageIO()throws Exception{
+        BufferedImage bufferedImage= ImageIO.read(new File("/files/desk.bmp"));
+        File res=new File("/files/desktest.bmp");
+        res.createNewFile();
+        ImageIO.write(bufferedImage,"bmp",res);
     }
     private void randomInit(BufferedImage bufferedImage) {
         Random random = new Random();
