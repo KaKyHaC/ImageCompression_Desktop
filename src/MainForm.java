@@ -24,6 +24,7 @@ public class MainForm extends JFrame{
     private ApplicationOPC applicationOPC = ApplicationOPC.getInstance();
     private Flag flag=new Flag("0");
     private File file;
+    private Convertor convertor=new Convertor();
 
     public MainForm() throws HeadlessException {
         setVisible(true);
@@ -79,6 +80,10 @@ public class MainForm extends JFrame{
                     e1.printStackTrace();
                 }
             }
+        });
+        convertor.addPublishListener(integer -> {
+            progressBar1.setValue(integer);
+            return null;
         });
     }
     private void onFileSelected(File file){
