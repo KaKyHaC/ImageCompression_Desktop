@@ -3,9 +3,8 @@ package ImageCompression.Objects;
 
 import ImageCompression.Containers.Matrix;
 import ImageCompression.Containers.State;
-import ImageCompression.Utils.AndroidBmpUtil;
+import ImageCompression.Utils.Objects.Flag;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class MyImage {

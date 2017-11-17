@@ -3,7 +3,9 @@ package ImageCompression.Objects;
 import ImageCompression.Containers.BoxOfOPC;
 import ImageCompression.Containers.Matrix;
 import ImageCompression.Containers.State;
-import ImageCompression.Utils.*;
+import ImageCompression.Utils.Functions.*;
+import ImageCompression.Utils.Objects.DataOPC;
+import ImageCompression.Utils.Objects.Parameters;
 
 import java.util.ArrayList;
 import java.util.List;

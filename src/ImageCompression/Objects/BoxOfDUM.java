@@ -4,6 +4,7 @@ package ImageCompression.Objects;
 import ImageCompression.Containers.Matrix;
 import ImageCompression.Containers.State;
 import ImageCompression.Containers.TypeQuantization;
+import ImageCompression.Utils.Objects.DataUnitMatrix;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;

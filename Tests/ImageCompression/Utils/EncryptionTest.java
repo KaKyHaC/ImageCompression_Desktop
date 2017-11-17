@@ -1,7 +1,8 @@
 package ImageCompression.Utils;
 
 import ImageCompression.Containers.BoxOfOPC;
-import ImageCompression.Objects.DataOPC;
+import ImageCompression.Utils.Objects.DataOPC;
+import ImageCompression.Utils.Functions.Encryption;
 import org.junit.Before;
 import org.junit.Test;
 

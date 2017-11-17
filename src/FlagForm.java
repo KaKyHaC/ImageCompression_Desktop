@@ -1,11 +1,8 @@
-import ImageCompression.Objects.Flag;
-import javafx.scene.Parent;
+import ImageCompression.Utils.Objects.Flag;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.Array;
 import java.util.Vector;
 
 public class FlagForm extends JFrame{

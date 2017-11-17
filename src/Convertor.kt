@@ -1,37 +1,27 @@
-import ImageCompression.Containers.Matrix
 import ImageCompression.Objects.ApplicationOPC
 import ImageCompression.Objects.BoxOfDUM
-import ImageCompression.Objects.Flag
+import ImageCompression.Utils.Objects.Flag
 import ImageCompression.Objects.MyBufferedImage
-import ImageCompression.Utils.AndroidBmpUtil
 import java.io.File
-import javax.imageio.IIOImage
 import javax.imageio.ImageIO
-import ImageCompression.Objects.MyImage
-import ImageCompression.Utils.AndroidBmpUtil.Bitmap
 import java.util.*
 
 
 class Convertor() {
 
     fun FromBmpToBar(pathToBmp: String, flag: Flag) {
+        publishProgress(0)
         val bmp = ImageIO.read(File(pathToBmp))
-
-        val mi = MyBufferedImage(bmp, flag)
-
         publishProgress(10)
+        val mi = MyBufferedImage(bmp, flag)
         val matrix = mi.yenlMatrix
-
+        publishProgress(30)
         val bodum = BoxOfDUM(matrix)
-        publishProgress(20)
         val matrixDCT=bodum.getDCTMatrix(true)
-        publishProgress(50)
-
+        publishProgress(60)
         val AppOPC = ApplicationOPC.getInstance()
-        //AppOPC.setSizeofblock(n,m);
         AppOPC.FromMatrixToFile({ x -> publishProgress(x) }, matrixDCT, getPathWithoutType(pathToBmp))
         publishProgress(100)
-
     }
 
     fun FromBarToBmp(pathToBar: String): Unit {
@@ -64,7 +54,7 @@ class Convertor() {
     }
 
     var listeners:Vector<(value:Int)->Unit> = Vector()
-    public fun addPublishListener(listener:(value:Int)->Unit){
+    fun addPublishListener(listener:(value:Int)->Unit){
         listeners.add(listener)
     }
     private fun publishProgress(value: Int) {

@@ -1,5 +1,6 @@
-import ImageCompression.Containers.Matrix;
 import ImageCompression.Objects.*;
+import ImageCompression.Utils.Objects.Flag;
+import ImageCompression.Utils.Objects.Parameters;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

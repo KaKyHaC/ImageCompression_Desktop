@@ -1,15 +1,13 @@
 import ImageCompression.Containers.Matrix
 import ImageCompression.Containers.State
 import ImageCompression.Objects.BoxOfDUM
-import ImageCompression.Objects.Flag
+import ImageCompression.Utils.Objects.Flag
 import ImageCompression.Objects.MyBufferedImage
-import ImageCompression.Objects.MyBufferedImageTest
 import org.junit.Before
 
 import org.junit.Assert.*
 import org.junit.Test
 import java.io.File
-import java.sql.Time
 import java.util.*
 import javax.imageio.ImageIO
 import kotlin.test.assertTrue

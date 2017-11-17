@@ -2,17 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/Convertor$FromBarToBmp$FFTM$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/Convertor$FromBmpToBar$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/Convertor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Objects/BoxOfDUM.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$AssertArrayArrayInRange$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$AssertArrayArrayInRange$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$copy$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$copy$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ConvertorTest.kt" afterPath="$PROJECT_DIR$/Tests/ConvertorTest.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.java" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ImageCompression/Objects/MyImageTest.java" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Objects/MyImageTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ImageCompression/Utils/DCTMultiThreadTest.java" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Utils/DCTMultiThreadTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ImageCompression/Utils/EncryptionTest.java" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Utils/EncryptionTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ImageCompression/Utils/OPCMultiThreadTest.java" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Utils/OPCMultiThreadTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Convertor.kt" afterPath="$PROJECT_DIR$/src/Convertor.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FlagForm.java" afterPath="$PROJECT_DIR$/src/FlagForm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Containers/BoxOfOPC.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Containers/BoxOfOPC.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Containers/Matrix.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Containers/Matrix.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/ApplicationOPC.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Objects/ApplicationOPC.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/BoxOfDUM.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Objects/BoxOfDUM.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/MyBufferedImage.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Objects/MyBufferedImage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/MyImage.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Objects/MyImage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainForm.java" afterPath="$PROJECT_DIR$/src/MainForm.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/DataOPC.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/DataUnitMatrix.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataUnitMatrix.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/Flag.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/Flag.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/Parameters.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/Parameters.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/AndroidBmpUtil.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/AndroidBmpUtil.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/DCTMultiThread.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/DCTMultiThread.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/Encryption.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/Encryption.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/FileStream.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/FileStream.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/OPCMultiThread.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/Steganography.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/Steganography.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,91 +41,105 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-          <file leaf-file-name="MainForm.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/MainForm.java">
+          <file leaf-file-name="DataOPC.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#2162#2689#0" expanded="false" />
-                    <element signature="method#onFileSelected#0;class#MainForm#0" expanded="false" />
-                    <element signature="method#setLableImage#0;class#MainForm#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Convertor.kt" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Convertor.kt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="25">
-                  <caret line="19" column="42" lean-forward="true" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
-                  <folding>
-                    <element signature="e#0#449#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="BoxOfDUM.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/BoxOfDUM.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="250">
-                  <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+                <state relative-caret-position="475">
+                  <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Flag.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/Flag.java">
+          <file leaf-file-name="Convertor.kt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Convertor.kt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="350">
-                  <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#0#246#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="DCTMultiThread.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/DCTMultiThread.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Encryption.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/Encryption.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
           <file leaf-file-name="DataUnitMatrix.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/DataUnitMatrix.java">
+            <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataUnitMatrix.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="75">
-                  <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+                <state relative-caret-position="225">
+                  <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Parameters.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Objects/Parameters.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="50">
+                  <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Flag.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Objects/Flag.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="150">
+                  <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
           <file leaf-file-name="FileStream.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/FileStream.java">
+            <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/FileStream.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="8300">
-                  <caret line="339" column="22" lean-forward="false" selection-start-line="339" selection-start-column="22" selection-end-line="339" selection-end-column="22" />
+                <state relative-caret-position="269">
+                  <caret line="610" column="6" lean-forward="false" selection-start-line="610" selection-start-column="6" selection-end-line="610" selection-end-column="6" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="FlagForm.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/FlagForm.java">
+          <file leaf-file-name="OPCMultiThread.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1425">
-                  <caret line="65" column="25" lean-forward="false" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#2370#2371#0" expanded="true" />
-                    <element signature="e#2400#2401#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="250">
+                  <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MainForm.form" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/MainForm.form">
-              <provider selected="true" editor-type-id="ui-designer">
-                <state />
+          <file leaf-file-name="Steganography.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/Steganography.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="200">
+                  <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+                  <folding />
+                </state>
               </provider>
             </entry>
           </file>
@@ -118,28 +147,28 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-          <file leaf-file-name="ConvertorTest.kt" pinned="false" current-in-tab="true">
+          <file leaf-file-name="ConvertorTest.kt" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Tests/ConvertorTest.kt">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="125">
-                  <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+                  <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
                   <folding>
                     <element signature="n#!!block;n#copy#0;n#!!block;n#ConvertorTest#0" expanded="false" />
                     <element signature="n#!!block;n#AssertMatrixInRange#0;n#!!block;n#ConvertorTest#0" expanded="false" />
                     <element signature="n#!!block;n#AssertArrayArrayInRange#0;n#!!block;n#ConvertorTest#0" expanded="false" />
                     <element signature="n#!!block;n#forEach#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-                    <element signature="e#3919#3999#1" expanded="false" />
-                    <element signature="e#3949#3989#1" expanded="false" />
+                    <element signature="e#3852#3932#1" expanded="false" />
+                    <element signature="e#3882#3922#1" expanded="false" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ApplicationOPC.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="ApplicationOPC.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ApplicationOPC.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="475">
-                  <caret line="29" column="24" lean-forward="true" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+                <state relative-caret-position="636">
+                  <caret line="319" column="0" lean-forward="false" selection-start-line="319" selection-start-column="0" selection-end-line="319" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -206,8 +235,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/ImageCompression/Objects/DataOPC.java" />
-        <option value="$PROJECT_DIR$/src/ImageCompression/Objects/TypeQuantization.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Constants/Cosine.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Constants/QuantizationTable.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Objects/State.java" />
@@ -255,6 +282,10 @@
         <option value="$PROJECT_DIR$/Tests/ConvertorTest.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Objects/BoxOfDUM.java" />
         <option value="$PROJECT_DIR$/src/Convertor.kt" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/Steganography.java" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataUnitMatrix.java" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/Parameters.java" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/Flag.java" />
       </list>
     </option>
   </component>
@@ -317,7 +348,17 @@
               <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
               <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="MainForm" type="e9f4de52:FormNode" />
+              <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
+              <item name="Utils" type="462c0819:PsiDirectoryNode" />
+              <item name="Functions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
+              <item name="Utils" type="462c0819:PsiDirectoryNode" />
+              <item name="Objects" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
@@ -658,7 +699,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -714,37 +755,37 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Tests/ImageCompression/Utils/DCTMultiThreadTest.java</url>
-          <line>35</line>
+          <line>36</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Tests/ImageCompression/Utils/EncryptionTest.java</url>
-          <line>25</line>
+          <line>26</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Tests/ImageCompression/Objects/MyImageTest.java</url>
-          <line>41</line>
+          <line>37</line>
           <properties />
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ImageCompression/Objects/MyImage.java</url>
-          <line>173</line>
+          <line>172</line>
           <properties />
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Tests/ImageCompression/Objects/MyImageTest.java</url>
-          <line>99</line>
+          <line>95</line>
           <properties />
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/FlagForm.java</url>
-          <line>32</line>
+          <line>29</line>
           <properties />
           <option name="timeStamp" value="33" />
         </line-breakpoint>
@@ -756,7 +797,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/Convertor.kt</url>
-          <line>37</line>
+          <line>27</line>
           <properties />
           <option name="timeStamp" value="38" />
         </line-breakpoint>
@@ -823,34 +864,10 @@
     <entry file="file://$PROJECT_DIR$/src/Tests/Tests/DCTMultiThreadTest.java" />
     <entry file="file://$PROJECT_DIR$/src/Tests/DCTMultiThreadTest.groovy" />
     <entry file="file://$PROJECT_DIR$/src/Tests/ImageCompression/Utils/DCTMultiThreadTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/OPCMultiThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="12" column="20" lean-forward="false" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Utils/OPCMultiThreadTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="43">
           <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/AndroidBmpUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2532">
-          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Encryption.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -861,31 +878,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Steganography.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
-          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/DataOPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainFrame.java" />
     <entry file="file://$PROJECT_DIR$/src/MainFrame.jfd" />
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/Parameters.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="43" lean-forward="false" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MyBMP.kt" />
     <entry file="file://$PROJECT_DIR$/src/ColorParser.kt" />
     <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Utils/EncryptionTest.java">
@@ -950,22 +944,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/FileStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8300">
-          <caret line="339" column="22" lean-forward="false" selection-start-line="339" selection-start-column="22" selection-end-line="339" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FlagForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1425">
           <caret line="65" column="25" lean-forward="false" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2370#2371#0" expanded="true" />
-            <element signature="e#2400#2401#0" expanded="true" />
+            <element signature="e#2281#2282#0" expanded="false" />
+            <element signature="e#2311#2312#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -975,21 +961,13 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/DCTMultiThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2925">
-          <caret line="119" column="9" lean-forward="false" selection-start-line="119" selection-start-column="9" selection-end-line="119" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2162#2689#0" expanded="false" />
+            <element signature="e#2213#2740#0" expanded="false" />
             <element signature="method#onFileSelected#0;class#MainForm#0" expanded="false" />
             <element signature="method#setLableImage#0;class#MainForm#0" expanded="false" />
           </folding>
@@ -1042,60 +1020,124 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/DataUnitMatrix.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/Flag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ApplicationOPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="29" column="24" lean-forward="true" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/BoxOfDUM.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
-          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Convertor.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="19" column="42" lean-forward="true" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#449#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tests/ConvertorTest.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
-          <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="n#!!block;n#copy#0;n#!!block;n#ConvertorTest#0" expanded="false" />
             <element signature="n#!!block;n#AssertMatrixInRange#0;n#!!block;n#ConvertorTest#0" expanded="false" />
             <element signature="n#!!block;n#AssertArrayArrayInRange#0;n#!!block;n#ConvertorTest#0" expanded="false" />
             <element signature="n#!!block;n#forEach#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="e#3919#3999#1" expanded="false" />
-            <element signature="e#3949#3989#1" expanded="false" />
+            <element signature="e#3852#3932#1" expanded="false" />
+            <element signature="e#3882#3922#1" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ApplicationOPC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="636">
+          <caret line="319" column="0" lean-forward="false" selection-start-line="319" selection-start-column="0" selection-end-line="319" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/AndroidBmpUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/DCTMultiThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/Encryption.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/FileStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="610" column="6" lean-forward="false" selection-start-line="610" selection-start-column="6" selection-end-line="610" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/Steganography.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataUnitMatrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Objects/Parameters.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Convertor.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#246#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Objects/Flag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>

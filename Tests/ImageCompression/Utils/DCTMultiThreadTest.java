@@ -1,5 +1,6 @@
 package ImageCompression.Utils;
 
+import ImageCompression.Utils.Functions.DCTMultiThread;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,7 +10,7 @@ import static org.junit.Assert.*;
 
 public class DCTMultiThreadTest {
     short[][] data,res;
-    int size=DCTMultiThread.SIZEOFBLOCK;
+    int size= DCTMultiThread.SIZEOFBLOCK;
     @Before
     public void setUp() throws Exception {
         data=new short[size][size];

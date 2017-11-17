@@ -1,15 +1,11 @@
 package ImageCompression.Objects;
 
 import ImageCompression.Containers.Matrix;
-import javafx.stage.FileChooser;
+import ImageCompression.Utils.Objects.Flag;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.Random;
 
 import static org.junit.Assert.*;

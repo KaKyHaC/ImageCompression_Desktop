@@ -1,7 +1,8 @@
 package ImageCompression.Utils;
 
-import ImageCompression.Objects.DataOPC;
-import ImageCompression.Objects.Flag;
+import ImageCompression.Utils.Objects.DataOPC;
+import ImageCompression.Utils.Objects.Flag;
+import ImageCompression.Utils.Functions.OPCMultiThread;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,7 +10,7 @@ import static org.junit.Assert.*;
 
 public class OPCMultiThreadTest {
     short[][] data,res;
-    int size=OPCMultiThread.SIZEOFBLOCK;
+    int size= OPCMultiThread.SIZEOFBLOCK;
     Flag flag;
     @Before
     public void setUp() throws Exception {

@@ -1,6 +1,7 @@
 package ImageCompression.Objects;
 
 import ImageCompression.Containers.Matrix;
+import ImageCompression.Utils.Objects.Flag;
 import org.junit.Before;
 import org.junit.Test;
 

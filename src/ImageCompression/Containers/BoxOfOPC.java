@@ -1,8 +1,8 @@
 package ImageCompression.Containers;
 
 
-import ImageCompression.Objects.DataOPC;
-import ImageCompression.Utils.DCTMultiThread;
+import ImageCompression.Utils.Objects.DataOPC;
+import ImageCompression.Utils.Functions.DCTMultiThread;
 
 /**
  * Created by Димка on 09.10.2016.
