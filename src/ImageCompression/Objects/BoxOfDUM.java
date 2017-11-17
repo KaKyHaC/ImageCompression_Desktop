@@ -66,7 +66,36 @@ public class BoxOfDUM {
             matrix.state=State.Yenl;
     }
 
-    public Matrix getMatrix() {
-        return matrix;
+    public Matrix getYCbCrMatrix(boolean isMultiThreads) {
+        switch (matrix.state){
+            case DCT:
+                if(isMultiThreads)
+                    dataProcessingInThreads();
+                else
+                    dataProcessing();
+                break;
+        }
+        if(matrix.state==State.YBR||matrix.state==State.Yenl)
+            return matrix;
+        return null;
     }
+    public Matrix getDCTMatrix(boolean isMultiThreads){
+        switch (matrix.state){
+            case YBR:
+            case Yenl:
+                if(isMultiThreads)
+                    dataProcessingInThreads();
+                else
+                    dataProcessing();
+                break;
+        }
+
+        if(matrix.state==State.DCT)
+            return matrix;
+        return null;
+    }
+
+    //    public Matrix getMatrix() {
+//        return matrix;
+//    }
 }

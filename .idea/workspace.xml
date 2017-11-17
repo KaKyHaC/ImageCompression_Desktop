@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/Convertor$FromBarToBmp$FFTM$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/Convertor$FromBmpToBar$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/Convertor.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Objects/BoxOfDUM.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$AssertArrayArrayInRange$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$AssertArrayArrayInRange$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$copy$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$copy$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ConvertorTest.kt" afterPath="$PROJECT_DIR$/Tests/ConvertorTest.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Convertor.kt" afterPath="$PROJECT_DIR$/src/Convertor.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/BoxOfDUM.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Objects/BoxOfDUM.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -35,8 +44,8 @@
           <file leaf-file-name="Convertor.kt" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Convertor.kt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="393">
-                  <caret line="33" column="28" lean-forward="true" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+                <state relative-caret-position="25">
+                  <caret line="19" column="42" lean-forward="true" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
                   <folding>
                     <element signature="e#0#449#0" expanded="true" />
                   </folding>
@@ -47,8 +56,8 @@
           <file leaf-file-name="BoxOfDUM.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/BoxOfDUM.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="31" column="27" lean-forward="true" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+                <state relative-caret-position="250">
+                  <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -112,10 +121,15 @@
           <file leaf-file-name="ConvertorTest.kt" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Tests/ConvertorTest.kt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="322">
-                  <caret line="138" column="0" lean-forward="true" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+                <state relative-caret-position="125">
+                  <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
                   <folding>
-                    <element signature="e#0#452#0" expanded="true" />
+                    <element signature="n#!!block;n#copy#0;n#!!block;n#ConvertorTest#0" expanded="false" />
+                    <element signature="n#!!block;n#AssertMatrixInRange#0;n#!!block;n#ConvertorTest#0" expanded="false" />
+                    <element signature="n#!!block;n#AssertArrayArrayInRange#0;n#!!block;n#ConvertorTest#0" expanded="false" />
+                    <element signature="n#!!block;n#forEach#0;n#!!block;n#ConvertorTest#0" expanded="false" />
+                    <element signature="e#3919#3999#1" expanded="false" />
+                    <element signature="e#3949#3989#1" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -124,8 +138,8 @@
           <file leaf-file-name="ApplicationOPC.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ApplicationOPC.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="375">
-                  <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+                <state relative-caret-position="475">
+                  <caret line="29" column="24" lean-forward="true" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
                   <folding />
                 </state>
               </provider>
@@ -238,9 +252,9 @@
         <option value="$PROJECT_DIR$/src/MainForm.form" />
         <option value="$PROJECT_DIR$/src/MainForm.java" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Objects/ImageTest.java" />
-        <option value="$PROJECT_DIR$/src/Convertor.kt" />
-        <option value="$PROJECT_DIR$/src/ImageCompression/Objects/BoxOfDUM.java" />
         <option value="$PROJECT_DIR$/Tests/ConvertorTest.kt" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/Objects/BoxOfDUM.java" />
+        <option value="$PROJECT_DIR$/src/Convertor.kt" />
       </list>
     </option>
   </component>
@@ -291,6 +305,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
               <item name="Objects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
+              <item name="Utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
@@ -553,9 +574,9 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.ConvertorTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.ConvertorTest.TestTimeBoxofDum" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ConvertorTest.TestBoxOfDUM" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.ConvertorTest.TestMyBufferedImageMatrix" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ConvertorTest.TestMyBufferedImageMatrix" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ConvertorTest.TestTimeBoxofDum" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.ConvertorTest.TestBoxOfDUM" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.ConvertorTest.Test" />
       </list>
     </recent_temporary>
@@ -592,14 +613,8 @@
     <history-entry file="ConvertorTest - 2017.11.17 at 16h 03m 25s.xml">
       <configuration name="ConvertorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorTest_TestBoxOfDUM - 2017.11.17 at 14h 07m 48s.xml">
-      <configuration name="ConvertorTest.TestBoxOfDUM" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ConvertorTest_TestBoxOfDUM - 2017.11.17 at 14h 08m 01s.xml">
-      <configuration name="ConvertorTest.TestBoxOfDUM" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ConvertorTest_TestBoxOfDUM - 2017.11.17 at 14h 08m 09s.xml">
-      <configuration name="ConvertorTest.TestBoxOfDUM" configurationId="JUnit" />
+    <history-entry file="ConvertorTest - 2017.11.17 at 16h 30m 11s.xml">
+      <configuration name="ConvertorTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ConvertorTest_TestBoxOfDUM - 2017.11.17 at 14h 08m 20s.xml">
       <configuration name="ConvertorTest.TestBoxOfDUM" configurationId="JUnit" />
@@ -615,6 +630,12 @@
     </history-entry>
     <history-entry file="ConvertorTest_TestBoxOfDUM - 2017.11.17 at 14h 09m 00s.xml">
       <configuration name="ConvertorTest.TestBoxOfDUM" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConvertorTest_TestMyBufferedImageMatrix - 2017.11.17 at 16h 07m 47s.xml">
+      <configuration name="ConvertorTest.TestMyBufferedImageMatrix" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConvertorTest_TestMyBufferedImageMatrix - 2017.11.17 at 16h 09m 19s.xml">
+      <configuration name="ConvertorTest.TestMyBufferedImageMatrix" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ConvertorTest_TestTimeBoxofDum - 2017.11.17 at 16h 03m 07s.xml">
       <configuration name="ConvertorTest.TestTimeBoxofDum" configurationId="JUnit" />
@@ -632,12 +653,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33105022" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -664,14 +685,14 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34703195" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35159817" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33105022" sideWeight="0.49583334" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -735,21 +756,9 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/Convertor.kt</url>
-          <line>38</line>
+          <line>37</line>
           <properties />
           <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Tests/ConvertorTest.kt</url>
-          <line>43</line>
-          <properties />
-          <option name="timeStamp" value="41" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Tests/ConvertorTest.kt</url>
-          <line>63</line>
-          <properties />
-          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="45" />
@@ -832,6 +841,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2532">
           <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1038,14 +1050,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/BoxOfDUM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="31" column="27" lean-forward="true" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/Flag.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
@@ -1056,28 +1060,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ApplicationOPC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="475">
+          <caret line="29" column="24" lean-forward="true" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/ConvertorTest.kt">
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/BoxOfDUM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="138" column="0" lean-forward="true" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#452#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="250">
+          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Convertor.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="33" column="28" lean-forward="true" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+        <state relative-caret-position="25">
+          <caret line="19" column="42" lean-forward="true" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
           <folding>
             <element signature="e#0#449#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/ConvertorTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding>
+            <element signature="n#!!block;n#copy#0;n#!!block;n#ConvertorTest#0" expanded="false" />
+            <element signature="n#!!block;n#AssertMatrixInRange#0;n#!!block;n#ConvertorTest#0" expanded="false" />
+            <element signature="n#!!block;n#AssertArrayArrayInRange#0;n#!!block;n#ConvertorTest#0" expanded="false" />
+            <element signature="n#!!block;n#forEach#0;n#!!block;n#ConvertorTest#0" expanded="false" />
+            <element signature="e#3919#3999#1" expanded="false" />
+            <element signature="e#3949#3989#1" expanded="false" />
           </folding>
         </state>
       </provider>

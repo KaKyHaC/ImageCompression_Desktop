@@ -24,13 +24,12 @@ class Convertor() {
 
         val bodum = BoxOfDUM(matrix)
         publishProgress(20)
-        bodum.dataProcessing()
+        val matrixDCT=bodum.getDCTMatrix(true)
         publishProgress(50)
 
         val AppOPC = ApplicationOPC.getInstance()
         //AppOPC.setSizeofblock(n,m);
-
-        AppOPC.FromMatrixToFile({ x -> publishProgress(x) }, bodum.matrix, getPathWithoutType(pathToBmp))
+        AppOPC.FromMatrixToFile({ x -> publishProgress(x) }, matrixDCT, getPathWithoutType(pathToBmp))
         publishProgress(100)
 
     }
@@ -42,9 +41,9 @@ class Convertor() {
         publishProgress(50)
         val bodum1 = BoxOfDUM(FFTM)
         publishProgress(50);
-        bodum1.dataProcessing();
+        val matrixYBR=bodum1.getYCbCrMatrix(true)
         publishProgress(70);
-        val af = MyBufferedImage(bodum1.getMatrix());
+        val af = MyBufferedImage(matrixYBR);
 
         val res = af.bufferedImage
         publishProgress(90);

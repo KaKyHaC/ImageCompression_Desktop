@@ -43,14 +43,19 @@ class ConvertorTest {
         val mi=MyBufferedImage(matrix)
         val bi=mi.bufferedImage
         val mi1=MyBufferedImage(bi,matrix.f)
-        var matrix1=mi1.rgbMatrix
 
+
+        var matrix1=mi1.rgbMatrix
+        matrix=mi.rgbMatrix
         AssertMatrixInRange(matrix,matrix1,2)
 
         matrix=mi.yCbCrMatrix
         matrix1=mi1.yCbCrMatrix
-
         AssertMatrixInRange(matrix,matrix1,2)
+
+        matrix1=mi1.rgbMatrix
+        matrix=mi.yCbCrMatrix
+        AssertMatrixInRange(matrix1,matrix,2,false)
     }
     @Test
     fun TestBoxOfDUM(){
