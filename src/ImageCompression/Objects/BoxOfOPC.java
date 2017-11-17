@@ -152,7 +152,6 @@ public class BoxOfOPC {
         futures.add(executorService.submit(()->directOPC(matrix.b)));
         futures.add(executorService.submit(()->directOPC(matrix.c)));
 
-        for (Future future : futures) {
             try {
                 a=futures.get(0).get();
                 b=futures.get(1).get();
@@ -162,7 +161,6 @@ public class BoxOfOPC {
             } catch (ExecutionException e) {
                 e.printStackTrace();
             }
-        }
         isOpcs=true;
     }
     public void reverseOPCMultiThreads(){// create matrix with corect size of b and c (complite)  //multy thred
@@ -195,6 +193,8 @@ public class BoxOfOPC {
         directOpcGlobalBase(n,m,matrix.a,a ); //TODO set a
         directOpcGlobalBase(n,m,matrix.b,b);
         directOpcGlobalBase(n,m,matrix.c,c);
+
+        isOpcs=true;
     }
     private void directOpcGlobalBase(int n,int m,short[][]dataOrigin,DataOPC[][]dopc){
         findAllBase(dataOrigin,dopc);

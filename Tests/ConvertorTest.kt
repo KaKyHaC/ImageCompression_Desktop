@@ -1,9 +1,8 @@
 import ImageCompression.Containers.Matrix
 import ImageCompression.Containers.State
-import ImageCompression.Objects.BoxOfDUM
+import ImageCompression.Objects.ModuleDCT
 import ImageCompression.Utils.Objects.Flag
 import ImageCompression.Objects.MyBufferedImage
-import ImageCompression.Utils.Functions.Encryption
 import ImageCompression.Utils.Functions.Steganography
 import org.junit.Before
 
@@ -61,7 +60,7 @@ class ConvertorTest {
     fun TestBoxOfDUM(){
         matrix=MyBufferedImage(matrix).yCbCrMatrix
         val cpy=matrix.copy()
-        val bo=BoxOfDUM(matrix)
+        val bo= ModuleDCT(matrix)
 
         bo.dataProcessingInThreads()
         AssertMatrixInRange(matrix,cpy,3,false)
@@ -72,7 +71,7 @@ class ConvertorTest {
     @Test
     fun TestTimeBoxofDum(){
         matrix=MyBufferedImage(matrix).yCbCrMatrix
-        val bo=BoxOfDUM(matrix)
+        val bo= ModuleDCT(matrix)
 
         var t1:Date=Date()
         bo.dataProcessing()

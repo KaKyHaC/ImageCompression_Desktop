@@ -14,11 +14,11 @@ import java.util.concurrent.Future;
 /**
  * Created by Димка on 19.09.2016.
  */
-public class BoxOfDUM {
+public class ModuleDCT {
     private Matrix matrix;
     private DataUnitMatrix a,b,c;
 
-    public BoxOfDUM(Matrix matrix) {
+    public ModuleDCT(Matrix matrix) {
         this.matrix = matrix;
         if(matrix.state== State.Yenl)//new code . Does it is needed ?
             matrix.state=State.YBR;

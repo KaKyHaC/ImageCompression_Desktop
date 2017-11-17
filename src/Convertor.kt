@@ -1,5 +1,5 @@
 import ImageCompression.Objects.BoxOfOPC
-import ImageCompression.Objects.BoxOfDUM
+import ImageCompression.Objects.ModuleDCT
 import ImageCompression.Objects.ModuleOPC
 import ImageCompression.Utils.Objects.Flag
 import ImageCompression.Objects.MyBufferedImage
@@ -17,11 +17,11 @@ class Convertor() {
         val mi = MyBufferedImage(bmp, flag)
         val matrix = mi.yenlMatrix
         publishProgress(30)
-        val bodum = BoxOfDUM(matrix)
+        val bodum = ModuleDCT(matrix)
         val matrixDCT=bodum.getDCTMatrix(true)
         publishProgress(60)
-        val mOpc=ModuleOPC(matrix)
-        val box=mOpc.getOPCS()
+        val mOpc=ModuleOPC(matrixDCT)
+        val box=mOpc.getOPCS(true)
         publishProgress(80)
         //TODO write to bar
         publishProgress(100)
@@ -33,10 +33,9 @@ class Convertor() {
         val flag=Flag("0")
         publishProgress(10)
         val mOPC=ModuleOPC(box,flag)
-        val FFTM =mOPC.getMatrix()
+        val FFTM =mOPC.getMatrix(true)
         publishProgress(50)
-        val bodum1 = BoxOfDUM(FFTM)
-        publishProgress(50);
+        val bodum1 = ModuleDCT(FFTM)
         val matrixYBR=bodum1.getYCbCrMatrix(true)
         publishProgress(70);
         val af = MyBufferedImage(matrixYBR);

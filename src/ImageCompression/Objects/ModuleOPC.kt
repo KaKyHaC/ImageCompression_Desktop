@@ -23,7 +23,7 @@ class ModuleOPC {
     var message:String?=null
     var password:String?=null
 
-    fun FromMatrixToOpcs(progressListener:((x:Int)->Unit)? = null){
+    fun FromMatrixToOpcs(isAsync: Boolean=true,progressListener:((x:Int)->Unit)? = null){
         if(!isMatrix)
             return
 
@@ -35,7 +35,7 @@ class ModuleOPC {
             }
         progressListener?.invoke(10)
 
-        directOpc(opcs.flag.isGlobalBase,progressListener)
+        directOpc(opcs.flag.isGlobalBase,isAsync,progressListener)
         progressListener?.invoke(80)
 
         if(opcs.flag.isPassword&&password!=null)
@@ -44,7 +44,7 @@ class ModuleOPC {
 
         isOPCS=true
     }
-    fun FromOpcToMatrix(progressListener: ((x: Int) -> Unit)?=null){
+    fun FromOpcToMatrix(isAsync: Boolean=true,progressListener: ((x: Int) -> Unit)?=null){
         if(!isOPCS)
             return
 
@@ -54,7 +54,7 @@ class ModuleOPC {
             Encryption.encode(opcs,password)
         progressListener?.invoke(10)
 
-        reverseOpc(opcs.flag.isGlobalBase)
+        reverseOpc(isAsync,progressListener)
         progressListener?.invoke(80)
 
         if(opcs.flag.isSteganography)
@@ -63,24 +63,38 @@ class ModuleOPC {
 
         isMatrix=true
     }
-    private fun directOpc(isGlobalBase:Boolean,progressListener: ((x: Int) -> Unit)?=null){
-        throw Exception()
+    var baseSizeX:Int=1
+    var baseSizeY:Int=1
+
+    private fun directOpc(isGlobalBase:Boolean,isAsync:Boolean,progressListener: ((x: Int) -> Unit)?=null){
+        if(isGlobalBase){
+            opcs.directOpcGlobalBase(baseSizeX,baseSizeY)
+        }else if(isAsync){
+            opcs.directOPCMultiThreads()
+        }else{
+            opcs.directOPC();
+        }
+
     }
-    private fun reverseOpc(isGlobalBase: Boolean,progressListener: ((x: Int) -> Unit)?=null){
-        throw Exception()
+    private fun reverseOpc(isAsync:Boolean,progressListener: ((x: Int) -> Unit)?=null){
+        if(isAsync){
+            opcs.reverseOPCMultiThreads()
+        }else{
+            opcs.reverseOPC();
+        }
     }
 
 
-    fun getMatrix():Matrix{
+    fun getMatrix(isAsync: Boolean=true):Matrix{
         if(!isMatrix)
-            FromOpcToMatrix()
+            FromOpcToMatrix(isAsync)
 
         assert(isMatrix)
         return opcs.matrix
     }
-    fun getOPCS(): BoxOfOPC {
+    fun getOPCS(isAsync: Boolean=true): BoxOfOPC {
         if(!isOPCS)
-            FromMatrixToOpcs()
+            FromMatrixToOpcs(isAsync)
 
         assert(isOPCS)
         return opcs
