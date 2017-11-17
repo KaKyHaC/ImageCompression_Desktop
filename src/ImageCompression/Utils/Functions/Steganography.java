@@ -13,20 +13,14 @@ import java.util.Vector;
  * Created by Димка on 11.11.2016.
  */
 public class Steganography {
-    private static Steganography ourInstance = new Steganography();
-    private final byte MAXBINARYPOS = (byte) Math.pow(2, 7);
-    Parameters param = Parameters.getInstanse();
+    private final static byte MAXBINARYPOS = (byte) Math.pow(2, 7);
+    static Parameters param = Parameters.getInstanse();
 
 
     private Steganography() {
 
     }
-
-    public static Steganography getInstance() {
-        return new Steganography();
-    }
-
-    public void ReadMassageFromMatrixtoFile(Matrix matrix, String file) {
+    public static void ReadMassageFromMatrixtoFile(Matrix matrix, String file) {
         Byte[] res = ReadMassageFromMatrix(matrix);
         byte[] buf = new byte[res.length];
         for (int i = 0; i < res.length; i++)
@@ -34,7 +28,7 @@ public class Steganography {
         WriteByteArrayToFile(file, buf);
     }
 
-    public Byte[] ReadMassageFromMatrix(Matrix matrix) {
+    public static Byte[] ReadMassageFromMatrix(Matrix matrix) {
         Byte[] bufC = ReadMassageFromArray(matrix.c, param.getBinaryValOfPos());
         Byte[] bufB = ReadMassageFromArray(matrix.b, param.getBinaryValOfPos());
         Byte[] bufA = ReadMassageFromArray(matrix.a, param.getBinaryValOfPos());
@@ -46,12 +40,12 @@ public class Steganography {
         return res;
     }
 
-    public Matrix WriteMassageFromFileToMatrix(Matrix matrix, String file) {
+    public static Matrix WriteMassageFromFileToMatrix(Matrix matrix, String file) {
         byte[] massage = ReadByteArrayFromFile(file);
         return WriteMassageFromByteArrayToMatrix(matrix, massage);
     }
 
-    public Matrix WriteMassageFromByteArrayToMatrix(Matrix matrix, byte[] massage) {
+    public static Matrix WriteMassageFromByteArrayToMatrix(Matrix matrix, byte[] massage) {
         int binaryPos = param.getBinaryValOfPos();
         //byte[] massage=ReadByteArrayFromFile(File);
         int massLen = massage.length;
@@ -95,7 +89,7 @@ public class Steganography {
         return matrix;
     }
 
-    private byte[] ReadByteArrayFromFile(String file) {
+    private static byte[] ReadByteArrayFromFile(String file) {
         try {
             FileInputStream fin = new FileInputStream(file);
 
@@ -113,7 +107,7 @@ public class Steganography {
         return null;
     }
 
-    private void WriteByteArrayToFile(String file, byte[] bytes) {
+    private static void WriteByteArrayToFile(String file, byte[] bytes) {
         try {
             FileOutputStream fin = new FileOutputStream(file);
             fin.write(bytes);
@@ -123,11 +117,11 @@ public class Steganography {
 
     }
 
-    public int CalulateMaxSizeOfMassage(Matrix matrix) {
+    public static int CalulateMaxSizeOfMassage(Matrix matrix) {
         return MaxSizePerArray(matrix.a) + MaxSizePerArray(matrix.b) + MaxSizePerArray(matrix.c);
     }
 
-    private int MaxSizePerArray(short[][] arr) {
+    private static int MaxSizePerArray(short[][] arr) {
         int size = arr.length * arr[0].length;
         size /= 64;
         size *= 62;
@@ -135,7 +129,7 @@ public class Steganography {
         return size;
     }
 
-    private short[][] WriteMessagesToArray(short[][] arr, byte[] massage, int BinaryPos) {
+    private static short[][] WriteMessagesToArray(short[][] arr, byte[] massage, int BinaryPos) {
         massage = addEOF(massage);
         int index = 0;
         int posInByte = 0;
@@ -162,7 +156,7 @@ public class Steganography {
         return arr;
     }
 
-    private Byte[] ReadMassageFromArray(short[][] arr, int BinaryPos) {
+    private static Byte[] ReadMassageFromArray(short[][] arr, int BinaryPos) {
         Vector<Byte> res = new Vector<>();
 
         int posInByte = 0;
@@ -199,7 +193,7 @@ public class Steganography {
         return res.toArray(new Byte[res.size()]);
     }
 
-    private byte[] addEOF(byte[] origin) {
+    private static byte[] addEOF(byte[] origin) {
         byte[] res = new byte[origin.length + 2];
         for (int i = 0; i < origin.length; i++) {
             res[i] = origin[i];
@@ -209,11 +203,11 @@ public class Steganography {
         return res;
     }
 
-    private boolean isChecked(int val, int BinaryValOfPos) {
+    private static boolean isChecked(int val, int BinaryValOfPos) {
         return (val & BinaryValOfPos) != 0;
     }
 
-    private int setChecked(int val, boolean bit, int BinaryValOfPos) {
+    private static int setChecked(int val, boolean bit, int BinaryValOfPos) {
         if (bit == true) {
             val |= BinaryValOfPos;
         } else {

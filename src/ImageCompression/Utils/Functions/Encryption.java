@@ -9,16 +9,10 @@ import ImageCompression.Utils.Objects.DataOPC;
  */
 public class Encryption { //singleton
     private static Encryption ourInstance = new Encryption();
-
-    public static Encryption getInstance() {
-        return new Encryption();
-    }
-
     private Encryption() {
     }
 
     static short[] key;
-    DataOPC dopc;
 
     public static void encode(BoxOfOPC bopc, String key){
         ourInstance.key=KeyGen(key);

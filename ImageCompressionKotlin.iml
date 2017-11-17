@@ -38,6 +38,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="MigLayout" level="project" />
+    <orderEntry type="library" exported="" name="MigLayout" level="project" />
   </component>
 </module>
