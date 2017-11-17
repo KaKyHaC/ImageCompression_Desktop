@@ -2,32 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ConvertorTest.kt" afterPath="$PROJECT_DIR$/Tests/ConvertorTest.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.java" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ImageCompression/Objects/MyImageTest.java" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Objects/MyImageTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ImageCompression/Utils/DCTMultiThreadTest.java" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Utils/DCTMultiThreadTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ImageCompression/Utils/EncryptionTest.java" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Utils/EncryptionTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ImageCompression/Utils/OPCMultiThreadTest.java" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Utils/OPCMultiThreadTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Convertor.kt" afterPath="$PROJECT_DIR$/src/Convertor.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FlagForm.java" afterPath="$PROJECT_DIR$/src/FlagForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Containers/BoxOfOPC.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Containers/BoxOfOPC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Containers/Matrix.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Containers/Matrix.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/ApplicationOPC.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Objects/ApplicationOPC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/BoxOfDUM.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Objects/BoxOfDUM.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/MyBufferedImage.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Objects/MyBufferedImage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/MyImage.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Objects/MyImage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainForm.java" afterPath="$PROJECT_DIR$/src/MainForm.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/DataOPC.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/DataUnitMatrix.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataUnitMatrix.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/Flag.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/Flag.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/Parameters.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/Parameters.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/AndroidBmpUtil.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/AndroidBmpUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/DCTMultiThread.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/DCTMultiThread.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/Encryption.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/Encryption.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/FileStream.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/FileStream.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/OPCMultiThread.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/Steganography.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/Steganography.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Objects/DataOPC.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Objects/DataUnitMatrix.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Objects/Flag$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Objects/Flag$Encryption.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Objects/Flag$QuantizationState.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Objects/Flag.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Objects/Parameters.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/AndroidBmpUtil$Bitmap.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/AndroidBmpUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/BufferedWriting.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/DCTMultiThread.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Encryption.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/FileStream.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/OPCMultiThread.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Steganography.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/WriteDate.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,16 +50,6 @@
                   <folding>
                     <element signature="e#0#246#0" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="DCTMultiThread.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/DCTMultiThread.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -123,11 +104,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="OPCMultiThread.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="OPCMultiThread.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="250">
-                  <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+                <state relative-caret-position="475">
+                  <caret line="23" column="44" lean-forward="false" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="OPCMultiThreadTest.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Utils/OPCMultiThreadTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="225">
+                  <caret line="15" column="42" lean-forward="true" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
                   <folding />
                 </state>
               </provider>
@@ -343,40 +334,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
               <item name="Utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-              <item name="Functions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-              <item name="Objects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
-              <item name="Objects" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -657,8 +614,8 @@
     <history-entry file="ConvertorTest - 2017.11.17 at 16h 30m 11s.xml">
       <configuration name="ConvertorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorTest_TestBoxOfDUM - 2017.11.17 at 14h 08m 20s.xml">
-      <configuration name="ConvertorTest.TestBoxOfDUM" configurationId="JUnit" />
+    <history-entry file="ConvertorTest - 2017.11.17 at 16h 44m 14s.xml">
+      <configuration name="ConvertorTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ConvertorTest_TestBoxOfDUM - 2017.11.17 at 14h 08m 38s.xml">
       <configuration name="ConvertorTest.TestBoxOfDUM" configurationId="JUnit" />
@@ -694,7 +651,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33105022" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -864,13 +821,6 @@
     <entry file="file://$PROJECT_DIR$/src/Tests/Tests/DCTMultiThreadTest.java" />
     <entry file="file://$PROJECT_DIR$/src/Tests/DCTMultiThreadTest.groovy" />
     <entry file="file://$PROJECT_DIR$/src/Tests/ImageCompression/Utils/DCTMultiThreadTest.java" />
-    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Utils/OPCMultiThreadTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Containers/BoxOfOPC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
@@ -1135,8 +1085,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+        <state relative-caret-position="475">
+          <caret line="23" column="44" lean-forward="false" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Utils/OPCMultiThreadTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="42" lean-forward="true" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
           <folding />
         </state>
       </provider>

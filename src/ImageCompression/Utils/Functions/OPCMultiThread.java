@@ -11,7 +11,7 @@ import java.math.BigInteger;
  * Created by Димка on 27.09.2016.
  */
 public class OPCMultiThread { //singelton
-    protected final static int SIZEOFBLOCK = 8;
+    public final static int SIZEOFBLOCK = 8;
     private OPCMultiThread(){}
 
     private static  void directOPC(Flag flag, short[][]dataOrigin, DataOPC dataOPC){
