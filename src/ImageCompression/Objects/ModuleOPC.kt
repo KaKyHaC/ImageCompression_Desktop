@@ -1,28 +1,23 @@
 package ImageCompression.Objects
 
-import ImageCompression.Containers.BoxOfOPC
 import ImageCompression.Containers.Matrix
 import ImageCompression.Utils.Functions.Encryption
 import ImageCompression.Utils.Functions.Steganography
 import ImageCompression.Utils.Objects.Flag
-import sun.net.ProgressListener
 
 class ModuleOPC {
-    private var matrix:Matrix
-    private var opcs:BoxOfOPC
+    private var opcs: BoxOfOPC
     var isMatrix=false
         private set
     var isOPCS=false
         private set
 
     constructor(matrix: Matrix){
-        this.matrix=matrix
-        opcs= BoxOfOPC(matrix.Width,matrix.Height,matrix.f.isEnlargement)
+        opcs= BoxOfOPC(matrix)
         isMatrix=true
     }
-    constructor(boxOfOPC: BoxOfOPC,flag: Flag){
+    constructor(boxOfOPC: BoxOfOPC, flag: Flag){
         this.opcs=boxOfOPC
-        matrix= Matrix(opcs.width,opcs.height,flag)
         isOPCS=true
     }
     var message:String?=null
@@ -34,14 +29,16 @@ class ModuleOPC {
 
         progressListener?.invoke(0)
 
-        if(matrix.f.isSteganography&&message!=null)
-            matrix=Steganography.WriteMassageFromByteArrayToMatrix(matrix,message?.toByteArray())
+        if(opcs.flag.isSteganography&&message!=null)
+            opcs.matrix?.let {
+                this.opcs.matrix==Steganography.WriteMassageFromByteArrayToMatrix(opcs.matrix,message?.toByteArray())
+            }
         progressListener?.invoke(10)
 
-        directOpc(matrix.f.isGlobalBase,progressListener)
+        directOpc(opcs.flag.isGlobalBase,progressListener)
         progressListener?.invoke(80)
 
-        if(matrix.f.isPassword&&password!=null)
+        if(opcs.flag.isPassword&&password!=null)
             Encryption.encode(opcs,password)
         progressListener?.invoke(100)
 
@@ -53,15 +50,15 @@ class ModuleOPC {
 
         progressListener?.invoke(0)
 
-        if(matrix.f.isPassword&&password!=null)
+        if(opcs.flag.isPassword&&password!=null)
             Encryption.encode(opcs,password)
         progressListener?.invoke(10)
 
-        reverseOpc(matrix.f.isGlobalBase)
+        reverseOpc(opcs.flag.isGlobalBase)
         progressListener?.invoke(80)
 
-        if(matrix.f.isSteganography)
-            message=String(Steganography.ReadMassageFromMatrix(matrix).toByteArray())
+        if(opcs.flag.isSteganography)
+            message=String(Steganography.ReadMassageFromMatrix(opcs.matrix).toByteArray())
         progressListener?.invoke(100)
 
         isMatrix=true
@@ -79,9 +76,9 @@ class ModuleOPC {
             FromOpcToMatrix()
 
         assert(isMatrix)
-        return matrix
+        return opcs.matrix
     }
-    fun getOPCS():BoxOfOPC{
+    fun getOPCS(): BoxOfOPC {
         if(!isOPCS)
             FromMatrixToOpcs()
 

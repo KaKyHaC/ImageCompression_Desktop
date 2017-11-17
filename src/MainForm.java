@@ -22,7 +22,6 @@ public class MainForm extends JFrame{
     private JProgressBar progressBar1;
 
     private Parameters parameters = Parameters.getInstanse();
-    private ApplicationOPC applicationOPC = ApplicationOPC.getInstance();
     private Flag flag=new Flag("0");
     private File file;
     private Convertor convertor=new Convertor();

@@ -46,16 +46,18 @@ public class ImageTest {
         }
     }
     @Test
-    public void TestArrColor() throws Exception{
+    public void TestArrColorNotBMP() throws Exception{
         randomInit(bufferedImage);
         int w=bufferedImage.getWidth();
         int h=bufferedImage.getHeight();
         int arr[]=bufferedImage.getRGB(0,0,w,h,null,0,w);
+        boolean isEq=true;
         for (int i = 0; i < w; i++) {
             for(int j=0;j<h;j++) {
-                assertEquals(arr[i*h+j],bufferedImage.getRGB(i,j));
+                isEq=isEq&&(arr[i*h+j]==bufferedImage.getRGB(i,j));
             }
         }
+        assertFalse(isEq);
     }
     @Test
     public void TestImageIO()throws Exception{

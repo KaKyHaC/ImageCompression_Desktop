@@ -1,5 +1,6 @@
-import ImageCompression.Objects.ApplicationOPC
+import ImageCompression.Objects.BoxOfOPC
 import ImageCompression.Objects.BoxOfDUM
+import ImageCompression.Objects.ModuleOPC
 import ImageCompression.Utils.Objects.Flag
 import ImageCompression.Objects.MyBufferedImage
 import java.io.File
@@ -19,15 +20,20 @@ class Convertor() {
         val bodum = BoxOfDUM(matrix)
         val matrixDCT=bodum.getDCTMatrix(true)
         publishProgress(60)
-        val AppOPC = ApplicationOPC.getInstance()
-        AppOPC.FromMatrixToFile({ x -> publishProgress(x) }, matrixDCT, getPathWithoutType(pathToBmp))
+        val mOpc=ModuleOPC(matrix)
+        val box=mOpc.getOPCS()
+        publishProgress(80)
+        //TODO write to bar
         publishProgress(100)
     }
 
     fun FromBarToBmp(pathToBar: String): Unit {
-        val AppOPC = ApplicationOPC.getInstance();
+        //TODO read from bar
+        val box= BoxOfOPC(null)//read from file
+        val flag=Flag("0")
         publishProgress(10)
-        val FFTM = AppOPC.FromFileToMatrix({ x -> publishProgress(x) }, getPathWithoutType(pathToBar))
+        val mOPC=ModuleOPC(box,flag)
+        val FFTM =mOPC.getMatrix()
         publishProgress(50)
         val bodum1 = BoxOfDUM(FFTM)
         publishProgress(50);

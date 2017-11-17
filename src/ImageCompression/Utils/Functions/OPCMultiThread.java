@@ -132,7 +132,7 @@ public class OPCMultiThread { //singelton
                     System.out.println("base");*/
                 if(bufbase> Parameters.getMAXLONG())//is true ?
                 {
-                    System.out.println("go");
+//                    System.out.println("go");
                     return OPCdirectBI(res,base,i,j,dataOrigin,dataOPC);
                 }
                 if(dataOrigin[i][j]!=0)
