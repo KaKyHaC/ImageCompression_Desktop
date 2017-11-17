@@ -3,6 +3,8 @@ import ImageCompression.Containers.State
 import ImageCompression.Objects.BoxOfDUM
 import ImageCompression.Utils.Objects.Flag
 import ImageCompression.Objects.MyBufferedImage
+import ImageCompression.Utils.Functions.Encryption
+import ImageCompression.Utils.Functions.Steganography
 import org.junit.Before
 
 import org.junit.Assert.*
@@ -85,6 +87,13 @@ class ConvertorTest {
         System.out.println("in multi threads time: $d2")
 
         assertTrue(d2<d1)
+    }
+    @Test
+    fun TestSteganography(){
+        val m="afdsfsd"
+        Steganography.WriteMassageFromByteArrayToMatrix(matrix,m.toByteArray())
+        val res= String(Steganography.ReadMassageFromMatrix(matrix).toByteArray())
+        assertEquals(m,res)
     }
 
 

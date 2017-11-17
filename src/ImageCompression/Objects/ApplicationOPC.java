@@ -34,7 +34,7 @@ public class ApplicationOPC {//singelton
     private FileStream fs;
 
     Parameters param=Parameters.getInstanse();
-    Steganography st=Steganography.getInstance();
+
 
     static private ApplicationOPC Aopc=new ApplicationOPC();
     private ApplicationOPC(){}
@@ -164,7 +164,7 @@ public class ApplicationOPC {//singelton
         fs=FileStream.getInstance();
 
         if(matrix.f.isSteganography()||param.isSteganography)//TODO interface
-            st.WriteMassageFromFileToMatrix(matrix,param.PathReadMassage);
+            Steganography.WriteMassageFromFileToMatrix(matrix,param.PathReadMassage);
 
         if(matrix.f.isGlobalBase())
             directOpcGlobalBase(param.n,param.m);
@@ -206,7 +206,7 @@ public class ApplicationOPC {//singelton
         matrix.state= State.DCT;
 
         if(matrix.f.isSteganography()||param.isSteganography)//TODO interface
-            st.ReadMassageFromMatrixtoFile(matrix,param.PathWriteMassage);
+            Steganography.ReadMassageFromMatrixtoFile(matrix,param.PathWriteMassage);
 
         return matrix;
     }
