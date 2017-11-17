@@ -31,6 +31,19 @@ public class BoxOfDUM {
         if(matrix.state==State.Yenl)//new code . Does it is needed ?
             matrix.state=State.YBR;
 
+
+        a.dataProcessing();
+        b.dataProcessing();
+        c.dataProcessing();
+
+        matrix.state=a.getState();
+        if(matrix.a.length>matrix.b.length&&matrix.state==State.YBR)
+            matrix.state=State.Yenl;
+    }
+    public void dataProcessingInThreads() {
+        if(matrix.state==State.Yenl)//new code . Does it is needed ?
+            matrix.state=State.YBR;
+
         ExecutorService executorService = Executors.newFixedThreadPool(3);
         Future[] futures=new Future[3];
 
