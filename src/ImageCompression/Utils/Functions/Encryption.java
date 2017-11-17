@@ -1,7 +1,8 @@
 package ImageCompression.Utils.Functions;
 
 
-import ImageCompression.Objects.BoxOfOPC;
+import ImageCompression.Containers.BoxOfOpc;
+import ImageCompression.Objects.ModuleOPC;
 import ImageCompression.Utils.Objects.DataOPC;
 
 /**
@@ -14,11 +15,11 @@ public class Encryption { //singleton
 
     static short[] key;
 
-    public static void encode(BoxOfOPC bopc, String key){
+    public static void encode(BoxOfOpc bopc, String key){
         ourInstance.key=KeyGen(key);
-        Encryption.encode(bopc.getDopcA());
-        Encryption.encode(bopc.getDopcB());
-        Encryption.encode(bopc.getDopcC());
+        Encryption.encode(bopc.getA());
+        Encryption.encode(bopc.getB());
+        Encryption.encode(bopc.getC());
     }
 
     private static void encode(DataOPC[][] dopcs){

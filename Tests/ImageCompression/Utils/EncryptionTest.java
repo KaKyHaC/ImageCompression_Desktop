@@ -1,6 +1,7 @@
 package ImageCompression.Utils;
 
-import ImageCompression.Objects.BoxOfOPC;
+import ImageCompression.Containers.BoxOfOpc;
+import ImageCompression.Objects.ModuleOPC;
 import ImageCompression.Containers.Matrix;
 import ImageCompression.Utils.Objects.DataOPC;
 import ImageCompression.Utils.Functions.Encryption;
@@ -11,30 +12,30 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class EncryptionTest {
-    BoxOfOPC boxOfOPC,_boxOfOPC;
+    ModuleOPC moduleOPC, _moduleOPC;
     String key="dimas";
     Matrix matrix=new Matrix(200,200,new Flag("0"));
     @Before
     public void setUp() throws Exception {
-        boxOfOPC=new BoxOfOPC(matrix);
-        _boxOfOPC=new BoxOfOPC(matrix);
+        moduleOPC =new ModuleOPC(matrix);
+        _moduleOPC =new ModuleOPC(matrix);
     }
 
     @Test
     public void TestUtils(){
-        AssertBoxEquals(boxOfOPC,_boxOfOPC);
+        AssertBoxEquals(moduleOPC.getBoxOfOpc(), _moduleOPC.getBoxOfOpc());
     }
 
     @Test
     public void encode() throws Exception {
-        Encryption.encode(boxOfOPC,key);
-        Encryption.encode(boxOfOPC,key);
-        AssertBoxEquals(boxOfOPC,_boxOfOPC);
+        Encryption.encode(moduleOPC.getBoxOfOpc(),key);
+        Encryption.encode(moduleOPC.getBoxOfOpc(),key);
+        AssertBoxEquals(moduleOPC.getBoxOfOpc(), _moduleOPC.getBoxOfOpc());
     }
-    private void AssertBoxEquals(BoxOfOPC a,BoxOfOPC b){
-        AssertDataEqual(a.getDopcA(),b.getDopcA());
-        AssertDataEqual(a.getDopcB(),b.getDopcB());
-        AssertDataEqual(a.getDopcC(),b.getDopcC());
+    private void AssertBoxEquals(BoxOfOpc a, BoxOfOpc b){
+        AssertDataEqual(a.getA(),b.getA());
+        AssertDataEqual(a.getB(),b.getB());
+        AssertDataEqual(a.getC(),b.getC());
     }
     private void AssertDataEqual(DataOPC[][] a,DataOPC[][] b){
         assertEquals(a.length,b.length);

@@ -1,6 +1,6 @@
-import ImageCompression.Objects.BoxOfOPC
-import ImageCompression.Objects.ModuleDCT
 import ImageCompression.Objects.ModuleOPC
+import ImageCompression.Objects.ModuleDCT
+import ImageCompression.Objects.StegoEncrWithOPC
 import ImageCompression.Utils.Objects.Flag
 import ImageCompression.Objects.MyBufferedImage
 import java.io.File
@@ -20,7 +20,7 @@ class Convertor() {
         val bodum = ModuleDCT(matrix)
         val matrixDCT=bodum.getDCTMatrix(true)
         publishProgress(60)
-        val mOpc=ModuleOPC(matrixDCT)
+        val mOpc= StegoEncrWithOPC(matrixDCT)
         val box=mOpc.getOPCS(true)
         publishProgress(80)
         //TODO write to bar
@@ -29,10 +29,10 @@ class Convertor() {
 
     fun FromBarToBmp(pathToBar: String): Unit {
         //TODO read from bar
-        val box= BoxOfOPC(null)//read from file
+        val box= ModuleOPC(null)//read from file
         val flag=Flag("0")
         publishProgress(10)
-        val mOPC=ModuleOPC(box,flag)
+        val mOPC= StegoEncrWithOPC(box,flag)
         val FFTM =mOPC.getMatrix(true)
         publishProgress(50)
         val bodum1 = ModuleDCT(FFTM)

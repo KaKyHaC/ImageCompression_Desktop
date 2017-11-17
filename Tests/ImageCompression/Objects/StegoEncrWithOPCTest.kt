@@ -5,7 +5,7 @@ import org.junit.Before
 import org.junit.Assert.*
 import org.junit.Test
 
-class ModuleOPCTest {
+class StegoEncrWithOPCTest {
     @Before
     fun setUp() {
     }

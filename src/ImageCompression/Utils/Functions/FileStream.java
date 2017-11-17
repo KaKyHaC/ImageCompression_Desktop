@@ -1,7 +1,8 @@
 package ImageCompression.Utils.Functions;
 
 
-import ImageCompression.Objects.BoxOfOPC;
+import ImageCompression.Containers.BoxOfOpc;
+import ImageCompression.Objects.ModuleOPC;
 import ImageCompression.Utils.Objects.DataOPC;
 import ImageCompression.Utils.Objects.Flag;
 import ImageCompression.Utils.Objects.Parameters;
@@ -325,23 +326,24 @@ public class FileStream {
     }
 
 
-    public void Write(String file, BoxOfOPC box, Flag flag){
+    public void Write(String file, BoxOfOpc box, Flag flag){
         this.flag=flag;
-        a=box.getDopcA();
-        b=box.getDopcB();
-        c=box.getDopcC();
+        a=box.getA();
+        b=box.getB();
+        c=box.getC();
         WriteCode(file+".bar");
         if(flag.isOneFile()==false)
             WriteBase(file+".bas");
     }
-    public BoxOfOPC Read(String file){
+    public ModuleOPC Read(String file){
 
 
         ReadCode(file+".bar");
         if(flag.isOneFile()==false)
             ReadBase(file+".bas");
 
-        BoxOfOPC box=new BoxOfOPC(a,b,c,flag);
+        BoxOfOpc boxOfOpc=new BoxOfOpc(a,b,c);
+        ModuleOPC box=new ModuleOPC(boxOfOpc,flag);
         return box;
     }
 

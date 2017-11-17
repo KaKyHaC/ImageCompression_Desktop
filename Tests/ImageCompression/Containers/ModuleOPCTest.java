@@ -1,6 +1,6 @@
 package ImageCompression.Containers;
 
-import ImageCompression.Objects.BoxOfOPC;
+import ImageCompression.Objects.ModuleOPC;
 import ImageCompression.Utils.Objects.DataOPC;
 import ImageCompression.Utils.Objects.Flag;
 import org.junit.Before;
@@ -10,7 +10,7 @@ import java.util.Date;
 
 import static org.junit.Assert.*;
 
-public class BoxOfOPCTest {
+public class ModuleOPCTest {
     int size=200;
     Flag flag=new Flag("0");
     Matrix matrix=new Matrix(size,size,flag);
@@ -27,34 +27,31 @@ public class BoxOfOPCTest {
 
     @Test
     public void TestDefault(){
-        BoxOfOPC boxOfOPC=new BoxOfOPC(matrix);
+        BoxOfOpc boxOfOpc =new ModuleOPC(matrix).getBoxOfOpc();
         DataOPC[][] a,b,c;
-        a=boxOfOPC.getDopcA();
-        b=boxOfOPC.getDopcB();
-        c=boxOfOPC.getDopcC();
-        BoxOfOPC boxOfOPC1=new BoxOfOPC(a,b,c,matrix.f);
-        Matrix res=boxOfOPC1.getMatrix();
+        ModuleOPC moduleOPC1 =new ModuleOPC(boxOfOpc,matrix.f);
+        Matrix res= moduleOPC1.getMatrix();
 
         AssertMatrixInRange(matrix,res,1,true);
     }
     @Test
     public void TestTime(){
-        BoxOfOPC boxOfOPC=new BoxOfOPC(matrix);
+        ModuleOPC moduleOPC =new ModuleOPC(matrix);
         Date t1=new Date();
-        boxOfOPC.directOPCMultiThreads();
-        boxOfOPC.reverseOPCMultiThreads();
+        moduleOPC.directOPCMultiThreads();
+        moduleOPC.reverseOPCMultiThreads();
         Date t2=new Date();
         System.out.println("in multi threads t="+(t2.getTime()-t1.getTime()));
 
         Date t3=new Date();
-        boxOfOPC.directOPC();
-        boxOfOPC.reverseOPC();
+        moduleOPC.directOPC();
+        moduleOPC.reverseOPC();
         Date t4=new Date();
         System.out.println("in one thread t="+(t4.getTime()-t3.getTime()));
 
         Date t5=new Date();
-        boxOfOPC.directOpcGlobalBase(5,5);
-        boxOfOPC.reverseOPC();
+        moduleOPC.directOpcGlobalBase(5,5);
+        moduleOPC.reverseOPC();
         Date t6=new Date();
         System.out.println("Global Base t="+(t6.getTime()-t5.getTime()));
 
