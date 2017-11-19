@@ -1,188 +1,164 @@
-package ImageCompression.Utils.Objects;
+package ImageCompression.Utils.Objects
 
-import java.math.BigInteger;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.util.Vector;
+import java.math.BigInteger
+import java.nio.ByteBuffer
+import java.nio.ByteOrder
+import java.util.Vector
 
 /**
  * Created by Димка on 27.09.2016.
  */
-public class DataOPC {
-    final static int SIZEOFBLOCK=8;
+class DataOPC {
 
-    public short [] base;
-    public boolean [][] sign;
-    public short DC;
-    public BigInteger N;
-    public Vector<Long> Code;
+    var base: ShortArray
+    var sign: Array<BooleanArray>
+    var DC: Short = 0
+    var N: BigInteger
+    var vectorCode: Vector<Long>
 
-    public DataOPC() {
-        base=new short[SIZEOFBLOCK];
-        sign=new boolean[SIZEOFBLOCK][SIZEOFBLOCK];
-        N=new BigInteger("0");
-        Code=new Vector<Long>();
+    val dc: ByteArray
+        get() = DC
+
+    init {
+        base = ShortArray(SIZEOFBLOCK)
+        sign = Array(SIZEOFBLOCK) { BooleanArray(SIZEOFBLOCK) }
+        N = BigInteger("0")
+        vectorCode = Vector()
     }
 
 
-    public short[] FromBigIntToArray() {
-        byte []b=N.toByteArray();
-        int size=b.length/2+b.length%2;
-        short[] res=new short[size];
-        for(int i=base.length-1;i>=0;i--){
-            res[i/2]<<=8;
-            res[i/2]=b[i];
-        }
-        return res;
-    }
-    public void FromArrayToBigInt(short[] code)
-    {// to turn shorts back to bytes.
-        byte[] bytes2 = new byte[code.length * 2];
-        ByteBuffer.wrap(bytes2).order(ByteOrder.LITTLE_ENDIAN).asShortBuffer().put(code);
-        N=new BigInteger(bytes2);
+    fun FromBigIntToArray(): ByteArray {
+        return N.toByteArray()
     }
 
-    public short[] FromSignToArray() {
-        short [] res=new short[SIZEOFBLOCK/2];
-        for(int i=0;i<SIZEOFBLOCK;i++)
-        {
-            for(int j=0;j<SIZEOFBLOCK;j++)
-            {
-                res[i/2]<<=1;
-                if(sign[i][j]){
-                    res[i/2]|=1;
+    fun FromArrayToBigInt(code: ByteArray) {
+        N = BigInteger(code)
+    }
+
+    fun FromSignToArray(): ByteArray {
+        val res = ByteArray(SIZEOFBLOCK / 2)
+        for (i in 0 until SIZEOFBLOCK) {
+            for (j in 0 until SIZEOFBLOCK) {
+                res[i] = res[i] shl 1
+                if (sign[i][j]) {
+                    res[i] = res[i] or 1
                 }
             }
         }
 
-        return res;
+        return res
     }
-    public void FromArrayToSing(short[] s) {
-        for(int i=SIZEOFBLOCK-1;i>=0;i--)
-        {
-            for(int j=SIZEOFBLOCK-1;j>=0;j--)
-            {
-                sign[i][j]=((s[i/2]&1)==1);
-                s[i/2]>>=1;
+
+    fun FromArrayToSing(s: ByteArray) {
+        for (i in SIZEOFBLOCK - 1 downTo 0) {
+            for (j in SIZEOFBLOCK - 1 downTo 0) {
+                sign[i][j] = s[i] and 1 == 1
+                s[i] = s[i] shr 1
             }
         }
     }
 
-    public short[] FromBaseToArray() {
-        int ofset=SIZEOFBLOCK/2;
+    fun FromBaseToArray(): ByteArray {
+        val ofset = SIZEOFBLOCK / 2
 
-        short[] res=new short[SIZEOFBLOCK/2];
-        for(int i=0;i<res.length;i++){
-            assert (base[i]<0xFF);
-            assert (base[i+ofset]<0xFF);
-            res[i]=base[i];
-            res[i]<<=SIZEOFBLOCK;
-            res[i]|=base[i+ofset];
+        val res = ByteArray(SIZEOFBLOCK / 2)
+        for (i in res.indices) {
+            res[i] = base[i].toByte()
         }
-        return res;
+        return res
     }
-    public void FromArrayToBase(short[] b) {
-        int ofset=SIZEOFBLOCK/2;
 
-        short[] res=new short[SIZEOFBLOCK/2];
-        for(int i=0;i<res.length;i++) {
-            base[i+ofset]=(short)(b[i]&0xff);
-            b[i]>>=SIZEOFBLOCK;
-            base[i]=(short)(b[i]&0xff);
+    fun FromArrayToBase(b: ByteArray) {
+        for (i in b.indices) {
+            base[i] = (b[i] and 0xff).toShort()
         }
     }
 
-    public short getDC() {
-        return DC;
-    }
-    public void setDC(short DC) {
-        this.DC = DC;
+    fun setDC(DC: Short) {
+        this.DC = DC
     }
 
-    public Vector<Long> getVectorCode(){
-        return Code;
-    }
-    public void setVectorCode(Vector<Long> v)
-    {
-        Code=v;
-    }
+    fun toString(flag: Flag): String {
+        val offset = SIZEOFBLOCK / 2
+        val sb = StringBuilder()
 
-    public String toString(Flag flag) {
-        int offset=SIZEOFBLOCK/2;
-        StringBuilder sb=new StringBuilder();
+        if (flag.isOneFile && !flag.isGlobalBase)
+            for (b in FromBaseToArray())
+                sb.append(b.toChar())
 
-        if(flag.isOneFile()&&!flag.isGlobalBase())
-            for(short b : FromBaseToArray())
-                sb.append((char)b);
-
-        short[] sign=FromSignToArray();
-        for(int i=0;i<sign.length;i++){
-            sb.append((char)sign[i]);
+        val sign = FromSignToArray()
+        for (i in sign.indices) {
+            sb.append(sign[i].toChar())
         }
 
-        if(flag.isDC())
-            sb.append((char)DC);
+        if (flag.isDC)
+            sb.append(DC.toChar())
 
-        if(!flag.isLongCode()){
-            short[] n =FromBigIntToArray();
-            sb.append((char)n.length);
-            for(short c : n){
-                sb.append((short)c);
+        if (!flag.isLongCode) {
+            val n = FromBigIntToArray()
+            sb.append(n.size.toChar())
+            for (c in n) {
+                sb.append(c.toShort().toInt())
             }
-        }else{
-            sb.append((char)Code.size());
-            for(int i=0;i<Code.size();i++){
-                long v=Code.elementAt(i);
-                sb.append((char)v);
-                v>>=16;
-                sb.append((char)v);
-                v>>=16;
-                sb.append((char)v);
-                v>>=16;
-                sb.append((char)v);
+        } else {
+            sb.append(vectorCode.size.toChar())
+            for (i in vectorCode.indices) {
+                var v = vectorCode.elementAt(i)
+                sb.append(v.toChar())
+                v = v shr 16
+                sb.append(v.toChar())
+                v = v shr 16
+                sb.append(v.toChar())
+                v = v shr 16
+                sb.append(v.toChar())
             }
         }
 
-        return sb.toString();
+        return sb.toString()
     }
-    public void valueOf(String s,Flag flag){
-        int offset=SIZEOFBLOCK/2;
-        int index=0;
 
-        if(flag.isOneFile()&&!flag.isGlobalBase()) {
-            short[] a=new short[offset];
-            for (int i = 0; i < offset; i++) {
-                a[i] = (short) s.charAt(index++);
+    fun valueOf(s: String, flag: Flag) {
+        val offset = SIZEOFBLOCK / 2
+        var index = 0
+
+        if (flag.isOneFile && !flag.isGlobalBase) {
+            val a = ShortArray(offset)
+            for (i in 0 until offset) {
+                a[i] = s[index++].toShort()
             }
-            FromArrayToBase(a);
+            FromArrayToBase(a)
         }
 
-        short[] sign=new short[offset];
-        for(int i=0;i<offset;i++){
-            sign[i]=(short)s.charAt(index++);
+        val sign = ShortArray(offset)
+        for (i in 0 until offset) {
+            sign[i] = s[index++].toShort()
         }
-        FromArrayToSing(sign);
+        FromArrayToSing(sign)
 
-        if(flag.isDC())
-            DC=(short)s.charAt(index++);
+        if (flag.isDC)
+            DC = s[index++].toShort()
 
-        if(!flag.isLongCode()){
-            int length=s.charAt(index++);
-            short[] code=new short[length];
-            for(int i=0;i<length;i++){
-                code[i]=(short) s.charAt(index++);
+        if (!flag.isLongCode) {
+            val length = s[index++].toInt()
+            val code = ShortArray(length)
+            for (i in 0 until length) {
+                code[i] = s[index++].toShort()
             }
-            FromArrayToBigInt(code);
-        }else{
-            int length=s.charAt(index++);
-            for(int i=0;i<length;i++){
-                long v=(long)s.charAt(index++);
-                v|=(long)(s.charAt(index++))<<16;
-                v|=(long)(s.charAt(index++))<<32;
-                v|=(long)(s.charAt(index++))<<48;
-                Code.add(v);
+            FromArrayToBigInt(code)
+        } else {
+            val length = s[index++].toInt()
+            for (i in 0 until length) {
+                var v = s[index++].toLong()
+                v = v or (s[index++].toLong() shl 16)
+                v = v or (s[index++].toLong() shl 32)
+                v = v or (s[index++].toLong() shl 48)
+                vectorCode.add(v)
             }
         }
 
+    }
+
+    companion object {
+        internal val SIZEOFBLOCK = 8
     }
 }
