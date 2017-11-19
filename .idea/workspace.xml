@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Utils/Objects/ByteVectorTest.kt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/ByteVector.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPC.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPC.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$AssertDataOpcEqual$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$AssertDataOpcEqual$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$TestAssertFun$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$TestAssertFun$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$TestCOPY$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$TestCOPY$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$TestCOPY$2.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$TestCOPY$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$TestMyToString$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$TestMyToString$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$TestParsers$4.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$TestParsers$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$initDopc$2.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$initDopc$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$initDopc$3.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$initDopc$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ImageCompression/Utils/Objects/DataOPCTest.kt" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Utils/Objects/DataOPCTest.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/ByteVector.kt" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/ByteVector.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
