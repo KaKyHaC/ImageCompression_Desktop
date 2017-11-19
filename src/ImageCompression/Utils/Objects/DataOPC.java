@@ -10,7 +10,7 @@ import java.util.Vector;
  * Created by Димка on 27.09.2016.
  */
 public class DataOPC {
-    final static int SIZEOFBLOCK=8;
+    public final static int SIZEOFBLOCK=8;
 
     public short [] base;
     public boolean [][] sign;
@@ -29,7 +29,23 @@ public class DataOPC {
     public byte[] FromBigIntToArray() {
         return N.toByteArray();
     }
+    public void FromBigIntToVector(ByteVector vector){
+        byte[] code=N.toByteArray();
+        assert (code.length<Short.MAX_VALUE);
+        vector.append((short)code.length);
+        for(byte b : code){
+            vector.append(b);
+        }
+    }
     public void FromArrayToBigInt(byte[] code) {
+        N=new BigInteger(code);
+    }
+    public void FromVectorToBigInt(ByteVector vector){
+        int len=vector.getNextShort();
+        byte[] code=new byte[len];
+        for(int i=0;i<len;i++){
+            code[i]=vector.getNext();
+        }
         N=new BigInteger(code);
     }
 
@@ -47,6 +63,20 @@ public class DataOPC {
         }
         return res;
     }
+    public void FromSignToVector(ByteVector vector){
+        for(int i=0;i<SIZEOFBLOCK;i++)
+        {
+            byte res=0;
+            for(int j=0;j<SIZEOFBLOCK;j++)
+            {
+                res<<=1;
+                if(sign[i][j]){
+                    res|=1;
+                }
+            }
+            vector.append(res);
+        }
+    }
     public void FromArrayToSing(byte[] s) {
         for(int i=SIZEOFBLOCK-1;i>=0;i--)
         {
@@ -54,6 +84,17 @@ public class DataOPC {
             {
                 sign[i][j]=((s[i]&1)==1);
                 s[i]>>=1;
+            }
+        }
+    }
+    public void FromVectorToSign(ByteVector vector){
+        for(int i=0;i<SIZEOFBLOCK;i++)
+        {
+            byte s=vector.getNext();
+            for(int j=SIZEOFBLOCK-1;j>=0;j--)
+            {
+                sign[i][j]=((s&1)==1);
+                s>>=1;
             }
         }
     }
@@ -65,9 +106,20 @@ public class DataOPC {
         }
         return res;
     }
+    public void FromBaseToVector(ByteVector vector){
+        for(int i=0;i<SIZEOFBLOCK;i++){
+            assert (base[i]<0xff);
+            vector.append((byte)base[i]);
+        }
+    }
     public void FromArrayToBase(byte[] b) {
         for(int i=0;i<b.length;i++) {
             base[i]=(short)((b[i])&0xff);
+        }
+    }
+    public void FromVectorToBase(ByteVector vector){
+        for(int i=0;i<SIZEOFBLOCK;i++) {
+            base[i]=(short)((vector.getNext())&0xff);
         }
     }
 
@@ -77,18 +129,38 @@ public class DataOPC {
         res[1]=(byte)DC;
         return res;
     }
+    public void FromDcToVector(ByteVector vector){
+        vector.append(DC);
+    }
     public void setDC(byte[] bytes) {
         this.DC = bytes[0];
         DC<<=SIZEOFBLOCK;
         DC|=bytes[1];
     }
+    public void FromVectorToDc(ByteVector vector){
+        DC=vector.getNextShort();
+    }
 
     public Vector<Long> getVectorCode(){
         return Code;
     }
+    public void FromCodeToVector(ByteVector vector){
+        int len=Code.size();
+        assert (len<0xf);
+        vector.append((byte)len);
+        for (long l : Code){
+            vector.append(l);
+        }
+    }
     public void setVectorCode(Vector<Long> v)
     {
         Code=v;
+    }
+    public void FromVectorToCode(ByteVector vector){
+        int len = vector.getNext()&0xFF;
+        for(int i=0;i<len;i++){
+            Code.add(vector.getNextLong());
+        }
     }
 
     public String toString(Flag flag) {
@@ -129,7 +201,7 @@ public class DataOPC {
 
         return sb.toString();
     }
-    public void valueOf(String s,Flag flag){
+    public DataOPC valueOf(String s,Flag flag){
         int offset=SIZEOFBLOCK;
         int index=0;
 
@@ -167,6 +239,66 @@ public class DataOPC {
                 Code.add(v);
             }
         }
-
+        return this;
     }
+
+    public ByteVector toByteVector(ByteVector vector,Flag f){
+        if(f.isDC())
+            FromDcToVector(vector);
+
+        if(!f.isGlobalBase()&&f.isOneFile())
+            FromBaseToVector(vector);
+
+        if(f.isLongCode())
+            FromCodeToVector(vector);
+        else
+            FromBigIntToVector(vector);
+
+        FromSignToVector(vector);
+
+        return vector;
+    }
+    public DataOPC valueOf(ByteVector vector,Flag f){
+        if(f.isDC())
+            FromVectorToDc(vector);
+
+        if(!f.isGlobalBase()&&f.isOneFile())
+            FromVectorToBase(vector);
+
+        if(f.isLongCode())
+            FromVectorToCode(vector);
+        else
+            FromVectorToBigInt(vector);
+
+        FromVectorToSign(vector);
+
+        return this;
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this==obj)
+            return true;
+        if(obj.getClass()!=DataOPC.class)
+            return false;
+
+        DataOPC d=(DataOPC)obj;
+        if(d.DC!=DC)
+            return false;
+        for(int i=0;i<SIZEOFBLOCK;i++){
+            if(d.base[i]!=base[i])
+                return false;
+            for (int j=0;j<SIZEOFBLOCK;j++){
+                if(d.sign[i][j]!=sign[i][j])
+                    return false;
+            }
+        }
+        for (int i=0;i<Code.size();i++){
+            if(d.Code.elementAt(i)!=Code.elementAt(i))
+                return false;
+        }
+        return true;
+    }
+
 }

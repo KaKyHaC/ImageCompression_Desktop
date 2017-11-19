@@ -80,6 +80,38 @@ class DataOPCTest {
 //        dopc1.valueOf(s1,f)
 //        AssertDataOpcEqual(dopc,dopc1)
     }
+    @Test
+    fun TestSignToVector(){
+        initDopc(dopc)
+        dopc1=dopc.copy()
+        AssertDataOpcEqual(dopc,dopc1)
+
+        val bv=ByteVector()
+        dopc.FromSignToVector(bv)
+        dopc1.FromVectorToSign(bv)
+    }
+    @Test
+    fun TestByteVector(){
+        var bv=ByteVector(33)
+        var f=Flag("0")
+        f.isDC=true
+        f.isOneFile=true
+        f.isLongCode=true
+        initDopc(dopc,f)
+
+
+        dopc.toByteVector(bv,f)
+        dopc1.valueOf(bv,f)
+        AssertDataOpcEqual(dopc1,dopc)
+
+    }
+    @Test
+    fun TestEqualMethod(){
+        initDopc(dopc)
+        assertFails { assertEquals(dopc1,dopc) }
+        dopc1=dopc.copy()
+        assertEquals(dopc1,dopc)
+    }
 
     @Test
     fun TestLongToString(){
@@ -165,6 +197,23 @@ class DataOPCTest {
         dataOPC.N= BigInteger(kotlin.ByteArray(size,{x->x.toByte()}))
         dataOPC.N= BigInteger("342352522332214")
         forEach(DataOPC.SIZEOFBLOCK,DataOPC.SIZEOFBLOCK,{x, y -> dataOPC.base[x]=rand.nextInt(0xff).toShort() })
+        forEach(DataOPC.SIZEOFBLOCK,DataOPC.SIZEOFBLOCK,{x, y -> dataOPC.sign[x][y]=rand.nextBoolean() })
+
+    }
+    fun initDopc(dataOPC: DataOPC,flag: Flag){
+        val size=5
+        if(flag.isLongCode)
+            for(i in 0..size)
+                dataOPC.Code.addElement(rand.nextLong())
+        else
+            dataOPC.N= BigInteger(kotlin.ByteArray(size,{x->x.toByte()}))
+
+        if(flag.isDC)
+            dataOPC.DC=rand.nextInt().toShort()
+
+        if(flag.isOneFile&&!flag.isGlobalBase)
+            forEach(DataOPC.SIZEOFBLOCK,DataOPC.SIZEOFBLOCK,{x, y -> dataOPC.base[x]=rand.nextInt(0xff).toShort() })
+
         forEach(DataOPC.SIZEOFBLOCK,DataOPC.SIZEOFBLOCK,{x, y -> dataOPC.sign[x][y]=rand.nextBoolean() })
 
     }
