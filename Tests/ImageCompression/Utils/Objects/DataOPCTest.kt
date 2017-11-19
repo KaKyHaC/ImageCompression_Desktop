@@ -54,6 +54,17 @@ class DataOPCTest {
         s9.append(i1)
 //        val s10=i1.toString(64)
     }
+    @Test
+    fun TestMyToString(){
+        initDopc(dopc)
+        var f=Flag("0")
+        f.isOneFile=true
+        f.isLongCode=true
+        f.isDC=true
+        val s=dopc.toString(f)
+        dopc1.valueOf(s,f)
+        AssertDataOpcEqual(dopc,dopc1)
+    }
 
     @Test
     fun TestAssertFun(){
@@ -116,7 +127,7 @@ class DataOPCTest {
 
         dataOPC.DC=rand.nextInt().toShort()
         dataOPC.N= BigInteger(kotlin.ByteArray(size,{x->x.toByte()}))
-        forEach(DataOPC.SIZEOFBLOCK,DataOPC.SIZEOFBLOCK,{x, y -> dataOPC.base[x]=rand.nextInt().toShort() })
+        forEach(DataOPC.SIZEOFBLOCK,DataOPC.SIZEOFBLOCK,{x, y -> dataOPC.base[x]=rand.nextInt(0xff).toShort() })
         forEach(DataOPC.SIZEOFBLOCK,DataOPC.SIZEOFBLOCK,{x, y -> dataOPC.sign[x][y]=rand.nextBoolean() })
 
     }

@@ -136,8 +136,8 @@ public class FileStream {
                 for(byte val:code)
                     bw.writeByte(val);
             }
-            for(byte val:d.SignToString())
-                bw.writeByte(val);
+            for(short val:d.FromSignToArray())
+                bw.writeShort(val);
 
             //ShortArrayToStream(bw,d.FromBaseToString());
         }
@@ -214,7 +214,7 @@ public class FileStream {
                     for(int i1=0;i1<8;i1++){
                         code[i1]=br.readByte();
                     }
-                    d[i][j].SingFromString(code);//length of sing array
+                    d[i][j].FromArrayToSing(code);//length of sing array
 
                 }
             }
@@ -539,7 +539,7 @@ class WriteDate{
                 for(byte val:code)
                     bw.writeByte(val);
 
-            for(byte val:d.SignToString())
+            for(byte val:d.FromSignToArray())
                 bw.writeByte(val);
 
             //ShortArrayToStream(bw,d.FromBaseToString());
@@ -559,7 +559,7 @@ class WriteDate{
                 bw.writeLong( val);
             }
 
-            for(byte val:d.SignToString())
+            for(byte val:d.FromSignToArray())
                 bw.writeByte(val);
 
             //ShortArrayToStream(bw,d.FromBaseToString());
@@ -579,7 +579,7 @@ class WriteDate{
                 for(byte val:code)
                     bw.writeByte(val);
 
-            for(byte val:d.SignToString())
+            for(byte val:d.FromSignToArray())
                 bw.writeByte(val);
 
             //ShortArrayToStream(bw,d.FromBaseToString());
@@ -597,7 +597,7 @@ class WriteDate{
             for (long val : code) {
                 bw.writeLong( val);
             }
-            for(byte val:d.SignToString())
+            for(byte val:d.FromSignToArray())
                 bw.writeByte(val);
         }catch (IOException e)
         {
