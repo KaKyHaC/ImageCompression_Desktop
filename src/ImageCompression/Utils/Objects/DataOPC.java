@@ -1,6 +1,8 @@
 package ImageCompression.Utils.Objects;
 
 import java.math.BigInteger;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.util.Vector;
 
 /**
@@ -23,11 +25,21 @@ public class DataOPC {
     }
 
 
-    public byte[] BinaryStringGet() {
-        return N.toByteArray();
+    public short[] FromBigIntToArray() {
+        byte []b=N.toByteArray();
+        int size=b.length/2+b.length%2;
+        short[] res=new short[size];
+        for(int i=base.length-1;i>=0;i--){
+            res[i/2]<<=8;
+            res[i/2]=b[i];
+        }
+        return res;
     }
-    public void BinaryStringSet(byte[] code) {
-        N=new BigInteger(code);
+    public void FromArrayToBigInt(short[] code)
+    {// to turn shorts back to bytes.
+        byte[] bytes2 = new byte[code.length * 2];
+        ByteBuffer.wrap(bytes2).order(ByteOrder.LITTLE_ENDIAN).asShortBuffer().put(code);
+        N=new BigInteger(bytes2);
     }
 
     public short[] FromSignToArray() {
@@ -46,7 +58,7 @@ public class DataOPC {
         return res;
     }
     public void FromArrayToSing(short[] s) {
-        for(int i=0;i<SIZEOFBLOCK;i++)
+        for(int i=SIZEOFBLOCK-1;i>=0;i--)
         {
             for(int j=SIZEOFBLOCK-1;j>=0;j--)
             {
@@ -112,13 +124,10 @@ public class DataOPC {
             sb.append((char)DC);
 
         if(!flag.isLongCode()){
-            byte[] code=N.toByteArray();
-            sb.append((char)code.length);
-            for(int i=0;i<code.length;i++){
-                char c=(char)code[i];
-                c<<=SIZEOFBLOCK;
-                c|=(char)code[++i];
-                sb.append(c);
+            short[] n =FromBigIntToArray();
+            sb.append((char)n.length);
+            for(short c : n){
+                sb.append((short)c);
             }
         }else{
             sb.append((char)Code.size());
@@ -148,29 +157,29 @@ public class DataOPC {
             FromArrayToBase(a);
         }
 
-        byte[] sign=new byte[SIZEOFBLOCK];
+        short[] sign=new short[offset];
         for(int i=0;i<offset;i++){
-            sign[i+offset]=(byte)s.charAt(index);
-            sign[i]=(byte)(s.charAt(index++)>>SIZEOFBLOCK);
+            sign[i]=(short)s.charAt(index++);
         }
+        FromArrayToSing(sign);
 
         if(flag.isDC())
             DC=(short)s.charAt(index++);
 
         if(!flag.isLongCode()){
             int length=s.charAt(index++);
-            byte[] code=new byte[length];
+            short[] code=new short[length];
             for(int i=0;i<length;i++){
-                code[i]=(byte)s.charAt(index);
-                code[++i]=(byte)(s.charAt(index++)>>SIZEOFBLOCK);
+                code[i]=(short) s.charAt(index++);
             }
+            FromArrayToBigInt(code);
         }else{
             int length=s.charAt(index++);
             for(int i=0;i<length;i++){
                 long v=(long)s.charAt(index++);
-                v|=(long)(s.charAt(index++)<<16);
-                v|=(long)(s.charAt(index++)<<32);
-                v|=(long)(s.charAt(index++)<<48);
+                v|=(long)(s.charAt(index++))<<16;
+                v|=(long)(s.charAt(index++))<<32;
+                v|=(long)(s.charAt(index++))<<48;
                 Code.add(v);
             }
         }

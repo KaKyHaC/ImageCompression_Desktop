@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Functions/BufferedWriting.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Functions/FileStream.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Functions/WriteDate.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPC.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPC.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$AssertDataOpcEqual$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$AssertDataOpcEqual$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$TestAssertFun$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$TestAssertFun$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$TestCOPY$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$TestCOPY$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$TestCOPY$2.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$TestCOPY$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$initDopc$2.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$initDopc$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$initDopc$3.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest$initDopc$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPCTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ImageCompression/Utils/Objects/DataOPCTest.kt" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Utils/Objects/DataOPCTest.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/FileStream.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/FileStream.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java" />
@@ -22,8 +28,8 @@
       <file leaf-file-name="ModuleOPC.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="261" column="32" lean-forward="true" selection-start-line="261" selection-start-column="32" selection-end-line="261" selection-end-column="32" />
+            <state relative-caret-position="25">
+              <caret line="261" column="32" lean-forward="false" selection-start-line="261" selection-start-column="32" selection-end-line="261" selection-end-column="32" />
               <folding>
                 <element signature="method#sizeOpcCalculate#0;class#ModuleOPC#0" expanded="false" />
                 <element signature="method#directOPC#0;class#ModuleOPC#0" expanded="false" />
@@ -36,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataOPC.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DataOPC.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="25">
-              <caret line="136" column="29" lean-forward="true" selection-start-line="136" selection-start-column="29" selection-end-line="136" selection-end-column="29" />
+              <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
               <folding>
                 <element signature="method#DataOPC#0;class#DataOPC#0" expanded="false" />
                 <element signature="method#FromBaseToArray#0;class#DataOPC#0" expanded="false" />
@@ -50,29 +56,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DCTMultiThreadTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Utils/DCTMultiThreadTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DataOPCTest.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Utils/Objects/DataOPCTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-407">
-              <caret line="65" column="38" lean-forward="true" selection-start-line="65" selection-start-column="38" selection-end-line="65" selection-end-column="38" />
+            <state relative-caret-position="425">
+              <caret line="58" column="21" lean-forward="true" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
               <folding>
-                <element signature="e#40#291#0" expanded="true" />
+                <element signature="e#40#312#0" expanded="true" />
                 <element signature="n#!!block;n#TestAssertFun#0;n#!!block;n#DataOPCTest#0" expanded="false" />
                 <element signature="n#!!block;n#TestCOPY#0;n#!!block;n#DataOPCTest#0" expanded="false" />
                 <element signature="n#!!block;n#copy#0;n#!!block;n#DataOPCTest#0" expanded="false" />
                 <element signature="n#!!block;n#forEach#0;n#!!block;n#DataOPCTest#0" expanded="false" />
-                <element signature="e#3859#3946#1" expanded="false" />
-                <element signature="e#3889#3936#1" expanded="false" />
+                <element signature="e#4878#4965#1" expanded="false" />
+                <element signature="e#4908#4955#1" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -81,8 +77,8 @@
       <file leaf-file-name="OPCMultiThread.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-100">
-              <caret line="50" column="17" lean-forward="true" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+            <state relative-caret-position="1150">
+              <caret line="50" column="17" lean-forward="false" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -91,7 +87,7 @@
       <file leaf-file-name="BoxOfOpc.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/Containers/BoxOfOpc.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="632">
+            <state relative-caret-position="600">
               <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding>
                 <element signature="e#37#175#0" expanded="true" />
@@ -103,26 +99,19 @@
       <file leaf-file-name="ModuleOPCTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Containers/ModuleOPCTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-78">
-              <caret line="40" column="22" lean-forward="true" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+            <state relative-caret-position="800">
+              <caret line="40" column="22" lean-forward="false" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileStream.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FileStream.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/FileStream.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="203" column="28" lean-forward="true" selection-start-line="203" selection-start-column="28" selection-end-line="203" selection-end-column="28" />
-              <folding>
-                <element signature="e#9880#9881#0" expanded="true" />
-                <element signature="e#9907#9908#0" expanded="true" />
-                <element signature="e#9944#9945#0" expanded="true" />
-                <element signature="e#9976#9977#0" expanded="true" />
-                <marker date="1511104638822" expanded="false" signature="16749:16759" ph=" { " />
-                <marker date="1511104638822" expanded="false" signature="16775:16781" ph=" }" />
-              </folding>
+            <state relative-caret-position="293">
+              <caret line="539" column="32" lean-forward="true" selection-start-line="539" selection-start-column="32" selection-end-line="539" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -236,9 +225,9 @@
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Utils/Objects/DataOPCTest.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java" />
-        <option value="$PROJECT_DIR$/Tests/ImageCompression/Utils/Objects/DataOPCTest.kt" />
-        <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/FileStream.java" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java" />
+        <option value="$PROJECT_DIR$/Tests/ImageCompression/Utils/Objects/DataOPCTest.kt" />
       </list>
     </option>
   </component>
@@ -264,8 +253,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -319,15 +306,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
               <item name="Utils" type="462c0819:PsiDirectoryNode" />
-              <item name="Functions" type="462c0819:PsiDirectoryNode" />
-              <item name="FileStream.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
               <item name="Objects" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -369,6 +347,8 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -461,7 +441,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="DataOPCTest.TestCOPY" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DataOPCTest.TestLongToString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="ImageCompression.Utils.Objects.*" />
@@ -473,7 +453,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="ImageCompression.Utils.Objects" />
       <option name="MAIN_CLASS_NAME" value="ImageCompression.Utils.Objects.DataOPCTest" />
-      <option name="METHOD_NAME" value="TestCOPY" />
+      <option name="METHOD_NAME" value="TestLongToString" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -619,18 +599,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.All in ImageCompressionKotlin" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.DataOPCTest.TestCOPY" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.DataOPCTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.DataOPCTest.TestToString" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.ModuleOPCTest.TestDefault" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.DataOPCTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.DataOPCTest.TestToString" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.ModuleOPCTest.TestDefault" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.DataOPCTest.TestLongToString" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.DataOPCTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.All in ImageCompressionKotlin" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ModuleOPCTest.TestDefault" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.DataOPCTest.TestToString" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.DataOPCTest.TestCOPY" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.DataOPCTest.TestLongToString" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.All in ImageCompressionKotlin" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.ModuleOPCTest.TestDefault" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.DataOPCTest.TestToString" />
       </list>
     </recent_temporary>
   </component>
@@ -666,35 +646,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DataOPCTest - 2017.11.19 at 16h 16m 14s.xml">
+    <history-entry file="DataOPCTest - 2017.11.19 at 19h 01m 27s.xml">
       <configuration name="DataOPCTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataOPCTest - 2017.11.19 at 16h 17m 13s.xml">
+    <history-entry file="DataOPCTest - 2017.11.19 at 19h 02m 17s.xml">
       <configuration name="DataOPCTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataOPCTest - 2017.11.19 at 16h 33m 24s.xml">
+    <history-entry file="DataOPCTest - 2017.11.19 at 19h 02m 42s.xml">
       <configuration name="DataOPCTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataOPCTest - 2017.11.19 at 16h 34m 48s.xml">
+    <history-entry file="DataOPCTest - 2017.11.19 at 19h 02m 50s.xml">
       <configuration name="DataOPCTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataOPCTest - 2017.11.19 at 16h 42m 45s.xml">
+    <history-entry file="DataOPCTest - 2017.11.19 at 19h 03m 03s.xml">
       <configuration name="DataOPCTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataOPCTest - 2017.11.19 at 16h 44m 15s.xml">
+    <history-entry file="DataOPCTest - 2017.11.19 at 19h 04m 28s.xml">
       <configuration name="DataOPCTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataOPCTest - 2017.11.19 at 16h 46m 25s.xml">
+    <history-entry file="DataOPCTest - 2017.11.19 at 19h 04m 54s.xml">
       <configuration name="DataOPCTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataOPCTest - 2017.11.19 at 16h 49m 50s.xml">
+    <history-entry file="DataOPCTest - 2017.11.19 at 19h 05m 13s.xml">
       <configuration name="DataOPCTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataOPCTest - 2017.11.19 at 17h 07m 49s.xml">
+    <history-entry file="DataOPCTest - 2017.11.19 at 19h 05m 38s.xml">
       <configuration name="DataOPCTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DataOPCTest_TestToString - 2017.11.19 at 16h 17m 13s.xml">
-      <configuration name="DataOPCTest.TestToString" configurationId="JUnit" />
+    <history-entry file="DataOPCTest - 2017.11.19 at 19h 07m 52s.xml">
+      <configuration name="DataOPCTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -703,13 +683,13 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33105022" sideWeight="0.49583334" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33105022" sideWeight="0.49583334" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33105022" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -792,32 +772,24 @@
           <properties />
           <option name="timeStamp" value="45" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java</url>
-          <line>124</line>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Tests/ImageCompression/Utils/Objects/DataOPCTest.kt</url>
+          <line>92</line>
           <properties />
-          <option name="timeStamp" value="62" />
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Tests/ImageCompression/Utils/Objects/DataOPCTest.kt</url>
+          <line>100</line>
+          <properties />
+          <option name="timeStamp" value="78" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="63" />
+      <option name="time" value="79" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Containers/TypeQuantization.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Containers/State.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Tests/DataOPCTest.java" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/groovy/groovy_console.groovy">
       <provider selected="true" editor-type-id="text-editor">
@@ -855,7 +827,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -878,7 +849,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -937,7 +907,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -971,7 +940,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1005,30 +973,82 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
           <caret line="202" column="0" lean-forward="false" selection-start-line="202" selection-start-column="0" selection-end-line="202" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1150">
+          <caret line="50" column="17" lean-forward="false" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Utils/EncryptionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="47" lean-forward="false" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+          <folding>
+            <element signature="e#719#720#0" expanded="false" />
+            <element signature="e#801#802#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Containers/BoxOfOpc.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="e#37#175#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Utils/DCTMultiThreadTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="38" column="5" lean-forward="false" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Containers/ModuleOPCTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="40" column="22" lean-forward="false" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="325">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Utils/DCTMultiThreadTest.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+        <state relative-caret-position="337">
+          <caret line="33" column="33" lean-forward="false" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/Assert.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="337" column="30" lean-forward="true" selection-start-line="337" selection-start-column="30" selection-end-line="337" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="261" column="32" lean-forward="true" selection-start-line="261" selection-start-column="32" selection-end-line="261" selection-end-column="32" />
+        <state relative-caret-position="25">
+          <caret line="261" column="32" lean-forward="false" selection-start-line="261" selection-start-column="32" selection-end-line="261" selection-end-column="32" />
           <folding>
             <element signature="method#sizeOpcCalculate#0;class#ModuleOPC#0" expanded="false" />
             <element signature="method#directOPC#0;class#ModuleOPC#0" expanded="false" />
@@ -1040,55 +1060,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Containers/ModuleOPCTest.java">
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/FileStream.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-78">
-          <caret line="40" column="22" lean-forward="true" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-100">
-          <caret line="50" column="17" lean-forward="true" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+        <state relative-caret-position="293">
+          <caret line="539" column="32" lean-forward="true" selection-start-line="539" selection-start-column="32" selection-end-line="539" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Utils/Objects/DataOPCTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-407">
-          <caret line="65" column="38" lean-forward="true" selection-start-line="65" selection-start-column="38" selection-end-line="65" selection-end-column="38" />
+        <state relative-caret-position="425">
+          <caret line="58" column="21" lean-forward="true" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
           <folding>
-            <element signature="e#40#291#0" expanded="true" />
+            <element signature="e#40#312#0" expanded="true" />
             <element signature="n#!!block;n#TestAssertFun#0;n#!!block;n#DataOPCTest#0" expanded="false" />
             <element signature="n#!!block;n#TestCOPY#0;n#!!block;n#DataOPCTest#0" expanded="false" />
             <element signature="n#!!block;n#copy#0;n#!!block;n#DataOPCTest#0" expanded="false" />
             <element signature="n#!!block;n#forEach#0;n#!!block;n#DataOPCTest#0" expanded="false" />
-            <element signature="e#3859#3946#1" expanded="false" />
-            <element signature="e#3889#3936#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Utils/EncryptionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="47" lean-forward="false" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
-          <folding>
-            <element signature="e#719#720#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Containers/BoxOfOpc.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="632">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="e#37#175#0" expanded="true" />
+            <element signature="e#4878#4965#1" expanded="false" />
+            <element signature="e#4908#4955#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1096,26 +1087,11 @@
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
-          <caret line="136" column="29" lean-forward="true" selection-start-line="136" selection-start-column="29" selection-end-line="136" selection-end-column="29" />
+          <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
           <folding>
             <element signature="method#DataOPC#0;class#DataOPC#0" expanded="false" />
             <element signature="method#FromBaseToArray#0;class#DataOPC#0" expanded="false" />
             <element signature="method#FromArrayToBase#0;class#DataOPC#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/FileStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="203" column="28" lean-forward="true" selection-start-line="203" selection-start-column="28" selection-end-line="203" selection-end-column="28" />
-          <folding>
-            <element signature="e#9880#9881#0" expanded="true" />
-            <element signature="e#9907#9908#0" expanded="true" />
-            <element signature="e#9944#9945#0" expanded="true" />
-            <element signature="e#9976#9977#0" expanded="true" />
-            <marker date="1511104638822" expanded="false" signature="16749:16759" ph=" { " />
-            <marker date="1511104638822" expanded="false" signature="16775:16781" ph=" }" />
           </folding>
         </state>
       </provider>

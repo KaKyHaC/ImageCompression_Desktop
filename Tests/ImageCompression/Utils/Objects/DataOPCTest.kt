@@ -5,9 +5,10 @@ import org.junit.Before
 
 import org.junit.Assert.*
 import org.junit.Test
+import java.io.DataOutputStream
+import java.io.FileOutputStream
 import java.math.BigInteger
 import java.util.*
-import javax.print.attribute.IntegerSyntax
 import kotlin.test.assertFails
 
 class DataOPCTest {
@@ -21,18 +22,18 @@ class DataOPCTest {
         dopc1=dopc.copy()
         AssertDataOpcEqual(dopc1,dopc)
 
-        val bs=dopc.BinaryStringGet()
+        val bs=dopc.FromBigIntToArray()
         val base=dopc.FromBaseToArray()
-        val sing=dopc.SignToString()
+        val sing=dopc.FromSignToArray()
 
-        dopc.BinaryStringSet(kotlin.ByteArray(SIZEOFBLOCK,{x->0}))
+        dopc.FromArrayToBigInt(kotlin.ShortArray(SIZEOFBLOCK,{x->0}))
         dopc.FromArrayToBase(kotlin.ShortArray(SIZEOFBLOCK,{x->0}))
-        dopc.SingFromString(kotlin.ByteArray(SIZEOFBLOCK,{x->0}))
+        dopc.FromArrayToSing(kotlin.ShortArray(SIZEOFBLOCK,{x->0}))
         assertFails { AssertDataOpcEqual(dopc,dopc1) }
 
-        dopc.BinaryStringSet(bs)
+        dopc.FromArrayToBigInt(bs)
         dopc.FromArrayToBase(base)
-        dopc.SingFromString(sing)
+        dopc.FromArrayToSing(sing)
         AssertDataOpcEqual(dopc,dopc1)
     }
     @Test
@@ -52,6 +53,10 @@ class DataOPCTest {
         val s8=i1.toString(32)
         val s9=StringBuilder()
         s9.append(i1)
+        val dos = DataOutputStream(FileOutputStream("fds"))
+        var vb=Vector<Byte>()
+        var ba=vb.toByteArray()
+        dos.write(ba)
 //        val s10=i1.toString(64)
     }
     @Test
@@ -61,11 +66,42 @@ class DataOPCTest {
         f.isOneFile=true
         f.isLongCode=true
         f.isDC=true
+        dopc.N= BigInteger("0")
         val s=dopc.toString(f)
         dopc1.valueOf(s,f)
         AssertDataOpcEqual(dopc,dopc1)
+
+        dopc.N= BigInteger("292304395025234324")
+        dopc.Code=DataOPC().Code
+        assertFails { AssertDataOpcEqual(dopc1,dopc) }
+
+        f.isLongCode=false
+        val s1=dopc.toString(f)
+        dopc1.valueOf(s1,f)
+        AssertDataOpcEqual(dopc,dopc1)
     }
 
+    @Test
+    fun TestLongToString(){
+        var l=rand.nextLong()
+        val cpy=l
+        val s1=l.toString(32)
+        var sb=StringBuilder()
+        for(i in 0..3) {
+            val c=l.toChar()
+            val lc=c.toLong()
+            sb.append(l.toChar())
+            l = l shr 16
+        }
+        val s2=sb.toString()
+
+        for(i in 3 downTo 0){
+            l=l shl 16
+            val cl=s2[i].toLong()
+            l=l or s2[i].toLong()
+        }
+        assertEquals(l,cpy)
+    }
     @Test
     fun TestAssertFun(){
         var dopc=DataOPC()
@@ -127,6 +163,7 @@ class DataOPCTest {
 
         dataOPC.DC=rand.nextInt().toShort()
         dataOPC.N= BigInteger(kotlin.ByteArray(size,{x->x.toByte()}))
+        dataOPC.N= BigInteger("342352522332214")
         forEach(DataOPC.SIZEOFBLOCK,DataOPC.SIZEOFBLOCK,{x, y -> dataOPC.base[x]=rand.nextInt(0xff).toShort() })
         forEach(DataOPC.SIZEOFBLOCK,DataOPC.SIZEOFBLOCK,{x, y -> dataOPC.sign[x][y]=rand.nextBoolean() })
 
