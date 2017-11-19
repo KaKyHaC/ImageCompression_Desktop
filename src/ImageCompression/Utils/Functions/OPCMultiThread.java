@@ -43,13 +43,13 @@ public class OPCMultiThread { //singelton
 //        short[] base=new short[SIZEOFBLOCK];
         for(int i=0;i<SIZEOFBLOCK;i++)
         {
-            assert (dataOrigin[i][0]<(short)(Byte.MAX_VALUE&0xFF));
-            dataOPC.base[i]=(byte)(dataOrigin[i][0]);
+//            assert (dataOrigin[i][0]<(short)(Byte.MAX_VALUE&0xFF));
+            dataOPC.base[i]=(dataOrigin[i][0]);
             for(int j=0;j<SIZEOFBLOCK;j++)
             {
                 if(dataOPC.base[i]<(dataOrigin[i][j]))
                 {
-                    dataOPC.base[i]=(byte)(dataOrigin[i][j]);
+                    dataOPC.base[i]=(dataOrigin[i][j]);
                 }
             }
             dataOPC.base[i]++;

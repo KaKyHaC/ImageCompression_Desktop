@@ -26,7 +26,7 @@ class DataOPCTest {
         val sing=dopc.SignToString()
 
         dopc.BinaryStringSet(kotlin.ByteArray(SIZEOFBLOCK,{x->0}))
-        dopc.FromArrayToBase(kotlin.ByteArray(SIZEOFBLOCK,{x->0}))
+        dopc.FromArrayToBase(kotlin.ShortArray(SIZEOFBLOCK,{x->0}))
         dopc.SingFromString(kotlin.ByteArray(SIZEOFBLOCK,{x->0}))
         assertFails { AssertDataOpcEqual(dopc,dopc1) }
 

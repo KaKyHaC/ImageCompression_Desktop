@@ -250,7 +250,7 @@ public class FileStream {
             for (int i = 0; i < w; i++) {
                 for (int j = 0; j < h; j++) {
                     // WriteStringToStream(bw,GetStringOfBase(a[i][j]));
-                    for(short val:a[i][j].FromBaseToString())
+                    for(short val:a[i][j].FromBaseToArray())
                     {
                         bw.writeShort(val);
                     }
@@ -270,7 +270,7 @@ public class FileStream {
                     for (int i1 = 0; i1 < 8; i1++) {
                         code[i1] = br.readShort();
                     }
-                    a[i][j].FromStringToBase(code);
+                    a[i][j].FromArrayToBase(code);
                 }
             }
         }catch (IOException r){
@@ -470,7 +470,7 @@ public class FileStream {
 
             for (; i < w; IndexI+=param.n,i=IndexI,IndexJ=0,j=IndexJ) {
                 for (; j < h; i=IndexI,IndexJ+=param.m,j=IndexJ) {
-                    for(short val:a[i][j].FromBaseToString())
+                    for(short val:a[i][j].FromBaseToArray())
                     {
                         bw.writeShort(val);
                     }
@@ -497,7 +497,7 @@ public class FileStream {
                     for (int x = 0; x < param.n && i < w; x++, i++) {
                         j = IndexJ;
                         for (int b = 0; b < param.m && j < h; b++, j++) {
-                            a[i][j].FromStringToBase(code);
+                            a[i][j].FromArrayToBase(code);
                         }
                     }
 
