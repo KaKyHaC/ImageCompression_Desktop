@@ -1,84 +1,74 @@
-package ImageCompression.Utils.Objects;
+package ImageCompression.Utils.Objects
 
-import java.math.BigInteger;
-import java.util.Vector;
+import java.math.BigInteger
+import java.util.Vector
 
 /**
  * Created by Димка on 27.09.2016.
  */
-public class DataOPC {
-    final static int SIZEOFBLOCK=8;
+class DataOPC {
 
-    public short [] base;
-    public boolean [][] sign;
-    public short DC;
-    public BigInteger N;
-    public Vector<Long> Code;
+    var base: ShortArray
+    var sign: Array<BooleanArray>
+    var dc: Short = 0
+    var N: BigInteger
+    var vectorCode: Vector<Long>
 
-    public DataOPC() {
-        base=new short[SIZEOFBLOCK];
-        sign=new boolean[SIZEOFBLOCK][SIZEOFBLOCK];
-        N=new BigInteger("0");
-        Code=new Vector<Long>();
+    init {
+        base = ShortArray(SIZEOFBLOCK)
+        sign = Array(SIZEOFBLOCK) { BooleanArray(SIZEOFBLOCK) }
+        N = BigInteger("0")
+        vectorCode = Vector()
     }
 
 
-    public byte[] BinaryStringGet() {
-        return N.toByteArray();
-    }
-    public void BinaryStringSet(byte[] code) {
-        N=new BigInteger(code);
+    fun BinaryStringGet(): ByteArray {
+        return N.toByteArray()
     }
 
-    public byte[] SignToString() {
-        byte [] res=new byte[SIZEOFBLOCK];
-        for(int i=0;i<SIZEOFBLOCK;i++)
-        {
-            for(int j=0;j<SIZEOFBLOCK;j++)
-            {
-                res[i]<<=1;
-                if(sign[i][j]){
-                    res[i]|=1;
+    fun BinaryStringSet(code: ByteArray) {
+        N = BigInteger(code)
+    }
+
+    fun SignToString(): ByteArray {
+        val res = ByteArray(SIZEOFBLOCK)
+        for (i in 0 until SIZEOFBLOCK) {
+            for (j in 0 until SIZEOFBLOCK) {
+                res[i] = res[i] shl 1
+                if (sign[i][j]) {
+                    res[i] = res[i] or 1
                 }
             }
         }
-        return res;
+        return res
     }
-    public void SingFromString(byte[] s) {
-        for(int i=0;i<SIZEOFBLOCK;i++)
-        {
-            for(int j=SIZEOFBLOCK-1;j>=0;j--)
-            {
-                sign[i][j]=((s[i]&1)==1);
-                s[i]>>=1;
+
+    fun SingFromString(s: ByteArray) {
+        for (i in 0 until SIZEOFBLOCK) {
+            for (j in SIZEOFBLOCK - 1 downTo 0) {
+                sign[i][j] = s[i] and 1 == 1
+                s[i] = s[i] shr 1
             }
         }
     }
 
-    public short[] FromBaseToString() {
-       return base;
-    }
-    public void FromStringToBase(short[] b) {
-        base=b;
+    fun FromBaseToString(): ShortArray {
+        return base
     }
 
-    public short getDC() {
-        return DC;
-    }
-    public void setDC(short DC) {
-        this.DC = DC;
+    fun FromStringToBase(b: ShortArray) {
+        base = b
     }
 
-    public Vector<Long> getVectorCode(){
-        return Code;
+    fun toString(flag: Flag): String {
+        val sb = StringBuilder()
+        for (b in FromBaseToString())
+            sb.append(b.toInt())
+
+        return sb.toString()
     }
-    public void setVectorCode(Vector<Long> v)
-    {
-        Code=v;
-    }
 
-
-    public String toString(Flag flag){
-
+    companion object {
+        internal val SIZEOFBLOCK = 8
     }
 }

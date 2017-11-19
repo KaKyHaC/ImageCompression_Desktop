@@ -43,12 +43,13 @@ public class OPCMultiThread { //singelton
 //        short[] base=new short[SIZEOFBLOCK];
         for(int i=0;i<SIZEOFBLOCK;i++)
         {
-            dataOPC.base[i]=(dataOrigin[i][0]);
+            assert (dataOrigin[i][0]<(short)(Byte.MAX_VALUE&0xFF));
+            dataOPC.base[i]=(byte)(dataOrigin[i][0]);
             for(int j=0;j<SIZEOFBLOCK;j++)
             {
                 if(dataOPC.base[i]<(dataOrigin[i][j]))
                 {
-                    dataOPC.base[i]=(dataOrigin[i][j]);
+                    dataOPC.base[i]=(byte)(dataOrigin[i][j]);
                 }
             }
             dataOPC.base[i]++;
@@ -92,7 +93,6 @@ public class OPCMultiThread { //singelton
     private static  void DCminus(short[][]dataOrigin,DataOPC dataOPC){
         dataOPC.DC=(dataOrigin[0][0]);
         dataOrigin[0][0]=0;
-
     }
     private static  void DCplus(short[][]dataOrigin,DataOPC dataOPC){
         dataOrigin[0][0]=dataOPC.DC;
@@ -209,8 +209,6 @@ public class OPCMultiThread { //singelton
                     res+=base*(dataOrigin[i][j]);
                 }
                 base=bufbase;
-
-
             }
         }
         dataOPC.Code.add(res);

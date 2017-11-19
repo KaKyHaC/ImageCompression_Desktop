@@ -25,6 +25,6 @@ class BoxOfOpc {
 
     }
     private fun writeDataOpcToStream(dataOPC: DataOPC,dos: DataOutputStream,flag: Flag){
-        dataOPC.
+
     }
 }
