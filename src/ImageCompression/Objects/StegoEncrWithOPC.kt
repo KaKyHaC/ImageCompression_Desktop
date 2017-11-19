@@ -5,19 +5,19 @@ import ImageCompression.Utils.Functions.Encryption
 import ImageCompression.Utils.Functions.Steganography
 import ImageCompression.Utils.Objects.Flag
 
-class ModuleOPC {
-    private var opcs: BoxOfOPC
+class StegoEncrWithOPC {
+    private var opcs: ModuleOPC
     var isMatrix=false
         private set
     var isOPCS=false
         private set
 
     constructor(matrix: Matrix){
-        opcs= BoxOfOPC(matrix)
+        opcs= ModuleOPC(matrix)
         isMatrix=true
     }
-    constructor(boxOfOPC: BoxOfOPC, flag: Flag){
-        this.opcs=boxOfOPC
+    constructor(moduleOPC: ModuleOPC, flag: Flag){
+        this.opcs= moduleOPC
         isOPCS=true
     }
     var message:String?=null
@@ -39,7 +39,7 @@ class ModuleOPC {
         progressListener?.invoke(80)
 
         if(opcs.flag.isPassword&&password!=null)
-            Encryption.encode(opcs,password)
+            Encryption.encode(opcs.boxOfOpc,password)
         progressListener?.invoke(100)
 
         isOPCS=true
@@ -51,7 +51,7 @@ class ModuleOPC {
         progressListener?.invoke(0)
 
         if(opcs.flag.isPassword&&password!=null)
-            Encryption.encode(opcs,password)
+            Encryption.encode(opcs.boxOfOpc,password)
         progressListener?.invoke(10)
 
         reverseOpc(isAsync,progressListener)
@@ -92,7 +92,7 @@ class ModuleOPC {
         assert(isMatrix)
         return opcs.matrix
     }
-    fun getOPCS(isAsync: Boolean=true): BoxOfOPC {
+    fun getOPCS(isAsync: Boolean=true): ModuleOPC {
         if(!isOPCS)
             FromMatrixToOpcs(isAsync)
 

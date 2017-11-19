@@ -1,6 +1,7 @@
 package ImageCompression.Objects;
 
 
+import ImageCompression.Containers.BoxOfOpc;
 import ImageCompression.Containers.Matrix;
 import ImageCompression.Utils.Functions.OPCMultiThread;
 import ImageCompression.Utils.Objects.DataOPC;
@@ -20,32 +21,31 @@ import static ImageCompression.Utils.Functions.OPCMultiThread.SIZEOFBLOCK;
  * Created by Димка on 09.10.2016.
  */
 
-public class BoxOfOPC {
+public class ModuleOPC {
 
-    private DataOPC[][] a,b,c;
+    private BoxOfOpc boxOfOpc;
     private int widthOPC,heightOPC;
     private Matrix matrix;
     private Flag flag;
     private boolean isMatrix=false;
     private boolean isOpcs=false;
 
-    public BoxOfOPC(final Matrix matrix){
+    public ModuleOPC(final Matrix matrix){
         this.matrix=matrix;
         isMatrix=true;
         this.flag=matrix.f;
 
         sizeOpcCalculate(matrix.Width,matrix.Height);
         int k=(matrix.f.isEnlargement())?2:1;
-        a=new DataOPC[widthOPC][heightOPC];
-        b=new DataOPC[widthOPC/k][heightOPC/k];
-        c=new DataOPC[widthOPC/k][heightOPC/k];
+        boxOfOpc=new BoxOfOpc();
+        boxOfOpc.setA(new DataOPC[widthOPC][heightOPC]);
+        boxOfOpc.setB(new DataOPC[widthOPC/k][heightOPC/k]);
+        boxOfOpc.setC(new DataOPC[widthOPC/k][heightOPC/k]);
     }
-    public BoxOfOPC(DataOPC[][] a, DataOPC[][]b, DataOPC[][]c, Flag flag){
-        this.a=a;
-        this.b=b;
-        this.c=c;
-        widthOPC=a.length;
-        heightOPC=a[0].length;
+    public ModuleOPC(BoxOfOpc boxOfOpc, Flag flag){
+        this.boxOfOpc=boxOfOpc;
+        widthOPC=boxOfOpc.getA().length;
+        heightOPC=boxOfOpc.getA().length;
         isOpcs=true;
         this.flag=flag;
         this.matrix=new Matrix(widthOPC*SIZEOFBLOCK,heightOPC*SIZEOFBLOCK,flag);
@@ -124,9 +124,9 @@ public class BoxOfOPC {
     public void directOPC(){
         if(!isMatrix)
             return;
-        a=directOPC(matrix.a);
-        b=directOPC(matrix.b);
-        c=directOPC(matrix.c);
+        boxOfOpc.setA(directOPC(matrix.a));
+        boxOfOpc.setB(directOPC(matrix.b));
+        boxOfOpc.setC(directOPC(matrix.c));
 
         isOpcs=true;
     }
@@ -134,9 +134,9 @@ public class BoxOfOPC {
         if(!isOpcs)
             return;
 
-        matrix.a=reverceOPC(a);
-        matrix.b=reverceOPC(b);
-        matrix.c=reverceOPC(c);
+        matrix.a=reverceOPC(boxOfOpc.getA());
+        matrix.b=reverceOPC(boxOfOpc.getB());
+        matrix.c=reverceOPC(boxOfOpc.getC());
 
         isMatrix=true;
     }
@@ -153,9 +153,9 @@ public class BoxOfOPC {
         futures.add(executorService.submit(()->directOPC(matrix.c)));
 
             try {
-                a=futures.get(0).get();
-                b=futures.get(1).get();
-                c=futures.get(2).get();
+                boxOfOpc.setA(futures.get(0).get());
+                boxOfOpc.setB(futures.get(1).get());
+                boxOfOpc.setC(futures.get(2).get());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (ExecutionException e) {
@@ -170,9 +170,9 @@ public class BoxOfOPC {
         ExecutorService executorService = Executors.newFixedThreadPool(3);
         List<Future<short[][]>> futures=new ArrayList<Future<short[][]>>();
 
-        futures.add(executorService.submit(()->reverceOPC(a)));
-        futures.add(executorService.submit(()->reverceOPC(b)));
-        futures.add(executorService.submit(()->reverceOPC(c)));
+        futures.add(executorService.submit(()->reverceOPC(boxOfOpc.getA())));
+        futures.add(executorService.submit(()->reverceOPC(boxOfOpc.getB())));
+        futures.add(executorService.submit(()->reverceOPC(boxOfOpc.getC())));
 
 
         try {
@@ -190,9 +190,9 @@ public class BoxOfOPC {
     public void directOpcGlobalBase(int n,int m){
         if(!isMatrix)
             return;
-        directOpcGlobalBase(n,m,matrix.a,a ); //TODO set a
-        directOpcGlobalBase(n,m,matrix.b,b);
-        directOpcGlobalBase(n,m,matrix.c,c);
+        directOpcGlobalBase(n,m,matrix.a,boxOfOpc.getA()); //TODO set a
+        directOpcGlobalBase(n,m,matrix.b,boxOfOpc.getB());
+        directOpcGlobalBase(n,m,matrix.c,boxOfOpc.getC());
 
         isOpcs=true;
     }
@@ -300,31 +300,15 @@ public class BoxOfOPC {
             return matrix;
         return null;
     }
-    public DataOPC[][] getDopcA(){
+
+    public BoxOfOpc getBoxOfOpc() {
         if(!isOpcs)
             directOPC();
 
         if(isOpcs)
-            return a;
+            return boxOfOpc;
         return null;
     }
-    public DataOPC[][] getDopcB(){
-        if(!isOpcs)
-            directOPC();
-
-        if(isOpcs)
-            return b;
-        return null;
-    }
-    public DataOPC[][] getDopcC(){
-        if(!isOpcs)
-            directOPC();
-
-        if(isOpcs)
-            return c;
-        return null;
-    }
-
     public Flag getFlag() {
         return flag;
     }
