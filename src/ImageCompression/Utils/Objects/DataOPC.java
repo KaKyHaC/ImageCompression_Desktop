@@ -34,7 +34,7 @@ public class DataOPC {
     }
 
     public byte[] FromSignToArray() {
-        byte [] res=new byte[SIZEOFBLOCK/2];
+        byte [] res=new byte[SIZEOFBLOCK];
         for(int i=0;i<SIZEOFBLOCK;i++)
         {
             for(int j=0;j<SIZEOFBLOCK;j++)
@@ -59,9 +59,7 @@ public class DataOPC {
     }
 
     public byte[] FromBaseToArray() {
-        int ofset=SIZEOFBLOCK/2;
-
-        byte[] res=new byte[SIZEOFBLOCK/2];
+        byte[] res=new byte[SIZEOFBLOCK];
         for(int i=0;i<res.length;i++){
             res[i]=(byte)base[i];
         }

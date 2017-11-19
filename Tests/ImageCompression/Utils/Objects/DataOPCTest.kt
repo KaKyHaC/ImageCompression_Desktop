@@ -75,10 +75,10 @@ class DataOPCTest {
         dopc.Code=DataOPC().Code
         assertFails { AssertDataOpcEqual(dopc1,dopc) }
 
-        f.isLongCode=false
-        val s1=dopc.toString(f)
-        dopc1.valueOf(s1,f)
-        AssertDataOpcEqual(dopc,dopc1)
+//        f.isLongCode=false
+//        val s1=dopc.toString(f)
+//        dopc1.valueOf(s1,f)
+//        AssertDataOpcEqual(dopc,dopc1)
     }
 
     @Test
