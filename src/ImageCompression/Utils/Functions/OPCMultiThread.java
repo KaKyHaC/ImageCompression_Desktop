@@ -35,7 +35,6 @@ public class OPCMultiThread { //singelton
             DCplus(dataOrigin,dataOPC);
         
         MakeSigned(dataOrigin,dataOPC);
-
     }
 
 
@@ -80,8 +79,7 @@ public class OPCMultiThread { //singelton
         {
             for(int j=0;j<SIZEOFBLOCK;j++)
             {
-                if(dataOPC.sign[i][j]==false)
-                {
+                if(!dataOPC.sign[i][j]) {
                     dataOrigin[i][j]=(short)(dataOrigin[i][j]*(-1));
                 }
 

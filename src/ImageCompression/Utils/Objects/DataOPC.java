@@ -304,4 +304,9 @@ public class DataOPC {
         return true;
     }
 
+    public long getByteSize(Flag flag){
+        ByteVector vector=new ByteVector(10);
+        toByteVector(vector,flag);
+        return vector.getSize();
+    }
 }
