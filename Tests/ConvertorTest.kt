@@ -1,9 +1,13 @@
+import ImageCompression.Containers.BoxOfOpc
 import ImageCompression.Containers.Matrix
 import ImageCompression.Containers.State
 import ImageCompression.Objects.ModuleDCT
+import ImageCompression.Objects.ModuleOPC
 import ImageCompression.Utils.Objects.Flag
 import ImageCompression.Objects.MyBufferedImage
+import ImageCompression.Objects.StegoEncrWithOPC
 import ImageCompression.Utils.Functions.Steganography
+import ImageCompression.Utils.Objects.ByteVector
 import org.junit.Before
 
 import org.junit.Assert.*
@@ -11,6 +15,7 @@ import org.junit.Test
 import java.io.File
 import java.util.*
 import javax.imageio.ImageIO
+import kotlin.test.assertFails
 import kotlin.test.assertTrue
 
 class ConvertorTest {
@@ -18,11 +23,11 @@ class ConvertorTest {
     val pathToBmpRes:String="/files/desktest.bmp"
 
     val size=200
-    var matrix:Matrix= Matrix(size,size, Flag("0"))
+    var matrix:Matrix= Matrix(size,size, Flag("0"),State.RGB)
+    val delta=7
 
     @Before
     fun setUp() {
-        matrix.state=State.RGB
         val rand=Random()
         forEach(size,size,{x, y ->
             matrix.a[x][y]=rand.nextInt(255).toShort()
@@ -94,11 +99,92 @@ class ConvertorTest {
         val res= String(Steganography.ReadMassageFromMatrix(matrix).toByteArray())
         assertEquals(m,res)
     }
+    @Test
+    fun TestModuleDCT(){
+        matrix.f.isLongCode=true
+        matrix.f.isDC=true
+        matrix.f.isOneFile=true
+        val cpy=matrix.copy()
+        AssertMatrixInRange(cpy,matrix,0)
+
+        val myImage=MyBufferedImage(matrix)
+        val ybr=myImage.yCbCrMatrix
+        val ybrCpy=ybr.copy()
+        assertFails { AssertMatrixInRange(cpy,ybr,1) }
+        AssertMatrixInRange(ybrCpy,ybr,0)
+
+        val mDCT=ModuleDCT(ybr)
+        val dct=mDCT.getDCTMatrix(true)
+        val dctCpy=dct.copy()
+        assertFails { AssertMatrixInRange(cpy,dct,1) }
+        assertFails { AssertMatrixInRange(ybrCpy,dct,1) }
+
+        val seOpc=StegoEncrWithOPC(dct)
+        val opcs=seOpc.getOPCS(true)
+        val box=opcs.boxOfOpc
+        val f=opcs.flag
+
+        val seOpc2=StegoEncrWithOPC(ModuleOPC(box,f),f)
+        val dctres=seOpc2.getMatrix(true)
+        AssertMatrixInRange(dctres,dctCpy,0)
+
+        val mDCT2=ModuleDCT(dctres)
+        val ynlres=mDCT2.getYCbCrMatrix(true)
+        AssertMatrixInRange(ynlres,ybrCpy,delta)
+
+        val myIm2=MyBufferedImage(ynlres)
+        val rgb=myIm2.rgbMatrix
+        AssertMatrixInRange(rgb,cpy,delta)
+
+    }
+    @Test
+    fun TestFullModule(){
+        matrix.f.isLongCode=true
+        matrix.f.isDC=true
+        matrix.f.isOneFile=true
+        val cpy=matrix.copy()
+        AssertMatrixInRange(cpy,matrix,0)
+
+        val myImage=MyBufferedImage(matrix)
+        val ybr=myImage.yCbCrMatrix
+        val ybrCpy=ybr.copy()
+        assertFails { AssertMatrixInRange(cpy,ybr,1) }
+        AssertMatrixInRange(ybrCpy,ybr,0)
+
+        val mDCT=ModuleDCT(ybr)
+        val dct=mDCT.getDCTMatrix(true)
+        val dctCpy=dct.copy()
+        assertFails { AssertMatrixInRange(cpy,dct,1) }
+        assertFails { AssertMatrixInRange(ybrCpy,dct,1) }
+
+        val seOpc=StegoEncrWithOPC(dct)
+        val opcs=seOpc.getOPCS(true)
+        val box=opcs.boxOfOpc
+        val vb=ByteVector()
+        box.writeToVector(vb,opcs.flag)
+        //----
+        val f=opcs.flag
+        val rBox=BoxOfOpc()
+        rBox.readFromVector(vb,f)
+        assertEquals(rBox,box)
+
+        val seOpc2=StegoEncrWithOPC(ModuleOPC(rBox,f),f)
+        val dctres=seOpc2.getMatrix(true)
+        AssertMatrixInRange(dctres,dctCpy,0)
+
+        val mDCT2=ModuleDCT(dctres)
+        val ynlres=mDCT2.getYCbCrMatrix(true)
+        AssertMatrixInRange(ynlres,ybrCpy,delta)
+
+        val myIm2=MyBufferedImage(ynlres)
+        val rgb=myIm2.rgbMatrix
+        AssertMatrixInRange(rgb,cpy,delta)
+    }
 
 
 
     fun Matrix.copy():Matrix{
-        var res=Matrix(this.Width,this.Height, Flag(this.f.flag))
+        var res=Matrix(this.Width,this.Height, Flag(this.f.flag),state)
         forEach(Width,Height,{x,y->
             res.a[x][y]=a[x][y]
             res.b[x][y]=b[x][y]
@@ -107,8 +193,12 @@ class ConvertorTest {
         return res
     }
     fun AssertMatrixInRange(m:Matrix,m1:Matrix,delta:Int,inRange:Boolean=true){
-        assertEquals(m.Width,m1.Width)
-        assertEquals(m.Height,m1.Height)
+        if(inRange) {
+            assertEquals("m1.State=${m.state} m2.State=${m1.state}"
+                    , m.state, m1.state)
+            assertEquals(m.Width, m1.Width)
+            assertEquals(m.Height, m1.Height)
+        }
 
         AssertArrayArrayInRange(m.a,m1.a,delta,inRange)
         AssertArrayArrayInRange(m.b,m1.b,delta,inRange)

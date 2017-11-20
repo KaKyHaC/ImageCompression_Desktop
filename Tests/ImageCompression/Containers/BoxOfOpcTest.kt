@@ -1,5 +1,6 @@
 package ImageCompression.Containers
 
+import ImageCompression.Utils.Objects.ByteVector
 import ImageCompression.Utils.Objects.DataOPC
 import ImageCompression.Utils.Objects.DataOPC.SIZEOFBLOCK
 import ImageCompression.Utils.Objects.Flag
@@ -29,6 +30,17 @@ class BoxOfOpcTest{
         assertFails { assertEquals(box,box1) }
 
         val box1=box.copy()
+        assertEquals(box,box1)
+    }
+    @Test
+    fun TestVector(){
+        init(box)
+        var bv=ByteVector()
+
+        box.writeToVector(bv,flag)
+        assertFails { assertEquals(box,box1) }
+
+        box1.readFromVector(bv,flag)
         assertEquals(box,box1)
     }
 

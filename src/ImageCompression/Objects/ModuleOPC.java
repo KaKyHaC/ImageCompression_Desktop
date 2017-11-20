@@ -3,6 +3,7 @@ package ImageCompression.Objects;
 
 import ImageCompression.Containers.BoxOfOpc;
 import ImageCompression.Containers.Matrix;
+import ImageCompression.Containers.State;
 import ImageCompression.Utils.Functions.OPCMultiThread;
 import ImageCompression.Utils.Objects.DataOPC;
 import ImageCompression.Utils.Functions.DCTMultiThread;
@@ -48,7 +49,7 @@ public class ModuleOPC {
         heightOPC=boxOfOpc.getA().length;
         isOpcs=true;
         this.flag=flag;
-        this.matrix=new Matrix(widthOPC*SIZEOFBLOCK,heightOPC*SIZEOFBLOCK,flag);
+        this.matrix=new Matrix(widthOPC*SIZEOFBLOCK,heightOPC*SIZEOFBLOCK,flag, State.DCT);
     }
     private void sizeOpcCalculate(int Width,int Height) {
         widthOPC = Width / DCTMultiThread.SIZEOFBLOCK;

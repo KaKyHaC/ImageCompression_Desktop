@@ -9,10 +9,11 @@ public class Matrix
     public Flag f;
     public int Width, Height;
 
-    public Matrix(int width, int height,Flag flag) {
+    public Matrix(int width, int height,Flag flag,State state) {
         this.f=flag;
         Width = width;
         Height = height;
+        this.state=state;
 
         a=new short[width][height];
         b=new short[width][height];

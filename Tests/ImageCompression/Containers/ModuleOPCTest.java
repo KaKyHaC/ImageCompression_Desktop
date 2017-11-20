@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class ModuleOPCTest {
     int size=200;
     Flag flag=new Flag("0");
-    Matrix matrix=new Matrix(size,size,flag);
+    Matrix matrix=new Matrix(size,size,flag,State.RGB);
     @Before
     public void setUp() throws Exception {
         for(int i=0;i<size;i++){
@@ -60,8 +60,8 @@ public class ModuleOPCTest {
 
     @Test
     public void TestAssertFun(){
-        Matrix a=new Matrix(size,size,flag);
-        Matrix b=new Matrix(size,size,flag);
+        Matrix a=new Matrix(size,size,flag,State.RGB);
+        Matrix b=new Matrix(size,size,flag,State.RGB);
         AssertMatrixInRange(a,b,0,true);
 
         a.a[0][0]=1;

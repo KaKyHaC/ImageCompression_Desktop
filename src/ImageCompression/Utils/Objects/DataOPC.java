@@ -294,8 +294,11 @@ public class DataOPC {
                     return false;
             }
         }
+        if(d.Code.size()!=Code.size())
+            return false;
+
         for (int i=0;i<Code.size();i++){
-            if(d.Code.elementAt(i)!=Code.elementAt(i))
+            if(!(d.Code.get(i).equals(Code.get(i))))
                 return false;
         }
         return true;

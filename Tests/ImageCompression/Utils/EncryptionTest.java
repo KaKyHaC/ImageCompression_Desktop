@@ -1,6 +1,7 @@
 package ImageCompression.Utils;
 
 import ImageCompression.Containers.BoxOfOpc;
+import ImageCompression.Containers.State;
 import ImageCompression.Objects.ModuleOPC;
 import ImageCompression.Containers.Matrix;
 import ImageCompression.Utils.Objects.DataOPC;
@@ -14,7 +15,7 @@ import static org.junit.Assert.*;
 public class EncryptionTest {
     ModuleOPC moduleOPC, _moduleOPC;
     String key="dimas";
-    Matrix matrix=new Matrix(200,200,new Flag("0"));
+    Matrix matrix=new Matrix(200,200,new Flag("0"), State.RGB);
     @Before
     public void setUp() throws Exception {
         moduleOPC =new ModuleOPC(matrix);

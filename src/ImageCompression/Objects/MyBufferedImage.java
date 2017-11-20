@@ -14,8 +14,7 @@ public class MyBufferedImage {
 
     public MyBufferedImage(BufferedImage _b, Flag flag) {
         bitmap = _b;
-        matrix = new Matrix(bitmap.getWidth(), bitmap.getHeight(), flag);
-        matrix.state = State.bitmap;
+        matrix = new Matrix(bitmap.getWidth(), bitmap.getHeight(), flag,State.bitmap);
     }
     public MyBufferedImage(Matrix matrix) throws Exception {
         this.matrix = matrix;
