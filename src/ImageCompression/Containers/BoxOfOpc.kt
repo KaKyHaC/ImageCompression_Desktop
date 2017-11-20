@@ -63,7 +63,7 @@ class BoxOfOpc {
         if(!flag.isOneFile){
             for(arr in this){
                 for(dopc in arr){
-                    dopc.FromBaseToVector(vector)
+                    dopc.FromBaseToVector(vector,flag)
                 }
             }
         }
@@ -72,7 +72,7 @@ class BoxOfOpc {
         if(!flag.isOneFile){
             for(arr in this){
                 for(dopc in arr){
-                    dopc.FromVectorToBase(vector)
+                    dopc.FromVectorToBase(vector,flag)
                 }
             }
         }

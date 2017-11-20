@@ -106,10 +106,16 @@ public class DataOPC {
         }
         return res;
     }
-    public void FromBaseToVector(ByteVector vector){
-        for(int i=0;i<SIZEOFBLOCK;i++){
+    public void FromBaseToVector(ByteVector vector,Flag flag){
+        int i=0;
+        if(!flag.isDC()){
+            vector.append(base[i++]);
+        }
+        while (i<SIZEOFBLOCK){
+//            if(base[i]>=0xff)
+//                System.out.println("base at "+i+"="+base[i]);
             assert (base[i]<0xff);
-            vector.append((byte)base[i]);
+            vector.append((byte)base[i++]);
         }
     }
     public void FromArrayToBase(byte[] b) {
@@ -117,9 +123,13 @@ public class DataOPC {
             base[i]=(short)((b[i])&0xff);
         }
     }
-    public void FromVectorToBase(ByteVector vector){
-        for(int i=0;i<SIZEOFBLOCK;i++) {
-            base[i]=(short)((vector.getNext())&0xff);
+    public void FromVectorToBase(ByteVector vector,Flag flag){
+        int i=0;
+        if(!flag.isDC()){
+            base[i++]=vector.getNextShort();
+        }
+        while (i<SIZEOFBLOCK) {
+            base[i++]=(short)((vector.getNext())&0xff);
         }
     }
 
@@ -247,7 +257,7 @@ public class DataOPC {
             FromDcToVector(vector);
 
         if(!f.isGlobalBase()&&f.isOneFile())
-            FromBaseToVector(vector);
+            FromBaseToVector(vector,f);
 
         if(f.isLongCode())
             FromCodeToVector(vector);
@@ -263,7 +273,7 @@ public class DataOPC {
             FromVectorToDc(vector);
 
         if(!f.isGlobalBase()&&f.isOneFile())
-            FromVectorToBase(vector);
+            FromVectorToBase(vector,f);
 
         if(f.isLongCode())
             FromVectorToCode(vector);

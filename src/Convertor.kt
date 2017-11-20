@@ -1,5 +1,6 @@
 import ImageCompression.Objects.*
 import ImageCompression.Utils.Objects.Flag
+import java.awt.image.BufferedImage
 import java.io.File
 import javax.imageio.ImageIO
 import java.util.*
@@ -11,6 +12,7 @@ class Convertor() {
         publishProgress(0)
         val bmp = ImageIO.read(File(pathToBmp))
         publishProgress(10)
+        view?.invoke(bmp)
         val mi = MyBufferedImage(bmp, flag)
         val matrix = mi.yenlMatrix
         publishProgress(30)
@@ -41,15 +43,11 @@ class Convertor() {
 
         val res = af.bufferedImage
         publishProgress(90);
+        view?.invoke(res)
 
         var file=File(getPathWithoutType(pathToBar) + "res.bmp")
         file.createNewFile()
-        try {
-            ImageIO.write(res, "bmp", file)
-        }catch (e:Exception){
-            System.out.println(e.message)
-        }
-
+        ImageIO.write(res, "bmp", file)
         publishProgress(100);
     }
 
@@ -65,4 +63,5 @@ class Convertor() {
         for( l in listeners)
             l(value)
     }
+    var view:((image:BufferedImage)->Unit)?=null
 }

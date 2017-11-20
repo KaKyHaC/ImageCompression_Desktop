@@ -87,6 +87,13 @@ public class MainForm extends JFrame{
             });
             return null;
         });
+        convertor.setView(bufferedImage ->{
+            ImageIcon imageIcon=new ImageIcon(bufferedImage);
+            lInfo.setText("convertor:"+" \n "+imageIcon.getIconWidth()+"x"+imageIcon.getIconHeight());
+            Image image1=imageIcon.getImage().getScaledInstance(600,600,Image.SCALE_DEFAULT);
+            image.setIcon(new ImageIcon(image1));
+            return null;
+        } );
     }
     private void onFileSelected(File file){
         String name=file.getName();

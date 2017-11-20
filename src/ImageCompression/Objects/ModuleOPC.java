@@ -46,7 +46,7 @@ public class ModuleOPC {
     public ModuleOPC(BoxOfOpc boxOfOpc, Flag flag){
         this.boxOfOpc=boxOfOpc;
         widthOPC=boxOfOpc.getA().length;
-        heightOPC=boxOfOpc.getA().length;
+        heightOPC=boxOfOpc.getA()[0].length;
         isOpcs=true;
         this.flag=flag;
         this.matrix=new Matrix(widthOPC*SIZEOFBLOCK,heightOPC*SIZEOFBLOCK,flag, State.DCT);

@@ -20,13 +20,15 @@ class ConvertorTest {
     val pathToBmpRes:String="/files/desktest.bmp"
 
     val size=200
-    var matrix:Matrix= Matrix(size,size, Flag("0"), State.RGB)
-    val delta=7
+    val w=1920
+    val h=1080
+    var matrix:Matrix= Matrix(w,h, Flag("0"), State.RGB)
+    val delta=8
 
     @Before
     fun setUp() {
         val rand=Random()
-        forEach(size,size,{x, y ->
+        forEach(w,h,{x, y ->
             matrix.a[x][y]=rand.nextInt(255).toShort()
             matrix.c[x][y]=rand.nextInt(255).toShort()
             matrix.b[x][y]=rand.nextInt(255).toShort()
