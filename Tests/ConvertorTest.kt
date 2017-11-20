@@ -139,6 +139,7 @@ class ConvertorTest {
     }
     @Test
     fun TestFullModule(){
+        val t1=Date().time
         matrix.f.isLongCode=true
         matrix.f.isDC=true
         matrix.f.isOneFile=true
@@ -179,6 +180,9 @@ class ConvertorTest {
         val myIm2=MyBufferedImage(ynlres)
         val rgb=myIm2.rgbMatrix
         AssertMatrixInRange(rgb,cpy,delta)
+        val t2=Date().time
+
+        System.out.println("Time direct/reverse FullMode = ${t2-t1}")
     }
 
 
