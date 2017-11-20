@@ -79,19 +79,21 @@ class BoxOfOpc {
     fun Array<Array<DataOPC>>?.Equals(other:Any?):Boolean{
         if (this === other) return true
         val cl=other?.javaClass
-        if (javaClass != other?.javaClass) return false
+        val jc=this?.javaClass
+        if (this?.javaClass != other?.javaClass) return false
 
-        other as Array<Array<DataOPC>>?
-        if(this?.size!= other.size)
+        val buf:Array<Array<DataOPC>> = other as Array<Array<DataOPC>>?:return false
+        val buf1:Array<Array<DataOPC>> = this as Array<Array<DataOPC>>?:return false
+        if(buf1.size!= buf.size)
             return false
-        if(this[0].size!= other.get(0).size)
+        if(buf1[0].size!= buf.get(0).size)
             return false
 
-        val w=this.size
-        val h=this[0].size
+        val w=buf1.size
+        val h=buf1[0].size
         for(i in 0..w-1){
             for(j in 0..h-1){
-                if(this[w][h]!=other[w][h])
+                if(buf1[i][j]!=buf[i][j])
                     return false
             }
         }
@@ -105,11 +107,11 @@ class BoxOfOpc {
         box.c=c?.copy()
         return box
     }
-    fun Array<Array<DataOPC>>?.copy():Array<Array<DataOPC>>{
-        this as Array<Array<DataOPC>>
-        val w=this.size?:0
-        val h=this.get(0).size?:0
-        val arr=Array(w,{x->Array(h,{y-> this.get(x).get(y).copy()}) })
+    fun Array<Array<DataOPC>>?.copy():Array<Array<DataOPC>>?{
+        val buf:Array<Array<DataOPC>> = this?:return null
+        val w=buf.size?:0
+        val h=buf.get(0).size?:0
+        val arr=Array(w,{x->Array(h,{y-> buf.get(x).get(y).copy()}) })
         return arr
     }
     fun DataOPC.copy():DataOPC{
@@ -130,7 +132,7 @@ class BoxOfOpc {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-//        if (javaClass != other?.javaClass) return false
+        if (javaClass != other?.javaClass) return false
 
         other as BoxOfOpc
         if(!(this.a?.Equals(other.a)?:true))
