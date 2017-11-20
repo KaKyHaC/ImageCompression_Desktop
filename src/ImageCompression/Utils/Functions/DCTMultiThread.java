@@ -3,7 +3,7 @@ package ImageCompression.Utils.Functions;
 
 import ImageCompression.Constants.Cosine;
 import ImageCompression.Constants.QuantizationTable;
-import ImageCompression.Containers.TypeQuantization;
+import ImageCompression.Constants.TypeQuantization;
 
 public class DCTMultiThread {//singelton
 

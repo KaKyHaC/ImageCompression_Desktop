@@ -1,7 +1,7 @@
 package ImageCompression.Utils;
 
 import ImageCompression.Containers.BoxOfOpc;
-import ImageCompression.Containers.State;
+import ImageCompression.Constants.State;
 import ImageCompression.Objects.ModuleOPC;
 import ImageCompression.Containers.Matrix;
 import ImageCompression.Utils.Objects.DataOPC;

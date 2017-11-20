@@ -1,8 +1,8 @@
 package ImageCompression.Utils.Objects;
 
 
-import ImageCompression.Containers.State;
-import ImageCompression.Containers.TypeQuantization;
+import ImageCompression.Constants.State;
+import ImageCompression.Constants.TypeQuantization;
 import ImageCompression.Utils.Functions.DCTMultiThread;
 
 /**

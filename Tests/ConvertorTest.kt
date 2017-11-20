@@ -1,6 +1,6 @@
 import ImageCompression.Containers.BoxOfOpc
 import ImageCompression.Containers.Matrix
-import ImageCompression.Containers.State
+import ImageCompression.Constants.State
 import ImageCompression.Objects.ModuleDCT
 import ImageCompression.Objects.ModuleOPC
 import ImageCompression.Utils.Objects.Flag
@@ -23,7 +23,7 @@ class ConvertorTest {
     val pathToBmpRes:String="/files/desktest.bmp"
 
     val size=200
-    var matrix:Matrix= Matrix(size,size, Flag("0"),State.RGB)
+    var matrix:Matrix= Matrix(size,size, Flag("0"), State.RGB)
     val delta=7
 
     @Before

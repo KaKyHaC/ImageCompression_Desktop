@@ -1,5 +1,6 @@
 package ImageCompression.Containers;
 
+import ImageCompression.Constants.State;
 import ImageCompression.Utils.Objects.Flag;
 
 public class Matrix

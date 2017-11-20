@@ -1,7 +1,7 @@
 package ImageCompression.Objects;
 
 import ImageCompression.Containers.Matrix;
-import ImageCompression.Containers.State;
+import ImageCompression.Constants.State;
 import ImageCompression.Utils.Objects.Flag;
 
 import java.awt.image.BufferedImage;

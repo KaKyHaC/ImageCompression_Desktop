@@ -9,7 +9,7 @@ import kotlin.experimental.or
  * Non save class
  * Iterator for Array<Byte>
  */
-class ByteVector(size:Int=10):Iterable<Byte> {
+class ByteVector:Iterable<Byte> {
     companion object {
         @JvmStatic val BITS_IN_BYTE=8
     }
@@ -21,7 +21,7 @@ class ByteVector(size:Int=10):Iterable<Byte> {
     var curIndex:Int
         private set;
 
-    init {
+    constructor(size:Int=10){
         maxSize=size
         if(size<=0)
             maxSize=10
@@ -29,6 +29,12 @@ class ByteVector(size:Int=10):Iterable<Byte> {
         val zero:Byte = 0
         bytes= Array(maxSize,{ x->zero})
         this.size=0
+        curIndex=0
+    }
+    constructor(byteArray: ByteArray){
+        maxSize=byteArray.size
+        bytes= Array(maxSize,{ x->byteArray[x]})
+        this.size=byteArray.size
         curIndex=0
     }
 

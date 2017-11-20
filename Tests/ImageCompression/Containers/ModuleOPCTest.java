@@ -1,5 +1,6 @@
 package ImageCompression.Containers;
 
+import ImageCompression.Constants.State;
 import ImageCompression.Objects.ModuleOPC;
 import ImageCompression.Utils.Objects.DataOPC;
 import ImageCompression.Utils.Objects.Flag;
@@ -13,7 +14,7 @@ import static org.junit.Assert.*;
 public class ModuleOPCTest {
     int size=200;
     Flag flag=new Flag("0");
-    Matrix matrix=new Matrix(size,size,flag,State.RGB);
+    Matrix matrix=new Matrix(size,size,flag, State.RGB);
     @Before
     public void setUp() throws Exception {
         for(int i=0;i<size;i++){

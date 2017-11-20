@@ -3,7 +3,7 @@ package ImageCompression.Objects;
 
 import ImageCompression.Containers.BoxOfOpc;
 import ImageCompression.Containers.Matrix;
-import ImageCompression.Containers.State;
+import ImageCompression.Constants.State;
 import ImageCompression.Utils.Functions.OPCMultiThread;
 import ImageCompression.Utils.Objects.DataOPC;
 import ImageCompression.Utils.Functions.DCTMultiThread;
