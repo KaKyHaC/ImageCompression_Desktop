@@ -117,7 +117,7 @@ class ConvertorTest {
         assertFails { AssertMatrixInRange(ybrCpy,dct,1) }
 
         val seOpc=StegoEncrWithOPC(dct)
-        val opcs=seOpc.getOPCS(true)
+        val opcs=seOpc.getModuleOPC()
         val box=opcs.boxOfOpc
         val f=opcs.flag
 
@@ -156,7 +156,7 @@ class ConvertorTest {
         assertFails { AssertMatrixInRange(ybrCpy,dct,1) }
 
         val seOpc=StegoEncrWithOPC(dct)
-        val opcs=seOpc.getOPCS(true)
+        val opcs=seOpc.getModuleOPC()
         val box=opcs.boxOfOpc
         val flag=opcs.flag
         val vb=ByteVector()
@@ -205,7 +205,7 @@ class ConvertorTest {
         assertFails { AssertMatrixInRange(ybrCpy,dct,1) }
 
         val seOpc=StegoEncrWithOPC(dct)
-        val opcs=seOpc.getOPCS(true)
+        val opcs=seOpc.getModuleOPC()
         val box=opcs.boxOfOpc
         val flag=opcs.flag
         //----

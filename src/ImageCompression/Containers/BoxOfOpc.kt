@@ -20,6 +20,8 @@ class BoxOfOpc {
         this.c=c
     }
 
+    //TODO global base
+
     fun writeToVector(vector: ByteVector,flag: Flag){
         a?.appendVectorOne(vector,flag)
         b?.appendVectorOne(vector,flag)

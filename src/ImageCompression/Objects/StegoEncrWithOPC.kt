@@ -1,5 +1,6 @@
 package ImageCompression.Objects
 
+import ImageCompression.Containers.BoxOfOpc
 import ImageCompression.Containers.Matrix
 import ImageCompression.Utils.Functions.Encryption
 import ImageCompression.Utils.Functions.Steganography
@@ -18,6 +19,10 @@ class StegoEncrWithOPC {
     }
     constructor(moduleOPC: ModuleOPC, flag: Flag){
         this.opcs= moduleOPC
+        isOPCS=true
+    }
+    constructor(boxOfOpc: BoxOfOpc, flag: Flag){
+        this.opcs= ModuleOPC(boxOfOpc,flag)
         isOPCS=true
     }
     var message:String?=null
@@ -92,11 +97,14 @@ class StegoEncrWithOPC {
         assert(isMatrix)
         return opcs.matrix
     }
-    fun getOPCS(isAsync: Boolean=true): ModuleOPC {
+    fun getBoxOfOpc(isAsync: Boolean=true): BoxOfOpc {
         if(!isOPCS)
             FromMatrixToOpcs(isAsync)
 
         assert(isOPCS)
+        return opcs.boxOfOpc
+    }
+    fun getModuleOPC():ModuleOPC{
         return opcs
     }
 
