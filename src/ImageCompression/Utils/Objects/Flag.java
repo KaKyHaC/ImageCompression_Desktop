@@ -7,13 +7,11 @@ package ImageCompression.Utils.Objects;
 public class Flag {
     final static int OneFile=16,Enlargement=32,DC=64,LongCode=128,GlobalBase=256,Password=512,Steganography=1024,Alignment=2048;
     private short f;
-    ;
 
     public Flag(String s) {
         f = Short.decode(s);
     }
 
-    ;
     public Flag(short val){
         f=val;
     }
@@ -31,15 +29,12 @@ public class Flag {
     }
 
     public void setQuantization(QuantizationState qs){
-
         switch (qs) {
             case Without:f&=(~3);
                 break;
             case First:f|=(1);f&=(~2);
                 break;
         }
-
-
     }
 
     public Encryption getEncryption(){
@@ -58,10 +53,6 @@ public class Flag {
             case First:f|=(4);f&=(~8);
                 break;
         }
-
-
-
-
     }
 
     public boolean isOneFile(){

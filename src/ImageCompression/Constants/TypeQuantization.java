@@ -1,4 +1,4 @@
-package ImageCompression.Containers;
+package ImageCompression.Constants;
 
 /**
  * Created by Димка on 07.08.2016.
