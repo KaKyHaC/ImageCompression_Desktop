@@ -2,27 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$TestFullAllModules$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$TestFullAllModules$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$TestFullAllModules$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$TestFullModule$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$TestFullModule$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$TestFullModule$3.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$setUp$1.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Objects/ModuleFile.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Objects/ModuleFile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Objects/ByteVectorFile.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Objects/ByteVectorFile.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$AssertArrayArrayInRange$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$AssertArrayArrayInRange$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$TestModuleDCT$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$TestModuleDCT$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$TestModuleDCT$2.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$TestModuleDCT$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$TestModuleDCT$3.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$TestModuleDCT$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$copy$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest$copy$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/DCTMultiThreadTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/DCTMultiThreadTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Functions/OPCMultiThread.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Functions/OPCMultiThread.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPC.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPC.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ConvertorTest.kt" afterPath="$PROJECT_DIR$/Tests/ConvertorTest.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ImageCompression/Utils/DCTMultiThreadTest.java" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Utils/DCTMultiThreadTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/ModuleFile.kt" afterPath="$PROJECT_DIR$/src/ImageCompression/Objects/ModuleFile.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/ByteVectorFile.kt" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/ByteVectorFile.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/DCTMultiThread.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/DCTMultiThread.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,8 +22,8 @@
       <file leaf-file-name="ModuleOPC.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="48" column="44" lean-forward="false" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
+            <state relative-caret-position="43">
+              <caret line="226" column="31" lean-forward="true" selection-start-line="226" selection-start-column="31" selection-end-line="226" selection-end-column="31" />
               <folding>
                 <element signature="method#ModuleOPC#0;class#ModuleOPC#0" expanded="false" />
                 <element signature="method#sizeOpcCalculate#0;class#ModuleOPC#0" expanded="false" />
@@ -49,7 +34,6 @@
                 <element signature="method#directOPCMultiThreads#0;class#ModuleOPC#0" expanded="false" />
                 <element signature="method#directOpcGlobalBase#0;class#ModuleOPC#0" expanded="false" />
                 <element signature="method#directOpcGlobalBase#1;class#ModuleOPC#0" expanded="false" />
-                <element signature="method#findAllBase#0;class#ModuleOPC#0" expanded="false" />
                 <element signature="method#setMaxBaseForAll#0;class#ModuleOPC#0" expanded="false" />
                 <element signature="method#findMaxInArry#0;class#ModuleOPC#0" expanded="false" />
                 <element signature="method#directOPCwithGlobalBase#0;class#ModuleOPC#0" expanded="false" />
@@ -60,11 +44,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="OPCMultiThread.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="DataOPC.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="99" column="5" lean-forward="false" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
+            <state relative-caret-position="225">
+              <caret line="113" column="30" lean-forward="false" selection-start-line="113" selection-start-column="30" selection-end-line="113" selection-end-column="30" />
               <folding>
                 <element signature="method#DataOPC#0;class#DataOPC#0" expanded="false" />
                 <element signature="method#FromVectorToBigInt#0;class#DataOPC#0" expanded="false" />
@@ -83,35 +77,6 @@
                 <element signature="method#toByteVector#0;class#DataOPC#0" expanded="false" />
                 <element signature="method#equals#0;class#DataOPC#0" expanded="false" />
                 <element signature="method#getByteSize#0;class#DataOPC#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BoxOfOpc.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ImageCompression/Containers/BoxOfOpc.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
-              <caret line="75" column="13" lean-forward="false" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
-              <folding>
-                <element signature="e#37#271#0" expanded="true" />
-                <element signature="n#!!block;n#BoxOfOpc#1;n#!!block;n#BoxOfOpc#0" expanded="false" />
-                <element signature="n#!!block;n#writeToVector#0;n#!!block;n#BoxOfOpc#0" expanded="false" />
-                <element signature="n#!!block;n#writeBaseToVector#0;n#!!block;n#BoxOfOpc#0" expanded="false" />
-                <element signature="n#!!block;n#readFromVector#0;n#!!block;n#BoxOfOpc#0" expanded="false" />
-                <element signature="n#!!block;n#readBaseFromVector#0;n#!!block;n#BoxOfOpc#0" expanded="false" />
-                <element signature="n#!!block;n#appendVectorOne#0;n#!!block;n#BoxOfOpc#0" expanded="false" />
-                <element signature="n#!!block;n#MatrixFromVectorOne#0;n#!!block;n#BoxOfOpc#0" expanded="false" />
-                <element signature="n#!!block;n#appendVectorTwo#0;n#!!block;n#BoxOfOpc#0" expanded="false" />
-                <element signature="e#2065#2227#1" expanded="false" />
-                <element signature="e#2095#2217#1" expanded="false" />
-                <element signature="e#2129#2203#1" expanded="false" />
-                <element signature="n#!!block;n#Equals#0;n#!!block;n#BoxOfOpc#0" expanded="false" />
-                <element signature="n#!!block;n#copy#0;n#!!block;n#BoxOfOpc#0" expanded="false" />
-                <element signature="n#!!block;n#copy#1;n#!!block;n#BoxOfOpc#0" expanded="false" />
-                <element signature="n#!!block;n#copy#2;n#!!block;n#BoxOfOpc#0" expanded="false" />
-                <element signature="n#!!block;n#equals#0;n#!!block;n#BoxOfOpc#0" expanded="false" />
-                <element signature="n#!!block;n#hashCode#0;n#!!block;n#BoxOfOpc#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -137,21 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FlagForm.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FlagForm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="28" column="50" lean-forward="false" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConvertorTest.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ConvertorTest.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/ConvertorTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="174" column="0" lean-forward="false" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
+            <state relative-caret-position="247">
+              <caret line="177" column="23" lean-forward="true" selection-start-line="177" selection-start-column="23" selection-end-line="177" selection-end-column="23" />
               <folding>
                 <element signature="n#!!block;n#TestReadWrite#0;n#!!block;n#ConvertorTest#0" expanded="false" />
                 <element signature="n#!!block;n#TestMyBufferedImageMatrix#0;n#!!block;n#ConvertorTest#0" expanded="false" />
@@ -277,7 +232,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Tests/ImageCompression/Objects/MyImageTest.java" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Objects/MyImage.java" />
         <option value="$PROJECT_DIR$/src/FlagSetting.form" />
@@ -317,17 +271,18 @@
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Utils/Objects/ByteVectorFileTest.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/Flag.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Objects/StegoEncrWithOPC.kt" />
-        <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Utils/OPCMultiThreadTest.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Containers/BoxOfOpc.kt" />
-        <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java" />
         <option value="$PROJECT_DIR$/src/Convertor.kt" />
         <option value="$PROJECT_DIR$/src/MainForm.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/ByteVectorFile.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Objects/ModuleFile.kt" />
         <option value="$PROJECT_DIR$/Tests/ConvertorTest.kt" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Utils/DCTMultiThreadTest.java" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/DCTMultiThread.java" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java" />
       </list>
     </option>
   </component>
@@ -365,20 +320,39 @@
             <path>
               <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
               <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
               <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
               <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
               <item name="Utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
+              <item name="Utils" type="462c0819:PsiDirectoryNode" />
+              <item name="Functions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="Tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="Tests" type="462c0819:PsiDirectoryNode" />
+              <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -664,11 +638,11 @@
     <history-entry file="All_in_ImageCompressionKotlin - 2017.11.21 at 12h 50m 50s.xml">
       <configuration name="All in ImageCompressionKotlin" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorTest - 2017.11.21 at 12h 24m 14s.xml">
-      <configuration name="ConvertorTest" configurationId="JUnit" />
+    <history-entry file="All_in_ImageCompressionKotlin - 2017.11.21 at 12h 56m 42s.xml">
+      <configuration name="All in ImageCompressionKotlin" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorTest - 2017.11.21 at 12h 26m 06s.xml">
-      <configuration name="ConvertorTest" configurationId="JUnit" />
+    <history-entry file="All_in_ImageCompressionKotlin - 2017.11.21 at 13h 04m 11s.xml">
+      <configuration name="All in ImageCompressionKotlin" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ConvertorTest - 2017.11.21 at 12h 27m 41s.xml">
       <configuration name="ConvertorTest" configurationId="JUnit" />
@@ -787,12 +761,6 @@
           <properties />
           <option name="timeStamp" value="129" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java</url>
-          <line>115</line>
-          <properties />
-          <option name="timeStamp" value="132" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Tests/ImageCompression/Utils/Objects/DataOPCTest.kt</url>
           <line>124</line>
@@ -896,6 +864,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
           <caret line="25" column="34" lean-forward="false" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -910,6 +879,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
           <caret line="539" column="32" lean-forward="true" selection-start-line="539" selection-start-column="32" selection-end-line="539" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -995,6 +965,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="636">
           <caret line="60" column="1" lean-forward="true" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1031,6 +1002,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1110,6 +1082,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1117,21 +1090,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/DCTMultiThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="28" column="22" lean-forward="true" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1151,30 +1110,6 @@
         <state relative-caret-position="1625">
           <caret line="69" column="5" lean-forward="false" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="48" column="44" lean-forward="false" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
-          <folding>
-            <element signature="method#ModuleOPC#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#sizeOpcCalculate#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#directOPC#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#reverceOPC#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#directOPC#1;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#reverseOPC#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#directOPCMultiThreads#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#directOpcGlobalBase#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#directOpcGlobalBase#1;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#findAllBase#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#setMaxBaseForAll#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#findMaxInArry#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#directOPCwithGlobalBase#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#getMatrix#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#getBoxOfOpc#0;class#ModuleOPC#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1201,32 +1136,6 @@
             <element signature="n#!!block;n#copy#2;n#!!block;n#BoxOfOpc#0" expanded="false" />
             <element signature="n#!!block;n#equals#0;n#!!block;n#BoxOfOpc#0" expanded="false" />
             <element signature="n#!!block;n#hashCode#0;n#!!block;n#BoxOfOpc#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="99" column="5" lean-forward="false" selection-start-line="99" selection-start-column="5" selection-end-line="99" selection-end-column="5" />
-          <folding>
-            <element signature="method#DataOPC#0;class#DataOPC#0" expanded="false" />
-            <element signature="method#FromVectorToBigInt#0;class#DataOPC#0" expanded="false" />
-            <element signature="method#FromSignToArray#0;class#DataOPC#0" expanded="false" />
-            <element signature="method#FromSignToVector#0;class#DataOPC#0" expanded="false" />
-            <element signature="method#FromArrayToSing#0;class#DataOPC#0" expanded="false" />
-            <element signature="method#FromVectorToSign#0;class#DataOPC#0" expanded="false" />
-            <element signature="method#FromBaseToArray#0;class#DataOPC#0" expanded="false" />
-            <element signature="method#FromArrayToBase#0;class#DataOPC#0" expanded="false" />
-            <element signature="method#getDC#0;class#DataOPC#0" expanded="false" />
-            <element signature="method#setDC#0;class#DataOPC#0" expanded="false" />
-            <element signature="method#FromCodeToVector#0;class#DataOPC#0" expanded="false" />
-            <element signature="method#FromVectorToCode#0;class#DataOPC#0" expanded="false" />
-            <element signature="method#toString#0;class#DataOPC#0" expanded="false" />
-            <element signature="method#valueOf#0;class#DataOPC#0" expanded="false" />
-            <element signature="method#toByteVector#0;class#DataOPC#0" expanded="false" />
-            <element signature="method#equals#0;class#DataOPC#0" expanded="false" />
-            <element signature="method#getByteSize#0;class#DataOPC#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1290,8 +1199,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tests/ConvertorTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="174" column="0" lean-forward="false" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
+        <state relative-caret-position="247">
+          <caret line="177" column="23" lean-forward="true" selection-start-line="177" selection-start-column="23" selection-end-line="177" selection-end-column="23" />
           <folding>
             <element signature="n#!!block;n#TestReadWrite#0;n#!!block;n#ConvertorTest#0" expanded="false" />
             <element signature="n#!!block;n#TestMyBufferedImageMatrix#0;n#!!block;n#ConvertorTest#0" expanded="false" />
@@ -1311,6 +1220,71 @@
             <element signature="e#10005#10085#1" expanded="false" />
             <element signature="e#10035#10075#1" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="113" column="30" lean-forward="false" selection-start-line="113" selection-start-column="30" selection-end-line="113" selection-end-column="30" />
+          <folding>
+            <element signature="method#DataOPC#0;class#DataOPC#0" expanded="false" />
+            <element signature="method#FromVectorToBigInt#0;class#DataOPC#0" expanded="false" />
+            <element signature="method#FromSignToArray#0;class#DataOPC#0" expanded="false" />
+            <element signature="method#FromSignToVector#0;class#DataOPC#0" expanded="false" />
+            <element signature="method#FromArrayToSing#0;class#DataOPC#0" expanded="false" />
+            <element signature="method#FromVectorToSign#0;class#DataOPC#0" expanded="false" />
+            <element signature="method#FromBaseToArray#0;class#DataOPC#0" expanded="false" />
+            <element signature="method#FromArrayToBase#0;class#DataOPC#0" expanded="false" />
+            <element signature="method#getDC#0;class#DataOPC#0" expanded="false" />
+            <element signature="method#setDC#0;class#DataOPC#0" expanded="false" />
+            <element signature="method#FromCodeToVector#0;class#DataOPC#0" expanded="false" />
+            <element signature="method#FromVectorToCode#0;class#DataOPC#0" expanded="false" />
+            <element signature="method#toString#0;class#DataOPC#0" expanded="false" />
+            <element signature="method#valueOf#0;class#DataOPC#0" expanded="false" />
+            <element signature="method#toByteVector#0;class#DataOPC#0" expanded="false" />
+            <element signature="method#equals#0;class#DataOPC#0" expanded="false" />
+            <element signature="method#getByteSize#0;class#DataOPC#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43">
+          <caret line="226" column="31" lean-forward="true" selection-start-line="226" selection-start-column="31" selection-end-line="226" selection-end-column="31" />
+          <folding>
+            <element signature="method#ModuleOPC#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#sizeOpcCalculate#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#directOPC#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#reverceOPC#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#directOPC#1;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#reverseOPC#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#directOPCMultiThreads#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#directOpcGlobalBase#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#directOpcGlobalBase#1;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#setMaxBaseForAll#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#findMaxInArry#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#directOPCwithGlobalBase#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#getMatrix#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#getBoxOfOpc#0;class#ModuleOPC#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/DCTMultiThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>

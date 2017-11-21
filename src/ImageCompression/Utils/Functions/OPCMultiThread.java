@@ -46,12 +46,12 @@ public class OPCMultiThread { //singelton
             dataOPC.base[i]=(dataOrigin[i][0]);
             for(int j=0;j<SIZEOFBLOCK;j++)
             {
-                if(dataOPC.base[i]<(dataOrigin[i][j]))
-                {
+                if(dataOPC.base[i]<(dataOrigin[i][j])) {
                     dataOPC.base[i]=(dataOrigin[i][j]);
                 }
             }
             dataOPC.base[i]++;
+            assert dataOPC.base[i]<0xff:"base ["+i+"]="+dataOPC.base[i];
         }
         return dataOPC;
     }
@@ -61,13 +61,11 @@ public class OPCMultiThread { //singelton
         {
             for(int j=0;j<SIZEOFBLOCK;j++)
             {
-                if(dataOrigin[i][j]<(short)0)
-                {
+                if(dataOrigin[i][j]<(short)0) {
                     dataOrigin[i][j]=(short)(dataOrigin[i][j]*(-1));
                     dataOPC.sign[i][j]=false;
                 }
-                else
-                {
+                else {
                     dataOPC.sign[i][j]=true;
                 }
             }
@@ -75,14 +73,11 @@ public class OPCMultiThread { //singelton
         return dataOPC;
     }
     private static  DataOPC MakeSigned(final short[][] dataOrigin,DataOPC dataOPC)    {
-        for(int i=0;i<SIZEOFBLOCK;i++)
-        {
-            for(int j=0;j<SIZEOFBLOCK;j++)
-            {
+        for(int i=0;i<SIZEOFBLOCK;i++) {
+            for(int j=0;j<SIZEOFBLOCK;j++) {
                 if(!dataOPC.sign[i][j]) {
                     dataOrigin[i][j]=(short)(dataOrigin[i][j]*(-1));
                 }
-
             }
         }
         return dataOPC;
@@ -118,23 +113,18 @@ public class OPCMultiThread { //singelton
         long base= 1;
         long res=0;
         long bufbase;
-        for(int i=SIZEOFBLOCK-1;i>=0;i--)
-        {
-            for(int j=SIZEOFBLOCK-1;j>=0;j--)
-            {
+        for(int i=SIZEOFBLOCK-1;i>=0;i--) {
+            for(int j=SIZEOFBLOCK-1;j>=0;j--) {
                 bufbase=base*dataOPC.base[i];
-
                /* if(bufbase<res)
                     System.out.println("res");*/
 /*                if(bufbase<base)
                     System.out.println("base");*/
-                if(bufbase> Parameters.getMAXLONG())//is true ?
-                {
+                if(bufbase> Parameters.getMAXLONG()){//is true ?
 //                    System.out.println("go");
                     return OPCdirectBI(res,base,i,j,dataOrigin,dataOPC);
                 }
-                if(dataOrigin[i][j]!=0)
-                {
+                if(dataOrigin[i][j]!=0) {
                     res+=base*(dataOrigin[i][j]);
                 }
                 base=bufbase;
@@ -150,16 +140,12 @@ public class OPCMultiThread { //singelton
 
         int i=i1;
         int j=j1;
-        for(;i>=0;i--)
-        {
-            for(;j>=0;j--)
-            {
-                if(dataOrigin[i][j]!=0)
-                {
+        for(;i>=0;i--) {
+            for(;j>=0;j--) {
+                if(dataOrigin[i][j]!=0) {
                     val=val.add(base.multiply(BigInteger.valueOf(dataOrigin[i][j])));
                 }
                 base=base.multiply(BigInteger.valueOf(dataOPC.base[i]));
-
             }
             j=SIZEOFBLOCK-1;
         }
@@ -169,10 +155,8 @@ public class OPCMultiThread { //singelton
     private static  void OPCreverse(short[][]dataOrigin,DataOPC dataOPC) // method copy from C++ Project MAH
     {
         BigInteger copy=new BigInteger("1");
-        for (int i = SIZEOFBLOCK - 1; i >= 0; i--)
-        {
-            for (int j = SIZEOFBLOCK - 1; j >= 0; j--)
-            {
+        for (int i = SIZEOFBLOCK - 1; i >= 0; i--) {
+            for (int j = SIZEOFBLOCK - 1; j >= 0; j--) {
                 BigInteger a, b;
 
                 a = dataOPC.N.divide( copy);
@@ -189,10 +173,8 @@ public class OPCMultiThread { //singelton
         long base= 1;
         long res=0;
         long bufbase;
-        for(int i=SIZEOFBLOCK-1;i>=0;i--)
-        {
-            for(int j=SIZEOFBLOCK-1;j>=0;j--)
-            {
+        for(int i=SIZEOFBLOCK-1;i>=0;i--) {
+            for(int j=SIZEOFBLOCK-1;j>=0;j--) {
                 bufbase=base*dataOPC.base[i];
                 if(bufbase> Parameters.getMAXLONG())//is true ?
                 {
@@ -200,10 +182,8 @@ public class OPCMultiThread { //singelton
                     base= 1;
                     res=0;
                     bufbase=base*dataOPC.base[i];
-
                 }
-                if(dataOrigin[i][j]!=0)
-                {
+                if(dataOrigin[i][j]!=0) {
                     res+=base*(dataOrigin[i][j]);
                 }
                 base=bufbase;
@@ -216,15 +196,12 @@ public class OPCMultiThread { //singelton
         int index=0;
         long curN=dataOPC.Code.elementAt(index);
         long nextcopy;
-        for (int i = SIZEOFBLOCK - 1; i >= 0; i--)
-        {
+        for (int i = SIZEOFBLOCK - 1; i >= 0; i--) {
             if(dataOPC.base[i]==0)//for wrong password;
                 dataOPC.base[i]=1;
-            for (int j = SIZEOFBLOCK - 1; j >= 0; j--)
-            {
+            for (int j = SIZEOFBLOCK - 1; j >= 0; j--) {
                 nextcopy=copy*dataOPC.base[i];
-                if(nextcopy>Parameters.getMAXLONG()||nextcopy<0)
-                {
+                if(nextcopy>Parameters.getMAXLONG()||nextcopy<0) {
                     copy=1;
                     index++;
                     nextcopy=copy*dataOPC.base[i];

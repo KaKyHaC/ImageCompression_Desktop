@@ -112,9 +112,7 @@ public class DataOPC {
             vector.append(base[i++]);
         }
         while (i<SIZEOFBLOCK){
-//            if(base[i]>=0xff)
-//                System.out.println("base at "+i+"="+base[i]);
-            assert (base[i]<0xff);
+            assert (base[i]<0xff):"base["+i+"]="+base[i];
             vector.append((byte)base[i++]);
         }
     }

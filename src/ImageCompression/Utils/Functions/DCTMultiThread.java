@@ -148,8 +148,4 @@ public class DCTMultiThread {//singelton
             res++;
         return res;
     }
-
-
-
-
 }
