@@ -19,9 +19,9 @@ public class ModuleOPCTest {
     public void setUp() throws Exception {
         for(int i=0;i<size;i++){
             for(int j=0;j<size;j++){
-                matrix.a[i][j]=(short)(i+j);
-                matrix.b[i][j]=(short)(i+j);
-                matrix.c[i][j]=(short)(i+j);
+                matrix.getA()[i][j]=(short)(i+j);
+                matrix.getB()[i][j]=(short)(i+j);
+                matrix.getC()[i][j]=(short)(i+j);
             }
         }
     }
@@ -30,7 +30,7 @@ public class ModuleOPCTest {
     public void TestDefault(){
         BoxOfOpc boxOfOpc =new ModuleOPC(matrix).getBoxOfOpc();
         DataOPC[][] a,b,c;
-        ModuleOPC moduleOPC1 =new ModuleOPC(boxOfOpc,matrix.f);
+        ModuleOPC moduleOPC1 =new ModuleOPC(boxOfOpc, matrix.getF());
         Matrix res= moduleOPC1.getMatrix();
 
         AssertMatrixInRange(matrix,res,1,true);
@@ -65,19 +65,19 @@ public class ModuleOPCTest {
         Matrix b=new Matrix(size,size,flag,State.RGB);
         AssertMatrixInRange(a,b,0,true);
 
-        a.a[0][0]=1;
+        a.getA()[0][0]=1;
         AssertMatrixInRange(a,b,2,true);
 
-        a.a[0][0]=200;
-        a.c[0][0]=200;
-        a.b[0][0]=200;
+        a.getA()[0][0]=200;
+        a.getC()[0][0]=200;
+        a.getB()[0][0]=200;
         AssertMatrixInRange(a,b,1,false);
     }
 
     private void AssertMatrixInRange(Matrix m1,Matrix m2,int delta,Boolean inRange){
-        AssertArrayArrayInRange(m1.a,m2.a,delta,inRange);
-        AssertArrayArrayInRange(m1.b,m2.b,delta,inRange);
-        AssertArrayArrayInRange(m1.c,m2.c,delta,inRange);
+        AssertArrayArrayInRange(m1.getA(), m2.getA(),delta,inRange);
+        AssertArrayArrayInRange(m1.getB(), m2.getB(),delta,inRange);
+        AssertArrayArrayInRange(m1.getC(), m2.getC(),delta,inRange);
     }
     private void AssertArrayArrayInRange(short[][] a,short[][] b,int delta,boolean inRange){
         boolean total=true;

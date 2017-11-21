@@ -113,6 +113,21 @@ public class Flag {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Flag flag = (Flag) o;
+
+        return f == flag.f;
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) f;
+    }
+
+    @Override
     public String toString() {
         return Short.toString(f);
     }

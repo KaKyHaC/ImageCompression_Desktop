@@ -20,30 +20,30 @@ public class ModuleDCT {
 
     public ModuleDCT(Matrix matrix) {
         this.matrix = matrix;
-        if(matrix.state== State.Yenl)//new code . Does it is needed ?
-            matrix.state=State.YBR;
-            a=new DataUnitMatrix(matrix.a,matrix.a.length,matrix.a[0].length,matrix.state, TypeQuantization.luminosity,matrix.f);
-            b = new DataUnitMatrix(matrix.b, matrix.b.length, matrix.b[0].length, matrix.state, TypeQuantization.Chromaticity,matrix.f);
-            c  = new DataUnitMatrix(matrix.c, matrix.c.length, matrix.c[0].length, matrix.state, TypeQuantization.Chromaticity,matrix.f);
+        if(matrix.getState() == State.Yenl)//new code . Does it is needed ?
+            matrix.setState(State.YBR);
+            a=new DataUnitMatrix(matrix.getA(), matrix.getA().length, matrix.getA()[0].length, matrix.getState(), TypeQuantization.luminosity, matrix.getF());
+            b = new DataUnitMatrix(matrix.getB(), matrix.getB().length, matrix.getB()[0].length, matrix.getState(), TypeQuantization.Chromaticity, matrix.getF());
+            c  = new DataUnitMatrix(matrix.getC(), matrix.getC().length, matrix.getC()[0].length, matrix.getState(), TypeQuantization.Chromaticity, matrix.getF());
 
     }
 
     public void dataProcessing() {
-        if(matrix.state==State.Yenl)//new code . Does it is needed ?
-            matrix.state=State.YBR;
+        if(matrix.getState() ==State.Yenl)//new code . Does it is needed ?
+            matrix.setState(State.YBR);
 
 
         a.dataProcessing();
         b.dataProcessing();
         c.dataProcessing();
 
-        matrix.state=a.getState();
-        if(matrix.a.length>matrix.b.length&&matrix.state==State.YBR)
-            matrix.state=State.Yenl;
+        matrix.setState(a.getState());
+        if(matrix.getA().length> matrix.getB().length&& matrix.getState() ==State.YBR)
+            matrix.setState(State.Yenl);
     }
     public void dataProcessingInThreads() {
-        if(matrix.state==State.Yenl)//new code . Does it is needed ?
-            matrix.state=State.YBR;
+        if(matrix.getState() ==State.Yenl)//new code . Does it is needed ?
+            matrix.setState(State.YBR);
 
         ExecutorService executorService = Executors.newFixedThreadPool(3);
         Future[] futures=new Future[3];
@@ -62,13 +62,13 @@ public class ModuleDCT {
             }
         }
 
-        matrix.state=a.getState();
-        if(matrix.a.length>matrix.b.length&&matrix.state==State.YBR)
-            matrix.state=State.Yenl;
+        matrix.setState(a.getState());
+        if(matrix.getA().length> matrix.getB().length&& matrix.getState() ==State.YBR)
+            matrix.setState(State.Yenl);
     }
 
     public Matrix getYCbCrMatrix(boolean isMultiThreads) {
-        switch (matrix.state){
+        switch (matrix.getState()){
             case DCT:
                 if(isMultiThreads)
                     dataProcessingInThreads();
@@ -76,12 +76,12 @@ public class ModuleDCT {
                     dataProcessing();
                 break;
         }
-        if(matrix.state==State.YBR||matrix.state==State.Yenl)
+        if(matrix.getState() ==State.YBR|| matrix.getState() ==State.Yenl)
             return matrix;
         return null;
     }
     public Matrix getDCTMatrix(boolean isMultiThreads){
-        switch (matrix.state){
+        switch (matrix.getState()){
             case YBR:
             case Yenl:
                 if(isMultiThreads)
@@ -91,7 +91,7 @@ public class ModuleDCT {
                 break;
         }
 
-        if(matrix.state==State.DCT)
+        if(matrix.getState() ==State.DCT)
             return matrix;
         return null;
     }

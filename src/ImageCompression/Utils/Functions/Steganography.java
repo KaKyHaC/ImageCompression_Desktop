@@ -29,9 +29,9 @@ public class Steganography {
     }
 
     public static Byte[] ReadMassageFromMatrix(Matrix matrix) {
-        Byte[] bufC = ReadMassageFromArray(matrix.c, param.getBinaryValOfPos());
-        Byte[] bufB = ReadMassageFromArray(matrix.b, param.getBinaryValOfPos());
-        Byte[] bufA = ReadMassageFromArray(matrix.a, param.getBinaryValOfPos());
+        Byte[] bufC = ReadMassageFromArray(matrix.getC(), param.getBinaryValOfPos());
+        Byte[] bufB = ReadMassageFromArray(matrix.getB(), param.getBinaryValOfPos());
+        Byte[] bufA = ReadMassageFromArray(matrix.getA(), param.getBinaryValOfPos());
 
         Byte[] res = new Byte[bufC.length + bufB.length + bufA.length];
         System.arraycopy(bufC, 0, res, 0, bufC.length);
@@ -54,9 +54,9 @@ public class Steganography {
             System.out.println("to much massage");
             return null;
         }
-        int lenA = MaxSizePerArray(matrix.a);
-        int lenB = MaxSizePerArray(matrix.b);
-        int lenC = MaxSizePerArray(matrix.c);
+        int lenA = MaxSizePerArray(matrix.getA());
+        int lenB = MaxSizePerArray(matrix.getB());
+        int lenC = MaxSizePerArray(matrix.getC());
 
         if (lenC < massLen) massLen -= lenC;
         else {
@@ -82,9 +82,9 @@ public class Steganography {
         System.arraycopy(massage, lenC, bufB, 0, lenB);
         System.arraycopy(massage, lenB + lenC, bufA, 0, lenA);
 
-        matrix.c = WriteMessagesToArray(matrix.c, bufC, binaryPos);
-        matrix.b = WriteMessagesToArray(matrix.b, bufB, binaryPos);
-        matrix.a = WriteMessagesToArray(matrix.a, bufA, binaryPos);
+        matrix.setC(WriteMessagesToArray(matrix.getC(), bufC, binaryPos));
+        matrix.setB(WriteMessagesToArray(matrix.getB(), bufB, binaryPos));
+        matrix.setA(WriteMessagesToArray(matrix.getA(), bufA, binaryPos));
 
         return matrix;
     }
@@ -118,7 +118,7 @@ public class Steganography {
     }
 
     public static int CalulateMaxSizeOfMassage(Matrix matrix) {
-        return MaxSizePerArray(matrix.a) + MaxSizePerArray(matrix.b) + MaxSizePerArray(matrix.c);
+        return MaxSizePerArray(matrix.getA()) + MaxSizePerArray(matrix.getB()) + MaxSizePerArray(matrix.getC());
     }
 
     private static int MaxSizePerArray(short[][] arr) {

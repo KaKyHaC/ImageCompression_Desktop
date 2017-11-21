@@ -34,10 +34,10 @@ public class ModuleOPC {
     public ModuleOPC(final Matrix matrix){
         this.matrix=matrix;
         isMatrix=true;
-        this.flag=matrix.f;
+        this.flag= matrix.getF();
 
-        sizeOpcCalculate(matrix.Width,matrix.Height);
-        int k=(matrix.f.isEnlargement())?2:1;
+        sizeOpcCalculate(matrix.getWidth(), matrix.getHeight());
+        int k=(matrix.getF().isEnlargement())?2:1;
         boxOfOpc=new BoxOfOpc();
         boxOfOpc.setA(new DataOPC[widthOPC][heightOPC]);
         boxOfOpc.setB(new DataOPC[widthOPC/k][heightOPC/k]);
@@ -86,7 +86,7 @@ public class ModuleOPC {
                         // DU[i][j].setValue(val,x,y);
                     }
                 }
-                dopc[i][j]= OPCMultiThread.getDataOPC(buf,matrix.f);
+                dopc[i][j]= OPCMultiThread.getDataOPC(buf, matrix.getF());
             }
         }
         return dopc;
@@ -105,7 +105,7 @@ public class ModuleOPC {
         for (int i = 0; i < duWidth; i++) {
             for (int j = 0; j < duHeight; j++) {//j=3 erro
 
-                buf= OPCMultiThread.getDataOrigin(dopc[i][j],matrix.f);
+                buf= OPCMultiThread.getDataOrigin(dopc[i][j], matrix.getF());
 
                 for (int x = 0; x < DCTMultiThread.SIZEOFBLOCK; x++) {
                     for (int y = 0; y < DCTMultiThread.SIZEOFBLOCK; y++) {
@@ -128,9 +128,9 @@ public class ModuleOPC {
     public void directOPC(){
         if(!isMatrix)
             return;
-        boxOfOpc.setA(directOPC(matrix.a));
-        boxOfOpc.setB(directOPC(matrix.b));
-        boxOfOpc.setC(directOPC(matrix.c));
+        boxOfOpc.setA(directOPC(matrix.getA()));
+        boxOfOpc.setB(directOPC(matrix.getB()));
+        boxOfOpc.setC(directOPC(matrix.getC()));
 
         isOpcs=true;
     }
@@ -138,9 +138,9 @@ public class ModuleOPC {
         if(!isOpcs)
             return;
 
-        matrix.a=reverceOPC(boxOfOpc.getA());
-        matrix.b=reverceOPC(boxOfOpc.getB());
-        matrix.c=reverceOPC(boxOfOpc.getC());
+        matrix.setA(reverceOPC(boxOfOpc.getA()));
+        matrix.setB(reverceOPC(boxOfOpc.getB()));
+        matrix.setC(reverceOPC(boxOfOpc.getC()));
 
         isMatrix=true;
     }
@@ -152,9 +152,9 @@ public class ModuleOPC {
         ExecutorService executorService = Executors.newFixedThreadPool(3);
         List<Future<DataOPC[][]>> futures=new ArrayList<Future<DataOPC[][]>>();
 
-        futures.add(executorService.submit(()->directOPC(matrix.a)));
-        futures.add(executorService.submit(()->directOPC(matrix.b)));
-        futures.add(executorService.submit(()->directOPC(matrix.c)));
+        futures.add(executorService.submit(()->directOPC(matrix.getA())));
+        futures.add(executorService.submit(()->directOPC(matrix.getB())));
+        futures.add(executorService.submit(()->directOPC(matrix.getC())));
 
             try {
                 boxOfOpc.setA(futures.get(0).get());
@@ -180,9 +180,9 @@ public class ModuleOPC {
 
 
         try {
-            matrix.a=futures.get(0).get();
-            matrix.b=futures.get(1).get();
-            matrix.c=futures.get(2).get();
+            matrix.setA(futures.get(0).get());
+            matrix.setB(futures.get(1).get());
+            matrix.setC(futures.get(2).get());
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -194,9 +194,9 @@ public class ModuleOPC {
     public void directOpcGlobalBase(int n,int m){
         if(!isMatrix)
             return;
-        directOpcGlobalBase(n,m,matrix.a,boxOfOpc.getA()); //TODO set a
-        directOpcGlobalBase(n,m,matrix.b,boxOfOpc.getB());
-        directOpcGlobalBase(n,m,matrix.c,boxOfOpc.getC());
+        directOpcGlobalBase(n,m, matrix.getA(),boxOfOpc.getA()); //TODO set a
+        directOpcGlobalBase(n,m, matrix.getB(),boxOfOpc.getB());
+        directOpcGlobalBase(n,m, matrix.getC(),boxOfOpc.getC());
 
         isOpcs=true;
     }
@@ -233,7 +233,7 @@ public class ModuleOPC {
 //                            assert value<0xff:"value["+curX+"]["+curY+"]="+value;
                     }
                 }
-                dopc[i][j]= OPCMultiThread.findBase(buf,matrix.f);
+                dopc[i][j]= OPCMultiThread.findBase(buf, matrix.getF());
 
             }
         }
@@ -293,7 +293,7 @@ public class ModuleOPC {
                         // DU[i][j].setValue(val,x,y);
                     }
                 }
-                dopc[i][j]= OPCMultiThread.directOPCwithFindedBase(buf,dopc[i][j],matrix.f);
+                dopc[i][j]= OPCMultiThread.directOPCwithFindedBase(buf,dopc[i][j], matrix.getF());
 
             }
         }

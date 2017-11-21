@@ -18,14 +18,14 @@ public class MyBufferedImage {
     }
     public MyBufferedImage(Matrix matrix) throws Exception {
         this.matrix = matrix;
-        bitmap = new BufferedImage(matrix.Width,matrix.Height,BufferedImage.TYPE_4BYTE_ABGR);
+        bitmap = new BufferedImage(matrix.getWidth(), matrix.getHeight(),BufferedImage.TYPE_4BYTE_ABGR);
     }
 
     //TODO string constructor
 
     private void FromBufferedImageToYCbCr() {
 
-        if (matrix.state == State.bitmap)
+        if (matrix.getState() == State.bitmap)
         {
             forEach(bitmap.getWidth(),bitmap.getHeight(),(x, y) -> {
                 int pixelColor=bitmap.getRGB(x,y);
@@ -47,25 +47,25 @@ public class MyBufferedImage {
                        vcr++;
 
 
-                matrix.a[x][y] = (short) vy;
-                matrix.b[x][y] = (short) vcb;
-                matrix.c[x][y] = (short) vcr;
+                matrix.getA()[x][y] = (short) vy;
+                matrix.getB()[x][y] = (short) vcb;
+                matrix.getC()[x][y] = (short) vcr;
 
             });
 
-            matrix.state = State.YBR;
+            matrix.setState(State.YBR);
         }
 
     }
     private void FromYCbCrToBufferedImage(){
-        if(matrix.state==State.YBR){
+        if(matrix.getState() ==State.YBR){
             final int pixelAlpha=255; //for argb
 
-            forEach(matrix.Width,matrix.Height,(x, y) -> {
+            forEach(matrix.getWidth(), matrix.getHeight(),(x, y) -> {
                 double r,g,b;
-                r=(matrix.a[x][y]+1.402*(matrix.c[x][y]-128));
-                g=(matrix.a[x][y]-0.34414*(matrix.b[x][y]-128)-0.71414*(matrix.c[x][y]-128));
-                b=(matrix.a[x][y]+1.772*(matrix.b[x][y]-128));
+                r=(matrix.getA()[x][y]+1.402*(matrix.getC()[x][y]-128));
+                g=(matrix.getA()[x][y]-0.34414*(matrix.getB()[x][y]-128)-0.71414*(matrix.getC()[x][y]-128));
+                b=(matrix.getA()[x][y]+1.772*(matrix.getB()[x][y]-128));
 
                 if(g<0)g=0;//new
                 if(r<0)r=0;
@@ -95,13 +95,13 @@ public class MyBufferedImage {
                 // полученный результат вернём в BufferedImage
                 bitmap.setRGB(x, y, val);
             });
-            matrix.state=State.bitmap;
+            matrix.setState(State.bitmap);
         }
     }
 
     private void FromBufferedImageToRGB() {
 
-        if(matrix.state==State.bitmap) {
+        if(matrix.getState() ==State.bitmap) {
             int Width=bitmap.getWidth();
             int Height=bitmap.getHeight();
 
@@ -110,17 +110,17 @@ public class MyBufferedImage {
 //                    int pixelColor = rgb[i*Height + j];
                     int pixelColor=bitmap.getRGB(i,j);
                     // получим цвет каждого пикселя
-                    matrix.a[i][j] = (short) ((pixelColor)>>16&0xFF);
-                    matrix.b[i][j] = (short) ((pixelColor)>>8&0xFF);
-                    matrix.c[i][j] = (short) ((pixelColor)&0xFF);
+                    matrix.getA()[i][j] = (short) ((pixelColor)>>16&0xFF);
+                    matrix.getB()[i][j] = (short) ((pixelColor)>>8&0xFF);
+                    matrix.getC()[i][j] = (short) ((pixelColor)&0xFF);
 
                 }
             }
-            matrix.state=State.RGB;
+            matrix.setState(State.RGB);
         }
     }
     private void FromRGBtoBufferedImage(){
-        if(matrix.state==State.RGB)
+        if(matrix.getState() ==State.RGB)
         {
             int Width=bitmap.getWidth();
             int Height=bitmap.getHeight();
@@ -131,9 +131,9 @@ public class MyBufferedImage {
                 {
 
                     int pixelAlpha=255; //for argb
-                    int pixelBlue=matrix.c[i][j]&0xFF;
-                    int pixelRed=matrix.a[i][j]&0xFF;
-                    int pixelGreen=matrix.b[i][j]&0xFF;
+                    int pixelBlue= matrix.getC()[i][j]&0xFF;
+                    int pixelRed= matrix.getA()[i][j]&0xFF;
+                    int pixelGreen= matrix.getB()[i][j]&0xFF;
                     int val =(pixelAlpha<<24)| (pixelRed<<16) | (pixelGreen<<8) | pixelBlue; //for argb
 //                    int val =(pixelRed<<16) | (pixelGreen<<8) | pixelBlue; //for rgb
 
@@ -141,13 +141,13 @@ public class MyBufferedImage {
                     bitmap.setRGB(i, j, val);
                 }
             }
-            matrix.state=State.bitmap;
+            matrix.setState(State.bitmap);
         }
     }
 
     private void FromYBRtoRGB(){
 
-        if(matrix.state==State.YBR) {
+        if(matrix.getState() ==State.YBR) {
             int Width=bitmap.getWidth();
             int Height=bitmap.getHeight();
 
@@ -155,9 +155,9 @@ public class MyBufferedImage {
             {
                 for(int j=0;j<Height;j++) {
                     double r, g, b;
-                    r = (matrix.a[i][j] + 1.402 * (matrix.c[i][j] - 128));
-                    g = (matrix.a[i][j] - 0.34414 * (matrix.b[i][j] - 128) - 0.71414 * (matrix.c[i][j] - 128));
-                    b = (matrix.a[i][j] + 1.772 * (matrix.b[i][j] - 128));
+                    r = (matrix.getA()[i][j] + 1.402 * (matrix.getC()[i][j] - 128));
+                    g = (matrix.getA()[i][j] - 0.34414 * (matrix.getB()[i][j] - 128) - 0.71414 * (matrix.getC()[i][j] - 128));
+                    b = (matrix.getA()[i][j] + 1.772 * (matrix.getB()[i][j] - 128));
                     //add
                     if (r % 1 >= 0.5)
                         r = (short) ++r;
@@ -174,26 +174,26 @@ public class MyBufferedImage {
                     if (r > 255) r = 255;
                     if (g > 255) g = 255;
                     if (b > 255) b = 255;
-                    matrix.a[i][j] = (short) r;
-                    matrix.b[i][j] = (short) g;
-                    matrix.c[i][j] = (short) b;
+                    matrix.getA()[i][j] = (short) r;
+                    matrix.getB()[i][j] = (short) g;
+                    matrix.getC()[i][j] = (short) b;
                 }
             }
-            matrix.state=State.RGB;
+            matrix.setState(State.RGB);
         }
     }
     private void FromRGBtoYBR() {
 
-        if (matrix.state == State.RGB){
+        if (matrix.getState() == State.RGB){
             int Width=bitmap.getWidth();
             int Height=bitmap.getHeight();
 
             for (int i = 0; i < Width; i++) {
                 for (int j = 0; j < Height; j++) {
                     // получим цвет каждого пикселя
-                    double pixelRed = matrix.a[i][j];
-                    double pixelGreen = matrix.b[i][j];
-                    double pixelBlue = matrix.c[i][j];
+                    double pixelRed = matrix.getA()[i][j];
+                    double pixelGreen = matrix.getB()[i][j];
+                    double pixelBlue = matrix.getC()[i][j];
 
                     double vy = (0.299 * pixelRed) + (0.587 * pixelGreen) + (0.114 * pixelBlue);
                     double vcb = 128 - (0.168736 * pixelRed) - (0.331264 * pixelGreen) + (0.5 * pixelBlue);
@@ -206,52 +206,52 @@ public class MyBufferedImage {
 //                    if(vcr%1>=0.5)
 //                        vcr++;
 
-                    matrix.a[i][j] = (short) vy;
-                    matrix.b[i][j] = (short) vcb;
-                    matrix.c[i][j] = (short) vcr;
+                    matrix.getA()[i][j] = (short) vy;
+                    matrix.getB()[i][j] = (short) vcb;
+                    matrix.getC()[i][j] = (short) vcr;
                 }
             }
-            matrix.state=State.YBR;
+            matrix.setState(State.YBR);
         }
     }
 
     private void PixelEnlargement(){
-        if (matrix.state == State.YBR && matrix.f.isEnlargement()) {
-            int cWidth=matrix.Width/2;
-            int cHeight=matrix.Height/2;
+        if (matrix.getState() == State.YBR && matrix.getF().isEnlargement()) {
+            int cWidth= matrix.getWidth() /2;
+            int cHeight= matrix.getHeight() /2;
             short[][] enlCb=new short[cWidth][cHeight];
             short[][] enlCr=new short[cWidth][cHeight];
             for (int i = 0; i < cWidth; i++) {
                 for (int j = 0; j < cHeight; j++) {
-                    enlCb[i][j] = (short)( (matrix.b[i * 2][j * 2] + matrix.b[i * 2 + 1][j * 2] + matrix.b[i * 2][j * 2 + 1] + matrix.b[i * 2 + 1][j * 2 + 1])/4);
-                    enlCr[i][j] = (short)( (matrix.c[i * 2][j * 2] + matrix.c[i * 2 + 1][j * 2] + matrix.c[i * 2][j * 2 + 1] + matrix.c[i * 2 + 1][j * 2 + 1])/4);
+                    enlCb[i][j] = (short)( (matrix.getB()[i * 2][j * 2] + matrix.getB()[i * 2 + 1][j * 2] + matrix.getB()[i * 2][j * 2 + 1] + matrix.getB()[i * 2 + 1][j * 2 + 1])/4);
+                    enlCr[i][j] = (short)( (matrix.getC()[i * 2][j * 2] + matrix.getC()[i * 2 + 1][j * 2] + matrix.getC()[i * 2][j * 2 + 1] + matrix.getC()[i * 2 + 1][j * 2 + 1])/4);
                 }
             }
-            matrix.b=enlCb;
-            matrix.c=enlCr;
-            matrix.state=State.Yenl;
+            matrix.setB(enlCb);
+            matrix.setC(enlCr);
+            matrix.setState(State.Yenl);
         }
 
     }
     private void PixelRestoration() {
 
-        if (matrix.state == State.Yenl && matrix.f.isEnlargement()) {
-            int cWidth=matrix.Width/2;
-            int cHeight=matrix.Height/2;
-            int Width=matrix.Width;
-            int Height=matrix.Height;
+        if (matrix.getState() == State.Yenl && matrix.getF().isEnlargement()) {
+            int cWidth= matrix.getWidth() /2;
+            int cHeight= matrix.getHeight() /2;
+            int Width= matrix.getWidth();
+            int Height= matrix.getHeight();
             short[][]Cb=new short[Width][Height];
             short[][]Cr=new short[Width][Height];
             for (int i = 0; i < cWidth; i++) {
                 for (int j = 0; j < cHeight; j++) {
-                    Cb[i * 2][j * 2] = Cb[i * 2 + 1][j * 2] = Cb[i * 2][j * 2 + 1] = Cb[i * 2 + 1][j * 2 + 1] = matrix.b[i][j];
-                    Cr[i * 2][j * 2] = Cr[i * 2 + 1][j * 2] = Cr[i * 2][j * 2 + 1] = Cr[i * 2 + 1][j * 2 + 1] = matrix.c[i][j];
+                    Cb[i * 2][j * 2] = Cb[i * 2 + 1][j * 2] = Cb[i * 2][j * 2 + 1] = Cb[i * 2 + 1][j * 2 + 1] = matrix.getB()[i][j];
+                    Cr[i * 2][j * 2] = Cr[i * 2 + 1][j * 2] = Cr[i * 2][j * 2 + 1] = Cr[i * 2 + 1][j * 2 + 1] = matrix.getC()[i][j];
                 }
             }
-            matrix.b=Cb;
-            matrix.c=Cr;
+            matrix.setB(Cb);
+            matrix.setC(Cr);
 
-            matrix.state=State.YBR;
+            matrix.setState(State.YBR);
         }
     }
 
@@ -273,21 +273,21 @@ public class MyBufferedImage {
     }
 
     private void minus128(){
-        minus128(matrix.a);
-        minus128(matrix.b);
-        minus128(matrix.c);
+        minus128(matrix.getA());
+        minus128(matrix.getB());
+        minus128(matrix.getC());
     }
     private void plus128(){
-        plus128(matrix.a);
-        plus128(matrix.b);
-        plus128(matrix.c);
+        plus128(matrix.getA());
+        plus128(matrix.getB());
+        plus128(matrix.getC());
     }
 
 
 
 
     public BufferedImage getBufferedImage() {
-        switch(matrix.state)
+        switch(matrix.getState())
         {
             case RGB: FromRGBtoBufferedImage();
                 break;
@@ -305,7 +305,7 @@ public class MyBufferedImage {
     }
 
     public Matrix getYCbCrMatrix() {
-        switch (matrix.state)
+        switch (matrix.getState())
         {
             case RGB: FromRGBtoYBR();
                 break;
@@ -323,7 +323,7 @@ public class MyBufferedImage {
     }
 
     public Matrix getRGBMatrix() {
-        switch (matrix.state)
+        switch (matrix.getState())
         {
             case RGB:
                 break;
@@ -341,7 +341,7 @@ public class MyBufferedImage {
     }
 
     public Matrix getYenlMatrix()    {
-        switch (matrix.state)
+        switch (matrix.getState())
         {
             case RGB: FromRGBtoYBR();PixelEnlargement();
                 break;
