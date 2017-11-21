@@ -7,61 +7,53 @@ import java.util.*
 
 
 class Convertor() {
-
     fun FromBmpToBar(pathToBmp: String, flag: Flag) {
-        publishProgress(0)
+        progressListener?.invoke(0,"read bmp")
         val bmp = ImageIO.read(File(pathToBmp))
-        publishProgress(10)
+        progressListener?.invoke(10,"RGB to YcBcR")
         view?.invoke(bmp)
         val mi = MyBufferedImage(bmp, flag)
         val matrix = mi.yenlMatrix
-        publishProgress(30)
+        progressListener?.invoke(30,"direct DCT")
         val bodum = ModuleDCT(matrix)
         val matrixDCT=bodum.getDCTMatrix(true)
-        publishProgress(60)
+        progressListener?.invoke(60,"direct OPC")
         val StEnOPC= StegoEncrWithOPC(matrixDCT)
         val box=StEnOPC.getBoxOfOpc(true)
-        publishProgress(80)
+        progressListener?.invoke(80,"write to file")
         val fileModule=ModuleFile(pathToBmp)
         fileModule.write(box,flag)
-        publishProgress(100)
+        progressListener?.invoke(100,"Ready")
     }
 
     fun FromBarToBmp(pathToBar: String): Unit {
+        progressListener?.invoke(10,"read from file")
         val fileModule=ModuleFile(pathToBar)
         val pair=fileModule.read()
         val box=pair.first
         val flag=pair.second
-        publishProgress(10)
+        progressListener?.invoke(10,"reverse OPC")
         val mOPC= StegoEncrWithOPC(box,flag)
         val FFTM =mOPC.getMatrix(true)
-        publishProgress(50)
+        progressListener?.invoke(50,"reverse DCT")
         val bodum1 = ModuleDCT(FFTM)
         val matrixYBR=bodum1.getYCbCrMatrix(true)
-        publishProgress(70);
+        progressListener?.invoke(70,"YcBcR to BMP");
         val af = MyBufferedImage(matrixYBR);
-
         val res = af.bufferedImage
-        publishProgress(90);
+        progressListener?.invoke(90,"Write to BMP");
         view?.invoke(res)
 
         var file=File(getPathWithoutType(pathToBar) + "res.bmp")
         file.createNewFile()
         ImageIO.write(res, "bmp", file)
-        publishProgress(100);
+        progressListener?.invoke(100,"Ready");
     }
 
     private fun getPathWithoutType(path: String): String {
         return path.substring(0, path.length - 4)
     }
 
-    var listeners:Vector<(value:Int)->Unit> = Vector()
-    fun addPublishListener(listener:(value:Int)->Unit){
-        listeners.add(listener)
-    }
-    private fun publishProgress(value: Int) {
-        for( l in listeners)
-            l(value)
-    }
+    var progressListener:((value:Int,text:String)->Unit)?=null
     var view:((image:BufferedImage)->Unit)?=null
 }

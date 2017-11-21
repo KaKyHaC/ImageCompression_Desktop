@@ -41,7 +41,7 @@ public class MainForm extends JFrame{
         dir.mkdir();
 
         flag.setOneFile(true);
-        flag.setLongCode(true);
+        flag.setDC(true);
     }
     private void setListeners(){
         bSelect.addActionListener(new ActionListener() {
@@ -81,13 +81,14 @@ public class MainForm extends JFrame{
                 }
             }
         });
-        convertor.addPublishListener(integer -> {
-            SwingUtilities.invokeLater(() -> {
-                progressBar1.setValue(integer);
-            });
-            return null;
-        });
         convertor.setView(bufferedImage ->{
+            convertor.setProgressListener((integer, s) -> {
+                SwingUtilities.invokeLater(() -> {
+                    progressBar1.setValue(integer);
+                    progressBar1.setString(s);
+                });
+                return null;
+            });
             ImageIcon imageIcon=new ImageIcon(bufferedImage);
             lInfo.setText("convertor:"+" \n "+imageIcon.getIconWidth()+"x"+imageIcon.getIconHeight());
             Image image1=imageIcon.getImage().getScaledInstance(600,600,Image.SCALE_DEFAULT);
