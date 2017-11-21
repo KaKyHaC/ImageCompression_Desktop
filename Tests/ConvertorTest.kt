@@ -172,14 +172,14 @@ class ConvertorTest {
         f.isOneFile=true
         f.isDC=true
         f.isLongCode=true
-        testDirectReverseConverting(360,280,f,4)
+        testDirectReverseConverting(360,280,f,7)
     }
     @Test
     fun TestHQImage2(){
         val f=Flag("0")
         f.isOneFile=true
         f.isDC=true
-        testDirectReverseConverting(360,280,f,4)
+        testDirectReverseConverting(360,280,f,7)
     }
 
     fun testModuleDCT(delta: Int){
@@ -222,9 +222,6 @@ class ConvertorTest {
     fun testDirectReverseConverting(w:Int,h:Int,flag: Flag,delta:Int){
         var matrix=getRandomMatrix(w,h,flag)
         val t1=Date().time
-        matrix.f.isLongCode=true
-        matrix.f.isDC=true
-        matrix.f.isOneFile=true
         val cpy=matrix.copy()
         AssertMatrixInRange(cpy,matrix,0)
 

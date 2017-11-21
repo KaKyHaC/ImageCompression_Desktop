@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Functions/OPCMultiThread.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Functions/OPCMultiThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPC.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Objects/DataOPC.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Objects/ModuleOPC.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Objects/ModuleOPC.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ConvertorTest.kt" afterPath="$PROJECT_DIR$/Tests/ConvertorTest.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/DCTMultiThread.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/DCTMultiThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,14 +21,12 @@
       <file leaf-file-name="ModuleOPC.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="43">
-              <caret line="226" column="31" lean-forward="true" selection-start-line="226" selection-start-column="31" selection-end-line="226" selection-end-column="31" />
+            <state relative-caret-position="172">
+              <caret line="130" column="22" lean-forward="false" selection-start-line="130" selection-start-column="22" selection-end-line="130" selection-end-column="22" />
               <folding>
                 <element signature="method#ModuleOPC#0;class#ModuleOPC#0" expanded="false" />
                 <element signature="method#sizeOpcCalculate#0;class#ModuleOPC#0" expanded="false" />
-                <element signature="method#directOPC#0;class#ModuleOPC#0" expanded="false" />
                 <element signature="method#reverceOPC#0;class#ModuleOPC#0" expanded="false" />
-                <element signature="method#directOPC#1;class#ModuleOPC#0" expanded="false" />
                 <element signature="method#reverseOPC#0;class#ModuleOPC#0" expanded="false" />
                 <element signature="method#directOPCMultiThreads#0;class#ModuleOPC#0" expanded="false" />
                 <element signature="method#directOpcGlobalBase#0;class#ModuleOPC#0" expanded="false" />
@@ -38,17 +35,26 @@
                 <element signature="method#findMaxInArry#0;class#ModuleOPC#0" expanded="false" />
                 <element signature="method#directOPCwithGlobalBase#0;class#ModuleOPC#0" expanded="false" />
                 <element signature="method#getMatrix#0;class#ModuleOPC#0" expanded="false" />
-                <element signature="method#getBoxOfOpc#0;class#ModuleOPC#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OPCMultiThread.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DCTMultiThread.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/DCTMultiThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
+              <caret line="79" column="40" lean-forward="true" selection-start-line="79" selection-start-column="40" selection-end-line="79" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OPCMultiThread.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+            <state relative-caret-position="175">
+              <caret line="238" column="31" lean-forward="false" selection-start-line="238" selection-start-column="31" selection-end-line="238" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -105,26 +111,22 @@
       <file leaf-file-name="ConvertorTest.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/ConvertorTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="177" column="23" lean-forward="true" selection-start-line="177" selection-start-column="23" selection-end-line="177" selection-end-column="23" />
+            <state relative-caret-position="154">
+              <caret line="154" column="8" lean-forward="false" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="8" />
               <folding>
                 <element signature="n#!!block;n#TestReadWrite#0;n#!!block;n#ConvertorTest#0" expanded="false" />
                 <element signature="n#!!block;n#TestMyBufferedImageMatrix#0;n#!!block;n#ConvertorTest#0" expanded="false" />
                 <element signature="n#!!block;n#TestBoxOfDUM#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-                <element signature="n#!!block;n#TestTimeBoxofDum#0;n#!!block;n#ConvertorTest#0" expanded="false" />
                 <element signature="n#!!block;n#TestSteganography#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-                <element signature="n#!!block;n#TestModuleDCT7#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-                <element signature="n#!!block;n#TestFullAlgorithmWithoutFile#0;n#!!block;n#ConvertorTest#0" expanded="false" />
                 <element signature="n#!!block;n#testModuleDCT#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-                <element signature="n#!!block;n#testDirectReverseConverting#0;n#!!block;n#ConvertorTest#0" expanded="false" />
                 <element signature="n#!!block;n#getRandomMatrix#0;n#!!block;n#ConvertorTest#0" expanded="false" />
                 <element signature="n#!!block;n#copy#0;n#!!block;n#ConvertorTest#0" expanded="false" />
                 <element signature="n#!!block;n#AssertMatrixInRange#0;n#!!block;n#ConvertorTest#0" expanded="false" />
                 <element signature="n#!!block;n#AssertArrayArrayInRange#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-                <element signature="e#9398#9766#2" expanded="false" />
+                <element signature="e#9306#9674#2" expanded="false" />
                 <element signature="n#!!block;n#forEach#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-                <element signature="e#10005#10085#1" expanded="false" />
-                <element signature="e#10035#10075#1" expanded="false" />
+                <element signature="e#9913#9993#1" expanded="false" />
+                <element signature="e#9943#9983#1" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -272,17 +274,17 @@
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/Flag.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Objects/StegoEncrWithOPC.kt" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Utils/OPCMultiThreadTest.java" />
-        <option value="$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Containers/BoxOfOpc.kt" />
         <option value="$PROJECT_DIR$/src/Convertor.kt" />
         <option value="$PROJECT_DIR$/src/MainForm.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/ByteVectorFile.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Objects/ModuleFile.kt" />
-        <option value="$PROJECT_DIR$/Tests/ConvertorTest.kt" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Utils/DCTMultiThreadTest.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java" />
-        <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/DCTMultiThread.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java" />
+        <option value="$PROJECT_DIR$/Tests/ConvertorTest.kt" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/DCTMultiThread.java" />
       </list>
     </option>
   </component>
@@ -405,7 +407,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in ImageCompressionKotlin">
+  <component name="RunManager" selected="JUnit.ConvertorTest">
     <configuration name="All in ImageCompressionKotlin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="ImageCompressionKotlin" />
@@ -446,14 +448,14 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="ConvertorTest.TestFullAllModules" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ConvertorTest.TestHDImage1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="ImageCompressionKotlin" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ConvertorTest" />
-      <option name="METHOD_NAME" value="TestFullAllModules" />
+      <option name="METHOD_NAME" value="TestHDImage1" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -588,18 +590,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.All in ImageCompressionKotlin" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.ConvertorTest.TestFullAllModules" />
-      <item index="2" class="java.lang.String" itemvalue="Application.MainForm" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.ConvertorTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.DCTMultiThreadTest" />
+      <item index="1" class="java.lang.String" itemvalue="Application.MainForm" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.ConvertorTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.DCTMultiThreadTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.ConvertorTest.TestHDImage1" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.All in ImageCompressionKotlin" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.DCTMultiThreadTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ConvertorTest" />
-        <item index="3" class="java.lang.String" itemvalue="Application.MainForm" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.ConvertorTest.TestFullAllModules" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ConvertorTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ConvertorTest.TestHDImage1" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.All in ImageCompressionKotlin" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.DCTMultiThreadTest" />
+        <item index="4" class="java.lang.String" itemvalue="Application.MainForm" />
       </list>
     </recent_temporary>
   </component>
@@ -635,35 +637,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_ImageCompressionKotlin - 2017.11.21 at 12h 50m 50s.xml">
-      <configuration name="All in ImageCompressionKotlin" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_ImageCompressionKotlin - 2017.11.21 at 12h 56m 42s.xml">
-      <configuration name="All in ImageCompressionKotlin" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_ImageCompressionKotlin - 2017.11.21 at 13h 04m 11s.xml">
-      <configuration name="All in ImageCompressionKotlin" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ConvertorTest - 2017.11.21 at 12h 27m 41s.xml">
+    <history-entry file="ConvertorTest - 2017.11.21 at 13h 18m 09s.xml">
       <configuration name="ConvertorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorTest - 2017.11.21 at 12h 30m 43s.xml">
+    <history-entry file="ConvertorTest - 2017.11.21 at 13h 22m 43s.xml">
       <configuration name="ConvertorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorTest - 2017.11.21 at 12h 40m 36s.xml">
+    <history-entry file="ConvertorTest - 2017.11.21 at 13h 26m 28s.xml">
       <configuration name="ConvertorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorTest - 2017.11.21 at 12h 44m 06s.xml">
+    <history-entry file="ConvertorTest - 2017.11.21 at 13h 28m 07s.xml">
       <configuration name="ConvertorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorTest - 2017.11.21 at 12h 48m 07s.xml">
+    <history-entry file="ConvertorTest - 2017.11.21 at 13h 29m 09s.xml">
       <configuration name="ConvertorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DCTMultiThreadTest - 2017.11.21 at 12h 49m 35s.xml">
-      <configuration name="DCTMultiThreadTest" configurationId="JUnit" />
+    <history-entry file="ConvertorTest - 2017.11.21 at 13h 32m 57s.xml">
+      <configuration name="ConvertorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DCTMultiThreadTest - 2017.11.21 at 12h 49m 52s.xml">
-      <configuration name="DCTMultiThreadTest" configurationId="JUnit" />
+    <history-entry file="ConvertorTest - 2017.11.21 at 13h 33m 12s.xml">
+      <configuration name="ConvertorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConvertorTest - 2017.11.21 at 13h 34m 22s.xml">
+      <configuration name="ConvertorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConvertorTest - 2017.11.21 at 13h 34m 56s.xml">
+      <configuration name="ConvertorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConvertorTest - 2017.11.21 at 13h 38m 34s.xml">
+      <configuration name="ConvertorTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -678,24 +680,24 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33105022" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3938356" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3938356" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32990867" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -761,6 +763,12 @@
           <properties />
           <option name="timeStamp" value="129" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/DCTMultiThread.java</url>
+          <line>93</line>
+          <properties />
+          <option name="timeStamp" value="136" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Tests/ImageCompression/Utils/Objects/DataOPCTest.kt</url>
           <line>124</line>
@@ -804,7 +812,7 @@
           <option name="timeStamp" value="133" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="134" />
+      <option name="time" value="137" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
@@ -1197,32 +1205,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/ConvertorTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="177" column="23" lean-forward="true" selection-start-line="177" selection-start-column="23" selection-end-line="177" selection-end-column="23" />
-          <folding>
-            <element signature="n#!!block;n#TestReadWrite#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="n#!!block;n#TestMyBufferedImageMatrix#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="n#!!block;n#TestBoxOfDUM#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="n#!!block;n#TestTimeBoxofDum#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="n#!!block;n#TestSteganography#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="n#!!block;n#TestModuleDCT7#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="n#!!block;n#TestFullAlgorithmWithoutFile#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="n#!!block;n#testModuleDCT#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="n#!!block;n#testDirectReverseConverting#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="n#!!block;n#getRandomMatrix#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="n#!!block;n#copy#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="n#!!block;n#AssertMatrixInRange#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="n#!!block;n#AssertArrayArrayInRange#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="e#9398#9766#2" expanded="false" />
-            <element signature="n#!!block;n#forEach#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="e#10005#10085#1" expanded="false" />
-            <element signature="e#10035#10075#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1249,16 +1231,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="238" column="31" lean-forward="false" selection-start-line="238" selection-start-column="31" selection-end-line="238" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="226" column="31" lean-forward="true" selection-start-line="226" selection-start-column="31" selection-end-line="226" selection-end-column="31" />
+        <state relative-caret-position="172">
+          <caret line="130" column="22" lean-forward="false" selection-start-line="130" selection-start-column="22" selection-end-line="130" selection-end-column="22" />
           <folding>
             <element signature="method#ModuleOPC#0;class#ModuleOPC#0" expanded="false" />
             <element signature="method#sizeOpcCalculate#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#directOPC#0;class#ModuleOPC#0" expanded="false" />
             <element signature="method#reverceOPC#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#directOPC#1;class#ModuleOPC#0" expanded="false" />
             <element signature="method#reverseOPC#0;class#ModuleOPC#0" expanded="false" />
             <element signature="method#directOPCMultiThreads#0;class#ModuleOPC#0" expanded="false" />
             <element signature="method#directOpcGlobalBase#0;class#ModuleOPC#0" expanded="false" />
@@ -1267,23 +1255,36 @@
             <element signature="method#findMaxInArry#0;class#ModuleOPC#0" expanded="false" />
             <element signature="method#directOPCwithGlobalBase#0;class#ModuleOPC#0" expanded="false" />
             <element signature="method#getMatrix#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#getBoxOfOpc#0;class#ModuleOPC#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/ConvertorTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="154" column="8" lean-forward="false" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="8" />
+          <folding>
+            <element signature="n#!!block;n#TestReadWrite#0;n#!!block;n#ConvertorTest#0" expanded="false" />
+            <element signature="n#!!block;n#TestMyBufferedImageMatrix#0;n#!!block;n#ConvertorTest#0" expanded="false" />
+            <element signature="n#!!block;n#TestBoxOfDUM#0;n#!!block;n#ConvertorTest#0" expanded="false" />
+            <element signature="n#!!block;n#TestSteganography#0;n#!!block;n#ConvertorTest#0" expanded="false" />
+            <element signature="n#!!block;n#testModuleDCT#0;n#!!block;n#ConvertorTest#0" expanded="false" />
+            <element signature="n#!!block;n#getRandomMatrix#0;n#!!block;n#ConvertorTest#0" expanded="false" />
+            <element signature="n#!!block;n#copy#0;n#!!block;n#ConvertorTest#0" expanded="false" />
+            <element signature="n#!!block;n#AssertMatrixInRange#0;n#!!block;n#ConvertorTest#0" expanded="false" />
+            <element signature="n#!!block;n#AssertArrayArrayInRange#0;n#!!block;n#ConvertorTest#0" expanded="false" />
+            <element signature="e#9306#9674#2" expanded="false" />
+            <element signature="n#!!block;n#forEach#0;n#!!block;n#ConvertorTest#0" expanded="false" />
+            <element signature="e#9913#9993#1" expanded="false" />
+            <element signature="e#9943#9983#1" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/DCTMultiThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+        <state relative-caret-position="104">
+          <caret line="79" column="40" lean-forward="true" selection-start-line="79" selection-start-column="40" selection-end-line="79" selection-end-column="40" />
           <folding />
         </state>
       </provider>

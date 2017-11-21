@@ -79,6 +79,9 @@ public class ModuleOPC {
                         int curY=j * SIZEOFBLOCK + y;
                         if (curX< Width && curY < Height)
                             value = dataOrigin[curX][curY];
+
+                        if(x!=0||y!=0)
+                            assert value<0xff:"value["+curX+"]["+curY+"]="+value;
                         buf[x][y] = value;
                         // DU[i][j].setValue(val,x,y);
                     }
@@ -225,6 +228,9 @@ public class ModuleOPC {
                             value = dataOrigin[curX][curY];
                         buf[x][y] = value;
                         // DU[i][j].setValue(val,x,y);
+
+                        if(x!=0||y!=0)
+                            assert value<0xff:"value["+curX+"]["+curY+"]="+value;
                     }
                 }
                 dopc[i][j]= OPCMultiThread.findBase(buf,matrix.f);

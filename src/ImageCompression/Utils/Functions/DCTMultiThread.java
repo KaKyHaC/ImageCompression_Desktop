@@ -77,6 +77,7 @@ public class DCTMultiThread {//singelton
                 {
                     for(int y=0;y<SIZEOFBLOCK;y++)
                     {
+                        assert dataOriginal[x][y]<=0xff:"dataOriginal="+dataOriginal[x][y];
                         /*double cos=Cosine.getCos(x,y,i,j);
                         double buf=dataOriginal[x][y];
                         double mul=buf*cos;
@@ -87,13 +88,18 @@ public class DCTMultiThread {//singelton
                 }
                 res*=sum;
                 dataProcessed[i][j]=(short)res;
+
+                if(i!=0||j!=0) {
+                    if (res>0xff)
+                        System.out.println("vwlv");
+                    assert res <= 0xff : "DCT res=" + res;
+
+                }
                 /*if(i==0&&j==0)
                     AC=(long)res;
                 else if (res<256&&res>-256)
                     dataDCT[i][j]=(byte)res;
                 else getAC();*/
-
-
             }
         }
         return dataProcessed;
