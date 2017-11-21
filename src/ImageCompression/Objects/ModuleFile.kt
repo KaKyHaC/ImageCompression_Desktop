@@ -50,6 +50,9 @@ class ModuleFile{
     fun getInfoMainString():String{
         return ByteVectorFile(pathToName+ typeMain).infoToString()
     }
+    fun getMainFileLength():Long{
+        return ByteVectorFile(pathToName+ typeMain).getFileLength()
+    }
     private fun getPathToName(pathToFile: String):String{
         var res=pathToFile
         if(pathToFile.contains('.')) {

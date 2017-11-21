@@ -22,15 +22,15 @@ public class DCTMultiThreadTest {
     }
 
     @Test
-    public void TestDctNotEquals() throws Exception {
+    public void TestDctEquals() throws Exception {
         res=DCTMultiThread.directDCT(data);
         res=DCTMultiThread.reverseDCT(res);
 
 //        assertArrayEquals(res,data);
-//        assertArrayInRange(data,res,0);
+        assertArrayInRange(data,res,0);
     }
     @Test
-    public void TestDCTinRange() throws Exception {
+    public void TestDCTinRange1() throws Exception {
         res=DCTMultiThread.directDCT(data);
         res=DCTMultiThread.reverseDCT(res);
 

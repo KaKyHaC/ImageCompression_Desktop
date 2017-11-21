@@ -18,23 +18,9 @@ import kotlin.test.assertTrue
 class ConvertorTest {
     val pathToBmp:String="/files/desk.bmp"
     val pathToBmpRes:String="/files/desktest.bmp"
-
-    val size=200
     val w=1920
     val h=1080
-    var matrix:Matrix= Matrix(w,h, Flag("0"), State.RGB)
-    val delta=8
 
-    @Before
-    fun setUp() {
-        val rand=Random()
-        forEach(w,h,{x, y ->
-            matrix.a[x][y]=rand.nextInt(255).toShort()
-            matrix.c[x][y]=rand.nextInt(255).toShort()
-            matrix.b[x][y]=rand.nextInt(255).toShort()
-        })
-
-    }
     @Test
     fun TestReadWrite(){
         val bmp = ImageIO.read(File(pathToBmp))
@@ -43,6 +29,7 @@ class ConvertorTest {
     }
     @Test
     fun TestMyBufferedImageMatrix(){
+        var matrix=getRandomMatrix(w,h, Flag("0"))
         val mi=MyBufferedImage(matrix)
         val bi=mi.bufferedImage
         val mi1=MyBufferedImage(bi,matrix.f)
@@ -62,6 +49,7 @@ class ConvertorTest {
     }
     @Test
     fun TestBoxOfDUM(){
+        var matrix=getRandomMatrix(w,h,Flag("0"))
         matrix=MyBufferedImage(matrix).yCbCrMatrix
         val cpy=matrix.copy()
         val bo= ModuleDCT(matrix)
@@ -74,6 +62,7 @@ class ConvertorTest {
     }
     @Test
     fun TestTimeBoxofDum(){
+        var matrix=getRandomMatrix(w,h,Flag("0"))
         matrix=MyBufferedImage(matrix).yCbCrMatrix
         val bo= ModuleDCT(matrix)
 
@@ -93,13 +82,108 @@ class ConvertorTest {
     }
     @Test
     fun TestSteganography(){
+        var matrix=getRandomMatrix(w,h,Flag("0"))
         val m="afdsfsd"
         Steganography.WriteMassageFromByteArrayToMatrix(matrix,m.toByteArray())
         val res= String(Steganography.ReadMassageFromMatrix(matrix).toByteArray())
         assertEquals(m,res)
     }
     @Test
-    fun TestModuleDCT(){
+    fun TestModuleDCT5(){
+        val delta=5
+        testModuleDCT(delta)
+    }
+    @Test
+    fun TestModuleDCT7(){
+        val delta=7
+        testModuleDCT(delta)
+
+    }
+    @Test
+    fun TestFullAlgorithmWithoutFile(){
+        val delta=2
+        var matrix=getRandomMatrix(w,h,Flag("0"))
+        val t1=Date().time
+        matrix.f.isLongCode=true
+        matrix.f.isDC=true
+        matrix.f.isOneFile=true
+        val cpy=matrix.copy()
+        AssertMatrixInRange(cpy,matrix,0)
+
+        val myImage=MyBufferedImage(matrix)
+        val ybr=myImage.yCbCrMatrix
+        val ybrCpy=ybr.copy()
+        assertFails { AssertMatrixInRange(cpy,ybr,1) }
+        AssertMatrixInRange(ybrCpy,ybr,0)
+
+        val mDCT=ModuleDCT(ybr)
+        val dct=mDCT.getDCTMatrix(true)
+        val dctCpy=dct.copy()
+        assertFails { AssertMatrixInRange(cpy,dct,1) }
+        assertFails { AssertMatrixInRange(ybrCpy,dct,1) }
+
+        val seOpc=StegoEncrWithOPC(dct)
+        val opcs=seOpc.getModuleOPC()
+        val box=opcs.boxOfOpc
+        val flag1=opcs.flag
+        val vb=ByteVector()
+        box.writeToVector(vb,flag1)
+        //----
+        //----
+        val f=opcs.flag
+        val rBox=BoxOfOpc()
+        rBox.readFromVector(vb,f)
+        assertEquals(rBox,box)
+
+        val seOpc2=StegoEncrWithOPC(ModuleOPC(rBox,f),f)
+        val dctres=seOpc2.getMatrix(true)
+        AssertMatrixInRange(dctres,dctCpy,0)
+
+        val mDCT2=ModuleDCT(dctres)
+        val ynlres=mDCT2.getYCbCrMatrix(true)
+        AssertMatrixInRange(ynlres,ybrCpy,delta)
+
+        val myIm2=MyBufferedImage(ynlres)
+        val rgb=myIm2.rgbMatrix
+        AssertMatrixInRange(rgb,cpy,delta)
+        val t2=Date().time
+
+        System.out.println("Time direct/reverse FullMode = ${t2-t1}")
+    }
+
+    @Test
+    fun TestHDImage1(){
+        val f=Flag("0")
+        f.isOneFile=true
+        f.isDC=true
+        f.isLongCode=true
+        testDirectReverseConverting(1920,1080,f,7)
+    }
+    @Test
+    fun TestHDImage2(){
+        val f=Flag("0")
+        f.isOneFile=true
+        f.isDC=true
+        testDirectReverseConverting(1920,1080,f,7)
+    }
+    @Test
+    fun TestHQImage1(){
+        val f=Flag("0")
+        f.isOneFile=true
+        f.isDC=true
+        f.isLongCode=true
+        testDirectReverseConverting(360,280,f,4)
+    }
+    @Test
+    fun TestHQImage2(){
+        val f=Flag("0")
+        f.isOneFile=true
+        f.isDC=true
+        testDirectReverseConverting(360,280,f,4)
+    }
+
+    fun testModuleDCT(delta: Int){
+        var matrix=getRandomMatrix(w,h,Flag("0"))
         matrix.f.isLongCode=true
         matrix.f.isDC=true
         matrix.f.isOneFile=true
@@ -134,10 +218,9 @@ class ConvertorTest {
         val myIm2=MyBufferedImage(ynlres)
         val rgb=myIm2.rgbMatrix
         AssertMatrixInRange(rgb,cpy,delta)
-
     }
-    @Test
-    fun TestFullModule(){
+    fun testDirectReverseConverting(w:Int,h:Int,flag: Flag,delta:Int){
+        var matrix=getRandomMatrix(w,h,flag)
         val t1=Date().time
         matrix.f.isLongCode=true
         matrix.f.isDC=true
@@ -148,63 +231,14 @@ class ConvertorTest {
         val myImage=MyBufferedImage(matrix)
         val ybr=myImage.yCbCrMatrix
         val ybrCpy=ybr.copy()
-        assertFails { AssertMatrixInRange(cpy,ybr,1) }
+        assertFails { AssertMatrixInRange(cpy,ybr,0) }
         AssertMatrixInRange(ybrCpy,ybr,0)
 
         val mDCT=ModuleDCT(ybr)
         val dct=mDCT.getDCTMatrix(true)
         val dctCpy=dct.copy()
-        assertFails { AssertMatrixInRange(cpy,dct,1) }
-        assertFails { AssertMatrixInRange(ybrCpy,dct,1) }
-
-        val seOpc=StegoEncrWithOPC(dct)
-        val opcs=seOpc.getModuleOPC()
-        val box=opcs.boxOfOpc
-        val flag=opcs.flag
-        val vb=ByteVector()
-        box.writeToVector(vb,opcs.flag)
-        //----
-        //----
-        val f=opcs.flag
-        val rBox=BoxOfOpc()
-        rBox.readFromVector(vb,f)
-        assertEquals(rBox,box)
-
-        val seOpc2=StegoEncrWithOPC(ModuleOPC(rBox,f),f)
-        val dctres=seOpc2.getMatrix(true)
-        AssertMatrixInRange(dctres,dctCpy,0)
-
-        val mDCT2=ModuleDCT(dctres)
-        val ynlres=mDCT2.getYCbCrMatrix(true)
-        AssertMatrixInRange(ynlres,ybrCpy,delta)
-
-        val myIm2=MyBufferedImage(ynlres)
-        val rgb=myIm2.rgbMatrix
-        AssertMatrixInRange(rgb,cpy,delta)
-        val t2=Date().time
-
-        System.out.println("Time direct/reverse FullMode = ${t2-t1}")
-    }
-    @Test
-    fun TestFullAllModules(){
-        val t1=Date().time
-        matrix.f.isLongCode=true
-        matrix.f.isDC=true
-        matrix.f.isOneFile=true
-        val cpy=matrix.copy()
-        AssertMatrixInRange(cpy,matrix,0)
-
-        val myImage=MyBufferedImage(matrix)
-        val ybr=myImage.yCbCrMatrix
-        val ybrCpy=ybr.copy()
-        assertFails { AssertMatrixInRange(cpy,ybr,1) }
-        AssertMatrixInRange(ybrCpy,ybr,0)
-
-        val mDCT=ModuleDCT(ybr)
-        val dct=mDCT.getDCTMatrix(true)
-        val dctCpy=dct.copy()
-        assertFails { AssertMatrixInRange(cpy,dct,1) }
-        assertFails { AssertMatrixInRange(ybrCpy,dct,1) }
+        assertFails { AssertMatrixInRange(cpy,dct,0) }
+        assertFails { AssertMatrixInRange(ybrCpy,dct,0) }
 
         val seOpc=StegoEncrWithOPC(dct)
         val opcs=seOpc.getModuleOPC()
@@ -231,13 +265,22 @@ class ConvertorTest {
         val myIm2=MyBufferedImage(ynlres)
         val rgb=myIm2.rgbMatrix
         AssertMatrixInRange(rgb,cpy,delta)
+        assertEquals("${flag.flag}!=${f.flag}",flag.flag,f.flag)
         val t2=Date().time
 
-        System.out.println("Time direct/reverse All modules Mode = ${t2-t1}")
+        System.out.println("Test d/r Image=${w}x${h}. Time= ${t2-t1}. Flag=${f.flag}." +
+                " Bar File=${file.getMainFileLength()/1024}kb. Delta=${delta}")
     }
-
-
-
+    fun getRandomMatrix(w:Int,h:Int,flag:Flag):Matrix{
+        val m =Matrix(w,h,flag,State.RGB)
+        val rand=Random()
+        forEach(w,h,{x, y ->
+            m.a[x][y]=rand.nextInt(255).toShort()
+            m.c[x][y]=rand.nextInt(255).toShort()
+            m.b[x][y]=rand.nextInt(255).toShort()
+        })
+        return m
+    }
 
     fun Matrix.copy():Matrix{
         var res=Matrix(this.Width,this.Height, Flag(this.f.flag),state)

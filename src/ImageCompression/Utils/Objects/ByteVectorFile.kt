@@ -43,4 +43,7 @@ class ByteVectorFile(var file: File) {
         return "File : ${file.absolutePath} \n" +
                 "size : ${file.length()/1024} kb"
     }
+    fun getFileLength():Long{
+        return file.length()
+    }
 }
