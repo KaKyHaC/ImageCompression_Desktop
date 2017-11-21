@@ -89,12 +89,6 @@ public class DCTMultiThread {//singelton
                 res*=sum;
                 dataProcessed[i][j]=(short)res;
 
-                if(i!=0||j!=0) {
-                    if (res>0xff)
-                        System.out.println("vwlv");
-                    assert res <= 0xff : "DCT res=" + res;
-
-                }
                 /*if(i==0&&j==0)
                     AC=(long)res;
                 else if (res<256&&res>-256)

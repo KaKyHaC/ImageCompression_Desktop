@@ -99,36 +99,54 @@ public class DataOPC {
         }
     }
 
-    public byte[] FromBaseToArray() {
-        byte[] res=new byte[SIZEOFBLOCK];
+    public short[] FromBaseToArray() {
+        short[] res=new short[SIZEOFBLOCK];
         for(int i=0;i<res.length;i++){
-            res[i]=(byte)base[i];
+            res[i]=base[i];
         }
         return res;
     }
-    public void FromBaseToVector(ByteVector vector,Flag flag){
-        int i=0;
-        if(!flag.isDC()){
-            vector.append(base[i++]);
-        }
-        while (i<SIZEOFBLOCK){
-            assert (base[i]<0xff):"base["+i+"]="+base[i];
-            vector.append((byte)base[i++]);
+    public void FromArrayToBase(short[] b) {
+        for(int i=0;i<b.length;i++) {
+            base[i]=((b[i]));
         }
     }
-    public void FromArrayToBase(byte[] b) {
-        for(int i=0;i<b.length;i++) {
-            base[i]=(short)((b[i])&0xff);
-        }
+    public void FromBaseToVector(ByteVector vector,Flag flag){
+        int i=0;
+//        if(!flag.isDC()){
+//            vector.append(base[i++]);
+//        }
+//        while (i<SIZEOFBLOCK){
+//            assert (base[i]<0xff):"base["+i+"]="+base[i];
+//            vector.append((byte)base[i++]);
+//        }
+        vector.append(base[i++]);
+        vector.append(base[i++]);
+        vector.append(base[i++]);
+        vector.append(base[i++]);
+
+        vector.append(base[i++]);
+        vector.append(base[i++]);
+        vector.append(base[i++]);
+        vector.append(base[i++]);
     }
     public void FromVectorToBase(ByteVector vector,Flag flag){
         int i=0;
-        if(!flag.isDC()){
-            base[i++]=vector.getNextShort();
-        }
-        while (i<SIZEOFBLOCK) {
-            base[i++]=(short)((vector.getNext())&0xff);
-        }
+//        if(!flag.isDC()){
+//            base[i++]=vector.getNextShort();
+//        }
+//        while (i<SIZEOFBLOCK) {
+//            base[i++]=(short)((vector.getNext())&0xff);
+//        }
+        base[i++]=vector.getNextShort();
+        base[i++]=vector.getNextShort();
+        base[i++]=vector.getNextShort();
+        base[i++]=vector.getNextShort();
+
+        base[i++]=vector.getNextShort();
+        base[i++]=vector.getNextShort();
+        base[i++]=vector.getNextShort();
+        base[i++]=vector.getNextShort();
     }
 
     public byte[] getDC() {
@@ -214,9 +232,9 @@ public class DataOPC {
         int index=0;
 
         if(flag.isOneFile()&&!flag.isGlobalBase()) {
-            byte[] a=new byte[offset];
+            short[] a=new short[offset];
             for (int i = 0; i < offset; i++) {
-                a[i] = (byte) s.charAt(index++);
+                a[i] = (short) s.charAt(index++);
             }
             FromArrayToBase(a);
         }

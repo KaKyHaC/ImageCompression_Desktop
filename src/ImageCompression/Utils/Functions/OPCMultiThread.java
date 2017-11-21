@@ -40,18 +40,16 @@ public class OPCMultiThread { //singelton
 
     private static  DataOPC FindeBase(final short[][] dataOrigin,DataOPC dataOPC) {
 //        short[] base=new short[SIZEOFBLOCK];
-        for(int i=0;i<SIZEOFBLOCK;i++)
-        {
+        for(int i=0;i<SIZEOFBLOCK;i++) {
 //            assert (dataOrigin[i][0]<(short)(Byte.MAX_VALUE&0xFF));
             dataOPC.base[i]=(dataOrigin[i][0]);
-            for(int j=0;j<SIZEOFBLOCK;j++)
-            {
+            for(int j=0;j<SIZEOFBLOCK;j++) {
                 if(dataOPC.base[i]<(dataOrigin[i][j])) {
                     dataOPC.base[i]=(dataOrigin[i][j]);
                 }
             }
             dataOPC.base[i]++;
-            assert dataOPC.base[i]<0xff:"base ["+i+"]="+dataOPC.base[i];
+//            assert dataOPC.base[i]<0xff:"base ["+i+"]="+dataOPC.base[i];
         }
         return dataOPC;
     }
