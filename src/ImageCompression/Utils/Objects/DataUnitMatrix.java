@@ -33,10 +33,6 @@ public class DataUnitMatrix {
 
         this.state=state;
         sizeCalculate();
-
-
-
-
     }
     private void sizeCalculate() {
         duWidth = Width / DCTMultiThread.SIZEOFBLOCK;
@@ -45,10 +41,7 @@ public class DataUnitMatrix {
             duWidth++;
         if (Height % DCTMultiThread.SIZEOFBLOCK != 0)
             duHeight++;
-
      //   createMatrix();
-
-
     }
 
 
@@ -78,25 +71,22 @@ public class DataUnitMatrix {
         return buffer;
     }
     private short[][] MainCode(short[][] buf){
-
         if(state==State.YBR) {
-
             if(flag.isAlignment())
-            minus128(buf);
+                minus128(buf);
 
             buf = DCTMultiThread.directDCT(buf);
 
             if(flag.getQuantization()== Flag.QuantizationState.First)
                 DCTMultiThread.directQuantization(tq,buf);
-        }
-        else if(state==State.DCT)
-        {
+        } else if(state==State.DCT) {
             if(flag.getQuantization()== Flag.QuantizationState.First)
                 DCTMultiThread.reverseQuantization(tq,buf);
+
             buf = DCTMultiThread.reverseDCT(buf);
 
             if(flag.isAlignment())
-            plus128(buf);
+                plus128(buf);
         }
 
         return buf;
@@ -120,14 +110,10 @@ public class DataUnitMatrix {
 
         for (int i = 0; i < duWidth; i++) {
             for (int j = 0; j < duHeight; j++) {
-
                 buf=fillBufferforDU(i,j,buf);
-
                 buf=MainCode(buf);
-
                 //-------------------directQuantization
                 fillDateProcessed(i,j,buf);
-
             }
         }
         if(state==State.YBR)
@@ -138,20 +124,17 @@ public class DataUnitMatrix {
             state=State.DCT;
         else if(state==State.DCT)
             state=State.YBR;
-
     }
 
     private void minus128(short [][] arr){
-        for(int i=0;i<arr.length;i++)
-        {
+        for(int i=0;i<arr.length;i++) {
             for(int j=0;j<arr[0].length;j++){
                 arr[i][j]-=128;
             }
         }
     }
     private void plus128(short [][] arr){
-        for(int i=0;i<arr.length;i++)
-        {
+        for(int i=0;i<arr.length;i++) {
             for(int j=0;j<arr[0].length;j++){
                 arr[i][j]+=128;
             }

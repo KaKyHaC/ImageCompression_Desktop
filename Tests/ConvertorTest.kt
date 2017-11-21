@@ -28,7 +28,7 @@ class ConvertorTest {
         ImageIO.write(bmp,"bmp",File(pathToBmpRes))
     }
     @Test
-    fun TestMyBufferedImageMatrix(){
+    fun TestMyBufferedImageMatrix5(){
         var matrix=getRandomMatrix(w,h, Flag("0"))
         val mi=MyBufferedImage(matrix)
         val bi=mi.bufferedImage
@@ -37,28 +37,28 @@ class ConvertorTest {
 
         var matrix1=mi1.rgbMatrix
         matrix=mi.rgbMatrix
-        AssertMatrixInRange(matrix,matrix1,2)
+        AssertMatrixInRange(matrix,matrix1,0)
 
         matrix=mi.yCbCrMatrix
         matrix1=mi1.yCbCrMatrix
-        AssertMatrixInRange(matrix,matrix1,2)
+        AssertMatrixInRange(matrix,matrix1,0)
 
         matrix1=mi1.rgbMatrix
         matrix=mi.yCbCrMatrix
-        AssertMatrixInRange(matrix1,matrix,2,false)
+        AssertMatrixInRange(matrix1,matrix,0,false)
     }
     @Test
-    fun TestBoxOfDUM(){
+    fun TestBoxOfDUM5(){
         var matrix=getRandomMatrix(w,h,Flag("0"))
         matrix=MyBufferedImage(matrix).yCbCrMatrix
         val cpy=matrix.copy()
         val bo= ModuleDCT(matrix)
 
         bo.dataProcessingInThreads()
-        AssertMatrixInRange(matrix,cpy,3,false)
+        AssertMatrixInRange(matrix,cpy,5,false)
 
         bo.dataProcessingInThreads()
-        AssertMatrixInRange(matrix,cpy,3)
+        AssertMatrixInRange(matrix,cpy,5)
     }
     @Test
     fun TestTimeBoxofDum(){
@@ -100,8 +100,8 @@ class ConvertorTest {
 
     }
     @Test
-    fun TestFullAlgorithmWithoutFile(){
-        val delta=2
+    fun TestFullAlgorithmWithoutFile8(){
+        val delta=8
         var matrix=getRandomMatrix(w,h,Flag("0"))
         val t1=Date().time
         matrix.f.isLongCode=true
@@ -157,14 +157,14 @@ class ConvertorTest {
         f.isOneFile=true
         f.isDC=true
         f.isLongCode=true
-        testDirectReverseConverting(1920,1080,f,7)
+        testDirectReverseConverting(1920,1080,f,8)
     }
     @Test
     fun TestHDImage2(){
         val f=Flag("0")
         f.isOneFile=true
         f.isDC=true
-        testDirectReverseConverting(1920,1080,f,7)
+        testDirectReverseConverting(1920,1080,f,8)
     }
     @Test
     fun TestHQImage1(){
@@ -179,6 +179,22 @@ class ConvertorTest {
         val f=Flag("0")
         f.isOneFile=true
         f.isDC=true
+        testDirectReverseConverting(360,280,f,7)
+    }
+    @Test
+    fun TestHQImageEnlargement(){
+        val f=Flag("0")
+        f.isOneFile=true
+        f.isDC=true
+        f.isEnlargement=true
+        testDirectReverseConverting(384,240,f,7)
+    }
+    @Test
+    fun TestHQImageAlignment(){
+        val f=Flag("0")
+        f.isOneFile=true
+        f.isDC=true
+        f.isAlignment=true
         testDirectReverseConverting(360,280,f,7)
     }
 
@@ -226,7 +242,7 @@ class ConvertorTest {
         AssertMatrixInRange(cpy,matrix,0)
 
         val myImage=MyBufferedImage(matrix)
-        val ybr=myImage.yCbCrMatrix
+        val ybr=myImage.yenlMatrix
         val ybrCpy=ybr.copy()
         assertFails { AssertMatrixInRange(cpy,ybr,0) }
         AssertMatrixInRange(ybrCpy,ybr,0)
@@ -249,7 +265,8 @@ class ConvertorTest {
         //----
         val f=pair.second
         val rBox=pair.first
-        assertEquals(rBox,box)
+        assertEquals("box not equal",rBox,box)
+        assertEquals("flag $f!=$flag",f,flag)
 
         val seOpc2=StegoEncrWithOPC(ModuleOPC(rBox,f),f)
         val dctres=seOpc2.getMatrix(true)
@@ -272,9 +289,12 @@ class ConvertorTest {
         val m =Matrix(w,h,flag,State.RGB)
         val rand=Random()
         forEach(w,h,{x, y ->
-            m.a[x][y]=rand.nextInt(255).toShort()
-            m.c[x][y]=rand.nextInt(255).toShort()
-            m.b[x][y]=rand.nextInt(255).toShort()
+//            m.a[x][y]=rand.nextInt(255).toShort()
+//            m.c[x][y]=rand.nextInt(255).toShort()
+//            m.b[x][y]=rand.nextInt(255).toShort()
+            m.a[x][y]=((x+y)%255).toShort()
+            m.b[x][y]=((x+y)%255).toShort()
+            m.c[x][y]=((x+y)%255).toShort()
         })
         return m
     }
@@ -292,6 +312,7 @@ class ConvertorTest {
         if(inRange) {
             assertEquals("m1.State=${m.state} m2.State=${m1.state}"
                     , m.state, m1.state)
+            assertEquals("flag ${m.f}!=${m1.f}",m.f,m1.f)
             assertEquals(m.Width, m1.Width)
             assertEquals(m.Height, m1.Height)
         }

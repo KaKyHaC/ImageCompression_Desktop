@@ -8,6 +8,8 @@ import ImageCompression.Utils.Functions.OPCMultiThread;
 import ImageCompression.Utils.Objects.DataOPC;
 import ImageCompression.Utils.Functions.DCTMultiThread;
 import ImageCompression.Utils.Objects.Flag;
+import com.sun.glass.ui.Size;
+import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +27,7 @@ import static ImageCompression.Utils.Functions.OPCMultiThread.SIZEOFBLOCK;
 public class ModuleOPC {
 
     private BoxOfOpc boxOfOpc;
-    private int widthOPC,heightOPC;
+//    private int widthOPC,heightOPC;
     private Matrix matrix;
     private Flag flag;
     private boolean isMatrix=false;
@@ -36,38 +38,43 @@ public class ModuleOPC {
         isMatrix=true;
         this.flag= matrix.getF();
 
-        sizeOpcCalculate(matrix.getWidth(), matrix.getHeight());
+        Size size=sizeOpcCalculate(matrix.getWidth(), matrix.getHeight());
+        int widthOPC=size.width;
+        int heightOPC=size.height;
         int k=(matrix.getF().isEnlargement())?2:1;
         boxOfOpc=new BoxOfOpc();
-        boxOfOpc.setA(new DataOPC[widthOPC][heightOPC]);
-        boxOfOpc.setB(new DataOPC[widthOPC/k][heightOPC/k]);
-        boxOfOpc.setC(new DataOPC[widthOPC/k][heightOPC/k]);
+//        boxOfOpc.setA(new DataOPC[widthOPC][heightOPC]);
+//        boxOfOpc.setB(new DataOPC[widthOPC/k][heightOPC/k]);
+//        boxOfOpc.setC(new DataOPC[widthOPC/k][heightOPC/k]);
     }
     public ModuleOPC(BoxOfOpc boxOfOpc, Flag flag){
         this.boxOfOpc=boxOfOpc;
-        widthOPC=boxOfOpc.getA().length;
-        heightOPC=boxOfOpc.getA()[0].length;
+        int widthOPC=boxOfOpc.getA().length;
+        int heightOPC=boxOfOpc.getA()[0].length;
         isOpcs=true;
         this.flag=flag;
         this.matrix=new Matrix(widthOPC*SIZEOFBLOCK,heightOPC*SIZEOFBLOCK,flag, State.DCT);
     }
-    private void sizeOpcCalculate(int Width,int Height) {
-        widthOPC = Width / DCTMultiThread.SIZEOFBLOCK;
-        heightOPC = Height / DCTMultiThread.SIZEOFBLOCK;
+
+    private Size sizeOpcCalculate(int Width, int Height) {
+        int widthOPC = Width / DCTMultiThread.SIZEOFBLOCK;
+        int heightOPC = Height / DCTMultiThread.SIZEOFBLOCK;
         if (Width % DCTMultiThread.SIZEOFBLOCK != 0)
             widthOPC++;
         if (Height % DCTMultiThread.SIZEOFBLOCK != 0)
             heightOPC++;
         //   createMatrix();
+        return new Size(widthOPC,heightOPC);
     }
 
     private DataOPC[][] directOPC(short[][]dataOrigin){
-        int duWidth=widthOPC;
-        int duHeight=heightOPC;
+        Size size=sizeOpcCalculate(dataOrigin.length, dataOrigin[0].length);
+        int duWidth= size.width;
+        int duHeight= size.height;
         int Width=dataOrigin.length;
         int Height=dataOrigin[0].length;
 
-        DataOPC[][]dopc=new DataOPC[widthOPC][heightOPC];
+        DataOPC[][]dopc=new DataOPC[duWidth][duHeight];
         short[][]buf=new short[SIZEOFBLOCK][SIZEOFBLOCK];
         for (int i = 0; i < duWidth; i++) {
             for (int j = 0; j < duHeight; j++) {

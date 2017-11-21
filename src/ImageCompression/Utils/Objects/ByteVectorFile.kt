@@ -22,7 +22,9 @@ class ByteVectorFile(var file: File) {
 
         val os=file.outputStream()
 
-        os.write(flag.flag.toInt())
+        val f=flag.flag
+        os.write(f.toInt())
+        os.write(f.toInt() shr 8)
         val ba=vector.getByteArray()
         os.write(ba)
         os.close()
@@ -33,10 +35,13 @@ class ByteVectorFile(var file: File) {
 
         val ins=file.inputStream()
 
-        val bf=ins.read()
-        val flag=Flag(bf.toShort())
+        val lwf=ins.read()
+        val hwf=ins.read()
+        val flag=Flag((lwf or (hwf shl 8)).toShort())
         val bs=ins.readBytes()
         val vec=ByteVector(bs)
+
+        ins.close()
         return Pair(vec,flag)
     }
     fun infoToString():String{

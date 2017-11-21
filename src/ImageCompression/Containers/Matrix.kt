@@ -45,6 +45,10 @@ class Matrix(var Width: Int, var Height: Int, flag: Flag, var state: State) {
         }
         return true
     }
+    fun Array<ShortArray>.copy():Array<ShortArray>{
+        return Array<ShortArray>(size,{x->kotlin.ShortArray(this[0].size,{y->this[x][y]})})
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
@@ -75,13 +79,9 @@ class Matrix(var Width: Int, var Height: Int, flag: Flag, var state: State) {
 
     fun copy():Matrix{
         var res=Matrix(Width,Height,f,state)
-        for(i in 0..Width-1){
-            for(j in 0..Height-1){
-                res.a[i][j]=a[i][j]
-                res.b[i][j]=b[i][j]
-                res.c[i][j]=c[i][j]
-            }
-        }
+        res.a=a.copy()
+        res.b=b.copy()
+        res.c=c.copy()
         return res
     }
 }

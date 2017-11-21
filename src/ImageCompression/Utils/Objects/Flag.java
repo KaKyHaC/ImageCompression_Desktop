@@ -106,8 +106,7 @@ public class Flag {
     private void setChecked(boolean state,int param){
         if(state==true){
             f|=param;
-        }
-        else {
+        } else {
             f&=(~param);
         }
     }

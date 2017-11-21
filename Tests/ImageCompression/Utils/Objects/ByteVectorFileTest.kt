@@ -11,8 +11,7 @@ class ByteVectorFileTest{
     @Test
     fun TotalTest(){
         val b=getRandomVector(size)
-        val f=Flag("0")
-        f.isDC=true
+        val f=Flag(0xfff)
         f.isOneFile=true
 
         val fw=ByteVectorFile(path)
@@ -23,8 +22,8 @@ class ByteVectorFileTest{
         val rb=r.first
         val rf=r.second
 
-        assertEquals(f.flag,rf.flag)
-        assertEquals(b,rb)
+        assertEquals("falg",f,rf)
+        assertEquals("vector",b,rb)
         System.out.println(fr.infoToString())
     }
     fun getRandomVector(size:Int):ByteVector{
