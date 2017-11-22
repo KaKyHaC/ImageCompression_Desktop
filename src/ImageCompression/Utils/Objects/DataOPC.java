@@ -111,7 +111,7 @@ public class DataOPC {
             base[i]=((b[i]));
         }
     }
-    public void FromBaseToVector(ByteVector vector,Flag flag){
+    public void FromBaseToVector(ByteVector vector){
         int i=0;
 //        if(!flag.isDC()){
 //            vector.append(base[i++]);
@@ -130,7 +130,7 @@ public class DataOPC {
         vector.append(base[i++]);
         vector.append(base[i++]);
     }
-    public void FromVectorToBase(ByteVector vector,Flag flag){
+    public void FromVectorToBase(ByteVector vector){
         int i=0;
 //        if(!flag.isDC()){
 //            base[i++]=vector.getNextShort();
@@ -273,7 +273,7 @@ public class DataOPC {
             FromDcToVector(vector);
 
         if(!f.isGlobalBase()&&f.isOneFile())
-            FromBaseToVector(vector,f);
+            FromBaseToVector(vector);
 
         if(f.isLongCode())
             FromCodeToVector(vector);
@@ -289,7 +289,7 @@ public class DataOPC {
             FromVectorToDc(vector);
 
         if(!f.isGlobalBase()&&f.isOneFile())
-            FromVectorToBase(vector,f);
+            FromVectorToBase(vector);
 
         if(f.isLongCode())
             FromVectorToCode(vector);

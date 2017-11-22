@@ -27,10 +27,10 @@ class BoxOfOpc {
         b?.appendVectorOne(vector,flag)
         c?.appendVectorOne(vector,flag)
     }
-    fun writeBaseToVector(vector: ByteVector,flag: Flag){
-        a?.appendVectorTwo(vector,flag)
-        b?.appendVectorTwo(vector,flag)
-        c?.appendVectorTwo(vector,flag)
+    fun writeBaseToVector(vector: ByteVector,flag: Flag,stepW:Int=1,stepH:Int=1){
+        a?.appendBaseToVector(vector,flag,stepW,stepH)
+        b?.appendBaseToVector(vector,flag,stepW,stepH)
+        c?.appendBaseToVector(vector,flag,stepW,stepH)
     }
     fun readFromVector(vector: ByteVector,flag: Flag){
         a=MatrixFromVectorOne(vector,flag)
@@ -38,9 +38,9 @@ class BoxOfOpc {
         c=MatrixFromVectorOne(vector,flag)
     }
     fun readBaseFromVector(vector: ByteVector,flag: Flag){
-        a?.BaseFromVectorTwo(vector,flag)
-        b?.BaseFromVectorTwo(vector,flag)
-        c?.BaseFromVectorTwo(vector,flag)
+        a?.readBaseFromVector(vector,flag)
+        b?.readBaseFromVector(vector,flag)
+        c?.readBaseFromVector(vector,flag)
     }
 
     private fun Array<Array<DataOPC>>.appendVectorOne(vector: ByteVector,flag: Flag){
@@ -59,24 +59,45 @@ class BoxOfOpc {
         val h=vector.getNextShort()
         return Array(w.toInt(),{ x-> Array(h.toInt(),{y->DataOPC().valueOf (vector,flag)}) })
     }
-    private fun Array<Array<DataOPC>>.appendVectorTwo(vector: ByteVector,flag: Flag){
-        if(!flag.isOneFile){
-            for(arr in this){
-                for(dopc in arr){
-                    dopc.FromBaseToVector(vector,flag)
+    private fun Array<Array<DataOPC>>.appendBaseToVector(vector: ByteVector,flag: Flag,baseW:Int=1,baseH:Int=1){
+        val w=this.size
+        val h=this[0].size
+        val stepW:Int = if(flag.isGlobalBase)baseW else 1
+        val stepH:Int = if(flag.isGlobalBase)baseH else 1
+
+        vector.append(w.toShort())
+        vector.append(h.toShort())
+
+        if(flag.isGlobalBase) {
+            vector.append(stepW.toShort())
+            vector.append(stepH.toShort())
+        }
+
+        for(i in 0..(w-1) step stepW){
+            for(j in 0..(h-1) step stepH){
+                for(base in this[i][j].FromBaseToArray()){
+                    vector.append(base)
                 }
             }
         }
+
     }
-    private fun Array<Array<DataOPC>>.BaseFromVectorTwo(vector: ByteVector,flag: Flag){
-        if(!flag.isOneFile){
-            for(arr in this){
-                for(dopc in arr){
-                    dopc.FromVectorToBase(vector,flag)
-                }
+    private fun Array<Array<DataOPC>>.readBaseFromVector(vector: ByteVector,flag: Flag){
+        val w=vector.getNextShort()
+        val h=vector.getNextShort()
+        val stepW:Int = if(flag.isGlobalBase)vector.getNextShort().toInt() else 1
+        val stepH:Int = if(flag.isGlobalBase)vector.getNextShort().toInt() else 1
+
+        var base:ShortArray=kotlin.ShortArray(8)
+        for(i in 0..(w-1)){
+            for(j in 0..(h-1)){
+                if(i%stepW==0&&j%stepH==0)
+                    base=ShortArray(8,{x->vector.getNextShort()})
+                this[i][j].FromArrayToBase(base)
             }
         }
     }
+
 
     fun Array<Array<DataOPC>>?.Equals(other:Any?):Boolean{
         if (this === other) return true
@@ -131,7 +152,6 @@ class BoxOfOpc {
         return res
     }
 
-
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
@@ -152,6 +172,4 @@ class BoxOfOpc {
         result = 31 * result + (c?.let { Arrays.hashCode(it) } ?: 0)
         return result
     }
-
-
 }
