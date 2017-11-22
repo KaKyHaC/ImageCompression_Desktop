@@ -198,6 +198,31 @@ public class ModuleOPC {
         isMatrix=true;
     }
 
+    public void directOPCParallel(){ //multy thread
+        if(!isMatrix)
+            return;
+
+        //omp parallel
+        {
+            boxOfOpc.setA(directOPC(matrix.getA()));
+            boxOfOpc.setB(directOPC(matrix.getB()));
+            boxOfOpc.setC(directOPC(matrix.getC()));
+        }
+        isOpcs=true;
+    }
+    public void reverseOPCParallel(){
+        if(isOpcs)
+            return;
+
+        //omp parallel
+        {
+            matrix.setA(reverceOPC(boxOfOpc.getA()));
+            matrix.setB(reverceOPC(boxOfOpc.getB()));
+            matrix.setC(reverceOPC(boxOfOpc.getC()));
+        }
+        isMatrix=true;
+    }
+
     public void directOpcGlobalBase(int n,int m){
         if(!isMatrix)
             return;

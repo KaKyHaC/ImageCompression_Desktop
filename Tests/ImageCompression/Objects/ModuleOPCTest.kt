@@ -14,7 +14,7 @@ class ModuleOPCTest{
         m.state=State.DCT
         val opcModule=ModuleOPC(m)
 
-        val loop=1
+        val loop=5
         val t1=Date().time
         for (i in 0..loop){
             opcModule.directOPC()
