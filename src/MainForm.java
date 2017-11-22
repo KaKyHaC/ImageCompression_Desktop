@@ -4,6 +4,8 @@ import ImageCompression.Utils.Objects.Parameters;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,6 +22,8 @@ public class MainForm extends JFrame{
     private JLabel lInfo;
     private JButton bFlag;
     private JProgressBar progressBar1;
+    private JSlider slider1;
+    private JLabel lSliderVal;
 
     private Parameters parameters = Parameters.getInstanse();
     private Flag flag=new Flag("0");
@@ -36,6 +40,7 @@ public class MainForm extends JFrame{
 
         Init();
         setListeners();
+
     }
     private void Init(){
         File dir=new File(parameters.PathAppDir);
@@ -62,6 +67,7 @@ public class MainForm extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 FlagForm flagForm=new FlagForm(flag);
                 flagForm.setOnChengeListener(e1 -> {
+                    slider1.setValue(1);
                     flag=flagForm.getFlag();
                 });
             }
@@ -96,6 +102,13 @@ public class MainForm extends JFrame{
             image.setIcon(new ImageIcon(image1));
             return null;
         } );
+        slider1.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                int v=slider1.getValue();
+                sliderListener(v);
+            }
+        });
     }
     private void onFileSelected(File file){
         String name=file.getName();
@@ -127,6 +140,25 @@ public class MainForm extends JFrame{
     }
     private void processBar(File file)throws Exception{
         new Thread(()->convertor.FromBarToBmp(file.getAbsolutePath())).start();
+    }
+
+    private void sliderListener(int val){
+        if(val==0){
+            lSliderVal.setText("min compression");
+            flag=new Flag((short)0);
+            flag.setLongCode(true);
+            flag.setOneFile(true);
+        }else if(val==1) {
+            lSliderVal.setText("Custom");
+        } else if(val==2){
+            lSliderVal.setText("max compression");
+            flag=new Flag((short)0);
+            flag.setOneFile(true);
+            flag.setDC(true);
+            flag.setQuantization(Flag.QuantizationState.First);
+            flag.setEnlargement(true);
+            flag.setAlignment(true);
+        }
     }
 
     private String getFileWithOutType(String path){
