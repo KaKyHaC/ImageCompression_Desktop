@@ -25,7 +25,7 @@ class Convertor() {
         val fileModule=ModuleFile(pathToBmp)
         fileModule.write(box,flag)
         val t2=Date().time
-        progressListener?.invoke(100,"Ready in ${t2-t1}")
+        progressListener?.invoke(100,"Ready after ${t2-t1} ms")
     }
 
     fun FromBarToBmp(pathToBar: String): Unit {
@@ -51,7 +51,7 @@ class Convertor() {
         file.createNewFile()
         ImageIO.write(res, "bmp", file)
         val t2=Date().time
-        progressListener?.invoke(100,"Ready in ${t2-t1}");
+        progressListener?.invoke(100,"Ready after ${t2-t1} ms");
     }
 
     private fun getPathWithoutType(path: String): String {
