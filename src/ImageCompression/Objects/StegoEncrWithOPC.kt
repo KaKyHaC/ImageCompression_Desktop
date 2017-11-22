@@ -68,12 +68,12 @@ class StegoEncrWithOPC {
 
         isMatrix=true
     }
-    var baseSizeX:Int=1
-    var baseSizeY:Int=1
+    var baseSizeW:Int=1
+    var baseSizeH:Int=1
 
     private fun directOpc(isGlobalBase:Boolean,isAsync:Boolean,progressListener: ((x: Int) -> Unit)?=null){
         if(isGlobalBase){
-            opcs.directOpcGlobalBase(baseSizeX,baseSizeY)
+            opcs.directOpcGlobalBase(baseSizeW,baseSizeH)
         }else if(isAsync){
             opcs.directOPCMultiThreads()
         }else{
