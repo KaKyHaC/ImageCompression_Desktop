@@ -1,5 +1,6 @@
 package ImageCompression.Utils.Objects
 
+import ImageCompression.Utils.Functions.CompressionUtils
 import java.io.DataOutputStream
 import java.io.File
 import java.io.OutputStreamWriter
@@ -22,10 +23,14 @@ class ByteVectorFile(var file: File) {
 
         val os=file.outputStream()
 
+        //flag
         val f=flag.flag
         os.write(f.toInt())
         os.write(f.toInt() shr 8)
-        val ba=vector.getByteArray()
+        //ByteAray
+        var ba=vector.getByteArray()
+        if(flag.isCompressionUtils)
+           ba=CompressionUtils.compress(ba)
         os.write(ba)
         os.close()
     }
@@ -35,10 +40,15 @@ class ByteVectorFile(var file: File) {
 
         val ins=file.inputStream()
 
+        //flag
         val lwf=ins.read()
         val hwf=ins.read()
         val flag=Flag((lwf or (hwf shl 8)).toShort())
-        val bs=ins.readBytes()
+
+        //bByteArray
+        var bs=ins.readBytes()
+        if(flag.isCompressionUtils)
+            bs=CompressionUtils.decompress(bs)
         val vec=ByteVector(bs)
 
         ins.close()

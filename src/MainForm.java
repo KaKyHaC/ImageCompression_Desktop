@@ -24,6 +24,7 @@ public class MainForm extends JFrame{
     private JProgressBar progressBar1;
     private JSlider slider1;
     private JLabel lSliderVal;
+    private JRadioButton isMultiThread;
 
     private Parameters parameters = Parameters.getInstanse();
     private Flag flag=new Flag("0");
@@ -136,10 +137,12 @@ public class MainForm extends JFrame{
     }
 
     private void processImage(File file) throws IOException {
-        new Thread(()->convertor.FromBmpToBar(file.getAbsolutePath(),flag)).start();
+        Convertor.Computing computing=(isMultiThread.isSelected())? Convertor.Computing.MultiThreads: Convertor.Computing.OneThread;
+        new Thread(()->convertor.FromBmpToBar(file.getAbsolutePath(),flag,computing)).start();
     }
     private void processBar(File file)throws Exception{
-        new Thread(()->convertor.FromBarToBmp(file.getAbsolutePath())).start();
+        Convertor.Computing computing=(isMultiThread.isSelected())? Convertor.Computing.MultiThreads: Convertor.Computing.OneThread;
+        new Thread(()->convertor.FromBarToBmp(file.getAbsolutePath(),computing)).start();
     }
 
     private void sliderListener(int val){

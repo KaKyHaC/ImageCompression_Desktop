@@ -42,6 +42,7 @@ public class FlagForm extends JFrame{
         flag.setAlignment(jCheckBoxArray.get(i++).isSelected());
         flag.setPassword(jCheckBoxArray.get(i++).isSelected());
         flag.setSteganography(jCheckBoxArray.get(i++).isSelected());
+        flag.setCompressionUtils(jCheckBoxArray.get(i++).isSelected());
 
         Flag.QuantizationState qs=jCheckBoxArray.get(i++).isSelected()? Flag.QuantizationState.First: Flag.QuantizationState.Without;
         flag.setQuantization(qs);
@@ -60,6 +61,7 @@ public class FlagForm extends JFrame{
         addView("isAlignment",flag.isAlignment());
         addView("isPassword",flag.isPassword());
         addView("isSteganography",flag.isSteganography());
+        addView("isSteganography",flag.isCompressionUtils());
         addView("isQuantization",flag.getQuantization()== Flag.QuantizationState.First);
         addView("isEncryption",flag.getEncryption()== Flag.Encryption.First);
 

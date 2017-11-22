@@ -41,17 +41,19 @@ class ImageIOTest{
         val m=createMatrix(255,255)
         val mbi=MyBufferedImage(m)
         val bi = mbi.bufferedImage
-        ImageIO.write(bi,"bmp",File(pathToResBmp2))
+        ImageIO.write(bi,"bmp", File(pathToResBmp2))
     }
-    fun createMatrix(w:Int,h:Int):Matrix{
-        val m=Matrix(w,h, Flag(0),State.RGB)
-        for(i in 0..w-1){
-            for(j in 0..h-1){
-                m.a[i][j]=((i+j)%255).toShort()
-                m.b[i][j]=((i+j)%255).toShort()
-                m.c[i][j]=((i+j)%255).toShort()
+    companion object {
+        fun createMatrix(w:Int,h:Int):Matrix{
+            val m=Matrix(w,h, Flag(0),State.RGB)
+            for(i in 0..w-1){
+                for(j in 0..h-1){
+                    m.a[i][j]=((i+j)%255).toShort()
+                    m.b[i][j]=((i+j)%255).toShort()
+                    m.c[i][j]=((i+j)%255).toShort()
+                }
             }
+            return m
         }
-        return m
     }
 }

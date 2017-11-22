@@ -5,7 +5,7 @@ package ImageCompression.Utils.Objects;
  */
 
 public class Flag {
-    final static int OneFile=16,Enlargement=32,DC=64,LongCode=128,GlobalBase=256,Password=512,Steganography=1024,Alignment=2048;
+    final static int OneFile=16,Enlargement=32,DC=64,LongCode=128,GlobalBase=256,Password=512,Steganography=1024,Alignment=2048,CompressionUtils=4096;
     private short f;
 
     public Flag(String s) {
@@ -58,7 +58,6 @@ public class Flag {
     public boolean isOneFile(){
         return isChecked(OneFile);
     }
-
     public void setOneFile(boolean o){
        setChecked(o,OneFile);
     }
@@ -66,7 +65,6 @@ public class Flag {
     public boolean isEnlargement(){
         return isChecked(Enlargement);
     }
-
     public void setEnlargement(boolean o){
        setChecked(o,Enlargement);
     }
@@ -74,35 +72,32 @@ public class Flag {
     public boolean isDC(){
         return isChecked(DC);
     }
-
     public void setDC(boolean o){
        setChecked(o,DC);
     }
 
     public boolean isLongCode(){return isChecked(LongCode);}
-
     public void setLongCode(boolean b){setChecked(b,LongCode);}
 
     public boolean isGlobalBase(){return isChecked(GlobalBase);}
-
     public void setGlobalBase(boolean b){setChecked(b,GlobalBase);}
 
     public boolean isPassword(){return isChecked(Password);}
-
     public void setPassword(boolean b){setChecked(b,Password);}
 
     public boolean isSteganography(){return isChecked(Steganography);}
-
     public void setSteganography(boolean b){setChecked(b,Steganography);}
 
     public boolean isAlignment(){return isChecked(Alignment);}
-
     public void setAlignment(boolean b){setChecked(b,Alignment);}
 
+    public boolean isCompressionUtils(){return isChecked(CompressionUtils);}
+    public void setCompressionUtils(boolean b){setChecked(b,CompressionUtils);}
+
+    //Utils
     private boolean isChecked(int param){
         return (f&param)!=0;
     }
-
     private void setChecked(boolean state,int param){
         if(state==true){
             f|=param;

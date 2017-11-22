@@ -7,7 +7,10 @@ import java.util.*
 
 
 class Convertor() {
-    fun FromBmpToBar(pathToBmp: String, flag: Flag) {
+    enum class Computing{OneThread,MultiThreads,MultiProcessor}
+    fun FromBmpToBar(pathToBmp: String, flag: Flag,computing: Computing=Computing.MultiThreads) {
+        val isAsync=(computing==Computing.MultiThreads)
+
         val t1=Date().time
         progressListener?.invoke(0,"read bmp")
         val bmp = ImageIO.read(File(pathToBmp))
@@ -17,10 +20,10 @@ class Convertor() {
         val matrix = mi.yenlMatrix
         progressListener?.invoke(30,"direct DCT")
         val bodum = ModuleDCT(matrix)
-        val matrixDCT=bodum.getDCTMatrix(true)
+        val matrixDCT=bodum.getDCTMatrix(isAsync)
         progressListener?.invoke(60,"direct OPC")
         val StEnOPC= StegoEncrWithOPC(matrixDCT)
-        val box=StEnOPC.getBoxOfOpc(true)
+        val box=StEnOPC.getBoxOfOpc(isAsync)
         progressListener?.invoke(80,"write to file")
         val fileModule=ModuleFile(pathToBmp)
         fileModule.write(box,flag)
@@ -28,7 +31,9 @@ class Convertor() {
         progressListener?.invoke(100,"Ready after ${t2-t1} ms")
     }
 
-    fun FromBarToBmp(pathToBar: String): Unit {
+    fun FromBarToBmp(pathToBar: String,computing: Computing=Computing.MultiThreads): Unit {
+        val isAsync=(computing==Computing.MultiThreads)
+
         val t1=Date().time
         progressListener?.invoke(10,"read from file")
         val fileModule=ModuleFile(pathToBar)
@@ -37,10 +42,10 @@ class Convertor() {
         val flag=pair.second
         progressListener?.invoke(10,"reverse OPC")
         val mOPC= StegoEncrWithOPC(box,flag)
-        val FFTM =mOPC.getMatrix(true)
+        val FFTM =mOPC.getMatrix(isAsync)
         progressListener?.invoke(50,"reverse DCT")
         val bodum1 = ModuleDCT(FFTM)
-        val matrixYBR=bodum1.getYCbCrMatrix(true)
+        val matrixYBR=bodum1.getYCbCrMatrix(isAsync)
         progressListener?.invoke(70,"YcBcR to BMP");
         val af = MyBufferedImage(matrixYBR);
         val res = af.bufferedImage
