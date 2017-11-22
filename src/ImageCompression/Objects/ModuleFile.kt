@@ -4,6 +4,7 @@ import ImageCompression.Containers.BoxOfOpc
 import ImageCompression.Utils.Objects.ByteVector
 import ImageCompression.Utils.Objects.ByteVectorFile
 import ImageCompression.Utils.Objects.Flag
+import ImageCompression.Utils.Objects.TimeManager
 import java.io.File
 
 class ModuleFile{
@@ -29,6 +30,7 @@ class ModuleFile{
         if(flag.isGlobalBase){
             boxOfOpc.writeBaseToVector(v,flag,globalBaseW,globalBaseH)
         }
+        TimeManager.Instance.append("box to vector")
 
         val vw = ByteVectorFile(pathToName + typeMain)
         vw.write(v, flag)
@@ -36,6 +38,7 @@ class ModuleFile{
         if (!flag.isOneFile) {
             val vbase = ByteVector()
             boxOfOpc.writeBaseToVector(v,flag,globalBaseW,globalBaseH)
+            TimeManager.Instance.append("base to vector")
             val bw = ByteVectorFile(pathToName + typeSup)
             bw.write(vbase, flag)
         }

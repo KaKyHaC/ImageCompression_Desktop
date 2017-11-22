@@ -46,6 +46,7 @@ public class MainForm extends JFrame{
 
         Init();
         setListeners();
+        slider1.setValue(2);
     }
     private void Init(){
         File dir=new File(parameters.PathAppDir);
@@ -191,7 +192,7 @@ public class MainForm extends JFrame{
             flag.setDC(true);
             flag.setQuantization(Flag.QuantizationState.First);
             flag.setEnlargement(true);
-            flag.setAlignment(true);
+//            flag.setAlignment(true);
             flag.setCompressionUtils(true);
         }
     }
