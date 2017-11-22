@@ -9,6 +9,8 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -25,6 +27,7 @@ public class MainForm extends JFrame{
     private JSlider slider1;
     private JLabel lSliderVal;
     private JRadioButton isMultiThread;
+    private JPasswordField passwordField1;
 
     private Parameters parameters = Parameters.getInstanse();
     private Flag flag=new Flag("0");
@@ -41,7 +44,6 @@ public class MainForm extends JFrame{
 
         Init();
         setListeners();
-
     }
     private void Init(){
         File dir=new File(parameters.PathAppDir);
@@ -113,6 +115,13 @@ public class MainForm extends JFrame{
             public void stateChanged(ChangeEvent e) {
                 int v=slider1.getValue();
                 sliderListener(v);
+            }
+        });
+        passwordField1.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                super.focusLost(e);
+                convertor.setPassword(passwordField1.getText());
             }
         });
     }

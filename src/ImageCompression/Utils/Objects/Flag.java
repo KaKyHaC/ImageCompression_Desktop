@@ -27,7 +27,6 @@ public class Flag {
         else
             return null;
     }
-
     public void setQuantization(QuantizationState qs){
         switch (qs) {
             case Without:f&=(~3);
@@ -45,7 +44,6 @@ public class Flag {
             default: return null;
         }
     }
-
     public void setEncryption(Encryption e){
         switch (e) {
             case Without: f&=(~12);

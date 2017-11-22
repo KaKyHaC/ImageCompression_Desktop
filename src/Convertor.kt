@@ -9,6 +9,7 @@ import java.util.*
 
 class Convertor() {
     enum class Computing{OneThread,MultiThreads,MultiProcessor}
+    var password:String?=null
     fun FromBmpToBar(pathToBmp: String, flag: Flag,computing: Computing=Computing.MultiThreads) {
         val isAsync=(computing==Computing.MultiThreads)
 
@@ -24,6 +25,7 @@ class Convertor() {
         val matrixDCT=bodum.getDCTMatrix(isAsync)
         progressListener?.invoke(60,"direct OPC")
         val StEnOPC= StegoEncrWithOPC(matrixDCT)
+        StEnOPC.password=password
         val box=StEnOPC.getBoxOfOpc(isAsync)
         progressListener?.invoke(80,"write to file")
         val fileModule=ModuleFile(pathToBmp)
@@ -43,6 +45,7 @@ class Convertor() {
         val flag=pair.second
         progressListener?.invoke(10,"reverse OPC")
         val mOPC= StegoEncrWithOPC(box,flag)
+        mOPC.password=password
         val FFTM =mOPC.getMatrix(isAsync)
         progressListener?.invoke(50,"reverse DCT")
         val bodum1 = ModuleDCT(FFTM)
