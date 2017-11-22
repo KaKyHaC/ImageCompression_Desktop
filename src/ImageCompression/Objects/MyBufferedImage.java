@@ -2,6 +2,7 @@ package ImageCompression.Objects;
 
 import ImageCompression.Containers.Matrix;
 import ImageCompression.Constants.State;
+import ImageCompression.Utils.Objects.ByteVector;
 import ImageCompression.Utils.Objects.Flag;
 
 import java.awt.image.BufferedImage;
@@ -18,6 +19,10 @@ public class MyBufferedImage {
     }
     public MyBufferedImage(Matrix matrix) throws Exception {
         this.matrix = matrix;
+        bitmap = new BufferedImage(matrix.getWidth(), matrix.getHeight(),BufferedImage.TYPE_3BYTE_BGR);
+    }
+    public MyBufferedImage(ByteVector vector){
+        this.matrix=getMatrixFromByteVector(vector);
         bitmap = new BufferedImage(matrix.getWidth(), matrix.getHeight(),BufferedImage.TYPE_3BYTE_BGR);
     }
 
@@ -283,7 +288,45 @@ public class MyBufferedImage {
         plus128(matrix.getC());
     }
 
+    private ByteVector getByteVectorFromRGB(){
+        if(matrix.getState()!=State.RGB)
+            return null;
 
+        ByteVector vector=new ByteVector(10);
+        vector.append((short)matrix.getWidth());
+        vector.append((short)matrix.getHeight());
+        vector.append(matrix.getF().getFlag());
+
+        for(int i=0;i<matrix.getWidth();i++){
+            for(int j=0;j<matrix.getHeight();j++){
+                byte r,g,b;
+                assert (matrix.getA()[i][j]<0xff);
+                assert (matrix.getB()[i][j]<0xff);
+                assert (matrix.getC()[i][j]<0xff);
+                r=(byte)matrix.getA()[i][j];
+                g=(byte)matrix.getB()[i][j];
+                b=(byte)matrix.getC()[i][j];
+                vector.append(r);
+                vector.append(g);
+                vector.append(b);
+            }
+        }
+        return vector;
+    }
+    private Matrix getMatrixFromByteVector(ByteVector vector){
+        int w=vector.getNextShort();
+        int h=vector.getNextShort();
+        Flag flag=new Flag(vector.getNextShort());
+        Matrix matrix=new Matrix(w,h,flag,State.RGB);
+        for(int i=0;i<w;i++){
+            for(int j=0;j<h;j++){
+                matrix.getA()[i][j]=(short)(vector.getNext()&0xff);
+                matrix.getB()[i][j]=(short)(vector.getNext()&0xff);
+                matrix.getC()[i][j]=(short)(vector.getNext()&0xff);
+            }
+        }
+        return matrix;
+    }
 
 
     public BufferedImage getBufferedImage() {
@@ -340,7 +383,7 @@ public class MyBufferedImage {
         return matrix;
     }
 
-    public Matrix getYenlMatrix()    {
+    public Matrix getYenlMatrix(){
         switch (matrix.getState())
         {
             case RGB: FromRGBtoYBR();PixelEnlargement();
@@ -355,6 +398,22 @@ public class MyBufferedImage {
 
         }
         return matrix;
+    }
+
+    public ByteVector getByteVector(){
+        switch (matrix.getState())
+        {
+            case RGB:
+                break;
+            case YBR:FromYBRtoRGB();
+                break;
+            case Yenl:PixelRestoration();FromYBRtoRGB();
+                break;
+            case bitmap:FromBufferedImageToRGB();
+                break;
+            default:return null;
+        }
+        return getByteVectorFromRGB();
     }
 
 

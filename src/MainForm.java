@@ -49,6 +49,11 @@ public class MainForm extends JFrame{
 
         flag.setOneFile(true);
         flag.setDC(true);
+
+        BufferedImage myPicture = new BufferedImage(1,1,BufferedImage.TYPE_4BYTE_ABGR);
+        ImageIcon imageIcon=new ImageIcon(myPicture);
+        Image image1=imageIcon.getImage().getScaledInstance(600,600,Image.SCALE_DEFAULT);
+        image.setIcon(new ImageIcon(image1));
     }
     private void setListeners(){
         bSelect.addActionListener(new ActionListener() {
@@ -161,6 +166,7 @@ public class MainForm extends JFrame{
             flag.setQuantization(Flag.QuantizationState.First);
             flag.setEnlargement(true);
             flag.setAlignment(true);
+            flag.setCompressionUtils(true);
         }
     }
 

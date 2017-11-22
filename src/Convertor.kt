@@ -1,4 +1,5 @@
 import ImageCompression.Objects.*
+import ImageCompression.Utils.Functions.CompressionUtils
 import ImageCompression.Utils.Objects.Flag
 import java.awt.image.BufferedImage
 import java.io.File

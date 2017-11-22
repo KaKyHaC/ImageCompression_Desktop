@@ -2,6 +2,7 @@ import ImageCompression.Containers.BoxOfOpc
 import ImageCompression.Containers.Matrix
 import ImageCompression.Constants.State
 import ImageCompression.Objects.*
+import ImageCompression.Utils.Functions.CompressionUtils
 import ImageCompression.Utils.Objects.Flag
 import ImageCompression.Utils.Functions.Steganography
 import ImageCompression.Utils.Objects.ByteVector
@@ -172,7 +173,7 @@ class ConvertorTest {
         f.isOneFile=true
         f.isDC=true
         f.isLongCode=true
-        testDirectReverseConverting(360,280,f,7)
+        testDirectReverseConverting(360,280,f,7,true)
     }
     @Test
     fun TestHQImage2(){
@@ -235,13 +236,21 @@ class ConvertorTest {
         val rgb=myIm2.rgbMatrix
         AssertMatrixInRange(rgb,cpy,delta)
     }
-    fun testDirectReverseConverting(w:Int,h:Int,flag: Flag,delta:Int){
+    fun testDirectReverseConverting(w:Int,h:Int,flag: Flag,delta:Int,compareCompression:Boolean=false){
         var matrix=getRandomMatrix(w,h,flag)
         val t1=Date().time
         val cpy=matrix.copy()
         AssertMatrixInRange(cpy,matrix,0)
 
         val myImage=MyBufferedImage(matrix)
+        //
+        if(compareCompression) {
+            val bv = myImage.byteVector
+            val ba = bv.getByteArray()
+            val cba = CompressionUtils.compress(ba)
+            System.out.println("ComprU size= ${cba.size/1024}Kb")
+        }
+        //
         val ybr=myImage.yenlMatrix
         val ybrCpy=ybr.copy()
         assertFails { AssertMatrixInRange(cpy,ybr,0) }

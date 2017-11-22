@@ -61,7 +61,7 @@ public class FlagForm extends JFrame{
         addView("isAlignment",flag.isAlignment());
         addView("isPassword",flag.isPassword());
         addView("isSteganography",flag.isSteganography());
-        addView("isSteganography",flag.isCompressionUtils());
+        addView("isCompressionUtils",flag.isCompressionUtils());
         addView("isQuantization",flag.getQuantization()== Flag.QuantizationState.First);
         addView("isEncryption",flag.getEncryption()== Flag.Encryption.First);
 
