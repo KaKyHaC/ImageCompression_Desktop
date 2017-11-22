@@ -201,19 +201,30 @@ public class ModuleOPC {
     public void directOpcGlobalBase(int n,int m){
         if(!isMatrix)
             return;
-        directOpcGlobalBase(n,m, matrix.getA(),boxOfOpc.getA()); //TODO set a
-        directOpcGlobalBase(n,m, matrix.getB(),boxOfOpc.getB());
-        directOpcGlobalBase(n,m, matrix.getC(),boxOfOpc.getC());
+        boxOfOpc.setA(directOpcGlobalBase(n,m, matrix.getA())); //TODO set a
+        boxOfOpc.setB(directOpcGlobalBase(n,m, matrix.getB())); //TODO set a
+        boxOfOpc.setC(directOpcGlobalBase(n,m, matrix.getC())); //TODO set a
 
         isOpcs=true;
     }
-    private void directOpcGlobalBase(int n,int m,short[][]dataOrigin,DataOPC[][]dopc){
+    private DataOPC[][] directOpcGlobalBase(int n,int m,short[][]dataOrigin){
+        DataOPC[][]dopc=createDataOPC(dataOrigin);
+
         findAllBase(dataOrigin,dopc);
 
         setMaxBaseForAll(n, m,dopc);
 
         directOPCwithGlobalBase(dataOrigin, dopc);
 
+        return dopc;
+    }
+    private DataOPC[][] createDataOPC(short[][]dataOrigin){
+        Size size=sizeOpcCalculate(dataOrigin.length, dataOrigin[0].length);
+        int duWidth= size.width;
+        int duHeight= size.height;
+
+        DataOPC[][]dopc=new DataOPC[duWidth][duHeight];
+        return dopc;
     }
     private void findAllBase(short[][]dataOrigin,DataOPC[][]dopc){
         short[][]buf=new short[SIZEOFBLOCK][SIZEOFBLOCK];
@@ -222,6 +233,7 @@ public class ModuleOPC {
         int duHeight=dopc[0].length;
         int Width=dataOrigin.length;
         int Height=dataOrigin[0].length;
+
 
         for (int i = 0; i < duWidth; i++) {
             for (int j = 0; j < duHeight; j++) {

@@ -18,18 +18,28 @@ class ModuleFile{
     constructor(file: File){
         pathToName=getPathToName(file.absolutePath)
     }
+
+    var globalBaseW:Int=1
+    var globalBaseH:Int=1
+
     fun write(boxOfOpc: BoxOfOpc,flag: Flag) {
         val v = ByteVector()
+
         boxOfOpc.writeToVector(v, flag)
+        if(flag.isGlobalBase){
+            boxOfOpc.writeBaseToVector(v,flag,globalBaseW,globalBaseH)
+        }
+
         val vw = ByteVectorFile(pathToName + typeMain)
         vw.write(v, flag)
 
         if (!flag.isOneFile) {
             val vbase = ByteVector()
-            boxOfOpc.writeBaseToVector(vbase, flag)
+            boxOfOpc.writeBaseToVector(v,flag,globalBaseW,globalBaseH)
             val bw = ByteVectorFile(pathToName + typeSup)
             bw.write(vbase, flag)
         }
+
     }
     fun read():Pair<BoxOfOpc,Flag>{
         val fr=ByteVectorFile(pathToName+ typeMain)
@@ -37,7 +47,12 @@ class ModuleFile{
         val flag=p.second
         val vmain=p.first
         val opcs=BoxOfOpc()
+
         opcs.readFromVector(vmain,flag)
+        if(flag.isGlobalBase){
+            opcs.readBaseFromVector(vmain,flag)
+        }
+
         if(!flag.isOneFile){
             val br=ByteVectorFile(pathToName+ typeSup)
             val bp=br.read()

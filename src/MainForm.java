@@ -28,6 +28,8 @@ public class MainForm extends JFrame{
     private JLabel lSliderVal;
     private JRadioButton isMultiThread;
     private JPasswordField passwordField1;
+    private JSpinner spinnerW;
+    private JSpinner spinnerH;
 
     private Parameters parameters = Parameters.getInstanse();
     private Flag flag=new Flag("0");
@@ -56,6 +58,9 @@ public class MainForm extends JFrame{
         ImageIcon imageIcon=new ImageIcon(myPicture);
         Image image1=imageIcon.getImage().getScaledInstance(600,600,Image.SCALE_DEFAULT);
         image.setIcon(new ImageIcon(image1));
+
+        spinnerH.setValue(1);
+        spinnerW.setValue(1);
     }
     private void setListeners(){
         bSelect.addActionListener(new ActionListener() {
@@ -123,6 +128,18 @@ public class MainForm extends JFrame{
                 super.focusLost(e);
                 convertor.setPassword(passwordField1.getText());
             }
+        });
+        spinnerW.addChangeListener(e -> {
+            int val=(int)spinnerW.getValue();
+            if(val<1)
+                spinnerW.setValue(1);
+            convertor.setGlobalBaseW(val);
+        });
+        spinnerH.addChangeListener(e -> {
+            int val=(int)spinnerH.getValue();
+            if(val<1)
+                spinnerH.setValue(1);
+            convertor.setGlobalBaseH(val);
         });
     }
     private void onFileSelected(File file){

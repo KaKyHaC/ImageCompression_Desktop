@@ -10,6 +10,8 @@ import java.util.*
 class Convertor() {
     enum class Computing{OneThread,MultiThreads,MultiProcessor}
     var password:String?=null
+    var globalBaseW=1
+    var globalBaseH=1
     fun FromBmpToBar(pathToBmp: String, flag: Flag,computing: Computing=Computing.MultiThreads) {
         val isAsync=(computing==Computing.MultiThreads)
 
@@ -26,9 +28,13 @@ class Convertor() {
         progressListener?.invoke(60,"direct OPC")
         val StEnOPC= StegoEncrWithOPC(matrixDCT)
         StEnOPC.password=password
+        StEnOPC.baseSizeW=globalBaseW
+        StEnOPC.baseSizeH=globalBaseH
         val box=StEnOPC.getBoxOfOpc(isAsync)
         progressListener?.invoke(80,"write to file")
         val fileModule=ModuleFile(pathToBmp)
+        fileModule.globalBaseW=globalBaseW
+        fileModule.globalBaseH=globalBaseH
         fileModule.write(box,flag)
         val t2=Date().time
         progressListener?.invoke(100,"Ready after ${t2-t1} ms")
