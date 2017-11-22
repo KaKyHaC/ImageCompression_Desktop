@@ -4,6 +4,7 @@ import ImageCompression.Containers.Matrix;
 import ImageCompression.Constants.State;
 import ImageCompression.Utils.Objects.ByteVector;
 import ImageCompression.Utils.Objects.Flag;
+import ImageCompression.Utils.Objects.TimeManager;
 
 import java.awt.image.BufferedImage;
 
@@ -336,7 +337,11 @@ public class MyBufferedImage {
                 break;
             case YBR: FromYCbCrToBufferedImage();
                 break;
-            case Yenl:PixelRestoration();FromYCbCrToBufferedImage();
+            case Yenl:
+                PixelRestoration();
+                TimeManager.getInstance().append("Restor");
+                FromYCbCrToBufferedImage();
+                TimeManager.getInstance().append("ybr to im");
                 break;
             case bitmap:
                 break;
@@ -392,7 +397,11 @@ public class MyBufferedImage {
                 break;
             case Yenl:
                 break;
-            case bitmap:FromBufferedImageToYCbCr();PixelEnlargement();
+            case bitmap:
+                FromBufferedImageToYCbCr();
+                TimeManager.getInstance().append("im to ybr");
+                PixelEnlargement();
+                TimeManager.getInstance().append("enl");
                 break;
             default:return null;
 

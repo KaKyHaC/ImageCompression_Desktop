@@ -29,8 +29,10 @@ class ByteVectorFile(var file: File) {
         os.write(f.toInt() shr 8)
         //ByteAray
         var ba=vector.getByteArray()
-        if(flag.isCompressionUtils)
-           ba=CompressionUtils.compress(ba)
+        if(flag.isCompressionUtils) {
+            ba = CompressionUtils.compress(ba)
+            TimeManager.Instance.append("CompressionUtils")
+        }
         os.write(ba)
         os.close()
     }
@@ -47,8 +49,10 @@ class ByteVectorFile(var file: File) {
 
         //bByteArray
         var bs=ins.readBytes()
-        if(flag.isCompressionUtils)
-            bs=CompressionUtils.decompress(bs)
+        if(flag.isCompressionUtils) {
+            bs = CompressionUtils.decompress(bs)
+            TimeManager.Instance.append("deCompressionUtils")
+        }
         val vec=ByteVector(bs)
 
         ins.close()

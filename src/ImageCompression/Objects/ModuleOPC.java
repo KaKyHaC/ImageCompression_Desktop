@@ -31,7 +31,7 @@ public class ModuleOPC {
     private Matrix matrix;
     private Flag flag;
     private boolean isMatrix=false;
-    private boolean isOpcs=false;
+        private boolean isOpcs=false;
 
     public ModuleOPC(final Matrix matrix){
         this.matrix=matrix;
@@ -175,7 +175,7 @@ public class ModuleOPC {
         isOpcs=true;
     }
     public void reverseOPCMultiThreads(){// create matrix with corect size of b and c (complite)  //multy thred
-        if(isOpcs)
+        if(!isOpcs)
             return;
 
         ExecutorService executorService = Executors.newFixedThreadPool(3);
@@ -362,5 +362,13 @@ public class ModuleOPC {
     }
     public Flag getFlag() {
         return flag;
+    }
+
+    public boolean isMatrix() {
+        return isMatrix;
+    }
+
+    public boolean isOpcs() {
+        return isOpcs;
     }
 }
