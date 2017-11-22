@@ -18,7 +18,7 @@ public class MyBufferedImage {
     }
     public MyBufferedImage(Matrix matrix) throws Exception {
         this.matrix = matrix;
-        bitmap = new BufferedImage(matrix.getWidth(), matrix.getHeight(),BufferedImage.TYPE_4BYTE_ABGR);
+        bitmap = new BufferedImage(matrix.getWidth(), matrix.getHeight(),BufferedImage.TYPE_3BYTE_BGR);
     }
 
     //TODO string constructor
@@ -89,8 +89,8 @@ public class MyBufferedImage {
                 //
 
 
-                int val = (pixelAlpha<<24)| (pixelRed<<16) | (pixelGreen<<8) | pixelBlue; //for argb
-//                    int val =(pixelRed<<16) | (pixelGreen<<8) | pixelBlue; //for rgb
+//              int val = (pixelAlpha<<24)| (pixelRed<<16) | (pixelGreen<<8) | pixelBlue; //for argb
+                int val =(pixelRed<<16) | (pixelGreen<<8) | pixelBlue; //for rgb
 
                 // полученный результат вернём в BufferedImage
                 bitmap.setRGB(x, y, val);
@@ -134,8 +134,8 @@ public class MyBufferedImage {
                     int pixelBlue= matrix.getC()[i][j]&0xFF;
                     int pixelRed= matrix.getA()[i][j]&0xFF;
                     int pixelGreen= matrix.getB()[i][j]&0xFF;
-                    int val =(pixelAlpha<<24)| (pixelRed<<16) | (pixelGreen<<8) | pixelBlue; //for argb
-//                    int val =(pixelRed<<16) | (pixelGreen<<8) | pixelBlue; //for rgb
+//                    int val =(pixelAlpha<<24)| (pixelRed<<16) | (pixelGreen<<8) | pixelBlue; //for argb
+                    int val =(pixelRed<<16) | (pixelGreen<<8) | pixelBlue; //for rgb
 
                     // полученный результат вернём в BufferedImage
                     bitmap.setRGB(i, j, val);
