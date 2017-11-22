@@ -8,6 +8,7 @@ import java.util.*
 
 class Convertor() {
     fun FromBmpToBar(pathToBmp: String, flag: Flag) {
+        val t1=Date().time
         progressListener?.invoke(0,"read bmp")
         val bmp = ImageIO.read(File(pathToBmp))
         progressListener?.invoke(10,"RGB to YcBcR")
@@ -23,10 +24,12 @@ class Convertor() {
         progressListener?.invoke(80,"write to file")
         val fileModule=ModuleFile(pathToBmp)
         fileModule.write(box,flag)
-        progressListener?.invoke(100,"Ready")
+        val t2=Date().time
+        progressListener?.invoke(100,"Ready in ${t2-t1}")
     }
 
     fun FromBarToBmp(pathToBar: String): Unit {
+        val t1=Date().time
         progressListener?.invoke(10,"read from file")
         val fileModule=ModuleFile(pathToBar)
         val pair=fileModule.read()
@@ -47,7 +50,8 @@ class Convertor() {
         var file=File(getPathWithoutType(pathToBar) + "res.bmp")
         file.createNewFile()
         ImageIO.write(res, "bmp", file)
-        progressListener?.invoke(100,"Ready");
+        val t2=Date().time
+        progressListener?.invoke(100,"Ready in ${t2-t1}");
     }
 
     private fun getPathWithoutType(path: String): String {

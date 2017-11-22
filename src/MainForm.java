@@ -25,6 +25,7 @@ public class MainForm extends JFrame{
     private Flag flag=new Flag("0");
     private File file;
     private Convertor convertor=new Convertor();
+    private String myType=".bar";
 
     public MainForm() throws HeadlessException {
         setVisible(true);
@@ -73,7 +74,7 @@ public class MainForm extends JFrame{
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
-            }else if(name.contains(".bar")){
+            }else if(name.contains(myType)){
                 try {
                     processBar(file);
                 } catch (Exception e1) {
@@ -102,6 +103,9 @@ public class MainForm extends JFrame{
 
         if(name.contains(".bmp")||name.contains(".BMP")||name.contains(".jpg")) {
             setLableImage(file);
+            bExe.setText("Convert to BAR");
+        }else if(name.contains(myType)){
+            bExe.setText("Convert to BMP");
         }
     }
     private void setLableImage(File imagef){
