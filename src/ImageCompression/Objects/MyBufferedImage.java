@@ -45,12 +45,12 @@ public class MyBufferedImage {
                 double vcr = 128 + (0.5 * pixelRed) - (0.418688 * pixelGreen) - (0.081312 * pixelBlue);
 
                 //15.11
-                   if(vy%1>=0.5)
-                       vy++;
-                   if(vcb%1>=0.5)
-                       vcb++;
-                   if(vcr%1>=0.5)
-                       vcr++;
+//                   if(vy%1>=0.5)
+//                       vy++;
+//                   if(vcb%1>=0.5)
+//                       vcb++;
+//                   if(vcr%1>=0.5)
+//                       vcr++;
 
 
                 matrix.getA()[x][y] = (short) vy;
@@ -86,12 +86,12 @@ public class MyBufferedImage {
                 int pixelGreen=(int)g&0xFF;
 
                 //add
-                if(r%1>=0.5)
-                    pixelRed++;
-                if(g%1>=0.5)
-                    pixelGreen++;
-                if(b%1>=0.5)
-                    pixelBlue++;
+//                if(r%1>=0.5)
+//                    pixelRed++;
+//                if(g%1>=0.5)
+//                    pixelGreen++;
+//                if(b%1>=0.5)
+//                    pixelBlue++;
                 //
 
 

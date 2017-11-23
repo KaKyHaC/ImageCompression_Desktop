@@ -367,7 +367,6 @@ public class ModuleOPC {
     public boolean isMatrix() {
         return isMatrix;
     }
-
     public boolean isOpcs() {
         return isOpcs;
     }
