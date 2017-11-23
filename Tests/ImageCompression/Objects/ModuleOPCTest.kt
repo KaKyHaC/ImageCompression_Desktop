@@ -43,7 +43,7 @@ class ModuleOPCTest{
             opcModule.reverseOPC()
         }
         val t2=Date().time
-
+//        println("Start async")
         val t3=Date().time
         for (i in 0..loop){
             opcModule.reverseOPCMultiThreads()

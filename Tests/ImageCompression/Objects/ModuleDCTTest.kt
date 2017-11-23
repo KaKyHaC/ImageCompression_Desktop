@@ -14,14 +14,14 @@ class ModuleDCTTest{
         val enl=mi.getYenlMatrix(true)
         val dctModule=ModuleDCT(enl)
 
-        val loop=2
+        val loop=1
         val t1= Date().time
         for (i in 0..loop){
             dctModule.dataProcessing()
             dctModule.dataProcessing()
         }
         val t2= Date().time
-
+//        println("start Async")
         val t3= Date().time
         for (i in 0..loop){
             dctModule.dataProcessingInThreads()
