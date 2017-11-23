@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/Convertor.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/Convertor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Objects/MyBufferedImage$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Objects/MyBufferedImage$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Objects/MyBufferedImage.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Objects/MyBufferedImage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Objects/MyBufferedImageTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Objects/MyBufferedImageTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ConvertorTest.kt" afterPath="$PROJECT_DIR$/Tests/ConvertorTest.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.kt" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Convertor.kt" afterPath="$PROJECT_DIR$/src/Convertor.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/MyBufferedImage.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Objects/MyBufferedImage.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -15,12 +23,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="Convertor.kt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Convertor.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Convertor.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1700">
-              <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConvertorTest.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tests/ConvertorTest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="273" column="14" lean-forward="true" selection-start-line="273" selection-start-column="14" selection-end-line="273" selection-end-column="14" />
+              <folding>
+                <element signature="n#!!block;n#TestReadWrite#0;n#!!block;n#ConvertorTest#0" expanded="false" />
+                <marker date="1511428731974" expanded="false" signature="9344:9585" ph="{...}" />
+                <marker date="1511428731974" expanded="false" signature="9686:9954" ph="{...}" />
+                <marker date="1511428731974" expanded="false" signature="10378:10746" ph="{...}" />
+                <marker date="1511428731974" expanded="false" signature="10959:11071" ph="{...}" />
+                <marker date="1511428731974" expanded="false" signature="10985:11065" ph="{...}" />
+                <marker date="1511428731974" expanded="false" signature="11015:11055" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -37,15 +63,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyBufferedImage.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MyBufferedImage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/MyBufferedImage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
-              <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state relative-caret-position="387">
+              <caret line="439" column="0" lean-forward="false" selection-start-line="439" selection-start-column="0" selection-end-line="439" selection-end-column="0" />
               <folding>
                 <element signature="method#MyBufferedImage#0;class#MyBufferedImage#0" expanded="false" />
                 <element signature="method#MyBufferedImage#1;class#MyBufferedImage#0" expanded="false" />
                 <element signature="method#MyBufferedImage#2;class#MyBufferedImage#0" expanded="false" />
+                <element signature="method#FromBufferedImageToYCbCr#0;class#MyBufferedImage#0" expanded="false" />
+                <element signature="method#FromYCbCrToBufferedImage#0;class#MyBufferedImage#0" expanded="false" />
                 <element signature="method#FromBufferedImageToRGB#0;class#MyBufferedImage#0" expanded="false" />
                 <element signature="method#FromRGBtoBufferedImage#0;class#MyBufferedImage#0" expanded="false" />
                 <element signature="method#FromYBRtoRGB#0;class#MyBufferedImage#0" expanded="false" />
@@ -59,10 +87,26 @@
                 <element signature="method#getByteVectorFromRGB#0;class#MyBufferedImage#0" expanded="false" />
                 <element signature="method#getMatrixFromByteVector#0;class#MyBufferedImage#0" expanded="false" />
                 <element signature="method#getBufferedImage#0;class#MyBufferedImage#0" expanded="false" />
-                <element signature="method#getYCbCrMatrix#0;class#MyBufferedImage#0" expanded="false" />
                 <element signature="method#getRGBMatrix#0;class#MyBufferedImage#0" expanded="false" />
-                <element signature="method#getYenlMatrix#0;class#MyBufferedImage#0" expanded="false" />
                 <element signature="method#getByteVector#0;class#MyBufferedImage#0" expanded="false" />
+                <element signature="method#imageToYbrTask#0;class#MyBufferedImage#0" expanded="false" />
+                <element signature="class#Loopable#0;class#MyBufferedImage#0" expanded="false" />
+                <element signature="method#forEach#0;class#MyBufferedImage#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyBufferedImageTest.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="43" column="38" lean-forward="false" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
+              <folding>
+                <element signature="e#34#323#0" expanded="true" />
+                <element signature="n#!!block;n#getGradientMatrix#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
+                <element signature="n#!!block;n#forEach#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
+                <element signature="n#!!block;n#randomBufferedImage#0;n#!!block;n#Companion#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -100,16 +144,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FlagForm.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FlagForm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1325">
-              <caret line="58" column="45" lean-forward="false" selection-start-line="58" selection-start-column="45" selection-end-line="58" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ModuleOPC.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -143,23 +177,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TimeManager.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Objects/TimeManager.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="650">
-              <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-              <folding>
-                <element signature="e#40#98#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ModuleDCT.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ModuleDCT.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1225">
-              <caret line="57" column="16" lean-forward="false" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
+            <state relative-caret-position="512">
+              <caret line="62" column="9" lean-forward="true" selection-start-line="47" selection-start-column="8" selection-end-line="62" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -218,6 +240,7 @@
       <find>short</find>
       <find>publishProgress</find>
       <find>&quot;.bar&quot;</find>
+      <find>yCbCrMatrix</find>
     </findStrings>
     <replaceStrings>
       <replace>package ImageCompression.Objects;</replace>
@@ -233,6 +256,7 @@
       <replace>byte</replace>
       <replace>progressListener?.invoke</replace>
       <replace>myType</replace>
+      <replace>getYenlMatrix(true)</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -280,7 +304,6 @@
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.java" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Containers/MatrixTest.kt" />
-        <option value="$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataUnitMatrix.java" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Utils/Objects/ByteVectorFileTest.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Containers/Matrix.kt" />
@@ -291,7 +314,6 @@
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/CompressionUtils.java" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Utils/Functions/CompressionUtilsTest.java" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Utils/Functions/CompressionUtilsTest.kt" />
-        <option value="$PROJECT_DIR$/Tests/ConvertorTest.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/Flag.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Containers/BoxOfOpc.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataOPC.java" />
@@ -302,13 +324,15 @@
         <option value="$PROJECT_DIR$/src/MainForm.form" />
         <option value="$PROJECT_DIR$/src/FlagForm.java" />
         <option value="$PROJECT_DIR$/src/MainForm.java" />
-        <option value="$PROJECT_DIR$/src/Convertor.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/TimeManager.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Objects/ModuleFile.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/ByteVectorFile.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Objects/StegoEncrWithOPC.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Objects/MyBufferedImage.java" />
+        <option value="$PROJECT_DIR$/src/Convertor.kt" />
+        <option value="$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.kt" />
+        <option value="$PROJECT_DIR$/Tests/ConvertorTest.kt" />
       </list>
     </option>
   </component>
@@ -342,39 +366,6 @@
             <path>
               <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
               <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
-              <item name="Objects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-              <item name="Objects" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
@@ -453,7 +444,27 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MainForm">
+  <component name="RunManager" selected="JUnit.All in ImageCompressionKotlin">
+    <configuration name="All in ImageCompressionKotlin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="ImageCompressionKotlin" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
     <configuration name="MainForm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="MainForm" />
@@ -493,19 +504,19 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="Omp4jTest.OmpSectionsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MyBufferedImageTest.TestDefault" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="ImageCompression.*" />
+          <option name="PATTERN" value="ImageCompression.Objects.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="ImageCompressionKotlin" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ImageCompression" />
-      <option name="MAIN_CLASS_NAME" value="ImageCompression.Omp4jTest" />
-      <option name="METHOD_NAME" value="OmpSectionsTest" />
+      <option name="PACKAGE_NAME" value="ImageCompression.Objects" />
+      <option name="MAIN_CLASS_NAME" value="ImageCompression.Objects.MyBufferedImageTest" />
+      <option name="METHOD_NAME" value="TestDefault" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -531,31 +542,6 @@
       <option name="PACKAGE_NAME" value="ImageCompression" />
       <option name="MAIN_CLASS_NAME" value="ImageCompression.Omp4jTest" />
       <option name="METHOD_NAME" value="RuntimeTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="Omp4jTest.ThreadTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ImageCompression.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="ImageCompressionKotlin" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ImageCompression" />
-      <option name="MAIN_CLASS_NAME" value="ImageCompression.Omp4jTest" />
-      <option name="METHOD_NAME" value="ThreadTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -650,19 +636,19 @@
       <listeners />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.Omp4jTest.OmpSectionsTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.Omp4jTest.ThreadTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.Omp4jTest.RuntimeTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.ModuleOPCTest.TestDirectTime" />
-      <item index="4" class="java.lang.String" itemvalue="Application.MainForm" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.Omp4jTest.RuntimeTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.ModuleOPCTest.TestDirectTime" />
+      <item index="2" class="java.lang.String" itemvalue="Application.MainForm" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.All in ImageCompressionKotlin" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.MyBufferedImageTest.TestDefault" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.MainForm" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.ModuleOPCTest.TestDirectTime" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.Omp4jTest.RuntimeTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.Omp4jTest.ThreadTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.Omp4jTest.OmpSectionsTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.All in ImageCompressionKotlin" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.MyBufferedImageTest.TestDefault" />
+        <item index="2" class="java.lang.String" itemvalue="Application.MainForm" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.ModuleOPCTest.TestDirectTime" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.Omp4jTest.RuntimeTest" />
       </list>
     </recent_temporary>
   </component>
@@ -698,17 +684,17 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_ImageCompressionKotlin - 2017.11.22 at 20h 54m 49s.xml">
+    <history-entry file="All_in_ImageCompressionKotlin - 2017.11.23 at 11h 13m 37s.xml">
       <configuration name="All in ImageCompressionKotlin" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ModuleOPCTest_TestDirectTime - 2017.11.22 at 22h 38m 24s.xml">
-      <configuration name="ModuleOPCTest.TestDirectTime" configurationId="JUnit" />
+    <history-entry file="All_in_ImageCompressionKotlin - 2017.11.23 at 11h 19m 49s.xml">
+      <configuration name="All in ImageCompressionKotlin" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ModuleOPCTest_TestDirectTime - 2017.11.22 at 22h 42m 29s.xml">
-      <configuration name="ModuleOPCTest.TestDirectTime" configurationId="JUnit" />
+    <history-entry file="MyBufferedImageTest_TestDefault - 2017.11.23 at 11h 14m 13s.xml">
+      <configuration name="MyBufferedImageTest.TestDefault" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ModuleOPCTest_TestDirectTime - 2017.11.22 at 22h 43m 25s.xml">
-      <configuration name="ModuleOPCTest.TestDirectTime" configurationId="JUnit" />
+    <history-entry file="MyBufferedImageTest_TestDefault - 2017.11.23 at 11h 15m 16s.xml">
+      <configuration name="MyBufferedImageTest.TestDefault" configurationId="JUnit" />
     </history-entry>
     <history-entry file="Omp4jTest_OMPParallel - 2017.11.22 at 22h 12m 25s.xml">
       <configuration name="Omp4jTest.OMPParallel" configurationId="JUnit" />
@@ -741,7 +727,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33105022" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25114155" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25114155" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -901,6 +887,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="323" column="0" lean-forward="false" selection-start-line="323" selection-start-column="0" selection-end-line="323" selection-end-column="0" />
+          <folding>
+            <element signature="e#11730#11731#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -966,6 +955,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
           <caret line="42" column="22" lean-forward="true" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+          <folding>
+            <element signature="n#!!block;n#init#0;n#!!block;n#BoxOfOpcTest#0" expanded="false" />
+            <element signature="n#!!block;n#initDopc#0;n#!!block;n#BoxOfOpcTest#0" expanded="false" />
+            <element signature="n#!!block;n#forEach#0;n#!!block;n#BoxOfOpcTest#0" expanded="false" />
+            <element signature="e#2122#2209#1" expanded="false" />
+            <element signature="e#2152#2199#1" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1031,23 +1027,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="18" column="22" lean-forward="false" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-          <folding>
-            <element signature="e#34#323#0" expanded="true" />
-            <element signature="n#!!block;n#TestDefault#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
-            <element signature="n#!!block;n#TestEnlagment4#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
-            <element signature="n#!!block;n#getGradientMatrix#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
-            <element signature="n#!!block;n#forEach#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
-            <element signature="n#!!block;n#randomBufferedImage#0;n#!!block;n#Companion#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
-            <element signature="n#!!block;n#assertArrayInRange#0;n#!!block;n#Companion#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
-            <element signature="e#2609#3583#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DataUnitMatrix.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -1091,6 +1070,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="113" column="32" lean-forward="true" selection-start-line="113" selection-start-column="32" selection-end-line="113" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1227,35 +1207,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/ConvertorTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!block;n#TestReadWrite#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="n#!!block;n#TestTimeBoxofDum#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="n#!!block;n#TestSteganography#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="n#!!block;n#TestFullAlgorithmWithoutFile8#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="n#!!block;n#TestHDImage1#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="n#!!block;n#TestHDImage2#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="n#!!block;n#testModuleDCT#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="n#!!block;n#copy#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="e#9621#9889#1" expanded="false" />
-            <element signature="e#10313#10681#2" expanded="false" />
-            <element signature="n#!!block;n#forEach#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-            <element signature="e#10920#11000#1" expanded="false" />
-            <element signature="e#10950#10990#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tests/omp4j" />
     <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Omp4jTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="775">
           <caret line="83" column="71" lean-forward="false" selection-start-line="83" selection-start-column="71" selection-end-line="83" selection-end-column="71" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#OmpSectionsTest#0;class#Omp4jTest#0" expanded="false" />
             <element signature="method#ThreadTest#0;class#Omp4jTest#0" expanded="false" />
             <element signature="e#2111#2112#0" expanded="false" />
@@ -1308,14 +1266,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ModuleDCT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1225">
-          <caret line="57" column="16" lean-forward="false" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Objects/ByteVectorFile.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1100">
@@ -1355,14 +1305,6 @@
             <element signature="method#equals#0;class#DataOPC#0" expanded="false" />
             <element signature="method#getByteSize#0;class#DataOPC#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Convertor.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1417,14 +1359,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ModuleDCT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="62" column="9" lean-forward="true" selection-start-line="47" selection-start-column="8" selection-end-line="62" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/MyBufferedImage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="60" column="0" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        <state relative-caret-position="387">
+          <caret line="439" column="0" lean-forward="false" selection-start-line="439" selection-start-column="0" selection-end-line="439" selection-end-column="0" />
           <folding>
             <element signature="method#MyBufferedImage#0;class#MyBufferedImage#0" expanded="false" />
             <element signature="method#MyBufferedImage#1;class#MyBufferedImage#0" expanded="false" />
             <element signature="method#MyBufferedImage#2;class#MyBufferedImage#0" expanded="false" />
+            <element signature="method#FromBufferedImageToYCbCr#0;class#MyBufferedImage#0" expanded="false" />
+            <element signature="method#FromYCbCrToBufferedImage#0;class#MyBufferedImage#0" expanded="false" />
             <element signature="method#FromBufferedImageToRGB#0;class#MyBufferedImage#0" expanded="false" />
             <element signature="method#FromRGBtoBufferedImage#0;class#MyBufferedImage#0" expanded="false" />
             <element signature="method#FromYBRtoRGB#0;class#MyBufferedImage#0" expanded="false" />
@@ -1438,11 +1390,49 @@
             <element signature="method#getByteVectorFromRGB#0;class#MyBufferedImage#0" expanded="false" />
             <element signature="method#getMatrixFromByteVector#0;class#MyBufferedImage#0" expanded="false" />
             <element signature="method#getBufferedImage#0;class#MyBufferedImage#0" expanded="false" />
-            <element signature="method#getYCbCrMatrix#0;class#MyBufferedImage#0" expanded="false" />
             <element signature="method#getRGBMatrix#0;class#MyBufferedImage#0" expanded="false" />
-            <element signature="method#getYenlMatrix#0;class#MyBufferedImage#0" expanded="false" />
             <element signature="method#getByteVector#0;class#MyBufferedImage#0" expanded="false" />
+            <element signature="method#imageToYbrTask#0;class#MyBufferedImage#0" expanded="false" />
+            <element signature="class#Loopable#0;class#MyBufferedImage#0" expanded="false" />
+            <element signature="method#forEach#0;class#MyBufferedImage#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="43" column="38" lean-forward="false" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
+          <folding>
+            <element signature="e#34#323#0" expanded="true" />
+            <element signature="n#!!block;n#getGradientMatrix#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
+            <element signature="n#!!block;n#forEach#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
+            <element signature="n#!!block;n#randomBufferedImage#0;n#!!block;n#Companion#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/ConvertorTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="273" column="14" lean-forward="true" selection-start-line="273" selection-start-column="14" selection-end-line="273" selection-end-column="14" />
+          <folding>
+            <element signature="n#!!block;n#TestReadWrite#0;n#!!block;n#ConvertorTest#0" expanded="false" />
+            <marker date="1511428731974" expanded="false" signature="9344:9585" ph="{...}" />
+            <marker date="1511428731974" expanded="false" signature="9686:9954" ph="{...}" />
+            <marker date="1511428731974" expanded="false" signature="10378:10746" ph="{...}" />
+            <marker date="1511428731974" expanded="false" signature="10959:11071" ph="{...}" />
+            <marker date="1511428731974" expanded="false" signature="10985:11065" ph="{...}" />
+            <marker date="1511428731974" expanded="false" signature="11015:11055" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Convertor.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>

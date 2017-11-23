@@ -7,6 +7,10 @@ import ImageCompression.Utils.Objects.Flag;
 import ImageCompression.Utils.Objects.TimeManager;
 
 import java.awt.image.BufferedImage;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class MyBufferedImage {
     private static final int SIZEOFBLOCK = 8;
@@ -29,6 +33,33 @@ public class MyBufferedImage {
 
     //TODO string constructor
 
+    private void FromBufferedImageToYCbCrParallelMatrix() {
+        if (matrix.getState() == State.bitmap)
+        {
+            int w=bitmap.getWidth();
+            int h=bitmap.getHeight();
+
+            ExecutorService executorService = Executors.newFixedThreadPool(4);
+            Future[] futures=new Future[4];
+
+            futures[0] = executorService.submit(()-> imageToYbrTask(0,0,w/2,h/2));
+            futures[1] = executorService.submit(()-> imageToYbrTask(w/2,0,w,h));
+            futures[2] = executorService.submit(()-> imageToYbrTask(0,h/2,w,h));
+            futures[3] = executorService.submit(()-> imageToYbrTask(w/2,h/2,w,h));
+
+            for (Future future : futures) {
+                try {
+                    future.get();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+            }
+            matrix.setState(State.YBR);
+        }
+
+    }
     private void FromBufferedImageToYCbCr() {
 
         if (matrix.getState() == State.bitmap)
@@ -352,7 +383,7 @@ public class MyBufferedImage {
         return bitmap;
     }
 
-    public Matrix getYCbCrMatrix() {
+    public Matrix getYCbCrMatrix(boolean isAsync) {
         switch (matrix.getState())
         {
             case RGB: FromRGBtoYBR();
@@ -361,7 +392,11 @@ public class MyBufferedImage {
                 break;
             case Yenl:PixelRestoration();
                 break;
-            case bitmap:FromBufferedImageToYCbCr();
+            case bitmap:
+                if(isAsync)
+                    FromBufferedImageToYCbCrParallelMatrix();
+                else
+                    FromBufferedImageToYCbCr();
                 break;
             default:return null;
 
@@ -388,7 +423,7 @@ public class MyBufferedImage {
         return matrix;
     }
 
-    public Matrix getYenlMatrix(){
+    public Matrix getYenlMatrix(boolean isAsync){
         switch (matrix.getState())
         {
             case RGB: FromRGBtoYBR();PixelEnlargement();
@@ -398,7 +433,11 @@ public class MyBufferedImage {
             case Yenl:
                 break;
             case bitmap:
-                FromBufferedImageToYCbCr();
+                if(isAsync)
+                    FromBufferedImageToYCbCrParallelMatrix();
+                else
+                    FromBufferedImageToYCbCr();
+
                 TimeManager.getInstance().append("im to ybr");
                 PixelEnlargement();
                 TimeManager.getInstance().append("enl");
@@ -425,6 +464,35 @@ public class MyBufferedImage {
         return getByteVectorFromRGB();
     }
 
+
+    private void imageToYbrTask(int wStart,int hStart,int wEnd,int hEnd){
+        for(int i=wStart;i<wEnd;i++){
+            for(int j=hStart;j<hEnd;j++){
+                int pixelColor=bitmap.getRGB(i,j);
+                // получим цвет каждого пикселя
+                double pixelRed = ((pixelColor)>>16&0xFF);
+                double pixelGreen= ((pixelColor)>>8&0xFF);
+                double pixelBlue=((pixelColor)&0xFF);
+
+                double vy = (0.299 * pixelRed) + (0.587 * pixelGreen) + (0.114 * pixelBlue);
+                double vcb = 128 - (0.168736 * pixelRed) - (0.331264 * pixelGreen) + (0.5 * pixelBlue);
+                double vcr = 128 + (0.5 * pixelRed) - (0.418688 * pixelGreen) - (0.081312 * pixelBlue);
+
+                //15.11
+//                   if(vy%1>=0.5)
+//                       vy++;
+//                   if(vcb%1>=0.5)
+//                       vcb++;
+//                   if(vcr%1>=0.5)
+//                       vcr++;
+
+                matrix.getA()[i][j] = (short) vy;
+                matrix.getB()[i][j] = (short) vcb;
+                matrix.getC()[i][j] = (short) vcr;
+
+            }
+        }
+    }
 
     @FunctionalInterface
     interface Loopable{

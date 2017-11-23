@@ -23,7 +23,7 @@ class Convertor() {
             progressListener?.invoke(10,"RGB to YcBcR")
             view?.invoke(bmp)
         val mi = MyBufferedImage(bmp, flag)
-        val matrix = mi.yenlMatrix
+        val matrix = mi.getYenlMatrix(isAsync)
             timeManager.append("rgb to yenl")
             progressListener?.invoke(30,"direct DCT")
         val bodum = ModuleDCT(matrix)

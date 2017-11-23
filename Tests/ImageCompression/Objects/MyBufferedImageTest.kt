@@ -17,13 +17,13 @@ class MyBufferedImageTest {
 
     @Test
     @Throws(Exception::class)
-    fun TestDefault() {
-        var bufferedImage= randomBufferedImage(122,123)
+    fun TestDefault5() {
+        var bufferedImage= randomBufferedImage(122,124)
         var w=bufferedImage.width
         var h=bufferedImage.height
 
         val myBufferedImage = MyBufferedImage(bufferedImage, flag)
-        val matrix = myBufferedImage.yCbCrMatrix
+        val matrix = myBufferedImage.getYenlMatrix(true)
 
         val myBufferedImage1 = MyBufferedImage(matrix)
         val bufferedImage1 = myBufferedImage1.bufferedImage
@@ -31,7 +31,7 @@ class MyBufferedImageTest {
         val arr1 = bufferedImage?.getRGB(0, 0, w, h, null, 0, w)
         val arr2 = bufferedImage1!!.getRGB(0, 0, w, h, null, 0, w)
 
-        assertArrayInRange(arr1, arr2, 2)
+        assertArrayInRange(arr1, arr2, 5)
     }
 
     @Test
@@ -41,7 +41,7 @@ class MyBufferedImageTest {
 
         val mi=MyBufferedImage(grad)
         val bmp=mi.rgbMatrix.copy()
-        var enl=mi.yenlMatrix
+        var enl=mi.getYenlMatrix(true)
         assertFails { assertTrue(bmp.assertMatrixInRange(enl,1)) }
 
         val mi1=MyBufferedImage(enl)

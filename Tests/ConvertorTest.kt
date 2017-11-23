@@ -40,18 +40,18 @@ class ConvertorTest {
         matrix=mi.rgbMatrix
         AssertMatrixInRange(matrix,matrix1,0)
 
-        matrix=mi.yCbCrMatrix
-        matrix1=mi1.yCbCrMatrix
+        matrix=mi.getYenlMatrix(true)
+        matrix1=mi1.getYenlMatrix(true)
         AssertMatrixInRange(matrix,matrix1,0)
 
         matrix1=mi1.rgbMatrix
-        matrix=mi.yCbCrMatrix
+        matrix=mi.getYenlMatrix(true)
         AssertMatrixInRange(matrix1,matrix,0,false)
     }
     @Test
     fun TestBoxOfDUM5(){
         var matrix=getRandomMatrix(w,h,Flag("0"))
-        matrix=MyBufferedImage(matrix).yCbCrMatrix
+        matrix=MyBufferedImage(matrix).getYenlMatrix(true)
         val cpy=matrix.copy()
         val bo= ModuleDCT(matrix)
 
@@ -64,7 +64,7 @@ class ConvertorTest {
     @Test
     fun TestTimeBoxofDum(){
         var matrix=getRandomMatrix(w,h,Flag("0"))
-        matrix=MyBufferedImage(matrix).yCbCrMatrix
+        matrix=MyBufferedImage(matrix).getYenlMatrix(true)
         val bo= ModuleDCT(matrix)
 
         var t1:Date=Date()
@@ -112,7 +112,7 @@ class ConvertorTest {
         AssertMatrixInRange(cpy,matrix,0)
 
         val myImage=MyBufferedImage(matrix)
-        val ybr=myImage.yCbCrMatrix
+        val ybr=myImage.getYenlMatrix(true)
         val ybrCpy=ybr.copy()
         assertFails { AssertMatrixInRange(cpy,ybr,1) }
         AssertMatrixInRange(ybrCpy,ybr,0)
@@ -208,7 +208,7 @@ class ConvertorTest {
         AssertMatrixInRange(cpy,matrix,0)
 
         val myImage=MyBufferedImage(matrix)
-        val ybr=myImage.yCbCrMatrix
+        val ybr=myImage.getYenlMatrix(true)
         val ybrCpy=ybr.copy()
         assertFails { AssertMatrixInRange(cpy,ybr,1) }
         AssertMatrixInRange(ybrCpy,ybr,0)
@@ -251,7 +251,7 @@ class ConvertorTest {
             System.out.println("ComprU size= ${cba.size/1024}Kb")
         }
         //
-        val ybr=myImage.yenlMatrix
+        val ybr=myImage.getYenlMatrix(true)
         val ybrCpy=ybr.copy()
         assertFails { AssertMatrixInRange(cpy,ybr,0) }
         AssertMatrixInRange(ybrCpy,ybr,0)
