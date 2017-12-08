@@ -102,18 +102,22 @@ public class MainForm extends JFrame{
                 }
             }
         });
-        convertor.setView(bufferedImage ->{
-            convertor.setProgressListener((integer, s) -> {
-                SwingUtilities.invokeLater(() -> {
-                    progressBar1.setValue(integer);
-                    progressBar1.setString(s);
-                });
-                return null;
+        convertor.setProgressListener((integer, s) -> {
+            SwingUtilities.invokeLater(() -> {
+                progressBar1.setValue(integer);
+                progressBar1.setString(s);
             });
-            ImageIcon imageIcon=new ImageIcon(bufferedImage);
-            lInfo.setText("convertor:"+" \n "+imageIcon.getIconWidth()+"x"+imageIcon.getIconHeight());
-            Image image1=imageIcon.getImage().getScaledInstance(600,600,Image.SCALE_DEFAULT);
-            image.setIcon(new ImageIcon(image1));
+            return null;
+        });
+        convertor.setView(bufferedImage ->{
+            new Thread(()->{
+                SwingUtilities.invokeLater(() -> {
+                    ImageIcon imageIcon = new ImageIcon(bufferedImage);
+                    lInfo.setText("convertor:" + " \n " + imageIcon.getIconWidth() + "x" + imageIcon.getIconHeight());
+                    Image image1 = imageIcon.getImage().getScaledInstance(600, 600, Image.SCALE_DEFAULT);
+                    image.setIcon(new ImageIcon(image1));
+                });
+            }).start();
             return null;
         } );
         slider1.addChangeListener(new ChangeListener() {

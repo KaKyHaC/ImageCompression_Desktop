@@ -3,6 +3,7 @@ package ImageCompression.Objects
 import ImageCompression.Constants.State
 import ImageCompression.Containers.Matrix
 import ImageCompression.Utils.Objects.Flag
+import ImageCompression.Utils.Objects.TimeManager
 import org.junit.Before
 import org.junit.Test
 
@@ -50,7 +51,36 @@ class MyBufferedImageTest {
     }
 
     //TODO time tests
+    @Test
+    fun TimeTest1(){
+        BmpToYenlTimeTest(1920,1080,3)
+    }
 
+    fun BmpToYenlTimeTest(w:Int,h:Int,loop:Int){
+        val bufferedImage= randomBufferedImage(w,h)
+        val w=bufferedImage.width
+        val h=bufferedImage.height
+
+        TimeManager.Instance.startNewTrack("m BmpToYenl ${loop}l ${w}x$h")
+        for(i in 0..loop-1) {
+            val myBufferedImage = MyBufferedImage(bufferedImage, flag)
+            val matrix = myBufferedImage.getYenlMatrix(true)
+        }
+        TimeManager.Instance.append("multi")
+        println(TimeManager.Instance.getInfoInSec())
+        val t1=TimeManager.Instance.getTotalTime()
+        TimeManager.Instance.startNewTrack("o BmpToYenl ${loop}l ${w}x$h")
+        for(i in 0..loop-1) {
+            val myBufferedImage = MyBufferedImage(bufferedImage, flag)
+            val matrix = myBufferedImage.getYenlMatrix(false)
+        }
+        TimeManager.Instance.append("one")
+        println(TimeManager.Instance.getInfoInSec())
+        val t2=TimeManager.Instance.getTotalTime()
+        println("multi $t2;one $t1")
+        assertTrue(t2>t1)
+
+    }
     fun getGradientMatrix(w:Int,h:Int):Matrix{
         var m=Matrix(w,h,Flag(0),State.RGB)
         forEach(w,h, { x, y ->

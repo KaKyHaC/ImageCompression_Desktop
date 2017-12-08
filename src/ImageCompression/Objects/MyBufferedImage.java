@@ -424,6 +424,7 @@ public class MyBufferedImage {
     }
 
     public Matrix getYenlMatrix(boolean isAsync){
+        TimeManager.getInstance().append("start Yenl");
         switch (matrix.getState())
         {
             case RGB: FromRGBtoYBR();PixelEnlargement();
@@ -466,9 +467,23 @@ public class MyBufferedImage {
 
 
     private void imageToYbrTask(int wStart,int hStart,int wEnd,int hEnd){
-        for(int i=wStart;i<wEnd;i++){
-            for(int j=hStart;j<hEnd;j++){
-                int pixelColor=bitmap.getRGB(i,j);
+        appendTimeManager("imageToYbrTask("+wStart+")("+hStart+")");
+        int w=wEnd-wStart;
+        int h=hEnd-hStart;
+        short[][] _a=new short[w][h];
+        short[][] _b=new short[w][h];
+        short[][] _c=new short[w][h];
+        int [][] rgb=new int[w][h];
+        appendTimeManager("mem");
+        for(int i=0;i<w;i++) {
+            for (int j = 0; j < h; j++) {
+                rgb[i][j]=bitmap.getRGB(i+wStart,j+hStart);
+            }
+        }
+        appendTimeManager("rgb cpy");
+        for(int i=0;i<w;i++) {
+            for (int j = 0; j < h; j++) {
+                int pixelColor=rgb[i][j];
                 // получим цвет каждого пикселя
                 double pixelRed = ((pixelColor)>>16&0xFF);
                 double pixelGreen= ((pixelColor)>>8&0xFF);
@@ -486,14 +501,29 @@ public class MyBufferedImage {
 //                   if(vcr%1>=0.5)
 //                       vcr++;
 
-                matrix.getA()[i][j] = (short) vy;
-                matrix.getB()[i][j] = (short) vcb;
-                matrix.getC()[i][j] = (short) vcr;
+//                matrix.getA()[i][j] = (short) vy;
+//                matrix.getB()[i][j] = (short) vcb;
+//                matrix.getC()[i][j] = (short) vcr;
+
+                _a[i][j] = (short) vy;
+                _b[i][j] = (short) vcb;
+                _c[i][j] = (short) vcr;
 
             }
         }
+        appendTimeManager("ybr calc");
+        for(int i=wStart;i<wEnd;i++) {
+            for (int j = hStart; j < hEnd; j++) {
+                matrix.getA()[i][j] = _a[i-wStart][j-hStart];
+                matrix.getB()[i][j] = _b[i-wStart][j-hStart];
+                matrix.getC()[i][j] = _c[i-wStart][j-hStart];
+            }
+        }
+        appendTimeManager("ybr set");
     }
-
+    private void appendTimeManager(String s){
+        //TimeManager.getInstance().append(s);
+    }
     @FunctionalInterface
     interface Loopable{
         void doInLoop(int x,int y);

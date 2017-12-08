@@ -70,13 +70,14 @@ class Convertor() {
         val res = af.bufferedImage
             timeManager.append("yenl to bmp")
             progressListener?.invoke(90,"Write to BMP");
-            view?.invoke(res)
+//            view?.invoke(res)
         var file=File(getPathWithoutType(pathToBar) + "res.bmp")
         file.createNewFile()
         ImageIO.write(res, "bmp", file)
             timeManager.append("write to bmp")
             progressListener?.invoke(100,"Ready after ${timeManager.getTotalTime()} ms");
             System.out.println(timeManager.getInfoInSec())
+            view?.invoke(res)
     }
 
     private fun getPathWithoutType(path: String): String {
