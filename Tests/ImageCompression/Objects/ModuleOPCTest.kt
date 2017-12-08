@@ -55,19 +55,19 @@ class ModuleOPCTest{
         assertTrue((t2-t1)>(t4-t3))
     }
     @Test
-    fun GlobalTest1(){
+    fun GlobalTest1(){//477 sec
         GlobalTest(360,240,1)
     }
     @Test
-    fun GlobalTest2(){
+    fun GlobalTest2(){//1386 sec
         GlobalTest(360,240,3)
     }
     @Test
-    fun GlobalTest3(){
+    fun GlobalTest3(){//11343 sec
         GlobalTest(1920,1080,1)
     }
     @Test
-    fun GlobalTest4(){
+    fun GlobalTest4(){//34478 sec
         GlobalTest(1920,1080,3)
     }
     fun GlobalTest(w:Int,h:Int,loop:Int){

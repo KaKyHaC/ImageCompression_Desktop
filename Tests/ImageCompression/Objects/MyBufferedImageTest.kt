@@ -16,7 +16,6 @@ class MyBufferedImageTest {
     internal var flag = Flag("0")
 
     @Test
-    @Throws(Exception::class)
     fun TestDefault5() {
         var bufferedImage= randomBufferedImage(122,124)
         var w=bufferedImage.width
@@ -49,6 +48,9 @@ class MyBufferedImageTest {
         kotlin.test.assertTrue { bmp1.assertMatrixInRange(bmp,4) }
 
     }
+
+    //TODO time tests
+
     fun getGradientMatrix(w:Int,h:Int):Matrix{
         var m=Matrix(w,h,Flag(0),State.RGB)
         forEach(w,h, { x, y ->
@@ -60,8 +62,6 @@ class MyBufferedImageTest {
         })
         return m
     }
-
-
     private fun forEach(w: Int, h: Int, `fun`: (x:Int,y:Int)->Unit) {
         for (i in 0 .. w-1) {
             for (j in 0 .. h-1) {
@@ -69,7 +69,6 @@ class MyBufferedImageTest {
             }
         }
     }
-
     companion object {
         fun randomBufferedImage(w: Int,h: Int): BufferedImage {
             val random = Random()

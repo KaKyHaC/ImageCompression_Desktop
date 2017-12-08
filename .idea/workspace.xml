@@ -8,8 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Convertor.kt" afterPath="$PROJECT_DIR$/src/Convertor.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/TimeManager.kt" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/TimeManager.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ImageCompression/Objects/ModuleOPCTest.kt" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Objects/ModuleOPCTest.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.kt" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,21 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModuleOPCTest.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Objects/ModuleOPCTest.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="95" column="44" lean-forward="false" selection-start-line="95" selection-start-column="44" selection-end-line="95" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ModuleDCTTest.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Objects/ModuleDCTTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+            <state relative-caret-position="316">
+              <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
               <folding>
                 <element signature="e#34#273#0" expanded="true" />
                 <element signature="n#!!block;n#DerRevDCTTest#0;n#!!block;n#ModuleDCTTest#0" expanded="false" />
@@ -54,26 +45,6 @@
                 <element signature="n#!!block;n#TimeTest3#0;n#!!block;n#ModuleDCTTest#0" expanded="false" />
                 <element signature="n#!!block;n#TimeTest4#0;n#!!block;n#ModuleDCTTest#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModuleOPCTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Containers/ModuleOPCTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EncryptionTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Utils/EncryptionTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -88,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyBufferedImage.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MyBufferedImage.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/MyBufferedImage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="499" column="5" lean-forward="true" selection-start-line="499" selection-start-column="5" selection-end-line="499" selection-end-column="5" />
+            <state relative-caret-position="337">
+              <caret line="362" column="21" lean-forward="true" selection-start-line="362" selection-start-column="21" selection-end-line="362" selection-end-column="21" />
               <folding>
                 <element signature="method#MyBufferedImage#0;class#MyBufferedImage#0" expanded="false" />
                 <element signature="method#MyBufferedImage#1;class#MyBufferedImage#0" expanded="false" />
@@ -128,37 +99,80 @@
       <file leaf-file-name="Convertor.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Convertor.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
-              <caret line="35" column="37" lean-forward="true" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
+            <state relative-caret-position="-963">
+              <caret line="19" column="27" lean-forward="true" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModuleDCT.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ModuleOPC.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="393" column="20" lean-forward="true" selection-start-line="393" selection-start-column="20" selection-end-line="393" selection-end-column="20" />
+              <folding>
+                <element signature="method#directOPC#0;class#ModuleOPC#0" expanded="false" />
+                <element signature="method#reverceOPC#0;class#ModuleOPC#0" expanded="false" />
+                <element signature="method#directOPC#1;class#ModuleOPC#0" expanded="false" />
+                <element signature="method#reverseOPC#0;class#ModuleOPC#0" expanded="false" />
+                <element signature="method#reverseOPCMultiThreads#0;class#ModuleOPC#0" expanded="false" />
+                <element signature="method#directOPCParallel#0;class#ModuleOPC#0" expanded="false" />
+                <element signature="method#reverseOPCParallel#0;class#ModuleOPC#0" expanded="false" />
+                <element signature="method#directOpcGlobalBase#0;class#ModuleOPC#0" expanded="false" />
+                <element signature="method#directOpcGlobalBase#1;class#ModuleOPC#0" expanded="false" />
+                <element signature="method#createDataOPC#0;class#ModuleOPC#0" expanded="false" />
+                <element signature="method#findAllBase#0;class#ModuleOPC#0" expanded="false" />
+                <element signature="method#setMaxBaseForAll#0;class#ModuleOPC#0" expanded="false" />
+                <element signature="method#findMaxInArry#0;class#ModuleOPC#0" expanded="false" />
+                <element signature="method#directOPCwithGlobalBase#0;class#ModuleOPC#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyBufferedImageTest.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="325">
+              <caret line="51" column="21" lean-forward="false" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
+              <folding>
+                <element signature="n#!!block;n#TestDefault5#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
+                <element signature="n#!!block;n#TestEnlagment4#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
+                <element signature="n#!!block;n#getGradientMatrix#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
+                <element signature="n#!!block;n#forEach#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
+                <element signature="n#!!block;n#Companion#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModuleOPCTest.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Objects/ModuleOPCTest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="57" column="31" lean-forward="false" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StegoEncrWithOPC.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/StegoEncrWithOPC.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="223">
+              <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModuleDCT.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ModuleDCT.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="437">
               <caret line="88" column="17" lean-forward="true" selection-start-line="88" selection-start-column="17" selection-end-line="88" selection-end-column="17" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConvertorTest.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tests/ConvertorTest.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="657">
-              <caret line="366" column="1" lean-forward="true" selection-start-line="366" selection-start-column="1" selection-end-line="366" selection-end-column="1" />
-              <folding>
-                <element signature="n#!!block;n#TestReadWrite#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-                <element signature="n#!!block;n#copy#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-                <element signature="e#9674#9942#1" expanded="false" />
-                <element signature="e#10366#10734#2" expanded="false" />
-                <element signature="n#!!block;n#forEach#0;n#!!block;n#ConvertorTest#0" expanded="false" />
-                <element signature="e#10973#11053#1" expanded="false" />
-                <element signature="e#11003#11043#1" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -269,20 +283,20 @@
         <option value="$PROJECT_DIR$/src/MainForm.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Objects/ModuleFile.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/ByteVectorFile.kt" />
-        <option value="$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.kt" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Objects/ModuleDCTTest.java" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Utils/DCTMultiThreadTest.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/DCTMultiThread.java" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Objects/ModuleDCTTest.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Objects/MyBufferedImage.java" />
-        <option value="$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Objects/StegoEncrWithOPC.kt" />
         <option value="$PROJECT_DIR$/Tests/ConvertorTest.kt" />
-        <option value="$PROJECT_DIR$/Tests/ImageCompression/Objects/ModuleOPCTest.kt" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Containers/ModuleOPCTest.java" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Utils/EncryptionTest.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/TimeManager.kt" />
         <option value="$PROJECT_DIR$/src/Convertor.kt" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java" />
+        <option value="$PROJECT_DIR$/Tests/ImageCompression/Objects/ModuleOPCTest.kt" />
+        <option value="$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.kt" />
       </list>
     </option>
   </component>
@@ -612,8 +626,8 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.MainForm" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.All in ImageCompressionKotlin" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ModuleOPCTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ModuleOPCTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.All in ImageCompressionKotlin" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.ModuleDCTTest" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.ModuleDCTTest.GlobalTest1" />
       </list>
@@ -654,9 +668,6 @@
     <history-entry file="All_in_ImageCompressionKotlin - 2017.12.08 at 14h 42m 10s.xml">
       <configuration name="All in ImageCompressionKotlin" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ModuleDCTTest - 2017.12.08 at 13h 46m 20s.xml">
-      <configuration name="ModuleDCTTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ModuleDCTTest - 2017.12.08 at 13h 46m 55s.xml">
       <configuration name="ModuleDCTTest" configurationId="JUnit" />
     </history-entry>
@@ -669,9 +680,6 @@
     <history-entry file="ModuleDCTTest - 2017.12.08 at 13h 55m 47s.xml">
       <configuration name="ModuleDCTTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ModuleDCTTest_GlobalTest1 - 2017.12.08 at 13h 45m 28s.xml">
-      <configuration name="ModuleDCTTest.GlobalTest1" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ModuleOPCTest - 2017.12.08 at 14h 12m 33s.xml">
       <configuration name="ModuleOPCTest" configurationId="JUnit" />
     </history-entry>
@@ -681,9 +689,16 @@
     <history-entry file="ModuleOPCTest - 2017.12.08 at 14h 16m 10s.xml">
       <configuration name="ModuleOPCTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ModuleOPCTest - 2017.12.08 at 15h 21m 37s.xml">
+      <configuration name="ModuleOPCTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ModuleOPCTest - 2017.12.08 at 15h 22m 54s.xml">
+      <configuration name="ModuleOPCTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -693,7 +708,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33105022" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25114155" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25114155" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -778,7 +793,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java</url>
-          <line>285</line>
+          <line>310</line>
           <properties />
           <option name="timeStamp" value="177" />
         </line-breakpoint>
@@ -793,6 +808,14 @@
           <line>83</line>
           <properties />
           <option name="timeStamp" value="184" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java</url>
+          <line>205</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="195" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Tests/ImageCompression/Utils/Objects/DataOPCTest.kt</url>
@@ -832,7 +855,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.kt</url>
-          <line>47</line>
+          <line>46</line>
           <properties />
           <option name="timeStamp" value="146" />
         </line-breakpoint>
@@ -873,7 +896,7 @@
           <option name="timeStamp" value="189" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="195" />
+      <option name="time" value="196" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
@@ -1033,46 +1056,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="354" column="22" lean-forward="true" selection-start-line="354" selection-start-column="22" selection-end-line="354" selection-end-column="22" />
-          <folding>
-            <element signature="method#directOPC#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#reverceOPC#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#directOPC#1;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#reverseOPC#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#directOPCMultiThreads#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#reverseOPCMultiThreads#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#directOPCParallel#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#reverseOPCParallel#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#directOpcGlobalBase#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#directOpcGlobalBase#1;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#createDataOPC#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#findAllBase#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#setMaxBaseForAll#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#findMaxInArry#0;class#ModuleOPC#0" expanded="false" />
-            <element signature="method#directOPCwithGlobalBase#0;class#ModuleOPC#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/StegoEncrWithOPC.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="105" column="20" lean-forward="false" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tests/ConvertorTest.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="657">
@@ -1086,14 +1069,6 @@
             <element signature="e#10973#11053#1" expanded="false" />
             <element signature="e#11003#11043#1" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Objects/ModuleOPCTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="95" column="44" lean-forward="false" selection-start-line="95" selection-start-column="44" selection-end-line="95" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1129,10 +1104,94 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ModuleDCT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="88" column="17" lean-forward="true" selection-start-line="88" selection-start-column="17" selection-end-line="88" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Convertor.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-963">
+          <caret line="19" column="27" lean-forward="true" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/StegoEncrWithOPC.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Objects/ModuleOPCTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="57" column="31" lean-forward="false" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Objects/ModuleDCTTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+          <folding>
+            <element signature="e#34#273#0" expanded="true" />
+            <element signature="n#!!block;n#DerRevDCTTest#0;n#!!block;n#ModuleDCTTest#0" expanded="false" />
+            <element signature="n#!!block;n#TimeTest1#0;n#!!block;n#ModuleDCTTest#0" expanded="false" />
+            <element signature="n#!!block;n#TimeTest2#0;n#!!block;n#ModuleDCTTest#0" expanded="false" />
+            <element signature="n#!!block;n#TimeTest3#0;n#!!block;n#ModuleDCTTest#0" expanded="false" />
+            <element signature="n#!!block;n#TimeTest4#0;n#!!block;n#ModuleDCTTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ModuleOPC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="393" column="20" lean-forward="true" selection-start-line="393" selection-start-column="20" selection-end-line="393" selection-end-column="20" />
+          <folding>
+            <element signature="method#directOPC#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#reverceOPC#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#directOPC#1;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#reverseOPC#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#reverseOPCMultiThreads#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#directOPCParallel#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#reverseOPCParallel#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#directOpcGlobalBase#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#directOpcGlobalBase#1;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#createDataOPC#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#findAllBase#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#setMaxBaseForAll#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#findMaxInArry#0;class#ModuleOPC#0" expanded="false" />
+            <element signature="method#directOPCwithGlobalBase#0;class#ModuleOPC#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="51" column="21" lean-forward="false" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
+          <folding>
+            <element signature="n#!!block;n#TestDefault5#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
+            <element signature="n#!!block;n#TestEnlagment4#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
+            <element signature="n#!!block;n#getGradientMatrix#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
+            <element signature="n#!!block;n#forEach#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
+            <element signature="n#!!block;n#Companion#0;n#!!block;n#MyBufferedImageTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/MyBufferedImage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="499" column="5" lean-forward="true" selection-start-line="499" selection-start-column="5" selection-end-line="499" selection-end-column="5" />
+        <state relative-caret-position="337">
+          <caret line="362" column="21" lean-forward="true" selection-start-line="362" selection-start-column="21" selection-end-line="362" selection-end-column="21" />
           <folding>
             <element signature="method#MyBufferedImage#0;class#MyBufferedImage#0" expanded="false" />
             <element signature="method#MyBufferedImage#1;class#MyBufferedImage#0" expanded="false" />
@@ -1161,37 +1220,6 @@
             <element signature="class#Loopable#0;class#MyBufferedImage#0" expanded="false" />
             <element signature="method#forEach#0;class#MyBufferedImage#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Convertor.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="35" column="37" lean-forward="true" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Objects/ModuleDCTTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-          <folding>
-            <element signature="e#34#273#0" expanded="true" />
-            <element signature="n#!!block;n#DerRevDCTTest#0;n#!!block;n#ModuleDCTTest#0" expanded="false" />
-            <element signature="n#!!block;n#TimeTest1#0;n#!!block;n#ModuleDCTTest#0" expanded="false" />
-            <element signature="n#!!block;n#TimeTest2#0;n#!!block;n#ModuleDCTTest#0" expanded="false" />
-            <element signature="n#!!block;n#TimeTest3#0;n#!!block;n#ModuleDCTTest#0" expanded="false" />
-            <element signature="n#!!block;n#TimeTest4#0;n#!!block;n#ModuleDCTTest#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Objects/ModuleDCT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="88" column="17" lean-forward="true" selection-start-line="88" selection-start-column="17" selection-end-line="88" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>

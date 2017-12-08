@@ -8,6 +8,7 @@ import ImageCompression.Utils.Functions.OPCMultiThread;
 import ImageCompression.Utils.Objects.DataOPC;
 import ImageCompression.Utils.Functions.DCTMultiThread;
 import ImageCompression.Utils.Objects.Flag;
+import ImageCompression.Utils.Objects.TimeManager;
 import com.sun.glass.ui.Size;
 import javafx.util.Pair;
 
@@ -135,9 +136,14 @@ public class ModuleOPC {
     public void directOPC(){
         if(!isMatrix)
             return;
+
+        appendTimeManager("direct OPC");
         boxOfOpc.setA(directOPC(matrix.getA()));
+        appendTimeManager("get A");
         boxOfOpc.setB(directOPC(matrix.getB()));
+        appendTimeManager("get B");
         boxOfOpc.setC(directOPC(matrix.getC()));
+        appendTimeManager("get C");
 
         isOpcs=true;
     }
@@ -145,9 +151,13 @@ public class ModuleOPC {
         if(!isOpcs)
             return;
 
+        appendTimeManager("start reOPC");
         matrix.setA(reverceOPC(boxOfOpc.getA()));
+        appendTimeManager("get A");
         matrix.setB(reverceOPC(boxOfOpc.getB()));
+        appendTimeManager("get B");
         matrix.setC(reverceOPC(boxOfOpc.getC()));
+        appendTimeManager("get C");
 
         isMatrix=true;
     }
@@ -159,14 +169,21 @@ public class ModuleOPC {
         ExecutorService executorService = Executors.newFixedThreadPool(3);
         List<Future<DataOPC[][]>> futures=new ArrayList<Future<DataOPC[][]>>();
 
+        appendTimeManager("direct OPC");
         futures.add(executorService.submit(()->directOPC(matrix.getA())));
+        appendTimeManager("set A");
         futures.add(executorService.submit(()->directOPC(matrix.getB())));
+        appendTimeManager("set B");
         futures.add(executorService.submit(()->directOPC(matrix.getC())));
+        appendTimeManager("set C");
 
             try {
-                boxOfOpc.setA(futures.get(0).get());
                 boxOfOpc.setB(futures.get(1).get());
+                appendTimeManager("get B");
                 boxOfOpc.setC(futures.get(2).get());
+                appendTimeManager("get C");
+                boxOfOpc.setA(futures.get(0).get());
+                appendTimeManager("get A");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (ExecutionException e) {
@@ -181,15 +198,23 @@ public class ModuleOPC {
         ExecutorService executorService = Executors.newFixedThreadPool(3);
         List<Future<short[][]>> futures=new ArrayList<Future<short[][]>>();
 
+        appendTimeManager("start reOPC");
         futures.add(executorService.submit(()->reverceOPC(boxOfOpc.getA())));
+        appendTimeManager("start a");
         futures.add(executorService.submit(()->reverceOPC(boxOfOpc.getB())));
+        appendTimeManager("start b");
         futures.add(executorService.submit(()->reverceOPC(boxOfOpc.getC())));
+        appendTimeManager("start c");
 
 
         try {
-            matrix.setA(futures.get(0).get());
             matrix.setB(futures.get(1).get());
+            appendTimeManager("get B");
             matrix.setC(futures.get(2).get());
+            appendTimeManager("get C");
+            matrix.setA(futures.get(0).get());
+            appendTimeManager("get A");
+//            matrix.setC(futures.get(2).get());
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -377,5 +402,9 @@ public class ModuleOPC {
     }
     public boolean isOpcs() {
         return isOpcs;
+    }
+
+    private void appendTimeManager(String s){
+//        TimeManager.getInstance().append(s);
     }
 }
