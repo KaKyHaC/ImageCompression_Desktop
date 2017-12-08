@@ -16,7 +16,7 @@ class Convertor() {
     fun FromBmpToBar(pathToBmp: String, flag: Flag,computing: Computing=Computing.MultiThreads) {
         val isAsync=(computing==Computing.MultiThreads)
             val timeManager=TimeManager.Instance
-            timeManager.startNewTrack("FromBmpToBar")
+            timeManager.startNewTrack("FromBmpToBar ${isAsync}")
             progressListener?.invoke(0,"read bmp")
         val bmp = ImageIO.read(File(pathToBmp))
             timeManager.append("read bmp")
@@ -49,7 +49,7 @@ class Convertor() {
     fun FromBarToBmp(pathToBar: String,computing: Computing=Computing.MultiThreads): Unit {
         val isAsync=(computing==Computing.MultiThreads)
             val timeManager=TimeManager.Instance
-            timeManager.startNewTrack("FromBarToBmp")
+            timeManager.startNewTrack("FromBarToBmp ${isAsync}")
             progressListener?.invoke(10,"read from file")
         val fileModule=ModuleFile(pathToBar)
         val pair=fileModule.read()

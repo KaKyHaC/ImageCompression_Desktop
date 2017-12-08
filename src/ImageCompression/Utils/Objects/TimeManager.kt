@@ -33,7 +33,8 @@ class TimeManager private constructor(){
         val totalTime=(events[events.size-1] - events[0])
         sb.append("Total:${totalTime}ms ")
         for(i in 1..events.size-1){
-            sb.append(""""${events[i].name}"=""" +
+            if(events[i]-events[i-1]>0)
+                sb.append(""""${events[i].name}"=""" +
                     """${(events[i]-events[i-1])}ms; """)
         }
         return sb.toString()
