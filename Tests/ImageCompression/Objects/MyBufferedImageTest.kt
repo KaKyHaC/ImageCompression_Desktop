@@ -55,6 +55,14 @@ class MyBufferedImageTest {
     fun TimeTest1(){
         BmpToYenlTimeTest(1920,1080,3)
     }
+    @Test
+    fun TimeTest2(){
+        BmpToYenlTimeTest(1920,1080,30)
+    }
+    @Test
+    fun TimeTest3(){
+        BmpToYenlTimeTest(4920,4080,1)
+    }
 
     fun BmpToYenlTimeTest(w:Int,h:Int,loop:Int){
         val bufferedImage= randomBufferedImage(w,h)
@@ -77,7 +85,7 @@ class MyBufferedImageTest {
         TimeManager.Instance.append("one")
         println(TimeManager.Instance.getInfoInSec())
         val t2=TimeManager.Instance.getTotalTime()
-        println("multi $t2;one $t1")
+        println("multi $t1;one $t2")
         assertTrue(t2>t1)
 
     }

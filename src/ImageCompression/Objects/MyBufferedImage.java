@@ -32,7 +32,7 @@ public class MyBufferedImage {
     }
 
     //TODO string constructor
-
+//TODO fix threads
     private void FromBufferedImageToYCbCrParallelMatrix() {
         if (matrix.getState() == State.bitmap)
         {
@@ -466,28 +466,29 @@ public class MyBufferedImage {
     }
 
 
-    private void imageToYbrTask(int wStart,int hStart,int wEnd,int hEnd){
-        appendTimeManager("imageToYbrTask("+wStart+")("+hStart+")");
-        int w=wEnd-wStart;
-        int h=hEnd-hStart;
-        short[][] _a=new short[w][h];
-        short[][] _b=new short[w][h];
-        short[][] _c=new short[w][h];
-        int [][] rgb=new int[w][h];
-        appendTimeManager("mem");
-        for(int i=0;i<w;i++) {
+    private void imageToYbrTask(int wStart,int hStart,int wEnd,int hEnd) {
+        appendTimeManager("imageToYbrTask(" + wStart + ")(" + hStart + ")");
+        int w = wEnd - wStart;
+        int h = hEnd - hStart;
+        short[][] _a = new short[w][h];
+        short[][] _b = new short[w][h];
+        short[][] _c = new short[w][h];
+        int[][] rgb = new int[w][h];
+        appendTimeManager("mem"+wStart+hStart);
+        for (int i = 0; i < w; i++) {
             for (int j = 0; j < h; j++) {
-                rgb[i][j]=bitmap.getRGB(i+wStart,j+hStart);
+                rgb[i][j] = bitmap.getRGB(i + wStart, j + hStart);
             }
         }
-        appendTimeManager("rgb cpy");
-        for(int i=0;i<w;i++) {
+
+        appendTimeManager("rgb cpy"+wStart+hStart);
+        for (int i = 0; i < w; i++) {
             for (int j = 0; j < h; j++) {
-                int pixelColor=rgb[i][j];
+                int pixelColor = rgb[i][j];
                 // получим цвет каждого пикселя
-                double pixelRed = ((pixelColor)>>16&0xFF);
-                double pixelGreen= ((pixelColor)>>8&0xFF);
-                double pixelBlue=((pixelColor)&0xFF);
+                double pixelRed = ((pixelColor) >> 16 & 0xFF);
+                double pixelGreen = ((pixelColor) >> 8 & 0xFF);
+                double pixelBlue = ((pixelColor) & 0xFF);
 
                 double vy = (0.299 * pixelRed) + (0.587 * pixelGreen) + (0.114 * pixelBlue);
                 double vcb = 128 - (0.168736 * pixelRed) - (0.331264 * pixelGreen) + (0.5 * pixelBlue);
@@ -511,18 +512,18 @@ public class MyBufferedImage {
 
             }
         }
-        appendTimeManager("ybr calc");
-        for(int i=wStart;i<wEnd;i++) {
+        appendTimeManager("ybr calc"+wStart+hStart);
+        for (int i = wStart; i < wEnd; i++) {
             for (int j = hStart; j < hEnd; j++) {
-                matrix.getA()[i][j] = _a[i-wStart][j-hStart];
-                matrix.getB()[i][j] = _b[i-wStart][j-hStart];
-                matrix.getC()[i][j] = _c[i-wStart][j-hStart];
+                matrix.getA()[i][j] = _a[i - wStart][j - hStart];
+                matrix.getB()[i][j] = _b[i - wStart][j - hStart];
+                matrix.getC()[i][j] = _c[i - wStart][j - hStart];
             }
         }
-        appendTimeManager("ybr set");
+        appendTimeManager("ybr set"+wStart+hStart);
     }
     private void appendTimeManager(String s){
-        //TimeManager.getInstance().append(s);
+        TimeManager.getInstance().append(s);
     }
     @FunctionalInterface
     interface Loopable{
