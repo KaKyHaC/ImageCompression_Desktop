@@ -27,9 +27,26 @@ class TimeManager private constructor(){
         }
         return sb.toString()
     }
+    fun getInfoInSec():String{
+        val sb=StringBuilder()
+        sb.append("${events[0].name}:")
+        val totalTime=(events[events.size-1] - events[0])
+        sb.append("Total:${totalTime}ms ")
+        for(i in 1..events.size-1){
+            sb.append(""""${events[i].name}"=""" +
+                    """${(events[i]-events[i-1])}ms; """)
+        }
+        return sb.toString()
+    }
     fun getTotalTime():Long{
         val totalTime=(events[events.size-1] - events[0])
         return totalTime
+    }
+    fun getLineSegment(index:Int):Long{
+        if(index<0||index>=events.size)
+            return -1
+
+        return events[index+1]-events[index]
     }
 
     class Event(val time:Long,val name:String){

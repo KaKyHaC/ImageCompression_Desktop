@@ -77,7 +77,7 @@ public class DCTMultiThread {//singelton
                 {
                     for(int y=0;y<SIZEOFBLOCK;y++)
                     {
-                        assert dataOriginal[x][y]<=0xff:"dataOriginal="+dataOriginal[x][y];
+                        assert dataOriginal[x][y]<=0xff:"dataOriginal["+x+"]["+y+"]="+dataOriginal[x][y];
                         /*double cos=Cosine.getCos(x,y,i,j);
                         double buf=dataOriginal[x][y];
                         double mul=buf*cos;
@@ -115,6 +115,7 @@ public class DCTMultiThread {//singelton
                         sum+=buf;
                     }
                 }
+                assert FromDoubleToShort(0.25*sum)<=0xff:"dataProcessed["+x+"]["+y+"]="+0.25*sum;
                 dataProcessed[x][y]=FromDoubleToShort(0.25*sum); // old (short)
             }
         }
@@ -143,6 +144,8 @@ public class DCTMultiThread {//singelton
 
 
     private static short FromDoubleToShort(double d){
+        if(d>=255)
+            return 255;
         short res=(short)d;
         if(d%1>0.5)
             res++;

@@ -38,9 +38,9 @@ class DCTMultiThreadTest {
     @Throws(Exception::class)
     fun TestDCTinRange1() {
         res = DCTMultiThread.directDCT(data)
-        res = DCTMultiThread.reverseDCT(res)
+        assertFails { assertArrayInRange(data,res,1) }
 
-        //        assertArrayEquals(res,data);
+        res = DCTMultiThread.reverseDCT(res)
         assertArrayInRange(data, res, 1)
     }
 
@@ -55,8 +55,9 @@ class DCTMultiThreadTest {
                 }
             }
             res = DCTMultiThread.directDCT(data)
-            res = DCTMultiThread.reverseDCT(res)
+            assertFails { assertArrayInRange(data,res,2) }
 
+            res = DCTMultiThread.reverseDCT(res)
             assertArrayInRange(data, res, 2)
         }
     }

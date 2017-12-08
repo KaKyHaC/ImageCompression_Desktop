@@ -43,7 +43,7 @@ class Convertor() {
         fileModule.write(box,flag)
             timeManager.append("write to file")
             progressListener?.invoke(100,"Ready after ${timeManager.getTotalTime()} ms")
-            System.out.println(timeManager.getInfoInPercent())
+            System.out.println(timeManager.getInfoInSec())
     }
 
     fun FromBarToBmp(pathToBar: String,computing: Computing=Computing.MultiThreads): Unit {
@@ -76,7 +76,7 @@ class Convertor() {
         ImageIO.write(res, "bmp", file)
             timeManager.append("write to bmp")
             progressListener?.invoke(100,"Ready after ${timeManager.getTotalTime()} ms");
-            System.out.println(timeManager.getInfoInPercent())
+            System.out.println(timeManager.getInfoInSec())
     }
 
     private fun getPathWithoutType(path: String): String {
