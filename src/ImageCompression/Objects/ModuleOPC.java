@@ -69,6 +69,7 @@ public class ModuleOPC {
     }
 
     private DataOPC[][] directOPC(short[][]dataOrigin){
+
         Size size=sizeOpcCalculate(dataOrigin.length, dataOrigin[0].length);
         int duWidth= size.width;
         int duHeight= size.height;
@@ -78,6 +79,7 @@ public class ModuleOPC {
         DataOPC[][]dopc=new DataOPC[duWidth][duHeight];
         short[][]buf=new short[SIZEOFBLOCK][SIZEOFBLOCK];
         for (int i = 0; i < duWidth; i++) {
+//            System.out.print(Thread.currentThread().getId());
             for (int j = 0; j < duHeight; j++) {
 
                 for (int x = 0; x < SIZEOFBLOCK; x++) {

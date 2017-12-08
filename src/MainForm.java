@@ -1,3 +1,4 @@
+import ImageCompression.Constants.Cosine;
 import ImageCompression.Objects.*;
 import ImageCompression.Utils.Objects.Flag;
 import ImageCompression.Utils.Objects.Parameters;
@@ -62,6 +63,10 @@ public class MainForm extends JFrame{
 
         spinnerH.setValue(1);
         spinnerW.setValue(1);
+
+        new Thread(()->{
+            Cosine.getCos(0,0);
+        }).start();
     }
     private void setListeners(){
         bSelect.addActionListener(new ActionListener() {

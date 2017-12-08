@@ -7,6 +7,7 @@ import ImageCompression.Utils.Objects.Flag;
 import ImageCompression.Utils.Objects.TimeManager;
 
 import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -42,10 +43,11 @@ public class MyBufferedImage {
             ExecutorService executorService = Executors.newFixedThreadPool(4);
             Future[] futures=new Future[4];
 
-            futures[0] = executorService.submit(()-> imageToYbrTask(0,0,w/2,h/2));
-            futures[1] = executorService.submit(()-> imageToYbrTask(w/2,0,w,h));
-            futures[2] = executorService.submit(()-> imageToYbrTask(0,h/2,w,h));
-            futures[3] = executorService.submit(()-> imageToYbrTask(w/2,h/2,w,h));
+            int [][]img=convertTo2DWithoutUsingGetRGB(bitmap);
+            futures[0] = executorService.submit(()-> imageToYbrTask(0,0,w/2,h/2,img));
+            futures[1] = executorService.submit(()-> imageToYbrTask(w/2,0,w,h,img));
+            futures[2] = executorService.submit(()-> imageToYbrTask(0,h/2,w,h,img));
+            futures[3] = executorService.submit(()-> imageToYbrTask(w/2,h/2,w,h,img));
 
             for (Future future : futures) {
                 try {
@@ -64,8 +66,10 @@ public class MyBufferedImage {
 
         if (matrix.getState() == State.bitmap)
         {
+            int [][]img =convertTo2DWithoutUsingGetRGB(bitmap);
             forEach(bitmap.getWidth(),bitmap.getHeight(),(x, y) -> {
-                int pixelColor=bitmap.getRGB(x,y);
+//                int pixelColor=bitmap.getRGB(x,y);
+                int pixelColor=img[y][x];
                 // получим цвет каждого пикселя
                 double pixelRed = ((pixelColor)>>16&0xFF);
                 double pixelGreen= ((pixelColor)>>8&0xFF);
@@ -466,7 +470,7 @@ public class MyBufferedImage {
     }
 
 
-    private void imageToYbrTask(int wStart,int hStart,int wEnd,int hEnd) {
+    private void imageToYbrTask(int wStart,int hStart,int wEnd,int hEnd,int [][] image) {
         appendTimeManager("imageToYbrTask(" + wStart + ")(" + hStart + ")");
         int w = wEnd - wStart;
         int h = hEnd - hStart;
@@ -477,7 +481,7 @@ public class MyBufferedImage {
         appendTimeManager("mem"+wStart+hStart);
         for (int i = 0; i < w; i++) {
             for (int j = 0; j < h; j++) {
-                rgb[i][j] = bitmap.getRGB(i + wStart, j + hStart);
+                rgb[i][j] = image[ j + hStart][i + wStart];
             }
         }
 
@@ -523,7 +527,49 @@ public class MyBufferedImage {
         appendTimeManager("ybr set"+wStart+hStart);
     }
     private void appendTimeManager(String s){
-        TimeManager.getInstance().append(s);
+//        TimeManager.getInstance().append(s);
+    }
+    private static int[][] convertTo2DWithoutUsingGetRGB(BufferedImage image) {
+
+        final byte[] pixels = ((DataBufferByte) image.getRaster().getDataBuffer()).getData();
+        final int width = image.getWidth();
+        final int height = image.getHeight();
+        final boolean hasAlphaChannel = image.getAlphaRaster() != null;
+
+        int[][] result = new int[height][width];
+        if (hasAlphaChannel) {
+            final int pixelLength = 4;
+            for (int pixel = 0, row = 0, col = 0; pixel < pixels.length; pixel += pixelLength) {
+                int argb = 0;
+                argb += (((int) pixels[pixel] & 0xff) << 24); // alpha
+                argb += ((int) pixels[pixel + 1] & 0xff); // blue
+                argb += (((int) pixels[pixel + 2] & 0xff) << 8); // green
+                argb += (((int) pixels[pixel + 3] & 0xff) << 16); // red
+                result[row][col] = argb;
+                col++;
+                if (col == width) {
+                    col = 0;
+                    row++;
+                }
+            }
+        } else {
+            final int pixelLength = 3;
+            for (int pixel = 0, row = 0, col = 0; pixel < pixels.length; pixel += pixelLength) {
+                int argb = 0;
+                argb += -16777216; // 255 alpha
+                argb += ((int) pixels[pixel] & 0xff); // blue
+                argb += (((int) pixels[pixel + 1] & 0xff) << 8); // green
+                argb += (((int) pixels[pixel + 2] & 0xff) << 16); // red
+                result[row][col] = argb;
+                col++;
+                if (col == width) {
+                    col = 0;
+                    row++;
+                }
+            }
+        }
+
+        return result;
     }
     @FunctionalInterface
     interface Loopable{

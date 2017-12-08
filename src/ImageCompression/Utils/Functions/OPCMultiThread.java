@@ -150,8 +150,7 @@ public class OPCMultiThread { //singelton
         return val;
     }
 
-    private static  void OPCreverse(short[][]dataOrigin,DataOPC dataOPC) // method copy from C++ Project MAH
-    {
+    private static  void OPCreverse(short[][]dataOrigin,DataOPC dataOPC) {// method copy from C++ Project MAH
         BigInteger copy=new BigInteger("1");
         for (int i = SIZEOFBLOCK - 1; i >= 0; i--) {
             for (int j = SIZEOFBLOCK - 1; j >= 0; j--) {
