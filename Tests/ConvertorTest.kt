@@ -125,7 +125,7 @@ class ConvertorTest {
 
         val seOpc=StegoEncrWithOPC(dct)
         val opcs=seOpc.getModuleOPC()
-        val box=opcs.boxOfOpc
+        val box=opcs.getBoxOfOpc(true)
         val flag1=opcs.flag
         val vb=ByteVector()
         box.writeToVector(vb,flag1)
@@ -136,7 +136,7 @@ class ConvertorTest {
         rBox.readFromVector(vb,f)
         assertEquals(rBox,box)
 
-        val seOpc2=StegoEncrWithOPC(ModuleOPC(rBox,f),f)
+        val seOpc2=StegoEncrWithOPC(rBox,f)
         val dctres=seOpc2.getMatrix(true)
         AssertMatrixInRange(dctres,dctCpy,0)
 
@@ -221,10 +221,10 @@ class ConvertorTest {
 
         val seOpc=StegoEncrWithOPC(dct)
         val opcs=seOpc.getModuleOPC()
-        val box=opcs.boxOfOpc
+        val box=opcs.getBoxOfOpc(true)
         val f=opcs.flag
 
-        val seOpc2=StegoEncrWithOPC(ModuleOPC(box,f),f)
+        val seOpc2=StegoEncrWithOPC(box,f)
         val dctres=seOpc2.getMatrix(true)
         AssertMatrixInRange(dctres,dctCpy,0)
 
@@ -264,7 +264,7 @@ class ConvertorTest {
 
         val seOpc=StegoEncrWithOPC(dct)
         val opcs=seOpc.getModuleOPC()
-        val box=opcs.boxOfOpc
+        val box=opcs.getBoxOfOpc(true)
         val flag=opcs.flag
         //----
         val file=ModuleFile(pathToBmp)
@@ -277,7 +277,7 @@ class ConvertorTest {
         assertEquals("box not equal",rBox,box)
         assertEquals("flag $f!=$flag",f,flag)
 
-        val seOpc2=StegoEncrWithOPC(ModuleOPC(rBox,f),f)
+        val seOpc2=StegoEncrWithOPC(rBox,f)
         val dctres=seOpc2.getMatrix(true)
         AssertMatrixInRange(dctres,dctCpy,0)
 

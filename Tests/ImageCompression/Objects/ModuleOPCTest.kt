@@ -36,7 +36,7 @@ class ModuleOPCTest{
         val m=ImageIOTest.createMatrix(1080,1920)
         m.state=State.DCT
         val opcModule=ModuleOPC(m)
-        val box=opcModule.boxOfOpc
+        val box=opcModule.getBoxOfOpc(true)
 
         val loop=1
         val t1=Date().time
@@ -82,18 +82,18 @@ class ModuleOPCTest{
         tm.startNewTrack("mOPC(${w}x$h),${loop}l")
         for(i in 0..loop-1){
             opcModule.directOPC()
-            val resModule = ModuleOPC(opcModule.boxOfOpc,opcModule.flag)
+            val resModule = ModuleOPC(opcModule.getBoxOfOpc(false),opcModule.flag)
             resModule.reverseOPC()
-            val res=resModule.matrix
+            val res=resModule.getMatrix(false)
             assertEquals(res,cpy)
         }
         tm.append("one")
 
         for(i in 0..loop-1){
             opcModule.directOPCMultiThreads()
-            val resModule = ModuleOPC(opcModule.boxOfOpc,opcModule.flag)
+            val resModule = ModuleOPC(opcModule.getBoxOfOpc(true),opcModule.flag)
             resModule.reverseOPCMultiThreads()
-            val res=resModule.matrix
+            val res=resModule.getMatrix(true)
             assertEquals(res,cpy)
         }
         tm.append("multi")

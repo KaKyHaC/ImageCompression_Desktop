@@ -343,18 +343,26 @@ public class ModuleOPC {
         }
     }
 
-    public Matrix getMatrix() {
-        if(!isMatrix)
-            reverseOPC();
+    public Matrix getMatrix(boolean isAsync) {
+        if(!isMatrix) {
+            if(isAsync)
+                reverseOPCMultiThreads();
+            else
+                reverseOPC();
+        }
 
         if(isMatrix)
             return matrix;
         return null;
     }
 
-    public BoxOfOpc getBoxOfOpc() {
-        if(!isOpcs)
-            directOPC();
+    public BoxOfOpc getBoxOfOpc(boolean isAsync) {
+        if(!isOpcs){
+            if(isAsync)
+                directOPCMultiThreads();
+            else
+                directOPC();
+        }
 
         if(isOpcs)
             return boxOfOpc;

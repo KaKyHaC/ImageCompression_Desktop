@@ -14,12 +14,8 @@ class StegoEncrWithOPC {
         opcs= ModuleOPC(matrix)
 //        isMatrix=true
     }
-    constructor(moduleOPC: ModuleOPC, flag: Flag){
-        this.opcs= moduleOPC
-//        isOPCS=true
-    }
     constructor(boxOfOpc: BoxOfOpc, flag: Flag){
-        this.opcs= ModuleOPC(boxOfOpc,flag)
+        this.opcs= ModuleOPC(boxOfOpc, flag)
 //        isOPCS=true
     }
     var message:String?=null
@@ -31,11 +27,12 @@ class StegoEncrWithOPC {
 
         progressListener?.invoke(0)
 
-        if(opcs.flag.isSteganography&&message!=null)
-            opcs.matrix?.let {
-                this.opcs.matrix==Steganography.WriteMassageFromByteArrayToMatrix(opcs.matrix,message?.toByteArray())
-                TimeManager.Instance.append("Stega")
-            }
+        if(opcs.flag.isSteganography&&message!=null){
+            val mat=opcs.getMatrix(isAsync)
+            Steganography.WriteMassageFromByteArrayToMatrix(mat,message?.toByteArray())
+            TimeManager.Instance.append("Stega")
+
+        }
         progressListener?.invoke(10)
 
         directOpc(opcs.flag.isGlobalBase,isAsync,progressListener)
@@ -43,7 +40,8 @@ class StegoEncrWithOPC {
         progressListener?.invoke(80)
 
         if(opcs.flag.isPassword&&password!=null) {
-            Encryption.encode(opcs.boxOfOpc, password)
+            val box=opcs.getBoxOfOpc(isAsync)
+            Encryption.encode(box, password)
             TimeManager.Instance.append("Encr")
         }
         progressListener?.invoke(100)
@@ -58,7 +56,8 @@ class StegoEncrWithOPC {
         progressListener?.invoke(0)
 
         if(opcs.flag.isPassword&&password!=null) {
-            Encryption.encode(opcs.boxOfOpc, password)
+            val box=opcs.getBoxOfOpc(isAsync)
+            Encryption.encode(box, password)
             TimeManager.Instance.append("Encr")
         }
         progressListener?.invoke(10)
@@ -68,7 +67,8 @@ class StegoEncrWithOPC {
         progressListener?.invoke(80)
 
         if(opcs.flag.isSteganography) {
-            message = String(Steganography.ReadMassageFromMatrix(opcs.matrix).toByteArray())
+            val mat=opcs.getMatrix(isAsync)
+            message = String(Steganography.ReadMassageFromMatrix(mat).toByteArray())
             TimeManager.Instance.append("Stega")
         }
         progressListener?.invoke(100)
@@ -103,14 +103,14 @@ class StegoEncrWithOPC {
             FromOpcToMatrix(isAsync)
 
         assert(opcs.isMatrix)
-        return opcs.matrix
+        return opcs.getMatrix(isAsync)
     }
     fun getBoxOfOpc(isAsync: Boolean=true): BoxOfOpc {
         if(!opcs.isOpcs)
             FromMatrixToOpcs(isAsync)
 
         assert(opcs.isOpcs)
-        return opcs.boxOfOpc
+        return opcs.getBoxOfOpc(isAsync)
     }
     fun getModuleOPC():ModuleOPC{
         return opcs

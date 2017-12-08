@@ -360,7 +360,7 @@ public class MyBufferedImage {
         return matrix;
     }
 
-
+    //TODO make Async
     public BufferedImage getBufferedImage() {
         switch(matrix.getState())
         {

@@ -28,10 +28,10 @@ public class ModuleOPCTest {
 
     @Test
     public void TestDefault(){
-        BoxOfOpc boxOfOpc =new ModuleOPC(matrix).getBoxOfOpc();
+        BoxOfOpc boxOfOpc =new ModuleOPC(matrix).getBoxOfOpc(true);
         DataOPC[][] a,b,c;
         ModuleOPC moduleOPC1 =new ModuleOPC(boxOfOpc, matrix.getF());
-        Matrix res= moduleOPC1.getMatrix();
+        Matrix res= moduleOPC1.getMatrix(true);
 
         AssertMatrixInRange(matrix,res,1,true);
     }

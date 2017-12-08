@@ -24,14 +24,14 @@ public class EncryptionTest {
 
     @Test
     public void TestUtils(){
-        AssertBoxEquals(moduleOPC.getBoxOfOpc(), _moduleOPC.getBoxOfOpc());
+        AssertBoxEquals(moduleOPC.getBoxOfOpc(true), _moduleOPC.getBoxOfOpc(true));
     }
 
     @Test
     public void encode() throws Exception {
-        Encryption.encode(moduleOPC.getBoxOfOpc(),key);
-        Encryption.encode(moduleOPC.getBoxOfOpc(),key);
-        AssertBoxEquals(moduleOPC.getBoxOfOpc(), _moduleOPC.getBoxOfOpc());
+        Encryption.encode(moduleOPC.getBoxOfOpc(true),key);
+        Encryption.encode(moduleOPC.getBoxOfOpc(true),key);
+        AssertBoxEquals(moduleOPC.getBoxOfOpc(true), _moduleOPC.getBoxOfOpc(true));
     }
     private void AssertBoxEquals(BoxOfOpc a, BoxOfOpc b){
         AssertDataEqual(a.getA(),b.getA());
