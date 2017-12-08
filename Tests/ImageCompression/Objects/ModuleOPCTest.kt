@@ -3,6 +3,7 @@ package ImageCompression.Objects
 import ImageCompression.Constants.State
 import ImageCompression.Containers.MatrixTest
 import ImageCompression.Utils.Functions.ImageIOTest
+import ImageCompression.Utils.Objects.TimeManager
 import org.junit.Assert.*
 import org.junit.Test
 import java.util.*
@@ -52,5 +53,52 @@ class ModuleOPCTest{
 
         System.out.println("reverseOPC ${loop}: one=${t2-t1}, multi=${t4-t3}")
         assertTrue((t2-t1)>(t4-t3))
+    }
+    @Test
+    fun GlobalTest1(){
+        GlobalTest(360,240,1)
+    }
+    @Test
+    fun GlobalTest2(){
+        GlobalTest(360,240,3)
+    }
+    @Test
+    fun GlobalTest3(){
+        GlobalTest(1920,1080,1)
+    }
+    @Test
+    fun GlobalTest4(){
+        GlobalTest(1920,1080,3)
+    }
+    fun GlobalTest(w:Int,h:Int,loop:Int){
+        val m=ImageIOTest.createMatrix(w,h)
+        m.state=State.DCT
+        val opcModule=ModuleOPC(m)
+        val tm=TimeManager.Instance
+
+        val cpy=m.copy()
+        assertEquals(m,cpy)
+
+        tm.startNewTrack("mOPC(${w}x$h),${loop}l")
+        for(i in 0..loop-1){
+            opcModule.directOPC()
+            val resModule = ModuleOPC(opcModule.boxOfOpc,opcModule.flag)
+            resModule.reverseOPC()
+            val res=resModule.matrix
+            assertEquals(res,cpy)
+        }
+        tm.append("one")
+
+        for(i in 0..loop-1){
+            opcModule.directOPCMultiThreads()
+            val resModule = ModuleOPC(opcModule.boxOfOpc,opcModule.flag)
+            resModule.reverseOPCMultiThreads()
+            val res=resModule.matrix
+            assertEquals(res,cpy)
+        }
+        tm.append("multi")
+
+        println(tm.getInfoInSec())
+        assertTrue(tm.getLineSegment(0)>tm.getLineSegment(1))
     }
 }
