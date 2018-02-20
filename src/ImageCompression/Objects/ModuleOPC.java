@@ -4,12 +4,13 @@ package ImageCompression.Objects;
 import ImageCompression.Containers.BoxOfOpc;
 import ImageCompression.Containers.Matrix;
 import ImageCompression.Constants.State;
+import ImageCompression.Containers.Size;
 import ImageCompression.Utils.Functions.OPCMultiThread;
 import ImageCompression.Utils.Objects.DataOPC;
 import ImageCompression.Utils.Functions.DCTMultiThread;
 import ImageCompression.Utils.Objects.Flag;
 import ImageCompression.Utils.Objects.TimeManager;
-import com.sun.glass.ui.Size;
+//import com.sun.glass.ui.Size;
 import javafx.util.Pair;
 
 import java.util.ArrayList;

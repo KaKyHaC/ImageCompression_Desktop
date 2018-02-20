@@ -1,7 +1,7 @@
 package ImageCompression.Utils.Functions;
 
 
-import sun.rmi.runtime.Log;
+//import sun.rmi.runtime.Log;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
