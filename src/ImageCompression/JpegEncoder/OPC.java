@@ -153,6 +153,8 @@ class OPC
     static {
         flag.setLongCode(false);
         flag.setDC(true);
+//        flag.setGlobalBase(true);
+        flag.setOneFile(true);
     }
     public void HuffmanBlockEncoder(BufferedOutputStream outStream, int zigzag[], int prec, int DCcode, int ACcode)
     {

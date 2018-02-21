@@ -17,6 +17,9 @@ package ImageCompression.JpegEncoder;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.*;
+import java.sql.Date;
+import java.sql.Time;
+import java.util.Calendar;
 
 
 /*
@@ -31,7 +34,10 @@ public class JpegEncoder extends Frame
 //        Image image=new BufferedImage(200,200,BufferedImage.TYPE_3BYTE_BGR);
         FileOutputStream fos=new FileOutputStream(new File("jpegEncoder.jpeg"));
         JpegEncoder jpegEncoder=new JpegEncoder(image,100,fos);
+        long t1= Calendar.getInstance().getTimeInMillis();
         jpegEncoder.Compress();
+        long t2= Calendar.getInstance().getTimeInMillis();
+        System.out.println("time ="+(t2-t1));
     }
     Thread runner;
     BufferedOutputStream outStream;
