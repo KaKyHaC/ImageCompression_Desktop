@@ -14,6 +14,11 @@ package ImageCompression.JpegEncoder;
 // Jpeg Group's Jpeg 6a library, Copyright Thomas G. Lane.
 // See license.txt for details.
 
+import ImageCompression.Utils.Functions.OPCMultiThread;
+import ImageCompression.Utils.Objects.ByteVector;
+import ImageCompression.Utils.Objects.DataOPC;
+import ImageCompression.Utils.Objects.Flag;
+
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.util.Vector;
@@ -32,10 +37,10 @@ import java.util.Vector;
  */
 
 // This class was modified by James R. Weeks on 3/27/98.
-// It now incorporates Huffman table derivation as in the C jpeg library
+// It now incorporates OPC table derivation as in the C jpeg library
 // from the IJG, Jpeg-6a.
 
-class Huffman
+class OPC
 {
     int bufferPutBits, bufferPutBuffer;
     public int ImageHeight;
@@ -117,9 +122,9 @@ class Huffman
             53, 60, 61, 54, 47, 55, 62, 63,
     };
     /*
-     * The Huffman class constructor
+     * The OPC class constructor
      */
-    public Huffman(int Width,int Height)
+    public OPC(int Width, int Height)
     {
 
         bits = new Vector();
@@ -140,77 +145,42 @@ class Huffman
     }
 
     /**
-     * HuffmanBlockEncoder run length encodes and Huffman encodes the quantized
+     * HuffmanBlockEncoder run length encodes and OPC encodes the quantized
      * data.
      **/
-
+    static short[][] buffer=new short[8][8];
+    static Flag flag=new Flag("0");
+    static {
+        flag.setLongCode(false);
+        flag.setDC(true);
+    }
     public void HuffmanBlockEncoder(BufferedOutputStream outStream, int zigzag[], int prec, int DCcode, int ACcode)
     {
-        int temp, temp2, nbits, k, r, i;
-
-        NumOfDCTables = 2;
-        NumOfACTables = 2;
-
-// The DC portion
-
-        temp = temp2 = zigzag[0] - prec;
-        if(temp < 0) {
-            temp = -temp;
-            temp2--;
-        }
-        nbits = 0;
-        while (temp != 0) {
-            nbits++;
-            temp >>= 1;
-        }
-//        if (nbits > 11) nbits = 11;
-        bufferIt(outStream, ((int[][])DC_matrix[DCcode])[nbits][0], ((int[][])DC_matrix[DCcode])[nbits][1]);
-        // The arguments in bufferIt are code and size.
-        if (nbits != 0) {
-            bufferIt(outStream, temp2, nbits);
-        }
-
-// The AC portion
-
-        r = 0;
-
-        for (k = 1; k < 64; k++) {
-            if ((temp = zigzag[jpegNaturalOrder[k]]) == 0) {
-                r++;
-            }
-            else {
-                while (r > 15) {
-                    bufferIt(outStream, ((int[][])AC_matrix[ACcode])[0xF0][0], ((int[][])AC_matrix[ACcode])[0xF0][1]);
-                    r -= 16;
-                }
-                temp2 = temp;
-                if (temp < 0) {
-                    temp = -temp;
-                    temp2--;
-                }
-                nbits = 1;
-                while ((temp >>= 1) != 0) {
-                    nbits++;
-                }
-                i = (r << 4) + nbits;
-                bufferIt(outStream, ((int[][])AC_matrix[ACcode])[i][0], ((int[][])AC_matrix[ACcode])[i][1]);
-                bufferIt(outStream, temp2, nbits);
-
-                r = 0;
+        for(int i=0;i<8;i++){
+            for(int j=0;j<8;j++){
+                buffer[i][j]=(short)zigzag[i*8+j];
             }
         }
-
-        if (r > 0) {
-            bufferIt(outStream, ((int[][])AC_matrix[ACcode])[0][0], ((int[][])AC_matrix[ACcode])[0][1]);
+        DataOPC dataOPC=OPCMultiThread.getDataOPC(buffer,flag);//TODO make flag as argument
+        dataOPCtoStream(dataOPC,outStream);
+//        System.out.print(totalSize+",");
+//        dataOPC
+    }
+    public static int opcSize=0;
+    void dataOPCtoStream(DataOPC dataOPC,BufferedOutputStream os){
+        ByteVector byteVector=new ByteVector(8);
+        dataOPC.toByteVector(byteVector,flag);
+        opcSize+=byteVector.getSize();
+        for(byte b :byteVector){
+            bufferIt(os,b,8);
         }
-
     }
 
-// Uses an integer long (32 bits) buffer to store the Huffman encoded bits
+// Uses an integer long (32 bits) buffer to store the OPC encoded bits
 // and sends them to outStream by the byte.
 
-    void bufferIt(BufferedOutputStream outStream, int code,int size)
-    {
+    public static int totalSize=0;
+    void bufferIt(BufferedOutputStream outStream, int code,int size) {
         int PutBuffer = code;
         int PutBits = bufferPutBits;
 
@@ -224,6 +194,7 @@ class Huffman
             try
             {
                 outStream.write(c);
+                totalSize+=8;
             }
             catch (IOException e) {
                 System.out.println("IO Error: " + e.getMessage());
@@ -232,6 +203,7 @@ class Huffman
                 try
                 {
                     outStream.write(0);
+                    totalSize+=8;
                 }
                 catch (IOException e) {
                     System.out.println("IO Error: " + e.getMessage());
@@ -253,6 +225,7 @@ class Huffman
             try
             {
                 outStream.write(c);
+                totalSize+=8;
             }
             catch (IOException e) {
                 System.out.println("IO Error: " + e.getMessage());
@@ -260,6 +233,7 @@ class Huffman
             if (c == 0xFF) {
                 try {
                     outStream.write(0);
+                    totalSize+=8;
                 }
                 catch (IOException e) {
                     System.out.println("IO Error: " + e.getMessage());
@@ -273,15 +247,15 @@ class Huffman
             try
             {
                 outStream.write(c);
+                totalSize+=8;
             }
             catch (IOException e) {
                 System.out.println("IO Error: " + e.getMessage());
             }
         }
     }
-
     /*
-     * Initialisation of the Huffman codes for Luminance and Chrominance.
+     * Initialisation of the OPC codes for Luminance and Chrominance.
      * This code results in the same tables created in the IJG Jpeg-6a
      * library.
      */

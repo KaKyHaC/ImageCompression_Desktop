@@ -149,13 +149,13 @@ class ByteVector:Iterable<Byte> {
 
     override fun iterator(): Iterator<Byte> {
         class MyIterator:Iterator<Byte>{
-            val cur=0
+            var cur=0
             override fun hasNext(): Boolean {
                 return cur<size
             }
 
             override fun next(): Byte {
-                return bytes[cur]
+                return bytes[cur++]
             }
         }
         return MyIterator()

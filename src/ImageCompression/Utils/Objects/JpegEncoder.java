@@ -177,6 +177,7 @@ public class JpegEncoder extends Frame
             }
         }
         Huf.flushBuffer(outStream);
+        System.out.println("Written Huffman size="+Huf.totalSize+"byte ("+Huf.totalSize/1024+"kB)");
     }
 
     public void WriteEOI(BufferedOutputStream out) {
@@ -782,7 +783,7 @@ class DCT
 }
 
 // This class was modified by James R. Weeks on 3/27/98.
-// It now incorporates Huffman table derivation as in the C jpeg library
+// It now incorporates OPC table derivation as in the C jpeg library
 // from the IJG, Jpeg-6a.
 
 class Huffman
@@ -867,7 +868,7 @@ class Huffman
             53, 60, 61, 54, 47, 55, 62, 63,
     };
     /*
-     * The Huffman class constructor
+     * The OPC class constructor
      */
     public Huffman(int Width,int Height)
     {
@@ -890,7 +891,7 @@ class Huffman
     }
 
     /**
-     * HuffmanBlockEncoder run length encodes and Huffman encodes the quantized
+     * HuffmanBlockEncoder run length encodes and OPC encodes the quantized
      * data.
      **/
 
@@ -956,11 +957,10 @@ class Huffman
 
     }
 
-// Uses an integer long (32 bits) buffer to store the Huffman encoded bits
+// Uses an integer long (32 bits) buffer to store the OPC encoded bits
 // and sends them to outStream by the byte.
-
-    void bufferIt(BufferedOutputStream outStream, int code,int size)
-    {
+    public static int totalSize=0;
+    void bufferIt(BufferedOutputStream outStream, int code,int size) {
         int PutBuffer = code;
         int PutBits = bufferPutBits;
 
@@ -974,6 +974,7 @@ class Huffman
             try
             {
                 outStream.write(c);
+                totalSize+=8;
             }
             catch (IOException e) {
                 System.out.println("IO Error: " + e.getMessage());
@@ -982,6 +983,7 @@ class Huffman
                 try
                 {
                     outStream.write(0);
+                    totalSize+=8;
                 }
                 catch (IOException e) {
                     System.out.println("IO Error: " + e.getMessage());
@@ -1003,6 +1005,7 @@ class Huffman
             try
             {
                 outStream.write(c);
+                totalSize+=8;
             }
             catch (IOException e) {
                 System.out.println("IO Error: " + e.getMessage());
@@ -1010,6 +1013,7 @@ class Huffman
             if (c == 0xFF) {
                 try {
                     outStream.write(0);
+                    totalSize+=8;
                 }
                 catch (IOException e) {
                     System.out.println("IO Error: " + e.getMessage());
@@ -1023,6 +1027,7 @@ class Huffman
             try
             {
                 outStream.write(c);
+                totalSize+=8;
             }
             catch (IOException e) {
                 System.out.println("IO Error: " + e.getMessage());
@@ -1031,7 +1036,7 @@ class Huffman
     }
 
     /*
-     * Initialisation of the Huffman codes for Luminance and Chrominance.
+     * Initialisation of the OPC codes for Luminance and Chrominance.
      * This code results in the same tables created in the IJG Jpeg-6a
      * library.
      */

@@ -31,7 +31,7 @@ import java.awt.image.PixelGrabber;
  */
 
 // This class was modified by James R. Weeks on 3/27/98.
-// It now incorporates Huffman table derivation as in the C jpeg library
+// It now incorporates OPC table derivation as in the C jpeg library
 // from the IJG, Jpeg-6a.
 
 /*

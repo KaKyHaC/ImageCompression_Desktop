@@ -37,7 +37,7 @@ public class JpegEncoder extends Frame
     BufferedOutputStream outStream;
     Image image;
     JpegInfo JpegObj;
-    Huffman Huf;
+    OPC Huf;
     DCT dct;
     int imageHeight, imageWidth;
     int Quality;
@@ -80,7 +80,7 @@ public class JpegEncoder extends Frame
         imageWidth=JpegObj.imageWidth;
         outStream = new BufferedOutputStream(out);
         dct = new DCT(Quality);
-        Huf=new Huffman(imageWidth,imageHeight);
+        Huf=new OPC(imageWidth,imageHeight);
     }
 
     public void setQuality(int quality) {
@@ -173,6 +173,8 @@ public class JpegEncoder extends Frame
             }
         }
         Huf.flushBuffer(outStream);
+        System.out.println("Written OPC size="+Huf.totalSize+"byte ("+Huf.totalSize/1024+"kB)");
+        System.out.println("OPC size="+Huf.opcSize+"byte ("+Huf.opcSize/1024+"kB)");
     }
 
     public void WriteEOI(BufferedOutputStream out) {
@@ -341,7 +343,7 @@ public class JpegEncoder extends Frame
  */
 
 // This class was modified by James R. Weeks on 3/27/98.
-// It now incorporates Huffman table derivation as in the C jpeg library
+// It now incorporates OPC table derivation as in the C jpeg library
 // from the IJG, Jpeg-6a.
 
 /*
