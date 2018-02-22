@@ -45,6 +45,11 @@ fun main(arg:Array<String>){
     val i1:BufferedImage=ImageIO.read(File("D:\\files\\desk.bmp"))
 //    val i2:BufferedImage=ImageIO.read(File("D:\\files\\deskres.bmp"))
 //    val i2:BufferedImage=ImageIO.read(File("D:\\files\\desk.bmp"))
+    println("jpeg")
     val i2:BufferedImage=ImageIO.read(File("D:\\Dima\\IDEA Projects\\ImageCompressionKotlin\\jpegEncoder.jpeg"))
     ImageStandardDeviation.getDeviation(i1,i2)
+
+    println("br")
+    val i3:BufferedImage=ImageIO.read(File("D:\\files\\deskres.bmp"))
+    ImageStandardDeviation.getDeviation(i1,i3)
 }

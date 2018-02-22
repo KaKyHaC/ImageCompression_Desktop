@@ -41,8 +41,8 @@ public class MainForm extends JFrame{
     public MainForm() throws HeadlessException {
         setVisible(true);
         setContentPane(mainPanel);
-        setSize(500,500);
-        setResizable(true);
+        setSize(800,600);
+        setResizable(false);
 //        setLocation(new Point(200,100));
 
         Init();

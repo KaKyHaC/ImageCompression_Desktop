@@ -110,7 +110,7 @@ public class OPCMultiThread { //singelton
 
         long base= 1;
         long res=0;
-        long bufbase;
+        long bufbase=1;
         for(int i=SIZEOFBLOCK-1;i>=0;i--) {
             for(int j=SIZEOFBLOCK-1;j>=0;j--) {
                 bufbase=base*dataOPC.base[i];
@@ -129,6 +129,7 @@ public class OPCMultiThread { //singelton
 
             }
         }
+//        if(bufbase<res)System.out.println("AAAA");
         return BigInteger.valueOf(res);
     }
     private static  BigInteger OPCdirectBI(long res,long baseval,int i1,int j1,short[][]dataOrigin,DataOPC dataOPC){

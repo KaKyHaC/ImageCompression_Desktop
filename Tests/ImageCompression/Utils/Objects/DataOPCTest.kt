@@ -17,6 +17,15 @@ class DataOPCTest {
     val rand=Random()
 
     @Test
+    fun TestBigInt(){
+        val bi=BigInteger("939990213")
+        val b=bi.toByteArray()
+        val buf=ByteArray(b.size+1)
+        System.arraycopy(b,0,buf,1,b.size)
+        val rbi=BigInteger(buf)
+        kotlin.test.assertTrue(bi.compareTo(rbi)==0)
+    }
+    @Test
     fun TestParsers(){
         initDopc(dopc)
         dopc1=dopc.copy()

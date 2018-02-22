@@ -29,19 +29,29 @@ public class DataOPC {
     public byte[] FromBigIntToArray() {
         return N.toByteArray();
     }
-    public void FromBigIntToVector(ByteVector vector){
+    public void FromBigIntToVector(ByteVector vector,short[] base){
+
         byte[] code=N.toByteArray();
-        assert (code.length<Short.MAX_VALUE);
-        vector.append((short)code.length);
+//        assert (code.length<Short.MAX_VALUE);
+//        vector.append((short)code.length);
+        int length=getLengthOfCode(base);
+        while (length-->code.length)
+            vector.append((byte)0);
+
         for(byte b : code){
             vector.append(b);
         }
+
+
+//        System.out.print(",dL="+(code.length-length));
+//        assert code.length<=length:"cL:"+code.length+">l:"+length;
     }
     public void FromArrayToBigInt(byte[] code) {
         N=new BigInteger(code);
     }
-    public void FromVectorToBigInt(ByteVector vector){
-        int len=vector.getNextShort();
+    public void FromVectorToBigInt(ByteVector vector,short[]base){
+//        int len=vector.getNextShort();
+        int len =getLengthOfCode(base);
         byte[] code=new byte[len];
         for(int i=0;i<len;i++){
             code[i]=vector.getNext();
@@ -101,18 +111,13 @@ public class DataOPC {
 
     public short[] FromBaseToArray() {
         short[] res=new short[SIZEOFBLOCK];
-        for(int i=0;i<res.length;i++){
-            res[i]=base[i];
-        }
+        System.arraycopy(base, 0, res, 0, res.length);
         return res;
     }
     public void FromArrayToBase(short[] b) {
-        for(int i=0;i<b.length;i++) {
-            base[i]=((b[i]));
-        }
+        System.arraycopy(b, 0, base, 0, b.length);
     }
     public void FromBaseToVector(ByteVector vector){
-        int i=0;
 //        if(!flag.isDC()){
 //            vector.append(base[i++]);
 //        }
@@ -120,33 +125,32 @@ public class DataOPC {
 //            assert (base[i]<0xff):"base["+i+"]="+base[i];
 //            vector.append((byte)base[i++]);
 //        }
-        vector.append(base[i++]);
-        vector.append(base[i++]);
-        vector.append(base[i++]);
-        vector.append(base[i++]);
+        vector.append(base[0]);
+        vector.append(base[1]);
+        vector.append(base[2]);
+        vector.append(base[3]);
 
-        vector.append(base[i++]);
-        vector.append(base[i++]);
-        vector.append(base[i++]);
-        vector.append(base[i++]);
+        vector.append(base[4]);
+        vector.append(base[5]);
+        vector.append(base[6]);
+        vector.append(base[7]);
     }
     public void FromVectorToBase(ByteVector vector){
-        int i=0;
 //        if(!flag.isDC()){
 //            base[i++]=vector.getNextShort();
 //        }
 //        while (i<SIZEOFBLOCK) {
 //            base[i++]=(short)((vector.getNext())&0xff);
 //        }
-        base[i++]=vector.getNextShort();
-        base[i++]=vector.getNextShort();
-        base[i++]=vector.getNextShort();
-        base[i++]=vector.getNextShort();
+        base[0]=vector.getNextShort();
+        base[1]=vector.getNextShort();
+        base[2]=vector.getNextShort();
+        base[3]=vector.getNextShort();
 
-        base[i++]=vector.getNextShort();
-        base[i++]=vector.getNextShort();
-        base[i++]=vector.getNextShort();
-        base[i++]=vector.getNextShort();
+        base[4]=vector.getNextShort();
+        base[5]=vector.getNextShort();
+        base[6]=vector.getNextShort();
+        base[7]=vector.getNextShort();
     }
 
     public byte[] getDC() {
@@ -178,8 +182,7 @@ public class DataOPC {
             vector.append(l);
         }
     }
-    public void setVectorCode(Vector<Long> v)
-    {
+    public void setVectorCode(Vector<Long> v) {
         Code=v;
     }
     public void FromVectorToCode(ByteVector vector){
@@ -187,6 +190,18 @@ public class DataOPC {
         for(int i=0;i<len;i++){
             Code.add(vector.getNextLong());
         }
+    }
+
+    //support utils
+    private static int getLengthOfCode(short []base){//TODO optimize this fun
+        BigInteger bi=new BigInteger("1");
+        for(int i=0;i<8;i++){
+            for(int j=0;j<8;j++)
+                bi=bi.multiply(BigInteger.valueOf((base[i])));
+        }
+//        if(bi.compareTo(N)<0)
+//            System.out.println("Alarm");
+        return bi.toByteArray().length;
     }
 
     public String toString(Flag flag) {
@@ -278,7 +293,7 @@ public class DataOPC {
         if(f.isLongCode())
             FromCodeToVector(vector);
         else
-            FromBigIntToVector(vector);
+            FromBigIntToVector(vector,base);
 
         FromSignToVector(vector);
 
@@ -294,7 +309,7 @@ public class DataOPC {
         if(f.isLongCode())
             FromVectorToCode(vector);
         else
-            FromVectorToBigInt(vector);
+            FromVectorToBigInt(vector,base);
 
         FromVectorToSign(vector);
 
