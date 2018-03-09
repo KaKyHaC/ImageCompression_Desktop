@@ -8,11 +8,11 @@ import java.io.File
 import javax.imageio.ImageIO
 
 class StegoModule {
-    fun direct(file:String,unit_W:Int,unit_H:Int,message:BooleanArray): ImageProcessorUtils.Triple<IContainer<OpcContainer<Short>>> {
+    fun direct(file:String,unit_W:Int,unit_H:Int,message:BooleanArray?): ImageProcessorUtils.Triple<IContainer<OpcContainer<Short>>> {
         val image=ImageIO.read(File(file))
         val ipu=ImageProcessorUtils()
         val units=ipu.imageToUnits(image,unit_W, unit_H)
-        val index=ipu.setMessage(units,message)
+        message?.let { val index=ipu.setMessage(units,message)}
         val opcs=ipu.directStego(units)
         return opcs
     }
