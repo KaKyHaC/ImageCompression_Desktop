@@ -7,10 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/Container.kt" afterPath="$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/Container.kt" />
-      <change beforePath="$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/IContainer.kt" afterPath="$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/IContainer.kt" />
-      <change beforePath="$PROJECT_DIR$/src/ImageCompression/Steganography/ImageProcessor.kt" afterPath="$PROJECT_DIR$/src/ImageCompression/Steganography/ImageProcessor.kt" />
+      <change beforePath="$PROJECT_DIR$/src/ImageCompression/Steganography/ImageProcessor.kt" afterPath="$PROJECT_DIR$/src/ImageCompression/Steganography/ImageProcessorUtils.kt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,21 +63,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageProcessor.kt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/ImageProcessor.kt">
+      <file leaf-file-name="ImageProcessorUtils.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/ImageProcessorUtils.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+            <state relative-caret-position="541">
+              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding>
                 <element signature="e#40#341#0" expanded="true" />
-                <element signature="n#!!block;n#getMessageMaxSize#0;n#!!block;n#ImageProcessor#0" expanded="false" />
-                <element signature="n#!!block;n#setMessage#0;n#!!block;n#ImageProcessor#0" expanded="false" />
-                <element signature="n#!!block;n#getMessage#0;n#!!block;n#ImageProcessor#0" expanded="false" />
-                <element signature="n#!!block;n#setMesasge#0;n#!!block;n#ImageProcessor#0" expanded="false" />
-                <element signature="e#2800#2912#2" expanded="false" />
-                <element signature="n#!!block;n#readMessage#0;n#!!block;n#ImageProcessor#0" expanded="false" />
-                <element signature="n#!!block;n#directConvert#0;n#!!block;n#ImageProcessor#0" expanded="false" />
-                <element signature="n#!!block;n#reverceConvert#0;n#!!block;n#ImageProcessor#0" expanded="false" />
+                <element signature="n#!!block;n#getMessageMaxSize#0;n#!!block;n#ImageProcessorUtils#0" expanded="false" />
+                <element signature="n#!!block;n#setMessage#0;n#!!block;n#ImageProcessorUtils#0" expanded="false" />
+                <element signature="n#!!block;n#getMessage#0;n#!!block;n#ImageProcessorUtils#0" expanded="false" />
+                <element signature="n#!!block;n#setMesasge#0;n#!!block;n#ImageProcessorUtils#0" expanded="false" />
+                <element signature="e#3261#3373#2" expanded="false" />
+                <element signature="n#!!block;n#readMessage#0;n#!!block;n#ImageProcessorUtils#0" expanded="false" />
+                <element signature="n#!!block;n#directConvert#0;n#!!block;n#ImageProcessorUtils#0" expanded="false" />
+                <element signature="n#!!block;n#reverceConvert#0;n#!!block;n#ImageProcessorUtils#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -208,7 +205,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Tests/ImageCompression/Utils/DCTMultiThreadTest.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/DCTMultiThread.java" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Objects/ModuleDCTTest.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Objects/StegoEncrWithOPC.kt" />
@@ -259,6 +255,7 @@
         <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/Container.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/IContainer.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/ImageProcessor.kt" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/ImageProcessorUtils.kt" />
       </list>
     </option>
   </component>
@@ -717,7 +714,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -732,7 +728,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1323,12 +1319,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/Container.kt">
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/UnitContainer.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state relative-caret-position="350">
+          <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
           <folding>
-            <element signature="n#!!block;n#inRange#0;n#!!block;n#Container#0" expanded="false" />
+            <element signature="n#!!block;n#equals#0;n#!!block;n#UnitContainer#0" expanded="false" />
+            <element signature="n#!!block;n#hashCode#0;n#!!block;n#UnitContainer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1341,31 +1338,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/UnitContainer.kt">
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/Container.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+        <state relative-caret-position="391">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
-            <element signature="n#!!block;n#equals#0;n#!!block;n#UnitContainer#0" expanded="false" />
-            <element signature="n#!!block;n#hashCode#0;n#!!block;n#UnitContainer#0" expanded="false" />
+            <element signature="n#!!block;n#inRange#0;n#!!block;n#Container#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/ImageProcessor.kt">
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/ImageProcessorUtils.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+        <state relative-caret-position="541">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding>
             <element signature="e#40#341#0" expanded="true" />
-            <element signature="n#!!block;n#getMessageMaxSize#0;n#!!block;n#ImageProcessor#0" expanded="false" />
-            <element signature="n#!!block;n#setMessage#0;n#!!block;n#ImageProcessor#0" expanded="false" />
-            <element signature="n#!!block;n#getMessage#0;n#!!block;n#ImageProcessor#0" expanded="false" />
-            <element signature="n#!!block;n#setMesasge#0;n#!!block;n#ImageProcessor#0" expanded="false" />
-            <element signature="e#2800#2912#2" expanded="false" />
-            <element signature="n#!!block;n#readMessage#0;n#!!block;n#ImageProcessor#0" expanded="false" />
-            <element signature="n#!!block;n#directConvert#0;n#!!block;n#ImageProcessor#0" expanded="false" />
-            <element signature="n#!!block;n#reverceConvert#0;n#!!block;n#ImageProcessor#0" expanded="false" />
+            <element signature="n#!!block;n#getMessageMaxSize#0;n#!!block;n#ImageProcessorUtils#0" expanded="false" />
+            <element signature="n#!!block;n#setMessage#0;n#!!block;n#ImageProcessorUtils#0" expanded="false" />
+            <element signature="n#!!block;n#getMessage#0;n#!!block;n#ImageProcessorUtils#0" expanded="false" />
+            <element signature="n#!!block;n#setMesasge#0;n#!!block;n#ImageProcessorUtils#0" expanded="false" />
+            <element signature="e#3261#3373#2" expanded="false" />
+            <element signature="n#!!block;n#readMessage#0;n#!!block;n#ImageProcessorUtils#0" expanded="false" />
+            <element signature="n#!!block;n#directConvert#0;n#!!block;n#ImageProcessorUtils#0" expanded="false" />
+            <element signature="n#!!block;n#reverceConvert#0;n#!!block;n#ImageProcessorUtils#0" expanded="false" />
           </folding>
         </state>
       </provider>
