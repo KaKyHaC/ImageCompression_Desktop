@@ -23,7 +23,7 @@ public class MyBufferedImage {
         bitmap = _b;
         matrix = new Matrix(bitmap.getWidth(), bitmap.getHeight(), flag,State.bitmap);
     }
-    public MyBufferedImage(Matrix matrix) throws Exception {
+    public MyBufferedImage(Matrix matrix){
         this.matrix = matrix;
         bitmap = new BufferedImage(matrix.getWidth(), matrix.getHeight(),BufferedImage.TYPE_3BYTE_BGR);
     }
@@ -52,9 +52,7 @@ public class MyBufferedImage {
             for (Future future : futures) {
                 try {
                     future.get();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
+                } catch (InterruptedException | ExecutionException e) {
                     e.printStackTrace();
                 }
             }
@@ -264,8 +262,10 @@ public class MyBufferedImage {
             short[][] enlCr=new short[cWidth][cHeight];
             for (int i = 0; i < cWidth; i++) {
                 for (int j = 0; j < cHeight; j++) {
-                    enlCb[i][j] = (short)( (matrix.getB()[i * 2][j * 2] + matrix.getB()[i * 2 + 1][j * 2] + matrix.getB()[i * 2][j * 2 + 1] + matrix.getB()[i * 2 + 1][j * 2 + 1])/4);
-                    enlCr[i][j] = (short)( (matrix.getC()[i * 2][j * 2] + matrix.getC()[i * 2 + 1][j * 2] + matrix.getC()[i * 2][j * 2 + 1] + matrix.getC()[i * 2 + 1][j * 2 + 1])/4);
+                    enlCb[i][j] = (short)( (matrix.getB()[i * 2][j * 2] + matrix.getB()[i * 2 + 1][j * 2]
+                            + matrix.getB()[i * 2][j * 2 + 1] + matrix.getB()[i * 2 + 1][j * 2 + 1])/4);
+                    enlCr[i][j] = (short)( (matrix.getC()[i * 2][j * 2] + matrix.getC()[i * 2 + 1][j * 2]
+                            + matrix.getC()[i * 2][j * 2 + 1] + matrix.getC()[i * 2 + 1][j * 2 + 1])/4);
                 }
             }
             matrix.setB(enlCb);

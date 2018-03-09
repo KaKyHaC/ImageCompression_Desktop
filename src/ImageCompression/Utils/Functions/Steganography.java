@@ -16,10 +16,8 @@ public class Steganography {
     private final static byte MAXBINARYPOS = (byte) Math.pow(2, 7);
     static Parameters param = Parameters.getInstanse();
 
+    private Steganography() {    }
 
-    private Steganography() {
-
-    }
     public static void ReadMassageFromMatrixtoFile(Matrix matrix, String file) {
         Byte[] res = ReadMassageFromMatrix(matrix);
         byte[] buf = new byte[res.length];
@@ -135,7 +133,6 @@ public class Steganography {
         int posInByte = 0;
         int len = massage.length;
         for (int i = 0; i < arr.length; i++) {
-
             for (int j = 0; j < arr[0].length; j++) {
                 if (index < len) {
                     if (!(i % 8 == 0 && j % 8 == 0)) {
@@ -149,8 +146,8 @@ public class Steganography {
                             posInByte = 0;
                         }
                     }
-                } else return arr;
-
+                } else
+                    return arr;
             }
         }
         return arr;
