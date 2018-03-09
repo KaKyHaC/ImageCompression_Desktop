@@ -28,6 +28,8 @@ class Container<T>(override var width: Int, override var height: Int) :IContaine
     override fun set(i: Int, j: Int, value: T) {
         if(i<width&&j<height) container[i][j]=value
     }
+
+
     fun inRange(other:IContainer<T>,range:Int):Boolean{
         if(width!=other.width||height!=other.height)return false
 
