@@ -1,5 +1,7 @@
 package ImageCompression.Steganography
 
+import ImageCompression.Steganography.Containers.Container
+import ImageCompression.Steganography.Containers.IContainer
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -36,21 +38,21 @@ class UnitContainerFactoryTest {
         mainTest(1920,1080,9,9,0)
     }
     fun mainTest(w:Int,h:Int,unit_W:Int,unit_H:Int,range: Int){
-        val data=Array(w){Array(h){(it+1).toShort()}}
+        val data=Container<Short>(w,h){i,j->(i+j).toShort()}
         val uc=UnitContainerFactory.getContainers(data,unit_W,unit_H)
         val res=UnitContainerFactory.getData(uc,w,h)
         assertTrue(data.inRange(res,range))
     }
-    fun Array<Array<Short>>.inRange(other:Array<Array<Short>>,range: Int):Boolean{
-        for((i,e) in this.withIndex()){
-            for((j) in e.withIndex()){
-                var isInRange=false
-                for(r in -range..range) {
-                    if((this[i][j].toInt() + r).toShort() ==other[i][j])isInRange=true
-                }
-                if(!isInRange)throw Exception("data[$i][$j]${this[i][j]}!=${other[i][j]}")
-            }
-        }
-        return true
-    }
+//    fun IContainer<Short>.inRange(other:IContainer<Short>,range: Int):Boolean{
+//        for((i,e) in this.withIndex()){
+//            for((j) in e.withIndex()){
+//                var isInRange=false
+//                for(r in -range..range) {
+//                    if((this[i][j].toInt() + r).toShort() ==other[i][j])isInRange=true
+//                }
+//                if(!isInRange)throw Exception("data[$i][$j]${this[i][j]}!=${other[i][j]}")
+//            }
+//        }
+//        return true
+//    }
 }

@@ -7,39 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Steganography/Containers/ContainerTest.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Steganography/StegoConvertorTest.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Steganography/UnitContainerFactoryTest.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Steganography/Containers/Container.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Steganography/Containers/IContainer.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Steganography/Containers/OpcContainer.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Steganography/Containers/UnitContainer.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Steganography/ImageProcessor.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Steganography/StegoConvertor$Companion.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Steganography/StegoConvertor$direct$1.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Steganography/StegoConvertor$reverce$1.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Steganography/StegoConvertor.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Steganography/UnitContainerFactory$Companion.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Steganography/UnitContainerFactory.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Steganography/Containers/ContainerTest.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Steganography/StegoConvertorTest$mainTest$1.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Steganography/StegoConvertorTest$testZero$1.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Steganography/StegoConvertorTest$testZero$2.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Steganography/StegoConvertorTest.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Steganography/UnitContainerFactoryTest.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/Container.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/IContainer.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/OpcContainer.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/UnitContainer.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/ImageCompression/Steganography/ImageProcessor.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/ImageCompression/Steganography/StegoConvertor.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/ImageCompression/Steganography/UnitContainerFactory.kt" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ImageCompressionKotlin_jar/ImageCompressionKotlin.jar" afterPath="$PROJECT_DIR$/out/artifacts/ImageCompressionKotlin_jar/ImageCompressionKotlin.jar" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Objects/MyBufferedImage.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Objects/MyBufferedImage.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Functions/Steganography.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Functions/Steganography.class" />
-      <change beforePath="$PROJECT_DIR$/src/ImageCompression/Objects/MyBufferedImage.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Objects/MyBufferedImage.java" />
-      <change beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/Steganography.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/Steganography.java" />
+      <change beforePath="$PROJECT_DIR$/Tests/ImageCompression/Steganography/UnitContainerFactoryTest.kt" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Steganography/UnitContainerFactoryTest.kt" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Steganography/Containers/Container.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Steganography/Containers/Container.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Steganography/UnitContainerFactory$Companion.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Steganography/UnitContainerFactory$Companion.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Steganography/UnitContainerFactory.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Steganography/UnitContainerFactory.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Steganography/UnitContainerFactoryTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Steganography/UnitContainerFactoryTest.class" />
+      <change beforePath="$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/Container.kt" afterPath="$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/Container.kt" />
+      <change beforePath="$PROJECT_DIR$/src/ImageCompression/Steganography/UnitContainerFactory.kt" afterPath="$PROJECT_DIR$/src/ImageCompression/Steganography/UnitContainerFactory.kt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,35 +26,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="UnitContainer.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/UnitContainer.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="8" column="28" lean-forward="false" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
-              <folding>
-                <element signature="n#!!block;n#equals#0;n#!!block;n#UnitContainer#0" expanded="false" />
-                <element signature="n#!!block;n#hashCode#0;n#!!block;n#UnitContainer#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StegoConvertor.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/StegoConvertor.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UnitContainerFactory.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UnitContainerFactory.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/UnitContainerFactory.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-              <folding />
+            <state relative-caret-position="441">
+              <caret line="43" column="1" lean-forward="true" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
+              <folding>
+                <element signature="e#40#221#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -87,9 +41,31 @@
       <file leaf-file-name="UnitContainerFactoryTest.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Steganography/UnitContainerFactoryTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+            <state relative-caret-position="325">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyBufferedImageTest.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Assert.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/Assert.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="183">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding>
+                <element signature="e#645#646#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,8 +83,8 @@
       <file leaf-file-name="Container.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/Container.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="13" column="9" lean-forward="true" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+            <state relative-caret-position="125">
+              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -142,6 +118,16 @@
               <folding>
                 <element signature="e#51#97#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StegoConvertorTest.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Steganography/StegoConvertorTest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -247,8 +233,6 @@
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/SteganographyAli.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/SteganographyAli.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/StegoConvertor.kt" />
-        <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/UnitContainerFactory.kt" />
-        <option value="$PROJECT_DIR$/Tests/ImageCompression/Steganography/UnitContainerFactoryTest.kt" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Steganography/StegoConvertorTest.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/ImageProcessor.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/IContainerBox.kt" />
@@ -260,8 +244,10 @@
         <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/BoxOfOpcContainer.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/BoxOfUnitContainer.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/IContainer.kt" />
-        <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/Container.kt" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Steganography/Containers/ContainerTest.kt" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/UnitContainerFactory.kt" />
+        <option value="$PROJECT_DIR$/Tests/ImageCompression/Steganography/UnitContainerFactoryTest.kt" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/Container.kt" />
       </list>
     </option>
   </component>
@@ -352,6 +338,13 @@
               <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
               <item name="Tests" type="462c0819:PsiDirectoryNode" />
               <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
+              <item name="Steganography" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="Tests" type="462c0819:PsiDirectoryNode" />
+              <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
               <item name="Utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -425,7 +418,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ContainerTest.get">
+  <component name="RunManager" selected="JUnit.All in ImageCompressionKotlin">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module />
       <option name="HTML_USED" value="false" />
@@ -655,9 +648,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.ContainerTest.get" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.All in ImageCompressionKotlin" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.UnitContainerFactoryTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.All in ImageCompressionKotlin" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.UnitContainerFactoryTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ContainerTest.get" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.UnitContainerFactoryTest.testBigSize" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.UnitContainerFactoryTest.testOutOfRange" />
       </list>
@@ -698,6 +691,9 @@
     <history-entry file="All_in_ImageCompressionKotlin - 2018.03.09 at 13h 11m 20s.xml">
       <configuration name="All in ImageCompressionKotlin" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_ImageCompressionKotlin - 2018.03.09 at 14h 41m 31s.xml">
+      <configuration name="All in ImageCompressionKotlin" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="ContainerTest_get - 2018.03.09 at 14h 03m 26s.xml">
       <configuration name="ContainerTest.get" configurationId="JUnit" />
     </history-entry>
@@ -710,14 +706,11 @@
     <history-entry file="UnitContainerFactoryTest - 2018.03.09 at 12h 50m 11s.xml">
       <configuration name="UnitContainerFactoryTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UnitContainerFactoryTest_testBigSize - 2018.03.09 at 12h 46m 18s.xml">
-      <configuration name="UnitContainerFactoryTest.testBigSize" configurationId="JUnit" />
+    <history-entry file="UnitContainerFactoryTest - 2018.03.09 at 14h 33m 44s.xml">
+      <configuration name="UnitContainerFactoryTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UnitContainerFactoryTest_testBigSize - 2018.03.09 at 12h 46m 54s.xml">
-      <configuration name="UnitContainerFactoryTest.testBigSize" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UnitContainerFactoryTest_testBigSize - 2018.03.09 at 12h 47m 03s.xml">
-      <configuration name="UnitContainerFactoryTest.testBigSize" configurationId="JUnit" />
+    <history-entry file="UnitContainerFactoryTest - 2018.03.09 at 14h 34m 06s.xml">
+      <configuration name="UnitContainerFactoryTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="UnitContainerFactoryTest_testBigSize - 2018.03.09 at 12h 49m 47s.xml">
       <configuration name="UnitContainerFactoryTest.testBigSize" configurationId="JUnit" />
@@ -903,25 +896,25 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Tests/ImageCompression/Steganography/UnitContainerFactoryTest.kt</url>
-          <line>41</line>
+          <line>43</line>
           <properties />
           <option name="timeStamp" value="230" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/ImageCompression/Steganography/UnitContainerFactory.kt</url>
-          <line>19</line>
+          <line>21</line>
           <properties />
           <option name="timeStamp" value="232" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Tests/ImageCompression/Steganography/UnitContainerFactoryTest.kt</url>
-          <line>33</line>
+          <line>35</line>
           <properties />
           <option name="timeStamp" value="233" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Tests/ImageCompression/Steganography/UnitContainerFactoryTest.kt</url>
-          <line>39</line>
+          <line>41</line>
           <properties />
           <option name="timeStamp" value="234" />
         </line-breakpoint>
@@ -996,13 +989,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="191" column="0" lean-forward="false" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1231,14 +1217,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/Assert.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/runners/BlockJUnit4ClassRunner.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -1259,14 +1237,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Steganography/StegoConvertorTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1306,16 +1276,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/OpcContainer.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-          <folding>
-            <element signature="e#51#97#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/ImageProcessor.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1324,26 +1284,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Steganography/UnitContainerFactoryTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/IContainer.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/Container.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="13" column="9" lean-forward="true" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -1358,8 +1302,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/UnitContainerFactory.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" column="17" lean-forward="true" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        <state relative-caret-position="441">
+          <caret line="43" column="1" lean-forward="true" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
+          <folding>
+            <element signature="e#40#221#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/OpcContainer.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+          <folding>
+            <element signature="e#51#97#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/Containers/Container.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Steganography/UnitContainerFactoryTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/Assert.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="e#645#646#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Objects/MyBufferedImageTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Steganography/StegoConvertorTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
