@@ -1,6 +1,7 @@
 package ImageCompression.Steganography
 
 import ImageCompression.Steganography.Containers.UnitContainer
+import ImageCompression.Steganography.Utils.StegoConvertor
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -43,7 +44,7 @@ class StegoConvertorTest {
     fun testWithoutMultiTWO() {
         val arr=Array<Array<Short>>(8){ShortArray(8){(it+1).toShort()}.toTypedArray()}
         val data= UnitContainer<Short>(arr, true)
-        val convertor=StegoConvertor.instance
+        val convertor= StegoConvertor.instance
         val comp=convertor.direct(data)
         val res=convertor.reverce(comp,8,8,false)
 
@@ -52,7 +53,7 @@ class StegoConvertorTest {
     fun mainTest(width:Int,height:Int,range: Int,message:Boolean=true,init:(i:Int)->Short={(it+1).toShort()}){
         val arr=Array<Array<Short>>(width){ShortArray(height){init(it)}.toTypedArray()}
         val data= UnitContainer<Short>(arr, message)
-        val convertor=StegoConvertor.instance
+        val convertor= StegoConvertor.instance
         val comp=convertor.direct(data)
         val res=convertor.reverce(comp,width, height)
 

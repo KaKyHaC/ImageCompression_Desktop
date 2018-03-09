@@ -1,7 +1,7 @@
 package ImageCompression.Steganography
 
 import ImageCompression.Steganography.Containers.Container
-import ImageCompression.Steganography.Containers.IContainer
+import ImageCompression.Steganography.Utils.UnitContainerFactory
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -39,8 +39,8 @@ class UnitContainerFactoryTest {
     }
     fun mainTest(w:Int,h:Int,unit_W:Int,unit_H:Int,range: Int){
         val data=Container<Short>(w,h){i,j->(i+j).toShort()}
-        val uc=UnitContainerFactory.getContainers(data,unit_W,unit_H)
-        val res=UnitContainerFactory.getData(uc,w,h)
+        val uc= UnitContainerFactory.getContainers(data,unit_W,unit_H)
+        val res= UnitContainerFactory.getData(uc,w,h)
         assertTrue(data.inRange(res,range))
     }
 //    fun IContainer<Short>.inRange(other:IContainer<Short>,range: Int):Boolean{
