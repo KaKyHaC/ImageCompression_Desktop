@@ -1,4 +1,4 @@
-package ImageCompression.Steganography
+package ImageCompression.Steganography.Utils
 
 import ImageCompression.Steganography.Containers.Container
 import ImageCompression.Steganography.Containers.IContainer

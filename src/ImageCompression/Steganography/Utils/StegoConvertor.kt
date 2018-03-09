@@ -1,4 +1,4 @@
-package ImageCompression.Steganography
+package ImageCompression.Steganography.Utils
 
 import ImageCompression.Steganography.Containers.OpcContainer
 import ImageCompression.Steganography.Containers.UnitContainer
@@ -6,7 +6,7 @@ import java.math.BigInteger
 
 class StegoConvertor private constructor(){
     companion object {
-        @JvmField val instance=StegoConvertor()
+        @JvmField val instance= StegoConvertor()
     }
 
     fun direct(data: UnitContainer<Short>): OpcContainer<Short> {

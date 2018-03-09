@@ -3,6 +3,7 @@ package ImageCompression.Steganography.Utils
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
+import java.awt.Color
 import java.awt.image.BufferedImage
 import java.util.*
 
@@ -10,8 +11,55 @@ class ImageProcessorUtilsTest{
     val ipu=ImageProcessorUtils()
     val rand=Random()
 
-    fun testStego(){
-        
+
+    @Test
+    fun testDirectReverce1(){
+        testStego(200,200,8,8,true,1)
+//        testStego(200,200,8,8,false,1)
+        testStego(327,402,8,8,true,1)
+        testStego(327,402,2,15,true,1)
+    }
+    @Test
+    fun testDirectReverceNotMulti(){
+        println("not work")
+        testStego(200,200,8,8,false,2)
+    }
+    @Test
+    fun testEqual(){
+        println("not work")
+        testStego(200,200,8,8,true,0)
+    }
+    fun testStego(w: Int,h: Int,unit_W:Int,unit_H:Int,isMultiTWO:Boolean,range: Int){
+        val im=BufferedImage(w,h,BufferedImage.TYPE_3BYTE_BGR)
+        for(i in 0 ..w-1)
+            for(j in 0..h-1){
+                im.setRGB(i,j,i+j)
+            }
+
+
+        val units=ipu.imageToUnits(im,unit_W,unit_H)
+        val opcs=ipu.directStego(units)
+        val resUnits=ipu.reverceStego(opcs,unit_W,unit_H,isMultiTWO)
+        val im1=ipu.unitsToImage(resUnits,w,h)
+
+
+        for(i in 0 ..w-1)
+            for(j in 0..h-1){
+                var inRangeR=false
+                var inRangeB=false
+                var inRangeG=false
+                val rgb=im.getRGB(i,j)
+                val r=Color(rgb).red
+                val g=Color(rgb).green
+                val b=Color(rgb).blue
+                for(v in -range..range){
+                    if(r+v==Color(im1.getRGB(i,j)).red)inRangeR=true
+                    if(g+v==Color(im1.getRGB(i,j)).green)inRangeG=true
+                    if(b+v==Color(im1.getRGB(i,j)).blue)inRangeB=true
+                }
+                if(!inRangeR||!inRangeB||!inRangeG)throw Exception("not in range[$i,$j] = $rgb")
+            }
+
     }
 
     @Test
