@@ -20,4 +20,11 @@ class MessageParserTest {
         val res=mp.parseMessage(m)
         assertArrayEquals(b,res)
     }
+    @Test
+    fun testString(){
+        val s=Random().nextLong().toString()
+        val m=mp.fromString(s)
+        val res=mp.toString(m)
+        assertEquals(s,res)
+    }
 }

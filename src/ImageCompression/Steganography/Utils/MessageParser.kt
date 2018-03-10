@@ -32,4 +32,12 @@ class MessageParser {
         }
         return res
     }
+    fun fromString(message:String):BooleanArray{
+        val bytes=message.toByteArray()
+        return parseMessage(bytes)
+    }
+    fun toString(mesage:BooleanArray):String{
+        val bytes=parseMessage(mesage)
+        return String(bytes)
+    }
 }

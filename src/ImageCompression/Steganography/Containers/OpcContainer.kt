@@ -3,7 +3,7 @@ package ImageCompression.Steganography.Containers
 import java.math.BigInteger
 import java.util.*
 
-data class OpcContainer<T> (val code:BigInteger,val base:Array<T>){
+data class OpcContainer<T> (var code:BigInteger,var base:Array<T>){
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
