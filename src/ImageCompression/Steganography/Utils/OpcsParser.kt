@@ -60,6 +60,7 @@ class OpcsParser{
 
     }
     private fun OpcContainer<Short>.readFromBV(byteVector: ByteVector,info: Info){
+        base= Array(info.unit_H){(0).toShort()}
         for(i in 0 until info.unit_H){
             base[i]=byteVector.getNextShort()
         }

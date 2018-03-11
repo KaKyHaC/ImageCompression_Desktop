@@ -28,8 +28,9 @@ public class StegonagraphyUI extends JFrame {
     private JLabel resMessage;
     //
     private Parameters parameters = Parameters.getInstanse();
+    private MessageParser messageParser=new MessageParser();
     private File file,resFile;
-    private int w,h;
+    private Boolean isDirect=true;
 
     StegonagraphyUI() {
         this.show();
@@ -74,31 +75,27 @@ public class StegonagraphyUI extends JFrame {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ImageProcessorUtils.Triple<IContainer<OpcContainer<Short>>> opcs=directStego(file);
-        reverceStego(opcs,w,h,tarFile);
+
+//        ImageProcessorUtils.Triple<IContainer<OpcContainer<Short>>> opcs=directStego(file);
+//        reverceStego(opcs,w,h,tarFile);
     }
-    private void reverceStego(ImageProcessorUtils.Triple<IContainer<OpcContainer<Short>>> units,int width,int height,File target){
+    private void reverceStego(File from,File to){
         StegoModule sm=new StegoModule();
         int uW=(int)spinner1.getValue();
         int uH=(int)spinner2.getValue();
         boolean isMulti=rMultiTWO.isSelected();
-        boolean[] res;
-        res= sm.reverse(units,width,height,uW,uH,isMulti,target.getAbsolutePath());
-        byte[] byteMess=new MessageParser().parseMessage(res);
-        String sMessage=byteMess.toString();
+        boolean[] res= sm.reverse(from,to,uW,uH,isMulti);
+        String sMessage=messageParser.toString(res);
         resMessage.setText(sMessage);
-        setLableImage(target,targetImage);
+        setLableImage(to,targetImage);
     }
-    private ImageProcessorUtils.Triple<IContainer<OpcContainer<Short>>> directStego(File file){
+    private void directStego(File from,File to){
         StegoModule sm=new StegoModule();
         int uW=(int)spinner1.getValue();
         int uH=(int)spinner2.getValue();
         String message=textField1.getText();
-        byte[] bM=message.getBytes();
-        boolean[] boolMess=new MessageParser().parseMessage(bM);
-        ImageProcessorUtils.Triple<IContainer<OpcContainer<Short>>> res;
-        res= sm.direct(file.getAbsolutePath(), uW, uH, boolMess);
-        return res;
+        boolean[] bM=messageParser.fromString(message);
+        sm.direct(from,to,uW,uH,bM);
     }
     private void onFileSelected(File file){
         String name=file.getName();
@@ -106,7 +103,11 @@ public class StegonagraphyUI extends JFrame {
 
         if(name.contains(".bmp")||name.contains(".BMP")||name.contains(".jpg")) {
             setLableImage(file,originalImage);
-//            bExe.setText("Convert to BAR");
+            isDirect=true;
+            bStart.setText("Convert to BAR");
+        }else{
+            isDirect=false;
+            bStart.setText("Convert from BAR");
         }
 //        }else if(name.contains(myType)){
 ////            bExe.setText("Convert to BMP");
@@ -116,8 +117,6 @@ public class StegonagraphyUI extends JFrame {
         try {
             BufferedImage myPicture = ImageIO.read(imagef);
             ImageIcon imageIcon=new ImageIcon(myPicture);
-            w=myPicture.getWidth();
-            h=myPicture.getHeight();
             lInfo.setText(lInfo.getText()+"\n "+imageIcon.getIconWidth()+"x"+imageIcon.getIconHeight());
             Dimension size=originalImage.getSize();
             Image image1=imageIcon.getImage().getScaledInstance(size.width,size.height,Image.SCALE_DEFAULT);
