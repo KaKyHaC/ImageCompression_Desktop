@@ -8,7 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Steganography/StegonagraphyUI.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Steganography/StegonagraphyUI.class" />
       <change beforePath="$PROJECT_DIR$/src/ImageCompression/Steganography/StegonagraphyUI.form" afterPath="$PROJECT_DIR$/src/ImageCompression/Steganography/StegonagraphyUI.form" />
       <change beforePath="$PROJECT_DIR$/src/ImageCompression/Steganography/StegonagraphyUI.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Steganography/StegonagraphyUI.java" />
     </list>
@@ -49,7 +48,7 @@
       <file leaf-file-name="StegoModule.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/StegoModule.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
+            <state relative-caret-position="650">
               <caret line="35" column="22" lean-forward="true" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
               <folding>
                 <element signature="e#40#510#0" expanded="true" />
@@ -58,19 +57,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StegonagraphyUI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StegonagraphyUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/StegonagraphyUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="29" />
+            <state relative-caret-position="400">
+              <caret line="219" column="38" lean-forward="true" selection-start-line="219" selection-start-column="38" selection-end-line="219" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#StegonagraphyUI#0;class#StegonagraphyUI#0" expanded="false" />
+                <element signature="method#init#0;class#StegonagraphyUI#0" expanded="false" />
+                <element signature="method#setListeners#0;class#StegonagraphyUI#0" expanded="false" />
+                <element signature="method#showPanel#0;class#StegonagraphyUI#0" expanded="false" />
+                <element signature="method#selectResFile#0;class#StegonagraphyUI#0" expanded="false" />
+                <element signature="method#onResFileSelected#0;class#StegonagraphyUI#0" expanded="false" />
+                <element signature="method#onFileSelected#0;class#StegonagraphyUI#0" expanded="false" />
+                <element signature="method#reverceStego#0;class#StegonagraphyUI#0" expanded="false" />
+                <element signature="method#directStego#0;class#StegonagraphyUI#0" expanded="false" />
+                <element signature="method#getMessage#0;class#StegonagraphyUI#0" expanded="false" />
+                <element signature="method#setMessage#0;class#StegonagraphyUI#0" expanded="false" />
+                <element signature="method#setLableImage#0;class#StegonagraphyUI#0" expanded="false" />
+                <element signature="method#setLableImage#1;class#StegonagraphyUI#0" expanded="false" />
+                <element signature="method#main#0;class#StegonagraphyUI#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StegonagraphyUI.form" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StegonagraphyUI.form" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/StegonagraphyUI.form">
           <provider selected="true" editor-type-id="ui-designer">
             <state />
@@ -259,8 +272,8 @@
         <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/Utils/OpcsParser.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/Utils/ByteVectorFile.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/StegoModule.kt" />
-        <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/StegonagraphyUI.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/StegonagraphyUI.form" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/StegonagraphyUI.java" />
       </list>
     </option>
   </component>
@@ -320,14 +333,6 @@
               <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
               <item name="Steganography" type="462c0819:PsiDirectoryNode" />
               <item name="Utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
-              <item name="Steganography" type="462c0819:PsiDirectoryNode" />
-              <item name="StegonagraphyUI" type="e9f4de52:FormNode" />
             </path>
             <path>
               <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
@@ -760,13 +765,13 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992035" sideWeight="0.45208332" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992035" sideWeight="0.43958333" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24914676" sideWeight="0.54791665" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24914676" sideWeight="0.56041664" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24914676" sideWeight="0.45208332" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24914676" sideWeight="0.43958333" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -921,25 +926,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ImageCompression/Steganography/StegonagraphyUI.java</url>
-          <line>78</line>
+          <line>79</line>
           <properties />
           <option name="timeStamp" value="241" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ImageCompression/Steganography/StegonagraphyUI.java</url>
-          <line>98</line>
-          <properties />
-          <option name="timeStamp" value="242" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ImageCompression/Steganography/StegonagraphyUI.java</url>
-          <line>101</line>
+          <line>110</line>
           <properties />
           <option name="timeStamp" value="250" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ImageCompression/Steganography/StegonagraphyUI.java</url>
-          <line>184</line>
+          <line>205</line>
           <properties />
           <option name="timeStamp" value="257" />
         </line-breakpoint>
@@ -1406,7 +1405,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/StegoModule.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
+        <state relative-caret-position="650">
           <caret line="35" column="22" lean-forward="true" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
           <folding>
             <element signature="e#40#510#0" expanded="true" />
@@ -1414,19 +1413,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/StegonagraphyUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/StegonagraphyUI.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/StegonagraphyUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="219" column="38" lean-forward="true" selection-start-line="219" selection-start-column="38" selection-end-line="219" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#StegonagraphyUI#0;class#StegonagraphyUI#0" expanded="false" />
+            <element signature="method#init#0;class#StegonagraphyUI#0" expanded="false" />
+            <element signature="method#setListeners#0;class#StegonagraphyUI#0" expanded="false" />
+            <element signature="method#showPanel#0;class#StegonagraphyUI#0" expanded="false" />
+            <element signature="method#selectResFile#0;class#StegonagraphyUI#0" expanded="false" />
+            <element signature="method#onResFileSelected#0;class#StegonagraphyUI#0" expanded="false" />
+            <element signature="method#onFileSelected#0;class#StegonagraphyUI#0" expanded="false" />
+            <element signature="method#reverceStego#0;class#StegonagraphyUI#0" expanded="false" />
+            <element signature="method#directStego#0;class#StegonagraphyUI#0" expanded="false" />
+            <element signature="method#getMessage#0;class#StegonagraphyUI#0" expanded="false" />
+            <element signature="method#setMessage#0;class#StegonagraphyUI#0" expanded="false" />
+            <element signature="method#setLableImage#0;class#StegonagraphyUI#0" expanded="false" />
+            <element signature="method#setLableImage#1;class#StegonagraphyUI#0" expanded="false" />
+            <element signature="method#main#0;class#StegonagraphyUI#0" expanded="false" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

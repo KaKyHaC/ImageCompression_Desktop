@@ -35,6 +35,7 @@ public class StegonagraphyUI extends JFrame {
     private JPanel panelImage2;
     private JPanel panelForDirect;
     private JTextPane lInfo;
+    private JButton bResFile;
     //
     private Parameters parameters = Parameters.getInstanse();
     private MessageParser messageParser=new MessageParser();
@@ -52,7 +53,7 @@ public class StegonagraphyUI extends JFrame {
         init();
         setListeners();
     }
-    void init(){
+    private void init(){
         spinner1.setValue(8);
         spinner2.setValue(8);
         textField1.setText("Message");
@@ -70,38 +71,47 @@ public class StegonagraphyUI extends JFrame {
         bStart.setEnabled(false);
     }
 
-    void setListeners(){
+    private void setListeners(){
         bSelect.addActionListener(e -> {
             JFileChooser jFileChooser=new JFileChooser();
             jFileChooser.setCurrentDirectory(new File(parameters.PathAppDir));
             int res=jFileChooser.showDialog(null,"Choose Image");
             if(res==JFileChooser.APPROVE_OPTION){
                 file=jFileChooser.getSelectedFile();
+                resFile=null;
                 bStart.setEnabled(true);
                 onFileSelected(file);
             }
         });
         bStart.addActionListener(e->{
-            JFileChooser jFileChooser=new JFileChooser();
-            jFileChooser.setCurrentDirectory(new File(parameters.PathAppDir));
-            int res=jFileChooser.showDialog(null,"Save");
-            if(res==JFileChooser.APPROVE_OPTION){
-                resFile=jFileChooser.getSelectedFile();
-                onResFileSelected(resFile);
-            }
+            if(resFile==null)
+                selectResFile();
+
+            onResFileSelected(resFile);
+        });
+        bResFile.addActionListener(e->{
+            selectResFile();
         });
         rbText.addActionListener(e->showPanel());
         rbFile.addActionListener(e->showPanel());
         rbNoMessage.addActionListener(e->showPanel());
     }
-
     private void showPanel(){
         panelMessageText.setVisible(rbText.isSelected());
         panelMessageFile.setVisible(rbFile.isSelected());
     }
+    private void selectResFile(){
+        JFileChooser jFileChooser=new JFileChooser();
+        jFileChooser.setCurrentDirectory(new File(parameters.PathAppDir));
+        int res=jFileChooser.showDialog(null,"Save to");
+        if(res==JFileChooser.APPROVE_OPTION){
+            resFile=jFileChooser.getSelectedFile();
+        }
+    }
     private void onResFileSelected(File tarFile){
         bStart.setEnabled(false);
         bSelect.setEnabled(false);
+        bResFile.setEnabled(false);
         progressBar1.setValue(0);
         new Thread(()-> {
             try {
@@ -117,35 +127,11 @@ public class StegonagraphyUI extends JFrame {
             }
             bStart.setEnabled(true);
             bSelect.setEnabled(true);
+            bResFile.setEnabled(true);
             progressBar1.setValue(100);
         }).start();
 //        ImageProcessorUtils.Triple<IContainer<OpcContainer<Short>>> opcs=directStego(file);
 //        reverceStego(opcs,w,h,tarFile);
-    }
-    private void reverceStego(File from,File to){
-        StegoModule sm=new StegoModule();
-        int uW=(int)spinner1.getValue();
-        int uH=(int)spinner2.getValue();
-        boolean isMulti=rMultiTWO.isSelected();
-//        BufferedImage image=sm.getImageFromStego(file,uW,uH,isMulti);
-//        setLableImage(image,targetImage);
-//        try {
-//            ImageIO.write(image,"BMP",to);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-        boolean[] res= sm.reverse(from,to,uW,uH,isMulti);
-        String sMessage=messageParser.toString(res);
-        resMessage.setText(sMessage);
-        setLableImage(to,targetImage);
-    }
-    private void directStego(File from,File to){
-        StegoModule sm=new StegoModule();
-        int uW=(int)spinner1.getValue();
-        int uH=(int)spinner2.getValue();
-        String message=textField1.getText();
-        boolean[] bM=messageParser.fromString(message);
-        sm.direct(from,to,uW,uH,bM);
     }
     private void onFileSelected(File file){
         String name=file.getName();
@@ -165,6 +151,41 @@ public class StegonagraphyUI extends JFrame {
 ////            bExe.setText("Convert to BMP");
 //        }
     }
+
+
+    private void reverceStego(File from,File to){
+        StegoModule sm=new StegoModule();
+        int uW=(int)spinner1.getValue();
+        int uH=(int)spinner2.getValue();
+        boolean isMulti=rMultiTWO.isSelected();
+        boolean[] res= sm.reverse(from,to,uW,uH,isMulti);
+        setMessage(res);
+        setLableImage(to,targetImage);
+    }
+    private void directStego(File from,File to){
+        StegoModule sm=new StegoModule();
+        int uW=(int)spinner1.getValue();
+        int uH=(int)spinner2.getValue();
+        boolean[] bM=getMessage();
+        sm.direct(from,to,uW,uH,bM);
+    }
+
+    private boolean[] getMessage(){
+        boolean[] bM=null;
+        if(rbText.isSelected()) {
+            String message = textField1.getText();
+            bM = messageParser.fromString(message);
+        }
+        return bM;
+    }
+    private void setMessage(boolean[] mesasge){
+        if(rbText.isSelected()) {
+            String sMessage = messageParser.toString(mesasge);
+            resMessage.setText(sMessage);
+        }
+    }
+
+
     private void setLableImage(BufferedImage image,JLabel label){
         if(imageSize==null)
             imageSize=label.getSize();
