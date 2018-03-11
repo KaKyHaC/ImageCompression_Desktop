@@ -42,6 +42,7 @@ public class StegonagraphyUI extends JFrame {
     private ButtonGroup buttonGroup=new ButtonGroup();
     private File file,resFile;
     private Boolean isDirect=true;
+    private Dimension imageSize=null;
 
     StegonagraphyUI() {
         this.show();
@@ -68,6 +69,7 @@ public class StegonagraphyUI extends JFrame {
         panelForReverse.setVisible(false);
         bStart.setEnabled(false);
     }
+
     void setListeners(){
         bSelect.addActionListener(e -> {
             JFileChooser jFileChooser=new JFileChooser();
@@ -163,17 +165,19 @@ public class StegonagraphyUI extends JFrame {
 //        }
     }
     private void setLableImage(BufferedImage image,JLabel label){
+        if(imageSize==null)
+            imageSize=label.getSize();
 //        Dimension panelSize=panelImage1.getSize();
 
         ImageIcon imageIcon=new ImageIcon(image);
         lInfo.setText(lInfo.getText()+"\n "+imageIcon.getIconWidth()+"x"+imageIcon.getIconHeight());
-        Dimension size=label.getSize();
-        label.setMaximumSize(size);
-        Image image1=imageIcon.getImage().getScaledInstance(size.width,size.height,Image.SCALE_SMOOTH);
+//        Dimension size=label.getSize();
+//        label.setMaximumSize(size);
+        Image image1=imageIcon.getImage().getScaledInstance(imageSize.width,imageSize.height,Image.SCALE_SMOOTH);
         label.setIcon(new ImageIcon(image1));
 
-        panelImage1.setSize(size);
-        panelImage2.setSize(size);
+        panelImage1.setSize(imageSize);
+        panelImage2.setSize(imageSize);
 //        panelImage1.
 //        panelImage2.setSize(panelSize);
 //        Dimension panelSize1=panelImage1.getSize();
