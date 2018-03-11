@@ -30,7 +30,21 @@ class StegoModule {
         val image=ipu.unitsToImage(units, info.width,info.height)
         val message=ipu.getMessage(units)
         to.createNewFile()
-        ImageIO.write(image,".bmp",to)
+        try{
+            ImageIO.write(image,"BMP",to)
+        }catch (e:Exception){e.printStackTrace()}
         return message
+    }
+    fun getImageFromStego(from: File,unit_W: Int,unit_H: Int,isMultiTWO:Boolean):BufferedImage{
+        val (vect,flag)=ByteVectorFile(from).read()
+        val (opcs,info) = opcsParser.fromByteVector(vect)
+        val units=ipu.reverceStego(opcs, unit_W, unit_H, isMultiTWO)
+        val image=ipu.unitsToImage(units, info.width,info.height)
+        return image
+    }
+    fun getMessageFromImage(from: File,unit_W: Int,unit_H: Int,isMultiTWO:Boolean):BooleanArray{
+        val image=ImageIO.read(from)
+        val units=ipu.imageToUnits(image,unit_W, unit_H)
+        return ipu.getMessage(units)
     }
 }
