@@ -1,8 +1,5 @@
 package ImageCompression.Steganography;
 
-import ImageCompression.Steganography.Containers.IContainer;
-import ImageCompression.Steganography.Containers.OpcContainer;
-import ImageCompression.Steganography.Utils.ImageProcessorUtils;
 import ImageCompression.Steganography.Utils.MessageParser;
 import ImageCompression.Utils.Objects.Parameters;
 
@@ -22,7 +19,7 @@ public class StegonagraphyUI extends JFrame {
     private JSpinner spinner1;
     private JSpinner spinner2;
     private JPanel mainForm;
-    private JLabel lInfo;
+    private JLabel lInfoLable;
     private JProgressBar progressBar1;
     private JButton bStart;
     private JLabel resMessage;
@@ -36,6 +33,8 @@ public class StegonagraphyUI extends JFrame {
     private JPanel panelForReverse;
     private JPanel panelImage1;
     private JPanel panelImage2;
+    private JPanel panelForDirect;
+    private JTextPane lInfo;
     //
     private Parameters parameters = Parameters.getInstanse();
     private MessageParser messageParser=new MessageParser();
@@ -67,6 +66,7 @@ public class StegonagraphyUI extends JFrame {
 
         showPanel();
         panelForReverse.setVisible(false);
+        panelForDirect.setVisible(false);
         bStart.setEnabled(false);
     }
 
@@ -160,6 +160,7 @@ public class StegonagraphyUI extends JFrame {
             bStart.setText("Convert to BMP");
         }
         panelForReverse.setVisible(!isDirect);
+        panelForDirect.setVisible(isDirect);
 //        }else if(name.contains(myType)){
 ////            bExe.setText("Convert to BMP");
 //        }
@@ -176,10 +177,10 @@ public class StegonagraphyUI extends JFrame {
         Image image1=imageIcon.getImage().getScaledInstance(imageSize.width,imageSize.height,Image.SCALE_SMOOTH);
         label.setIcon(new ImageIcon(image1));
 
-        panelImage1.setSize(imageSize);
-        panelImage2.setSize(imageSize);
-//        panelImage1.
-//        panelImage2.setSize(panelSize);
+        label.setSize(imageSize);
+//        panelImage2.setSize(imageSize);
+//        panelImage1.setSize(imageSize);
+
 //        Dimension panelSize1=panelImage1.getSize();
 //        Dimension panelSize2=panelImage2.getSize();
 
