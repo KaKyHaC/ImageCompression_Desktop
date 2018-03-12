@@ -73,12 +73,8 @@ public class StegonagraphyUI extends JFrame {
 
     private void setListeners(){
         bSelect.addActionListener(e -> {
-            JFileChooser jFileChooser=new JFileChooser();
-            jFileChooser.setCurrentDirectory(new File(parameters.PathAppDir));
-            if(file!=null)jFileChooser.setSelectedFile(file);
-            int res=jFileChooser.showDialog(null,"Choose File");
-            if(res==JFileChooser.APPROVE_OPTION){
-                file=jFileChooser.getSelectedFile();
+            file=openFileDialog(file,"Choose File");
+            if(file!=null){
                 fileRes=null;
                 fileMessage=null;
                 bStart.setEnabled(true);
@@ -92,15 +88,12 @@ public class StegonagraphyUI extends JFrame {
             onfileResSelected(fileRes);
         });
         bFileRes.addActionListener(e->{
-            selectFileRes();
+            fileRes=openFileDialog(fileRes,"Save To");
         });
         bMessageFile.addActionListener(e->{
-            JFileChooser jFileChooser=new JFileChooser();
-            jFileChooser.setCurrentDirectory(new File(parameters.PathAppDir));
-            if(fileMessage!=null)jFileChooser.setSelectedFile(fileMessage);
-            int res=jFileChooser.showDialog(null,"Choose File");
-            if(res==JFileChooser.APPROVE_OPTION){
-                fileMessage=jFileChooser.getSelectedFile();
+            fileMessage=openFileDialog(fileMessage,"Select Message");
+            if(fileMessage!=null){
+                lMessageFile.setText(fileMessage.toString());
             }
         });
         rbText.addActionListener(e->showPanel());
@@ -110,15 +103,6 @@ public class StegonagraphyUI extends JFrame {
     private void showPanel(){
         panelMessageText.setVisible(rbText.isSelected());
         panelMessageFile.setVisible(rbFile.isSelected());
-    }
-    private void selectFileRes(){
-        JFileChooser jFileChooser=new JFileChooser();
-        jFileChooser.setCurrentDirectory(new File(parameters.PathAppDir));
-        if(fileRes!=null)jFileChooser.setSelectedFile(fileRes);
-        int res=jFileChooser.showDialog(null,"Save to");
-        if(res==JFileChooser.APPROVE_OPTION){
-            fileRes=jFileChooser.getSelectedFile();
-        }
     }
     private File openFileDialog(File file,String approveText){
         JFileChooser jFileChooser=new JFileChooser();
@@ -197,6 +181,10 @@ public class StegonagraphyUI extends JFrame {
         if(rbText.isSelected()) {
             String message = textField1.getText();
             bM = messageParser.fromString(message);
+        }else if(rbFile.isSelected()){
+            if(fileMessage==null)
+                bMessageFile.doClick();
+            bM=messageParser.fromFile(fileMessage);
         }
         return bM;
     }
@@ -204,6 +192,10 @@ public class StegonagraphyUI extends JFrame {
         if(rbText.isSelected()) {
             String sMessage = messageParser.toString(mesasge);
             resMessage.setText(sMessage);
+        }else if(rbFile.isSelected()){
+            if(fileMessage==null)
+                bMessageFile.doClick();
+            messageParser.toFile(mesasge,fileMessage);
         }
     }
 

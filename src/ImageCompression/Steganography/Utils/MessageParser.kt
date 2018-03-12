@@ -1,7 +1,5 @@
 package ImageCompression.Steganography.Utils
 
-import org.omg.CORBA.DataOutputStream
-import scala.sys.process.ProcessBuilderImpl
 import java.io.*
 import kotlin.experimental.and
 import kotlin.experimental.or
