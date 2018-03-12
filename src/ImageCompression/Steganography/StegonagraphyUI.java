@@ -35,12 +35,12 @@ public class StegonagraphyUI extends JFrame {
     private JPanel panelImage2;
     private JPanel panelForDirect;
     private JTextPane lInfo;
-    private JButton bResFile;
+    private JButton bFileRes;
     //
     private Parameters parameters = Parameters.getInstanse();
     private MessageParser messageParser=new MessageParser();
     private ButtonGroup buttonGroup=new ButtonGroup();
-    private File file,resFile;
+    private File file,fileRes,fileMessage;
     private Boolean isDirect=true;
     private Dimension imageSize=null;
 
@@ -75,22 +75,33 @@ public class StegonagraphyUI extends JFrame {
         bSelect.addActionListener(e -> {
             JFileChooser jFileChooser=new JFileChooser();
             jFileChooser.setCurrentDirectory(new File(parameters.PathAppDir));
-            int res=jFileChooser.showDialog(null,"Choose Image");
+            if(file!=null)jFileChooser.setSelectedFile(file);
+            int res=jFileChooser.showDialog(null,"Choose File");
             if(res==JFileChooser.APPROVE_OPTION){
                 file=jFileChooser.getSelectedFile();
-                resFile=null;
+                fileRes=null;
+                fileMessage=null;
                 bStart.setEnabled(true);
                 onFileSelected(file);
             }
         });
         bStart.addActionListener(e->{
-            if(resFile==null)
-                selectResFile();
+            if(fileRes==null)
+                fileRes=openFileDialog(fileRes,"Save To");
 
-            onResFileSelected(resFile);
+            onfileResSelected(fileRes);
         });
-        bResFile.addActionListener(e->{
-            selectResFile();
+        bFileRes.addActionListener(e->{
+            selectFileRes();
+        });
+        bMessageFile.addActionListener(e->{
+            JFileChooser jFileChooser=new JFileChooser();
+            jFileChooser.setCurrentDirectory(new File(parameters.PathAppDir));
+            if(fileMessage!=null)jFileChooser.setSelectedFile(fileMessage);
+            int res=jFileChooser.showDialog(null,"Choose File");
+            if(res==JFileChooser.APPROVE_OPTION){
+                fileMessage=jFileChooser.getSelectedFile();
+            }
         });
         rbText.addActionListener(e->showPanel());
         rbFile.addActionListener(e->showPanel());
@@ -100,18 +111,29 @@ public class StegonagraphyUI extends JFrame {
         panelMessageText.setVisible(rbText.isSelected());
         panelMessageFile.setVisible(rbFile.isSelected());
     }
-    private void selectResFile(){
+    private void selectFileRes(){
         JFileChooser jFileChooser=new JFileChooser();
         jFileChooser.setCurrentDirectory(new File(parameters.PathAppDir));
+        if(fileRes!=null)jFileChooser.setSelectedFile(fileRes);
         int res=jFileChooser.showDialog(null,"Save to");
         if(res==JFileChooser.APPROVE_OPTION){
-            resFile=jFileChooser.getSelectedFile();
+            fileRes=jFileChooser.getSelectedFile();
         }
     }
-    private void onResFileSelected(File tarFile){
+    private File openFileDialog(File file,String approveText){
+        JFileChooser jFileChooser=new JFileChooser();
+        jFileChooser.setCurrentDirectory(new File(parameters.PathAppDir));
+        if(file!=null)jFileChooser.setSelectedFile(file);
+        int res=jFileChooser.showDialog(null,approveText);
+        if(res==JFileChooser.APPROVE_OPTION){
+            file=jFileChooser.getSelectedFile();
+        }
+        return file;
+    }
+    private void onfileResSelected(File tarFile){
         bStart.setEnabled(false);
         bSelect.setEnabled(false);
-        bResFile.setEnabled(false);
+        bFileRes.setEnabled(false);
         progressBar1.setValue(0);
         new Thread(()-> {
             try {
@@ -121,13 +143,13 @@ public class StegonagraphyUI extends JFrame {
             }
             progressBar1.setValue(10);
             if (isDirect) {
-                directStego(file, resFile);
+                directStego(file, fileRes);
             } else {
-                reverceStego(file, resFile);
+                reverceStego(file, fileRes);
             }
             bStart.setEnabled(true);
             bSelect.setEnabled(true);
-            bResFile.setEnabled(true);
+            bFileRes.setEnabled(true);
             progressBar1.setValue(100);
         }).start();
 //        ImageProcessorUtils.Triple<IContainer<OpcContainer<Short>>> opcs=directStego(file);

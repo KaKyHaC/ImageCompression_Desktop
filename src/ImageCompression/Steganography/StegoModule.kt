@@ -29,8 +29,8 @@ class StegoModule {
         val units=ipu.reverceStego(opcs, unit_W, unit_H, isMultiTWO)
         val image=ipu.unitsToImage(units, info.width,info.height)
         val message=ipu.getMessage(units)
-        to.createNewFile()
         try{
+            to.createNewFile()
             ImageIO.write(image,"BMP",to)
         }catch (e:Exception){e.printStackTrace()}
         return message

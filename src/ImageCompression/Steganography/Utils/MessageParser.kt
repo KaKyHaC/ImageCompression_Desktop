@@ -1,5 +1,8 @@
 package ImageCompression.Steganography.Utils
 
+import org.omg.CORBA.DataOutputStream
+import scala.sys.process.ProcessBuilderImpl
+import java.io.*
 import kotlin.experimental.and
 import kotlin.experimental.or
 
@@ -39,5 +42,22 @@ class MessageParser {
     fun toString(mesage:BooleanArray):String{
         val bytes=parseMessage(mesage)
         return String(bytes)
+    }
+    fun toFile(message:BooleanArray,file:File){
+        if(!file.exists())
+            file.createNewFile()
+
+        val os = java.io.DataOutputStream(FileOutputStream(file))
+        val bytes=parseMessage(message)
+        val len=bytes.size
+        os.write(bytes)
+        os.close()
+    }
+    fun fromFile(file: File):BooleanArray{
+        val inputStream=DataInputStream(FileInputStream(file))
+        val bytes=inputStream.readAllBytes()
+        inputStream.close()
+        val res=parseMessage(bytes)
+        return res
     }
 }
