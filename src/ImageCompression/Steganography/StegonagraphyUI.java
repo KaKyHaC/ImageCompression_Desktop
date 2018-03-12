@@ -73,8 +73,9 @@ public class StegonagraphyUI extends JFrame {
 
     private void setListeners(){
         bSelect.addActionListener(e -> {
-            file=openFileDialog(file,"Choose File");
-            if(file!=null){
+            File ans=openFileDialog(file,"Choose original file","Choose File");
+            if(ans!=null){
+                file=ans;
                 fileRes=null;
                 fileMessage=null;
                 bStart.setEnabled(true);
@@ -83,15 +84,15 @@ public class StegonagraphyUI extends JFrame {
         });
         bStart.addActionListener(e->{
             if(fileRes==null)
-                fileRes=openFileDialog(fileRes,"Save To");
+                fileRes=openFileDialog(fileRes,"Choose destination file","Save To");
 
             onfileResSelected(fileRes);
         });
         bFileRes.addActionListener(e->{
-            fileRes=openFileDialog(fileRes,"Save To");
+            fileRes=openFileDialog(fileRes,"Choose destination file","Save To");
         });
         bMessageFile.addActionListener(e->{
-            fileMessage=openFileDialog(fileMessage,"Select Message");
+            fileMessage=openFileDialog(fileMessage,"Choose message file","Select Message");
             if(fileMessage!=null){
                 lMessageFile.setText(fileMessage.toString());
             }
@@ -104,15 +105,17 @@ public class StegonagraphyUI extends JFrame {
         panelMessageText.setVisible(rbText.isSelected());
         panelMessageFile.setVisible(rbFile.isSelected());
     }
-    private File openFileDialog(File file,String approveText){
+    private File openFileDialog(File defFile,String title,String approveText){
         JFileChooser jFileChooser=new JFileChooser();
         jFileChooser.setCurrentDirectory(new File(parameters.PathAppDir));
-        if(file!=null)jFileChooser.setSelectedFile(file);
+        jFileChooser.setDialogTitle(title);
+        if(defFile!=null)jFileChooser.setSelectedFile(defFile);
         int res=jFileChooser.showDialog(null,approveText);
+        File result=null;
         if(res==JFileChooser.APPROVE_OPTION){
-            file=jFileChooser.getSelectedFile();
+            result=jFileChooser.getSelectedFile();
         }
-        return file;
+        return result;
     }
     private void onfileResSelected(File tarFile){
         bStart.setEnabled(false);
