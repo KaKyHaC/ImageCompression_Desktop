@@ -4,8 +4,13 @@ import ImageCompression.Steganography.Containers.Container
 import ImageCompression.Steganography.Containers.IContainer
 import ImageCompression.Steganography.Containers.OpcContainer
 import ImageCompression.Steganography.Containers.UnitContainer
+import ImageCompression.Utils.Objects.DataOPC
 import java.awt.Color
 import java.awt.image.BufferedImage
+import java.util.ArrayList
+import java.util.concurrent.ExecutionException
+import java.util.concurrent.Executors
+import java.util.concurrent.Future
 
 class ImageProcessorUtils {
     data class Triple<T>(var r:T?,var g:T?,var b:T?)
@@ -18,9 +23,22 @@ class ImageProcessorUtils {
 
         val units= Triple<IContainer<UnitContainer<Short>>>(null, null, null)
 
-        units.r= UnitContainerFactory.getContainers(r, unit_W, unit_H)
-        units.g= UnitContainerFactory.getContainers(g, unit_W, unit_H)
-        units.b= UnitContainerFactory.getContainers(b, unit_W, unit_H)
+        val executorService = Executors.newFixedThreadPool(3)
+        val futures = ArrayList<Future<IContainer<UnitContainer<Short>>>>()
+
+        futures.add(executorService.submit<IContainer<UnitContainer<Short>>> {  UnitContainerFactory.getContainers(r, unit_W, unit_H)})
+        futures.add(executorService.submit<IContainer<UnitContainer<Short>>> {  UnitContainerFactory.getContainers(g, unit_W, unit_H)})
+        futures.add(executorService.submit<IContainer<UnitContainer<Short>>> {  UnitContainerFactory.getContainers(b, unit_W, unit_H)})
+
+        try {
+            units.r= futures[0].get()
+            units.g = futures[1].get()
+            units.b = futures[2].get()
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+        } catch (e: ExecutionException) {
+            e.printStackTrace()
+        }
 
         return units
     }
@@ -28,12 +46,30 @@ class ImageProcessorUtils {
             BufferedImage {
         val image=BufferedImage(width,height,BufferedImage.TYPE_3BYTE_BGR)
 
-        val r=UnitContainerFactory.getData(units.r!!,width,height)
-        val g=UnitContainerFactory.getData(units.g!!,width,height)
-        val b=UnitContainerFactory.getData(units.b!!,width,height)
+        val executorService = Executors.newFixedThreadPool(3)
+        val futures = ArrayList<Future<IContainer<Short>>>()
+
+        futures.add(executorService.submit<IContainer<Short>> {  UnitContainerFactory.getData(units.r!!,width,height)})
+        futures.add(executorService.submit<IContainer<Short>> {  UnitContainerFactory.getData(units.g!!,width,height)})
+        futures.add(executorService.submit<IContainer<Short>> {  UnitContainerFactory.getData(units.b!!,width,height)})
+
+        var r:IContainer<Short>?=null
+        var g:IContainer<Short>?=null
+        var b:IContainer<Short>?=null
+
+        try {
+            r= futures[0].get()
+            g = futures[1].get()
+            b = futures[2].get()
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+        } catch (e: ExecutionException) {
+            e.printStackTrace()
+        }
+
         for (i in 0..width-1)
             for(j in 0..height-1){
-                val color=Color(r[i,j]!!.toInt(),g[i,j]!!.toInt(),b[i,j]!!.toInt())
+                val color=Color(r!![i,j]!!.toInt(),g!![i,j]!!.toInt(),b!![i,j]!!.toInt())
                 image.setRGB(i,j,color.rgb)
             }
         return image
@@ -43,9 +79,22 @@ class ImageProcessorUtils {
             Triple<IContainer<OpcContainer<Short>>> {
         val opcs= Triple<IContainer<OpcContainer<Short>>>(null, null, null)
 
-        opcs.r=directConvert(units.r!!)
-        opcs.g=directConvert(units.g!!)
-        opcs.b=directConvert(units.b!!)
+        val executorService = Executors.newFixedThreadPool(3)
+        val futures = ArrayList<Future<IContainer<OpcContainer<Short>>>>()
+
+        futures.add(executorService.submit<IContainer<OpcContainer<Short>>> {  directConvert(units.r!!)})
+        futures.add(executorService.submit<IContainer<OpcContainer<Short>>> {  directConvert(units.g!!)})
+        futures.add(executorService.submit<IContainer<OpcContainer<Short>>> {  directConvert(units.b!!)})
+
+        try {
+            opcs.r= futures[0].get()
+            opcs.g = futures[1].get()
+            opcs.b = futures[2].get()
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+        } catch (e: ExecutionException) {
+            e.printStackTrace()
+        }
 
         return opcs
     }
@@ -54,9 +103,23 @@ class ImageProcessorUtils {
             Triple<IContainer<UnitContainer<Short>>> {
         val units= Triple<IContainer<UnitContainer<Short>>>(null, null, null)
 
-        units.r=reverceConvert(opcs.r!!,unit_W, unit_H, isMultiTWO)
-        units.g=reverceConvert(opcs.g!!,unit_W, unit_H, isMultiTWO)
-        units.b=reverceConvert(opcs.b!!,unit_W, unit_H, isMultiTWO)
+        val executorService = Executors.newFixedThreadPool(3)
+        val futures = ArrayList<Future<IContainer<UnitContainer<Short>>>>()
+
+        futures.add(executorService.submit<IContainer<UnitContainer<Short>>> {  reverceConvert(opcs.r!!,unit_W, unit_H, isMultiTWO)})
+        futures.add(executorService.submit<IContainer<UnitContainer<Short>>> {  reverceConvert(opcs.g!!,unit_W, unit_H, isMultiTWO)})
+        futures.add(executorService.submit<IContainer<UnitContainer<Short>>> {  reverceConvert(opcs.b!!,unit_W, unit_H, isMultiTWO)})
+
+        try {
+            units.r= futures[0].get()
+            units.g = futures[1].get()
+            units.b = futures[2].get()
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+        } catch (e: ExecutionException) {
+            e.printStackTrace()
+        }
+
 
         return units
     }

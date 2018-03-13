@@ -9,6 +9,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Calendar;
 
 public class StegonagraphyUI extends JFrame {
     private JLabel originalImage;
@@ -64,6 +65,7 @@ public class StegonagraphyUI extends JFrame {
         buttonGroup.add(rbNoMessage);
         panelImage1.setMaximumSize(panelImage1.getSize());
         panelImage2.setMaximumSize(panelImage2.getSize());
+        progressBar1.setString("0");
 
         showPanel();
         panelForReverse.setVisible(false);
@@ -122,6 +124,7 @@ public class StegonagraphyUI extends JFrame {
         bSelect.setEnabled(false);
         bFileRes.setEnabled(false);
         progressBar1.setValue(0);
+        restartTimer();
         new Thread(()-> {
             try {
                 tarFile.createNewFile();
@@ -138,6 +141,7 @@ public class StegonagraphyUI extends JFrame {
             bSelect.setEnabled(true);
             bFileRes.setEnabled(true);
             progressBar1.setValue(100);
+            finishTimer();
         }).start();
 //        ImageProcessorUtils.Triple<IContainer<OpcContainer<Short>>> opcs=directStego(file);
 //        reverceStego(opcs,w,h,tarFile);
@@ -233,6 +237,29 @@ public class StegonagraphyUI extends JFrame {
         }
     }
 
+    boolean isTimer=false;
+    Long timeStart ;
+    private void restartTimer(){
+        isTimer=true;
+        timeStart=Calendar.getInstance().getTimeInMillis();
+        new Thread(()->{
+            while (isTimer){
+                Long timeNow = Calendar.getInstance().getTimeInMillis();
+                progressBar1.setString(String.valueOf(timeNow-timeStart)+" ms");
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+
+    }
+    private void finishTimer(){
+        isTimer=false;
+        Long timeNow = Calendar.getInstance().getTimeInMillis();
+        progressBar1.setString(String.valueOf(timeNow-timeStart)+" ms");
+    }
 
     public static void main(String[] arg){
         StegonagraphyUI form=new StegonagraphyUI();
