@@ -47,15 +47,27 @@ class MessageParser {
 
         val os = java.io.DataOutputStream(FileOutputStream(file))
         val bytes=parseMessage(message)
-        val len=bytes.size
-        os.write(bytes)
+        val trimByte=trimMessage(bytes)
+        os.write(trimByte)
         os.close()
     }
     fun fromFile(file: File):BooleanArray{
         val inputStream=DataInputStream(FileInputStream(file))
         val bytes=inputStream.readAllBytes()
         inputStream.close()
+
         val res=parseMessage(bytes)
+        return res
+    }
+    fun trimMessage(mesasge:ByteArray):ByteArray{
+        var index=mesasge.size-1;
+        for( i in mesasge.size-1 downTo 0){
+            if(mesasge[i]!=(0).toByte()) {
+                index = i
+                break
+            }
+        }
+        val res=ByteArray(index+1){mesasge[it]}
         return res
     }
 }
