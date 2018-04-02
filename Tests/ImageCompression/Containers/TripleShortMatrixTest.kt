@@ -1,7 +1,6 @@
 package ImageCompression.Containers
 
 import ImageCompression.Constants.State
-import ImageCompression.Utils.Objects.Flag
 import org.junit.Assert.*
 import org.junit.Test
 import java.util.*

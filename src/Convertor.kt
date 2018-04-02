@@ -1,5 +1,5 @@
 import ImageCompression.ProcessingModules.*
-import ImageCompression.Utils.Objects.Flag
+import ImageCompression.Containers.Flag
 import ImageCompression.Utils.Objects.TimeManager
 import java.awt.image.BufferedImage
 import java.io.File
@@ -11,7 +11,7 @@ class Convertor() {
     var password:String?=null
     var globalBaseW=1
     var globalBaseH=1
-    fun FromBmpToBar(pathToBmp: String, flag: Flag,computing: Computing=Computing.MultiThreads) {
+    fun FromBmpToBar(pathToBmp: String, flag: Flag, computing: Computing=Computing.MultiThreads) {
         val isAsync=(computing==Computing.MultiThreads)
             val timeManager=TimeManager.Instance
             timeManager.startNewTrack("FromBmpToBar ${isAsync}")

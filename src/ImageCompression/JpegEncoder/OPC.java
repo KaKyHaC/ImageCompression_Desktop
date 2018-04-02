@@ -17,7 +17,7 @@ package ImageCompression.JpegEncoder;
 import ImageCompression.Utils.Functions.OPCMultiThread;
 import ImageCompression.Containers.ByteVector;
 import ImageCompression.Utils.Objects.DataOPC;
-import ImageCompression.Utils.Objects.Flag;
+import ImageCompression.Containers.Flag;
 
 import java.io.BufferedOutputStream;
 import java.io.IOException;

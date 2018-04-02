@@ -3,7 +3,7 @@ import ImageCompression.Containers.TripleShortMatrix
 import ImageCompression.Constants.State
 import ImageCompression.ProcessingModules.*
 import ImageCompression.Utils.Functions.CompressionUtils
-import ImageCompression.Utils.Objects.Flag
+import ImageCompression.Containers.Flag
 import ImageCompression.Utils.Functions.Steganography
 import ImageCompression.Containers.ByteVector
 
@@ -49,7 +49,7 @@ class ConvertorTest {
     }
     @Test
     fun TestBoxOfDUM5(){
-        var matrix=getRandomMatrix(w,h,Flag("0"))
+        var matrix=getRandomMatrix(w,h, Flag("0"))
         matrix=MyBufferedImage(matrix).getYenlMatrix(true)
         val cpy=matrix.copy()
         val bo= ModuleDCT(matrix)
@@ -62,7 +62,7 @@ class ConvertorTest {
     }
     @Test
     fun TestTimeBoxofDum(){
-        var matrix=getRandomMatrix(w,h,Flag("0"))
+        var matrix=getRandomMatrix(w,h, Flag("0"))
         matrix=MyBufferedImage(matrix).getYenlMatrix(true)
         val bo= ModuleDCT(matrix)
 
@@ -82,7 +82,7 @@ class ConvertorTest {
     }
     @Test
     fun TestSteganography(){
-        var matrix=getRandomMatrix(w,h,Flag("0"))
+        var matrix=getRandomMatrix(w,h, Flag("0"))
         val m="afdsfsd"
         Steganography.WriteMassageFromByteArrayToMatrix(matrix,m.toByteArray())
         val res= String(Steganography.ReadMassageFromMatrix(matrix).toByteArray())
@@ -102,7 +102,7 @@ class ConvertorTest {
     @Test
     fun TestFullAlgorithmWithoutFile8(){
         val delta=8
-        var matrix=getRandomMatrix(w,h,Flag("0"))
+        var matrix=getRandomMatrix(w,h, Flag("0"))
         val t1=Date().time
         matrix.f.isLongCode=true
         matrix.f.isDC=true
@@ -153,7 +153,7 @@ class ConvertorTest {
 
     @Test
     fun TestHDImage1(){
-        val f=Flag("0")
+        val f= Flag("0")
         f.isOneFile=true
         f.isDC=true
         f.isLongCode=true
@@ -161,14 +161,14 @@ class ConvertorTest {
     }
     @Test
     fun TestHDImage2(){
-        val f=Flag("0")
+        val f= Flag("0")
         f.isOneFile=true
         f.isDC=true
         testDirectReverseConverting(1920,1080,f,8)
     }
     @Test
     fun TestHQImage1(){
-        val f=Flag("0")
+        val f= Flag("0")
         f.isOneFile=true
         f.isDC=true
         f.isLongCode=true
@@ -176,14 +176,14 @@ class ConvertorTest {
     }
     @Test
     fun TestHQImage2(){
-        val f=Flag("0")
+        val f= Flag("0")
         f.isOneFile=true
         f.isDC=true
         testDirectReverseConverting(360,280,f,7)
     }
     @Test
     fun TestHQImageEnlargement(){
-        val f=Flag("0")
+        val f= Flag("0")
         f.isOneFile=true
         f.isDC=true
         f.isEnlargement=true
@@ -191,7 +191,7 @@ class ConvertorTest {
     }
     @Test
     fun TestHQImageAlignment(){
-        val f=Flag("0")
+        val f= Flag("0")
         f.isOneFile=true
         f.isDC=true
         f.isAlignment=true
@@ -199,7 +199,7 @@ class ConvertorTest {
     }
 
     fun testModuleDCT(delta: Int){
-        var matrix=getRandomMatrix(w,h,Flag("0"))
+        var matrix=getRandomMatrix(w,h, Flag("0"))
         matrix.f.isLongCode=true
         matrix.f.isDC=true
         matrix.f.isOneFile=true
@@ -235,7 +235,7 @@ class ConvertorTest {
         val rgb=myIm2.rgbMatrix
         AssertMatrixInRange(rgb,cpy,delta)
     }
-    fun testDirectReverseConverting(w:Int,h:Int,flag: Flag,delta:Int,compareCompression:Boolean=false){
+    fun testDirectReverseConverting(w:Int, h:Int, flag: Flag, delta:Int, compareCompression:Boolean=false){
         var matrix=getRandomMatrix(w,h,flag)
         val t1=Date().time
         val cpy=matrix.copy()
@@ -293,7 +293,7 @@ class ConvertorTest {
         System.out.println("Test d/r Image=${w}x${h}. Time= ${t2-t1}. Flag=${f.flag}." +
                 " Bar File=${file.getMainFileLength()/1024}kb. Delta=${delta}")
     }
-    fun getRandomMatrix(w:Int,h:Int,flag:Flag): TripleShortMatrix {
+    fun getRandomMatrix(w:Int,h:Int,flag: Flag): TripleShortMatrix {
         val m = TripleShortMatrix(w,h,flag,State.RGB)
         val rand=Random()
         forEach(w,h,{x, y ->

@@ -3,25 +3,22 @@ package ImageCompression.Utils.Objects;
 
 import ImageCompression.Constants.State;
 import ImageCompression.Constants.TypeQuantization;
+import ImageCompression.Containers.Flag;
 import ImageCompression.Utils.Functions.DCTMultiThread;
 
 /**
+ * Class for transformation between DCT and YNL
  * Created by Димка on 08.08.2016.
  */
-
 public class DataUnitMatrix {
-
-
+    public enum State{DCT,ORIGIN}
     private State state ;
     private short[][] dataOrigin;
     private short[][] dataProcessed;
-    private long AC;
     private int Width, Height;
     private int duWidth, duHeight;
     private TypeQuantization tq;
     private Flag flag;
-
-
 
     public DataUnitMatrix(short[][] dataOrigin, int width, int height, State state, TypeQuantization tq,Flag flag) {
         this.dataOrigin = dataOrigin;
@@ -71,8 +68,8 @@ public class DataUnitMatrix {
         return buffer;
     }
     private short[][] MainCode(short[][] buf){
-        if(state==State.YBR) {
-            if(flag.isAlignment())
+        if(state==State.ORIGIN) {
+            if(flag.isChecked(Flag.Parameter.Alignment))
                 minus128(buf);
 
             buf = DCTMultiThread.directDCT(buf);
@@ -85,7 +82,7 @@ public class DataUnitMatrix {
 
             buf = DCTMultiThread.reverseDCT(buf);
 
-            if(flag.isAlignment())
+            if(flag.isChecked(Flag.Parameter.Alignment))
                 plus128(buf);
         }
 
@@ -103,6 +100,9 @@ public class DataUnitMatrix {
         }
     }
 
+    /**
+     * do transmormation between DCT and YNL states
+     */
     public void dataProcessing() {
         short[][] buf = new short[DCTMultiThread.SIZEOFBLOCK][DCTMultiThread.SIZEOFBLOCK];
         if(state==State.DCT)
@@ -116,11 +116,11 @@ public class DataUnitMatrix {
                 fillDateProcessed(i,j,buf);
             }
         }
-        if(state==State.YBR)
+        if(state==State.ORIGIN)
             preProsses();
 
 
-        if(state==State.YBR)
+        if(state==State.DCT)
             state=State.DCT;
         else if(state==State.DCT)
             state=State.YBR;

@@ -3,7 +3,7 @@ package ImageCompression.ProcessingModules
 import ImageCompression.Containers.TripleDataOpcMatrix
 import ImageCompression.Containers.ByteVector
 import ImageCompression.Utils.Objects.ByteVectorFile
-import ImageCompression.Utils.Objects.Flag
+import ImageCompression.Containers.Flag
 import ImageCompression.Utils.Objects.TimeManager
 import java.io.File
 
@@ -44,7 +44,7 @@ class ModuleFile{
         }
 
     }
-    fun read():Pair<TripleDataOpcMatrix,Flag>{
+    fun read():Pair<TripleDataOpcMatrix, Flag>{
         val fr=ByteVectorFile(pathToName+ typeMain)
         val p=fr.read()
         val flag=p.second

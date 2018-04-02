@@ -2,7 +2,7 @@ package ImageCompression.ProcessingModules
 
 import ImageCompression.Constants.State
 import ImageCompression.Containers.TripleShortMatrix
-import ImageCompression.Utils.Objects.Flag
+import ImageCompression.Containers.Flag
 import ImageCompression.Utils.Objects.TimeManager
 import org.junit.Test
 
@@ -89,7 +89,7 @@ class MyBufferedImageTest {
 
     }
     fun getGradientMatrix(w:Int,h:Int): TripleShortMatrix {
-        var m= TripleShortMatrix(w,h,Flag(0),State.RGB)
+        var m= TripleShortMatrix(w,h, Flag(0),State.RGB)
         forEach(w,h, { x, y ->
             run {
                 m.a[x][y] = ((x + y)%255).toShort()

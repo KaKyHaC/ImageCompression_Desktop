@@ -8,7 +8,7 @@ import ImageCompression.Containers.Size;
 import ImageCompression.Utils.Functions.OPCMultiThread;
 import ImageCompression.Utils.Objects.DataOPC;
 import ImageCompression.Utils.Functions.DCTMultiThread;
-import ImageCompression.Utils.Objects.Flag;
+import ImageCompression.Containers.Flag;
 //import com.sun.glass.ui.Size;
 
 import java.util.ArrayList;
@@ -39,8 +39,8 @@ public class ModuleOPC {
         this.flag= tripleShortMatrix.getF();
 
         Size size=sizeOpcCalculate(tripleShortMatrix.getWidth(), tripleShortMatrix.getHeight());
-        int widthOPC=size.width;
-        int heightOPC=size.height;
+        int widthOPC= size.getWidth();
+        int heightOPC= size.getHeight();
         int k=(tripleShortMatrix.getF().isEnlargement())?2:1;
         tripleDataOpcMatrix =new TripleDataOpcMatrix();
 //        tripleDataOpcMatrix.setA(new DataOpc[widthOPC][heightOPC]);
@@ -70,8 +70,8 @@ public class ModuleOPC {
     private DataOPC[][] directOPC(short[][]dataOrigin){
 
         Size size=sizeOpcCalculate(dataOrigin.length, dataOrigin[0].length);
-        int duWidth= size.width;
-        int duHeight= size.height;
+        int duWidth= size.getWidth();
+        int duHeight= size.getHeight();
         int Width=dataOrigin.length;
         int Height=dataOrigin[0].length;
 
@@ -271,8 +271,8 @@ public class ModuleOPC {
     }
     private DataOPC[][] createDataOPC(short[][]dataOrigin){
         Size size=sizeOpcCalculate(dataOrigin.length, dataOrigin[0].length);
-        int duWidth= size.width;
-        int duHeight= size.height;
+        int duWidth= size.getWidth();
+        int duHeight= size.getHeight();
 
         DataOPC[][]dopc=new DataOPC[duWidth][duHeight];
         return dopc;

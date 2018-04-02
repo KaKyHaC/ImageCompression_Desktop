@@ -3,7 +3,7 @@ package ImageCompression.Utils.Functions
 import ImageCompression.Constants.State
 import ImageCompression.Containers.TripleShortMatrix
 import ImageCompression.ProcessingModules.MyBufferedImage
-import ImageCompression.Utils.Objects.Flag
+import ImageCompression.Containers.Flag
 import org.junit.Before
 import org.junit.Test
 import java.awt.image.BufferedImage

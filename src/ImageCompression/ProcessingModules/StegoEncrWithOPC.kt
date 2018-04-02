@@ -4,7 +4,7 @@ import ImageCompression.Containers.TripleDataOpcMatrix
 import ImageCompression.Containers.TripleShortMatrix
 import ImageCompression.Utils.Functions.Encryption
 import ImageCompression.Utils.Functions.Steganography
-import ImageCompression.Utils.Objects.Flag
+import ImageCompression.Containers.Flag
 import ImageCompression.Utils.Objects.TimeManager
 
 class StegoEncrWithOPC {

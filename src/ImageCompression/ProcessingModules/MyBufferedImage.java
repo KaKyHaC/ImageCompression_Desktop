@@ -3,7 +3,7 @@ package ImageCompression.ProcessingModules;
 import ImageCompression.Containers.TripleShortMatrix;
 import ImageCompression.Constants.State;
 import ImageCompression.Containers.ByteVector;
-import ImageCompression.Utils.Objects.Flag;
+import ImageCompression.Containers.Flag;
 import ImageCompression.Utils.Objects.TimeManager;
 
 import java.awt.image.BufferedImage;

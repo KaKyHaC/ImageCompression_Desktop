@@ -1,6 +1,7 @@
 package ImageCompression.Utils.Objects
 
 import ImageCompression.Containers.ByteVector
+import ImageCompression.Containers.Flag
 import ImageCompression.Utils.Objects.DataOPC.SIZEOFBLOCK
 
 import org.junit.Assert.*
@@ -71,7 +72,7 @@ class DataOpcTest {
     @Test
     fun TestMyToString(){
         initDopc(dopc)
-        var f=Flag("0")
+        var f= Flag("0")
         f.isOneFile=true
         f.isLongCode=true
         f.isDC=true
@@ -102,7 +103,7 @@ class DataOpcTest {
     @Test
     fun TestByteVector(){
         var bv= ByteVector(33)
-        var f=Flag("0")
+        var f= Flag("0")
         f.isDC=true
         f.isOneFile=true
         f.isLongCode=true

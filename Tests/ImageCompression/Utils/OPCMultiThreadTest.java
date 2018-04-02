@@ -1,7 +1,7 @@
 package ImageCompression.Utils;
 
 import ImageCompression.Utils.Objects.DataOPC;
-import ImageCompression.Utils.Objects.Flag;
+import ImageCompression.Containers.Flag;
 import ImageCompression.Utils.Functions.OPCMultiThread;
 import org.junit.Before;
 import org.junit.Test;

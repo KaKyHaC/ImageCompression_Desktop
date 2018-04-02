@@ -1,6 +1,7 @@
 package ImageCompression.Utils.Objects
 
 import ImageCompression.Containers.ByteVector
+import ImageCompression.Containers.Flag
 import org.junit.Assert.*
 import org.junit.Test
 import java.util.*
@@ -12,7 +13,7 @@ class ByteVectorFileTest{
     @Test
     fun TotalTest(){
         val b=getRandomVector(size)
-        val f=Flag(0xfff)
+        val f= Flag(0xfff)
         f.isOneFile=true
 
         val fw=ByteVectorFile(path)

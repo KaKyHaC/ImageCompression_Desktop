@@ -1,34 +1,17 @@
 package ImageCompression.Containers
 
-import ImageCompression.Utils.Objects.ByteVector
-import ImageCompression.Utils.Objects.Flag
-
 import java.math.BigInteger
-import java.util.Vector
+import java.util.*
 
 /**
  * Created by Димка on 27.09.2016.
  */
-class DataOPC {
-
+class DataOpc {
     var base: ShortArray
     var sign: Array<BooleanArray>
     var DC: Short = 0
     var N: BigInteger
     var vectorCode: Vector<Long>
-
-    var dc: ByteArray
-        get() {
-            val res = ByteArray(2)
-            res[0] = (DC shr SIZEOFBLOCK).toByte()
-            res[1] = DC.toByte()
-            return res
-        }
-        set(bytes) {
-            this.DC = bytes[0].toShort()
-            DC = DC shl SIZEOFBLOCK.toShort()
-            DC = DC or bytes[1].toShort()
-        }
 
     init {
         base = ShortArray(SIZEOFBLOCK)
@@ -37,13 +20,27 @@ class DataOPC {
         vectorCode = Vector()
     }
 
+    var Dc: ByteArray
+        get() {
+            val res = ByteArray(2)
+            res[0] = (DC.toInt() shr SIZEOFBLOCK).toByte()
+            res[1] = DC.toByte()
+            return res
+        }
+        set(bytes) {
+            this.DC = bytes[0].toShort()
+            DC = (DC.toInt() shl SIZEOFBLOCK).toShort()
+            DC = (DC.toInt() or bytes[1].toInt()).toShort()
+        }
 
     fun FromBigIntToArray(): ByteArray {
         return N.toByteArray()
     }
+    fun FromArrayToBigInt(code: ByteArray) {
+        N = BigInteger(code)
+    }
 
     fun FromBigIntToVector(vector: ByteVector, base: ShortArray) {
-
         val code = N.toByteArray()
         //        assert (code.length<Short.MAX_VALUE);
         //        vector.append((short)code.length);
@@ -55,15 +52,9 @@ class DataOPC {
             vector.append(b)
         }
 
-
         //        System.out.print(",dL="+(code.length-length));
         //        assert code.length<=length:"cL:"+code.length+">l:"+length;
     }
-
-    fun FromArrayToBigInt(code: ByteArray) {
-        N = BigInteger(code)
-    }
-
     fun FromVectorToBigInt(vector: ByteVector, base: ShortArray) {
         //        int len=vector.getNextShort();
         val len = getLengthOfCode(base)
@@ -78,43 +69,41 @@ class DataOPC {
         val res = ByteArray(SIZEOFBLOCK)
         for (i in 0 until SIZEOFBLOCK) {
             for (j in 0 until SIZEOFBLOCK) {
-                res[i] = res[i] shl 1
+                res[i] = (res[i].toInt() shl 1).toByte()
                 if (sign[i][j]) {
-                    res[i] = res[i] or 1
+                    res[i] = (res[i].toInt() or 1).toByte()
                 }
             }
         }
         return res
+    }
+    fun FromArrayToSing(s: ByteArray) {
+        for (i in SIZEOFBLOCK - 1 downTo 0) {
+            for (j in SIZEOFBLOCK - 1 downTo 0) {
+                sign[i][j] = (s[i].toInt() and 1 == 1)
+                s[i] = (s[i].toInt() shr 1).toByte()
+            }
+        }
     }
 
     fun FromSignToVector(vector: ByteVector) {
         for (i in 0 until SIZEOFBLOCK) {
             var res: Byte = 0
             for (j in 0 until SIZEOFBLOCK) {
-                res = res shl 1
+                res = (res.toInt() shl 1).toByte()
                 if (sign[i][j]) {
-                    res = res or 1
+                    res = (res.toInt() or 1).toByte()
                 }
             }
             vector.append(res)
         }
     }
-
-    fun FromArrayToSing(s: ByteArray) {
-        for (i in SIZEOFBLOCK - 1 downTo 0) {
-            for (j in SIZEOFBLOCK - 1 downTo 0) {
-                sign[i][j] = s[i] and 1 == 1
-                s[i] = s[i] shr 1
-            }
-        }
-    }
-
     fun FromVectorToSign(vector: ByteVector) {
         for (i in 0 until SIZEOFBLOCK) {
             var s = vector.getNext()
             for (j in SIZEOFBLOCK - 1 downTo 0) {
-                sign[i][j] = s and 1 == 1
-                s = s shr 1
+                sign[i][j] = (s.toInt() and 1 == 1)
+                s = (s.toInt() shr 1).toByte()
             }
         }
     }
@@ -124,7 +113,6 @@ class DataOPC {
         System.arraycopy(base, 0, res, 0, res.size)
         return res
     }
-
     fun FromArrayToBase(b: ShortArray) {
         System.arraycopy(b, 0, base, 0, b.size)
     }
@@ -147,7 +135,6 @@ class DataOPC {
         vector.append(base[6])
         vector.append(base[7])
     }
-
     fun FromVectorToBase(vector: ByteVector) {
         //        if(!flag.isDC()){
         //            base[i++]=vector.getNextShort();
@@ -169,29 +156,27 @@ class DataOPC {
     fun FromDcToVector(vector: ByteVector) {
         vector.append(DC)
     }
-
     fun FromVectorToDc(vector: ByteVector) {
         DC = vector.getNextShort()
     }
 
     fun FromCodeToVector(vector: ByteVector) {
         val len = vectorCode.size
-        assert(len < 0xf)
+//        assert(len < 0xf)
         vector.append(len.toByte())
         for (l in vectorCode) {
             vector.append(l)
         }
     }
-
     fun FromVectorToCode(vector: ByteVector) {
-        val len = vector.getNext() and 0xFF
+        val len = vector.getNext().toInt() and 0xFF
         for (i in 0 until len) {
             vectorCode.add(vector.getNextLong())
         }
     }
 
     fun toString(flag: Flag): String {
-        val offset = SIZEOFBLOCK / 2
+//        val offset = SIZEOFBLOCK / 2
         val sb = StringBuilder()
 
         if (flag.isOneFile && !flag.isGlobalBase)
@@ -228,8 +213,7 @@ class DataOPC {
 
         return sb.toString()
     }
-
-    fun valueOf(s: String, flag: Flag): DataOPC {
+    fun fromString(s: String, flag: Flag): DataOpc {
         val offset = SIZEOFBLOCK
         var index = 0
 
@@ -286,8 +270,7 @@ class DataOPC {
 
         return vector
     }
-
-    fun valueOf(vector: ByteVector, f: Flag): DataOPC {
+    fun fromByteVector(vector: ByteVector, f: Flag): DataOpc {
         if (f.isDC)
             FromVectorToDc(vector)
 
@@ -305,13 +288,13 @@ class DataOPC {
     }
 
 
-    override fun equals(obj: Any?): Boolean {
-        if (this === obj)
+    override fun equals(other: Any?): Boolean {
+        if (this === other)
             return true
-        if (obj!!.javaClass != DataOPC::class.java)
+        if (other!!.javaClass != DataOpc::class.java)
             return false
 
-        val d = obj as DataOPC?
+        val d = other as DataOpc?
         if (d!!.DC != DC)
             return false
         for (i in 0 until SIZEOFBLOCK) {
@@ -331,6 +314,14 @@ class DataOPC {
         }
         return true
     }
+    override fun hashCode(): Int {
+        var result = Arrays.hashCode(base)
+        result = 31 * result + Arrays.hashCode(sign)
+        result = 31 * result + DC
+        result = 31 * result + N.hashCode()
+        result = 31 * result + vectorCode.hashCode()
+        return result
+    }
 
     fun getByteSize(flag: Flag): Long {
         val vector = ByteVector(10)
@@ -344,13 +335,27 @@ class DataOPC {
         //support utils
         private fun getLengthOfCode(base: ShortArray): Int {//TODO optimize this fun
             var bi = BigInteger("1")
-            for (i in 0..7) {
-                for (j in 0..7)
+            for (i in 0 until SIZEOFBLOCK) {
+                for (j in 0 until SIZEOFBLOCK)
                     bi = bi.multiply(BigInteger.valueOf(base[i].toLong()))
             }
             //        if(bi.compareTo(N)<0)
             //            System.out.println("Alarm");
             return bi.toByteArray().size
+        }
+
+        @JvmStatic
+        fun valueOf(byteVector: ByteVector, flag: Flag): DataOpc {
+            val dataOpc=DataOpc()
+            dataOpc.fromByteVector(byteVector,flag)
+            return dataOpc
+        }
+
+        @JvmStatic
+        fun valueOf(s:String,flag: Flag): DataOpc {
+            val dataOpc=DataOpc()
+            dataOpc.fromString(s,flag)
+            return dataOpc
         }
     }
 }

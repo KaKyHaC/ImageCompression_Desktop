@@ -1,17 +1,30 @@
-package ImageCompression.Utils.Objects;
+package ImageCompression.Containers;
+
+import ImageCompression.Utils.Functions.Steganography;
 
 /**
  * Created by Димка on 13.10.2016.
  */
 
 public class Flag {
-    final static int OneFile=16,Enlargement=32,DC=64,LongCode=128,GlobalBase=256,Password=512,Steganography=1024,Alignment=2048,CompressionUtils=4096;
+    public enum Parameter{
+        OneFile(16),Enlargement(32),DC(64),LongCode(128),GlobalBase(256),
+        Password(512),Steganography(1024),Alignment(2048),CompressionUtils(4096);
+
+        final int value;
+        Parameter(int i) {
+            value=i;
+        }
+    }
+    public enum QuantizationState {Without, First}
+    public enum Encryption {Without, First}
+
     private short f;
 
+    public Flag(){}
     public Flag(String s) {
         f = Short.decode(s);
     }
-
     public Flag(short val){
         f=val;
     }
@@ -53,54 +66,26 @@ public class Flag {
         }
     }
 
-    public boolean isOneFile(){
-        return isChecked(OneFile);
-    }
-    public void setOneFile(boolean o){
-       setChecked(o,OneFile);
-    }
-
-    public boolean isEnlargement(){
-        return isChecked(Enlargement);
-    }
-    public void setEnlargement(boolean o){
-       setChecked(o,Enlargement);
-    }
-
-    public boolean isDC(){
-        return isChecked(DC);
-    }
-    public void setDC(boolean o){
-       setChecked(o,DC);
-    }
-
-    public boolean isLongCode(){return isChecked(LongCode);}
-    public void setLongCode(boolean b){setChecked(b,LongCode);}
-
-    public boolean isGlobalBase(){return isChecked(GlobalBase);}
-    public void setGlobalBase(boolean b){setChecked(b,GlobalBase);}
-
-    public boolean isPassword(){return isChecked(Password);}
-    public void setPassword(boolean b){setChecked(b,Password);}
-
-    public boolean isSteganography(){return isChecked(Steganography);}
-    public void setSteganography(boolean b){setChecked(b,Steganography);}
-
-    public boolean isAlignment(){return isChecked(Alignment);}
-    public void setAlignment(boolean b){setChecked(b,Alignment);}
-
-    public boolean isCompressionUtils(){return isChecked(CompressionUtils);}
-    public void setCompressionUtils(boolean b){setChecked(b,CompressionUtils);}
-
     //Utils
     private boolean isChecked(int param){
         return (f&param)!=0;
     }
     private void setChecked(boolean state,int param){
-        if(state==true){
+        if(state){
             f|=param;
         } else {
             f&=(~param);
+        }
+    }
+
+    public boolean isChecked(Parameter param){
+        return (f&param.value)!=0;
+    }
+    public void setChecked(Parameter parameter,boolean state){
+        if(state){
+            f|= parameter.value;
+        } else {
+            f&=(~parameter.value);
         }
     }
 
@@ -113,19 +98,13 @@ public class Flag {
 
         return f == flag.f;
     }
-
     @Override
     public int hashCode() {
         return (int) f;
     }
-
     @Override
     public String toString() {
         return Short.toString(f);
     }
-
-    public enum QuantizationState {Without, First}
-
-    public enum Encryption {Without, First}
 }
 

@@ -2,7 +2,6 @@ package ImageCompression.Containers
 
 import ImageCompression.Utils.Objects.DataOPC
 import ImageCompression.Utils.Objects.DataOPC.SIZEOFBLOCK
-import ImageCompression.Utils.Objects.Flag
 import org.junit.Assert.*
 import org.junit.Test
 import java.math.BigInteger
@@ -12,7 +11,7 @@ import kotlin.test.assertFails
 class TripleDataOpcTripleShortMatrixTest {
     val box= TripleDataOpcMatrix()
     val box1= TripleDataOpcMatrix()
-    val flag=Flag("0")
+    val flag= Flag("0")
     var rand=Random()
 
     @Test

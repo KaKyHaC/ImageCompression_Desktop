@@ -2,7 +2,7 @@ package ImageCompression.Utils.Functions;
 
 
 import ImageCompression.Utils.Objects.DataOPC;
-import ImageCompression.Utils.Objects.Flag;
+import ImageCompression.Containers.Flag;
 import ImageCompression.Utils.Objects.Parameters;
 
 import java.math.BigInteger;

@@ -1,6 +1,7 @@
 package ImageCompression.Utils.Objects
 
 import ImageCompression.Containers.ByteVector
+import ImageCompression.Containers.Flag
 import ImageCompression.Utils.Functions.CompressionUtils
 import java.io.File
 
@@ -29,14 +30,14 @@ class ByteVectorFile(var file: File) {
         os.write(f.toInt() shr 8)
         //ByteAray
         var ba=vector.toByteArray()
-        if(flag.isCompressionUtils) {
+        if(flag.isChecked(Flag.Parameter.CompressionUtils)) {
             ba = CompressionUtils.compress(ba)
             TimeManager.Instance.append("CompressionUtils")
         }
         os.write(ba)
         os.close()
     }
-    fun read():Pair<ByteVector,Flag>{
+    fun read():Pair<ByteVector, Flag>{
         if(!file.canRead())
             throw Exception("can't read")
 
@@ -45,11 +46,11 @@ class ByteVectorFile(var file: File) {
         //flag
         val lwf=ins.read()
         val hwf=ins.read()
-        val flag=Flag((lwf or (hwf shl 8)).toShort())
+        val flag= Flag((lwf or (hwf shl 8)).toShort())
 
         //bByteArray
         var bs=ins.readBytes()
-        if(flag.isCompressionUtils) {
+        if(flag.isChecked(Flag.Parameter.CompressionUtils)) {
             bs = CompressionUtils.decompress(bs)
             TimeManager.Instance.append("deCompressionUtils")
         }

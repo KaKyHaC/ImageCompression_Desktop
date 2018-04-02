@@ -1,31 +1,30 @@
 package ImageCompression.Containers
 
 import ImageCompression.Constants.State
-import ImageCompression.Utils.Objects.Flag
 import java.util.*
 
-class Matrix(var Width: Int, var Height: Int, flag: Flag, var state: State) {
+class TripleShortMatrix(var Width: Int, var Height: Int, flag: Flag, var state: State) {
     var a: Array<ShortArray>
     var b: Array<ShortArray>
     var c: Array<ShortArray>
-    var f:Flag
+    var f: Flag
 
     init {
-        f=Flag(flag.flag)
+        f= Flag(flag.flag)
         a = Array(Width) { ShortArray(Height) }
         b = Array(Width) { ShortArray(Height) }
         c = Array(Width) { ShortArray(Height) }
     }
 
-    fun assertMatrixInRange(matrix: Matrix,range: Int):Boolean{
-        if (Width != matrix.Width) return false
-        if (Height != matrix.Height) return false
-        if (f != matrix.f) return false
-        if (state != matrix.state) return false
+    fun assertMatrixInRange(tripleShortMatrix: TripleShortMatrix, range: Int):Boolean{
+        if (Width != tripleShortMatrix.Width) return false
+        if (Height != tripleShortMatrix.Height) return false
+        if (f != tripleShortMatrix.f) return false
+        if (state != tripleShortMatrix.state) return false
 
-        if(!a.inRannge(matrix.a,range))return false
-        if(!b.inRannge(matrix.b,range))return false
-        if(!c.inRannge(matrix.c,range))return false
+        if(!a.inRannge(tripleShortMatrix.a,range))return false
+        if(!b.inRannge(tripleShortMatrix.b,range))return false
+        if(!c.inRannge(tripleShortMatrix.c,range))return false
 
         return true
     }
@@ -53,7 +52,7 @@ class Matrix(var Width: Int, var Height: Int, flag: Flag, var state: State) {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as Matrix
+        other as TripleShortMatrix
 
         if (Width != other.Width) return false
         if (Height != other.Height) return false
@@ -77,8 +76,8 @@ class Matrix(var Width: Int, var Height: Int, flag: Flag, var state: State) {
         return result
     }
 
-    fun copy():Matrix{
-        var res=Matrix(Width,Height,f,state)
+    fun copy(): TripleShortMatrix {
+        var res= TripleShortMatrix(Width,Height,f,state)
         res.a=a.copy()
         res.b=b.copy()
         res.c=c.copy()

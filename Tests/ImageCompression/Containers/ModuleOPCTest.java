@@ -3,7 +3,6 @@ package ImageCompression.Containers;
 import ImageCompression.Constants.State;
 import ImageCompression.ProcessingModules.ModuleOPC;
 import ImageCompression.Utils.Objects.DataOPC;
-import ImageCompression.Utils.Objects.Flag;
 import org.junit.Before;
 import org.junit.Test;
 

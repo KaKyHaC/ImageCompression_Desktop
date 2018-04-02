@@ -1,14 +1,9 @@
 package ImageCompression.Containers
 
-import ImageCompression.Utils.Objects.ByteVector
 import ImageCompression.Utils.Objects.DataOPC
-import ImageCompression.Utils.Objects.Flag
-import java.awt.image.DataBuffer
-import java.io.*
-import java.math.BigInteger
 import java.util.*
 
-class BoxOfOpc {
+class TripleDataOpcMatrix {
     var a: Array<Array<DataOPC>>?=null
     var b: Array<Array<DataOPC>>?=null
     var c: Array<Array<DataOPC>>?=null
@@ -22,28 +17,28 @@ class BoxOfOpc {
 
     //TODO global base
 
-    fun writeToVector(vector: ByteVector,flag: Flag){
+    fun writeToVector(vector: ByteVector, flag: Flag){
         a?.appendVectorOne(vector,flag)
         b?.appendVectorOne(vector,flag)
         c?.appendVectorOne(vector,flag)
     }
-    fun writeBaseToVector(vector: ByteVector,flag: Flag,stepW:Int=1,stepH:Int=1){
+    fun writeBaseToVector(vector: ByteVector, flag: Flag, stepW:Int=1, stepH:Int=1){
         a?.appendBaseToVector(vector,flag,stepW,stepH)
         b?.appendBaseToVector(vector,flag,stepW,stepH)
         c?.appendBaseToVector(vector,flag,stepW,stepH)
     }
-    fun readFromVector(vector: ByteVector,flag: Flag){
+    fun readFromVector(vector: ByteVector, flag: Flag){
         a=MatrixFromVectorOne(vector,flag)
         b=MatrixFromVectorOne(vector,flag)
         c=MatrixFromVectorOne(vector,flag)
     }
-    fun readBaseFromVector(vector: ByteVector,flag: Flag){
+    fun readBaseFromVector(vector: ByteVector, flag: Flag){
         a?.readBaseFromVector(vector,flag)
         b?.readBaseFromVector(vector,flag)
         c?.readBaseFromVector(vector,flag)
     }
 
-    private fun Array<Array<DataOPC>>.appendVectorOne(vector: ByteVector,flag: Flag){
+    private fun Array<Array<DataOPC>>.appendVectorOne(vector: ByteVector, flag: Flag){
         val w=this.size
         val h=this[0].size
         vector.append(w.toShort())
@@ -54,12 +49,12 @@ class BoxOfOpc {
             }
         }
     }
-    private fun MatrixFromVectorOne(vector: ByteVector,flag: Flag):Array<Array<DataOPC>>{
+    private fun MatrixFromVectorOne(vector: ByteVector, flag: Flag):Array<Array<DataOPC>>{
         val w=vector.getNextShort()
         val h=vector.getNextShort()
         return Array(w.toInt(),{ x-> Array(h.toInt(),{y->DataOPC().valueOf (vector,flag)}) })
     }
-    private fun Array<Array<DataOPC>>.appendBaseToVector(vector: ByteVector,flag: Flag,baseW:Int=1,baseH:Int=1){
+    private fun Array<Array<DataOPC>>.appendBaseToVector(vector: ByteVector, flag: Flag, baseW:Int=1, baseH:Int=1){
         val w=this.size
         val h=this[0].size
         val stepW:Int = if(flag.isGlobalBase)baseW else 1
@@ -82,7 +77,7 @@ class BoxOfOpc {
         }
 
     }
-    private fun Array<Array<DataOPC>>.readBaseFromVector(vector: ByteVector,flag: Flag){
+    private fun Array<Array<DataOPC>>.readBaseFromVector(vector: ByteVector, flag: Flag){
         val w=vector.getNextShort()
         val h=vector.getNextShort()
         val stepW:Int = if(flag.isGlobalBase)vector.getNextShort().toInt() else 1
@@ -123,8 +118,8 @@ class BoxOfOpc {
         return true
     }
 
-    fun copy():BoxOfOpc{
-        var box=BoxOfOpc()
+    fun copy(): TripleDataOpcMatrix {
+        val box= TripleDataOpcMatrix()
         box.a=a?.copy()
         box.b=b?.copy()
         box.c=c?.copy()
@@ -138,7 +133,7 @@ class BoxOfOpc {
         return arr
     }
     fun DataOPC.copy():DataOPC{
-        var res=DataOPC()
+        val res=DataOPC()
         res.N= BigInteger(N.toByteArray())
         res.DC=DC
         for(i in 0..DataOPC.SIZEOFBLOCK -1) {
@@ -156,7 +151,7 @@ class BoxOfOpc {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as BoxOfOpc
+        other as TripleDataOpcMatrix
         if(!(this.a?.Equals(other.a)?:true))
             return false
         if(!(this.b?.Equals(other.b)?:true))

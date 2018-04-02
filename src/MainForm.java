@@ -1,5 +1,5 @@
 import ImageCompression.Constants.Cosine;
-import ImageCompression.Utils.Objects.Flag;
+import ImageCompression.Containers.Flag;
 import ImageCompression.Utils.Objects.Parameters;
 
 import javax.imageio.ImageIO;

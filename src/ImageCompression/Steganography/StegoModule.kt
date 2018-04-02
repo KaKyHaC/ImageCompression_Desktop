@@ -4,7 +4,7 @@ import ImageCompression.Steganography.Utils.ImageProcessorUtils
 import ImageCompression.Steganography.Utils.OpcsParser
 import ImageCompression.Containers.ByteVector
 import ImageCompression.Utils.Objects.ByteVectorFile
-import ImageCompression.Utils.Objects.Flag
+import ImageCompression.Containers.Flag
 import java.awt.image.BufferedImage
 import java.io.File
 import javax.imageio.ImageIO
