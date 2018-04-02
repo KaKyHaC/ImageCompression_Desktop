@@ -21,4 +21,9 @@ data class OpcContainer<T> (var code:BigInteger,var base:Array<T>){
         result = 31 * result + Arrays.hashCode(base)
         return result
     }
+
+    override fun toString(): String {
+        return "OpcContainer(code=$code, base=${Arrays.toString(base)})"
+    }
+
 }

@@ -27,8 +27,15 @@ class StegoConvertorTestBridge{
     @Test
     fun test2Rand() {
         for(i in 0..100){
-            stegoBridge(2, 2, true, { it -> Random().nextInt(255).toShort() })
-            stegoBridge(2, 2, false, { it -> Random().nextInt(255).toShort() })
+            stegoBridge(2, 1, true, { it -> Random().nextInt(255).toShort() })
+            stegoBridge(2, 1, false, { it -> Random().nextInt(255).toShort() })
+        }
+    }
+    @Test
+    fun test1Rand() {
+        for(i in 0..100){
+            stegoBridge(1, 1, true, { it -> Random().nextInt(255).toShort() })
+            stegoBridge(1, 1, false, { it -> Random().nextInt(255).toShort() })
         }
     }
     @Test
@@ -74,8 +81,14 @@ class StegoConvertorTestBridge{
     @Test
     fun testArr2(){
         val arrInt= arrayOf(
-                arrayOf(169,73),
-                arrayOf(48,200))
+                arrayOf(160),
+                arrayOf(79))
+        testArr(arrInt,false)
+    }
+    @Test
+    fun testArr1(){
+        val arrInt= arrayOf(
+                arrayOf(124))
         testArr(arrInt,false)
     }
     fun testArr(array: Array<Array<Int>>,message: Boolean){
