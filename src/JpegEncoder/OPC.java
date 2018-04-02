@@ -1,4 +1,4 @@
-package ImageCompression.JpegEncoder;
+package JpegEncoder;
 
 // Version 1.0a
 // Copyright (C) 1998, James R. Weeks and BioElectroMech.

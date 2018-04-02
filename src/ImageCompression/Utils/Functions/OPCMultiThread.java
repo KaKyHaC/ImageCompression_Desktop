@@ -3,7 +3,7 @@ package ImageCompression.Utils.Functions;
 
 import ImageCompression.Utils.Objects.DataOPC;
 import ImageCompression.Containers.Flag;
-import ImageCompression.Utils.Objects.Parameters;
+import ImageCompression.Parameters;
 
 import java.math.BigInteger;
 

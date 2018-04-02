@@ -4,7 +4,7 @@ package ImageCompression.ProcessingModules;
 import ImageCompression.Containers.TripleShortMatrix;
 import ImageCompression.Constants.State;
 import ImageCompression.Constants.TypeQuantization;
-import ImageCompression.Utils.Objects.DataUnitMatrix;
+import ImageCompression.Utils.Objects.DctConvertor;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -16,15 +16,15 @@ import java.util.concurrent.Future;
  */
 public class ModuleDCT {
     private TripleShortMatrix tripleShortMatrix;
-    private DataUnitMatrix a,b,c;
+    private DctConvertor a,b,c;
 
     public ModuleDCT(TripleShortMatrix tripleShortMatrix) {
         this.tripleShortMatrix = tripleShortMatrix;
         if(tripleShortMatrix.getState() == State.Yenl)//new code . Does it is needed ?
             tripleShortMatrix.setState(State.YBR);
-            a=new DataUnitMatrix(tripleShortMatrix.getA(), tripleShortMatrix.getA().length, tripleShortMatrix.getA()[0].length, tripleShortMatrix.getState(), TypeQuantization.luminosity, tripleShortMatrix.getF());
-            b = new DataUnitMatrix(tripleShortMatrix.getB(), tripleShortMatrix.getB().length, tripleShortMatrix.getB()[0].length, tripleShortMatrix.getState(), TypeQuantization.Chromaticity, tripleShortMatrix.getF());
-            c  = new DataUnitMatrix(tripleShortMatrix.getC(), tripleShortMatrix.getC().length, tripleShortMatrix.getC()[0].length, tripleShortMatrix.getState(), TypeQuantization.Chromaticity, tripleShortMatrix.getF());
+            a=new DctConvertor(tripleShortMatrix.getA(), tripleShortMatrix.getA().length, tripleShortMatrix.getA()[0].length, tripleShortMatrix.getState(), TypeQuantization.luminosity, tripleShortMatrix.getF());
+            b = new DctConvertor(tripleShortMatrix.getB(), tripleShortMatrix.getB().length, tripleShortMatrix.getB()[0].length, tripleShortMatrix.getState(), TypeQuantization.Chromaticity, tripleShortMatrix.getF());
+            c  = new DctConvertor(tripleShortMatrix.getC(), tripleShortMatrix.getC().length, tripleShortMatrix.getC()[0].length, tripleShortMatrix.getState(), TypeQuantization.Chromaticity, tripleShortMatrix.getF());
 
     }
 

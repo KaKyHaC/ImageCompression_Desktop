@@ -1,7 +1,7 @@
 package ImageCompression.Steganography;
 
 import ImageCompression.Steganography.Utils.MessageParser;
-import ImageCompression.Utils.Objects.Parameters;
+import ImageCompression.Parameters;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

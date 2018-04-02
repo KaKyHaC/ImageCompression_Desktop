@@ -2,7 +2,7 @@ package ImageCompression.Utils.Functions;
 
 
 import ImageCompression.Containers.TripleShortMatrix;
-import ImageCompression.Utils.Objects.Parameters;
+import ImageCompression.Parameters;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

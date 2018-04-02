@@ -1,4 +1,4 @@
-package ImageCompression.JpegEncoder;
+package JpegEncoder;
 
 // Version 1.0a
 // Copyright (C) 1998, James R. Weeks and BioElectroMech.
@@ -17,8 +17,6 @@ package ImageCompression.JpegEncoder;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.*;
-import java.sql.Date;
-import java.sql.Time;
 import java.util.Calendar;
 
 

@@ -1,4 +1,4 @@
-package ImageCompression.Utils.Objects;
+package ImageCompression;
 
 public class Parameters {
     static Parameters instanse = new Parameters();

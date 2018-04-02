@@ -5,24 +5,31 @@ import ImageCompression.Constants.State;
 import ImageCompression.Constants.TypeQuantization;
 import ImageCompression.Containers.Flag;
 import ImageCompression.Utils.Functions.DCTMultiThread;
+import org.jetbrains.annotations.NotNull;
 
 /**
- * Class for transformation between DCT and YNL
+ * Class for transformation between DCT and Origin
+ * min Size,max Time
  * Created by Димка on 08.08.2016.
  */
-public class DataUnitMatrix {
+public class DctConvertor {
     public enum State{DCT,ORIGIN}
     private State state ;
+
     private short[][] dataOrigin;
     private short[][] dataProcessed;
+
     private int Width, Height;
     private int duWidth, duHeight;
+
     private TypeQuantization tq;
     private Flag flag;
 
-    public DataUnitMatrix(short[][] dataOrigin, int width, int height, State state, TypeQuantization tq,Flag flag) {
+//    private boolean isReady=false;
+
+    public DctConvertor(short[][] dataOrigin, int width, int height, State state, TypeQuantization tq, Flag flag) {
         this.dataOrigin = dataOrigin;
-        dataProcessed=dataOrigin;
+        dataProcessed=dataOrigin;//= new short[dataOrigin.length][dataOrigin[0].length];// = dataOrigin
         Width = width;
         Height = height;
         this.tq = tq;
@@ -41,7 +48,9 @@ public class DataUnitMatrix {
      //   createMatrix();
     }
 
-
+    /**
+     * subtract the [0][0] element from each [%8][%8]
+     */
     private void preProsses() {
         for (int i = 0; i < duWidth; i++) {
             for (int j = 0; j < duHeight; j++) {
@@ -53,7 +62,13 @@ public class DataUnitMatrix {
             }
         }
     }
-    private short[][] fillBufferforDU(int i,int j,short[][]buffer){
+
+    /**
+     * copy 8x8 matrix from dataOrigin started at [i][j] into buffer
+     * @param buffer - target matrix to copy
+     * @return buffer
+     */
+    private short[][] fillBufferForDU(int i,int j,@NotNull short[][]buffer){
         for (int x = 0; x < DCTMultiThread.SIZEOFBLOCK; x++) {
             for (int y = 0; y < DCTMultiThread.SIZEOFBLOCK; y++) {
                 short value = 0;
@@ -67,28 +82,38 @@ public class DataUnitMatrix {
         }
         return buffer;
     }
-    private short[][] MainCode(short[][] buf){
-        if(state==State.ORIGIN) {
-            if(flag.isChecked(Flag.Parameter.Alignment))
-                minus128(buf);
 
-            buf = DCTMultiThread.directDCT(buf);
+    @FunctionalInterface
+    interface FIConvertor{
+        short[][] convert(short[][] buf);
+    }
+    private short[][] directDCT(short[][] buf){
+        if(flag.isChecked(Flag.Parameter.Alignment))
+            minus128(buf);
 
-            if(flag.getQuantization()== Flag.QuantizationState.First)
-                DCTMultiThread.directQuantization(tq,buf);
-        } else if(state==State.DCT) {
-            if(flag.getQuantization()== Flag.QuantizationState.First)
-                DCTMultiThread.reverseQuantization(tq,buf);
+        buf = DCTMultiThread.directDCT(buf);
 
-            buf = DCTMultiThread.reverseDCT(buf);
+        if(flag.getQuantization()== Flag.QuantizationState.First)
+            DCTMultiThread.directQuantization(tq,buf);
+        return buf;
+    }
+    private short[][] reverceDCT(short[][] buf){
+        if(flag.getQuantization()== Flag.QuantizationState.First)
+            DCTMultiThread.reverseQuantization(tq,buf);
 
-            if(flag.isChecked(Flag.Parameter.Alignment))
-                plus128(buf);
-        }
+        buf = DCTMultiThread.reverseDCT(buf);
+
+        if(flag.isChecked(Flag.Parameter.Alignment))
+            plus128(buf);
 
         return buf;
     }
-    private void fillDateProcessed(int i,int j,short[][]buffer){
+
+    /**
+     * set 8x8 matrix from buffer into dataProcessed started at [i][j]
+     * @param buffer - matrix with information
+     */
+    private void fillDateProcessed(int i,int j,@NotNull short[][]buffer){
         for (int x = 0; x < DCTMultiThread.SIZEOFBLOCK; x++) {
             for (int y = 0; y < DCTMultiThread.SIZEOFBLOCK; y++) {
 
@@ -101,18 +126,19 @@ public class DataUnitMatrix {
     }
 
     /**
-     * do transmormation between DCT and YNL states
+     * do transmormation between DCT and Origin states
      */
-    public void dataProcessing() {
+    private void dataProcessing() {
         short[][] buf = new short[DCTMultiThread.SIZEOFBLOCK][DCTMultiThread.SIZEOFBLOCK];
         if(state==State.DCT)
             preProsses();
 
+        FIConvertor convertor=(state==State.DCT)?this::directDCT:this::reverceDCT;
+
         for (int i = 0; i < duWidth; i++) {
             for (int j = 0; j < duHeight; j++) {
-                buf=fillBufferforDU(i,j,buf);
-                buf=MainCode(buf);
-                //-------------------directQuantization
+                buf=fillBufferForDU(i,j,buf);
+                buf=convertor.convert(buf);
                 fillDateProcessed(i,j,buf);
             }
         }
@@ -120,10 +146,11 @@ public class DataUnitMatrix {
             preProsses();
 
 
-        if(state==State.DCT)
+        if(state==State.ORIGIN)
             state=State.DCT;
         else if(state==State.DCT)
-            state=State.YBR;
+            state=State.ORIGIN;
+//        isReady=true;
     }
 
     private void minus128(short [][] arr){
@@ -145,4 +172,23 @@ public class DataUnitMatrix {
         return state;
     }
 
+    public short[][] getMatrixOrigin() {
+//        if(!isReady&&state==State.DCT)
+//            dataProcessing();
+
+        if(state==State.DCT)
+            dataProcessing();
+
+        return dataProcessed;
+    }
+
+    public short[][] getMatrixDct() {
+//        if(!isReady&&state==State.ORIGIN)
+//            dataProcessing();
+
+        if(state==State.ORIGIN)
+            dataProcessing();
+
+        return dataProcessed;
+    }
 }

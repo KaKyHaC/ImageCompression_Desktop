@@ -27,7 +27,7 @@ class ModuleFile{
         val v = ByteVector()
 
         tripleDataOpcMatrix.writeToVector(v, flag)
-        if(flag.isGlobalBase){
+        if(flag.isChecked(Flag.Parameter.GlobalBase)){
             tripleDataOpcMatrix.writeBaseToVector(v,flag,globalBaseW,globalBaseH)
         }
         TimeManager.Instance.append("box to vector")
@@ -35,7 +35,7 @@ class ModuleFile{
         val vw = ByteVectorFile(pathToName + typeMain)
         vw.write(v, flag)
 
-        if (!flag.isOneFile) {
+        if (!flag.isChecked(Flag.Parameter.OneFile)) {
             val vbase = ByteVector()
             tripleDataOpcMatrix.writeBaseToVector(v,flag,globalBaseW,globalBaseH)
             TimeManager.Instance.append("base to vector")
@@ -52,11 +52,11 @@ class ModuleFile{
         val opcs= TripleDataOpcMatrix()
 
         opcs.readFromVector(vmain,flag)
-        if(flag.isGlobalBase){
+        if(flag.isChecked(Flag.Parameter.GlobalBase)){
             opcs.readBaseFromVector(vmain,flag)
         }
 
-        if(!flag.isOneFile){
+        if(!flag.isChecked(Flag.Parameter.OneFile)){
             val br=ByteVectorFile(pathToName+ typeSup)
             val bp=br.read()
             val base=bp.first
