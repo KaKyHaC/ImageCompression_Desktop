@@ -180,7 +180,8 @@ public class StegonagraphyUI extends JFrame {
         int uW=(int)spinner1.getValue();
         int uH=(int)spinner2.getValue();
         boolean[] bM=getMessage();
-        sm.direct(from,to,uW,uH,bM);
+        boolean isMulti=rMultiTWO.isSelected();
+        sm.direct(from,to,uW,uH,bM,isMulti);
     }
 
     private boolean[] getMessage(){

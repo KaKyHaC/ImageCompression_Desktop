@@ -38,7 +38,7 @@ class ImageProcessorUtilsTest{
 
 
         val units=ipu.imageToUnits(im,unit_W,unit_H)
-        val opcs=ipu.directStego(units)
+        val opcs=ipu.directStego(units,true)
         val resUnits=ipu.reverceStego(opcs,unit_W,unit_H,isMultiTWO)
         val im1=ipu.unitsToImage(resUnits,w,h)
 

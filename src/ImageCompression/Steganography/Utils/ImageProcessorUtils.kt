@@ -75,16 +75,16 @@ class ImageProcessorUtils {
         return image
     }
 
-    fun directStego(units: Triple<IContainer<UnitContainer<Short>>>):
+    fun directStego(units: Triple<IContainer<UnitContainer<Short>>>,isDivTWO: Boolean):
             Triple<IContainer<OpcContainer<Short>>> {
         val opcs= Triple<IContainer<OpcContainer<Short>>>(null, null, null)
 
         val executorService = Executors.newFixedThreadPool(3)
         val futures = ArrayList<Future<IContainer<OpcContainer<Short>>>>()
 
-        futures.add(executorService.submit<IContainer<OpcContainer<Short>>> {  directConvert(units.r!!)})
-        futures.add(executorService.submit<IContainer<OpcContainer<Short>>> {  directConvert(units.g!!)})
-        futures.add(executorService.submit<IContainer<OpcContainer<Short>>> {  directConvert(units.b!!)})
+        futures.add(executorService.submit<IContainer<OpcContainer<Short>>> {  directConvert(units.r!!,isDivTWO)})
+        futures.add(executorService.submit<IContainer<OpcContainer<Short>>> {  directConvert(units.g!!,isDivTWO)})
+        futures.add(executorService.submit<IContainer<OpcContainer<Short>>> {  directConvert(units.b!!,isDivTWO)})
 
         try {
             opcs.r= futures[0].get()
@@ -167,11 +167,11 @@ class ImageProcessorUtils {
         return index
     }
 
-    private fun directConvert(org:IContainer<UnitContainer<Short>>):IContainer<OpcContainer<Short>>{
+    private fun directConvert(org:IContainer<UnitContainer<Short>>,isDivTWO:Boolean):IContainer<OpcContainer<Short>>{
         val res=Container<OpcContainer<Short>>(org.width,org.height)
         val ins= StegoConvertor.instance
         org.forEach { w, h ->
-            res[w,h]=ins.direct(org[w,h]!!)
+            res[w,h]=ins.direct(org[w,h]!!,isDivTWO)
             null
         }
         return res

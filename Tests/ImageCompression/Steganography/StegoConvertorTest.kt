@@ -60,6 +60,7 @@ class StegoConvertorTest {
         assertTrue(data.inRange(res,range))
     }
 
+
     fun Array<Array<Short>>.inRange(other:Array<Array<Short>>,range: Int):Boolean{
         for((i,e) in this.withIndex()){
             for((j) in e.withIndex()){
@@ -75,5 +76,16 @@ class StegoConvertorTest {
     fun UnitContainer<Short>.inRange(other: UnitContainer<Short>, range:Int):Boolean{
         if(message!=other.message)throw Exception("message: $message!=${other.message}")
         return  this.getMatrix().inRange(other.getMatrix(),range)
+    }
+
+
+    @Test
+    fun TestNew(){
+        val arr=Array<Array<Short>>(2){ShortArray(2){it.toShort()}.toTypedArray()}
+        val data= UnitContainer<Short>(arr, true)
+        val convertor= StegoConvertor.instance
+        val comp=convertor.direct(data)
+        val res=convertor.reverce(comp,2,2)
+
     }
 }
