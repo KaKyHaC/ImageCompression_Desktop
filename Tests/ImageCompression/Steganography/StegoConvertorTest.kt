@@ -5,8 +5,10 @@ import ImageCompression.Steganography.Utils.StegoConvertor
 import org.junit.Test
 
 import org.junit.Assert.*
+import java.util.*
 
 class StegoConvertorTest {
+    val convertor= StegoConvertor.instance
 
     @Test
     fun testTrue1() {
@@ -45,7 +47,7 @@ class StegoConvertorTest {
         val arr=Array<Array<Short>>(8){ShortArray(8){(it+1).toShort()}.toTypedArray()}
         val data= UnitContainer<Short>(arr, true)
         val convertor= StegoConvertor.instance
-        val comp=convertor.direct(data)
+        val comp=convertor.direct(data,true)
         val res=convertor.reverce(comp,8,8,false)
 
         assertTrue(data.getMatrix().inRange(res.getMatrix(),1))
@@ -54,8 +56,8 @@ class StegoConvertorTest {
         val arr=Array<Array<Short>>(width){ShortArray(height){init(it)}.toTypedArray()}
         val data= UnitContainer<Short>(arr, message)
         val convertor= StegoConvertor.instance
-        val comp=convertor.direct(data)
-        val res=convertor.reverce(comp,width, height)
+        val comp=convertor.direct(data,true)
+        val res=convertor.reverce(comp,width, height,true)
 
         assertTrue(data.inRange(res,range))
     }
@@ -78,14 +80,4 @@ class StegoConvertorTest {
         return  this.getMatrix().inRange(other.getMatrix(),range)
     }
 
-
-    @Test
-    fun TestNew(){
-        val arr=Array<Array<Short>>(2){ShortArray(2){it.toShort()}.toTypedArray()}
-        val data= UnitContainer<Short>(arr, true)
-        val convertor= StegoConvertor.instance
-        val comp=convertor.direct(data)
-        val res=convertor.reverce(comp,2,2)
-
-    }
 }

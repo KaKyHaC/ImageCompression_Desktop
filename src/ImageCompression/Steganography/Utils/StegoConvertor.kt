@@ -9,7 +9,7 @@ class StegoConvertor private constructor(){
         @JvmField val instance= StegoConvertor()
     }
 
-    fun direct(data: UnitContainer<Short>, isDivTWO:Boolean=true): OpcContainer<Short> {
+    fun direct(data: UnitContainer<Short>, isDivTWO:Boolean): OpcContainer<Short> {
         var curBase=BigInteger.ONE
         var code=BigInteger.ZERO
         val base=getBase(data)
@@ -28,7 +28,7 @@ class StegoConvertor private constructor(){
 
         return OpcContainer(code, base)
     }
-    fun reverce(data: OpcContainer<Short>, width:Int, height:Int, isMultTWO:Boolean=true): UnitContainer<Short> {
+    fun reverce(data: OpcContainer<Short>, width:Int, height:Int, isMultTWO:Boolean): UnitContainer<Short> {
         var curBase=BigInteger.ONE
         var nextBase=BigInteger.ONE
         val base=data.base
