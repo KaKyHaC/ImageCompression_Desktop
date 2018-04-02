@@ -32,4 +32,17 @@ data class UnitContainer<T>(private val data:Array<Array<T>>,var message:Boolean
         result = 31 * result + message.hashCode()
         return result
     }
+
+    override fun toString(): String {
+        val sb=StringBuilder()
+        for((i ,s) in data.withIndex()){
+            for((j ,v) in s.withIndex()){
+                sb.append("$v,")
+            }
+            sb.append("\n")
+        }
+        return sb.toString()
+    }
+
+
 }

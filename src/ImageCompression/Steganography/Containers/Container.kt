@@ -48,4 +48,16 @@ class Container<T>(override var width: Int, override var height: Int) :IContaine
         }
         return true
     }
+
+    override fun toString(): String {
+        val sb=StringBuilder()
+        for((i ,s) in container.withIndex()){
+            for((j ,v) in s.withIndex()){
+                sb.append("$v,")
+            }
+            sb.append("\n")
+        }
+        return sb.toString()
+    }
+
 }
