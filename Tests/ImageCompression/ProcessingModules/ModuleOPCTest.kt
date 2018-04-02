@@ -1,7 +1,6 @@
-package ImageCompression.Objects
+package ImageCompression.ProcessingModules
 
 import ImageCompression.Constants.State
-import ImageCompression.Containers.MatrixTest
 import ImageCompression.Utils.Functions.ImageIOTest
 import ImageCompression.Utils.Objects.TimeManager
 import org.junit.Assert.*

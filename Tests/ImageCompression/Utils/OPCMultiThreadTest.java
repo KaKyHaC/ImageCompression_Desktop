@@ -1,6 +1,5 @@
 package ImageCompression.Utils;
 
-import ImageCompression.Containers.Matrix;
 import ImageCompression.Utils.Objects.DataOPC;
 import ImageCompression.Utils.Objects.Flag;
 import ImageCompression.Utils.Functions.OPCMultiThread;

@@ -1,9 +1,9 @@
 package ImageCompression.Utils;
 
-import ImageCompression.Containers.BoxOfOpc;
+import ImageCompression.Containers.TripleDataOpcMatrix;
 import ImageCompression.Constants.State;
-import ImageCompression.Objects.ModuleOPC;
-import ImageCompression.Containers.Matrix;
+import ImageCompression.ProcessingModules.ModuleOPC;
+import ImageCompression.Containers.TripleShortMatrix;
 import ImageCompression.Utils.Objects.DataOPC;
 import ImageCompression.Utils.Functions.Encryption;
 import ImageCompression.Utils.Objects.Flag;
@@ -15,11 +15,11 @@ import static org.junit.Assert.*;
 public class EncryptionTest {
     ModuleOPC moduleOPC, _moduleOPC;
     String key="dimas";
-    Matrix matrix=new Matrix(200,200,new Flag("0"), State.RGB);
+    TripleShortMatrix tripleShortMatrix =new TripleShortMatrix(200,200,new Flag("0"), State.RGB);
     @Before
     public void setUp() throws Exception {
-        moduleOPC =new ModuleOPC(matrix);
-        _moduleOPC =new ModuleOPC(matrix);
+        moduleOPC =new ModuleOPC(tripleShortMatrix);
+        _moduleOPC =new ModuleOPC(tripleShortMatrix);
     }
 
     @Test
@@ -33,7 +33,7 @@ public class EncryptionTest {
         Encryption.encode(moduleOPC.getBoxOfOpc(true),key);
         AssertBoxEquals(moduleOPC.getBoxOfOpc(true), _moduleOPC.getBoxOfOpc(true));
     }
-    private void AssertBoxEquals(BoxOfOpc a, BoxOfOpc b){
+    private void AssertBoxEquals(TripleDataOpcMatrix a, TripleDataOpcMatrix b){
         AssertDataEqual(a.getA(),b.getA());
         AssertDataEqual(a.getB(),b.getB());
         AssertDataEqual(a.getC(),b.getC());

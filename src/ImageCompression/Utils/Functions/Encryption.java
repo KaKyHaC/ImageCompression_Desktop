@@ -1,8 +1,7 @@
 package ImageCompression.Utils.Functions;
 
 
-import ImageCompression.Containers.BoxOfOpc;
-import ImageCompression.Objects.ModuleOPC;
+import ImageCompression.Containers.TripleDataOpcMatrix;
 import ImageCompression.Utils.Objects.DataOPC;
 
 /**
@@ -15,7 +14,7 @@ public class Encryption { //singleton
 
     static short[] key;
 
-    public static void encode(BoxOfOpc bopc, String key){
+    public static void encode(TripleDataOpcMatrix bopc, String key){
         ourInstance.key=KeyGen(key);
         Encryption.encode(bopc.getA());
         Encryption.encode(bopc.getB());

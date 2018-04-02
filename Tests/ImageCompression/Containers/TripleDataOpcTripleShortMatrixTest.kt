@@ -1,6 +1,5 @@
 package ImageCompression.Containers
 
-import ImageCompression.Utils.Objects.ByteVector
 import ImageCompression.Utils.Objects.DataOPC
 import ImageCompression.Utils.Objects.DataOPC.SIZEOFBLOCK
 import ImageCompression.Utils.Objects.Flag
@@ -10,9 +9,9 @@ import java.math.BigInteger
 import java.util.*
 import kotlin.test.assertFails
 
-class BoxOfOpcTest{
-    val box=BoxOfOpc()
-    val box1=BoxOfOpc()
+class TripleDataOpcTripleShortMatrixTest {
+    val box= TripleDataOpcMatrix()
+    val box1= TripleDataOpcMatrix()
     val flag=Flag("0")
     var rand=Random()
 
@@ -35,7 +34,7 @@ class BoxOfOpcTest{
     @Test
     fun TestVector(){
         init(box)
-        var bv=ByteVector()
+        var bv= ByteVector()
 
         box.writeToVector(bv,flag)
         assertFails { assertEquals(box,box1) }
@@ -44,18 +43,18 @@ class BoxOfOpcTest{
         assertEquals(box,box1)
     }
 
-    fun init(box:BoxOfOpc){
+    fun init(boxMatrixData: TripleDataOpcMatrix){
         flag.isOneFile=true
         flag.isDC=true
         flag.isLongCode=true
         val size=200
 
         var a=Array(size,{x->Array(size,{y->initDopc(DataOPC(),flag)})})
-        box.a=a
+        boxMatrixData.a=a
         a=Array(size,{x->Array(size,{y->initDopc(DataOPC(),flag)})})
-        box.b=a
+        boxMatrixData.b=a
         a=Array(size,{x->Array(size,{y->initDopc(DataOPC(),flag)})})
-        box.c=a
+        boxMatrixData.c=a
     }
     fun initDopc(dataOPC: DataOPC, flag: Flag):DataOPC{
         val size=5

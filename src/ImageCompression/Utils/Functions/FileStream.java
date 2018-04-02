@@ -1,11 +1,11 @@
 //package ImageCompression.Utils.Functions;
 //
 //
-//import ImageCompression.Containers.BoxOfOpc;
-//import ImageCompression.Objects.ModuleOPC;
-//import ImageCompression.Utils.Objects.DataOPC;
-//import ImageCompression.Utils.Objects.Flag;
-//import ImageCompression.Utils.Objects.Parameters;
+//import ImageCompression.Containers.TripleDataOpcMatrix;
+//import ImageCompression.ProcessingModules.ModuleOPC;
+//import ImageCompression.Utils.ProcessingModules.DataOpc;
+//import ImageCompression.Utils.ProcessingModules.Flag;
+//import ImageCompression.Utils.ProcessingModules.Parameters;
 //
 //import java.io.*;
 //import java.util.LinkedList;
@@ -16,7 +16,7 @@
 // */
 //public class FileStream {
 //
-//    private DataOPC[][] a,b,c;
+//    private DataOpc[][] a,b,c;
 //    private Flag flag;
 //    private Parameters param=Parameters.getInstanse();
 //
@@ -117,7 +117,7 @@
 ///*---------------------------------------
 //
 ///*-----------------------------------------*/
-//    private void WriteDateOPC(DataOPC d){
+//    private void WriteDateOPC(DataOpc d){
 //         {
 //            if (flag.isDC())
 //                bw.writeShort( d.getDC());
@@ -144,7 +144,7 @@
 //
 //    }
 //
-//    private void WriteDateOPC(DataOPC[][] a) {
+//    private void WriteDateOPC(DataOpc[][] a) {
 //
 //        int w=a.length;
 //        int h=a[0].length;
@@ -179,18 +179,18 @@
 //*/
 //
 //    }
-//    private DataOPC[][] ReadDateOPC(int zero){
+//    private DataOpc[][] ReadDateOPC(int zero){
 //
 //        try {
 //
 //            int w = br.readShort();
 //            int h = br.readShort();
 //            //TODO constructor
-//            DataOPC[][] d = new DataOPC[w][h];
+//            DataOpc[][] d = new DataOpc[w][h];
 //
 //            for (int i = 0; i < w; i++) {
 //                for (int j = 0; j < h; j++) {
-//                    d[i][j] = new DataOPC();
+//                    d[i][j] = new DataOpc();
 //                    if (flag.isDC())
 //                        d[i][j].setDC(br.readShort());
 //
@@ -241,7 +241,7 @@
 //
 //    }
 //
-//    private void WriteBase(DataOPC[][] a){
+//    private void WriteBase(DataOpc[][] a){
 //        int w=a.length;
 //        int h=a[0].length;
 //     /*   ShortToStream(bw,(short)w);
@@ -259,7 +259,7 @@
 //            }
 //        }
 //    }
-//    private void ReadBase(DataOPC[][]a){
+//    private void ReadBase(DataOpc[][]a){
 //        int w=a.length;
 //        int h=a[0].length;
 //        try {
@@ -326,7 +326,7 @@
 //    }
 //
 //
-//    public void Write(String file, BoxOfOpc box, Flag flag){
+//    public void Write(String file, TripleDataOpcMatrix box, Flag flag){
 //        this.flag=flag;
 //        a=box.getA();
 //        b=box.getB();
@@ -342,7 +342,7 @@
 //        if(flag.isOneFile()==false)
 //            ReadBase(file+".bas");
 //
-//        BoxOfOpc boxOfOpc=new BoxOfOpc(a,b,c);
+//        TripleDataOpcMatrix boxOfOpc=new TripleDataOpcMatrix(a,b,c);
 //        ModuleOPC box=new ModuleOPC(boxOfOpc,flag);
 //        return box;
 //    }
@@ -460,7 +460,7 @@
 //        return val;
 //    }
 //
-//    private void WriteGlobalBase(DataOPC[][] a){
+//    private void WriteGlobalBase(DataOpc[][] a){
 //        int w=a.length;
 //        int h=a[0].length;
 //        {
@@ -479,7 +479,7 @@
 //            }
 //        }
 //    }
-//    private void ReadGlobalBase(DataOPC[][] a){
+//    private void ReadGlobalBase(DataOpc[][] a){
 //        int w=a.length;
 //        int h=a[0].length;
 //        try {
@@ -530,7 +530,7 @@
 //}
 //
 //class WriteDate{
-//    public static void noDCnoLong(DataOutputStream bw,DataOPC d){
+//    public static void noDCnoLong(DataOutputStream bw,DataOpc d){
 //        try {
 //
 //                byte[] code = d.BinaryStringGet();
@@ -549,7 +549,7 @@
 //        }
 //
 //    }
-//    public static void noDCisLong(DataOutputStream bw,DataOPC d){
+//    public static void noDCisLong(DataOutputStream bw,DataOpc d){
 //        try {
 //            Vector<Long> code = d.getVectorCode();
 //            int len = code.size();
@@ -568,7 +568,7 @@
 //
 //        }
 //    }
-//    public static void isDCnoLong(DataOutputStream bw,DataOPC d){
+//    public static void isDCnoLong(DataOutputStream bw,DataOpc d){
 //        try {
 //
 //                bw.writeShort( d.getDC());
@@ -588,7 +588,7 @@
 //
 //        }
 //    }
-//    public static void isDCisLong(DataOutputStream bw,DataOPC d){
+//    public static void isDCisLong(DataOutputStream bw,DataOpc d){
 //        try {
 //            bw.writeShort( d.getDC());
 //            Vector<Long> code = d.getVectorCode();

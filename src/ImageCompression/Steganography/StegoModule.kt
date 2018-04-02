@@ -1,10 +1,8 @@
 package ImageCompression.Steganography
 
-import ImageCompression.Steganography.Containers.IContainer
-import ImageCompression.Steganography.Containers.OpcContainer
 import ImageCompression.Steganography.Utils.ImageProcessorUtils
 import ImageCompression.Steganography.Utils.OpcsParser
-import ImageCompression.Utils.Objects.ByteVector
+import ImageCompression.Containers.ByteVector
 import ImageCompression.Utils.Objects.ByteVectorFile
 import ImageCompression.Utils.Objects.Flag
 import java.awt.image.BufferedImage
@@ -19,7 +17,7 @@ class StegoModule {
         val units=ipu.imageToUnits(image,unit_W, unit_H)
         message?.let { val index=ipu.setMessage(units,message)}
         val opcs=ipu.directStego(units,isDivTwo)
-        val vector=ByteVector()
+        val vector= ByteVector()
         opcsParser.toByteVector(vector,opcs, OpcsParser.Info(image.width,image.height,unit_W,unit_H))
         ByteVectorFile(to).write(vector, Flag(0))
     }

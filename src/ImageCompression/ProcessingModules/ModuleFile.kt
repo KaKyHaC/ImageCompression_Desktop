@@ -1,7 +1,7 @@
-package ImageCompression.Objects
+package ImageCompression.ProcessingModules
 
-import ImageCompression.Containers.BoxOfOpc
-import ImageCompression.Utils.Objects.ByteVector
+import ImageCompression.Containers.TripleDataOpcMatrix
+import ImageCompression.Containers.ByteVector
 import ImageCompression.Utils.Objects.ByteVectorFile
 import ImageCompression.Utils.Objects.Flag
 import ImageCompression.Utils.Objects.TimeManager
@@ -23,12 +23,12 @@ class ModuleFile{
     var globalBaseW:Int=1
     var globalBaseH:Int=1
 
-    fun write(boxOfOpc: BoxOfOpc,flag: Flag) {
+    fun write(tripleDataOpcMatrix: TripleDataOpcMatrix, flag: Flag) {
         val v = ByteVector()
 
-        boxOfOpc.writeToVector(v, flag)
+        tripleDataOpcMatrix.writeToVector(v, flag)
         if(flag.isGlobalBase){
-            boxOfOpc.writeBaseToVector(v,flag,globalBaseW,globalBaseH)
+            tripleDataOpcMatrix.writeBaseToVector(v,flag,globalBaseW,globalBaseH)
         }
         TimeManager.Instance.append("box to vector")
 
@@ -37,19 +37,19 @@ class ModuleFile{
 
         if (!flag.isOneFile) {
             val vbase = ByteVector()
-            boxOfOpc.writeBaseToVector(v,flag,globalBaseW,globalBaseH)
+            tripleDataOpcMatrix.writeBaseToVector(v,flag,globalBaseW,globalBaseH)
             TimeManager.Instance.append("base to vector")
             val bw = ByteVectorFile(pathToName + typeSup)
             bw.write(vbase, flag)
         }
 
     }
-    fun read():Pair<BoxOfOpc,Flag>{
+    fun read():Pair<TripleDataOpcMatrix,Flag>{
         val fr=ByteVectorFile(pathToName+ typeMain)
         val p=fr.read()
         val flag=p.second
         val vmain=p.first
-        val opcs=BoxOfOpc()
+        val opcs= TripleDataOpcMatrix()
 
         opcs.readFromVector(vmain,flag)
         if(flag.isGlobalBase){

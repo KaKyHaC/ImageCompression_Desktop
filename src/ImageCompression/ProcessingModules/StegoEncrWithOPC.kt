@@ -1,7 +1,7 @@
-package ImageCompression.Objects
+package ImageCompression.ProcessingModules
 
-import ImageCompression.Containers.BoxOfOpc
-import ImageCompression.Containers.Matrix
+import ImageCompression.Containers.TripleDataOpcMatrix
+import ImageCompression.Containers.TripleShortMatrix
 import ImageCompression.Utils.Functions.Encryption
 import ImageCompression.Utils.Functions.Steganography
 import ImageCompression.Utils.Objects.Flag
@@ -10,19 +10,19 @@ import ImageCompression.Utils.Objects.TimeManager
 class StegoEncrWithOPC {
     private var opcs: ModuleOPC
 
-    constructor(matrix: Matrix){
-        opcs= ModuleOPC(matrix)
-//        isMatrix=true
+    constructor(tripleShortMatrix: TripleShortMatrix){
+        opcs= ModuleOPC(tripleShortMatrix)
+//        getTripleShortMatrix=true
     }
-    constructor(boxOfOpc: BoxOfOpc, flag: Flag){
-        this.opcs= ModuleOPC(boxOfOpc, flag)
+    constructor(tripleDataOpcMatrix: TripleDataOpcMatrix, flag: Flag){
+        this.opcs= ModuleOPC(tripleDataOpcMatrix, flag)
 //        isOPCS=true
     }
     var message:String?=null
     var password:String?=null
 
     fun FromMatrixToOpcs(isAsync: Boolean=true,progressListener:((x:Int)->Unit)? = null){
-        if(!opcs.isMatrix)
+        if(!opcs.tripleShortMatrix)
             return
 
         progressListener?.invoke(0)
@@ -73,8 +73,8 @@ class StegoEncrWithOPC {
         }
         progressListener?.invoke(100)
 
-        assert(opcs.isMatrix)
-//        isMatrix=true
+        assert(opcs.tripleShortMatrix)
+//        getTripleShortMatrix=true
     }
     var baseSizeW:Int=1
     var baseSizeH:Int=1
@@ -98,14 +98,14 @@ class StegoEncrWithOPC {
     }
 
 
-    fun getMatrix(isAsync: Boolean=true):Matrix{
-        if(!opcs.isMatrix)
+    fun getMatrix(isAsync: Boolean=true): TripleShortMatrix {
+        if(!opcs.tripleShortMatrix)
             FromOpcToMatrix(isAsync)
 
-        assert(opcs.isMatrix)
+        assert(opcs.tripleShortMatrix)
         return opcs.getMatrix(isAsync)
     }
-    fun getBoxOfOpc(isAsync: Boolean=true): BoxOfOpc {
+    fun getBoxOfOpc(isAsync: Boolean=true): TripleDataOpcMatrix {
         if(!opcs.isOpcs)
             FromMatrixToOpcs(isAsync)
 

@@ -3,12 +3,12 @@ package ImageCompression.Steganography.Utils
 import ImageCompression.Steganography.Containers.Container
 import ImageCompression.Steganography.Containers.IContainer
 import ImageCompression.Steganography.Containers.OpcContainer
-import ImageCompression.Utils.Objects.ByteVector
+import ImageCompression.Containers.ByteVector
 import java.math.BigInteger
 
 class OpcsParser{
     data class Info(val width:Int,val height:Int,val unit_W:Int,val unit_H: Int)
-    fun toByteVector(vector: ByteVector,opcs:ImageProcessorUtils.Triple<IContainer<OpcContainer<Short>>>,info:Info){
+    fun toByteVector(vector: ByteVector, opcs:ImageProcessorUtils.Triple<IContainer<OpcContainer<Short>>>, info:Info){
         infoToVector(info,vector)
         vector.append(opcs.r?.width!!.toShort())
         vector.append(opcs.r?.height!!.toShort())
@@ -32,19 +32,19 @@ class OpcsParser{
 
         return Pair(res,info)
     }
-    private fun IContainer<OpcContainer<Short>>.writeToBV(byteVector: ByteVector,info: Info){
+    private fun IContainer<OpcContainer<Short>>.writeToBV(byteVector: ByteVector, info: Info){
         forEach { el ->
             el?.writeToBV(byteVector,info)
             el
         }
     }
-    private fun IContainer<OpcContainer<Short>>.readFromBV(byteVector: ByteVector,info: Info){
+    private fun IContainer<OpcContainer<Short>>.readFromBV(byteVector: ByteVector, info: Info){
         forEach { el ->
             el?.readFromBV(byteVector,info)
             el
         }
     }
-    private fun OpcContainer<Short>.writeToBV(byteVector: ByteVector,info: Info){
+    private fun OpcContainer<Short>.writeToBV(byteVector: ByteVector, info: Info){
         val base=this.base
         val codeLen=getMaxCodeLen(base,info)
         val bytes=this.code.toByteArray()
@@ -59,7 +59,7 @@ class OpcsParser{
             byteVector.append(i)
 
     }
-    private fun OpcContainer<Short>.readFromBV(byteVector: ByteVector,info: Info){
+    private fun OpcContainer<Short>.readFromBV(byteVector: ByteVector, info: Info){
         base= Array(info.unit_H){(0).toShort()}
         for(i in 0 until info.unit_H){
             base[i]=byteVector.getNextShort()

@@ -364,13 +364,13 @@ class DCT
     public Object Divisors[] = new Object[2];
 
     /**
-     * Quantitization Matrix for luminace.
+     * Quantitization TripleShortMatrix for luminace.
      */
     public int quantum_luminance[]     = new int[N*N];
     public double DivisorsLuminance[] = new double[N*N];
 
     /**
-     * Quantitization Matrix for chrominance.
+     * Quantitization TripleShortMatrix for chrominance.
      */
     public int quantum_chrominance[]     = new int[N*N];
     public double DivisorsChrominance[] = new double[N*N];

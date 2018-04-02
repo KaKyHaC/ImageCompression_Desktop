@@ -1,10 +1,9 @@
-package ImageCompression.Objects
+package ImageCompression.ProcessingModules
 
 import ImageCompression.Constants.State
-import ImageCompression.Containers.Matrix
+import ImageCompression.Containers.TripleShortMatrix
 import ImageCompression.Utils.Objects.Flag
 import ImageCompression.Utils.Objects.TimeManager
-import org.junit.Before
 import org.junit.Test
 
 import java.awt.image.BufferedImage
@@ -89,8 +88,8 @@ class MyBufferedImageTest {
         assertTrue(t2>t1)
 
     }
-    fun getGradientMatrix(w:Int,h:Int):Matrix{
-        var m=Matrix(w,h,Flag(0),State.RGB)
+    fun getGradientMatrix(w:Int,h:Int): TripleShortMatrix {
+        var m= TripleShortMatrix(w,h,Flag(0),State.RGB)
         forEach(w,h, { x, y ->
             run {
                 m.a[x][y] = ((x + y)%255).toShort()

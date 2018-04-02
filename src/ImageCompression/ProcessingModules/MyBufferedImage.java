@@ -1,8 +1,8 @@
-package ImageCompression.Objects;
+package ImageCompression.ProcessingModules;
 
-import ImageCompression.Containers.Matrix;
+import ImageCompression.Containers.TripleShortMatrix;
 import ImageCompression.Constants.State;
-import ImageCompression.Utils.Objects.ByteVector;
+import ImageCompression.Containers.ByteVector;
 import ImageCompression.Utils.Objects.Flag;
 import ImageCompression.Utils.Objects.TimeManager;
 
@@ -15,27 +15,27 @@ import java.util.concurrent.Future;
 
 public class MyBufferedImage {
     private static final int SIZEOFBLOCK = 8;
-    private Matrix matrix;
+    private TripleShortMatrix tripleShortMatrix;
     private BufferedImage bitmap;
 
 
     public MyBufferedImage(BufferedImage _b, Flag flag) {
         bitmap = _b;
-        matrix = new Matrix(bitmap.getWidth(), bitmap.getHeight(), flag,State.bitmap);
+        tripleShortMatrix = new TripleShortMatrix(bitmap.getWidth(), bitmap.getHeight(), flag,State.bitmap);
     }
-    public MyBufferedImage(Matrix matrix){
-        this.matrix = matrix;
-        bitmap = new BufferedImage(matrix.getWidth(), matrix.getHeight(),BufferedImage.TYPE_3BYTE_BGR);
+    public MyBufferedImage(TripleShortMatrix tripleShortMatrix){
+        this.tripleShortMatrix = tripleShortMatrix;
+        bitmap = new BufferedImage(tripleShortMatrix.getWidth(), tripleShortMatrix.getHeight(),BufferedImage.TYPE_3BYTE_BGR);
     }
     public MyBufferedImage(ByteVector vector){
-        this.matrix=getMatrixFromByteVector(vector);
-        bitmap = new BufferedImage(matrix.getWidth(), matrix.getHeight(),BufferedImage.TYPE_3BYTE_BGR);
+        this.tripleShortMatrix =getMatrixFromByteVector(vector);
+        bitmap = new BufferedImage(tripleShortMatrix.getWidth(), tripleShortMatrix.getHeight(),BufferedImage.TYPE_3BYTE_BGR);
     }
 
     //TODO string constructor
 //TODO fix threads
     private void FromBufferedImageToYCbCrParallelMatrix() {
-        if (matrix.getState() == State.bitmap)
+        if (tripleShortMatrix.getState() == State.bitmap)
         {
             int w=bitmap.getWidth();
             int h=bitmap.getHeight();
@@ -56,13 +56,13 @@ public class MyBufferedImage {
                     e.printStackTrace();
                 }
             }
-            matrix.setState(State.YBR);
+            tripleShortMatrix.setState(State.YBR);
         }
 
     }
     private void FromBufferedImageToYCbCr() {
 
-        if (matrix.getState() == State.bitmap)
+        if (tripleShortMatrix.getState() == State.bitmap)
         {
             int [][]img =convertTo2DWithoutUsingGetRGB(bitmap);
             forEach(bitmap.getWidth(),bitmap.getHeight(),(x, y) -> {
@@ -86,25 +86,25 @@ public class MyBufferedImage {
 //                       vcr++;
 
 
-                matrix.getA()[x][y] = (short) vy;
-                matrix.getB()[x][y] = (short) vcb;
-                matrix.getC()[x][y] = (short) vcr;
+                tripleShortMatrix.getA()[x][y] = (short) vy;
+                tripleShortMatrix.getB()[x][y] = (short) vcb;
+                tripleShortMatrix.getC()[x][y] = (short) vcr;
 
             });
 
-            matrix.setState(State.YBR);
+            tripleShortMatrix.setState(State.YBR);
         }
 
     }
     private void FromYCbCrToBufferedImage(){
-        if(matrix.getState() ==State.YBR){
+        if(tripleShortMatrix.getState() ==State.YBR){
             final int pixelAlpha=255; //for argb
 
-            forEach(matrix.getWidth(), matrix.getHeight(),(x, y) -> {
+            forEach(tripleShortMatrix.getWidth(), tripleShortMatrix.getHeight(),(x, y) -> {
                 double r,g,b;
-                r=(matrix.getA()[x][y]+1.402*(matrix.getC()[x][y]-128));
-                g=(matrix.getA()[x][y]-0.34414*(matrix.getB()[x][y]-128)-0.71414*(matrix.getC()[x][y]-128));
-                b=(matrix.getA()[x][y]+1.772*(matrix.getB()[x][y]-128));
+                r=(tripleShortMatrix.getA()[x][y]+1.402*(tripleShortMatrix.getC()[x][y]-128));
+                g=(tripleShortMatrix.getA()[x][y]-0.34414*(tripleShortMatrix.getB()[x][y]-128)-0.71414*(tripleShortMatrix.getC()[x][y]-128));
+                b=(tripleShortMatrix.getA()[x][y]+1.772*(tripleShortMatrix.getB()[x][y]-128));
 
                 if(g<0)g=0;//new
                 if(r<0)r=0;
@@ -134,13 +134,13 @@ public class MyBufferedImage {
                 // полученный результат вернём в BufferedImage
                 bitmap.setRGB(x, y, val);
             });
-            matrix.setState(State.bitmap);
+            tripleShortMatrix.setState(State.bitmap);
         }
     }
 
     private void FromBufferedImageToRGB() {
 
-        if(matrix.getState() ==State.bitmap) {
+        if(tripleShortMatrix.getState() ==State.bitmap) {
             int Width=bitmap.getWidth();
             int Height=bitmap.getHeight();
 
@@ -149,17 +149,17 @@ public class MyBufferedImage {
 //                    int pixelColor = rgb[i*Height + j];
                     int pixelColor=bitmap.getRGB(i,j);
                     // получим цвет каждого пикселя
-                    matrix.getA()[i][j] = (short) ((pixelColor)>>16&0xFF);
-                    matrix.getB()[i][j] = (short) ((pixelColor)>>8&0xFF);
-                    matrix.getC()[i][j] = (short) ((pixelColor)&0xFF);
+                    tripleShortMatrix.getA()[i][j] = (short) ((pixelColor)>>16&0xFF);
+                    tripleShortMatrix.getB()[i][j] = (short) ((pixelColor)>>8&0xFF);
+                    tripleShortMatrix.getC()[i][j] = (short) ((pixelColor)&0xFF);
 
                 }
             }
-            matrix.setState(State.RGB);
+            tripleShortMatrix.setState(State.RGB);
         }
     }
     private void FromRGBtoBufferedImage(){
-        if(matrix.getState() ==State.RGB)
+        if(tripleShortMatrix.getState() ==State.RGB)
         {
             int Width=bitmap.getWidth();
             int Height=bitmap.getHeight();
@@ -170,9 +170,9 @@ public class MyBufferedImage {
                 {
 
                     int pixelAlpha=255; //for argb
-                    int pixelBlue= matrix.getC()[i][j]&0xFF;
-                    int pixelRed= matrix.getA()[i][j]&0xFF;
-                    int pixelGreen= matrix.getB()[i][j]&0xFF;
+                    int pixelBlue= tripleShortMatrix.getC()[i][j]&0xFF;
+                    int pixelRed= tripleShortMatrix.getA()[i][j]&0xFF;
+                    int pixelGreen= tripleShortMatrix.getB()[i][j]&0xFF;
 //                    int val =(pixelAlpha<<24)| (pixelRed<<16) | (pixelGreen<<8) | pixelBlue; //for argb
                     int val =(pixelRed<<16) | (pixelGreen<<8) | pixelBlue; //for rgb
 
@@ -180,13 +180,13 @@ public class MyBufferedImage {
                     bitmap.setRGB(i, j, val);
                 }
             }
-            matrix.setState(State.bitmap);
+            tripleShortMatrix.setState(State.bitmap);
         }
     }
 
     private void FromYBRtoRGB(){
 
-        if(matrix.getState() ==State.YBR) {
+        if(tripleShortMatrix.getState() ==State.YBR) {
             int Width=bitmap.getWidth();
             int Height=bitmap.getHeight();
 
@@ -194,9 +194,9 @@ public class MyBufferedImage {
             {
                 for(int j=0;j<Height;j++) {
                     double r, g, b;
-                    r = (matrix.getA()[i][j] + 1.402 * (matrix.getC()[i][j] - 128));
-                    g = (matrix.getA()[i][j] - 0.34414 * (matrix.getB()[i][j] - 128) - 0.71414 * (matrix.getC()[i][j] - 128));
-                    b = (matrix.getA()[i][j] + 1.772 * (matrix.getB()[i][j] - 128));
+                    r = (tripleShortMatrix.getA()[i][j] + 1.402 * (tripleShortMatrix.getC()[i][j] - 128));
+                    g = (tripleShortMatrix.getA()[i][j] - 0.34414 * (tripleShortMatrix.getB()[i][j] - 128) - 0.71414 * (tripleShortMatrix.getC()[i][j] - 128));
+                    b = (tripleShortMatrix.getA()[i][j] + 1.772 * (tripleShortMatrix.getB()[i][j] - 128));
                     //add
                     if (r % 1 >= 0.5)
                         r = (short) ++r;
@@ -213,26 +213,26 @@ public class MyBufferedImage {
                     if (r > 255) r = 255;
                     if (g > 255) g = 255;
                     if (b > 255) b = 255;
-                    matrix.getA()[i][j] = (short) r;
-                    matrix.getB()[i][j] = (short) g;
-                    matrix.getC()[i][j] = (short) b;
+                    tripleShortMatrix.getA()[i][j] = (short) r;
+                    tripleShortMatrix.getB()[i][j] = (short) g;
+                    tripleShortMatrix.getC()[i][j] = (short) b;
                 }
             }
-            matrix.setState(State.RGB);
+            tripleShortMatrix.setState(State.RGB);
         }
     }
     private void FromRGBtoYBR() {
 
-        if (matrix.getState() == State.RGB){
+        if (tripleShortMatrix.getState() == State.RGB){
             int Width=bitmap.getWidth();
             int Height=bitmap.getHeight();
 
             for (int i = 0; i < Width; i++) {
                 for (int j = 0; j < Height; j++) {
                     // получим цвет каждого пикселя
-                    double pixelRed = matrix.getA()[i][j];
-                    double pixelGreen = matrix.getB()[i][j];
-                    double pixelBlue = matrix.getC()[i][j];
+                    double pixelRed = tripleShortMatrix.getA()[i][j];
+                    double pixelGreen = tripleShortMatrix.getB()[i][j];
+                    double pixelBlue = tripleShortMatrix.getC()[i][j];
 
                     double vy = (0.299 * pixelRed) + (0.587 * pixelGreen) + (0.114 * pixelBlue);
                     double vcb = 128 - (0.168736 * pixelRed) - (0.331264 * pixelGreen) + (0.5 * pixelBlue);
@@ -245,54 +245,54 @@ public class MyBufferedImage {
 //                    if(vcr%1>=0.5)
 //                        vcr++;
 
-                    matrix.getA()[i][j] = (short) vy;
-                    matrix.getB()[i][j] = (short) vcb;
-                    matrix.getC()[i][j] = (short) vcr;
+                    tripleShortMatrix.getA()[i][j] = (short) vy;
+                    tripleShortMatrix.getB()[i][j] = (short) vcb;
+                    tripleShortMatrix.getC()[i][j] = (short) vcr;
                 }
             }
-            matrix.setState(State.YBR);
+            tripleShortMatrix.setState(State.YBR);
         }
     }
 
     private void PixelEnlargement(){
-        if (matrix.getState() == State.YBR && matrix.getF().isEnlargement()) {
-            int cWidth= matrix.getWidth() /2;
-            int cHeight= matrix.getHeight() /2;
+        if (tripleShortMatrix.getState() == State.YBR && tripleShortMatrix.getF().isEnlargement()) {
+            int cWidth= tripleShortMatrix.getWidth() /2;
+            int cHeight= tripleShortMatrix.getHeight() /2;
             short[][] enlCb=new short[cWidth][cHeight];
             short[][] enlCr=new short[cWidth][cHeight];
             for (int i = 0; i < cWidth; i++) {
                 for (int j = 0; j < cHeight; j++) {
-                    enlCb[i][j] = (short)( (matrix.getB()[i * 2][j * 2] + matrix.getB()[i * 2 + 1][j * 2]
-                            + matrix.getB()[i * 2][j * 2 + 1] + matrix.getB()[i * 2 + 1][j * 2 + 1])/4);
-                    enlCr[i][j] = (short)( (matrix.getC()[i * 2][j * 2] + matrix.getC()[i * 2 + 1][j * 2]
-                            + matrix.getC()[i * 2][j * 2 + 1] + matrix.getC()[i * 2 + 1][j * 2 + 1])/4);
+                    enlCb[i][j] = (short)( (tripleShortMatrix.getB()[i * 2][j * 2] + tripleShortMatrix.getB()[i * 2 + 1][j * 2]
+                            + tripleShortMatrix.getB()[i * 2][j * 2 + 1] + tripleShortMatrix.getB()[i * 2 + 1][j * 2 + 1])/4);
+                    enlCr[i][j] = (short)( (tripleShortMatrix.getC()[i * 2][j * 2] + tripleShortMatrix.getC()[i * 2 + 1][j * 2]
+                            + tripleShortMatrix.getC()[i * 2][j * 2 + 1] + tripleShortMatrix.getC()[i * 2 + 1][j * 2 + 1])/4);
                 }
             }
-            matrix.setB(enlCb);
-            matrix.setC(enlCr);
-            matrix.setState(State.Yenl);
+            tripleShortMatrix.setB(enlCb);
+            tripleShortMatrix.setC(enlCr);
+            tripleShortMatrix.setState(State.Yenl);
         }
 
     }
     private void PixelRestoration() {
 
-        if (matrix.getState() == State.Yenl && matrix.getF().isEnlargement()) {
-            int cWidth= matrix.getWidth() /2;
-            int cHeight= matrix.getHeight() /2;
-            int Width= matrix.getWidth();
-            int Height= matrix.getHeight();
+        if (tripleShortMatrix.getState() == State.Yenl && tripleShortMatrix.getF().isEnlargement()) {
+            int cWidth= tripleShortMatrix.getWidth() /2;
+            int cHeight= tripleShortMatrix.getHeight() /2;
+            int Width= tripleShortMatrix.getWidth();
+            int Height= tripleShortMatrix.getHeight();
             short[][]Cb=new short[Width][Height];
             short[][]Cr=new short[Width][Height];
             for (int i = 0; i < cWidth; i++) {
                 for (int j = 0; j < cHeight; j++) {
-                    Cb[i * 2][j * 2] = Cb[i * 2 + 1][j * 2] = Cb[i * 2][j * 2 + 1] = Cb[i * 2 + 1][j * 2 + 1] = matrix.getB()[i][j];
-                    Cr[i * 2][j * 2] = Cr[i * 2 + 1][j * 2] = Cr[i * 2][j * 2 + 1] = Cr[i * 2 + 1][j * 2 + 1] = matrix.getC()[i][j];
+                    Cb[i * 2][j * 2] = Cb[i * 2 + 1][j * 2] = Cb[i * 2][j * 2 + 1] = Cb[i * 2 + 1][j * 2 + 1] = tripleShortMatrix.getB()[i][j];
+                    Cr[i * 2][j * 2] = Cr[i * 2 + 1][j * 2] = Cr[i * 2][j * 2 + 1] = Cr[i * 2 + 1][j * 2 + 1] = tripleShortMatrix.getC()[i][j];
                 }
             }
-            matrix.setB(Cb);
-            matrix.setC(Cr);
+            tripleShortMatrix.setB(Cb);
+            tripleShortMatrix.setC(Cr);
 
-            matrix.setState(State.YBR);
+            tripleShortMatrix.setState(State.YBR);
         }
     }
 
@@ -314,34 +314,34 @@ public class MyBufferedImage {
     }
 
     private void minus128(){
-        minus128(matrix.getA());
-        minus128(matrix.getB());
-        minus128(matrix.getC());
+        minus128(tripleShortMatrix.getA());
+        minus128(tripleShortMatrix.getB());
+        minus128(tripleShortMatrix.getC());
     }
     private void plus128(){
-        plus128(matrix.getA());
-        plus128(matrix.getB());
-        plus128(matrix.getC());
+        plus128(tripleShortMatrix.getA());
+        plus128(tripleShortMatrix.getB());
+        plus128(tripleShortMatrix.getC());
     }
 
     private ByteVector getByteVectorFromRGB(){
-        if(matrix.getState()!=State.RGB)
+        if(tripleShortMatrix.getState()!=State.RGB)
             return null;
 
         ByteVector vector=new ByteVector(10);
-        vector.append((short)matrix.getWidth());
-        vector.append((short)matrix.getHeight());
-        vector.append(matrix.getF().getFlag());
+        vector.append((short) tripleShortMatrix.getWidth());
+        vector.append((short) tripleShortMatrix.getHeight());
+        vector.append(tripleShortMatrix.getF().getFlag());
 
-        for(int i=0;i<matrix.getWidth();i++){
-            for(int j=0;j<matrix.getHeight();j++){
+        for(int i = 0; i< tripleShortMatrix.getWidth(); i++){
+            for(int j = 0; j< tripleShortMatrix.getHeight(); j++){
                 byte r,g,b;
-                assert (matrix.getA()[i][j]<0xff);
-                assert (matrix.getB()[i][j]<0xff);
-                assert (matrix.getC()[i][j]<0xff);
-                r=(byte)matrix.getA()[i][j];
-                g=(byte)matrix.getB()[i][j];
-                b=(byte)matrix.getC()[i][j];
+                assert (tripleShortMatrix.getA()[i][j]<0xff);
+                assert (tripleShortMatrix.getB()[i][j]<0xff);
+                assert (tripleShortMatrix.getC()[i][j]<0xff);
+                r=(byte) tripleShortMatrix.getA()[i][j];
+                g=(byte) tripleShortMatrix.getB()[i][j];
+                b=(byte) tripleShortMatrix.getC()[i][j];
                 vector.append(r);
                 vector.append(g);
                 vector.append(b);
@@ -349,24 +349,24 @@ public class MyBufferedImage {
         }
         return vector;
     }
-    private Matrix getMatrixFromByteVector(ByteVector vector){
+    private TripleShortMatrix getMatrixFromByteVector(ByteVector vector){
         int w=vector.getNextShort();
         int h=vector.getNextShort();
         Flag flag=new Flag(vector.getNextShort());
-        Matrix matrix=new Matrix(w,h,flag,State.RGB);
+        TripleShortMatrix tripleShortMatrix =new TripleShortMatrix(w,h,flag,State.RGB);
         for(int i=0;i<w;i++){
             for(int j=0;j<h;j++){
-                matrix.getA()[i][j]=(short)(vector.getNext()&0xff);
-                matrix.getB()[i][j]=(short)(vector.getNext()&0xff);
-                matrix.getC()[i][j]=(short)(vector.getNext()&0xff);
+                tripleShortMatrix.getA()[i][j]=(short)(vector.getNext()&0xff);
+                tripleShortMatrix.getB()[i][j]=(short)(vector.getNext()&0xff);
+                tripleShortMatrix.getC()[i][j]=(short)(vector.getNext()&0xff);
             }
         }
-        return matrix;
+        return tripleShortMatrix;
     }
 
     //TODO make Async
     public BufferedImage getBufferedImage() {
-        switch(matrix.getState())
+        switch(tripleShortMatrix.getState())
         {
             case RGB: FromRGBtoBufferedImage();
                 break;
@@ -387,8 +387,8 @@ public class MyBufferedImage {
         return bitmap;
     }
 
-    public Matrix getYCbCrMatrix(boolean isAsync) {
-        switch (matrix.getState())
+    public TripleShortMatrix getYCbCrMatrix(boolean isAsync) {
+        switch (tripleShortMatrix.getState())
         {
             case RGB: FromRGBtoYBR();
                 break;
@@ -406,11 +406,11 @@ public class MyBufferedImage {
 
         }
 
-        return matrix;
+        return tripleShortMatrix;
     }
 
-    public Matrix getRGBMatrix() {
-        switch (matrix.getState())
+    public TripleShortMatrix getRGBMatrix() {
+        switch (tripleShortMatrix.getState())
         {
             case RGB:
                 break;
@@ -424,12 +424,12 @@ public class MyBufferedImage {
 
         }
 
-        return matrix;
+        return tripleShortMatrix;
     }
 
-    public Matrix getYenlMatrix(boolean isAsync){
+    public TripleShortMatrix getYenlMatrix(boolean isAsync){
         TimeManager.getInstance().append("start Yenl");
-        switch (matrix.getState())
+        switch (tripleShortMatrix.getState())
         {
             case RGB: FromRGBtoYBR();PixelEnlargement();
                 break;
@@ -450,11 +450,11 @@ public class MyBufferedImage {
             default:return null;
 
         }
-        return matrix;
+        return tripleShortMatrix;
     }
 
     public ByteVector getByteVector(){
-        switch (matrix.getState())
+        switch (tripleShortMatrix.getState())
         {
             case RGB:
                 break;
@@ -506,9 +506,9 @@ public class MyBufferedImage {
 //                   if(vcr%1>=0.5)
 //                       vcr++;
 
-//                matrix.getA()[i][j] = (short) vy;
-//                matrix.getB()[i][j] = (short) vcb;
-//                matrix.getC()[i][j] = (short) vcr;
+//                tripleShortMatrix.getA()[i][j] = (short) vy;
+//                tripleShortMatrix.getB()[i][j] = (short) vcb;
+//                tripleShortMatrix.getC()[i][j] = (short) vcr;
 
                 _a[i][j] = (short) vy;
                 _b[i][j] = (short) vcb;
@@ -519,9 +519,9 @@ public class MyBufferedImage {
         appendTimeManager("ybr calc"+wStart+hStart);
         for (int i = wStart; i < wEnd; i++) {
             for (int j = hStart; j < hEnd; j++) {
-                matrix.getA()[i][j] = _a[i - wStart][j - hStart];
-                matrix.getB()[i][j] = _b[i - wStart][j - hStart];
-                matrix.getC()[i][j] = _c[i - wStart][j - hStart];
+                tripleShortMatrix.getA()[i][j] = _a[i - wStart][j - hStart];
+                tripleShortMatrix.getB()[i][j] = _b[i - wStart][j - hStart];
+                tripleShortMatrix.getC()[i][j] = _c[i - wStart][j - hStart];
             }
         }
         appendTimeManager("ybr set"+wStart+hStart);

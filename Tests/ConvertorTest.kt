@@ -1,12 +1,11 @@
-import ImageCompression.Containers.BoxOfOpc
-import ImageCompression.Containers.Matrix
+import ImageCompression.Containers.TripleDataOpcMatrix
+import ImageCompression.Containers.TripleShortMatrix
 import ImageCompression.Constants.State
-import ImageCompression.Objects.*
+import ImageCompression.ProcessingModules.*
 import ImageCompression.Utils.Functions.CompressionUtils
 import ImageCompression.Utils.Objects.Flag
 import ImageCompression.Utils.Functions.Steganography
-import ImageCompression.Utils.Objects.ByteVector
-import org.junit.Before
+import ImageCompression.Containers.ByteVector
 
 import org.junit.Assert.*
 import org.junit.Test
@@ -127,12 +126,12 @@ class ConvertorTest {
         val opcs=seOpc.getModuleOPC()
         val box=opcs.getBoxOfOpc(true)
         val flag1=opcs.flag
-        val vb=ByteVector()
+        val vb= ByteVector()
         box.writeToVector(vb,flag1)
         //----
         //----
         val f=opcs.flag
-        val rBox=BoxOfOpc()
+        val rBox= TripleDataOpcMatrix()
         rBox.readFromVector(vb,f)
         assertEquals(rBox,box)
 
@@ -246,7 +245,7 @@ class ConvertorTest {
         //
         if(compareCompression) {
             val bv = myImage.byteVector
-            val ba = bv.getByteArray()
+            val ba = bv.toByteArray()
             val cba = CompressionUtils.compress(ba)
             System.out.println("ComprU size= ${cba.size/1024}Kb")
         }
@@ -294,8 +293,8 @@ class ConvertorTest {
         System.out.println("Test d/r Image=${w}x${h}. Time= ${t2-t1}. Flag=${f.flag}." +
                 " Bar File=${file.getMainFileLength()/1024}kb. Delta=${delta}")
     }
-    fun getRandomMatrix(w:Int,h:Int,flag:Flag):Matrix{
-        val m =Matrix(w,h,flag,State.RGB)
+    fun getRandomMatrix(w:Int,h:Int,flag:Flag): TripleShortMatrix {
+        val m = TripleShortMatrix(w,h,flag,State.RGB)
         val rand=Random()
         forEach(w,h,{x, y ->
 //            m.a[x][y]=rand.nextInt(255).toShort()
@@ -308,8 +307,8 @@ class ConvertorTest {
         return m
     }
 
-    fun Matrix.copy():Matrix{
-        var res=Matrix(this.Width,this.Height, Flag(this.f.flag),state)
+    fun TripleShortMatrix.copy(): TripleShortMatrix {
+        var res= TripleShortMatrix(this.Width,this.Height, Flag(this.f.flag),state)
         forEach(Width,Height,{x,y->
             res.a[x][y]=a[x][y]
             res.b[x][y]=b[x][y]
@@ -317,7 +316,7 @@ class ConvertorTest {
         })
         return res
     }
-    fun AssertMatrixInRange(m:Matrix,m1:Matrix,delta:Int,inRange:Boolean=true){
+    fun AssertMatrixInRange(m: TripleShortMatrix, m1: TripleShortMatrix, delta:Int, inRange:Boolean=true){
         if(inRange) {
             assertEquals("m1.State=${m.state} m2.State=${m1.state}"
                     , m.state, m1.state)

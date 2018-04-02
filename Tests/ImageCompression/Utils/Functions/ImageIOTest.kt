@@ -1,10 +1,9 @@
 package ImageCompression.Utils.Functions
 
 import ImageCompression.Constants.State
-import ImageCompression.Containers.Matrix
-import ImageCompression.Objects.MyBufferedImage
+import ImageCompression.Containers.TripleShortMatrix
+import ImageCompression.ProcessingModules.MyBufferedImage
 import ImageCompression.Utils.Objects.Flag
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import java.awt.image.BufferedImage
@@ -44,8 +43,8 @@ class ImageIOTest{
         ImageIO.write(bi,"bmp", File(pathToResBmp2))
     }
     companion object {
-        fun createMatrix(w:Int,h:Int):Matrix{
-            val m=Matrix(w,h, Flag(0),State.RGB)
+        fun createMatrix(w:Int,h:Int): TripleShortMatrix {
+            val m= TripleShortMatrix(w,h, Flag(0),State.RGB)
             for(i in 0..w-1){
                 for(j in 0..h-1){
                     m.a[i][j]=((i+j)%255).toShort()

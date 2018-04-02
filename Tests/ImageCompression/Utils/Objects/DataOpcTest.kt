@@ -1,7 +1,7 @@
 package ImageCompression.Utils.Objects
 
+import ImageCompression.Containers.ByteVector
 import ImageCompression.Utils.Objects.DataOPC.SIZEOFBLOCK
-import org.junit.Before
 
 import org.junit.Assert.*
 import org.junit.Test
@@ -11,7 +11,7 @@ import java.math.BigInteger
 import java.util.*
 import kotlin.test.assertFails
 
-class DataOPCTest {
+class DataOpcTest {
     var dopc=DataOPC()
     var dopc1=DataOPC()
     val rand=Random()
@@ -95,13 +95,13 @@ class DataOPCTest {
         dopc1=dopc.copy()
         AssertDataOpcEqual(dopc,dopc1)
 
-        val bv=ByteVector()
+        val bv= ByteVector()
         dopc.FromSignToVector(bv)
         dopc1.FromVectorToSign(bv)
     }
     @Test
     fun TestByteVector(){
-        var bv=ByteVector(33)
+        var bv= ByteVector(33)
         var f=Flag("0")
         f.isDC=true
         f.isOneFile=true

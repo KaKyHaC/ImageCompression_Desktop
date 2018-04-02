@@ -1,4 +1,4 @@
-package ImageCompression.Objects;
+package ImageCompression.ProcessingModules;
 
 import org.junit.Before;
 import org.junit.Test;

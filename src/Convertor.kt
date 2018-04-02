@@ -1,11 +1,9 @@
-import ImageCompression.Objects.*
-import ImageCompression.Utils.Functions.CompressionUtils
+import ImageCompression.ProcessingModules.*
 import ImageCompression.Utils.Objects.Flag
 import ImageCompression.Utils.Objects.TimeManager
 import java.awt.image.BufferedImage
 import java.io.File
 import javax.imageio.ImageIO
-import java.util.*
 
 
 class Convertor() {

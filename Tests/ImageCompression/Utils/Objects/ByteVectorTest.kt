@@ -1,5 +1,6 @@
 package ImageCompression.Utils.Objects
 
+import ImageCompression.Containers.ByteVector
 import org.junit.Before
 
 import org.junit.Assert.*
@@ -7,7 +8,7 @@ import org.junit.Test
 import java.util.*
 
 class ByteVectorTest {
-    var bv=ByteVector()
+    var bv= ByteVector()
     val rand = Random()
     val size=100
 
@@ -27,15 +28,15 @@ class ByteVectorTest {
     }
     @Test
     fun TestNotEqual(){
-        val bv1=ByteVector(43)
+        val bv1= ByteVector(43)
         assertNotEquals(bv,bv1)
 
-        val bv2=ByteVector(33)
+        val bv2= ByteVector(33)
         assertNotEquals(bv,bv1)
     }
     @Test
     fun TestLong(){
-        val bv1=ByteVector()
+        val bv1= ByteVector()
         val l1=rand.nextLong()
         val l2=rand.nextLong()
         bv1.append(l1)
@@ -48,7 +49,7 @@ class ByteVectorTest {
     }
     @Test
     fun TestByte(){
-        val bv1=ByteVector()
+        val bv1= ByteVector()
         val l1=rand.nextLong().toByte()
         val l2=rand.nextLong().toByte()
         bv1.append(l1)
@@ -61,7 +62,7 @@ class ByteVectorTest {
     }
     @Test
     fun TestShort(){
-        val bv1=ByteVector()
+        val bv1= ByteVector()
         val l1=rand.nextLong().toShort()
         val l2=rand.nextLong().toShort()
         bv1.append(l1)
@@ -103,7 +104,7 @@ class ByteVectorTest {
         val s:Short=i.toShort()
         val b:Byte=0b010101
 
-        var bv=ByteVector(2)
+        var bv= ByteVector(2)
         bv.append(l)
         bv.append(b)
         bv.append(l)

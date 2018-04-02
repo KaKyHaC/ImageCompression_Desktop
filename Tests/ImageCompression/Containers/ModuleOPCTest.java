@@ -1,7 +1,7 @@
 package ImageCompression.Containers;
 
 import ImageCompression.Constants.State;
-import ImageCompression.Objects.ModuleOPC;
+import ImageCompression.ProcessingModules.ModuleOPC;
 import ImageCompression.Utils.Objects.DataOPC;
 import ImageCompression.Utils.Objects.Flag;
 import org.junit.Before;
@@ -14,30 +14,30 @@ import static org.junit.Assert.*;
 public class ModuleOPCTest {
     int size=200;
     Flag flag=new Flag("0");
-    Matrix matrix=new Matrix(size,size,flag, State.RGB);
+    TripleShortMatrix tripleShortMatrix =new TripleShortMatrix(size,size,flag, State.RGB);
     @Before
     public void setUp() throws Exception {
         for(int i=0;i<size;i++){
             for(int j=0;j<size;j++){
-                matrix.getA()[i][j]=(short)(i+j);
-                matrix.getB()[i][j]=(short)(i+j);
-                matrix.getC()[i][j]=(short)(i+j);
+                tripleShortMatrix.getA()[i][j]=(short)(i+j);
+                tripleShortMatrix.getB()[i][j]=(short)(i+j);
+                tripleShortMatrix.getC()[i][j]=(short)(i+j);
             }
         }
     }
 
     @Test
     public void TestDefault(){
-        BoxOfOpc boxOfOpc =new ModuleOPC(matrix).getBoxOfOpc(true);
+        TripleDataOpcMatrix tripleDataOpcMatrix =new ModuleOPC(tripleShortMatrix).getBoxOfOpc(true);
         DataOPC[][] a,b,c;
-        ModuleOPC moduleOPC1 =new ModuleOPC(boxOfOpc, matrix.getF());
-        Matrix res= moduleOPC1.getMatrix(true);
+        ModuleOPC moduleOPC1 =new ModuleOPC(tripleDataOpcMatrix, tripleShortMatrix.getF());
+        TripleShortMatrix res= moduleOPC1.getMatrix(true);
 
-        AssertMatrixInRange(matrix,res,1,true);
+        AssertMatrixInRange(tripleShortMatrix,res,1,true);
     }
     @Test
     public void TestTime(){
-        ModuleOPC moduleOPC =new ModuleOPC(matrix);
+        ModuleOPC moduleOPC =new ModuleOPC(tripleShortMatrix);
         Date t1=new Date();
         moduleOPC.directOPCMultiThreads();
         moduleOPC.reverseOPCMultiThreads();
@@ -61,8 +61,8 @@ public class ModuleOPCTest {
 
     @Test
     public void TestAssertFun(){
-        Matrix a=new Matrix(size,size,flag,State.RGB);
-        Matrix b=new Matrix(size,size,flag,State.RGB);
+        TripleShortMatrix a=new TripleShortMatrix(size,size,flag,State.RGB);
+        TripleShortMatrix b=new TripleShortMatrix(size,size,flag,State.RGB);
         AssertMatrixInRange(a,b,0,true);
 
         a.getA()[0][0]=1;
@@ -74,7 +74,7 @@ public class ModuleOPCTest {
         AssertMatrixInRange(a,b,1,false);
     }
 
-    private void AssertMatrixInRange(Matrix m1,Matrix m2,int delta,Boolean inRange){
+    private void AssertMatrixInRange(TripleShortMatrix m1, TripleShortMatrix m2, int delta, Boolean inRange){
         AssertArrayArrayInRange(m1.getA(), m2.getA(),delta,inRange);
         AssertArrayArrayInRange(m1.getB(), m2.getB(),delta,inRange);
         AssertArrayArrayInRange(m1.getC(), m2.getC(),delta,inRange);

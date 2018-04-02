@@ -1,9 +1,6 @@
-package ImageCompression.Utils.Objects
+package ImageCompression.Containers
 
 import java.util.*
-import java.util.function.Consumer
-import kotlin.experimental.and
-import kotlin.experimental.or
 
 /**
  * Non save class
@@ -38,7 +35,7 @@ class ByteVector:Iterable<Byte> {
         curIndex=0
     }
 
-    fun getByteArray():ByteArray{
+    fun toByteArray():ByteArray{
         return ByteArray(size,{x->bytes[x]})
     }
 
@@ -53,12 +50,12 @@ class ByteVector:Iterable<Byte> {
         append(short.toByte())
     }
     fun append(long: Long){
-        append((long shr (BITS_IN_BYTE*7)).toByte())
-        append((long shr (BITS_IN_BYTE*6)).toByte())
-        append((long shr (BITS_IN_BYTE*5)).toByte())
-        append((long shr (BITS_IN_BYTE*4)).toByte())
-        append((long shr (BITS_IN_BYTE*3)).toByte())
-        append((long shr (BITS_IN_BYTE*2)).toByte())
+        append((long shr (BITS_IN_BYTE *7)).toByte())
+        append((long shr (BITS_IN_BYTE *6)).toByte())
+        append((long shr (BITS_IN_BYTE *5)).toByte())
+        append((long shr (BITS_IN_BYTE *4)).toByte())
+        append((long shr (BITS_IN_BYTE *3)).toByte())
+        append((long shr (BITS_IN_BYTE *2)).toByte())
         append((long shr BITS_IN_BYTE).toByte())
         append(long.toByte())
     }
@@ -141,8 +138,8 @@ class ByteVector:Iterable<Byte> {
         for(i in 0..size-1)
             myAction.invoke(bytes[i])
     }
-    fun copy():ByteVector{
-        val res=ByteVector(size)
+    fun copy(): ByteVector {
+        val res= ByteVector(size)
         this.forEach(myAction= {byte->res.append(byte)})
         return res
     }
@@ -172,4 +169,12 @@ class ByteVector:Iterable<Byte> {
         }else
             return false
     }
+    override fun hashCode(): Int {
+        var result = Arrays.hashCode(bytes)
+        result = 31 * result + size
+        result = 31 * result + maxSize
+        result = 31 * result + curIndex
+        return result
+    }
+
 }

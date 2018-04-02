@@ -1,12 +1,10 @@
-package ImageCompression.Objects
+package ImageCompression.ProcessingModules
 
-import ImageCompression.Constants.State
 import ImageCompression.Utils.Functions.ImageIOTest
 import ImageCompression.Utils.Objects.TimeManager
 import org.junit.Assert.*
 import org.junit.Test
 import java.util.*
-import kotlin.test.assertFails
 
 class ModuleDCTTest{
     @Test

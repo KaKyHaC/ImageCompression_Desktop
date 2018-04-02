@@ -1,5 +1,4 @@
 import ImageCompression.Constants.Cosine;
-import ImageCompression.Objects.*;
 import ImageCompression.Utils.Objects.Flag;
 import ImageCompression.Utils.Objects.Parameters;
 

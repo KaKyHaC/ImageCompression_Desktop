@@ -1,9 +1,9 @@
 package ImageCompression.Utils.Objects
 
+import ImageCompression.Containers.ByteVector
 import ImageCompression.Utils.Functions.CompressionUtils
-import java.io.DataOutputStream
 import java.io.File
-import java.io.OutputStreamWriter
+
 //import sun.misc.IOUtils
 
 
@@ -17,7 +17,7 @@ class ByteVectorFile(var file: File) {
         if (!file.exists())
             file.createNewFile()
     }
-    fun write(vector: ByteVector,flag: Flag){
+    fun write(vector: ByteVector, flag: Flag){
         if(!file.canWrite())
             throw Exception("cann't write")
 
@@ -28,7 +28,7 @@ class ByteVectorFile(var file: File) {
         os.write(f.toInt())
         os.write(f.toInt() shr 8)
         //ByteAray
-        var ba=vector.getByteArray()
+        var ba=vector.toByteArray()
         if(flag.isCompressionUtils) {
             ba = CompressionUtils.compress(ba)
             TimeManager.Instance.append("CompressionUtils")
@@ -53,7 +53,7 @@ class ByteVectorFile(var file: File) {
             bs = CompressionUtils.decompress(bs)
             TimeManager.Instance.append("deCompressionUtils")
         }
-        val vec=ByteVector(bs)
+        val vec= ByteVector(bs)
 
         ins.close()
         return Pair(vec,flag)

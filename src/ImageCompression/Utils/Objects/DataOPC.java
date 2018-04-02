@@ -1,9 +1,8 @@
 package ImageCompression.Utils.Objects;
 
+import ImageCompression.Containers.ByteVector;
+
 import java.math.BigInteger;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.util.Queue;
 import java.util.Vector;
 
 /**
@@ -29,7 +28,7 @@ public class DataOPC {
     public byte[] FromBigIntToArray() {
         return N.toByteArray();
     }
-    public void FromBigIntToVector(ByteVector vector,short[] base){
+    public void FromBigIntToVector(ByteVector vector, short[] base){
 
         byte[] code=N.toByteArray();
 //        assert (code.length<Short.MAX_VALUE);

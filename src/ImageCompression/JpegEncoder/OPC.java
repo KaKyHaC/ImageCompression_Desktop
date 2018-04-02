@@ -15,7 +15,7 @@ package ImageCompression.JpegEncoder;
 // See license.txt for details.
 
 import ImageCompression.Utils.Functions.OPCMultiThread;
-import ImageCompression.Utils.Objects.ByteVector;
+import ImageCompression.Containers.ByteVector;
 import ImageCompression.Utils.Objects.DataOPC;
 import ImageCompression.Utils.Objects.Flag;
 

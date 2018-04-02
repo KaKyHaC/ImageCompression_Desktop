@@ -1,5 +1,6 @@
 package ImageCompression.Utils.Objects
 
+import ImageCompression.Containers.ByteVector
 import org.junit.Assert.*
 import org.junit.Test
 import java.util.*
@@ -26,8 +27,8 @@ class ByteVectorFileTest{
         assertEquals("vector",b,rb)
         System.out.println(fr.infoToString())
     }
-    fun getRandomVector(size:Int):ByteVector{
-        var bv=ByteVector(size)
+    fun getRandomVector(size:Int): ByteVector {
+        var bv= ByteVector(size)
         for (i in 0..size-1){
             bv.append(rand.nextInt().toByte())
         }
