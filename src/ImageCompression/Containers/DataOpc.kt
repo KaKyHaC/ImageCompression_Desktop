@@ -7,11 +7,11 @@ import java.util.*
  * Created by Димка on 27.09.2016.
  */
 class DataOpc {
-    public var base: ShortArray
-    public var sign: Array<BooleanArray>
-    public var DC: Short = 0
-    public var N: BigInteger
-    public var vectorCode: Vector<Long>
+    var base: ShortArray
+    var sign: Array<BooleanArray>
+    var DC: Short = 0
+    var N: BigInteger
+    var vectorCode: Vector<Long>
 
     init {
         base = ShortArray(SIZEOFBLOCK)
@@ -342,6 +342,7 @@ class DataOpc {
         toByteVector(vector, flag)
         return vector.size.toLong()
     }
+
 
     companion object {
         val SIZEOFBLOCK = 8

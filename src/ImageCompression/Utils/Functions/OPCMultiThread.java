@@ -42,14 +42,14 @@ public class OPCMultiThread { //singelton
 //        short[] base=new short[SIZEOFBLOCK];
         for(int i=0;i<SIZEOFBLOCK;i++) {
 //            assert (dataOrigin[i][0]<(short)(Byte.MAX_VALUE&0xFF));
-            DataOpc.base[i]=(dataOrigin[i][0]);
+            DataOpc.getBase()[i]=(dataOrigin[i][0]);
             for(int j=0;j<SIZEOFBLOCK;j++) {
-                if(DataOpc.base[i]<(dataOrigin[i][j])) {
-                    DataOpc.base[i]=(dataOrigin[i][j]);
+                if(DataOpc.getBase()[i]<(dataOrigin[i][j])) {
+                    DataOpc.getBase()[i]=(dataOrigin[i][j]);
                 }
             }
-            DataOpc.base[i]++;
-//            assert DataOpc.base[i]<0xff:"base ["+i+"]="+DataOpc.base[i];
+            DataOpc.getBase()[i]++;
+//            assert DataOpc.getBase()[i]<0xff:"base ["+i+"]="+DataOpc.getBase()[i];
         }
         return DataOpc;
     }
@@ -61,10 +61,10 @@ public class OPCMultiThread { //singelton
             {
                 if(dataOrigin[i][j]<(short)0) {
                     dataOrigin[i][j]=(short)(dataOrigin[i][j]*(-1));
-                    DataOpc.sign[i][j]=false;
+                    DataOpc.getSign()[i][j]=false;
                 }
                 else {
-                    DataOpc.sign[i][j]=true;
+                    DataOpc.getSign()[i][j]=true;
                 }
             }
         }
@@ -73,7 +73,7 @@ public class OPCMultiThread { //singelton
     private static  DataOpc MakeSigned(final short[][] dataOrigin,DataOpc DataOpc)    {
         for(int i=0;i<SIZEOFBLOCK;i++) {
             for(int j=0;j<SIZEOFBLOCK;j++) {
-                if(!DataOpc.sign[i][j]) {
+                if(!DataOpc.getSign()[i][j]) {
                     dataOrigin[i][j]=(short)(dataOrigin[i][j]*(-1));
                 }
             }
@@ -82,16 +82,16 @@ public class OPCMultiThread { //singelton
     }
 
     private static  void DCminus(short[][]dataOrigin,DataOpc DataOpc){
-        DataOpc.DC=(dataOrigin[0][0]);
+        DataOpc.setDC((dataOrigin[0][0]));
         dataOrigin[0][0]=0;
     }
     private static  void DCplus(short[][]dataOrigin,DataOpc DataOpc){
-        dataOrigin[0][0]=DataOpc.DC;
+        dataOrigin[0][0]=DataOpc.getDC();
     }
 
 
     private static  void OPCdirect(short[][]dataOrigin,DataOpc DataOpc){//TODO diagonal for optimization
-        DataOpc.N=OPCdirectLong(dataOrigin,DataOpc);
+        DataOpc.setN(OPCdirectLong(dataOrigin,DataOpc));
 /*        BigInteger base= new BigInteger("1");
         for(int i=SIZEOFBLOCK-1;i>=0;i--)
         {
@@ -101,7 +101,7 @@ public class OPCMultiThread { //singelton
                 {
                     DataOpc.N=DataOpc.N.add(base.multiply(BigInteger.valueOf(dataOrigin[i][j])));
                 }
-                base=base.multiply(BigInteger.valueOf(DataOpc.base[i]));
+                base=base.multiply(BigInteger.valueOf(DataOpc.getBase()[i]));
 
             }
         }*/
@@ -113,7 +113,7 @@ public class OPCMultiThread { //singelton
         long bufbase=1;
         for(int i=SIZEOFBLOCK-1;i>=0;i--) {
             for(int j=SIZEOFBLOCK-1;j>=0;j--) {
-                bufbase=base*DataOpc.base[i];
+                bufbase=base*DataOpc.getBase()[i];
                /* if(bufbase<res)
                     System.out.println("res");*/
 /*                if(bufbase<base)
@@ -144,7 +144,7 @@ public class OPCMultiThread { //singelton
                 if(dataOrigin[i][j]!=0) {
                     val=val.add(base.multiply(BigInteger.valueOf(dataOrigin[i][j])));
                 }
-                base=base.multiply(BigInteger.valueOf(DataOpc.base[i]));
+                base=base.multiply(BigInteger.valueOf(DataOpc.getBase()[i]));
             }
             j=SIZEOFBLOCK-1;
         }
@@ -157,11 +157,11 @@ public class OPCMultiThread { //singelton
             for (int j = SIZEOFBLOCK - 1; j >= 0; j--) {
                 BigInteger a, b;
 
-                a = DataOpc.N.divide( copy);
-                copy =copy.multiply(BigInteger.valueOf(DataOpc.base[i]));
+                a = DataOpc.getN().divide( copy);
+                copy =copy.multiply(BigInteger.valueOf(DataOpc.getBase()[i]));
 
-                b =DataOpc.N.divide( copy);
-                b =b.multiply(BigInteger.valueOf( DataOpc.base[i]));
+                b =DataOpc.getN().divide( copy);
+                b =b.multiply(BigInteger.valueOf( DataOpc.getBase()[i]));
                 dataOrigin[i][j] = (a.subtract(b)).shortValue() ;
             }
         }
@@ -173,13 +173,13 @@ public class OPCMultiThread { //singelton
         long bufbase;
         for(int i=SIZEOFBLOCK-1;i>=0;i--) {
             for(int j=SIZEOFBLOCK-1;j>=0;j--) {
-                bufbase=base*DataOpc.base[i];
+                bufbase=base*DataOpc.getBase()[i];
                 if(bufbase> Parameters.getMAXLONG())//is true ?
                 {
-                    DataOpc.Code.add(res);
+                    DataOpc.getVectorCode().add(res);
                     base= 1;
                     res=0;
-                    bufbase=base*DataOpc.base[i];
+                    bufbase=base*DataOpc.getBase()[i];
                 }
                 if(dataOrigin[i][j]!=0) {
                     res+=base*(dataOrigin[i][j]);
@@ -187,24 +187,24 @@ public class OPCMultiThread { //singelton
                 base=bufbase;
             }
         }
-        DataOpc.Code.add(res);
+        DataOpc.getVectorCode().add(res);
     }
     private static  void OPCreverseUseOnlyLong(short[][]dataOrigin,DataOpc DataOpc){
         long copy=1;
         int index=0;
-        long curN=DataOpc.Code.elementAt(index);
+        long curN=DataOpc.getVectorCode().elementAt(index);
         long nextcopy;
         for (int i = SIZEOFBLOCK - 1; i >= 0; i--) {
-            if(DataOpc.base[i]==0)//for wrong password;
-                DataOpc.base[i]=1;
+            if(DataOpc.getBase()[i]==0)//for wrong password;
+                DataOpc.getBase()[i]=1;
             for (int j = SIZEOFBLOCK - 1; j >= 0; j--) {
-                nextcopy=copy*DataOpc.base[i];
+                nextcopy=copy*DataOpc.getBase()[i];
                 if(nextcopy>Parameters.getMAXLONG()||nextcopy<0) {
                     copy=1;
                     index++;
-                    nextcopy=copy*DataOpc.base[i];
-                    if(index<DataOpc.Code.size())
-                        curN=DataOpc.Code.elementAt(index);
+                    nextcopy=copy*DataOpc.getBase()[i];
+                    if(index<DataOpc.getVectorCode().size())
+                        curN=DataOpc.getVectorCode().elementAt(index);
                 }
                 long a, b;
 
@@ -213,7 +213,7 @@ public class OPCMultiThread { //singelton
                 copy =nextcopy;
 
                 b =curN/( copy);
-                b =b*(( DataOpc.base[i]));
+                b =b*(( DataOpc.getBase()[i]));
                 dataOrigin[i][j] =(short) (a-(b));
             }
         }
@@ -238,7 +238,7 @@ public class OPCMultiThread { //singelton
         DataOpc DataOpc=new DataOpc();
 
         MakeUnSigned(dataOrigin,DataOpc);
-        if(flag.isDC()) {
+        if(flag.isChecked(Flag.Parameter.DC)) {
             DCminus(dataOrigin,DataOpc);
         }
         FindeBase(dataOrigin,DataOpc);
@@ -248,11 +248,11 @@ public class OPCMultiThread { //singelton
         DataOpc DataOpc=d;
 
         MakeUnSigned(dataOrigin,DataOpc);
-        if(flag.isDC()) {
+        if(flag.isChecked(Flag.Parameter.DC)) {
             DCminus(dataOrigin,DataOpc);
         }
 
-        if(flag.isLongCode())
+        if(flag.isChecked(Flag.Parameter.LongCode))
             OPCdirectUseOnlyLong(dataOrigin,DataOpc);
         else
             OPCdirect(dataOrigin,DataOpc);

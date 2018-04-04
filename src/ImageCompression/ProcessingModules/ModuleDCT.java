@@ -22,9 +22,12 @@ public class ModuleDCT {
         this.tripleShortMatrix = tripleShortMatrix;
         if(tripleShortMatrix.getState() == State.Yenl)//new code . Does it is needed ?
             tripleShortMatrix.setState(State.YBR);
-            a=new DctConvertor(tripleShortMatrix.getA(), tripleShortMatrix.getA().length, tripleShortMatrix.getA()[0].length, tripleShortMatrix.getState(), TypeQuantization.luminosity, tripleShortMatrix.getF());
-            b = new DctConvertor(tripleShortMatrix.getB(), tripleShortMatrix.getB().length, tripleShortMatrix.getB()[0].length, tripleShortMatrix.getState(), TypeQuantization.Chromaticity, tripleShortMatrix.getF());
-            c  = new DctConvertor(tripleShortMatrix.getC(), tripleShortMatrix.getC().length, tripleShortMatrix.getC()[0].length, tripleShortMatrix.getState(), TypeQuantization.Chromaticity, tripleShortMatrix.getF());
+
+        DctConvertor.State state=(tripleShortMatrix.getState()==State.DCT)? DctConvertor.State.DCT: DctConvertor.State.ORIGIN;
+
+        a=new DctConvertor(tripleShortMatrix.getA(), state, TypeQuantization.luminosity, tripleShortMatrix.getF());
+        b=new DctConvertor(tripleShortMatrix.getB(), state, TypeQuantization.Chromaticity, tripleShortMatrix.getF());
+        c=new DctConvertor(tripleShortMatrix.getC(), state, TypeQuantization.Chromaticity, tripleShortMatrix.getF());
 
     }
 

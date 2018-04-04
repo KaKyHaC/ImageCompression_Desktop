@@ -27,11 +27,11 @@ public class DctConvertor {
 
 //    private boolean isReady=false;
 
-    public DctConvertor(short[][] dataOrigin, int width, int height, State state, TypeQuantization tq, Flag flag) {
+    public DctConvertor(short[][] dataOrigin, State state, TypeQuantization tq, Flag flag) {
         this.dataOrigin = dataOrigin;
         dataProcessed=dataOrigin;//= new short[dataOrigin.length][dataOrigin[0].length];// = dataOrigin
-        Width = width;
-        Height = height;
+        Width = dataOrigin.length;
+        Height = dataOrigin[0].length;
         this.tq = tq;
         this.flag=flag;
 
