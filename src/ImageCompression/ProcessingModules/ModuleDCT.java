@@ -17,9 +17,12 @@ import java.util.concurrent.Future;
 public class ModuleDCT {
     private TripleShortMatrix tripleShortMatrix;
     private DctConvertor a,b,c;
+    private TripleShortMatrix resTripleShortMatrix;
 
     public ModuleDCT(TripleShortMatrix tripleShortMatrix) {
         this.tripleShortMatrix = tripleShortMatrix;
+        this.resTripleShortMatrix=tripleShortMatrix;
+
         if(tripleShortMatrix.getState() == State.Yenl)//new code . Does it is needed ?
             tripleShortMatrix.setState(State.YBR);
 
@@ -31,29 +34,34 @@ public class ModuleDCT {
 
     }
 
-    public void dataProcessing() {
+
+    @FunctionalInterface
+    private interface IThraedable{
+        void doFor(DctConvertor e);
+    }
+    public void dataProcessing(IThraedable forEach) {
         if(tripleShortMatrix.getState() ==State.Yenl)//new code . Does it is needed ?
             tripleShortMatrix.setState(State.YBR);
 
+        forEach.doFor(a);
+        forEach.doFor(b);
+        forEach.doFor(c);
 
-        a.dataProcessing();
-        b.dataProcessing();
-        c.dataProcessing();
-
-        tripleShortMatrix.setState(a.getState());
+        State state=a.getState()== DctConvertor.State.DCT?State.DCT:State.YBR;
+        tripleShortMatrix.setState(state);
         if(tripleShortMatrix.getA().length> tripleShortMatrix.getB().length&& tripleShortMatrix.getState() ==State.YBR)
             tripleShortMatrix.setState(State.Yenl);
     }
-    public void dataProcessingInThreads() {
+    public void dataProcessingInThreads(IThraedable forEach) {
         if(tripleShortMatrix.getState() ==State.Yenl)//new code . Does it is needed ?
             tripleShortMatrix.setState(State.YBR);
 
         ExecutorService executorService = Executors.newFixedThreadPool(3);
         Future[] futures=new Future[3];
 
-        futures[0] = executorService.submit(()-> a.dataProcessing());
-        futures[1] = executorService.submit(()-> b.dataProcessing());
-        futures[2] = executorService.submit(()-> c.dataProcessing());
+        futures[0] = executorService.submit(()->forEach.doFor(a));
+        futures[1] = executorService.submit(()->forEach.doFor(b));
+        futures[2] = executorService.submit(()->forEach.doFor(c));
 
         for (Future future : futures) {
             try {
@@ -65,7 +73,8 @@ public class ModuleDCT {
             }
         }
 
-        tripleShortMatrix.setState(a.getState());
+        State state=a.getState()== DctConvertor.State.DCT?State.DCT:State.YBR;
+        tripleShortMatrix.setState(state);
         if(tripleShortMatrix.getA().length> tripleShortMatrix.getB().length&& tripleShortMatrix.getState() ==State.YBR)
             tripleShortMatrix.setState(State.Yenl);
     }
@@ -74,9 +83,9 @@ public class ModuleDCT {
         switch (tripleShortMatrix.getState()){
             case DCT:
                 if(isMultiThreads)
-                    dataProcessingInThreads();
+                    dataProcessingInThreads(DctConvertor::getMatrixOrigin);
                 else
-                    dataProcessing();
+                    dataProcessing(DctConvertor::getMatrixOrigin);
                 break;
         }
         if(tripleShortMatrix.getState() ==State.YBR|| tripleShortMatrix.getState() ==State.Yenl)
@@ -88,9 +97,9 @@ public class ModuleDCT {
             case YBR:
             case Yenl:
                 if(isMultiThreads)
-                    dataProcessingInThreads();
+                    dataProcessingInThreads(DctConvertor::getMatrixDct);
                 else
-                    dataProcessing();
+                    dataProcessing(DctConvertor::getMatrixDct);
                 break;
         }
 

@@ -4,7 +4,6 @@ import ImageCompression.Steganography.Containers.Container
 import ImageCompression.Steganography.Containers.IContainer
 import ImageCompression.Steganography.Containers.OpcContainer
 import ImageCompression.Steganography.Containers.UnitContainer
-import ImageCompression.Utils.Objects.DataOPC
 import java.awt.Color
 import java.awt.image.BufferedImage
 import java.util.ArrayList

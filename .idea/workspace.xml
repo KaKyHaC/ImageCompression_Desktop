@@ -7,10 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/ImageCompression/Containers/DataOpc.kt" afterPath="$PROJECT_DIR$/src/ImageCompression/Containers/DataOpc.kt" />
       <change beforePath="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleDCT.java" afterPath="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleDCT.java" />
-      <change beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java" />
-      <change beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DctConvertor.java" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DctConvertor.java" />
+      <change beforePath="$PROJECT_DIR$/src/ImageCompression/Steganography/Utils/ImageProcessorUtils.kt" afterPath="$PROJECT_DIR$/src/ImageCompression/Steganography/Utils/ImageProcessorUtils.kt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,12 +84,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModuleDCT.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ModuleDCT.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleDCT.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+            <state relative-caret-position="410">
+              <caret line="104" column="0" lean-forward="true" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MessageParser.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/Utils/MessageParser.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="792">
+              <caret line="52" column="5" lean-forward="false" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+              <folding>
+                <element signature="e#46#123#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageProcessorUtils.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/Utils/ImageProcessorUtils.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="639">
+              <caret line="188" column="1" lean-forward="true" selection-start-line="188" selection-start-column="1" selection-end-line="188" selection-end-column="1" />
+              <folding>
+                <element signature="e#46#494#0" expanded="true" />
+                <element signature="n#!!block;n#getMessageMaxSize#0;n#!!block;n#ImageProcessorUtils#0" expanded="false" />
+                <element signature="n#!!block;n#readMessage#0;n#!!block;n#ImageProcessorUtils#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -113,16 +137,6 @@
                 <element signature="method#directOPCwithGlobalBase#0;class#OpcConvertor#0" expanded="false" />
                 <element signature="method#sizeOpcCalculate#0;class#OpcConvertor#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StegoEncrWithOPC.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/StegoEncrWithOPC.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -172,11 +186,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OPCMultiThread.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OPCMultiThread.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="25">
+              <caret line="192" column="0" lean-forward="true" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2936#2937#0" expanded="true" />
@@ -296,7 +310,6 @@
         <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/Utils/OpcsParser.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/Utils/ByteVectorFile.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/Utils/MessageParser.kt" />
-        <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/Utils/ImageProcessorUtils.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/StegoModule.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/StegonagraphyUI.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/StegonagraphyUI.form" />
@@ -327,9 +340,10 @@
         <option value="$PROJECT_DIR$/src/ImageCompression/Containers/TripleShortMatrix.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Objects/DctConvertor.java" />
-        <option value="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleDCT.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Containers/DataOpc.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/Utils/ImageProcessorUtils.kt" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleDCT.java" />
       </list>
     </option>
   </component>
@@ -386,29 +400,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
               <item name="ProcessingModules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-              <item name="Functions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-              <item name="Objects" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -890,7 +881,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleDCT.java</url>
-          <line>74</line>
+          <line>83</line>
           <properties />
           <option name="timeStamp" value="183" />
         </line-breakpoint>
@@ -994,7 +985,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/ImageCompression/Steganography/Utils/ImageProcessorUtils.kt</url>
-          <line>143</line>
+          <line>142</line>
           <properties />
           <option name="timeStamp" value="261" />
         </line-breakpoint>
@@ -1079,28 +1070,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/Utils/MessageParser.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1250">
-          <caret line="52" column="5" lean-forward="false" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/StegonagraphyUI.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/Utils/ImageProcessorUtils.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3575">
-          <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
-          <folding>
-            <element signature="e#46#540#0" expanded="false" />
-            <element signature="n#!!block;n#getMessageMaxSize#0;n#!!block;n#ImageProcessorUtils#0" expanded="false" />
-            <element signature="n#!!block;n#readMessage#0;n#!!block;n#ImageProcessorUtils#0" expanded="false" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/StegoModule.kt">
@@ -1520,23 +1492,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleDCT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/OPCMultiThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="25">
+          <caret line="192" column="0" lean-forward="true" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2936#2937#0" expanded="true" />
             <element signature="e#2984#2985#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/Utils/MessageParser.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="52" column="5" lean-forward="false" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+          <folding>
+            <element signature="e#46#123#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Steganography/Utils/ImageProcessorUtils.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="639">
+          <caret line="188" column="1" lean-forward="true" selection-start-line="188" selection-start-column="1" selection-end-line="188" selection-end-column="1" />
+          <folding>
+            <element signature="e#46#494#0" expanded="true" />
+            <element signature="n#!!block;n#getMessageMaxSize#0;n#!!block;n#ImageProcessorUtils#0" expanded="false" />
+            <element signature="n#!!block;n#readMessage#0;n#!!block;n#ImageProcessorUtils#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleDCT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="104" column="0" lean-forward="true" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
