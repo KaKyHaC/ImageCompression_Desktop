@@ -11,7 +11,7 @@ public class FlagForm extends JFrame{
     private Vector<JCheckBox> jCheckBoxArray=new Vector<>();
 
     public FlagForm()throws HeadlessException {
-        flag=new Flag("0");
+        flag=new Flag();
         Factory();
     }
     public FlagForm(Flag flag)throws HeadlessException{
@@ -34,15 +34,15 @@ public class FlagForm extends JFrame{
 
     public Flag getFlag() {
         int i=0;
-        flag.setDC(jCheckBoxArray.get(i++).isSelected());
-        flag.setEnlargement(jCheckBoxArray.get(i++).isSelected());
-        flag.setLongCode(jCheckBoxArray.get(i++).isSelected());
-        flag.setOneFile(jCheckBoxArray.get(i++).isSelected());
-        flag.setGlobalBase(jCheckBoxArray.get(i++).isSelected());
-        flag.setAlignment(jCheckBoxArray.get(i++).isSelected());
-        flag.setPassword(jCheckBoxArray.get(i++).isSelected());
-        flag.setSteganography(jCheckBoxArray.get(i++).isSelected());
-        flag.setCompressionUtils(jCheckBoxArray.get(i++).isSelected());
+        flag.setChecked(Flag.Parameter.DC,jCheckBoxArray.get(i++).isSelected());
+        flag.setChecked(Flag.Parameter.Enlargement,jCheckBoxArray.get(i++).isSelected());
+        flag.setChecked(Flag.Parameter.LongCode,jCheckBoxArray.get(i++).isSelected());
+        flag.setChecked(Flag.Parameter.OneFile,jCheckBoxArray.get(i++).isSelected());
+        flag.setChecked(Flag.Parameter.GlobalBase,jCheckBoxArray.get(i++).isSelected());
+        flag.setChecked(Flag.Parameter.Alignment,jCheckBoxArray.get(i++).isSelected());
+        flag.setChecked(Flag.Parameter.Password,jCheckBoxArray.get(i++).isSelected());
+        flag.setChecked(Flag.Parameter.Steganography,jCheckBoxArray.get(i++).isSelected());
+        flag.setChecked(Flag.Parameter.CompressionUtils,jCheckBoxArray.get(i++).isSelected());
 
         Flag.QuantizationState qs=jCheckBoxArray.get(i++).isSelected()? Flag.QuantizationState.First: Flag.QuantizationState.Without;
         flag.setQuantization(qs);
@@ -53,15 +53,15 @@ public class FlagForm extends JFrame{
     }
 
     private void Init(){
-        addView("isDC",flag.isDC());
-        addView("isEnlargement",flag.isEnlargement());
-        addView("isLongCode",flag.isLongCode());
-        addView("isOneFile",flag.isOneFile());
-        addView("isGlobalBase",flag.isGlobalBase());
-        addView("isAlignment",flag.isAlignment());
-        addView("isPassword",flag.isPassword());
-        addView("isSteganography",flag.isSteganography());
-        addView("isCompressionUtils",flag.isCompressionUtils());
+        addView("isDC",flag.isChecked(Flag.Parameter.DC));
+        addView("isEnlargement",flag.isChecked(Flag.Parameter.Enlargement));
+        addView("isLongCode",flag.isChecked(Flag.Parameter.LongCode));
+        addView("isOneFile",flag.isChecked(Flag.Parameter.OneFile));
+        addView("isGlobalBase",flag.isChecked(Flag.Parameter.GlobalBase));
+        addView("isAlignment",flag.isChecked(Flag.Parameter.Alignment));
+        addView("isPassword",flag.isChecked(Flag.Parameter.Password));
+        addView("isSteganography",flag.isChecked(Flag.Parameter.Steganography));
+        addView("isCompressionUtils",flag.isChecked(Flag.Parameter.CompressionUtils));
         addView("isQuantization",flag.getQuantization()== Flag.QuantizationState.First);
 //        addView("isEncryption",flag.getEncryption()== Flag.Encryption.First);
 

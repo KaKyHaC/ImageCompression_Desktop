@@ -14,9 +14,9 @@ package JpegEncoder;
 // Jpeg Group's Jpeg 6a library, Copyright Thomas G. Lane.
 // See license.txt for details.
 
+import ImageCompression.Containers.DataOpc;
 import ImageCompression.Utils.Functions.OPCMultiThread;
 import ImageCompression.Containers.ByteVector;
-import ImageCompression.Utils.Objects.DataOPC;
 import ImageCompression.Containers.Flag;
 
 import java.io.BufferedOutputStream;
@@ -151,10 +151,10 @@ class OPC
     static short[][] buffer=new short[8][8];
     static Flag flag=new Flag("0");
     static {
-        flag.setLongCode(false);
-        flag.setDC(true);
+        flag.setChecked(Flag.Parameter.LongCode,false);
+        flag.setChecked(Flag.Parameter.DC,true);
 //        flag.setGlobalBase(true);
-        flag.setOneFile(true);
+        flag.setChecked(Flag.Parameter.DC,true);
     }
     public void HuffmanBlockEncoder(BufferedOutputStream outStream, int zigzag[], int prec, int DCcode, int ACcode)
     {
@@ -163,15 +163,15 @@ class OPC
                 buffer[i][j]=(short)zigzag[i*8+j];
             }
         }
-        DataOPC dataOPC=OPCMultiThread.getDataOPC(buffer,flag);//TODO make flag as argument
-        dataOPCtoStream(dataOPC,outStream);
+        DataOpc DataOpc=OPCMultiThread.getDataOpc(buffer,flag);//TODO make flag as argument
+        DataOpctoStream(DataOpc,outStream);
 //        System.out.print(totalSize+",");
-//        dataOPC
+//        DataOpc
     }
     public static int opcSize=0;
-    void dataOPCtoStream(DataOPC dataOPC,BufferedOutputStream os){
+    void DataOpctoStream(DataOpc DataOpc, BufferedOutputStream os){
         ByteVector byteVector=new ByteVector(8);
-        dataOPC.toByteVector(byteVector,flag);
+        DataOpc.toByteVector(byteVector,flag);
         opcSize+=byteVector.getSize();
         for(byte b :byteVector){
             bufferIt(os,b,8);

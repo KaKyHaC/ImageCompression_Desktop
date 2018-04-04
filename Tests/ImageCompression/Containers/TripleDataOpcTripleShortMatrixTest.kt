@@ -1,7 +1,6 @@
 package ImageCompression.Containers
 
-import ImageCompression.Utils.Objects.DataOPC
-import ImageCompression.Utils.Objects.DataOPC.SIZEOFBLOCK
+import ImageCompression.Constants.SIZEOFBLOCK
 import org.junit.Assert.*
 import org.junit.Test
 import java.math.BigInteger
@@ -43,35 +42,35 @@ class TripleDataOpcTripleShortMatrixTest {
     }
 
     fun init(boxMatrixData: TripleDataOpcMatrix){
-        flag.isOneFile=true
-        flag.isDC=true
-        flag.isLongCode=true
+        flag.setChecked(Flag.Parameter.OneFile,true)
+        flag.setChecked(Flag.Parameter.DC,true)
+        flag.setChecked(Flag.Parameter.LongCode,true)
         val size=200
 
-        var a=Array(size,{x->Array(size,{y->initDopc(DataOPC(),flag)})})
+        var a=Array(size,{x->Array(size,{y->initDopc(DataOpc(),flag)})})
         boxMatrixData.a=a
-        a=Array(size,{x->Array(size,{y->initDopc(DataOPC(),flag)})})
+        a=Array(size,{x->Array(size,{y->initDopc(DataOpc(),flag)})})
         boxMatrixData.b=a
-        a=Array(size,{x->Array(size,{y->initDopc(DataOPC(),flag)})})
+        a=Array(size,{x->Array(size,{y->initDopc(DataOpc(),flag)})})
         boxMatrixData.c=a
     }
-    fun initDopc(dataOPC: DataOPC, flag: Flag):DataOPC{
+    fun initDopc(DataOpc: DataOpc, flag: Flag):DataOpc{
         val size=5
-        if(flag.isLongCode)
+        if(flag.isChecked(Flag.Parameter.LongCode))
             for(i in 0..size)
-                dataOPC.Code.addElement(rand.nextLong())
+                DataOpc.vectorCode.addElement(rand.nextLong())
         else
-            dataOPC.N= BigInteger(ByteArray(size,{ x->x.toByte()}))
+            DataOpc.N= BigInteger(ByteArray(size,{ x->x.toByte()}))
 
-        if(flag.isDC)
-            dataOPC.DC=rand.nextInt().toShort()
+        if(flag.isChecked(Flag.Parameter.DC))
+            DataOpc.DC=rand.nextInt().toShort()
 
-        if(flag.isOneFile&&!flag.isGlobalBase)
-            forEach(SIZEOFBLOCK, SIZEOFBLOCK,{ x, y -> dataOPC.base[x]=rand.nextInt(0xff).toShort() })
+        if(flag.isChecked(Flag.Parameter.OneFile)&&!flag.isChecked(Flag.Parameter.GlobalBase))
+            forEach(SIZEOFBLOCK, SIZEOFBLOCK,{ x, y -> DataOpc.base[x]=rand.nextInt(0xff).toShort() })
 
-        forEach(SIZEOFBLOCK, SIZEOFBLOCK,{ x, y -> dataOPC.sign[x][y]=rand.nextBoolean() })
+        forEach(SIZEOFBLOCK, SIZEOFBLOCK,{ x, y -> DataOpc.sign[x][y]=rand.nextBoolean() })
 
-        return dataOPC
+        return DataOpc
     }
     fun forEach(w:Int,h:Int,let:(x:Int,y:Int)->Unit){
         for(i in 0..w-1){

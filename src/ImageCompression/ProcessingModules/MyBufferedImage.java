@@ -255,7 +255,7 @@ public class MyBufferedImage {
     }
 
     private void PixelEnlargement(){
-        if (tripleShortMatrix.getState() == State.YBR && tripleShortMatrix.getF().isEnlargement()) {
+        if (tripleShortMatrix.getState() == State.YBR && tripleShortMatrix.getF().isChecked(Flag.Parameter.Enlargement)) {
             int cWidth= tripleShortMatrix.getWidth() /2;
             int cHeight= tripleShortMatrix.getHeight() /2;
             short[][] enlCb=new short[cWidth][cHeight];
@@ -276,7 +276,7 @@ public class MyBufferedImage {
     }
     private void PixelRestoration() {
 
-        if (tripleShortMatrix.getState() == State.Yenl && tripleShortMatrix.getF().isEnlargement()) {
+        if (tripleShortMatrix.getState() == State.Yenl && tripleShortMatrix.getF().isChecked(Flag.Parameter.Enlargement)) {
             int cWidth= tripleShortMatrix.getWidth() /2;
             int cHeight= tripleShortMatrix.getHeight() /2;
             int Width= tripleShortMatrix.getWidth();

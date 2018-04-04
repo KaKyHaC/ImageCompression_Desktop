@@ -1,8 +1,9 @@
 package ImageCompression.Utils.Objects
 
+import ImageCompression.Constants.SIZEOFBLOCK
 import ImageCompression.Containers.ByteVector
+import ImageCompression.Containers.DataOpc
 import ImageCompression.Containers.Flag
-import ImageCompression.Utils.Objects.DataOPC.SIZEOFBLOCK
 
 import org.junit.Assert.*
 import org.junit.Test
@@ -13,8 +14,8 @@ import java.util.*
 import kotlin.test.assertFails
 
 class DataOpcTest {
-    var dopc=DataOPC()
-    var dopc1=DataOPC()
+    var dopc=DataOpc()
+    var dopc1= DataOpc()
     val rand=Random()
 
     @Test
@@ -73,19 +74,19 @@ class DataOpcTest {
     fun TestMyToString(){
         initDopc(dopc)
         var f= Flag("0")
-        f.isOneFile=true
-        f.isLongCode=true
-        f.isDC=true
+        f.setChecked(Flag.Parameter.OneFile,true)
+        f.setChecked(Flag.Parameter.LongCode,true)
+        f.setChecked(Flag.Parameter.DC,true)
         dopc.N= BigInteger("0")
         val s=dopc.toString(f)
-        dopc1.valueOf(s,f)
+        dopc1.setFrom(s,f)
         AssertDataOpcEqual(dopc,dopc1)
 
         dopc.N= BigInteger("292304395025234324")
-        dopc.Code=DataOPC().Code
+        dopc.vectorCode=DataOpc().vectorCode
         assertFails { AssertDataOpcEqual(dopc1,dopc) }
 
-//        f.isLongCode=false
+//        f.isLongvectorCode=false
 //        val s1=dopc.toString(f)
 //        dopc1.valueOf(s1,f)
 //        AssertDataOpcEqual(dopc,dopc1)
@@ -104,14 +105,14 @@ class DataOpcTest {
     fun TestByteVector(){
         var bv= ByteVector(33)
         var f= Flag("0")
-        f.isDC=true
-        f.isOneFile=true
-        f.isLongCode=true
+        f.setChecked(Flag.Parameter.OneFile,true)
+        f.setChecked(Flag.Parameter.LongCode,true)
+        f.setChecked(Flag.Parameter.DC,true)
         initDopc(dopc,f)
 
 
         dopc.toByteVector(bv,f)
-        dopc1.valueOf(bv,f)
+        dopc1.setFrom(bv,f)
         AssertDataOpcEqual(dopc1,dopc)
 
     }
@@ -146,8 +147,8 @@ class DataOpcTest {
     }
     @Test
     fun TestAssertFun(){
-        var dopc=DataOPC()
-        var dopc1=DataOPC()
+        var dopc=DataOpc()
+        var dopc1=DataOpc()
         AssertDataOpcEqual(dopc,dopc1)
 
         initDopc(dopc)
@@ -168,8 +169,8 @@ class DataOpcTest {
         assertFails { AssertDataOpcEqual(dopc,dopc1) }
     }
 
-    fun DataOPC.copy():DataOPC{
-        var res=DataOPC()
+    fun DataOpc.copy():DataOpc{
+        var res=DataOpc()
         res.N= BigInteger(N.toByteArray())
         res.DC=DC
         for(i in 0..SIZEOFBLOCK-1) {
@@ -177,13 +178,13 @@ class DataOpcTest {
             for(j in 0..SIZEOFBLOCK-1)
                 res.sign[i][j]=sign[i][j]
         }
-        for (i in 0..Code.size-1)
-            res.Code.addElement(Code[i])
+        for (i in 0..vectorCode.size-1)
+            res.vectorCode.addElement(vectorCode[i])
 
         return res
     }
 
-    fun AssertDataOpcEqual(a:DataOPC,b:DataOPC){
+    fun AssertDataOpcEqual(a:DataOpc,b:DataOpc){
         for(i in 0..a.base.size-1)
             assertEquals("at $i base ${a.base[i]}!=${b.base[i]}",a.base[i],b.base[i])
 
@@ -193,38 +194,38 @@ class DataOpcTest {
                 {x, y -> assertEquals("sign at[$x][$y] ${a.sign[x][y]}!=${b.sign[x][y]} "
                 ,a.sign[x][y],b.sign[x][y]) })
 
-        for(i in 0..a.Code.size-1)
-            assertEquals("at $i code ${a.Code[i]}!=${b.Code[i]}",a.Code[i],b.Code[i])
+        for(i in 0..a.vectorCode.size-1)
+            assertEquals("at $i vectorCode ${a.vectorCode[i]}!=${b.vectorCode[i]}",a.vectorCode[i],b.vectorCode[i])
 
         assertEquals("BI ${a.N}!=${b.N}",a.N,b.N)
     }
-    fun initDopc(dataOPC: DataOPC){
+    fun initDopc(DataOpc: DataOpc){
         val size=5
         for(i in 0..size)
-            dataOPC.Code.addElement(rand.nextLong())
+            DataOpc.vectorCode.addElement(rand.nextLong())
 
-        dataOPC.DC=rand.nextInt().toShort()
-        dataOPC.N= BigInteger(kotlin.ByteArray(size,{x->x.toByte()}))
-        dataOPC.N= BigInteger("342352522332214")
-        forEach(DataOPC.SIZEOFBLOCK,DataOPC.SIZEOFBLOCK,{x, y -> dataOPC.base[x]=rand.nextInt(0xff).toShort() })
-        forEach(DataOPC.SIZEOFBLOCK,DataOPC.SIZEOFBLOCK,{x, y -> dataOPC.sign[x][y]=rand.nextBoolean() })
+        DataOpc.DC=rand.nextInt().toShort()
+        DataOpc.N= BigInteger(kotlin.ByteArray(size,{x->x.toByte()}))
+        DataOpc.N= BigInteger("342352522332214")
+        forEach(SIZEOFBLOCK,SIZEOFBLOCK,{x, y -> DataOpc.base[x]=rand.nextInt(0xff).toShort() })
+        forEach(SIZEOFBLOCK,SIZEOFBLOCK,{x, y -> DataOpc.sign[x][y]=rand.nextBoolean() })
 
     }
-    fun initDopc(dataOPC: DataOPC,flag: Flag){
+    fun initDopc(DataOpc: DataOpc,flag: Flag){
         val size=5
-        if(flag.isLongCode)
+        if(flag.isChecked(Flag.Parameter.LongCode))
             for(i in 0..size)
-                dataOPC.Code.addElement(rand.nextLong())
+                DataOpc.vectorCode.addElement(rand.nextLong())
         else
-            dataOPC.N= BigInteger(kotlin.ByteArray(size,{x->x.toByte()}))
+            DataOpc.N= BigInteger(kotlin.ByteArray(size,{x->x.toByte()}))
 
-        if(flag.isDC)
-            dataOPC.DC=rand.nextInt().toShort()
+        if(flag.isChecked(Flag.Parameter.DC))
+            DataOpc.DC=rand.nextInt().toShort()
 
-        if(flag.isOneFile&&!flag.isGlobalBase)
-            forEach(DataOPC.SIZEOFBLOCK,DataOPC.SIZEOFBLOCK,{x, y -> dataOPC.base[x]=rand.nextInt(0xff).toShort() })
+        if(flag.isChecked(Flag.Parameter.OneFile)&&!flag.isChecked(Flag.Parameter.GlobalBase))
+            forEach(SIZEOFBLOCK,SIZEOFBLOCK,{x, y -> DataOpc.base[x]=rand.nextInt(0xff).toShort() })
 
-        forEach(DataOPC.SIZEOFBLOCK,DataOPC.SIZEOFBLOCK,{x, y -> dataOPC.sign[x][y]=rand.nextBoolean() })
+        forEach(SIZEOFBLOCK,SIZEOFBLOCK,{x, y -> DataOpc.sign[x][y]=rand.nextBoolean() })
 
     }
     fun forEach(w:Int,h:Int,let:(x:Int,y:Int)->Unit){

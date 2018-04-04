@@ -2,7 +2,6 @@ package ImageCompression.Containers;
 
 import ImageCompression.Constants.State;
 import ImageCompression.ProcessingModules.ModuleOPC;
-import ImageCompression.Utils.Objects.DataOPC;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,7 +27,7 @@ public class ModuleOPCTest {
     @Test
     public void TestDefault(){
         TripleDataOpcMatrix tripleDataOpcMatrix =new ModuleOPC(tripleShortMatrix).getBoxOfOpc(true);
-        DataOPC[][] a,b,c;
+        DataOpc[][] a,b,c;
         ModuleOPC moduleOPC1 =new ModuleOPC(tripleDataOpcMatrix, tripleShortMatrix.getF());
         TripleShortMatrix res= moduleOPC1.getMatrix(true);
 

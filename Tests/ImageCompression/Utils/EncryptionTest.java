@@ -1,10 +1,10 @@
 package ImageCompression.Utils;
 
+import ImageCompression.Containers.DataOpc;
 import ImageCompression.Containers.TripleDataOpcMatrix;
 import ImageCompression.Constants.State;
 import ImageCompression.ProcessingModules.ModuleOPC;
 import ImageCompression.Containers.TripleShortMatrix;
-import ImageCompression.Utils.Objects.DataOPC;
 import ImageCompression.Utils.Functions.Encryption;
 import ImageCompression.Containers.Flag;
 import org.junit.Before;
@@ -38,7 +38,7 @@ public class EncryptionTest {
         AssertDataEqual(a.getB(),b.getB());
         AssertDataEqual(a.getC(),b.getC());
     }
-    private void AssertDataEqual(DataOPC[][] a,DataOPC[][] b){
+    private void AssertDataEqual(DataOpc[][] a, DataOpc[][] b){
         assertEquals(a.length,b.length);
         assertEquals(a[0].length,b[0].length);
         for(int i=0;i<a.length;i++){
@@ -47,14 +47,14 @@ public class EncryptionTest {
             }
         }
     }
-    private void AssertDataEqual(DataOPC a,DataOPC b){
-        assertEquals(a.DC,b.DC);
-        assertEquals(a.Code,b.Code);
-        assertEquals(a.sign,b.sign);
-        assertEquals(a.N,b.N);
+    private void AssertDataEqual(DataOpc a,DataOpc b){
+        assertEquals(a.getDC(),b.getDC());
+        assertEquals(a.getVectorCode(),b.getVectorCode());
+        assertEquals(a.getSign(),b.getSign());
+        assertEquals(a.getN(),b.getN());
 //        assertEquals(a.base,b.base);
-        for(int i=0;i<a.base.length;i++){
-            assertEquals(a.base[i],b.base[i]);
+        for(int i=0;i<a.getBase().length;i++){
+            assertEquals(a.getBase()[i],b.getBase()[i]);
         }
     }
 

@@ -36,7 +36,7 @@ class MyBufferedImageTest {
     @Test
     fun TestEnlagment4() {
         val grad=getGradientMatrix(124,546)
-        grad.f.isEnlargement=true
+        grad.f.setChecked(Flag.Parameter.Enlargement,true)
 
         val mi=MyBufferedImage(grad)
         val bmp=mi.rgbMatrix.copy()

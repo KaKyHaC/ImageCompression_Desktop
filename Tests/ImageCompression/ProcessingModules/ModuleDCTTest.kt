@@ -17,17 +17,16 @@ class ModuleDCTTest{
 
         val dctModule = ModuleDCT(enl)
 
-        dctModule.dataProcessingInThreads()
+        dctModule.getDCTMatrix(true);
         assertFalse( cpy.assertMatrixInRange(enl,8))
 
-        dctModule.dataProcessingInThreads()
+        dctModule.getYCbCrMatrix(true)
         assertTrue(cpy.assertMatrixInRange(enl,8))
 
-        dctModule.dataProcessing()
+        dctModule.getDCTMatrix(false)
         assertFalse( cpy.assertMatrixInRange(enl,8))
 
-
-        dctModule.dataProcessing()
+        dctModule.getYCbCrMatrix(false)
         assertTrue(cpy.assertMatrixInRange(enl,8))
     }
     @Test
@@ -73,8 +72,8 @@ class ModuleDCTTest{
 
         val t1= Date().time
         for (i in 0..loop-1){
-            dctModule.dataProcessing()
-            dctModule.dataProcessing()
+            dctModule.getDCTMatrix(false)
+            dctModule.getYCbCrMatrix(false)
         }
         val t2= Date().time
 
@@ -83,8 +82,8 @@ class ModuleDCTTest{
 //        println("start Async")
         val t3= Date().time
         for (i in 0..loop-1){
-            dctModule.dataProcessingInThreads()
-            dctModule.dataProcessingInThreads()
+            dctModule.getDCTMatrix(true)
+            dctModule.getYCbCrMatrix(true)
         }
         val t4= Date().time
 
@@ -105,20 +104,20 @@ class ModuleDCTTest{
 
         TimeManager.Instance.startNewTrack("mDCT ${loop}l,${dif}dif (${w}x$h)")
         for(i in 0..loop-1) {
-            dctModule.dataProcessingInThreads()
+            dctModule.getDCTMatrix(true)
             assertFalse(cpy.assertMatrixInRange(enl, dif))
 
-            dctModule.dataProcessingInThreads()
+            dctModule.getYCbCrMatrix(true)
             assertTrue(cpy.assertMatrixInRange(enl, dif))
         }
         TimeManager.Instance.append("multiThread DCT")
 
         for (i in 0..loop-1) {
-            dctModule.dataProcessing()
+            dctModule.getDCTMatrix(false)
             assertFalse(cpy.assertMatrixInRange(enl, dif))
 
 
-            dctModule.dataProcessing()
+            dctModule.getYCbCrMatrix(true)
             assertTrue(cpy.assertMatrixInRange(enl, dif))
         }
         TimeManager.Instance.append("one Thread DCT")

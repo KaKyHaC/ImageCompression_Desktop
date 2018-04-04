@@ -14,7 +14,9 @@ class ByteVectorFileTest{
     fun TotalTest(){
         val b=getRandomVector(size)
         val f= Flag(0xfff)
-        f.isOneFile=true
+        f.setChecked(Flag.Parameter.OneFile,true)
+//        f.setChecked(Flag.Parameter.LongCode,true)
+//        f.setChecked(Flag.Parameter.DC,true)
 
         val fw=ByteVectorFile(path)
         fw.write(b,f)

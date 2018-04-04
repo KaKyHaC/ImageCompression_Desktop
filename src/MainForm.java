@@ -53,8 +53,8 @@ public class MainForm extends JFrame{
         File dir=new File(parameters.PathAppDir);
         dir.mkdir();
 
-        flag.setOneFile(true);
-        flag.setDC(true);
+        flag.setChecked(Flag.Parameter.OneFile,true);
+        flag.setChecked(Flag.Parameter.DC,true);
 
         BufferedImage myPicture = new BufferedImage(1,1,BufferedImage.TYPE_4BYTE_ABGR);
         ImageIcon imageIcon=new ImageIcon(myPicture);
@@ -190,19 +190,19 @@ public class MainForm extends JFrame{
         if(val==0){
             lSliderVal.setText("min compression");
             flag=new Flag((short)0);
-            flag.setLongCode(true);
-            flag.setOneFile(true);
+            flag.setChecked(Flag.Parameter.LongCode,true);
+            flag.setChecked(Flag.Parameter.OneFile,true);
         }else if(val==1) {
             lSliderVal.setText("Custom");
         } else if(val==2){
             lSliderVal.setText("max compression");
             flag=new Flag((short)0);
-            flag.setOneFile(true);
-            flag.setDC(true);
+            flag.setChecked(Flag.Parameter.OneFile,true);
+            flag.setChecked(Flag.Parameter.DC,true);
             flag.setQuantization(Flag.QuantizationState.First);
-            flag.setEnlargement(true);
+            flag.setChecked(Flag.Parameter.Enlargement,true);
 //            flag.setAlignment(true);
-            flag.setCompressionUtils(true);
+            flag.setChecked(Flag.Parameter.CompressionUtils,true);
         }
     }
 

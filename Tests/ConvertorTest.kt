@@ -54,10 +54,10 @@ class ConvertorTest {
         val cpy=matrix.copy()
         val bo= ModuleDCT(matrix)
 
-        bo.dataProcessingInThreads()
+        bo.getDCTMatrix(true)
         AssertMatrixInRange(matrix,cpy,5,false)
 
-        bo.dataProcessingInThreads()
+        bo.getYCbCrMatrix(true)
         AssertMatrixInRange(matrix,cpy,5)
     }
     @Test
@@ -67,14 +67,14 @@ class ConvertorTest {
         val bo= ModuleDCT(matrix)
 
         var t1:Date=Date()
-        bo.dataProcessing()
-        bo.dataProcessing()
+        bo.getDCTMatrix(false)
+        bo.getYCbCrMatrix(false)
         val d1=(Date().time-t1.time)
         System.out.println("in one thread time: $d1")
 
         t1=Date()
-        bo.dataProcessingInThreads()
-        bo.dataProcessingInThreads()
+        bo.getDCTMatrix(true)
+        bo.getYCbCrMatrix(true)
         val d2=(Date().time-t1.time)
         System.out.println("in multi threads time: $d2")
 
@@ -104,9 +104,9 @@ class ConvertorTest {
         val delta=8
         var matrix=getRandomMatrix(w,h, Flag("0"))
         val t1=Date().time
-        matrix.f.isLongCode=true
-        matrix.f.isDC=true
-        matrix.f.isOneFile=true
+        matrix.f.setChecked(Flag.Parameter.LongCode,true)
+        matrix.f.setChecked(Flag.Parameter.DC,true)
+        matrix.f.setChecked(Flag.Parameter.OneFile,true)
         val cpy=matrix.copy()
         AssertMatrixInRange(cpy,matrix,0)
 
@@ -154,55 +154,58 @@ class ConvertorTest {
     @Test
     fun TestHDImage1(){
         val f= Flag("0")
-        f.isOneFile=true
-        f.isDC=true
-        f.isLongCode=true
+        f.setChecked(Flag.Parameter.LongCode,true)
+        f.setChecked(Flag.Parameter.DC,true)
+        f.setChecked(Flag.Parameter.OneFile,true)
         testDirectReverseConverting(1920,1080,f,8)
     }
     @Test
     fun TestHDImage2(){
         val f= Flag("0")
-        f.isOneFile=true
-        f.isDC=true
+//        f.setChecked(Flag.Parameter.LongCode,true)
+        f.setChecked(Flag.Parameter.DC,true)
+        f.setChecked(Flag.Parameter.OneFile,true)
         testDirectReverseConverting(1920,1080,f,8)
     }
     @Test
     fun TestHQImage1(){
         val f= Flag("0")
-        f.isOneFile=true
-        f.isDC=true
-        f.isLongCode=true
+        f.setChecked(Flag.Parameter.LongCode,true)
+        f.setChecked(Flag.Parameter.DC,true)
+        f.setChecked(Flag.Parameter.OneFile,true)
         testDirectReverseConverting(360,280,f,7,true)
     }
     @Test
     fun TestHQImage2(){
         val f= Flag("0")
-        f.isOneFile=true
-        f.isDC=true
+//        f.setChecked(Flag.Parameter.LongCode,true)
+        f.setChecked(Flag.Parameter.DC,true)
+        f.setChecked(Flag.Parameter.OneFile,true)
         testDirectReverseConverting(360,280,f,7)
     }
     @Test
     fun TestHQImageEnlargement(){
         val f= Flag("0")
-        f.isOneFile=true
-        f.isDC=true
-        f.isEnlargement=true
+//        f.setChecked(Flag.Parameter.LongCode,true)
+        f.setChecked(Flag.Parameter.DC,true)
+        f.setChecked(Flag.Parameter.OneFile,true)
+        f.setChecked(Flag.Parameter.Enlargement,true)
         testDirectReverseConverting(384,240,f,7)
     }
     @Test
     fun TestHQImageAlignment(){
         val f= Flag("0")
-        f.isOneFile=true
-        f.isDC=true
-        f.isAlignment=true
+        f.setChecked(Flag.Parameter.DC,true)
+        f.setChecked(Flag.Parameter.OneFile,true)
+        f.setChecked(Flag.Parameter.Alignment,true)
         testDirectReverseConverting(360,280,f,7)
     }
 
     fun testModuleDCT(delta: Int){
         var matrix=getRandomMatrix(w,h, Flag("0"))
-        matrix.f.isLongCode=true
-        matrix.f.isDC=true
-        matrix.f.isOneFile=true
+        matrix.f.setChecked(Flag.Parameter.LongCode,true)
+        matrix.f.setChecked(Flag.Parameter.DC,true)
+        matrix.f.setChecked(Flag.Parameter.OneFile,true)
         val cpy=matrix.copy()
         AssertMatrixInRange(cpy,matrix,0)
 

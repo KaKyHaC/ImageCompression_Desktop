@@ -213,7 +213,7 @@ class DataOpc {
 
         return sb.toString()
     }
-    fun fromString(s: String, flag: Flag): DataOpc {
+    fun setFrom(s: String, flag: Flag): DataOpc {
         val offset = SIZEOFBLOCK
         var index = 0
 
@@ -270,7 +270,7 @@ class DataOpc {
 
         return vector
     }
-    fun fromByteVector(vector: ByteVector, f: Flag): DataOpc {
+    fun setFrom(vector: ByteVector, f: Flag): DataOpc {
         if (f.isChecked(Flag.Parameter.DC))
             FromVectorToDc(vector)
 
@@ -362,14 +362,14 @@ class DataOpc {
         @JvmStatic
         fun valueOf(byteVector: ByteVector, flag: Flag): DataOpc {
             val dataOpc=DataOpc()
-            dataOpc.fromByteVector(byteVector,flag)
+            dataOpc.setFrom(byteVector,flag)
             return dataOpc
         }
 
         @JvmStatic
         fun valueOf(s:String,flag: Flag): DataOpc {
             val dataOpc=DataOpc()
-            dataOpc.fromString(s,flag)
+            dataOpc.setFrom(s,flag)
             return dataOpc
         }
     }

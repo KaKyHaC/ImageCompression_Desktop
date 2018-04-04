@@ -1,8 +1,8 @@
 package ImageCompression.Utils.Functions;
 
 
+import ImageCompression.Containers.DataOpc;
 import ImageCompression.Containers.TripleDataOpcMatrix;
-import ImageCompression.Utils.Objects.DataOPC;
 
 /**
  * Created by Димка on 30.10.2016.
@@ -21,7 +21,7 @@ public class Encryption { //singleton
         Encryption.encode(bopc.getC());
     }
 
-    private static void encode(DataOPC[][] dopcs){
+    private static void encode(DataOpc[][] dopcs){
         for(int i=0;i<dopcs.length;i++){
             for(int j =0;j<dopcs[0].length;j++){
                 encode(dopcs[i][j]);
@@ -29,8 +29,8 @@ public class Encryption { //singleton
         }
     }
 
-    private static void encode(DataOPC dataOPC){
-        dataOPC.base=encode(dataOPC.base);
+    private static void encode(DataOpc DataOpc){
+        DataOpc.setBase(encode(DataOpc.getBase()));
     }
 
     // метод для шифровки текста с помощью XOR
