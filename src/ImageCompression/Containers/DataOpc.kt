@@ -7,11 +7,11 @@ import java.util.*
  * Created by Димка on 27.09.2016.
  */
 class DataOpc {
-    var base: ShortArray
-    var sign: Array<BooleanArray>
-    var DC: Short = 0
-    var N: BigInteger
-    var vectorCode: Vector<Long>
+    public var base: ShortArray
+    public var sign: Array<BooleanArray>
+    public var DC: Short = 0
+    public var N: BigInteger
+    public var vectorCode: Vector<Long>
 
     init {
         base = ShortArray(SIZEOFBLOCK)
@@ -179,7 +179,7 @@ class DataOpc {
 //        val offset = SIZEOFBLOCK / 2
         val sb = StringBuilder()
 
-        if (flag.isOneFile && !flag.isGlobalBase)
+        if (flag.isChecked(Flag.Parameter.OneFile) && !flag.isChecked(Flag.Parameter.GlobalBase))
             for (b in FromBaseToArray())
                 sb.append(b.toChar())
 
@@ -188,10 +188,10 @@ class DataOpc {
             sb.append(sign[i].toChar())
         }
 
-        if (flag.isDC)
+        if (flag.isChecked(Flag.Parameter.DC))
             sb.append(DC.toChar())
 
-        if (!flag.isLongCode) {
+        if (!flag.isChecked(Flag.Parameter.LongCode)) {
             val n = FromBigIntToArray()
             sb.append(n.size.toChar())
             for (c in n) {
@@ -217,7 +217,7 @@ class DataOpc {
         val offset = SIZEOFBLOCK
         var index = 0
 
-        if (flag.isOneFile && !flag.isGlobalBase) {
+        if (flag.isChecked(Flag.Parameter.OneFile)&& !flag.isChecked(Flag.Parameter.GlobalBase)) {
             val a = ShortArray(offset)
             for (i in 0 until offset) {
                 a[i] = s[index++].toShort()
@@ -231,10 +231,10 @@ class DataOpc {
         }
         FromArrayToSing(sign)
 
-        if (flag.isDC)
+        if (flag.isChecked(Flag.Parameter.DC))
             DC = s[index++].toShort()
 
-        if (!flag.isLongCode) {
+        if (!flag.isChecked(Flag.Parameter.LongCode)) {
             val length = s[index++].toInt()
             val code = ByteArray(length)
             for (i in 0 until length) {
@@ -255,13 +255,13 @@ class DataOpc {
     }
 
     fun toByteVector(vector: ByteVector, f: Flag): ByteVector {
-        if (f.isDC)
+        if (f.isChecked(Flag.Parameter.DC))
             FromDcToVector(vector)
 
-        if (!f.isGlobalBase && f.isOneFile)
+        if (!f.isChecked(Flag.Parameter.GlobalBase) && f.isChecked(Flag.Parameter.OneFile))
             FromBaseToVector(vector)
 
-        if (f.isLongCode)
+        if (f.isChecked(Flag.Parameter.LongCode))
             FromCodeToVector(vector)
         else
             FromBigIntToVector(vector, base)
@@ -271,13 +271,13 @@ class DataOpc {
         return vector
     }
     fun fromByteVector(vector: ByteVector, f: Flag): DataOpc {
-        if (f.isDC)
+        if (f.isChecked(Flag.Parameter.DC))
             FromVectorToDc(vector)
 
-        if (!f.isGlobalBase && f.isOneFile)
+        if (!f.isChecked(Flag.Parameter.GlobalBase) && f.isChecked(Flag.Parameter.OneFile))
             FromVectorToBase(vector)
 
-        if (f.isLongCode)
+        if (f.isChecked(Flag.Parameter.LongCode))
             FromVectorToCode(vector)
         else
             FromVectorToBigInt(vector, base)
@@ -321,6 +321,20 @@ class DataOpc {
         result = 31 * result + N.hashCode()
         result = 31 * result + vectorCode.hashCode()
         return result
+    }
+    fun copy():DataOpc{
+        val res=DataOpc()
+        res.N= BigInteger(N.toByteArray())
+        res.DC=DC
+        for(i in 0..DataOpc.SIZEOFBLOCK -1) {
+            res.base[i]=base[i]
+            for(j in 0..DataOpc.SIZEOFBLOCK -1)
+                res.sign[i][j]=sign[i][j]
+        }
+        for (i in 0..vectorCode.size-1)
+            res.vectorCode.addElement(vectorCode[i])
+
+        return res
     }
 
     fun getByteSize(flag: Flag): Long {

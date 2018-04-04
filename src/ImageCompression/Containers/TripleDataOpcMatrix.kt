@@ -1,15 +1,15 @@
 package ImageCompression.Containers
 
-import ImageCompression.Utils.Objects.DataOPC
+import java.math.BigInteger
 import java.util.*
 
 class TripleDataOpcMatrix {
-    var a: Array<Array<DataOPC>>?=null
-    var b: Array<Array<DataOPC>>?=null
-    var c: Array<Array<DataOPC>>?=null
+    var a: Array<Array<DataOpc>>?=null
+    var b: Array<Array<DataOpc>>?=null
+    var c: Array<Array<DataOpc>>?=null
 
     constructor(){    }
-    constructor(a:Array<Array<DataOPC>>,b:Array<Array<DataOPC>>,c:Array<Array<DataOPC>>){
+    constructor(a:Array<Array<DataOpc>>,b:Array<Array<DataOpc>>,c:Array<Array<DataOpc>>){
         this.a=a
         this.b=b
         this.c=c
@@ -38,7 +38,7 @@ class TripleDataOpcMatrix {
         c?.readBaseFromVector(vector,flag)
     }
 
-    private fun Array<Array<DataOPC>>.appendVectorOne(vector: ByteVector, flag: Flag){
+    private fun Array<Array<DataOpc>>.appendVectorOne(vector: ByteVector, flag: Flag){
         val w=this.size
         val h=this[0].size
         vector.append(w.toShort())
@@ -49,21 +49,21 @@ class TripleDataOpcMatrix {
             }
         }
     }
-    private fun MatrixFromVectorOne(vector: ByteVector, flag: Flag):Array<Array<DataOPC>>{
+    private fun MatrixFromVectorOne(vector: ByteVector, flag: Flag):Array<Array<DataOpc>>{
         val w=vector.getNextShort()
         val h=vector.getNextShort()
-        return Array(w.toInt(),{ x-> Array(h.toInt(),{y->DataOPC().valueOf (vector,flag)}) })
+        return Array(w.toInt(),{ x-> Array(h.toInt(),{y->DataOpc.valueOf (vector,flag)}) })
     }
-    private fun Array<Array<DataOPC>>.appendBaseToVector(vector: ByteVector, flag: Flag, baseW:Int=1, baseH:Int=1){
+    private fun Array<Array<DataOpc>>.appendBaseToVector(vector: ByteVector, flag: Flag, baseW:Int=1, baseH:Int=1){
         val w=this.size
         val h=this[0].size
-        val stepW:Int = if(flag.isGlobalBase)baseW else 1
-        val stepH:Int = if(flag.isGlobalBase)baseH else 1
+        val stepW:Int = if(flag.isChecked(Flag.Parameter.GlobalBase))baseW else 1
+        val stepH:Int = if(flag.isChecked(Flag.Parameter.GlobalBase))baseH else 1
 
         vector.append(w.toShort())
         vector.append(h.toShort())
 
-        if(flag.isGlobalBase) {
+        if(flag.isChecked(Flag.Parameter.GlobalBase)) {
             vector.append(stepW.toShort())
             vector.append(stepH.toShort())
         }
@@ -77,11 +77,11 @@ class TripleDataOpcMatrix {
         }
 
     }
-    private fun Array<Array<DataOPC>>.readBaseFromVector(vector: ByteVector, flag: Flag){
+    private fun Array<Array<DataOpc>>.readBaseFromVector(vector: ByteVector, flag: Flag){
         val w=vector.getNextShort()
         val h=vector.getNextShort()
-        val stepW:Int = if(flag.isGlobalBase)vector.getNextShort().toInt() else 1
-        val stepH:Int = if(flag.isGlobalBase)vector.getNextShort().toInt() else 1
+        val stepW:Int = if(flag.isChecked(Flag.Parameter.GlobalBase))vector.getNextShort().toInt() else 1
+        val stepH:Int = if(flag.isChecked(Flag.Parameter.GlobalBase))vector.getNextShort().toInt() else 1
 
         var base:ShortArray=kotlin.ShortArray(8)
         for(i in 0..(w-1)){
@@ -94,14 +94,14 @@ class TripleDataOpcMatrix {
     }
 
 
-    fun Array<Array<DataOPC>>?.Equals(other:Any?):Boolean{
+    fun Array<Array<DataOpc>>?.Equals(other:Any?):Boolean{
         if (this === other) return true
         val cl=other?.javaClass
         val jc=this?.javaClass
         if (this?.javaClass != other?.javaClass) return false
 
-        val buf:Array<Array<DataOPC>> = other as Array<Array<DataOPC>>?:return false
-        val buf1:Array<Array<DataOPC>> = this as Array<Array<DataOPC>>?:return false
+        val buf:Array<Array<DataOpc>> = other as Array<Array<DataOpc>>?:return false
+        val buf1:Array<Array<DataOpc>> = this as Array<Array<DataOpc>>?:return false
         if(buf1.size!= buf.size)
             return false
         if(buf1[0].size!= buf.get(0).size)
@@ -125,26 +125,12 @@ class TripleDataOpcMatrix {
         box.c=c?.copy()
         return box
     }
-    fun Array<Array<DataOPC>>?.copy():Array<Array<DataOPC>>?{
-        val buf:Array<Array<DataOPC>> = this?:return null
+    fun Array<Array<DataOpc>>?.copy():Array<Array<DataOpc>>?{
+        val buf:Array<Array<DataOpc>> = this?:return null
         val w=buf.size?:0
         val h=buf.get(0).size?:0
         val arr=Array(w,{x->Array(h,{y-> buf.get(x).get(y).copy()}) })
         return arr
-    }
-    fun DataOPC.copy():DataOPC{
-        val res=DataOPC()
-        res.N= BigInteger(N.toByteArray())
-        res.DC=DC
-        for(i in 0..DataOPC.SIZEOFBLOCK -1) {
-            res.base[i]=base[i]
-            for(j in 0..DataOPC.SIZEOFBLOCK -1)
-                res.sign[i][j]=sign[i][j]
-        }
-        for (i in 0..Code.size-1)
-            res.Code.addElement(Code[i])
-
-        return res
     }
 
     override fun equals(other: Any?): Boolean {

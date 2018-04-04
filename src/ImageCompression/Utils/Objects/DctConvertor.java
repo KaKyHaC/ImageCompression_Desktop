@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 /**
  * Class for transformation between DCT and Origin
- * min Size,max Time
+ * use min Size and max Time
  * Created by Димка on 08.08.2016.
  */
 public class DctConvertor {
@@ -172,6 +172,10 @@ public class DctConvertor {
         return state;
     }
 
+    /**
+     * Do main calculation if need
+     * @return matrix with original date
+     */
     public short[][] getMatrixOrigin() {
 //        if(!isReady&&state==State.DCT)
 //            dataProcessing();
@@ -182,6 +186,10 @@ public class DctConvertor {
         return dataProcessed;
     }
 
+    /**
+     * Do main calculation if need
+     * @return matrix with DCT date
+     */
     public short[][] getMatrixDct() {
 //        if(!isReady&&state==State.ORIGIN)
 //            dataProcessing();

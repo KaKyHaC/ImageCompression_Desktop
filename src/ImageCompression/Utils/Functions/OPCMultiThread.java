@@ -1,7 +1,7 @@
 package ImageCompression.Utils.Functions;
 
 
-import ImageCompression.Utils.Objects.DataOPC;
+import ImageCompression.Containers.DataOpc;
 import ImageCompression.Containers.Flag;
 import ImageCompression.Parameters;
 
@@ -14,84 +14,84 @@ public class OPCMultiThread { //singelton
     public final static int SIZEOFBLOCK = 8;
     private OPCMultiThread(){}
 
-    private static  void directOPC(Flag flag, short[][]dataOrigin, DataOPC dataOPC){
-        MakeUnSigned(dataOrigin,dataOPC);
-        if(flag.isDC())
-            DCminus(dataOrigin,dataOPC);
-        FindeBase(dataOrigin,dataOPC);
+    private static  void directOPC(Flag flag, short[][]dataOrigin, DataOpc DataOpc){
+        MakeUnSigned(dataOrigin,DataOpc);
+        if(flag.isChecked(Flag.Parameter.DC))
+            DCminus(dataOrigin,DataOpc);
+        FindeBase(dataOrigin,DataOpc);
 
-        if(flag.isLongCode())
-            OPCdirectUseOnlyLong(dataOrigin,dataOPC);
+        if(flag.isChecked(Flag.Parameter.LongCode))
+            OPCdirectUseOnlyLong(dataOrigin,DataOpc);
         else
-            OPCdirect(dataOrigin,dataOPC);
+            OPCdirect(dataOrigin,DataOpc);
     }
-    private static  void reverseOPC(Flag flag,short[][]dataOrigin,DataOPC dataOPC){
-        if(flag.isLongCode())
-            OPCreverseUseOnlyLong(dataOrigin,dataOPC);
+    private static  void reverseOPC(Flag flag,short[][]dataOrigin,DataOpc DataOpc){
+        if(flag.isChecked(Flag.Parameter.LongCode))
+            OPCreverseUseOnlyLong(dataOrigin,DataOpc);
         else
-            OPCreverse(dataOrigin,dataOPC);
+            OPCreverse(dataOrigin,DataOpc);
 
-        if(flag.isDC())
-            DCplus(dataOrigin,dataOPC);
+        if(flag.isChecked(Flag.Parameter.DC))
+            DCplus(dataOrigin,DataOpc);
         
-        MakeSigned(dataOrigin,dataOPC);
+        MakeSigned(dataOrigin,DataOpc);
     }
 
 
-    private static  DataOPC FindeBase(final short[][] dataOrigin,DataOPC dataOPC) {
+    private static  DataOpc FindeBase(final short[][] dataOrigin,DataOpc DataOpc) {
 //        short[] base=new short[SIZEOFBLOCK];
         for(int i=0;i<SIZEOFBLOCK;i++) {
 //            assert (dataOrigin[i][0]<(short)(Byte.MAX_VALUE&0xFF));
-            dataOPC.base[i]=(dataOrigin[i][0]);
+            DataOpc.base[i]=(dataOrigin[i][0]);
             for(int j=0;j<SIZEOFBLOCK;j++) {
-                if(dataOPC.base[i]<(dataOrigin[i][j])) {
-                    dataOPC.base[i]=(dataOrigin[i][j]);
+                if(DataOpc.base[i]<(dataOrigin[i][j])) {
+                    DataOpc.base[i]=(dataOrigin[i][j]);
                 }
             }
-            dataOPC.base[i]++;
-//            assert dataOPC.base[i]<0xff:"base ["+i+"]="+dataOPC.base[i];
+            DataOpc.base[i]++;
+//            assert DataOpc.base[i]<0xff:"base ["+i+"]="+DataOpc.base[i];
         }
-        return dataOPC;
+        return DataOpc;
     }
 
-    private static  DataOPC MakeUnSigned (final short[][] dataOrigin,DataOPC dataOPC)    {
+    private static  DataOpc MakeUnSigned (final short[][] dataOrigin,DataOpc DataOpc)    {
         for(int i=0;i<SIZEOFBLOCK;i++)
         {
             for(int j=0;j<SIZEOFBLOCK;j++)
             {
                 if(dataOrigin[i][j]<(short)0) {
                     dataOrigin[i][j]=(short)(dataOrigin[i][j]*(-1));
-                    dataOPC.sign[i][j]=false;
+                    DataOpc.sign[i][j]=false;
                 }
                 else {
-                    dataOPC.sign[i][j]=true;
+                    DataOpc.sign[i][j]=true;
                 }
             }
         }
-        return dataOPC;
+        return DataOpc;
     }
-    private static  DataOPC MakeSigned(final short[][] dataOrigin,DataOPC dataOPC)    {
+    private static  DataOpc MakeSigned(final short[][] dataOrigin,DataOpc DataOpc)    {
         for(int i=0;i<SIZEOFBLOCK;i++) {
             for(int j=0;j<SIZEOFBLOCK;j++) {
-                if(!dataOPC.sign[i][j]) {
+                if(!DataOpc.sign[i][j]) {
                     dataOrigin[i][j]=(short)(dataOrigin[i][j]*(-1));
                 }
             }
         }
-        return dataOPC;
+        return DataOpc;
     }
 
-    private static  void DCminus(short[][]dataOrigin,DataOPC dataOPC){
-        dataOPC.DC=(dataOrigin[0][0]);
+    private static  void DCminus(short[][]dataOrigin,DataOpc DataOpc){
+        DataOpc.DC=(dataOrigin[0][0]);
         dataOrigin[0][0]=0;
     }
-    private static  void DCplus(short[][]dataOrigin,DataOPC dataOPC){
-        dataOrigin[0][0]=dataOPC.DC;
+    private static  void DCplus(short[][]dataOrigin,DataOpc DataOpc){
+        dataOrigin[0][0]=DataOpc.DC;
     }
 
 
-    private static  void OPCdirect(short[][]dataOrigin,DataOPC dataOPC){//TODO diagonal for optimization
-        dataOPC.N=OPCdirectLong(dataOrigin,dataOPC);
+    private static  void OPCdirect(short[][]dataOrigin,DataOpc DataOpc){//TODO diagonal for optimization
+        DataOpc.N=OPCdirectLong(dataOrigin,DataOpc);
 /*        BigInteger base= new BigInteger("1");
         for(int i=SIZEOFBLOCK-1;i>=0;i--)
         {
@@ -99,28 +99,28 @@ public class OPCMultiThread { //singelton
             {
                 if(dataOrigin[i][j]!=0)
                 {
-                    dataOPC.N=dataOPC.N.add(base.multiply(BigInteger.valueOf(dataOrigin[i][j])));
+                    DataOpc.N=DataOpc.N.add(base.multiply(BigInteger.valueOf(dataOrigin[i][j])));
                 }
-                base=base.multiply(BigInteger.valueOf(dataOPC.base[i]));
+                base=base.multiply(BigInteger.valueOf(DataOpc.base[i]));
 
             }
         }*/
     }
-    private static BigInteger OPCdirectLong(short[][]dataOrigin, DataOPC dataOPC){
+    private static BigInteger OPCdirectLong(short[][]dataOrigin, DataOpc DataOpc){
 
         long base= 1;
         long res=0;
         long bufbase=1;
         for(int i=SIZEOFBLOCK-1;i>=0;i--) {
             for(int j=SIZEOFBLOCK-1;j>=0;j--) {
-                bufbase=base*dataOPC.base[i];
+                bufbase=base*DataOpc.base[i];
                /* if(bufbase<res)
                     System.out.println("res");*/
 /*                if(bufbase<base)
                     System.out.println("base");*/
                 if(bufbase> Parameters.getMAXLONG()){//is true ?
 //                    System.out.println("go");
-                    return OPCdirectBI(res,base,i,j,dataOrigin,dataOPC);
+                    return OPCdirectBI(res,base,i,j,dataOrigin,DataOpc);
                 }
                 if(dataOrigin[i][j]!=0) {
                     res+=base*(dataOrigin[i][j]);
@@ -132,7 +132,7 @@ public class OPCMultiThread { //singelton
 //        if(bufbase<res)System.out.println("AAAA");
         return BigInteger.valueOf(res);
     }
-    private static  BigInteger OPCdirectBI(long res,long baseval,int i1,int j1,short[][]dataOrigin,DataOPC dataOPC){
+    private static  BigInteger OPCdirectBI(long res,long baseval,int i1,int j1,short[][]dataOrigin,DataOpc DataOpc){
 
         BigInteger val=BigInteger.valueOf(res);
         BigInteger base=BigInteger.valueOf(baseval);
@@ -144,42 +144,42 @@ public class OPCMultiThread { //singelton
                 if(dataOrigin[i][j]!=0) {
                     val=val.add(base.multiply(BigInteger.valueOf(dataOrigin[i][j])));
                 }
-                base=base.multiply(BigInteger.valueOf(dataOPC.base[i]));
+                base=base.multiply(BigInteger.valueOf(DataOpc.base[i]));
             }
             j=SIZEOFBLOCK-1;
         }
         return val;
     }
 
-    private static  void OPCreverse(short[][]dataOrigin,DataOPC dataOPC) {// method copy from C++ Project MAH
+    private static  void OPCreverse(short[][]dataOrigin,DataOpc DataOpc) {// method copy from C++ Project MAH
         BigInteger copy=new BigInteger("1");
         for (int i = SIZEOFBLOCK - 1; i >= 0; i--) {
             for (int j = SIZEOFBLOCK - 1; j >= 0; j--) {
                 BigInteger a, b;
 
-                a = dataOPC.N.divide( copy);
-                copy =copy.multiply(BigInteger.valueOf(dataOPC.base[i]));
+                a = DataOpc.N.divide( copy);
+                copy =copy.multiply(BigInteger.valueOf(DataOpc.base[i]));
 
-                b =dataOPC.N.divide( copy);
-                b =b.multiply(BigInteger.valueOf( dataOPC.base[i]));
+                b =DataOpc.N.divide( copy);
+                b =b.multiply(BigInteger.valueOf( DataOpc.base[i]));
                 dataOrigin[i][j] = (a.subtract(b)).shortValue() ;
             }
         }
     }
 
-    private static  void OPCdirectUseOnlyLong(short[][]dataOrigin,DataOPC dataOPC){
+    private static  void OPCdirectUseOnlyLong(short[][]dataOrigin,DataOpc DataOpc){
         long base= 1;
         long res=0;
         long bufbase;
         for(int i=SIZEOFBLOCK-1;i>=0;i--) {
             for(int j=SIZEOFBLOCK-1;j>=0;j--) {
-                bufbase=base*dataOPC.base[i];
+                bufbase=base*DataOpc.base[i];
                 if(bufbase> Parameters.getMAXLONG())//is true ?
                 {
-                    dataOPC.Code.add(res);
+                    DataOpc.Code.add(res);
                     base= 1;
                     res=0;
-                    bufbase=base*dataOPC.base[i];
+                    bufbase=base*DataOpc.base[i];
                 }
                 if(dataOrigin[i][j]!=0) {
                     res+=base*(dataOrigin[i][j]);
@@ -187,24 +187,24 @@ public class OPCMultiThread { //singelton
                 base=bufbase;
             }
         }
-        dataOPC.Code.add(res);
+        DataOpc.Code.add(res);
     }
-    private static  void OPCreverseUseOnlyLong(short[][]dataOrigin,DataOPC dataOPC){
+    private static  void OPCreverseUseOnlyLong(short[][]dataOrigin,DataOpc DataOpc){
         long copy=1;
         int index=0;
-        long curN=dataOPC.Code.elementAt(index);
+        long curN=DataOpc.Code.elementAt(index);
         long nextcopy;
         for (int i = SIZEOFBLOCK - 1; i >= 0; i--) {
-            if(dataOPC.base[i]==0)//for wrong password;
-                dataOPC.base[i]=1;
+            if(DataOpc.base[i]==0)//for wrong password;
+                DataOpc.base[i]=1;
             for (int j = SIZEOFBLOCK - 1; j >= 0; j--) {
-                nextcopy=copy*dataOPC.base[i];
+                nextcopy=copy*DataOpc.base[i];
                 if(nextcopy>Parameters.getMAXLONG()||nextcopy<0) {
                     copy=1;
                     index++;
-                    nextcopy=copy*dataOPC.base[i];
-                    if(index<dataOPC.Code.size())
-                        curN=dataOPC.Code.elementAt(index);
+                    nextcopy=copy*DataOpc.base[i];
+                    if(index<DataOpc.Code.size())
+                        curN=DataOpc.Code.elementAt(index);
                 }
                 long a, b;
 
@@ -213,7 +213,7 @@ public class OPCMultiThread { //singelton
                 copy =nextcopy;
 
                 b =curN/( copy);
-                b =b*(( dataOPC.base[i]));
+                b =b*(( DataOpc.base[i]));
                 dataOrigin[i][j] =(short) (a-(b));
             }
         }
@@ -222,41 +222,41 @@ public class OPCMultiThread { //singelton
 
 
 
-    public static short[][]getDataOrigin(DataOPC dopc,Flag flag){
-        DataOPC dataOPC=dopc;
+    public static short[][]getDataOrigin(DataOpc dopc,Flag flag){
+        DataOpc DataOpc=dopc;
         short[][] dataOrigin=new short[SIZEOFBLOCK][SIZEOFBLOCK];
-        reverseOPC(flag,dataOrigin,dataOPC);
+        reverseOPC(flag,dataOrigin,DataOpc);
         return dataOrigin;
     }
-    public static DataOPC getDataOPC(short[][] dataOrigin,Flag flag){
-        DataOPC dataOPC=new DataOPC();
-        directOPC(flag,dataOrigin,dataOPC);
-        return  dataOPC;
+    public static DataOpc getDataOpc(short[][] dataOrigin,Flag flag){
+        DataOpc DataOpc=new DataOpc();
+        directOPC(flag,dataOrigin,DataOpc);
+        return  DataOpc;
     }
 
-    public static DataOPC findBase(short[][] dataOrigin,Flag flag){//TODO What it that doing ?
-        DataOPC dataOPC=new DataOPC();
+    public static DataOpc findBase(short[][] dataOrigin,Flag flag){//TODO What it that doing ?
+        DataOpc DataOpc=new DataOpc();
 
-        MakeUnSigned(dataOrigin,dataOPC);
+        MakeUnSigned(dataOrigin,DataOpc);
         if(flag.isDC()) {
-            DCminus(dataOrigin,dataOPC);
+            DCminus(dataOrigin,DataOpc);
         }
-        FindeBase(dataOrigin,dataOPC);
+        FindeBase(dataOrigin,DataOpc);
 
-        return  dataOPC;}
-    public static DataOPC directOPCwithFindedBase(short[][] dataOrigin,DataOPC d,Flag flag){
-        DataOPC dataOPC=d;
+        return  DataOpc;}
+    public static DataOpc directOPCwithFindedBase(short[][] dataOrigin,DataOpc d,Flag flag){
+        DataOpc DataOpc=d;
 
-        MakeUnSigned(dataOrigin,dataOPC);
+        MakeUnSigned(dataOrigin,DataOpc);
         if(flag.isDC()) {
-            DCminus(dataOrigin,dataOPC);
+            DCminus(dataOrigin,DataOpc);
         }
 
         if(flag.isLongCode())
-            OPCdirectUseOnlyLong(dataOrigin,dataOPC);
+            OPCdirectUseOnlyLong(dataOrigin,DataOpc);
         else
-            OPCdirect(dataOrigin,dataOPC);
-        return dataOPC;
+            OPCdirect(dataOrigin,DataOpc);
+        return DataOpc;
     }
 
 }
