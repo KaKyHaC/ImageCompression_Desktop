@@ -38,8 +38,10 @@ class TripleShortMatrix(var Width: Int, var Height: Int, flag: Flag, var state: 
                 for(d in -range..range)
                     if(this[i][j]==(a[i][j]+d).toShort())
                         isEqual=true
-                if(!isEqual)
-                    return false
+                if(!isEqual) {
+                    throw Exception("d[$i][$j](${this[i][j]})!=other[$i][$j](${a[i][j]}) in range=$range")
+//                    return false
+                }
             }
         }
         return true

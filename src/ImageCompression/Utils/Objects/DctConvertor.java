@@ -133,7 +133,7 @@ public class DctConvertor {
         if(state==State.DCT)
             preProsses();
 
-        FIConvertor convertor=(state==State.DCT)?this::directDCT:this::reverceDCT;
+        FIConvertor convertor=(state==State.ORIGIN)?this::directDCT:this::reverceDCT;
 
         for (int i = 0; i < duWidth; i++) {
             for (int j = 0; j < duHeight; j++) {
