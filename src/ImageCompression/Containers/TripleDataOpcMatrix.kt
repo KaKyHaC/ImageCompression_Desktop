@@ -7,6 +7,7 @@ class TripleDataOpcMatrix {
     var a: Array<Array<DataOpc>>?=null
     var b: Array<Array<DataOpc>>?=null
     var c: Array<Array<DataOpc>>?=null
+    //TODO add flag
 
     constructor(){    }
     constructor(a:Array<Array<DataOpc>>,b:Array<Array<DataOpc>>,c:Array<Array<DataOpc>>){

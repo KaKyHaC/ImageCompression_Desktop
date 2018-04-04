@@ -1,14 +1,11 @@
 package ImageCompression.ProcessingModules;
 
 
-import ImageCompression.Containers.TripleDataOpcMatrix;
-import ImageCompression.Containers.TripleShortMatrix;
+import ImageCompression.Containers.*;
 import ImageCompression.Constants.State;
-import ImageCompression.Containers.Size;
 import ImageCompression.Utils.Functions.OPCMultiThread;
-import ImageCompression.Utils.Objects.DataOPC;
 import ImageCompression.Utils.Functions.DCTMultiThread;
-import ImageCompression.Containers.Flag;
+import ImageCompression.Utils.Objects.OpcConvertor;
 //import com.sun.glass.ui.Size;
 
 import java.util.ArrayList;
@@ -29,6 +26,7 @@ public class ModuleOPC {
     private TripleDataOpcMatrix tripleDataOpcMatrix;
 //    private int widthOPC,heightOPC;
     private TripleShortMatrix tripleShortMatrix;
+    private OpcConvertor a,b,c;
     private Flag flag;
     private boolean isMatrix=false;
         private boolean isOpcs=false;
@@ -38,10 +36,15 @@ public class ModuleOPC {
         isMatrix=true;
         this.flag= tripleShortMatrix.getF();
 
-        Size size=sizeOpcCalculate(tripleShortMatrix.getWidth(), tripleShortMatrix.getHeight());
-        int widthOPC= size.getWidth();
-        int heightOPC= size.getHeight();
-        int k=(tripleShortMatrix.getF().isEnlargement())?2:1;
+        a=new OpcConvertor(tripleShortMatrix.getA(),tripleShortMatrix.getF());
+        b=new OpcConvertor(tripleShortMatrix.getB(),tripleShortMatrix.getF());
+        c=new OpcConvertor(tripleShortMatrix.getC(),tripleShortMatrix.getF());
+
+//        Size size=sizeOpcCalculate(tripleShortMatrix.getWidth(), tripleShortMatrix.getHeight());
+//        int widthOPC= size.getWidth();
+//        int heightOPC= size.getHeight();
+//        int k=(tripleShortMatrix.getF().isEnlargement())?2:1;
+
         tripleDataOpcMatrix =new TripleDataOpcMatrix();
 //        tripleDataOpcMatrix.setA(new DataOpc[widthOPC][heightOPC]);
 //        tripleDataOpcMatrix.setB(new DataOpc[widthOPC/k][heightOPC/k]);
@@ -49,6 +52,11 @@ public class ModuleOPC {
     }
     public ModuleOPC(TripleDataOpcMatrix tripleDataOpcMatrix, Flag flag){
         this.tripleDataOpcMatrix = tripleDataOpcMatrix;
+
+        a=new OpcConvertor(tripleDataOpcMatrix.getA(),flag);
+        b=new OpcConvertor(tripleDataOpcMatrix.getB(),flag);
+        c=new OpcConvertor(tripleDataOpcMatrix.getC(),flag);
+
         int widthOPC= tripleDataOpcMatrix.getA().length;
         int heightOPC= tripleDataOpcMatrix.getA()[0].length;
         isOpcs=true;
@@ -62,11 +70,11 @@ public class ModuleOPC {
             return;
 
         appendTimeManager("direct OPC");
-        tripleDataOpcMatrix.setA(directOPC(tripleShortMatrix.getA()));
+        tripleDataOpcMatrix.setA(a.getDataOpcs());
         appendTimeManager("get A");
-        tripleDataOpcMatrix.setB(directOPC(tripleShortMatrix.getB()));
+        tripleDataOpcMatrix.setB(b.getDataOpcs());
         appendTimeManager("get B");
-        tripleDataOpcMatrix.setC(directOPC(tripleShortMatrix.getC()));
+        tripleDataOpcMatrix.setC(c.getDataOpcs());
         appendTimeManager("get C");
 
         isOpcs=true;
@@ -76,11 +84,11 @@ public class ModuleOPC {
             return;
 
         appendTimeManager("start reOPC");
-        tripleShortMatrix.setA(reverceOPC(tripleDataOpcMatrix.getA()));
+        tripleShortMatrix.setA(a.getDataOrigin());
         appendTimeManager("get A");
-        tripleShortMatrix.setB(reverceOPC(tripleDataOpcMatrix.getB()));
+        tripleShortMatrix.setB(b.getDataOrigin());
         appendTimeManager("get B");
-        tripleShortMatrix.setC(reverceOPC(tripleDataOpcMatrix.getC()));
+        tripleShortMatrix.setC(c.getDataOrigin());
         appendTimeManager("get C");
 
         isMatrix=true;
@@ -91,14 +99,14 @@ public class ModuleOPC {
             return;
 
         ExecutorService executorService = Executors.newFixedThreadPool(3);
-        List<Future<DataOPC[][]>> futures=new ArrayList<Future<DataOPC[][]>>();
+        List<Future<DataOpc[][]>> futures=new ArrayList<Future<DataOpc[][]>>();
 
         appendTimeManager("direct OPC");
-        futures.add(executorService.submit(()->directOPC(tripleShortMatrix.getA())));
+        futures.add(executorService.submit(()->a.getDataOpcs()));
         appendTimeManager("set A");
-        futures.add(executorService.submit(()->directOPC(tripleShortMatrix.getB())));
+        futures.add(executorService.submit(()->b.getDataOpcs()));
         appendTimeManager("set B");
-        futures.add(executorService.submit(()->directOPC(tripleShortMatrix.getC())));
+        futures.add(executorService.submit(()->c.getDataOpcs()));
         appendTimeManager("set C");
 
             try {
@@ -123,11 +131,11 @@ public class ModuleOPC {
         List<Future<short[][]>> futures=new ArrayList<Future<short[][]>>();
 
         appendTimeManager("start reOPC");
-        futures.add(executorService.submit(()->reverceOPC(tripleDataOpcMatrix.getA())));
+        futures.add(executorService.submit(()->a.getDataOrigin()));
         appendTimeManager("start a");
-        futures.add(executorService.submit(()->reverceOPC(tripleDataOpcMatrix.getB())));
+        futures.add(executorService.submit(()->b.getDataOrigin()));
         appendTimeManager("start b");
-        futures.add(executorService.submit(()->reverceOPC(tripleDataOpcMatrix.getC())));
+        futures.add(executorService.submit(()->c.getDataOrigin()));
         appendTimeManager("start c");
 
 
@@ -153,9 +161,9 @@ public class ModuleOPC {
 
         //omp parallel
         {
-            tripleDataOpcMatrix.setA(directOPC(tripleShortMatrix.getA()));
-            tripleDataOpcMatrix.setB(directOPC(tripleShortMatrix.getB()));
-            tripleDataOpcMatrix.setC(directOPC(tripleShortMatrix.getC()));
+            tripleDataOpcMatrix.setA(a.getDataOpcs());
+            tripleDataOpcMatrix.setB(b.getDataOpcs());
+            tripleDataOpcMatrix.setC(c.getDataOpcs());
         }
         isOpcs=true;
     }
@@ -165,9 +173,9 @@ public class ModuleOPC {
 
         //omp parallel
         {
-            tripleShortMatrix.setA(reverceOPC(tripleDataOpcMatrix.getA()));
-            tripleShortMatrix.setB(reverceOPC(tripleDataOpcMatrix.getB()));
-            tripleShortMatrix.setC(reverceOPC(tripleDataOpcMatrix.getC()));
+            tripleShortMatrix.setA(a.getDataOrigin());
+            tripleShortMatrix.setB(b.getDataOrigin());
+            tripleShortMatrix.setC(c.getDataOrigin());
         }
         isMatrix=true;
     }
@@ -175,9 +183,9 @@ public class ModuleOPC {
     public void directOpcGlobalBase(int n,int m){
         if(!isMatrix)
             return;
-        tripleDataOpcMatrix.setA(directOpcGlobalBase(n,m, tripleShortMatrix.getA())); //TODO set a
-        tripleDataOpcMatrix.setB(directOpcGlobalBase(n,m, tripleShortMatrix.getB())); //TODO set a
-        tripleDataOpcMatrix.setC(directOpcGlobalBase(n,m, tripleShortMatrix.getC())); //TODO set a
+        tripleDataOpcMatrix.setA(a.getDataOpcs(n,m)); //TODO set a
+        tripleDataOpcMatrix.setB(b.getDataOpcs(n,m)); //TODO set a
+        tripleDataOpcMatrix.setC(c.getDataOpcs(n,m)); //TODO set a
 
         isOpcs=true;
     }

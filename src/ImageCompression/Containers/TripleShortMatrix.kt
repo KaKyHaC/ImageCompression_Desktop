@@ -7,7 +7,7 @@ class TripleShortMatrix(var Width: Int, var Height: Int, flag: Flag, var state: 
     var a: Array<ShortArray>
     var b: Array<ShortArray>
     var c: Array<ShortArray>
-    var f: Flag
+    var f: Flag//TODO remove flag
 
     init {
         f= Flag(flag.flag)
