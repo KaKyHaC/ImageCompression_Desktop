@@ -18,12 +18,12 @@ import java.util.concurrent.Future;
 public class ModuleDCT {
     private TripleShortMatrix tripleShortMatrix;
     private DctConvertor a,b,c;
-    private TripleShortMatrix resTripleShortMatrix;
+//    private TripleShortMatrix resTripleShortMatrix;
     private Flag flag;
 
     public ModuleDCT(TripleShortMatrix tripleShortMatrix,Flag flag) {
         this.tripleShortMatrix = tripleShortMatrix;
-        this.resTripleShortMatrix=tripleShortMatrix;
+//        this.resTripleShortMatrix=tripleShortMatrix;
         this.flag=flag;
 
         if(tripleShortMatrix.getState() == State.Yenl)//new code . Does it is needed ?
