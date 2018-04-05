@@ -14,50 +14,60 @@ import java.awt.image.BufferedImage
 import java.io.File
 import javax.imageio.ImageIO
 
-class ConvertorDefault (val dao:IDao,val moduleOPC: AbsModuleOPC) {
+class ConvertorDefault (val dao:IDao,val factory:IFactory) {
     interface IDao{
-        fun onResultTripleData(vector: TripleDataOpcMatrix)
+        fun onResultTripleData(vector: TripleDataOpcMatrix,flag: Flag)
         fun onResultImage(image: BufferedImage,flag: Flag)
+        fun getImage():BufferedImage
+        fun getTripleDataOpc():TripleDataOpcMatrix
+        fun getFlag():Flag
+    }
+    interface IFactory{
+        fun getModuleOPC(tripleShortMatrix: TripleShortMatrix,flag: Flag):AbsModuleOPC
+        fun getModuleOPC(tripleDataOpcMatrix: TripleDataOpcMatrix,flag: Flag):AbsModuleOPC
     }
 
     enum class Computing{OneThread,MultiThreads,MultiProcessor}
     data class Info(val flag: Flag, val password: String?=null
                     , val message: String?=null, val sameBaseWidth:Int=1, val sameBaseHeight:Int=1)
 
-    fun FromBmpToBar(image: BufferedImage,info: Info, computing: Computing = Computing.MultiThreads) {
+    fun FromBmpToBar(computing: Computing = Computing.MultiThreads) {
         val isAsync=(computing== Computing.MultiThreads)
         val timeManager= TimeManager.Instance
-        val bmp = image
+        val bmp = dao.getImage()
+        val flag=dao.getFlag()
         timeManager.append("read bmp")
         progressListener?.invoke(10,"RGB to YcBcR")
-        view?.invoke(bmp)
-        val mi = MyBufferedImage(bmp, info.flag)
+        onImageReadyListener?.invoke(bmp)
+        val mi = MyBufferedImage(bmp, flag)
         val matrix = mi.getYenlMatrix(isAsync)
         timeManager.append("rgb to yenl")
         progressListener?.invoke(30,"direct DCT")
-        val bodum = ModuleDCT(matrix,info.flag)
+        val bodum = ModuleDCT(matrix,flag)
         val matrixDCT=bodum.getDCTMatrix(isAsync)
         timeManager.append("direct DCT")
         progressListener?.invoke(60,"direct OPC")
+        val moduleOPC=factory.getModuleOPC(matrixDCT,flag)
         val box=moduleOPC.getTripleDataOpcMatrix()
         timeManager.append("direct OPC")
         progressListener?.invoke(80,"write to file")
         timeManager.append("write to file")
-        dao.onResultTripleData(box)
+        dao.onResultTripleData(box,flag)
         progressListener?.invoke(100,"Ready after ${timeManager.getTotalTime()} ms")
         System.out.println(timeManager.getInfoInSec())
     }
 
-    fun FromBarToBmp(box: TripleDataOpcMatrix,flag: Flag,password: String?=null,computing: Computing = Computing.MultiThreads): Unit {
+    fun FromBarToBmp(computing: Computing = Computing.MultiThreads): Unit {
         val isAsync=(computing== Computing.MultiThreads)
         val timeManager= TimeManager.Instance
         timeManager.startNewTrack("FromBarToBmp ${isAsync}")
         progressListener?.invoke(10,"read from file")
+        val box=dao.getTripleDataOpc()
+        val flag=dao.getFlag()
         timeManager.append("read from file")
         progressListener?.invoke(10,"reverse OPC")
-        val mOPC= StegoEncrWithOPC(box, flag)
-        mOPC.password=password
-        val FFTM =mOPC.getMatrix(isAsync)
+        val mOPC= factory.getModuleOPC(box,flag)
+        val FFTM =mOPC.getTripleShortMatrix()
         timeManager.append("reverse OPC")
         progressListener?.invoke(50,"reverse DCT")
         val bodum1 = ModuleDCT(FFTM,flag)
@@ -72,7 +82,7 @@ class ConvertorDefault (val dao:IDao,val moduleOPC: AbsModuleOPC) {
         timeManager.append("write to bmp")
         progressListener?.invoke(100,"Ready after ${timeManager.getTotalTime()} ms");
         System.out.println(timeManager.getInfoInSec())
-        view?.invoke(res)
+        onImageReadyListener?.invoke(res)
     }
 
     private fun getPathWithoutType(path: String): String {
@@ -80,15 +90,5 @@ class ConvertorDefault (val dao:IDao,val moduleOPC: AbsModuleOPC) {
     }
 
     var progressListener:((value:Int,text:String)->Unit)?=null
-    var view:((image: BufferedImage)->Unit)?=null
-
-    class DaoFileModule(val path: String):IDao{
-        override fun onResultImage(image: BufferedImage, flag: Flag) {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        }
-
-        override fun onResultTripleData(vector: TripleDataOpcMatrix) {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        }
-    }
+    var onImageReadyListener:((image: BufferedImage)->Unit)?=null
 }

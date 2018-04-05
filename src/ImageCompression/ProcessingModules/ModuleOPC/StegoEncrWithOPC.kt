@@ -30,8 +30,12 @@ class StegoEncrWithOPC :AbsModuleOPC{
         this.message=null
         this.password=password
     }
+
     var message:String?
     var password:String?
+
+    var onMessageReadedListener:((message:String)->Unit)?=null
+    var isAsync=true
 
     fun FromMatrixToOpcs(isAsync: Boolean=true,progressListener:((x:Int)->Unit)? = null){
         if(!opcs.isTripleShortMatrix)
@@ -81,6 +85,7 @@ class StegoEncrWithOPC :AbsModuleOPC{
         if(opcs.flag.isChecked(Flag.Parameter.Steganography)) {
             val mat=opcs.getMatrix(isAsync)
             message = String(Steganography.ReadMassageFromMatrix(mat).toByteArray())
+            if(message!=null)onMessageReadedListener?.invoke(message!!)
             TimeManager.Instance.append("Stega")
         }
         progressListener?.invoke(100)
@@ -130,7 +135,7 @@ class StegoEncrWithOPC :AbsModuleOPC{
 
     override fun direct(shortMatrix: TripleShortMatrix): TripleDataOpcMatrix {
         if(!opcs.isOpcs)
-            FromMatrixToOpcs(true)
+            FromMatrixToOpcs(isAsync)
 
         assert(opcs.isOpcs)
         return opcs.getTripleDataOpcMatrix()
@@ -138,7 +143,7 @@ class StegoEncrWithOPC :AbsModuleOPC{
 
     override fun reverce(dataOpcMatrix: TripleDataOpcMatrix): TripleShortMatrix {
         if(!opcs.isTripleShortMatrix)
-            FromOpcToMatrix(true)
+            FromOpcToMatrix(isAsync)
 
         assert(opcs.isTripleShortMatrix)
         return opcs.getTripleShortMatrix()
