@@ -29,7 +29,7 @@ public class ModuleOPC {
     private OpcConvertor a,b,c;
     private Flag flag;
     private boolean isMatrix=false;
-        private boolean isOpcs=false;
+    private boolean isOpcs=false;
 
     public ModuleOPC(final TripleShortMatrix tripleShortMatrix){
         this.tripleShortMatrix = tripleShortMatrix;
