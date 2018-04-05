@@ -1,7 +1,15 @@
 import ImageCompression.Constants.Cosine;
 import ImageCompression.Containers.Flag;
+import ImageCompression.Containers.Size;
+import ImageCompression.Containers.TripleDataOpcMatrix;
+import ImageCompression.Containers.TripleShortMatrix;
+import ImageCompression.Convertor.ConvertorDefault;
 import ImageCompression.Convertor.ConvertorDesktop;
+import ImageCompression.Convertor.DaoDesktop;
 import ImageCompression.Parameters;
+import ImageCompression.ProcessingModules.ModuleOPC.AbsModuleOPC;
+import ImageCompression.ProcessingModules.ModuleOPC.StegoEncrWithOPC;
+import org.jetbrains.annotations.NotNull;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -35,7 +43,7 @@ public class MainForm extends JFrame{
     private Parameters parameters = Parameters.getInstanse();
     private Flag flag=new Flag("0");
     private File file;
-    private ConvertorDesktop convertorDesktop =ConvertorDesktop.getInstance();
+    private ConvertorDefault convertor;
     private String myType=".bar";
 
     public MainForm() throws HeadlessException {
@@ -68,6 +76,52 @@ public class MainForm extends JFrame{
         new Thread(()->{
             Cosine.getCos(0,0);
         }).start();
+
+        ConvertorDefault.IDao dao=new DaoDesktop() {
+            @NotNull
+            @Override
+            public File getFileOriginal() {
+                return file;
+            }
+
+            @NotNull
+            @Override
+            public File getFileTarget() {
+                return file;
+            }
+
+            @NotNull
+            @Override
+            public Size getSameBase() {
+                return new Size((int)spinnerW.getValue(),(int)spinnerH.getValue());
+            }
+
+            @NotNull
+            @Override
+            public Flag getFlag() {
+                return flag;
+            }
+        };
+        ConvertorDefault.IFactory factory=new ConvertorDefault.IFactory() {
+            @NotNull
+            @Override
+            public AbsModuleOPC getModuleOPC(@NotNull TripleShortMatrix tripleShortMatrix, @NotNull Flag flag) {
+                int w=(int)spinnerW.getValue();
+                int h=(int)spinnerH.getValue();
+                String pass=String.valueOf(passwordField1.getPassword());
+                return new StegoEncrWithOPC(tripleShortMatrix,flag,w,h,null,pass);
+            }
+
+            @NotNull
+            @Override
+            public AbsModuleOPC getModuleOPC(@NotNull TripleDataOpcMatrix tripleDataOpcMatrix, @NotNull Flag flag) {
+                int w=(int)spinnerW.getValue();
+                int h=(int)spinnerH.getValue();
+                String pass=String.valueOf(passwordField1.getPassword());
+                return new StegoEncrWithOPC(tripleDataOpcMatrix,flag,w,h,pass);
+            }
+        };
+        convertor=new ConvertorDefault(dao,factory);
     }
     private void setListeners(){
         bSelect.addActionListener(new ActionListener() {
@@ -108,14 +162,14 @@ public class MainForm extends JFrame{
                 }
             }
         });
-        convertorDesktop.setProgressListener((integer, s) -> {
+        convertor.setProgressListener((integer, s) -> {
             SwingUtilities.invokeLater(() -> {
                 progressBar1.setValue(integer);
                 progressBar1.setString(s);
             });
             return null;
         });
-        convertorDesktop.setView(bufferedImage ->{
+        convertor.setOnImageReadyListener(bufferedImage ->{
             new Thread(()->{
                 SwingUtilities.invokeLater(() -> {
                     ImageIcon imageIcon = new ImageIcon(bufferedImage);
@@ -179,15 +233,15 @@ public class MainForm extends JFrame{
     }
 
     private void processImage(File file) throws IOException {
-        ConvertorDesktop.Computing computing=(isMultiThread.isSelected())? ConvertorDesktop.Computing.MultiThreads: ConvertorDesktop.Computing.OneThread;
-        ConvertorDesktop.Info info=new ConvertorDesktop.Info(flag,
-                String.valueOf(passwordField1.getPassword()),null,1,1 );
-        new Thread(()-> convertorDesktop.FromBmpToBar(file.getAbsolutePath(),info,computing)).start();
+        ConvertorDefault.Computing computing=(isMultiThread.isSelected())? ConvertorDefault.Computing.MultiThreads: ConvertorDefault.Computing.OneThread;
+//        ConvertorDesktop.Info info=new ConvertorDesktop.Info(flag,
+//                String.valueOf(passwordField1.getPassword()),null,1,1 );
+        new Thread(()-> convertor.FromBmpToBar(computing)).start();
     }
     private void processBar(File file)throws Exception{
-        ConvertorDesktop.Computing computing=(isMultiThread.isSelected())? ConvertorDesktop.Computing.MultiThreads: ConvertorDesktop.Computing.OneThread;
+        ConvertorDefault.Computing computing=(isMultiThread.isSelected())? ConvertorDefault.Computing.MultiThreads: ConvertorDefault.Computing.OneThread;
         String pass=String.valueOf(passwordField1.getPassword());
-        new Thread(()-> convertorDesktop.FromBarToBmp(file.getAbsolutePath(),pass,computing)).start();
+        new Thread(()-> convertor.FromBarToBmp(computing)).start();
     }
 
     private void sliderListener(int val){

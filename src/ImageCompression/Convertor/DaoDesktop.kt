@@ -9,28 +9,29 @@ import java.io.File
 import javax.imageio.ImageIO
 
 abstract class DaoDesktop:ConvertorDefault.IDao {
-    abstract fun getFile(): File
+    abstract fun getFileOriginal(): File
+    abstract fun getFileTarget():File
     abstract fun getSameBase(): Size
     abstract fun getFlag():Flag
 
     final override fun onResultTripleData(vector: TripleDataOpcMatrix, flag: Flag) {
         val s=getSameBase()
-        val fileModule=ModuleFile(getFile().absoluteFile,s.width,s.height)
+        val fileModule=ModuleFile(getFileTarget().absoluteFile,s.width,s.height)
         fileModule.write(vector,flag)
     }
 
     final override fun onResultImage(image: BufferedImage, flag: Flag) {
-        val file=File(getPathWithoutType(getFile().absolutePath) + "res.bmp")
+        val file=File(getPathWithoutType(getFileTarget().absolutePath) + "res.bmp")
         file.createNewFile()
         ImageIO.write(image, "bmp", file)
     }
 
     final override fun getImage(): Pair<BufferedImage, Flag> {
-        return Pair(ImageIO.read(File(getFile().absolutePath)),getFlag())
+        return Pair(ImageIO.read(File(getFileOriginal().absolutePath)),getFlag())
     }
 
     final override fun getTripleDataOpc(): Pair<TripleDataOpcMatrix, Flag> {
-        val fileModule= ModuleFile(getFile())
+        val fileModule= ModuleFile(getFileOriginal())
         return fileModule.read()
     }
 
