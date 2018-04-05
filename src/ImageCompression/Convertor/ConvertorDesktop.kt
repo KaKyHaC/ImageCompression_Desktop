@@ -1,4 +1,4 @@
-package ImageCompression
+package ImageCompression.Convertor
 
 import ImageCompression.ProcessingModules.*
 import ImageCompression.Containers.Flag
@@ -11,7 +11,7 @@ import javax.imageio.ImageIO
 
 class ConvertorDesktop private constructor(){
     companion object {
-        @JvmStatic val instance=ConvertorDesktop()
+        @JvmStatic val instance= ConvertorDesktop()
         @JvmStatic fun getInstance(progressListener:((value:Int,text:String)->Unit)?=null
                                    ,view:((image:BufferedImage)->Unit)?=null): ConvertorDesktop {
             instance.view=view
@@ -25,7 +25,7 @@ class ConvertorDesktop private constructor(){
 //    var password:String?=null
 //    private var globalBaseW=1
 //    private var globalBaseH=1
-    fun FromBmpToBar(pathToBmp: String,info: Info, computing: Computing = Computing.MultiThreads) {
+    fun FromBmpToBar(pathToBmp: String, info: Info, computing: Computing = Computing.MultiThreads) {
         val isAsync=(computing== Computing.MultiThreads)
             val timeManager=TimeManager.Instance
             timeManager.startNewTrack("FromBmpToBar ${isAsync}")
