@@ -21,6 +21,7 @@ class ConvertorTest {
     val pathToBmpRes:String="/files/desktest.bmp"
     val w=1920
     val h=1080
+    val flag=Flag()
 
     @Test
     fun TestReadWrite(){
@@ -30,10 +31,10 @@ class ConvertorTest {
     }
     @Test
     fun TestMyBufferedImageMatrix5(){
-        var matrix=getRandomMatrix(w,h, Flag("0"))
-        val mi=MyBufferedImage(matrix)
+        var matrix=getRandomMatrix(w,h)
+        val mi=MyBufferedImage(matrix,flag)
         val bi=mi.bufferedImage
-        val mi1=MyBufferedImage(bi,matrix.f)
+        val mi1=MyBufferedImage(bi,flag)
 
 
         var matrix1=mi1.rgbMatrix
@@ -50,10 +51,10 @@ class ConvertorTest {
     }
     @Test
     fun TestBoxOfDUM5(){
-        var matrix=getRandomMatrix(w,h, Flag("0"))
-        matrix=MyBufferedImage(matrix).getYenlMatrix(true)
+        var matrix=getRandomMatrix(w,h)
+        matrix=MyBufferedImage(matrix,flag).getYenlMatrix(true)
         val cpy=matrix.copy()
-        val bo= ModuleDCT(matrix)
+        val bo= ModuleDCT(matrix,flag)
 
         bo.getDCTMatrix(true)
         AssertMatrixInRange(matrix,cpy,5,false)
@@ -63,9 +64,9 @@ class ConvertorTest {
     }
     @Test
     fun TestTimeBoxofDum(){
-        var matrix=getRandomMatrix(w,h, Flag("0"))
-        matrix=MyBufferedImage(matrix).getYenlMatrix(true)
-        val bo= ModuleDCT(matrix)
+        var matrix=getRandomMatrix(w,h)
+        matrix=MyBufferedImage(matrix,flag).getYenlMatrix(true)
+        val bo= ModuleDCT(matrix,flag)
 
         var t1:Date=Date()
         bo.getDCTMatrix(false)
@@ -83,7 +84,7 @@ class ConvertorTest {
     }
     @Test
     fun TestSteganography(){
-        var matrix=getRandomMatrix(w,h, Flag("0"))
+        val matrix=getRandomMatrix(w,h)
         val m="afdsfsd"
         Steganography.WriteMassageFromByteArrayToMatrix(matrix,m.toByteArray())
         val res= String(Steganography.ReadMassageFromMatrix(matrix).toByteArray())
@@ -103,27 +104,28 @@ class ConvertorTest {
     @Test
     fun TestFullAlgorithmWithoutFile8(){
         val delta=8
-        var matrix=getRandomMatrix(w,h, Flag("0"))
+        val matrix=getRandomMatrix(w,h)
         val t1=Date().time
-        matrix.f.setChecked(Flag.Parameter.LongCode,true)
-        matrix.f.setChecked(Flag.Parameter.DC,true)
-        matrix.f.setChecked(Flag.Parameter.OneFile,true)
+        val f:Flag=Flag()
+        f.setChecked(Flag.Parameter.LongCode,true)
+        f.setChecked(Flag.Parameter.DC,true)
+        f.setChecked(Flag.Parameter.OneFile,true)
         val cpy=matrix.copy()
         AssertMatrixInRange(cpy,matrix,0)
 
-        val myImage=MyBufferedImage(matrix)
+        val myImage=MyBufferedImage(matrix,f)
         val ybr=myImage.getYenlMatrix(true)
         val ybrCpy=ybr.copy()
         assertFails { AssertMatrixInRange(cpy,ybr,1) }
         AssertMatrixInRange(ybrCpy,ybr,0)
 
-        val mDCT=ModuleDCT(ybr)
+        val mDCT=ModuleDCT(ybr,f)
         val dct=mDCT.getDCTMatrix(true)
         val dctCpy=dct.copy()
         assertFails { AssertMatrixInRange(cpy,dct,1) }
         assertFails { AssertMatrixInRange(ybrCpy,dct,1) }
 
-        val seOpc= StegoEncrWithOPC(dct)
+        val seOpc= StegoEncrWithOPC(dct,f)
         val opcs=seOpc.getModuleOPC()
         val box=opcs.getBoxOfOpc(true)
         val flag1=opcs.flag
@@ -131,20 +133,20 @@ class ConvertorTest {
         box.writeToVector(vb,flag1)
         //----
         //----
-        val f=opcs.flag
+        val f1=opcs.flag
         val rBox= TripleDataOpcMatrix()
-        rBox.readFromVector(vb,f)
+        rBox.readFromVector(vb,f1)
         assertEquals(rBox,box)
 
-        val seOpc2= StegoEncrWithOPC(rBox, f)
+        val seOpc2= StegoEncrWithOPC(rBox, f1)
         val dctres=seOpc2.getMatrix(true)
         AssertMatrixInRange(dctres,dctCpy,0)
 
-        val mDCT2=ModuleDCT(dctres)
+        val mDCT2=ModuleDCT(dctres,f1)
         val ynlres=mDCT2.getYCbCrMatrix(true)
         AssertMatrixInRange(ynlres,ybrCpy,delta)
 
-        val myIm2=MyBufferedImage(ynlres)
+        val myIm2=MyBufferedImage(ynlres,f1)
         val rgb=myIm2.rgbMatrix
         AssertMatrixInRange(rgb,cpy,delta)
         val t2=Date().time
@@ -203,49 +205,50 @@ class ConvertorTest {
     }
 
     fun testModuleDCT(delta: Int){
-        var matrix=getRandomMatrix(w,h, Flag("0"))
-        matrix.f.setChecked(Flag.Parameter.LongCode,true)
-        matrix.f.setChecked(Flag.Parameter.DC,true)
-        matrix.f.setChecked(Flag.Parameter.OneFile,true)
+        val matrix=getRandomMatrix(w,h)
+        var f=Flag()
+        f.setChecked(Flag.Parameter.LongCode,true)
+        f.setChecked(Flag.Parameter.DC,true)
+        f.setChecked(Flag.Parameter.OneFile,true)
         val cpy=matrix.copy()
         AssertMatrixInRange(cpy,matrix,0)
 
-        val myImage=MyBufferedImage(matrix)
+        val myImage=MyBufferedImage(matrix,f)
         val ybr=myImage.getYenlMatrix(true)
         val ybrCpy=ybr.copy()
         assertFails { AssertMatrixInRange(cpy,ybr,1) }
         AssertMatrixInRange(ybrCpy,ybr,0)
 
-        val mDCT=ModuleDCT(ybr)
+        val mDCT=ModuleDCT(ybr,f)
         val dct=mDCT.getDCTMatrix(true)
         val dctCpy=dct.copy()
         assertFails { AssertMatrixInRange(cpy,dct,1) }
         assertFails { AssertMatrixInRange(ybrCpy,dct,1) }
 
-        val seOpc= StegoEncrWithOPC(dct)
+        val seOpc= StegoEncrWithOPC(dct,f)
         val opcs=seOpc.getModuleOPC()
         val box=opcs.getBoxOfOpc(true)
-        val f=opcs.flag
+        f=opcs.flag
 
         val seOpc2= StegoEncrWithOPC(box, f)
         val dctres=seOpc2.getMatrix(true)
         AssertMatrixInRange(dctres,dctCpy,0)
 
-        val mDCT2=ModuleDCT(dctres)
+        val mDCT2=ModuleDCT(dctres,f)
         val ynlres=mDCT2.getYCbCrMatrix(true)
         AssertMatrixInRange(ynlres,ybrCpy,delta)
 
-        val myIm2=MyBufferedImage(ynlres)
+        val myIm2=MyBufferedImage(ynlres,f)
         val rgb=myIm2.rgbMatrix
         AssertMatrixInRange(rgb,cpy,delta)
     }
     fun testDirectReverseConverting(w:Int, h:Int, flag: Flag, delta:Int, compareCompression:Boolean=false){
-        var matrix=getRandomMatrix(w,h,flag)
+        var matrix=getRandomMatrix(w,h)
         val t1=Date().time
         val cpy=matrix.copy()
         AssertMatrixInRange(cpy,matrix,0)
 
-        val myImage=MyBufferedImage(matrix)
+        val myImage=MyBufferedImage(matrix,flag)
         //
         if(compareCompression) {
             val bv = myImage.byteVector
@@ -259,13 +262,13 @@ class ConvertorTest {
         assertFails { AssertMatrixInRange(cpy,ybr,0) }
         AssertMatrixInRange(ybrCpy,ybr,0)
 
-        val mDCT=ModuleDCT(ybr)
+        val mDCT=ModuleDCT(ybr,flag)
         val dct=mDCT.getDCTMatrix(true)
         val dctCpy=dct.copy()
         assertFails { AssertMatrixInRange(cpy,dct,0) }
         assertFails { AssertMatrixInRange(ybrCpy,dct,0) }
 
-        val seOpc= StegoEncrWithOPC(dct)
+        val seOpc= StegoEncrWithOPC(dct,flag)
         val opcs=seOpc.getModuleOPC()
         val box=opcs.getBoxOfOpc(true)
         val flag=opcs.flag
@@ -284,11 +287,11 @@ class ConvertorTest {
         val dctres=seOpc2.getMatrix(true)
         AssertMatrixInRange(dctres,dctCpy,0)
 
-        val mDCT2=ModuleDCT(dctres)
+        val mDCT2=ModuleDCT(dctres,flag)
         val ynlres=mDCT2.getYCbCrMatrix(true)
         AssertMatrixInRange(ynlres,ybrCpy,delta)
 
-        val myIm2=MyBufferedImage(ynlres)
+        val myIm2=MyBufferedImage(ynlres,flag)
         val rgb=myIm2.rgbMatrix
         AssertMatrixInRange(rgb,cpy,delta)
         assertEquals("${flag.flag}!=${f.flag}",flag.flag,f.flag)
@@ -297,8 +300,8 @@ class ConvertorTest {
         System.out.println("Test d/r Image=${w}x${h}. Time= ${t2-t1}. Flag=${f.flag}." +
                 " Bar File=${file.getMainFileLength()/1024}kb. Delta=${delta}")
     }
-    fun getRandomMatrix(w:Int,h:Int,flag: Flag): TripleShortMatrix {
-        val m = TripleShortMatrix(w,h,flag,State.RGB)
+    fun getRandomMatrix(w:Int,h:Int): TripleShortMatrix {
+        val m = TripleShortMatrix(w,h,State.RGB)
         val rand=Random()
         forEach(w,h,{x, y ->
 //            m.a[x][y]=rand.nextInt(255).toShort()
@@ -312,7 +315,7 @@ class ConvertorTest {
     }
 
     fun TripleShortMatrix.copy(): TripleShortMatrix {
-        var res= TripleShortMatrix(this.Width,this.Height, Flag(this.f.flag),state)
+        var res= TripleShortMatrix(this.Width,this.Height,state)
         forEach(Width,Height,{x,y->
             res.a[x][y]=a[x][y]
             res.b[x][y]=b[x][y]
@@ -324,7 +327,7 @@ class ConvertorTest {
         if(inRange) {
             assertEquals("m1.State=${m.state} m2.State=${m1.state}"
                     , m.state, m1.state)
-            assertEquals("flag ${m.f}!=${m1.f}",m.f,m1.f)
+//            assertEquals("flag ${m.f}!=${m1.f}",m.f,m1.f)
             assertEquals(m.Width, m1.Width)
             assertEquals(m.Height, m1.Height)
         }

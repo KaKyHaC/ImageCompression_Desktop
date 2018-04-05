@@ -38,13 +38,13 @@ class ImageIOTest{
     @Test
     fun MyBufferedImageWriteTest(){
         val m=createMatrix(255,255)
-        val mbi=MyBufferedImage(m)
+        val mbi=MyBufferedImage(m,Flag())
         val bi = mbi.bufferedImage
         ImageIO.write(bi,"bmp", File(pathToResBmp2))
     }
     companion object {
         fun createMatrix(w:Int,h:Int): TripleShortMatrix {
-            val m= TripleShortMatrix(w,h, Flag(0),State.RGB)
+            val m= TripleShortMatrix(w,h,State.RGB)
             for(i in 0..w-1){
                 for(j in 0..h-1){
                     m.a[i][j]=((i+j)%255).toShort()

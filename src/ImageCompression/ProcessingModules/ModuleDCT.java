@@ -1,6 +1,7 @@
 package ImageCompression.ProcessingModules;
 
 
+import ImageCompression.Containers.Flag;
 import ImageCompression.Containers.TripleShortMatrix;
 import ImageCompression.Constants.State;
 import ImageCompression.Constants.TypeQuantization;
@@ -18,19 +19,21 @@ public class ModuleDCT {
     private TripleShortMatrix tripleShortMatrix;
     private DctConvertor a,b,c;
     private TripleShortMatrix resTripleShortMatrix;
+    private Flag flag;
 
-    public ModuleDCT(TripleShortMatrix tripleShortMatrix) {
+    public ModuleDCT(TripleShortMatrix tripleShortMatrix,Flag flag) {
         this.tripleShortMatrix = tripleShortMatrix;
         this.resTripleShortMatrix=tripleShortMatrix;
+        this.flag=flag;
 
         if(tripleShortMatrix.getState() == State.Yenl)//new code . Does it is needed ?
             tripleShortMatrix.setState(State.YBR);
 
         DctConvertor.State state=(tripleShortMatrix.getState()==State.DCT)? DctConvertor.State.DCT: DctConvertor.State.ORIGIN;
 
-        a=new DctConvertor(tripleShortMatrix.getA(), state, TypeQuantization.luminosity, tripleShortMatrix.getF());
-        b=new DctConvertor(tripleShortMatrix.getB(), state, TypeQuantization.Chromaticity, tripleShortMatrix.getF());
-        c=new DctConvertor(tripleShortMatrix.getC(), state, TypeQuantization.Chromaticity, tripleShortMatrix.getF());
+        a=new DctConvertor(tripleShortMatrix.getA(), state, TypeQuantization.luminosity, flag);
+        b=new DctConvertor(tripleShortMatrix.getB(), state, TypeQuantization.Chromaticity, flag);
+        c=new DctConvertor(tripleShortMatrix.getC(), state, TypeQuantization.Chromaticity, flag);
 
     }
 

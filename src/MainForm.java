@@ -137,20 +137,20 @@ public class MainForm extends JFrame{
             @Override
             public void focusLost(FocusEvent e) {
                 super.focusLost(e);
-                convertor.setPassword(passwordField1.getText());
+//                convertor.setPassword(passwordField1.getText());
             }
         });
         spinnerW.addChangeListener(e -> {
             int val=(int)spinnerW.getValue();
             if(val<1)
                 spinnerW.setValue(1);
-            convertor.setGlobalBaseW(val);
+//            convertor.setGlobalBaseW(val);
         });
         spinnerH.addChangeListener(e -> {
             int val=(int)spinnerH.getValue();
             if(val<1)
                 spinnerH.setValue(1);
-            convertor.setGlobalBaseH(val);
+//            convertor.setGlobalBaseH(val);
         });
     }
     private void onFileSelected(File file){
@@ -180,11 +180,14 @@ public class MainForm extends JFrame{
 
     private void processImage(File file) throws IOException {
         Convertor.Computing computing=(isMultiThread.isSelected())? Convertor.Computing.MultiThreads: Convertor.Computing.OneThread;
-        new Thread(()->convertor.FromBmpToBar(file.getAbsolutePath(),flag,computing)).start();
+        Convertor.Info info=new Convertor.Info(flag,
+                String.valueOf(passwordField1.getPassword()),null,1,1 );
+        new Thread(()-> convertor.FromBmpToBar(file.getAbsolutePath(),info,computing)).start();
     }
     private void processBar(File file)throws Exception{
         Convertor.Computing computing=(isMultiThread.isSelected())? Convertor.Computing.MultiThreads: Convertor.Computing.OneThread;
-        new Thread(()->convertor.FromBarToBmp(file.getAbsolutePath(),computing)).start();
+        String pass=String.valueOf(passwordField1.getPassword());
+        new Thread(()->convertor.FromBarToBmp(file.getAbsolutePath(),pass,computing)).start();
     }
 
     private void sliderListener(int val){

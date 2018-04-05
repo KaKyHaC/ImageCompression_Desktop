@@ -17,19 +17,23 @@ public class MyBufferedImage {
     private static final int SIZEOFBLOCK = 8;
     private TripleShortMatrix tripleShortMatrix;
     private BufferedImage bitmap;
+    private Flag flag;
 
 
     public MyBufferedImage(BufferedImage _b, Flag flag) {
         bitmap = _b;
-        tripleShortMatrix = new TripleShortMatrix(bitmap.getWidth(), bitmap.getHeight(), flag,State.bitmap);
+        tripleShortMatrix = new TripleShortMatrix(bitmap.getWidth(), bitmap.getHeight(),State.bitmap);
+        this.flag=flag;
     }
-    public MyBufferedImage(TripleShortMatrix tripleShortMatrix){
+    public MyBufferedImage(TripleShortMatrix tripleShortMatrix,Flag flag){
         this.tripleShortMatrix = tripleShortMatrix;
         bitmap = new BufferedImage(tripleShortMatrix.getWidth(), tripleShortMatrix.getHeight(),BufferedImage.TYPE_3BYTE_BGR);
+        this.flag=flag;
     }
-    public MyBufferedImage(ByteVector vector){
+    public MyBufferedImage(ByteVector vector,Flag flag){
         this.tripleShortMatrix =getMatrixFromByteVector(vector);
         bitmap = new BufferedImage(tripleShortMatrix.getWidth(), tripleShortMatrix.getHeight(),BufferedImage.TYPE_3BYTE_BGR);
+        this.flag=flag;
     }
 
     //TODO string constructor
@@ -255,7 +259,7 @@ public class MyBufferedImage {
     }
 
     private void PixelEnlargement(){
-        if (tripleShortMatrix.getState() == State.YBR && tripleShortMatrix.getF().isChecked(Flag.Parameter.Enlargement)) {
+        if (tripleShortMatrix.getState() == State.YBR && flag.isChecked(Flag.Parameter.Enlargement)) {
             int cWidth= tripleShortMatrix.getWidth() /2;
             int cHeight= tripleShortMatrix.getHeight() /2;
             short[][] enlCb=new short[cWidth][cHeight];
@@ -276,7 +280,7 @@ public class MyBufferedImage {
     }
     private void PixelRestoration() {
 
-        if (tripleShortMatrix.getState() == State.Yenl && tripleShortMatrix.getF().isChecked(Flag.Parameter.Enlargement)) {
+        if (tripleShortMatrix.getState() == State.Yenl && flag.isChecked(Flag.Parameter.Enlargement)) {
             int cWidth= tripleShortMatrix.getWidth() /2;
             int cHeight= tripleShortMatrix.getHeight() /2;
             int Width= tripleShortMatrix.getWidth();
@@ -331,7 +335,7 @@ public class MyBufferedImage {
         ByteVector vector=new ByteVector(10);
         vector.append((short) tripleShortMatrix.getWidth());
         vector.append((short) tripleShortMatrix.getHeight());
-        vector.append(tripleShortMatrix.getF().getFlag());
+        vector.append(flag.getFlag());
 
         for(int i = 0; i< tripleShortMatrix.getWidth(); i++){
             for(int j = 0; j< tripleShortMatrix.getHeight(); j++){
@@ -353,7 +357,7 @@ public class MyBufferedImage {
         int w=vector.getNextShort();
         int h=vector.getNextShort();
         Flag flag=new Flag(vector.getNextShort());
-        TripleShortMatrix tripleShortMatrix =new TripleShortMatrix(w,h,flag,State.RGB);
+        TripleShortMatrix tripleShortMatrix =new TripleShortMatrix(w,h,State.RGB);
         for(int i=0;i<w;i++){
             for(int j=0;j<h;j++){
                 tripleShortMatrix.getA()[i][j]=(short)(vector.getNext()&0xff);

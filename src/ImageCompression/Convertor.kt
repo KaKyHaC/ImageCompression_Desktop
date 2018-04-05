@@ -11,10 +11,12 @@ import javax.imageio.ImageIO
 
 class Convertor() {
     enum class Computing{OneThread,MultiThreads,MultiProcessor}
+    data class Info(val flag: Flag,val password: String?=null
+                    ,val message: String?=null,val sameBaseWidth:Int=1,val sameBaseHeight:Int=1)
 //    var password:String?=null
-    var globalBaseW=1
-    var globalBaseH=1
-    fun FromBmpToBar(pathToBmp: String, flag: Flag,password:String?=null,message:String?=null, computing: Computing = Computing.MultiThreads) {
+//    private var globalBaseW=1
+//    private var globalBaseH=1
+    fun FromBmpToBar(pathToBmp: String,info: Info, computing: Computing = Computing.MultiThreads) {
         val isAsync=(computing== Computing.MultiThreads)
             val timeManager=TimeManager.Instance
             timeManager.startNewTrack("FromBmpToBar ${isAsync}")
@@ -23,25 +25,25 @@ class Convertor() {
             timeManager.append("read bmp")
             progressListener?.invoke(10,"RGB to YcBcR")
             view?.invoke(bmp)
-        val mi = MyBufferedImage(bmp, flag)
+        val mi = MyBufferedImage(bmp, info.flag)
         val matrix = mi.getYenlMatrix(isAsync)
             timeManager.append("rgb to yenl")
             progressListener?.invoke(30,"direct DCT")
-        val bodum = ModuleDCT(matrix)
+        val bodum = ModuleDCT(matrix,info.flag)
         val matrixDCT=bodum.getDCTMatrix(isAsync)
             timeManager.append("direct DCT")
             progressListener?.invoke(60,"direct OPC")
-        val StEnOPC= StegoEncrWithOPC(matrixDCT,flag,globalBaseW,globalBaseH,message, password)
+        val StEnOPC= StegoEncrWithOPC(matrixDCT,info.flag,info.sameBaseWidth,info.sameBaseHeight,info.message,info.password)
 //        StEnOPC.password=password
 //        StEnOPC.baseSizeW=globalBaseW
 //        StEnOPC.baseSizeH=globalBaseH
         val box=StEnOPC.getBoxOfOpc(isAsync)
             timeManager.append("direct OPC")
             progressListener?.invoke(80,"write to file")
-        val fileModule=ModuleFile(pathToBmp,globalBaseW,globalBaseH)
+        val fileModule=ModuleFile(pathToBmp,info.sameBaseWidth,info.sameBaseHeight)
 //        fileModule.globalBaseW=globalBaseW
 //        fileModule.globalBaseH=globalBaseH
-        fileModule.write(box,flag)
+        fileModule.write(box,info.flag)
             timeManager.append("write to file")
             progressListener?.invoke(100,"Ready after ${timeManager.getTotalTime()} ms")
             System.out.println(timeManager.getInfoInSec())
@@ -63,11 +65,11 @@ class Convertor() {
         val FFTM =mOPC.getMatrix(isAsync)
             timeManager.append("reverse OPC")
             progressListener?.invoke(50,"reverse DCT")
-        val bodum1 = ModuleDCT(FFTM)
+        val bodum1 = ModuleDCT(FFTM,flag)
         val matrixYBR=bodum1.getYCbCrMatrix(isAsync)
             timeManager.append("reverse DCT")
             progressListener?.invoke(70,"YcBcR to BMP");
-        val af = MyBufferedImage(matrixYBR);
+        val af = MyBufferedImage(matrixYBR,flag);
         val res = af.bufferedImage
             timeManager.append("yenl to bmp")
             progressListener?.invoke(90,"Write to BMP");

@@ -10,7 +10,7 @@ class TripleShortMatrixTest {
     companion object {
         @JvmStatic fun getRandomMatrix(w:Int,h:Int): TripleShortMatrix {
             val rand=Random()
-            var m= TripleShortMatrix(w,h, Flag("0"),State.RGB)
+            var m= TripleShortMatrix(w,h,State.RGB)
             for(i in 0..w-1){
                 for(j in 0..h-1){
                     m.a[i][j]=rand.nextInt(255).toShort()

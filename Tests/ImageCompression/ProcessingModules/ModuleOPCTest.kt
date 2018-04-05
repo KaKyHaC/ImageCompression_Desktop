@@ -1,6 +1,7 @@
 package ImageCompression.ProcessingModules
 
 import ImageCompression.Constants.State
+import ImageCompression.Containers.Flag
 import ImageCompression.ProcessingModules.ModuleOPC.ModuleOPC
 import ImageCompression.Utils.Functions.ImageIOTest
 import ImageCompression.Utils.Objects.TimeManager
@@ -13,7 +14,7 @@ class ModuleOPCTest{
     fun TestDirectTime(){
         val m=ImageIOTest.createMatrix(1080,1920)
         m.state=State.DCT
-        val opcModule= ModuleOPC(m)
+        val opcModule= ModuleOPC(m, Flag())
 
         val loop=1
         val t1=Date().time
@@ -35,7 +36,7 @@ class ModuleOPCTest{
     fun TestReverseTime(){
         val m=ImageIOTest.createMatrix(1080,1920)
         m.state=State.DCT
-        val opcModule= ModuleOPC(m)
+        val opcModule= ModuleOPC(m,Flag())
         val box=opcModule.getBoxOfOpc(true)
 
         val loop=1
@@ -73,7 +74,7 @@ class ModuleOPCTest{
     fun GlobalTest(w:Int,h:Int,loop:Int){
         val m=ImageIOTest.createMatrix(w,h)
         m.state=State.DCT
-        val opcModule= ModuleOPC(m)
+        val opcModule= ModuleOPC(m,Flag())
         val tm=TimeManager.Instance
 
         val cpy=m.copy()

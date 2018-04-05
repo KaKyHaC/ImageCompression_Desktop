@@ -15,11 +15,13 @@ import static org.junit.Assert.*;
 public class EncryptionTest {
     ModuleOPC moduleOPC, _moduleOPC;
     String key="dimas";
-    TripleShortMatrix tripleShortMatrix =new TripleShortMatrix(200,200,new Flag("0"), State.RGB);
+    TripleShortMatrix tripleShortMatrix =new TripleShortMatrix(200,200, State.RGB);
+    Flag flag;
     @Before
     public void setUp() throws Exception {
-        moduleOPC =new ModuleOPC(tripleShortMatrix);
-        _moduleOPC =new ModuleOPC(tripleShortMatrix);
+        flag=new Flag();
+        moduleOPC =new ModuleOPC(tripleShortMatrix,flag);
+        _moduleOPC =new ModuleOPC(tripleShortMatrix,flag);
     }
 
     @Test

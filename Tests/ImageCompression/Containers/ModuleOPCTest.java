@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 public class ModuleOPCTest {
     int size=200;
     Flag flag=new Flag("0");
-    TripleShortMatrix tripleShortMatrix =new TripleShortMatrix(size,size,flag, State.RGB);
+    TripleShortMatrix tripleShortMatrix =new TripleShortMatrix(size,size, State.RGB);
     @Before
     public void setUp() throws Exception {
         for(int i=0;i<size;i++){
@@ -26,16 +26,16 @@ public class ModuleOPCTest {
 
     @Test
     public void TestDefault(){
-        TripleDataOpcMatrix tripleDataOpcMatrix =new ModuleOPC(tripleShortMatrix).getBoxOfOpc(true);
+        TripleDataOpcMatrix tripleDataOpcMatrix =new ModuleOPC(tripleShortMatrix,flag).getBoxOfOpc(true);
         DataOpc[][] a,b,c;
-        ModuleOPC moduleOPC1 =new ModuleOPC(tripleDataOpcMatrix, tripleShortMatrix.getF());
+        ModuleOPC moduleOPC1 =new ModuleOPC(tripleDataOpcMatrix, flag);
         TripleShortMatrix res= moduleOPC1.getMatrix(true);
 
         AssertMatrixInRange(tripleShortMatrix,res,1,true);
     }
     @Test
     public void TestTime(){
-        ModuleOPC moduleOPC =new ModuleOPC(tripleShortMatrix);
+        ModuleOPC moduleOPC =new ModuleOPC(tripleShortMatrix,flag);
         Date t1=new Date();
         moduleOPC.directOPCMultiThreads();
         moduleOPC.reverseOPCMultiThreads();
@@ -59,8 +59,8 @@ public class ModuleOPCTest {
 
     @Test
     public void TestAssertFun(){
-        TripleShortMatrix a=new TripleShortMatrix(size,size,flag,State.RGB);
-        TripleShortMatrix b=new TripleShortMatrix(size,size,flag,State.RGB);
+        TripleShortMatrix a=new TripleShortMatrix(size,size,State.RGB);
+        TripleShortMatrix b=new TripleShortMatrix(size,size,State.RGB);
         AssertMatrixInRange(a,b,0,true);
 
         a.getA()[0][0]=1;

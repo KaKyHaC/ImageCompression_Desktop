@@ -10,10 +10,15 @@ import java.awt.image.BufferedImage
 import java.util.Random
 
 import org.junit.Assert.*
+import org.junit.Before
 import kotlin.test.assertFails
 
 class MyBufferedImageTest {
     internal var flag = Flag("0")
+    @Before
+    fun befor(){
+        flag=Flag()
+    }
 
     @Test
     fun TestDefault5() {
@@ -24,7 +29,7 @@ class MyBufferedImageTest {
         val myBufferedImage = MyBufferedImage(bufferedImage, flag)
         val matrix = myBufferedImage.getYenlMatrix(true)
 
-        val myBufferedImage1 = MyBufferedImage(matrix)
+        val myBufferedImage1 = MyBufferedImage(matrix,flag)
         val bufferedImage1 = myBufferedImage1.bufferedImage
 
         val arr1 = bufferedImage?.getRGB(0, 0, w, h, null, 0, w)
@@ -36,14 +41,14 @@ class MyBufferedImageTest {
     @Test
     fun TestEnlagment4() {
         val grad=getGradientMatrix(124,546)
-        grad.f.setChecked(Flag.Parameter.Enlargement,true)
+        flag.setChecked(Flag.Parameter.Enlargement,true)
 
-        val mi=MyBufferedImage(grad)
+        val mi=MyBufferedImage(grad,flag)
         val bmp=mi.rgbMatrix.copy()
         var enl=mi.getYenlMatrix(true)
         assertFails { assertTrue(bmp.assertMatrixInRange(enl,1)) }
 
-        val mi1=MyBufferedImage(enl)
+        val mi1=MyBufferedImage(enl,flag)
         val bmp1=mi1.rgbMatrix
         kotlin.test.assertTrue { bmp1.assertMatrixInRange(bmp,4) }
 
@@ -89,7 +94,7 @@ class MyBufferedImageTest {
 
     }
     fun getGradientMatrix(w:Int,h:Int): TripleShortMatrix {
-        var m= TripleShortMatrix(w,h, Flag(0),State.RGB)
+        var m= TripleShortMatrix(w,h,State.RGB)
         forEach(w,h, { x, y ->
             run {
                 m.a[x][y] = ((x + y)%255).toShort()

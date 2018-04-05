@@ -1,5 +1,6 @@
 package ImageCompression.ProcessingModules
 
+import ImageCompression.Containers.Flag
 import ImageCompression.Utils.Functions.ImageIOTest
 import ImageCompression.Utils.Objects.TimeManager
 import org.junit.Assert.*
@@ -10,12 +11,12 @@ class ModuleDCTTest{
     @Test
     fun DerRevDCTTest() {
         val m = ImageIOTest.createMatrix(1920, 1080)
-        val mi = MyBufferedImage(m)
+        val mi = MyBufferedImage(m, Flag())
         val enl = mi.getYenlMatrix(true)
         val cpy=enl.copy()
         assertEquals(cpy,enl)
 
-        val dctModule = ModuleDCT(enl)
+        val dctModule = ModuleDCT(enl,Flag())
 
         dctModule.getDCTMatrix(true);
         assertFalse( cpy.assertMatrixInRange(enl,8))
@@ -64,11 +65,11 @@ class ModuleDCTTest{
 
     fun TimeTest(w:Int ,h:Int,loop:Int){
         val m= ImageIOTest.createMatrix(w,h)
-        val mi=MyBufferedImage(m)
+        val mi=MyBufferedImage(m,Flag())
         val enl=mi.getYenlMatrix(true)
         val cpy=enl.copy()
 
-        val dctModule=ModuleDCT(enl)
+        val dctModule=ModuleDCT(enl,Flag())
 
         val t1= Date().time
         for (i in 0..loop-1){
@@ -95,12 +96,12 @@ class ModuleDCTTest{
     }
     fun GlobalTest(w:Int,h:Int,loop:Int,dif:Int){
         val m = ImageIOTest.createMatrix(w, h)
-        val mi = MyBufferedImage(m)
+        val mi = MyBufferedImage(m,Flag())
         val enl = mi.getYenlMatrix(true)
         val cpy=enl.copy()
         assertEquals(cpy,enl)
 
-        val dctModule = ModuleDCT(enl)
+        val dctModule = ModuleDCT(enl,Flag())
 
         TimeManager.Instance.startNewTrack("mDCT ${loop}l,${dif}dif (${w}x$h)")
         for(i in 0..loop-1) {
