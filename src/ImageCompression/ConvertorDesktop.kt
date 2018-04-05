@@ -9,7 +9,16 @@ import java.io.File
 import javax.imageio.ImageIO
 
 
-class Convertor() {
+class ConvertorDesktop private constructor(){
+    companion object {
+        @JvmStatic val instance=ConvertorDesktop()
+        @JvmStatic fun getInstance(progressListener:((value:Int,text:String)->Unit)?=null
+                                   ,view:((image:BufferedImage)->Unit)?=null): ConvertorDesktop {
+            instance.view=view
+            instance.progressListener=progressListener
+            return instance
+        }
+    }
     enum class Computing{OneThread,MultiThreads,MultiProcessor}
     data class Info(val flag: Flag,val password: String?=null
                     ,val message: String?=null,val sameBaseWidth:Int=1,val sameBaseHeight:Int=1)

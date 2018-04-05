@@ -234,13 +234,13 @@ public class ModuleOPC extends AbsModuleOPC{
 
     @NotNull
     @Override
-    public TripleDataOpcMatrix direct() {
+    public TripleDataOpcMatrix direct(TripleShortMatrix shortMatrix) {
         return getBoxOfOpc(true);
     }
 
     @NotNull
     @Override
-    public TripleShortMatrix reverce() {
+    public TripleShortMatrix reverce(TripleDataOpcMatrix dataOpcMatrix) {
         return getMatrix(true);
     }
 }

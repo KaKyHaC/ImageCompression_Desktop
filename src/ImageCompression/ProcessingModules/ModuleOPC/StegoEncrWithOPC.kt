@@ -128,7 +128,7 @@ class StegoEncrWithOPC :AbsModuleOPC{
         return opcs
     }
 
-    override fun direct(): TripleDataOpcMatrix {
+    override fun direct(shortMatrix: TripleShortMatrix): TripleDataOpcMatrix {
         if(!opcs.isOpcs)
             FromMatrixToOpcs(true)
 
@@ -136,7 +136,7 @@ class StegoEncrWithOPC :AbsModuleOPC{
         return opcs.getTripleDataOpcMatrix()
     }
 
-    override fun reverce(): TripleShortMatrix {
+    override fun reverce(dataOpcMatrix: TripleDataOpcMatrix): TripleShortMatrix {
         if(!opcs.isTripleShortMatrix)
             FromOpcToMatrix(true)
 
