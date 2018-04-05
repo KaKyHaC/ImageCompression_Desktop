@@ -3,14 +3,14 @@ package ImageCompression.Containers
 import ImageCompression.Constants.State
 import java.util.*
 
-class TripleShortMatrix(var Width: Int, var Height: Int, flag: Flag, var state: State) {
+class TripleShortMatrix(var Width: Int, var Height: Int, var state: State) {
     var a: Array<ShortArray>
     var b: Array<ShortArray>
     var c: Array<ShortArray>
-    var f: Flag//TODO remove flag
+//    var f: Flag//TODO remove flag
 
     init {
-        f= Flag(flag.flag)
+//        f= Flag(flag.flag)
         a = Array(Width) { ShortArray(Height) }
         b = Array(Width) { ShortArray(Height) }
         c = Array(Width) { ShortArray(Height) }
@@ -19,7 +19,7 @@ class TripleShortMatrix(var Width: Int, var Height: Int, flag: Flag, var state: 
     fun assertMatrixInRange(tripleShortMatrix: TripleShortMatrix, range: Int):Boolean{
         if (Width != tripleShortMatrix.Width) return false
         if (Height != tripleShortMatrix.Height) return false
-        if (f != tripleShortMatrix.f) return false
+//        if (f != tripleShortMatrix.f) return false
         if (state != tripleShortMatrix.state) return false
 
         if(!a.inRannge(tripleShortMatrix.a,range))return false
@@ -58,7 +58,7 @@ class TripleShortMatrix(var Width: Int, var Height: Int, flag: Flag, var state: 
 
         if (Width != other.Width) return false
         if (Height != other.Height) return false
-        if (f != other.f) return false
+//        if (f != other.f) return false
         if (state != other.state) return false
 
         if(!a.inRannge(other.a,0))return false
@@ -70,7 +70,7 @@ class TripleShortMatrix(var Width: Int, var Height: Int, flag: Flag, var state: 
     override fun hashCode(): Int {
         var result = Width
         result = 31 * result + Height
-        result = 31 * result + f.hashCode()
+//        result = 31 * result + f.hashCode()
         result = 31 * result + state.hashCode()
         result = 31 * result + Arrays.hashCode(a)
         result = 31 * result + Arrays.hashCode(b)
@@ -79,7 +79,7 @@ class TripleShortMatrix(var Width: Int, var Height: Int, flag: Flag, var state: 
     }
 
     fun copy(): TripleShortMatrix {
-        var res= TripleShortMatrix(Width,Height,f,state)
+        var res= TripleShortMatrix(Width,Height,state)
         res.a=a.copy()
         res.b=b.copy()
         res.c=c.copy()

@@ -1,7 +1,7 @@
 package ImageCompression.Containers;
 
 import ImageCompression.Constants.State;
-import ImageCompression.ProcessingModules.ModuleOPC;
+import ImageCompression.ProcessingModules.ModuleOPC.ModuleOPC;
 import org.junit.Before;
 import org.junit.Test;
 

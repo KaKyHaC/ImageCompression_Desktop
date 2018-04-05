@@ -13,15 +13,19 @@ class ModuleFile{
         @JvmStatic val typeSup =".bas"
     }
     val pathToName:String
-    constructor(pathToFile:String){
+    constructor(pathToFile:String,globalBaseW:Int=1,globalBaseH:Int=1){
         pathToName=getPathToName(pathToFile)
+        this.globalBaseH=globalBaseH
+        this.globalBaseW=globalBaseW
     }
-    constructor(file: File){
+    constructor(file: File,globalBaseW:Int=1,globalBaseH:Int=1){
         pathToName=getPathToName(file.absolutePath)
+        this.globalBaseH=globalBaseH
+        this.globalBaseW=globalBaseW
     }
 
-    var globalBaseW:Int=1
-    var globalBaseH:Int=1
+    var globalBaseW:Int
+    var globalBaseH:Int
 
     fun write(tripleDataOpcMatrix: TripleDataOpcMatrix, flag: Flag) {
         val v = ByteVector()

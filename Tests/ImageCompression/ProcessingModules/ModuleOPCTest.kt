@@ -1,6 +1,7 @@
 package ImageCompression.ProcessingModules
 
 import ImageCompression.Constants.State
+import ImageCompression.ProcessingModules.ModuleOPC.ModuleOPC
 import ImageCompression.Utils.Functions.ImageIOTest
 import ImageCompression.Utils.Objects.TimeManager
 import org.junit.Assert.*
@@ -12,7 +13,7 @@ class ModuleOPCTest{
     fun TestDirectTime(){
         val m=ImageIOTest.createMatrix(1080,1920)
         m.state=State.DCT
-        val opcModule=ModuleOPC(m)
+        val opcModule= ModuleOPC(m)
 
         val loop=1
         val t1=Date().time
@@ -34,7 +35,7 @@ class ModuleOPCTest{
     fun TestReverseTime(){
         val m=ImageIOTest.createMatrix(1080,1920)
         m.state=State.DCT
-        val opcModule=ModuleOPC(m)
+        val opcModule= ModuleOPC(m)
         val box=opcModule.getBoxOfOpc(true)
 
         val loop=1
@@ -72,7 +73,7 @@ class ModuleOPCTest{
     fun GlobalTest(w:Int,h:Int,loop:Int){
         val m=ImageIOTest.createMatrix(w,h)
         m.state=State.DCT
-        val opcModule=ModuleOPC(m)
+        val opcModule= ModuleOPC(m)
         val tm=TimeManager.Instance
 
         val cpy=m.copy()
@@ -81,7 +82,7 @@ class ModuleOPCTest{
         tm.startNewTrack("mOPC(${w}x$h),${loop}l")
         for(i in 0..loop-1){
             opcModule.directOPC()
-            val resModule = ModuleOPC(opcModule.getBoxOfOpc(false),opcModule.flag)
+            val resModule = ModuleOPC(opcModule.getBoxOfOpc(false), opcModule.flag)
             resModule.reverseOPC()
             val res=resModule.getMatrix(false)
             assertEquals(res,cpy)
@@ -90,7 +91,7 @@ class ModuleOPCTest{
 
         for(i in 0..loop-1){
             opcModule.directOPCMultiThreads()
-            val resModule = ModuleOPC(opcModule.getBoxOfOpc(true),opcModule.flag)
+            val resModule = ModuleOPC(opcModule.getBoxOfOpc(true), opcModule.flag)
             resModule.reverseOPCMultiThreads()
             val res=resModule.getMatrix(true)
             assertEquals(res,cpy)

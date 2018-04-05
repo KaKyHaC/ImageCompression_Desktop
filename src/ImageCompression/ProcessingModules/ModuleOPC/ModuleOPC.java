@@ -1,4 +1,4 @@
-package ImageCompression.ProcessingModules;
+package ImageCompression.ProcessingModules.ModuleOPC;
 
 
 import ImageCompression.Containers.*;
@@ -6,6 +6,7 @@ import ImageCompression.Constants.State;
 import ImageCompression.Utils.Functions.OPCMultiThread;
 import ImageCompression.Utils.Functions.DCTMultiThread;
 import ImageCompression.Utils.Objects.OpcConvertor;
+import org.jetbrains.annotations.NotNull;
 //import com.sun.glass.ui.Size;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import static ImageCompression.Utils.Functions.OPCMultiThread.SIZEOFBLOCK;
  * Created by Димка on 09.10.2016.
  */
 
-public class ModuleOPC {
+public class ModuleOPC implements IModuleOPC{
 
     private TripleDataOpcMatrix tripleDataOpcMatrix;
 //    private int widthOPC,heightOPC;
@@ -31,14 +32,14 @@ public class ModuleOPC {
     private boolean isMatrix=false;
     private boolean isOpcs=false;
 
-    public ModuleOPC(final TripleShortMatrix tripleShortMatrix){
+    public ModuleOPC(final TripleShortMatrix tripleShortMatrix,Flag flag){
         this.tripleShortMatrix = tripleShortMatrix;
         isMatrix=true;
-        this.flag= tripleShortMatrix.getF();
+        this.flag= flag;
 
-        a=new OpcConvertor(tripleShortMatrix.getA(),tripleShortMatrix.getF());
-        b=new OpcConvertor(tripleShortMatrix.getB(),tripleShortMatrix.getF());
-        c=new OpcConvertor(tripleShortMatrix.getC(),tripleShortMatrix.getF());
+        a=new OpcConvertor(tripleShortMatrix.getA(),flag);
+        b=new OpcConvertor(tripleShortMatrix.getB(),flag);
+        c=new OpcConvertor(tripleShortMatrix.getC(),flag);
 
 //        Size size=sizeOpcCalculate(tripleShortMatrix.getWidth(), tripleShortMatrix.getHeight());
 //        int widthOPC= size.getWidth();
@@ -61,7 +62,7 @@ public class ModuleOPC {
         int heightOPC= tripleDataOpcMatrix.getA()[0].length;
         isOpcs=true;
         this.flag=flag;
-        this.tripleShortMatrix =new TripleShortMatrix(widthOPC*SIZEOFBLOCK,heightOPC*SIZEOFBLOCK,flag, State.DCT);
+        this.tripleShortMatrix =new TripleShortMatrix(widthOPC*SIZEOFBLOCK,heightOPC*SIZEOFBLOCK, State.DCT);
     }
 
 
@@ -220,11 +221,31 @@ public class ModuleOPC {
         return flag;
     }
 
-    public boolean getTripleShortMatrix() {
+    public boolean isTripleShortMatrix() {
         return isMatrix;
     }
     public boolean isOpcs() {
         return isOpcs;
+    }
+
+    @NotNull
+    @Override
+    public TripleShortMatrix getTripleShortMatrix() {
+        if(!isMatrix) {
+                reverseOPCMultiThreads();
+        }
+
+        return tripleShortMatrix;
+    }
+
+    @NotNull
+    @Override
+    public TripleDataOpcMatrix getTripleDataOpcMatrix() {
+        if(!isOpcs){
+            directOPCMultiThreads();
+        }
+
+        return tripleDataOpcMatrix;
     }
 
     private void appendTimeManager(String s){

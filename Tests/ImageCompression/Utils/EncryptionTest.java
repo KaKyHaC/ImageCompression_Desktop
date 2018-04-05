@@ -3,7 +3,7 @@ package ImageCompression.Utils;
 import ImageCompression.Containers.DataOpc;
 import ImageCompression.Containers.TripleDataOpcMatrix;
 import ImageCompression.Constants.State;
-import ImageCompression.ProcessingModules.ModuleOPC;
+import ImageCompression.ProcessingModules.ModuleOPC.ModuleOPC;
 import ImageCompression.Containers.TripleShortMatrix;
 import ImageCompression.Utils.Functions.Encryption;
 import ImageCompression.Containers.Flag;

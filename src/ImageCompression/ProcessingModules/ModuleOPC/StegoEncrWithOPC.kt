@@ -1,4 +1,4 @@
-package ImageCompression.ProcessingModules
+package ImageCompression.ProcessingModules.ModuleOPC
 
 import ImageCompression.Containers.TripleDataOpcMatrix
 import ImageCompression.Containers.TripleShortMatrix
@@ -7,22 +7,32 @@ import ImageCompression.Utils.Functions.Steganography
 import ImageCompression.Containers.Flag
 import ImageCompression.Utils.Objects.TimeManager
 
-class StegoEncrWithOPC {
+class StegoEncrWithOPC :IModuleOPC{
     private var opcs: ModuleOPC
 
-    constructor(tripleShortMatrix: TripleShortMatrix){
-        opcs= ModuleOPC(tripleShortMatrix)
+    constructor(tripleShortMatrix: TripleShortMatrix,flag:Flag
+                ,sameBaseWidth:Int=1,sameBaseHeight:Int=1,message:String?=null,password:String?=null){
+        opcs= ModuleOPC(tripleShortMatrix,flag)
 //        getTripleShortMatrix=true
+        baseSizeH=sameBaseHeight
+        baseSizeW=sameBaseWidth
+        this.message=message
+        this.password=password
     }
-    constructor(tripleDataOpcMatrix: TripleDataOpcMatrix, flag: Flag){
+    constructor(tripleDataOpcMatrix: TripleDataOpcMatrix, flag: Flag
+                ,sameBaseWidth:Int=1,sameBaseHeight:Int=1,password:String?=null){
         this.opcs= ModuleOPC(tripleDataOpcMatrix, flag)
 //        isOPCS=true
+        baseSizeH=sameBaseHeight
+        baseSizeW=sameBaseWidth
+        this.message=null
+        this.password=password
     }
-    var message:String?=null
-    var password:String?=null
+    var message:String?
+    var password:String?
 
     fun FromMatrixToOpcs(isAsync: Boolean=true,progressListener:((x:Int)->Unit)? = null){
-        if(!opcs.tripleShortMatrix)
+        if(!opcs.isTripleShortMatrix)
             return
 
         progressListener?.invoke(0)
@@ -73,11 +83,11 @@ class StegoEncrWithOPC {
         }
         progressListener?.invoke(100)
 
-        assert(opcs.tripleShortMatrix)
+        assert(opcs.isTripleShortMatrix)
 //        getTripleShortMatrix=true
     }
-    var baseSizeW:Int=1
-    var baseSizeH:Int=1
+    var baseSizeW:Int
+    var baseSizeH:Int
 
     private fun directOpc(isGlobalBase:Boolean,isAsync:Boolean,progressListener: ((x: Int) -> Unit)?=null){
         if(isGlobalBase){
@@ -99,10 +109,10 @@ class StegoEncrWithOPC {
 
 
     fun getMatrix(isAsync: Boolean=true): TripleShortMatrix {
-        if(!opcs.tripleShortMatrix)
+        if(!opcs.isTripleShortMatrix)
             FromOpcToMatrix(isAsync)
 
-        assert(opcs.tripleShortMatrix)
+        assert(opcs.isTripleShortMatrix)
         return opcs.getMatrix(isAsync)
     }
     fun getBoxOfOpc(isAsync: Boolean=true): TripleDataOpcMatrix {
@@ -112,8 +122,23 @@ class StegoEncrWithOPC {
         assert(opcs.isOpcs)
         return opcs.getBoxOfOpc(isAsync)
     }
-    fun getModuleOPC():ModuleOPC{
+    fun getModuleOPC(): ModuleOPC {
         return opcs
     }
 
+    override fun getTripleShortMatrix(): TripleShortMatrix {
+        if(!opcs.isTripleShortMatrix)
+            FromOpcToMatrix(true)
+
+        assert(opcs.isTripleShortMatrix)
+        return opcs.getTripleShortMatrix()
+    }
+
+    override fun getTripleDataOpcMatrix(): TripleDataOpcMatrix {
+        if(!opcs.isOpcs)
+            FromMatrixToOpcs(true)
+
+        assert(opcs.isOpcs)
+        return opcs.getTripleDataOpcMatrix()
+    }
 }
