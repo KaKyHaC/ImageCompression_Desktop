@@ -1,5 +1,10 @@
 package ImageCompression.ProcessingModules.ModuleOPC
 
-class ModuleSafeOPC {
+import ImageCompression.Containers.TripleDataOpcMatrix
+import ImageCompression.Containers.TripleShortMatrix
 
+class ModuleSafeOPC {
+//    enum class State {}
+//    val state:State
+    
 }

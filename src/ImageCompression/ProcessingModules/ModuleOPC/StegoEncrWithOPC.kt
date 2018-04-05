@@ -7,11 +7,12 @@ import ImageCompression.Utils.Functions.Steganography
 import ImageCompression.Containers.Flag
 import ImageCompression.Utils.Objects.TimeManager
 
-class StegoEncrWithOPC :IModuleOPC{
+class StegoEncrWithOPC :AbsModuleOPC{
     private var opcs: ModuleOPC
 
     constructor(tripleShortMatrix: TripleShortMatrix,flag:Flag
-                ,sameBaseWidth:Int=1,sameBaseHeight:Int=1,message:String?=null,password:String?=null){
+                ,sameBaseWidth:Int=1,sameBaseHeight:Int=1,message:String?=null,password:String?=null):
+            super(tripleShortMatrix,flag){
         opcs= ModuleOPC(tripleShortMatrix,flag)
 //        getTripleShortMatrix=true
         baseSizeH=sameBaseHeight
@@ -20,7 +21,8 @@ class StegoEncrWithOPC :IModuleOPC{
         this.password=password
     }
     constructor(tripleDataOpcMatrix: TripleDataOpcMatrix, flag: Flag
-                ,sameBaseWidth:Int=1,sameBaseHeight:Int=1,password:String?=null){
+                ,sameBaseWidth:Int=1,sameBaseHeight:Int=1,password:String?=null) :
+            super(tripleDataOpcMatrix,flag){
         this.opcs= ModuleOPC(tripleDataOpcMatrix, flag)
 //        isOPCS=true
         baseSizeH=sameBaseHeight
@@ -126,19 +128,19 @@ class StegoEncrWithOPC :IModuleOPC{
         return opcs
     }
 
-    override fun getTripleShortMatrix(): TripleShortMatrix {
-        if(!opcs.isTripleShortMatrix)
-            FromOpcToMatrix(true)
-
-        assert(opcs.isTripleShortMatrix)
-        return opcs.getTripleShortMatrix()
-    }
-
-    override fun getTripleDataOpcMatrix(): TripleDataOpcMatrix {
+    override fun direct(): TripleDataOpcMatrix {
         if(!opcs.isOpcs)
             FromMatrixToOpcs(true)
 
         assert(opcs.isOpcs)
         return opcs.getTripleDataOpcMatrix()
+    }
+
+    override fun reverce(): TripleShortMatrix {
+        if(!opcs.isTripleShortMatrix)
+            FromOpcToMatrix(true)
+
+        assert(opcs.isTripleShortMatrix)
+        return opcs.getTripleShortMatrix()
     }
 }

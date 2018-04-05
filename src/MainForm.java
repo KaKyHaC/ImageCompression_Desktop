@@ -1,6 +1,6 @@
 import ImageCompression.Constants.Cosine;
 import ImageCompression.Containers.Flag;
-import ImageCompression.Convertor;
+import ImageCompression.ConvertorDesktop;
 import ImageCompression.Parameters;
 
 import javax.imageio.ImageIO;
@@ -35,7 +35,7 @@ public class MainForm extends JFrame{
     private Parameters parameters = Parameters.getInstanse();
     private Flag flag=new Flag("0");
     private File file;
-    private Convertor convertor=new Convertor();
+    private ConvertorDesktop convertorDesktop =ConvertorDesktop.getInstance();
     private String myType=".bar";
 
     public MainForm() throws HeadlessException {
@@ -108,18 +108,18 @@ public class MainForm extends JFrame{
                 }
             }
         });
-        convertor.setProgressListener((integer, s) -> {
+        convertorDesktop.setProgressListener((integer, s) -> {
             SwingUtilities.invokeLater(() -> {
                 progressBar1.setValue(integer);
                 progressBar1.setString(s);
             });
             return null;
         });
-        convertor.setView(bufferedImage ->{
+        convertorDesktop.setView(bufferedImage ->{
             new Thread(()->{
                 SwingUtilities.invokeLater(() -> {
                     ImageIcon imageIcon = new ImageIcon(bufferedImage);
-                    lInfo.setText("convertor:" + " \n " + imageIcon.getIconWidth() + "x" + imageIcon.getIconHeight());
+                    lInfo.setText("convertorDesktop:" + " \n " + imageIcon.getIconWidth() + "x" + imageIcon.getIconHeight());
                     Image image1 = imageIcon.getImage().getScaledInstance(600, 600, Image.SCALE_DEFAULT);
                     image.setIcon(new ImageIcon(image1));
                 });
@@ -137,20 +137,20 @@ public class MainForm extends JFrame{
             @Override
             public void focusLost(FocusEvent e) {
                 super.focusLost(e);
-//                convertor.setPassword(passwordField1.getText());
+//                convertorDesktop.setPassword(passwordField1.getText());
             }
         });
         spinnerW.addChangeListener(e -> {
             int val=(int)spinnerW.getValue();
             if(val<1)
                 spinnerW.setValue(1);
-//            convertor.setGlobalBaseW(val);
+//            convertorDesktop.setGlobalBaseW(val);
         });
         spinnerH.addChangeListener(e -> {
             int val=(int)spinnerH.getValue();
             if(val<1)
                 spinnerH.setValue(1);
-//            convertor.setGlobalBaseH(val);
+//            convertorDesktop.setGlobalBaseH(val);
         });
     }
     private void onFileSelected(File file){
@@ -179,15 +179,15 @@ public class MainForm extends JFrame{
     }
 
     private void processImage(File file) throws IOException {
-        Convertor.Computing computing=(isMultiThread.isSelected())? Convertor.Computing.MultiThreads: Convertor.Computing.OneThread;
-        Convertor.Info info=new Convertor.Info(flag,
+        ConvertorDesktop.Computing computing=(isMultiThread.isSelected())? ConvertorDesktop.Computing.MultiThreads: ConvertorDesktop.Computing.OneThread;
+        ConvertorDesktop.Info info=new ConvertorDesktop.Info(flag,
                 String.valueOf(passwordField1.getPassword()),null,1,1 );
-        new Thread(()-> convertor.FromBmpToBar(file.getAbsolutePath(),info,computing)).start();
+        new Thread(()-> convertorDesktop.FromBmpToBar(file.getAbsolutePath(),info,computing)).start();
     }
     private void processBar(File file)throws Exception{
-        Convertor.Computing computing=(isMultiThread.isSelected())? Convertor.Computing.MultiThreads: Convertor.Computing.OneThread;
+        ConvertorDesktop.Computing computing=(isMultiThread.isSelected())? ConvertorDesktop.Computing.MultiThreads: ConvertorDesktop.Computing.OneThread;
         String pass=String.valueOf(passwordField1.getPassword());
-        new Thread(()->convertor.FromBarToBmp(file.getAbsolutePath(),pass,computing)).start();
+        new Thread(()-> convertorDesktop.FromBarToBmp(file.getAbsolutePath(),pass,computing)).start();
     }
 
     private void sliderListener(int val){
