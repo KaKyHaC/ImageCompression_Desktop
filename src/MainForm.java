@@ -9,6 +9,8 @@ import ImageCompression.Convertor.DaoDesktop;
 import ImageCompression.Parameters;
 import ImageCompression.ProcessingModules.ModuleOPC.AbsModuleOPC;
 import ImageCompression.ProcessingModules.ModuleOPC.StegoEncrWithOPC;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 import org.jetbrains.annotations.NotNull;
 
 import javax.imageio.ImageIO;
@@ -39,6 +41,7 @@ public class MainForm extends JFrame{
     private JPasswordField passwordField1;
     private JSpinner spinnerW;
     private JSpinner spinnerH;
+    private JTextField messageField;
 
     private Parameters parameters = Parameters.getInstanse();
     private Flag flag=new Flag("0");
@@ -109,7 +112,8 @@ public class MainForm extends JFrame{
                 int w=(int)spinnerW.getValue();
                 int h=(int)spinnerH.getValue();
                 String pass=String.valueOf(passwordField1.getPassword());
-                return new StegoEncrWithOPC(tripleShortMatrix,flag,w,h,null,pass);
+                String mess=messageField.getText();
+                return new StegoEncrWithOPC(tripleShortMatrix,flag,w,h,mess,pass);
             }
 
             @NotNull
@@ -118,7 +122,12 @@ public class MainForm extends JFrame{
                 int w=(int)spinnerW.getValue();
                 int h=(int)spinnerH.getValue();
                 String pass=String.valueOf(passwordField1.getPassword());
-                return new StegoEncrWithOPC(tripleDataOpcMatrix,flag,w,h,pass);
+                StegoEncrWithOPC mod=new StegoEncrWithOPC(tripleDataOpcMatrix,flag,w,h,pass);
+                mod.setOnMessageReadedListener((String s)-> {
+                    messageField.setText(s);
+                    return Unit.INSTANCE;
+                });
+                return mod;
             }
         };
         convertor=new ConvertorDefault(dao,factory);
