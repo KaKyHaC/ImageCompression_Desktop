@@ -2,6 +2,7 @@ package ImageCompression.ProcessingModules
 
 import ImageCompression.Containers.TripleDataOpcMatrix
 import ImageCompression.Containers.ByteVector
+import ImageCompression.Containers.ByteVectorContainer
 import ImageCompression.Utils.Objects.ByteVectorFile
 import ImageCompression.Containers.Flag
 import ImageCompression.Utils.Objects.TimeManager
@@ -13,60 +14,63 @@ class ModuleFile{
         @JvmStatic val typeSup =".bas"
     }
     val pathToName:String
-    constructor(pathToFile:String,globalBaseW:Int=1,globalBaseH:Int=1){
+    constructor(pathToFile:String){
         pathToName=getPathToName(pathToFile)
-        this.globalBaseH=globalBaseH
-        this.globalBaseW=globalBaseW
+//        this.globalBaseH=globalBaseH
+//        this.globalBaseW=globalBaseW
     }
-    constructor(file: File,globalBaseW:Int=1,globalBaseH:Int=1){
+    constructor(file: File){
         pathToName=getPathToName(file.absolutePath)
-        this.globalBaseH=globalBaseH
-        this.globalBaseW=globalBaseW
+//        this.globalBaseH=globalBaseH
+//        this.globalBaseW=globalBaseW
     }
 
-    var globalBaseW:Int
-    var globalBaseH:Int
+//    var globalBaseW:Int
+//    var globalBaseH:Int
 
-    fun write(tripleDataOpcMatrix: TripleDataOpcMatrix, flag: Flag) {
-        val v = ByteVector()
+    fun write(vectorContainer: ByteVectorContainer, flag: Flag) {
+//        val v = ByteVector()
 
-        tripleDataOpcMatrix.writeToVector(v, flag)
-        if(flag.isChecked(Flag.Parameter.GlobalBase)){
-            tripleDataOpcMatrix.writeBaseToVector(v,flag,globalBaseW,globalBaseH)
-        }
+//        tripleDataOpcMatrix.writeToVector(v, flag)
+//        if(flag.isChecked(Flag.Parameter.GlobalBase)){
+//            tripleDataOpcMatrix.writeBaseToVector(v,flag,globalBaseW,globalBaseH)
+//        }
         TimeManager.Instance.append("box to vector")
 
         val vw = ByteVectorFile(pathToName + typeMain)
-        vw.write(v, flag)
+        vw.write(vectorContainer.mainData, flag)
 
         if (!flag.isChecked(Flag.Parameter.OneFile)) {
-            val vbase = ByteVector()
-            tripleDataOpcMatrix.writeBaseToVector(v,flag,globalBaseW,globalBaseH)
+//            val vbase = ByteVector()
+//            tripleDataOpcMatrix.writeBaseToVector(v,flag,globalBaseW,globalBaseH)
             TimeManager.Instance.append("base to vector")
             val bw = ByteVectorFile(pathToName + typeSup)
-            bw.write(vbase, flag)
+            if(vectorContainer.suportData==null)
+                throw Exception("vectorContainer.suportData==null")
+
+            bw.write(vectorContainer.suportData, flag)
         }
 
     }
-    fun read():Pair<TripleDataOpcMatrix, Flag>{
+    fun read():Pair<ByteVectorContainer, Flag>{
         val fr=ByteVectorFile(pathToName+ typeMain)
         val p=fr.read()
         val flag=p.second
         val vmain=p.first
-        val opcs= TripleDataOpcMatrix()
+//        val opcs= TripleDataOpcMatrix()
 
-        opcs.readFromVector(vmain,flag)
-        if(flag.isChecked(Flag.Parameter.GlobalBase)){
-            opcs.readBaseFromVector(vmain,flag)
-        }
-
+//        opcs.readFromVector(vmain,flag)
+//        if(flag.isChecked(Flag.Parameter.GlobalBase)){
+//            opcs.readBaseFromVector(vmain,flag)
+//        }
+        var base:ByteVector?=null
         if(!flag.isChecked(Flag.Parameter.OneFile)){
             val br=ByteVectorFile(pathToName+ typeSup)
             val bp=br.read()
-            val base=bp.first
-            opcs.readBaseFromVector(base,flag)
+            base=bp.first
+//            opcs.readBaseFromVector(base,flag)
         }
-        return Pair(opcs,flag)
+        return Pair(ByteVectorContainer(vmain,base),flag)
     }
 
     fun getInfoMainString():String{

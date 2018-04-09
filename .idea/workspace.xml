@@ -7,10 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/ImageCompression/Containers/ByteVectorContainer.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleByteVector.kt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/ByteVectorParcer.kt" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleFile.kt" afterPath="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleFile.kt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,7 +23,7 @@
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleFile.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="25">
-              <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -243,7 +240,6 @@
         <option value="$PROJECT_DIR$/src/ImageCompression/Steganography/ModuleStego.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleSafeOPC.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Constants/IModuleOPC.kt" />
-        <option value="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleFile.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/MyBufferedImage.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Convertor.kt" />
         <option value="$PROJECT_DIR$/Tests/ConvertorTest.kt" />
@@ -270,6 +266,7 @@
         <option value="$PROJECT_DIR$/src/ImageCompression/Containers/ByteVectorContainer.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/ByteVectorParcer.kt" />
         <option value="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleByteVector.kt" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleFile.kt" />
       </list>
     </option>
   </component>
@@ -1376,7 +1373,7 @@
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleFile.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
-          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding />
         </state>
       </provider>
