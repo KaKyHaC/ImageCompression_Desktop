@@ -13,7 +13,7 @@ class ByteVectorParcer private constructor(){
         @JvmStatic val instance=ByteVectorParcer()
     }
 
-    fun parceData(data:TripleDataOpcMatrix,flag: Flag,globalBaseW:Int=1,globalBaseH:Int=1): ByteVectorContainer {
+    fun parceData(data:TripleDataOpcMatrix,flag: Flag,globalBaseW:Int,globalBaseH:Int): ByteVectorContainer {
         val v = ByteVector()
 
         data.writeToVector(v, flag)

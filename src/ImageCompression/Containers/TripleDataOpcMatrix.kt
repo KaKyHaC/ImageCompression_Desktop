@@ -23,7 +23,7 @@ class TripleDataOpcMatrix {
         b?.appendVectorOne(vector,flag)
         c?.appendVectorOne(vector,flag)
     }
-    fun writeBaseToVector(vector: ByteVector, flag: Flag, stepW:Int=1, stepH:Int=1){
+    fun writeBaseToVector(vector: ByteVector, flag: Flag, stepW:Int, stepH:Int){
         a?.appendBaseToVector(vector,flag,stepW,stepH)
         b?.appendBaseToVector(vector,flag,stepW,stepH)
         c?.appendBaseToVector(vector,flag,stepW,stepH)
@@ -55,7 +55,7 @@ class TripleDataOpcMatrix {
         val h=vector.getNextShort()
         return Array(w.toInt(),{ x-> Array(h.toInt(),{y->DataOpc.valueOf (vector,flag)}) })
     }
-    private fun Array<Array<DataOpc>>.appendBaseToVector(vector: ByteVector, flag: Flag, baseW:Int=1, baseH:Int=1){
+    private fun Array<Array<DataOpc>>.appendBaseToVector(vector: ByteVector, flag: Flag, baseW:Int, baseH:Int){
         val w=this.size
         val h=this[0].size
         val stepW:Int = if(flag.isChecked(Flag.Parameter.GlobalBase))baseW else 1

@@ -24,7 +24,7 @@ import static ImageCompression.Utils.Functions.OPCMultiThread.SIZEOFBLOCK;
 
 public class ModuleOPC extends AbsModuleOPC{
 
-//    private TripleDataOpcMatrix getTripleDataOpc();
+//    private TripleDataOpcMatrix getByteVectorContainer();
 //    private int widthOPC,heightOPC;
 //    private TripleShortMatrix getTripleShort();
     private OpcConvertor a,b,c;
@@ -48,13 +48,13 @@ public class ModuleOPC extends AbsModuleOPC{
 //        int k=(getTripleShort().getF().isEnlargement())?2:1;
 
         setTripleDataOpc(new TripleDataOpcMatrix());
-//        getTripleDataOpc().setA(new DataOpc[widthOPC][heightOPC]);
-//        getTripleDataOpc().setB(new DataOpc[widthOPC/k][heightOPC/k]);
-//        getTripleDataOpc().setC(new DataOpc[widthOPC/k][heightOPC/k]);
+//        getByteVectorContainer().setA(new DataOpc[widthOPC][heightOPC]);
+//        getByteVectorContainer().setB(new DataOpc[widthOPC/k][heightOPC/k]);
+//        getByteVectorContainer().setC(new DataOpc[widthOPC/k][heightOPC/k]);
     }
     public ModuleOPC(TripleDataOpcMatrix getTripleDataOpc, Flag flag){
         super(getTripleDataOpc,flag);
-//        this.getTripleDataOpc() = getTripleDataOpc();
+//        this.getByteVectorContainer() = getByteVectorContainer();
 
         a=new OpcConvertor(getTripleDataOpc().getA(),flag);
         b=new OpcConvertor(getTripleDataOpc().getB(),flag);

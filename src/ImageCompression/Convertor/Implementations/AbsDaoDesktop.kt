@@ -1,22 +1,21 @@
-package ImageCompression.Convertor
+package ImageCompression.Convertor.Implementations
 
+import ImageCompression.Containers.ByteVectorContainer
 import ImageCompression.Containers.Flag
 import ImageCompression.Containers.Size
-import ImageCompression.Containers.TripleDataOpcMatrix
+import ImageCompression.Convertor.ConvertorDefault
 import ImageCompression.ProcessingModules.ModuleFile
 import java.awt.image.BufferedImage
 import java.io.File
 import javax.imageio.ImageIO
 
-abstract class DaoDesktop:ConvertorDefault.IDao {
+abstract class AbsDaoDesktop : ConvertorDefault.IDao {
     abstract fun getFileOriginal(): File
     abstract fun getFileTarget():File
-    abstract fun getSameBase(): Size
     abstract fun getFlag():Flag
 
-    final override fun onResultTripleData(vector: TripleDataOpcMatrix, flag: Flag) {
-        val s=getSameBase()
-        val fileModule=ModuleFile(getFileTarget().absoluteFile,s.width,s.height)
+    final override fun onResultByteVectorContainer(vector: ByteVectorContainer, flag: Flag) {
+        val fileModule=ModuleFile(getFileTarget().absoluteFile)
         fileModule.write(vector,flag)
     }
 
@@ -30,7 +29,7 @@ abstract class DaoDesktop:ConvertorDefault.IDao {
         return Pair(ImageIO.read(File(getFileOriginal().absolutePath)),getFlag())
     }
 
-    final override fun getTripleDataOpc(): Pair<TripleDataOpcMatrix, Flag> {
+    final override fun getByteVectorContainer(): Pair<ByteVectorContainer, Flag> {
         val fileModule= ModuleFile(getFileOriginal())
         return fileModule.read()
     }

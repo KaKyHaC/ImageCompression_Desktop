@@ -11,7 +11,7 @@ class StegoEncrWithOPC :AbsModuleOPC{
     private var opcs: ModuleOPC
 
     constructor(tripleShortMatrix: TripleShortMatrix,flag:Flag
-                ,sameBaseWidth:Int=1,sameBaseHeight:Int=1,message:String?=null,password:String?=null):
+                ,sameBaseWidth:Int,sameBaseHeight:Int,message:String?,password:String?):
             super(tripleShortMatrix,flag){
         opcs= ModuleOPC(tripleShortMatrix,flag)
 //        getTripleShortMatrix=true
@@ -21,7 +21,7 @@ class StegoEncrWithOPC :AbsModuleOPC{
         this.password=password
     }
     constructor(tripleDataOpcMatrix: TripleDataOpcMatrix, flag: Flag
-                ,sameBaseWidth:Int=1,sameBaseHeight:Int=1,password:String?=null) :
+                ,sameBaseWidth:Int,sameBaseHeight:Int,password:String?) :
             super(tripleDataOpcMatrix,flag){
         this.opcs= ModuleOPC(tripleDataOpcMatrix, flag)
 //        isOPCS=true

@@ -4,13 +4,11 @@ import ImageCompression.Containers.Size;
 import ImageCompression.Containers.TripleDataOpcMatrix;
 import ImageCompression.Containers.TripleShortMatrix;
 import ImageCompression.Convertor.ConvertorDefault;
-import ImageCompression.Convertor.ConvertorDesktop;
-import ImageCompression.Convertor.DaoDesktop;
+import ImageCompression.Convertor.Implementations.AbsDaoDesktop;
 import ImageCompression.Parameters;
 import ImageCompression.ProcessingModules.ModuleOPC.AbsModuleOPC;
 import ImageCompression.ProcessingModules.ModuleOPC.StegoEncrWithOPC;
 import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
 import org.jetbrains.annotations.NotNull;
 
 import javax.imageio.ImageIO;
@@ -80,7 +78,7 @@ public class MainForm extends JFrame{
             Cosine.getCos(0,0);
         }).start();
 
-        ConvertorDefault.IDao dao=new DaoDesktop() {
+        ConvertorDefault.IDao dao=new AbsDaoDesktop() {
             @NotNull
             @Override
             public File getFileOriginal() {
