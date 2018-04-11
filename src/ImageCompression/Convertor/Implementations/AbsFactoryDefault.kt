@@ -14,13 +14,13 @@ abstract class AbsFactoryDefault :ConvertorDefault.IFactory {
         val s=getSameBaseSize()
         val m=getMesasge()
         val p=getPassword()
-        return StegoEncrWithOPC(tripleShortMatrix,flag,s.width,s.height,m,p)
+        return StegoEncrWithOPC(tripleShortMatrix,flag,s.width,s.height,m,p,true)
     }
 
     override fun getModuleOPC(tripleDataOpcMatrix: TripleDataOpcMatrix, flag: Flag): AbsModuleOPC {
         val p=getPassword()
         val s=getSameBaseSize()
-        return StegoEncrWithOPC(tripleDataOpcMatrix,flag,s.width,s.height,p)
+        return StegoEncrWithOPC(tripleDataOpcMatrix,flag,s.width,s.height,p,true)
     }
 
     override fun getModuleVectorParser(tripleDataOpcMatrix: TripleDataOpcMatrix, flag: Flag): ModuleByteVector {

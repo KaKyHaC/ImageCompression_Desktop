@@ -3,6 +3,7 @@ package ImageCompression.Convertor
 import ImageCompression.ProcessingModules.*
 import ImageCompression.Containers.Flag
 import ImageCompression.ProcessingModules.ModuleOPC.StegoEncrWithOPC
+import ImageCompression.Utils.Functions.ByteVectorParser
 import ImageCompression.Utils.Objects.TimeManager
 import java.awt.image.BufferedImage
 import java.io.File
@@ -40,11 +41,11 @@ class ConvertorDesktop private constructor(){
         val matrixDCT=bodum.getDCTMatrix(isAsync)
             timeManager.append("direct DCT")
             progressListener?.invoke(60,"direct OPC")
-        val StEnOPC= StegoEncrWithOPC(matrixDCT,info.flag,info.sameBaseWidth,info.sameBaseHeight,info.message,info.password)
+        val StEnOPC= StegoEncrWithOPC(matrixDCT,info.flag,info.sameBaseWidth,info.sameBaseHeight,info.message,info.password,isAsync)
 //        StEnOPC.password=password
 //        StEnOPC.baseSizeW=globalBaseW
 //        StEnOPC.baseSizeH=globalBaseH
-        val box=StEnOPC.getBoxOfOpc(isAsync)
+        val box=StEnOPC.getTripleDataOpcMatrix()
             timeManager.append("direct OPC")
             progressListener?.invoke(80,"write to file")
         val vector=ModuleByteVector(box,info.flag,info.sameBaseWidth,info.sameBaseHeight).getVectorContainer()
@@ -63,14 +64,14 @@ class ConvertorDesktop private constructor(){
             timeManager.startNewTrack("FromBarToBmp ${isAsync}")
             progressListener?.invoke(10,"read from file")
         val fileModule=ModuleFile(pathToBar)
-        val (box,flag)=fileModule.read()
-//        val box=pair.first
+        val (cont,flag)=fileModule.read()
+        val box= ByteVectorParser.instance.parseVector(cont,flag)
 //        val flag=pair.second
             timeManager.append("read from file")
             progressListener?.invoke(10,"reverse OPC")
-        val mOPC= StegoEncrWithOPC(box, flag,)
-        mOPC.password=password
-        val FFTM =mOPC.getMatrix(isAsync)
+        val mOPC= StegoEncrWithOPC(box, flag,password=password,isAsync = isAsync)
+//        mOPC.password=password
+        val FFTM =mOPC.getTripleShortMatrix()
             timeManager.append("reverse OPC")
             progressListener?.invoke(50,"reverse DCT")
         val bodum1 = ModuleDCT(FFTM,flag)

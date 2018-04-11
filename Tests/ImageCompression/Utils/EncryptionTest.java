@@ -20,8 +20,8 @@ public class EncryptionTest {
     @Before
     public void setUp() throws Exception {
         flag=new Flag();
-        moduleOPC =new ModuleOPC(tripleShortMatrix,flag);
-        _moduleOPC =new ModuleOPC(tripleShortMatrix,flag);
+        moduleOPC =new ModuleOPC(tripleShortMatrix,flag,true);
+        _moduleOPC =new ModuleOPC(tripleShortMatrix,flag,true);
     }
 
     @Test

@@ -7,13 +7,13 @@ import ImageCompression.Utils.Functions.Steganography
 import ImageCompression.Containers.Flag
 import ImageCompression.Utils.Objects.TimeManager
 
-class StegoEncrWithOPC :AbsModuleOPC{
-    private var opcs: ModuleOPC
+class StegoEncrWithOPC :ModuleOPC{
+//    private var super: ModuleOPC
 
     constructor(tripleShortMatrix: TripleShortMatrix,flag:Flag
-                ,sameBaseWidth:Int,sameBaseHeight:Int,message:String?,password:String?):
-            super(tripleShortMatrix,flag){
-        opcs= ModuleOPC(tripleShortMatrix,flag)
+                ,sameBaseWidth:Int,sameBaseHeight:Int,message:String?,password:String?,isAsync: Boolean):
+            super(tripleShortMatrix,flag,isAsync){
+//        super= ModuleOPC(tripleShortMatrix,flag)
 //        getTripleShortMatrix=true
         baseSizeH=sameBaseHeight
         baseSizeW=sameBaseWidth
@@ -21,9 +21,9 @@ class StegoEncrWithOPC :AbsModuleOPC{
         this.password=password
     }
     constructor(tripleDataOpcMatrix: TripleDataOpcMatrix, flag: Flag
-                ,sameBaseWidth:Int,sameBaseHeight:Int,password:String?) :
-            super(tripleDataOpcMatrix,flag){
-        this.opcs= ModuleOPC(tripleDataOpcMatrix, flag)
+                ,sameBaseWidth:Int=1,sameBaseHeight:Int=1,password:String?,isAsync: Boolean) :
+            super(tripleDataOpcMatrix,flag,isAsync){
+//        this.super= ModuleOPC(tripleDataOpcMatrix, flag)
 //        isOPCS=true
         baseSizeH=sameBaseHeight
         baseSizeW=sameBaseWidth
@@ -31,6 +31,7 @@ class StegoEncrWithOPC :AbsModuleOPC{
         this.password=password
     }
 
+    
     var message:String?
     var password:String?
 
@@ -38,44 +39,46 @@ class StegoEncrWithOPC :AbsModuleOPC{
     var baseSizeH:Int
 
     var onMessageReadedListener:((message:String)->Unit)?=null
-    var isAsync=true
+//    var isAsync=true
+    
+//    val flag:Flag
 
-    fun FromMatrixToOpcs(isAsync: Boolean=true,progressListener:((x:Int)->Unit)? = null){
-        if(!opcs.isTripleShortMatrix)
-            return
+    fun FromMatrixToOpcs(isAsync: Boolean,progressListener:((x:Int)->Unit)? = null){
+//        if(super.state==AbsModuleOPC.State.OPC)
+//            return
 
         progressListener?.invoke(0)
 
-        if(opcs.flag.isChecked(Flag.Parameter.Steganography)&&message!=null){
-            val mat=opcs.getMatrix(isAsync)
+        if(super.flag.isChecked(Flag.Parameter.Steganography)&&message!=null){
+            val mat=super.getMatrix(isAsync)
             Steganography.WriteMassageFromByteArrayToMatrix(mat,message?.toByteArray())
             TimeManager.Instance.append("Stega")
 
         }
         progressListener?.invoke(10)
 
-        directOpc(opcs.flag.isChecked(Flag.Parameter.GlobalBase),isAsync,progressListener)
+        directOpc(super.flag.isChecked(Flag.Parameter.GlobalBase),isAsync,progressListener)
         TimeManager.Instance.append("dirOPC")
         progressListener?.invoke(80)
 
-        if(opcs.flag.isChecked(Flag.Parameter.Password)&&password!=null) {
-            val box=opcs.getBoxOfOpc(isAsync)
+        if(super.flag.isChecked(Flag.Parameter.Password)&&password!=null) {
+            val box=super.getBoxOfOpc(isAsync)
             Encryption.encode(box, password)
             TimeManager.Instance.append("Encr")
         }
         progressListener?.invoke(100)
 
-        assert(opcs.isOpcs)
+//        assert(super.isOpcs)
 //        isOPCS=true
     }
-    fun FromOpcToMatrix(isAsync: Boolean=true,progressListener: ((x: Int) -> Unit)?=null){
-        if(!opcs.isOpcs)
-            return
+    fun FromOpcToMatrix(isAsync: Boolean,progressListener: ((x: Int) -> Unit)?=null){
+//        if(!super.isOpcs)
+//            return
 
         progressListener?.invoke(0)
 
-        if(opcs.flag.isChecked(Flag.Parameter.Password)&&password!=null) {
-            val box=opcs.getBoxOfOpc(isAsync)
+        if(super.flag.isChecked(Flag.Parameter.Password)&&password!=null) {
+            val box=super.getBoxOfOpc(isAsync)
             Encryption.encode(box, password)
             TimeManager.Instance.append("Encr")
         }
@@ -85,69 +88,66 @@ class StegoEncrWithOPC :AbsModuleOPC{
         TimeManager.Instance.append("reOPC ")
         progressListener?.invoke(80)
 
-        if(opcs.flag.isChecked(Flag.Parameter.Steganography)) {
-            val mat=opcs.getMatrix(isAsync)
+        if(super.flag.isChecked(Flag.Parameter.Steganography)) {
+            val mat=super.getMatrix(isAsync)
             message = String(Steganography.ReadMassageFromMatrix(mat).toByteArray())
             if(message!=null)onMessageReadedListener?.invoke(message!!)
             TimeManager.Instance.append("Stega")
         }
         progressListener?.invoke(100)
 
-        assert(opcs.isTripleShortMatrix)
+//        assert(super.isTripleShortMatrix)
 //        getTripleShortMatrix=true
     }
 
 
     private fun directOpc(isGlobalBase:Boolean,isAsync:Boolean,progressListener: ((x: Int) -> Unit)?=null){
         if(isGlobalBase){
-            opcs.directOpcGlobalBase(baseSizeW,baseSizeH)
+            super.directOpcGlobalBase(baseSizeW,baseSizeH)
         }else if(isAsync){
-            opcs.directOPCMultiThreads()
+            super.directOPCMultiThreads()
         }else{
-            opcs.directOPC();
+            super.directOPC();
         }
 
     }
     private fun reverseOpc(isAsync:Boolean,progressListener: ((x: Int) -> Unit)?=null){
         if(isAsync){
-            opcs.reverseOPCMultiThreads()
+            super.reverseOPCMultiThreads()
         }else{
-            opcs.reverseOPC();
+            super.reverseOPC();
         }
     }
 
 
-    fun getMatrix(isAsync: Boolean=true): TripleShortMatrix {
-        if(!opcs.isTripleShortMatrix)
+/*    fun getMatrix(isAsync: Boolean=true): TripleShortMatrix {
+        if(!super.isTripleShortMatrix)
             FromOpcToMatrix(isAsync)
 
-        assert(opcs.isTripleShortMatrix)
-        return opcs.getMatrix(isAsync)
+        assert(super.isTripleShortMatrix)
+        return super.getMatrix(isAsync)
     }
     fun getBoxOfOpc(isAsync: Boolean=true): TripleDataOpcMatrix {
-        if(!opcs.isOpcs)
+        if(!super.isOpcs)
             FromMatrixToOpcs(isAsync)
 
-        assert(opcs.isOpcs)
-        return opcs.getBoxOfOpc(isAsync)
-    }
-    fun getModuleOPC(): ModuleOPC {
-        return opcs
-    }
+        assert(super.isOpcs)
+        return super.getBoxOfOpc(isAsync)
+    }*/
 
     override fun direct(shortMatrix: TripleShortMatrix): TripleDataOpcMatrix {
-        if(!opcs.isOpcs)
-            FromMatrixToOpcs(isAsync)
+//        if(!super.isOpcs)
+        FromMatrixToOpcs(isAsyn)
 
-        assert(opcs.isOpcs)
-        return opcs.getTripleDataOpcMatrix()
+//        assert(super.isOpcs)
+        return super.getTripleDataOpcMatrix()
     }
 
     override fun reverce(dataOpcMatrix: TripleDataOpcMatrix): TripleShortMatrix {
-        if(!opcs.isTripleShortMatrix)
-            FromOpcToMatrix(isAsync)
+//        if(!super.isTripleShortMatrix)
+        FromOpcToMatrix(isAsyn)
 
-        assert(opcs.isTripleShortMatrix)
-        return opcs.getTripleShortMatrix()
+//        assert(super.isTripleShortMatrix)
+        return super.getTripleShortMatrix()
     }
 }

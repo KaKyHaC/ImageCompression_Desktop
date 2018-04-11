@@ -4,16 +4,14 @@ import ImageCompression.Containers.ByteVector
 import ImageCompression.Containers.ByteVectorContainer
 import ImageCompression.Containers.Flag
 import ImageCompression.Containers.TripleDataOpcMatrix
-import ImageCompression.ProcessingModules.ModuleFile
-import ImageCompression.Utils.Objects.ByteVectorFile
 import ImageCompression.Utils.Objects.TimeManager
 
-class ByteVectorParcer private constructor(){
+class ByteVectorParser private constructor(){
     companion object {
-        @JvmStatic val instance=ByteVectorParcer()
+        @JvmStatic val instance= ByteVectorParser()
     }
 
-    fun parceData(data:TripleDataOpcMatrix,flag: Flag,globalBaseW:Int,globalBaseH:Int): ByteVectorContainer {
+    fun parseData(data:TripleDataOpcMatrix, flag: Flag, globalBaseW:Int, globalBaseH:Int): ByteVectorContainer {
         val v = ByteVector()
 
         data.writeToVector(v, flag)
@@ -34,7 +32,7 @@ class ByteVectorParcer private constructor(){
         }
         return ByteVectorContainer(v,vbase)
     }
-    fun parceVector(container: ByteVectorContainer,flag:Flag): TripleDataOpcMatrix {
+    fun parseVector(container: ByteVectorContainer, flag:Flag): TripleDataOpcMatrix {
         val opcs= TripleDataOpcMatrix()
         val vmain=container.mainData
         opcs.readFromVector(vmain,flag)

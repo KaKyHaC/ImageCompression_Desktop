@@ -7,6 +7,7 @@ import ImageCompression.Containers.Flag
 import ImageCompression.Utils.Functions.Steganography
 import ImageCompression.Containers.ByteVector
 import ImageCompression.ProcessingModules.ModuleOPC.StegoEncrWithOPC
+import ImageCompression.Utils.Functions.ByteVectorParser
 
 import org.junit.Assert.*
 import org.junit.Test
@@ -125,20 +126,19 @@ class ConvertorDesktopTest {
         assertFails { AssertMatrixInRange(cpy,dct,1) }
         assertFails { AssertMatrixInRange(ybrCpy,dct,1) }
 
-        val seOpc= StegoEncrWithOPC(dct,f)
-        val opcs=seOpc.getModuleOPC()
-        val box=opcs.getBoxOfOpc(true)
-        val flag1=opcs.flag
+        val seOpc= StegoEncrWithOPC(dct,f,1,1,null,null,true)
+        val box=seOpc.getBoxOfOpc(true)
+        val flag1=f
         val vb= ByteVector()
         box.writeToVector(vb,flag1)
         //----
         //----
-        val f1=opcs.flag
+        val f1=f
         val rBox= TripleDataOpcMatrix()
         rBox.readFromVector(vb,f1)
         assertEquals(rBox,box)
 
-        val seOpc2= StegoEncrWithOPC(rBox, f1)
+        val seOpc2= StegoEncrWithOPC(rBox, f1,1,1,null,true)
         val dctres=seOpc2.getMatrix(true)
         AssertMatrixInRange(dctres,dctCpy,0)
 
@@ -225,12 +225,12 @@ class ConvertorDesktopTest {
         assertFails { AssertMatrixInRange(cpy,dct,1) }
         assertFails { AssertMatrixInRange(ybrCpy,dct,1) }
 
-        val seOpc= StegoEncrWithOPC(dct,f)
-        val opcs=seOpc.getModuleOPC()
-        val box=opcs.getBoxOfOpc(true)
-        f=opcs.flag
+        val seOpc= StegoEncrWithOPC(dct,f,1,1,null,null,true)
+//        val opcs=seOpc.getModuleOPC()
+        val box=seOpc.getBoxOfOpc(true)
+//        f=opcs.flag
 
-        val seOpc2= StegoEncrWithOPC(box, f)
+        val seOpc2= StegoEncrWithOPC(box, f,1,1,null,true)
         val dctres=seOpc2.getMatrix(true)
         AssertMatrixInRange(dctres,dctCpy,0)
 
@@ -268,22 +268,25 @@ class ConvertorDesktopTest {
         assertFails { AssertMatrixInRange(cpy,dct,0) }
         assertFails { AssertMatrixInRange(ybrCpy,dct,0) }
 
-        val seOpc= StegoEncrWithOPC(dct,flag)
-        val opcs=seOpc.getModuleOPC()
-        val box=opcs.getBoxOfOpc(true)
-        val flag=opcs.flag
+        val seOpc= StegoEncrWithOPC(dct,flag,1,1,null,null,true)
+//        val opcs=seOpc.getModuleOPC()
+        val box=seOpc.getBoxOfOpc(true)
+        val vec=ByteVectorParser.instance.parseData(box,flag,1,1)
+//        val flag=opcs.flag
         //----
         val file=ModuleFile(pathToBmp)
-        file.write(box,flag)
+        file.write(vec,flag)
         //======
         val pair=file.read()
         //----
         val f=pair.second
-        val rBox=pair.first
+        val cont=pair.first
+        val rBox=ByteVectorParser.instance.parseVector(cont,f)
+
         assertEquals("box not equal",rBox,box)
         assertEquals("flag $f!=$flag",f,flag)
 
-        val seOpc2= StegoEncrWithOPC(rBox, f)
+        val seOpc2= StegoEncrWithOPC(rBox, f,1,1,null,true)
         val dctres=seOpc2.getMatrix(true)
         AssertMatrixInRange(dctres,dctCpy,0)
 

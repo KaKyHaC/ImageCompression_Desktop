@@ -5,11 +5,13 @@ import ImageCompression.Containers.TripleDataOpcMatrix;
 import ImageCompression.Containers.TripleShortMatrix;
 import ImageCompression.Convertor.ConvertorDefault;
 import ImageCompression.Convertor.Implementations.AbsDaoDesktop;
+import ImageCompression.Convertor.Implementations.AbsFactoryDefault;
 import ImageCompression.Parameters;
 import ImageCompression.ProcessingModules.ModuleOPC.AbsModuleOPC;
 import ImageCompression.ProcessingModules.ModuleOPC.StegoEncrWithOPC;
 import kotlin.Unit;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -91,11 +93,6 @@ public class MainForm extends JFrame{
                 return file;
             }
 
-            @NotNull
-            @Override
-            public Size getSameBase() {
-                return new Size((int)spinnerW.getValue(),(int)spinnerH.getValue());
-            }
 
             @NotNull
             @Override
@@ -103,29 +100,27 @@ public class MainForm extends JFrame{
                 return flag;
             }
         };
-        ConvertorDefault.IFactory factory=new ConvertorDefault.IFactory() {
+        ConvertorDefault.IFactory factory=new AbsFactoryDefault() {
             @NotNull
             @Override
-            public AbsModuleOPC getModuleOPC(@NotNull TripleShortMatrix tripleShortMatrix, @NotNull Flag flag) {
+            public Size getSameBaseSize() {
                 int w=(int)spinnerW.getValue();
                 int h=(int)spinnerH.getValue();
-                String pass=String.valueOf(passwordField1.getPassword());
-                String mess=messageField.getText();
-                return new StegoEncrWithOPC(tripleShortMatrix,flag,w,h,mess,pass);
+                return new Size(w,h);
             }
 
-            @NotNull
+            @Nullable
             @Override
-            public AbsModuleOPC getModuleOPC(@NotNull TripleDataOpcMatrix tripleDataOpcMatrix, @NotNull Flag flag) {
-                int w=(int)spinnerW.getValue();
-                int h=(int)spinnerH.getValue();
+            public String getMesasge() {
+                String mess=messageField.getText();
+                return mess;
+            }
+
+            @Nullable
+            @Override
+            public String getPassword() {
                 String pass=String.valueOf(passwordField1.getPassword());
-                StegoEncrWithOPC mod=new StegoEncrWithOPC(tripleDataOpcMatrix,flag,w,h,pass);
-                mod.setOnMessageReadedListener((String s)-> {
-                    messageField.setText(s);
-                    return Unit.INSTANCE;
-                });
-                return mod;
+                return pass;
             }
         };
         convertor=new ConvertorDefault(dao,factory);

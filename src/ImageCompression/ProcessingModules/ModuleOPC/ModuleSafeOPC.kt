@@ -23,18 +23,16 @@ class ModuleSafeOPC :AbsModuleOPC{
     var isMultiTWO=true
     val moduleStego:ModuleStego
 
-    constructor(tripleShort: TripleShortMatrix?, flag: Flag, message: String?, info: Info) : super(tripleShort, flag) {
+    constructor(tripleShort: TripleShortMatrix, flag: Flag, message: String?, info: Info) : super(tripleShort, flag) {
         this.message = message
         this.info = info
     }
-    constructor(tripleDataOpc: TripleDataOpcMatrix?, flag: Flag, message: String?, info: Info) : super(tripleDataOpc, flag) {
+    constructor(tripleDataOpc: TripleDataOpcMatrix, flag: Flag, message: String?, info: Info) : super(tripleDataOpc, flag) {
         this.message = message
         this.info = info
     }
 //    val ipu=ImageProcessorUtils()
     
-
-
 
     init {
         val dao=object :IDao{
@@ -54,14 +52,12 @@ class ModuleSafeOPC :AbsModuleOPC{
         moduleStego= ModuleStego(dao)
     }
 
-
     override fun direct(tripleShort: TripleShortMatrix): TripleDataOpcMatrix {
         val tmp= tripleShort.toTripleContainer()
         val m= if(message!=null)MessageParser().fromString(message!!) else null
         moduleStego.direct(tmp,m,isDivTwo)
         return tripleDataOpc!!
     }
-
     override fun reverce(tripleDataOpc: TripleDataOpcMatrix): TripleShortMatrix {
         val tmp = tripleDataOpc.toTripleContainer()
         moduleStego.reverse(tmp,info.unit_W, info.unit_H, isMultiTWO)
@@ -113,7 +109,7 @@ class ModuleSafeOPC :AbsModuleOPC{
         return ImageProcessorUtils.Triple(a,b,c)
     }
     fun ImageProcessorUtils.Triple<IContainer<UnitContainer<Short>>>.toTripleShortMatrix():TripleShortMatrix{
-        val res=TripleShortMatrix(0,0,State.Yenl)
+        val res=TripleShortMatrix(0,0,ImageCompression.Constants.State.Yenl)
         val r= UnitContainerFactory.getData(this.r!!,info.width,info.height)
         val g= UnitContainerFactory.getData(this.g!!,info.width,info.height)
         val b= UnitContainerFactory.getData(this.b!!,info.width,info.height)

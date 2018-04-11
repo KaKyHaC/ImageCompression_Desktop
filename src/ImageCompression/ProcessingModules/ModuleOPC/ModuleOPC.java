@@ -204,6 +204,7 @@ public class ModuleOPC extends AbsModuleOPC{
     }
 
 
+    @Deprecated
     public TripleShortMatrix getMatrix(boolean isAsync) {
         if(state!=State.Data&&!isReady) {
             if(isAsync)
@@ -215,6 +216,7 @@ public class ModuleOPC extends AbsModuleOPC{
         return tripleShort;
     }
 
+    @Deprecated
     public TripleDataOpcMatrix getBoxOfOpc(boolean isAsync) {
         if(state!=State.OPC&&!isReady){
             if(isAsync)
@@ -225,7 +227,7 @@ public class ModuleOPC extends AbsModuleOPC{
         
         return tripleOPC;
     }
-    
+
     private void appendTimeManager(String s){
 //        TimeManager.getInstance().append(s);
     }

@@ -26,16 +26,16 @@ public class ModuleOPCTest {
 
     @Test
     public void TestDefault(){
-        TripleDataOpcMatrix tripleDataOpcMatrix =new ModuleOPC(tripleShortMatrix,flag).getBoxOfOpc(true);
+        TripleDataOpcMatrix tripleDataOpcMatrix =new ModuleOPC(tripleShortMatrix,flag,true).getBoxOfOpc(true);
         DataOpc[][] a,b,c;
-        ModuleOPC moduleOPC1 =new ModuleOPC(tripleDataOpcMatrix, flag);
+        ModuleOPC moduleOPC1 =new ModuleOPC(tripleDataOpcMatrix, flag,true);
         TripleShortMatrix res= moduleOPC1.getMatrix(true);
 
         AssertMatrixInRange(tripleShortMatrix,res,1,true);
     }
     @Test
     public void TestTime(){
-        ModuleOPC moduleOPC =new ModuleOPC(tripleShortMatrix,flag);
+        ModuleOPC moduleOPC =new ModuleOPC(tripleShortMatrix,flag,true);
         Date t1=new Date();
         moduleOPC.directOPCMultiThreads();
         moduleOPC.reverseOPCMultiThreads();

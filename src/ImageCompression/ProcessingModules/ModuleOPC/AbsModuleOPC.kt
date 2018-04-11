@@ -1,39 +1,58 @@
 package ImageCompression.ProcessingModules.ModuleOPC
 
+import ImageCompression.Constants.SIZEOFBLOCK
 import ImageCompression.Containers.Flag
 import ImageCompression.Containers.TripleDataOpcMatrix
 import ImageCompression.Containers.TripleShortMatrix
 
 abstract class AbsModuleOPC {
-    protected var tripleDataOpc:TripleDataOpcMatrix?
-        private set
-    protected var tripleShort:TripleShortMatrix?
-        private set
-    val flag: Flag
-
-    constructor(tripleShort: TripleShortMatrix?, flag: Flag) {
-        this.tripleShort = tripleShort
-        this.flag = flag
-        this.tripleDataOpc=null
+    protected enum class State {
+        OPC, Data
     }
-    constructor(tripleDataOpc: TripleDataOpcMatrix?, flag: Flag) {
-        this.tripleShort = null
+
+    protected var tripleDataOpc:TripleDataOpcMatrix
+//        private set
+    protected var tripleShort:TripleShortMatrix
+//        private set
+    protected val flag: Flag
+    protected val state:State
+    var isReady:Boolean=false
+        private set
+
+    constructor(tripleShort: TripleShortMatrix, flag: Flag) {
+        this.flag = flag
+        this.tripleShort = tripleShort
+        this.tripleDataOpc= TripleDataOpcMatrix();
+        this.state=State.Data
+    }
+    constructor(tripleDataOpc: TripleDataOpcMatrix, flag: Flag) {
         this.flag = flag
         this.tripleDataOpc=tripleDataOpc
+        this.state=State.OPC
+
+        val widthOPC = tripleDataOpc.a!!.size
+        val heightOPC = tripleDataOpc.a!![0].size
+        this.tripleShort = TripleShortMatrix(widthOPC * SIZEOFBLOCK, heightOPC * SIZEOFBLOCK, ImageCompression.Constants.State.DCT)
+
     }
 
-    abstract fun direct(tripleShort: TripleShortMatrix):TripleDataOpcMatrix
-    abstract fun reverce(tripleDataOpc: TripleDataOpcMatrix):TripleShortMatrix
+    abstract protected fun direct(tripleShort: TripleShortMatrix):TripleDataOpcMatrix
+    abstract protected fun reverce(tripleDataOpc: TripleDataOpcMatrix):TripleShortMatrix
 
     fun getTripleShortMatrix(): TripleShortMatrix {
-        if(tripleShort==null)
-            tripleShort=reverce(tripleDataOpc!!)
-        return tripleShort!!
+        if(state==State.OPC&&!isReady) {
+            tripleShort = reverce(tripleDataOpc)
+            isReady=true
+        }
+
+        return tripleShort
     }
 
     fun getTripleDataOpcMatrix(): TripleDataOpcMatrix {
-        if(tripleDataOpc==null)
-            tripleDataOpc=direct(tripleShort!!)
-        return tripleDataOpc!!
+        if(state==State.Data&&!isReady) {
+            tripleDataOpc = direct(tripleShort)
+            isReady=true
+        }
+        return tripleDataOpc
     }
 }

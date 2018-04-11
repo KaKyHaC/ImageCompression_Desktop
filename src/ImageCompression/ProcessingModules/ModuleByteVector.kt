@@ -1,10 +1,9 @@
 package ImageCompression.ProcessingModules
 
-import ImageCompression.Containers.ByteVector
 import ImageCompression.Containers.ByteVectorContainer
 import ImageCompression.Containers.Flag
 import ImageCompression.Containers.TripleDataOpcMatrix
-import ImageCompression.Utils.Functions.ByteVectorParcer
+import ImageCompression.Utils.Functions.ByteVectorParser
 
 class ModuleByteVector {
     private enum class State{Data,Vector}
@@ -34,14 +33,14 @@ class ModuleByteVector {
     }
     fun getVectorContainer():ByteVectorContainer{
         if(state==State.Data&& !isReady){
-            vectorContainer=ByteVectorParcer.instance.parceData(data!!,flag,globalW,globalH)
+            vectorContainer= ByteVectorParser.instance.parseData(data!!,flag,globalW,globalH)
             isReady=true
         }
         return vectorContainer!!
     }
     fun getTripleDataOpc():TripleDataOpcMatrix{
         if(state==State.Vector&&!isReady){
-            data=ByteVectorParcer.instance.parceVector(vectorContainer!!,flag)
+            data= ByteVectorParser.instance.parseVector(vectorContainer!!,flag)
             isReady=true
         }
         return data!!
