@@ -69,7 +69,7 @@ public class OpcConvertor {
         int Height=duHeight*SIZEOFBLOCK;
         short[][] res=new short[Width][Height];
 
-        boolean DC=flag.isChecked(Flag.Parameter.DC);
+//        boolean DC=flag.isChecked(Flag.Parameter.DC);
         short[][]buf;//=new short[SIZEOFBLOCK][SIZEOFBLOCK];
 
         for (int i = 0; i < duWidth; i++) {

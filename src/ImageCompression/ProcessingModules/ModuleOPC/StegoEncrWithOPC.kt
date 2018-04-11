@@ -34,6 +34,9 @@ class StegoEncrWithOPC :AbsModuleOPC{
     var message:String?
     var password:String?
 
+    var baseSizeW:Int
+    var baseSizeH:Int
+
     var onMessageReadedListener:((message:String)->Unit)?=null
     var isAsync=true
 
@@ -93,8 +96,7 @@ class StegoEncrWithOPC :AbsModuleOPC{
         assert(opcs.isTripleShortMatrix)
 //        getTripleShortMatrix=true
     }
-    var baseSizeW:Int
-    var baseSizeH:Int
+
 
     private fun directOpc(isGlobalBase:Boolean,isAsync:Boolean,progressListener: ((x: Int) -> Unit)?=null){
         if(isGlobalBase){

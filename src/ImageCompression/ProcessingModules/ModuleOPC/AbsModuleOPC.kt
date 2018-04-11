@@ -6,7 +6,9 @@ import ImageCompression.Containers.TripleShortMatrix
 
 abstract class AbsModuleOPC {
     protected var tripleDataOpc:TripleDataOpcMatrix?
+        private set
     protected var tripleShort:TripleShortMatrix?
+        private set
     val flag: Flag
 
     constructor(tripleShort: TripleShortMatrix?, flag: Flag) {

@@ -22,9 +22,7 @@ class ConvertorDesktop private constructor(){
     enum class Computing{OneThread,MultiThreads,MultiProcessor}
     data class Info(val flag: Flag,val password: String?=null
                     ,val message: String?=null,val sameBaseWidth:Int=1,val sameBaseHeight:Int=1)
-//    var password:String?=null
-//    private var globalBaseW=1
-//    private var globalBaseH=1
+
     fun FromBmpToBar(pathToBmp: String, info: Info, computing: Computing = Computing.MultiThreads) {
         val isAsync=(computing== Computing.MultiThreads)
             val timeManager=TimeManager.Instance
@@ -49,10 +47,11 @@ class ConvertorDesktop private constructor(){
         val box=StEnOPC.getBoxOfOpc(isAsync)
             timeManager.append("direct OPC")
             progressListener?.invoke(80,"write to file")
-        val fileModule=ModuleFile(pathToBmp,info.sameBaseWidth,info.sameBaseHeight)
+        val vector=ModuleByteVector(box,info.flag,info.sameBaseWidth,info.sameBaseHeight).getVectorContainer()
+        val fileModule=ModuleFile(pathToBmp)
 //        fileModule.globalBaseW=globalBaseW
 //        fileModule.globalBaseH=globalBaseH
-        fileModule.write(box,info.flag)
+        fileModule.write(vector,info.flag)
             timeManager.append("write to file")
             progressListener?.invoke(100,"Ready after ${timeManager.getTotalTime()} ms")
             System.out.println(timeManager.getInfoInSec())
@@ -69,7 +68,7 @@ class ConvertorDesktop private constructor(){
 //        val flag=pair.second
             timeManager.append("read from file")
             progressListener?.invoke(10,"reverse OPC")
-        val mOPC= StegoEncrWithOPC(box, flag)
+        val mOPC= StegoEncrWithOPC(box, flag,)
         mOPC.password=password
         val FFTM =mOPC.getMatrix(isAsync)
             timeManager.append("reverse OPC")

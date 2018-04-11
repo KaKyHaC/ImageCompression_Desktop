@@ -23,82 +23,92 @@ import static ImageCompression.Utils.Functions.OPCMultiThread.SIZEOFBLOCK;
  */
 
 public class ModuleOPC extends AbsModuleOPC{
-
-//    private TripleDataOpcMatrix getByteVectorContainer();
+    private enum State{OPC,Data}
+    private TripleDataOpcMatrix tripleOPC;
 //    private int widthOPC,heightOPC;
-//    private TripleShortMatrix getTripleShort();
+    private TripleShortMatrix tripleShort;
     private OpcConvertor a,b,c;
-    private Flag flag;
-    private boolean isMatrix=false;
-    private boolean isOpcs=false;
+//    private Flag flag;
+    private final State state;
+    private boolean isReady=false;
+    public boolean isAsyn;
+//    private boolean isMatrix=false;
+//    private boolean isOpcs=false;
 
-    public ModuleOPC(TripleShortMatrix getTripleShort,Flag flag){
-        super(getTripleShort,flag);
-//        this.getTripleShort() = getTripleShort();
-        isMatrix=true;
-        this.flag= flag;
+    public ModuleOPC(TripleShortMatrix tripleShort,Flag flag,Boolean isAsyn){
+        super(tripleShort,flag);
+//        this.flag=flag;
+        this.isAsyn=isAsyn;
+        state=State.Data;
+        
+        a=new OpcConvertor(tripleShort.getA(),flag);
+        b=new OpcConvertor(tripleShort.getB(),flag);
+        c=new OpcConvertor(tripleShort.getC(),flag);
+        
+        this.tripleShort=tripleShort;
 
-        a=new OpcConvertor(getTripleShort().getA(),flag);
-        b=new OpcConvertor(getTripleShort().getB(),flag);
-        c=new OpcConvertor(getTripleShort().getC(),flag);
-
-//        Size size=sizeOpcCalculate(getTripleShort().getWidth(), getTripleShort().getHeight());
+//        Size size=sizeOpcCalculate(tripleShort().getWidth(), tripleShort().getHeight());
 //        int widthOPC= size.getWidth();
 //        int heightOPC= size.getHeight();
-//        int k=(getTripleShort().getF().isEnlargement())?2:1;
+//        int k=(tripleShort().getF().isEnlargement())?2:1;
 
-        setTripleDataOpc(new TripleDataOpcMatrix());
+        tripleOPC=new TripleDataOpcMatrix();
+//        setTripleDataOpc(new TripleDataOpcMatrix());
 //        getByteVectorContainer().setA(new DataOpc[widthOPC][heightOPC]);
 //        getByteVectorContainer().setB(new DataOpc[widthOPC/k][heightOPC/k]);
 //        getByteVectorContainer().setC(new DataOpc[widthOPC/k][heightOPC/k]);
     }
-    public ModuleOPC(TripleDataOpcMatrix getTripleDataOpc, Flag flag){
-        super(getTripleDataOpc,flag);
+    public ModuleOPC(TripleDataOpcMatrix tripleDataOpc, Flag flag,Boolean isAsyn){
+        super(tripleDataOpc,flag);
 //        this.getByteVectorContainer() = getByteVectorContainer();
 
-        a=new OpcConvertor(getTripleDataOpc().getA(),flag);
-        b=new OpcConvertor(getTripleDataOpc().getB(),flag);
-        c=new OpcConvertor(getTripleDataOpc().getC(),flag);
+        a=new OpcConvertor(tripleDataOpc.getA(),flag);
+        b=new OpcConvertor(tripleDataOpc.getB(),flag);
+        c=new OpcConvertor(tripleDataOpc.getC(),flag);
 
-        int widthOPC= getTripleDataOpc().getA().length;
-        int heightOPC= getTripleDataOpc().getA()[0].length;
-        isOpcs=true;
-        this.flag=flag;
-        setTripleShort(new TripleShortMatrix(widthOPC*SIZEOFBLOCK,heightOPC*SIZEOFBLOCK, State.DCT));
+        int widthOPC= tripleDataOpc.getA().length;
+        int heightOPC= tripleDataOpc.getA()[0].length;
+//        this.flag=flag;
+        this.isAsyn=isAsyn;
+        state=State.OPC;
+        
+        this.tripleOPC=tripleDataOpc;
+        this.tripleShort=new TripleShortMatrix(widthOPC*SIZEOFBLOCK,heightOPC*SIZEOFBLOCK, ImageCompression.Constants.State.DCT);
+//        setTripleShort(new TripleShortMatrix(widthOPC*SIZEOFBLOCK,heightOPC*SIZEOFBLOCK, State.DCT));
     }
 
 
     public void directOPC(){
-        if(!isMatrix)
+        if(state==State.OPC||isReady)
             return;
 
         appendTimeManager("direct OPC");
-        getTripleDataOpc().setA(a.getDataOpcs());
+        tripleOPC.setA(a.getDataOpcs());
         appendTimeManager("get A");
-        getTripleDataOpc().setB(b.getDataOpcs());
+        tripleOPC.setB(b.getDataOpcs());
         appendTimeManager("get B");
-        getTripleDataOpc().setC(c.getDataOpcs());
+        tripleOPC.setC(c.getDataOpcs());
         appendTimeManager("get C");
 
-        isOpcs=true;
+        isReady=true;
     }
     public void reverseOPC(){
-        if(!isOpcs)
+        if(state==State.Data||isReady)
             return;
 
         appendTimeManager("start reOPC");
-        getTripleShort().setA(a.getDataOrigin());
+        tripleShort.setA(a.getDataOrigin());
         appendTimeManager("get A");
-        getTripleShort().setB(b.getDataOrigin());
+        tripleShort.setB(b.getDataOrigin());
         appendTimeManager("get B");
-        getTripleShort().setC(c.getDataOrigin());
+        tripleShort.setC(c.getDataOrigin());
         appendTimeManager("get C");
 
-        isMatrix=true;
+        isReady=true;
     }
 
     public void directOPCMultiThreads(){ //multy thred
-        if(!isMatrix)
+        if(state==State.OPC||isReady)
             return;
 
         ExecutorService executorService = Executors.newFixedThreadPool(3);
@@ -113,21 +123,21 @@ public class ModuleOPC extends AbsModuleOPC{
         appendTimeManager("set C");
 
             try {
-                getTripleDataOpc().setB(futures.get(1).get());
+                tripleOPC.setB(futures.get(1).get());
                 appendTimeManager("get B");
-                getTripleDataOpc().setC(futures.get(2).get());
+                tripleOPC.setC(futures.get(2).get());
                 appendTimeManager("get C");
-                getTripleDataOpc().setA(futures.get(0).get());
+                tripleOPC.setA(futures.get(0).get());
                 appendTimeManager("get A");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (ExecutionException e) {
                 e.printStackTrace();
             }
-        isOpcs=true;
+        isReady=true;
     }
-    public void reverseOPCMultiThreads(){// create getTripleShort() with corect size of b and c (complite)  //multy thred
-        if(!isOpcs)
+    public void reverseOPCMultiThreads(){// create tripleShort() with corect size of b and c (complite)  //multy thred
+        if(state==State.Data||isReady)
             return;
 
         ExecutorService executorService = Executors.newFixedThreadPool(3);
@@ -143,91 +153,79 @@ public class ModuleOPC extends AbsModuleOPC{
 
 
         try {
-            getTripleShort().setB(futures.get(1).get());
+            tripleShort.setB(futures.get(1).get());
             appendTimeManager("get B");
-            getTripleShort().setC(futures.get(2).get());
+            tripleShort.setC(futures.get(2).get());
             appendTimeManager("get C");
-            getTripleShort().setA(futures.get(0).get());
+            tripleShort.setA(futures.get(0).get());
             appendTimeManager("get A");
-//            getTripleShort().setC(futures.get(2).get());
+//            tripleShort().setC(futures.get(2).get());
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        isMatrix=true;
+        isReady=true;
     }
 
     public void directOPCParallel(){ //multy thread
-        if(!isMatrix)
+        if(state==State.OPC||isReady)
             return;
 
         //omp parallel
         {
-            getTripleDataOpc().setA(a.getDataOpcs());
-            getTripleDataOpc().setB(b.getDataOpcs());
-            getTripleDataOpc().setC(c.getDataOpcs());
+            tripleOPC.setA(a.getDataOpcs());
+            tripleOPC.setB(b.getDataOpcs());
+            tripleOPC.setC(c.getDataOpcs());
         }
-        isOpcs=true;
+        isReady=true;
     }
     public void reverseOPCParallel(){
-        if(isOpcs)
+        if(state==State.Data||isReady)
             return;
 
         //omp parallel
         {
-            getTripleShort().setA(a.getDataOrigin());
-            getTripleShort().setB(b.getDataOrigin());
-            getTripleShort().setC(c.getDataOrigin());
+            tripleShort.setA(a.getDataOrigin());
+            tripleShort.setB(b.getDataOrigin());
+            tripleShort.setC(c.getDataOrigin());
         }
-        isMatrix=true;
+        isReady=true;
     }
 
     public void directOpcGlobalBase(int n,int m){
-        if(!isMatrix)
+        if(state==State.OPC||isReady)
             return;
-        getTripleDataOpc().setA(a.getDataOpcs(n,m)); //TODO set a
-        getTripleDataOpc().setB(b.getDataOpcs(n,m)); //TODO set a
-        getTripleDataOpc().setC(c.getDataOpcs(n,m)); //TODO set a
+        tripleOPC.setA(a.getDataOpcs(n,m)); //TODO set a
+        tripleOPC.setB(b.getDataOpcs(n,m)); //TODO set a
+        tripleOPC.setC(c.getDataOpcs(n,m)); //TODO set a
 
-        isOpcs=true;
+        isReady=true;
     }
 
 
     public TripleShortMatrix getMatrix(boolean isAsync) {
-        if(!isMatrix) {
+        if(state!=State.Data&&!isReady) {
             if(isAsync)
                 reverseOPCMultiThreads();
             else
                 reverseOPC();
         }
-
-        if(isMatrix)
-            return getTripleShort();
-        return null;
+        
+        return tripleShort;
     }
 
     public TripleDataOpcMatrix getBoxOfOpc(boolean isAsync) {
-        if(!isOpcs){
+        if(state!=State.OPC&&!isReady){
             if(isAsync)
                 directOPCMultiThreads();
             else
                 directOPC();
         }
-
-        if(isOpcs)
-            return getTripleDataOpc();
-        return null;
+        
+        return tripleOPC;
     }
-
-    public boolean isTripleShortMatrix() {
-        return isMatrix;
-    }
-    public boolean isOpcs() {
-        return isOpcs;
-    }
-
-
+    
     private void appendTimeManager(String s){
 //        TimeManager.getInstance().append(s);
     }
@@ -235,12 +233,12 @@ public class ModuleOPC extends AbsModuleOPC{
     @NotNull
     @Override
     public TripleDataOpcMatrix direct(TripleShortMatrix shortMatrix) {
-        return getBoxOfOpc(true);
+        return getBoxOfOpc(isAsyn);
     }
 
     @NotNull
     @Override
     public TripleShortMatrix reverce(TripleDataOpcMatrix dataOpcMatrix) {
-        return getMatrix(true);
+        return getMatrix(isAsyn);
     }
 }
