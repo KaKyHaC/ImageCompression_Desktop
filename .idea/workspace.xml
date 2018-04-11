@@ -8,66 +8,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Tests/ConvertorDesktopTest.kt" afterPath="$PROJECT_DIR$/Tests/ConvertorDesktopTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests/ImageCompression/Containers/ModuleOPCTest.java" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Containers/ModuleOPCTest.java" />
-      <change beforePath="$PROJECT_DIR$/Tests/ImageCompression/ProcessingModules/ModuleOPCTest.kt" afterPath="$PROJECT_DIR$/Tests/ImageCompression/ProcessingModules/ModuleOPCTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests/ImageCompression/Utils/EncryptionTest.java" afterPath="$PROJECT_DIR$/Tests/ImageCompression/Utils/EncryptionTest.java" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Containers/TripleDataOpcMatrix.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Containers/TripleDataOpcMatrix.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Convertor/ConvertorDefault$Computing.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Convertor/ConvertorDefault$Computing.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Convertor/ConvertorDefault$IDao.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Convertor/ConvertorDefault$IDao.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Convertor/ConvertorDefault$IFactory.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Convertor/ConvertorDefault$IFactory.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Convertor/ConvertorDefault.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Convertor/ConvertorDefault.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Convertor/ConvertorDesktop$Companion.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Convertor/ConvertorDesktop$Companion.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Convertor/ConvertorDesktop$Computing.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Convertor/ConvertorDesktop$Computing.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Convertor/ConvertorDesktop$Info.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Convertor/ConvertorDesktop$Info.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Convertor/ConvertorDesktop.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Convertor/ConvertorDesktop.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Convertor/DaoDesktop.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleFile$Companion.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleFile$Companion.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleFile.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleFile.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/AbsModuleOPC.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/AbsModuleOPC.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/ModuleOPC.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/ModuleOPC.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC$dao$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC$dao$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$a$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$a$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$b$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$b$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$c$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$c$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$ca$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$ca$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$cb$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$cb$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$cc$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$cc$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/StegoEncrWithOPC.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/StegoEncrWithOPC.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Objects/OpcConvertor.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/Utils/Objects/OpcConvertor.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$2.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$2.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$3.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$3.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$4.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$4.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$5.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$5.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$6.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$6.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm.class" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$AssertArrayArrayInRange$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$TestFullAlgorithmWithoutFile8$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$TestFullAlgorithmWithoutFile8$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$TestFullAlgorithmWithoutFile8$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$copy$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$getRandomMatrix$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testDirectReverseConverting$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testDirectReverseConverting$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testDirectReverseConverting$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testModuleDCT$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testModuleDCT$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testModuleDCT$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Containers/ModuleOPCTest.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPCTest.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompression/Utils/EncryptionTest.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/ImageCompression/Convertor/ConvertorDesktop.kt" afterPath="$PROJECT_DIR$/src/ImageCompression/Convertor/ConvertorDesktop.kt" />
-      <change beforePath="$PROJECT_DIR$/src/ImageCompression/Convertor/Implementations/AbsFactoryDefault.kt" afterPath="$PROJECT_DIR$/src/ImageCompression/Convertor/Implementations/AbsFactoryDefault.kt" />
-      <change beforePath="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleByteVector.kt" afterPath="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleByteVector.kt" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/ImageCompression/ProcessingModules/ModuleOPC/ModuleOPC$State.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/AbsModuleOPC.kt" afterPath="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/AbsModuleOPC.kt" />
       <change beforePath="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/ModuleOPC.java" afterPath="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/ModuleOPC.java" />
-      <change beforePath="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC.kt" afterPath="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC.kt" />
       <change beforePath="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/StegoEncrWithOPC.kt" afterPath="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/StegoEncrWithOPC.kt" />
-      <change beforePath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/ByteVectorParcer.kt" afterPath="$PROJECT_DIR$/src/ImageCompression/Utils/Functions/ByteVectorParser.kt" />
-      <change beforePath="$PROJECT_DIR$/src/MainForm.java" afterPath="$PROJECT_DIR$/src/MainForm.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -79,23 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="AbsFactoryDefault.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ImageCompression/Convertor/Implementations/AbsFactoryDefault.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="16" column="74" lean-forward="false" selection-start-line="16" selection-start-column="74" selection-end-line="16" selection-end-column="74" />
-              <folding>
-                <element signature="e#52#332#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MainForm.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="126" column="5" lean-forward="true" selection-start-line="126" selection-start-column="5" selection-end-line="126" selection-end-column="5" />
+              <caret line="126" column="5" lean-forward="false" selection-start-line="126" selection-start-column="5" selection-end-line="126" selection-end-column="5" />
               <folding>
                 <element signature="class#2751:3161" expanded="false" />
                 <element signature="e#3042#3050#0" expanded="false" />
@@ -111,11 +43,26 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ConvertorDefault.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ImageCompression/Convertor/ConvertorDefault.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+              <folding>
+                <element signature="n#!!block;n#IDao#0;n#!!block;n#ConvertorDefault#0" expanded="false" />
+                <element signature="n#!!block;n#IFactory#0;n#!!block;n#ConvertorDefault#0" expanded="false" />
+                <element signature="n#!!block;n#FromBmpToBar#0;n#!!block;n#ConvertorDefault#0" expanded="false" />
+                <element signature="n#!!block;n#FromBarToBmp#0;n#!!block;n#ConvertorDefault#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ModuleSafeOPC.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="42" column="30" lean-forward="true" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
+            <state relative-caret-position="549">
+              <caret line="123" column="1" lean-forward="true" selection-start-line="123" selection-start-column="1" selection-end-line="123" selection-end-column="1" />
               <folding>
                 <element signature="n#!!block;n#direct#0;n#!!block;n#ModuleSafeOPC#0" expanded="false" />
                 <element signature="n#!!block;n#reverce#0;n#!!block;n#ModuleSafeOPC#0" expanded="false" />
@@ -128,41 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConvertorDesktopTest.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tests/ConvertorDesktopTest.kt">
+      <file leaf-file-name="ByteVector.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ImageCompression/Containers/ByteVector.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="375" column="1" lean-forward="true" selection-start-line="375" selection-start-column="1" selection-end-line="375" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModuleOPCTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Containers/ModuleOPCTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="89" column="40" lean-forward="true" selection-start-line="89" selection-start-column="40" selection-end-line="89" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EncryptionTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Utils/EncryptionTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="46" column="43" lean-forward="true" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModuleOPCTest.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/ProcessingModules/ModuleOPCTest.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="16" column="47" lean-forward="false" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+            <state relative-caret-position="197">
+              <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -171,10 +88,16 @@
       <file leaf-file-name="AbsModuleOPC.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/AbsModuleOPC.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+            <state relative-caret-position="434">
+              <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
                 <element signature="e#54#247#0" expanded="true" />
+                <element signature="n#!!block;n#State#0;n#!!block;n#AbsModuleOPC#0" expanded="false" />
+                <element signature="n#!!block;n#AbsModuleOPC#0;n#!!block;n#AbsModuleOPC#0" expanded="false" />
+                <element signature="n#!!block;n#AbsModuleOPC#1;n#!!block;n#AbsModuleOPC#0" expanded="false" />
+                <element signature="n#!!block;n#getTripleShortMatrix#0;n#!!block;n#AbsModuleOPC#0" expanded="false" />
+                <element signature="n#!!block;n#getTripleDataOpcMatrix#0;n#!!block;n#AbsModuleOPC#0" expanded="false" />
+                <element signature="e#1685#1769#1" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -183,8 +106,8 @@
       <file leaf-file-name="StegoEncrWithOPC.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/StegoEncrWithOPC.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="103" column="4" lean-forward="true" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
+            <state relative-caret-position="900">
+              <caret line="137" column="24" lean-forward="true" selection-start-line="137" selection-start-column="24" selection-end-line="137" selection-end-column="24" />
               <folding>
                 <element signature="n#!!block;n#StegoEncrWithOPC#0;n#!!block;n#StegoEncrWithOPC#0" expanded="false" />
                 <element signature="n#!!block;n#StegoEncrWithOPC#1;n#!!block;n#StegoEncrWithOPC#0" expanded="false" />
@@ -193,6 +116,20 @@
                 <element signature="n#!!block;n#directOpc#0;n#!!block;n#StegoEncrWithOPC#0" expanded="false" />
                 <element signature="n#!!block;n#reverseOpc#0;n#!!block;n#StegoEncrWithOPC#0" expanded="false" />
                 <element signature="e#4071#4509#0" expanded="false" />
+                <element signature="n#!!block;n#direct#0;n#!!block;n#StegoEncrWithOPC#0" expanded="false" />
+                <element signature="n#!!block;n#reverce#0;n#!!block;n#StegoEncrWithOPC#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConvertorDesktop.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ImageCompression/Convertor/ConvertorDesktop.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="30" column="15" lean-forward="true" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
+              <folding>
+                <element signature="n#!!block;n#Companion#0;n#!!block;n#ConvertorDesktop#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -201,11 +138,11 @@
       <file leaf-file-name="ModuleOPC.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/ModuleOPC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="50" column="4" lean-forward="true" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="4" />
+            <state relative-caret-position="425">
+              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding>
-                <element signature="e#3988#4009#0" expanded="true" />
-                <element signature="e#5189#5208#0" expanded="true" />
+                <element signature="e#4106#4127#0" expanded="true" />
+                <element signature="e#5339#5358#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -228,8 +165,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>selectfileRes</find>
-      <find>aliStego</find>
       <find>fillBufferforDU</find>
       <find>preProsses</find>
       <find>isGlobalBase</find>
@@ -258,9 +193,10 @@
       <find>flag</find>
       <find>su</find>
       <find>opcs</find>
+      <find>tripleOPC</find>
+      <find>tripleShort</find>
     </findStrings>
     <replaceStrings>
-      <replace>getYenlMatrix(true)</replace>
       <replace>directOPC</replace>
       <replace>unit_Height</replace>
       <replace>lInfo</replace>
@@ -281,7 +217,6 @@
       <replace>SIZEOFBLOCK</replace>
       <replace>DataOpc</replace>
       <replace>flag</replace>
-      <replace>getTripleDataOpc()</replace>
       <replace>mesasge</replace>
       <replace>message</replace>
       <replace>onImageReadyListener</replace>
@@ -290,6 +225,8 @@
       <replace>tripleOPC</replace>
       <replace>tripleShort</replace>
       <replace>super</replace>
+      <replace>getTripleDataOpc()</replace>
+      <replace>getTripleShort()</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -348,13 +285,13 @@
         <option value="$PROJECT_DIR$/src/ImageCompression/Convertor/Implementations/AbsFactoryDefault.kt" />
         <option value="$PROJECT_DIR$/src/MainForm.java" />
         <option value="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC.kt" />
-        <option value="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/AbsModuleOPC.kt" />
-        <option value="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/ModuleOPC.java" />
-        <option value="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/StegoEncrWithOPC.kt" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/ProcessingModules/ModuleOPCTest.kt" />
         <option value="$PROJECT_DIR$/Tests/ConvertorDesktopTest.kt" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Containers/ModuleOPCTest.java" />
         <option value="$PROJECT_DIR$/Tests/ImageCompression/Utils/EncryptionTest.java" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/ModuleOPC.java" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/AbsModuleOPC.kt" />
+        <option value="$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/StegoEncrWithOPC.kt" />
       </list>
     </option>
   </component>
@@ -469,6 +406,12 @@
               <item name="ImageCompression" type="462c0819:PsiDirectoryNode" />
               <item name="Utils" type="462c0819:PsiDirectoryNode" />
               <item name="Objects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="MainForm" type="e9f4de52:FormNode" />
             </path>
           </expand>
           <select />
@@ -801,13 +744,13 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_ImageCompressionKotlin - 2018.04.05 at 16h 45m 16s.xml">
-      <configuration name="All in ImageCompressionKotlin" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_ImageCompressionKotlin - 2018.04.05 at 18h 01m 46s.xml">
       <configuration name="All in ImageCompressionKotlin" configurationId="JUnit" />
     </history-entry>
     <history-entry file="All_in_ImageCompressionKotlin - 2018.04.05 at 19h 14m 59s.xml">
+      <configuration name="All in ImageCompressionKotlin" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_ImageCompressionKotlin - 2018.04.11 at 20h 25m 59s.xml">
       <configuration name="All in ImageCompressionKotlin" configurationId="JUnit" />
     </history-entry>
     <history-entry file="DctConvertorTest - 2018.04.04 at 17h 02m 08s.xml">
@@ -838,14 +781,14 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32309443" sideWeight="0.41614583" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32309443" sideWeight="0.41614583" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41410694" sideWeight="0.5104167" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21501707" sideWeight="0.41927084" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28555176" sideWeight="0.41927084" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -856,7 +799,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5460751" sideWeight="0.48958334" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33902162" sideWeight="0.48958334" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1047,8 +990,26 @@
           <properties />
           <option name="timeStamp" value="267" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/StegoEncrWithOPC.kt</url>
+          <line>142</line>
+          <properties />
+          <option name="timeStamp" value="272" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/StegoEncrWithOPC.kt</url>
+          <line>149</line>
+          <properties />
+          <option name="timeStamp" value="273" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/StegoEncrWithOPC.kt</url>
+          <line>107</line>
+          <properties />
+          <option name="timeStamp" value="274" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="271" />
+      <option name="time" value="275" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1224,6 +1185,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="7" column="89" lean-forward="false" selection-start-line="7" selection-start-column="89" selection-end-line="7" selection-end-column="89" />
+          <folding>
+            <element signature="e#54#161#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1238,14 +1202,6 @@
     <entry file="file://$PROJECT_DIR$/src/MainForm.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Containers/ByteVector.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Containers/ByteVectorContainer.kt">
@@ -1309,7 +1265,7 @@
         <state relative-caret-position="160">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <element signature="e#52#375#0" expanded="true" />
+            <element signature="e#52#375#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1319,7 +1275,7 @@
         <state relative-caret-position="175">
           <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
           <folding>
-            <element signature="e#44#250#0" expanded="true" />
+            <element signature="e#44#250#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1348,26 +1304,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Convertor/ConvertorDefault.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-440">
-          <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-          <folding>
-            <element signature="e#36#508#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Convertor/ConvertorDesktop.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="72" column="32" lean-forward="true" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
-          <folding>
-            <element signature="n#!!block;n#Companion#0;n#!!block;n#ConvertorDesktop#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ImageCompression/Utils/Functions/ByteVectorParser.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1381,77 +1317,7 @@
         <state relative-caret-position="235">
           <caret line="16" column="74" lean-forward="false" selection-start-line="16" selection-start-column="74" selection-end-line="16" selection-end-column="74" />
           <folding>
-            <element signature="e#52#332#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="126" column="5" lean-forward="true" selection-start-line="126" selection-start-column="5" selection-end-line="126" selection-end-column="5" />
-          <folding>
-            <element signature="class#2751:3161" expanded="false" />
-            <element signature="e#3042#3050#0" expanded="false" />
-            <element signature="class#3209:3860" expanded="false" />
-            <element signature="method#setListeners#0;class#MainForm#0" expanded="false" />
-            <element signature="method#onFileSelected#0;class#MainForm#0" expanded="false" />
-            <element signature="method#setLableImage#0;class#MainForm#0" expanded="false" />
-            <element signature="method#processImage#0;class#MainForm#0" expanded="false" />
-            <element signature="method#processBar#0;class#MainForm#0" expanded="false" />
-            <element signature="method#sliderListener#0;class#MainForm#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/AbsModuleOPC.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="16" column="19" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-          <folding>
-            <element signature="e#54#247#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/ModuleOPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="50" column="4" lean-forward="true" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="4" />
-          <folding>
-            <element signature="e#3988#4009#0" expanded="true" />
-            <element signature="e#5189#5208#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="42" column="30" lean-forward="true" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
-          <folding>
-            <element signature="n#!!block;n#direct#0;n#!!block;n#ModuleSafeOPC#0" expanded="false" />
-            <element signature="n#!!block;n#reverce#0;n#!!block;n#ModuleSafeOPC#0" expanded="false" />
-            <element signature="n#!!block;n#toTripleContainer#0;n#!!block;n#ModuleSafeOPC#0" expanded="false" />
-            <element signature="n#!!block;n#toTripleDataOpcMatrix#0;n#!!block;n#ModuleSafeOPC#0" expanded="false" />
-            <element signature="n#!!block;n#toTripleContainer#1;n#!!block;n#ModuleSafeOPC#0" expanded="false" />
-            <element signature="n#!!block;n#toTripleShortMatrix#0;n#!!block;n#ModuleSafeOPC#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/StegoEncrWithOPC.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="103" column="4" lean-forward="true" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
-          <folding>
-            <element signature="n#!!block;n#StegoEncrWithOPC#0;n#!!block;n#StegoEncrWithOPC#0" expanded="false" />
-            <element signature="n#!!block;n#StegoEncrWithOPC#1;n#!!block;n#StegoEncrWithOPC#0" expanded="false" />
-            <element signature="n#!!block;n#FromMatrixToOpcs#0;n#!!block;n#StegoEncrWithOPC#0" expanded="false" />
-            <element signature="n#!!block;n#FromOpcToMatrix#0;n#!!block;n#StegoEncrWithOPC#0" expanded="false" />
-            <element signature="n#!!block;n#directOpc#0;n#!!block;n#StegoEncrWithOPC#0" expanded="false" />
-            <element signature="n#!!block;n#reverseOpc#0;n#!!block;n#StegoEncrWithOPC#0" expanded="false" />
-            <element signature="e#4071#4509#0" expanded="false" />
+            <element signature="e#52#332#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1467,7 +1333,7 @@
     <entry file="file://$PROJECT_DIR$/Tests/ConvertorDesktopTest.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
-          <caret line="375" column="1" lean-forward="true" selection-start-line="375" selection-start-column="1" selection-end-line="375" selection-end-column="1" />
+          <caret line="375" column="1" lean-forward="false" selection-start-line="375" selection-start-column="1" selection-end-line="375" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1475,16 +1341,125 @@
     <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Containers/ModuleOPCTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
-          <caret line="89" column="40" lean-forward="true" selection-start-line="89" selection-start-column="40" selection-end-line="89" selection-end-column="40" />
+          <caret line="89" column="40" lean-forward="false" selection-start-line="89" selection-start-column="40" selection-end-line="89" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tests/ImageCompression/Utils/EncryptionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="46" column="43" lean-forward="true" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
+        <state relative-caret-position="100">
+          <caret line="46" column="43" lean-forward="false" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="126" column="5" lean-forward="false" selection-start-line="126" selection-start-column="5" selection-end-line="126" selection-end-column="5" />
+          <folding>
+            <element signature="class#2751:3161" expanded="false" />
+            <element signature="e#3042#3050#0" expanded="false" />
+            <element signature="class#3209:3860" expanded="false" />
+            <element signature="method#setListeners#0;class#MainForm#0" expanded="false" />
+            <element signature="method#onFileSelected#0;class#MainForm#0" expanded="false" />
+            <element signature="method#setLableImage#0;class#MainForm#0" expanded="false" />
+            <element signature="method#processImage#0;class#MainForm#0" expanded="false" />
+            <element signature="method#processBar#0;class#MainForm#0" expanded="false" />
+            <element signature="method#sliderListener#0;class#MainForm#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Containers/ByteVector.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Convertor/ConvertorDesktop.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="30" column="15" lean-forward="true" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
+          <folding>
+            <element signature="n#!!block;n#Companion#0;n#!!block;n#ConvertorDesktop#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/ModuleSafeOPC.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="549">
+          <caret line="123" column="1" lean-forward="true" selection-start-line="123" selection-start-column="1" selection-end-line="123" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!block;n#direct#0;n#!!block;n#ModuleSafeOPC#0" expanded="false" />
+            <element signature="n#!!block;n#reverce#0;n#!!block;n#ModuleSafeOPC#0" expanded="false" />
+            <element signature="n#!!block;n#toTripleContainer#0;n#!!block;n#ModuleSafeOPC#0" expanded="false" />
+            <element signature="n#!!block;n#toTripleDataOpcMatrix#0;n#!!block;n#ModuleSafeOPC#0" expanded="false" />
+            <element signature="n#!!block;n#toTripleContainer#1;n#!!block;n#ModuleSafeOPC#0" expanded="false" />
+            <element signature="n#!!block;n#toTripleShortMatrix#0;n#!!block;n#ModuleSafeOPC#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/ModuleOPC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="e#4106#4127#0" expanded="true" />
+            <element signature="e#5339#5358#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/AbsModuleOPC.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <element signature="e#54#247#0" expanded="true" />
+            <element signature="n#!!block;n#State#0;n#!!block;n#AbsModuleOPC#0" expanded="false" />
+            <element signature="n#!!block;n#AbsModuleOPC#0;n#!!block;n#AbsModuleOPC#0" expanded="false" />
+            <element signature="n#!!block;n#AbsModuleOPC#1;n#!!block;n#AbsModuleOPC#0" expanded="false" />
+            <element signature="n#!!block;n#getTripleShortMatrix#0;n#!!block;n#AbsModuleOPC#0" expanded="false" />
+            <element signature="n#!!block;n#getTripleDataOpcMatrix#0;n#!!block;n#AbsModuleOPC#0" expanded="false" />
+            <element signature="e#1685#1769#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/ProcessingModules/ModuleOPC/StegoEncrWithOPC.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="137" column="24" lean-forward="true" selection-start-line="137" selection-start-column="24" selection-end-line="137" selection-end-column="24" />
+          <folding>
+            <element signature="n#!!block;n#StegoEncrWithOPC#0;n#!!block;n#StegoEncrWithOPC#0" expanded="false" />
+            <element signature="n#!!block;n#StegoEncrWithOPC#1;n#!!block;n#StegoEncrWithOPC#0" expanded="false" />
+            <element signature="n#!!block;n#FromMatrixToOpcs#0;n#!!block;n#StegoEncrWithOPC#0" expanded="false" />
+            <element signature="n#!!block;n#FromOpcToMatrix#0;n#!!block;n#StegoEncrWithOPC#0" expanded="false" />
+            <element signature="n#!!block;n#directOpc#0;n#!!block;n#StegoEncrWithOPC#0" expanded="false" />
+            <element signature="n#!!block;n#reverseOpc#0;n#!!block;n#StegoEncrWithOPC#0" expanded="false" />
+            <element signature="e#4071#4509#0" expanded="false" />
+            <element signature="n#!!block;n#direct#0;n#!!block;n#StegoEncrWithOPC#0" expanded="false" />
+            <element signature="n#!!block;n#reverce#0;n#!!block;n#StegoEncrWithOPC#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageCompression/Convertor/ConvertorDefault.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+          <folding>
+            <element signature="n#!!block;n#IDao#0;n#!!block;n#ConvertorDefault#0" expanded="false" />
+            <element signature="n#!!block;n#IFactory#0;n#!!block;n#ConvertorDefault#0" expanded="false" />
+            <element signature="n#!!block;n#FromBmpToBar#0;n#!!block;n#ConvertorDefault#0" expanded="false" />
+            <element signature="n#!!block;n#FromBarToBmp#0;n#!!block;n#ConvertorDefault#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -47,7 +47,6 @@ abstract class AbsModuleOPC {
 
         return tripleShort
     }
-
     fun getTripleDataOpcMatrix(): TripleDataOpcMatrix {
         if(state==State.Data&&!isReady) {
             tripleDataOpc = direct(tripleShort)

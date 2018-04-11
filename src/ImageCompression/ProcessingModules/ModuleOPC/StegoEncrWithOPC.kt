@@ -140,14 +140,13 @@ class StegoEncrWithOPC :ModuleOPC{
         FromMatrixToOpcs(isAsyn)
 
 //        assert(super.isOpcs)
-        return super.getTripleDataOpcMatrix()
+        return super.tripleDataOpc//TODO
     }
-
     override fun reverce(dataOpcMatrix: TripleDataOpcMatrix): TripleShortMatrix {
 //        if(!super.isTripleShortMatrix)
         FromOpcToMatrix(isAsyn)
 
 //        assert(super.isTripleShortMatrix)
-        return super.getTripleShortMatrix()
+        return super.tripleShort//TODO
     }
 }
