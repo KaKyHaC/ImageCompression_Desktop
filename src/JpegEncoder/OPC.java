@@ -14,10 +14,10 @@ package JpegEncoder;
 // Jpeg Group's Jpeg 6a library, Copyright Thomas G. Lane.
 // See license.txt for details.
 
-import ImageCompression.Containers.DataOpc;
-import ImageCompression.Utils.Functions.OPCMultiThread;
-import ImageCompression.Containers.ByteVector;
-import ImageCompression.Containers.Flag;
+import ImageCompressionLib.Containers.DataOpc;
+import ImageCompressionLib.Utils.Functions.OPCMultiThread;
+import ImageCompressionLib.Containers.ByteVector;
+import ImageCompressionLib.Containers.Flag;
 
 import java.io.BufferedOutputStream;
 import java.io.IOException;

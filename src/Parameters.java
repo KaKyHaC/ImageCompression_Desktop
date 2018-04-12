@@ -1,4 +1,4 @@
-package ImageCompression;
+package ImageCompressionLib;
 
 public class Parameters {
     static Parameters instanse = new Parameters();

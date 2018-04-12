@@ -1,10 +1,10 @@
-import ImageCompression.Constants.State
-import ImageCompression.Containers.*
-import ImageCompression.ProcessingModules.*
-import ImageCompression.Utils.Functions.CompressionUtils
-import ImageCompression.Utils.Functions.Steganography
-import ImageCompression.ProcessingModules.ModuleOPC.StegoEncrWithOPC
-import ImageCompression.Utils.Functions.ByteVectorParser
+import ImageCompressionLib.Constants.State
+import ImageCompressionLib.Containers.*
+import ImageCompressionLib.ProcessingModules.*
+import ImageCompressionLib.Utils.Functions.CompressionUtils
+import ImageCompressionLib.Utils.Functions.Steganography
+import ImageCompressionLib.ProcessingModules.ModuleOPC.StegoEncrWithOPC
+import ImageCompressionLib.Utils.Functions.ByteVectorParser
 
 import org.junit.Assert.*
 import org.junit.Test
