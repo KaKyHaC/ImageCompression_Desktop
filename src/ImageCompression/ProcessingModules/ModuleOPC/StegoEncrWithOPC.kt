@@ -8,6 +8,7 @@ import ImageCompression.Containers.Flag
 import ImageCompression.Utils.Objects.TimeManager
 
 class StegoEncrWithOPC :ModuleOPC{
+    val DEFAULT_PASS=" "
 //    private var super: ModuleOPC
 
     constructor(tripleShortMatrix: TripleShortMatrix,flag:Flag
@@ -63,7 +64,7 @@ class StegoEncrWithOPC :ModuleOPC{
 
         if(super.flag.isChecked(Flag.Parameter.Password)&&password!=null) {
             val box=super.getBoxOfOpc(isAsync)
-            Encryption.encode(box, password)
+            Encryption.encode(box, password?:DEFAULT_PASS)
             TimeManager.Instance.append("Encr")
         }
         progressListener?.invoke(100)
@@ -79,7 +80,7 @@ class StegoEncrWithOPC :ModuleOPC{
 
         if(super.flag.isChecked(Flag.Parameter.Password)&&password!=null) {
             val box=super.getBoxOfOpc(isAsync)
-            Encryption.encode(box, password)
+            Encryption.encode(box, password?:DEFAULT_PASS)
             TimeManager.Instance.append("Encr")
         }
         progressListener?.invoke(10)

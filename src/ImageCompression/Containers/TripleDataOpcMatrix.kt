@@ -1,5 +1,6 @@
 package ImageCompression.Containers
 
+import ImageCompression.Constants.SIZEOFBLOCK
 import java.math.BigInteger
 import java.util.*
 
@@ -19,14 +20,14 @@ class TripleDataOpcMatrix {
     //TODO global base
 
     fun writeToVector(vector: ByteVector, flag: Flag){
-        a?.appendVectorOne(vector,flag)
-        b?.appendVectorOne(vector,flag)
-        c?.appendVectorOne(vector,flag)
+        a!!.appendVectorOne(vector,flag)
+        b!!.appendVectorOne(vector,flag)
+        c!!.appendVectorOne(vector,flag)
     }
     fun writeBaseToVector(vector: ByteVector, flag: Flag, stepW:Int, stepH:Int){
-        a?.appendBaseToVector(vector,flag,stepW,stepH)
-        b?.appendBaseToVector(vector,flag,stepW,stepH)
-        c?.appendBaseToVector(vector,flag,stepW,stepH)
+        a!!.appendBaseToVector(vector,flag,stepW,stepH)
+        b!!.appendBaseToVector(vector,flag,stepW,stepH)
+        c!!.appendBaseToVector(vector,flag,stepW,stepH)
     }
     fun readFromVector(vector: ByteVector, flag: Flag){
         a=MatrixFromVectorOne(vector,flag)
@@ -34,9 +35,9 @@ class TripleDataOpcMatrix {
         c=MatrixFromVectorOne(vector,flag)
     }
     fun readBaseFromVector(vector: ByteVector, flag: Flag){
-        a?.readBaseFromVector(vector,flag)
-        b?.readBaseFromVector(vector,flag)
-        c?.readBaseFromVector(vector,flag)
+        a!!.readBaseFromVector(vector,flag)
+        b!!.readBaseFromVector(vector,flag)
+        c!!.readBaseFromVector(vector,flag)
     }
 
     private fun Array<Array<DataOpc>>.appendVectorOne(vector: ByteVector, flag: Flag){
@@ -69,8 +70,8 @@ class TripleDataOpcMatrix {
             vector.append(stepH.toShort())
         }
 
-        for(i in 0..(w-1) step stepW){
-            for(j in 0..(h-1) step stepH){
+        for(i in 0 until w step stepW){
+            for(j in 0 until h step stepH){
                 for(base in this[i][j].FromBaseToArray()){
                     vector.append(base)
                 }
@@ -84,11 +85,11 @@ class TripleDataOpcMatrix {
         val stepW:Int = if(flag.isChecked(Flag.Parameter.GlobalBase))vector.getNextShort().toInt() else 1
         val stepH:Int = if(flag.isChecked(Flag.Parameter.GlobalBase))vector.getNextShort().toInt() else 1
 
-        var base:ShortArray=kotlin.ShortArray(8)
-        for(i in 0..(w-1)){
-            for(j in 0..(h-1)){
+        var base:ShortArray=kotlin.ShortArray(SIZEOFBLOCK)
+        for(i in 0 until w){
+            for(j in 0 until h){
                 if(i%stepW==0&&j%stepH==0)
-                    base=ShortArray(8,{x->vector.getNextShort()})
+                    base=ShortArray(SIZEOFBLOCK,{ x->vector.getNextShort()})
                 this[i][j].FromArrayToBase(base)
             }
         }

@@ -122,6 +122,12 @@ public class MainForm extends JFrame{
                 String pass=String.valueOf(passwordField1.getPassword());
                 return pass;
             }
+
+            @Override
+            public void onMessageListener(@Nullable String message) {
+                if(message!=null)
+                    messageField.setText(message);
+            }
         };
         convertor=new ConvertorDefault(dao,factory);
     }

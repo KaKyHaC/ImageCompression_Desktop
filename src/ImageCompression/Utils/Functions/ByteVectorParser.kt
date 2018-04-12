@@ -14,10 +14,11 @@ class ByteVectorParser private constructor(){
     fun parseData(data:TripleDataOpcMatrix, flag: Flag, globalBaseW:Int, globalBaseH:Int): ByteVectorContainer {
         val v = ByteVector()
 
-        data.writeToVector(v, flag)
-        if(flag.isChecked(Flag.Parameter.GlobalBase)){
+        if(flag.isChecked(Flag.Parameter.GlobalBase)&&flag.isChecked(Flag.Parameter.OneFile)){
             data.writeBaseToVector(v,flag,globalBaseW,globalBaseH)
         }
+        data.writeToVector(v, flag)
+
 //        TimeManager.Instance.append("box to vector")
 
 //        val vw = ByteVectorFile(pathToName + ModuleFile.typeMain)
@@ -35,10 +36,13 @@ class ByteVectorParser private constructor(){
     fun parseVector(container: ByteVectorContainer, flag:Flag): TripleDataOpcMatrix {
         val opcs= TripleDataOpcMatrix()
         val vmain=container.mainData
-        opcs.readFromVector(vmain,flag)
-        if(flag.isChecked(Flag.Parameter.GlobalBase)){
+
+
+        if(flag.isChecked(Flag.Parameter.GlobalBase)&&flag.isChecked(Flag.Parameter.OneFile)){
             opcs.readBaseFromVector(vmain,flag)
         }
+        opcs.readFromVector(vmain,flag)
+
 
         if(!flag.isChecked(Flag.Parameter.OneFile)){
 //            val br=ByteVectorFile(pathToName+ ModuleFile.typeSup)
