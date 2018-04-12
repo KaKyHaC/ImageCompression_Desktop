@@ -14,7 +14,7 @@ class TripleDataOpcMatrixTest {
     fun init(){
 //        dopc.DC=200
         dopc.N= BigInteger.valueOf(12312312412412124)
-        dopc.base= ShortArray(SIZEOFBLOCK){n->n.toShort() }
+        dopc.base= ShortArray(SIZEOFBLOCK){n->255 }
         dopc.FromArrayToSing(ByteArray(SIZEOFBLOCK){n->n.toByte()})
 
         flag.setChecked(Flag.Parameter.GlobalBase,true)

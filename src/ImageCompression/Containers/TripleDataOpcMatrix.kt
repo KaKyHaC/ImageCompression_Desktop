@@ -1,7 +1,6 @@
 package ImageCompression.Containers
 
 import ImageCompression.Constants.SIZEOFBLOCK
-import java.math.BigInteger
 import java.util.*
 
 class TripleDataOpcMatrix {
@@ -30,14 +29,30 @@ class TripleDataOpcMatrix {
         c!!.appendBaseToVector(vector,flag,stepW,stepH)
     }
     fun readFromVector(vector: ByteVector, flag: Flag){
-        a=MatrixFromVectorOne(vector,flag)
-        b=MatrixFromVectorOne(vector,flag)
-        c=MatrixFromVectorOne(vector,flag)
+        if(a==null) a=createMatrixFromVectorOne(vector, flag)
+        else a!!.readDataFromVector(vector, flag)
+
+        if(b==null) b=createMatrixFromVectorOne(vector, flag)
+        else b!!.readDataFromVector(vector, flag)
+
+        if(c==null) c=createMatrixFromVectorOne(vector, flag)
+        else c!!.readDataFromVector(vector, flag)
+//        a?.readDataFromVector(vector, flag)?:{a=createMatrixFromVectorOne(vector,flag)}
+//        b= createMatrixFromVectorOne(vector,flag)
+//        c= createMatrixFromVectorOne(vector,flag)
     }
     fun readBaseFromVector(vector: ByteVector, flag: Flag){
-        a!!.readBaseFromVector(vector,flag)
-        b!!.readBaseFromVector(vector,flag)
-        c!!.readBaseFromVector(vector,flag)
+        if(a==null) a=createMatrixFromVectorBase(vector, flag)
+        else a!!.readBaseFromVector(vector, flag)
+
+        if(b==null) b=createMatrixFromVectorBase(vector, flag)
+        else b!!.readBaseFromVector(vector, flag)
+
+        if(c==null) c=createMatrixFromVectorBase(vector, flag)
+        else c!!.readBaseFromVector(vector, flag)
+//        a!!.readBaseFromVector(vector,flag)
+//        b!!.readBaseFromVector(vector,flag)
+//        c!!.readBaseFromVector(vector,flag)
     }
 
     private fun Array<Array<DataOpc>>.appendVectorOne(vector: ByteVector, flag: Flag){
@@ -51,7 +66,7 @@ class TripleDataOpcMatrix {
             }
         }
     }
-    private fun MatrixFromVectorOne(vector: ByteVector, flag: Flag):Array<Array<DataOpc>>{
+    private fun createMatrixFromVectorOne(vector: ByteVector, flag: Flag):Array<Array<DataOpc>>{
         val w=vector.getNextShort()
         val h=vector.getNextShort()
         return Array(w.toInt(),{ x-> Array(h.toInt(),{y->DataOpc.valueOf (vector,flag)}) })
@@ -91,6 +106,34 @@ class TripleDataOpcMatrix {
                 if(i%stepW==0&&j%stepH==0)
                     base=ShortArray(SIZEOFBLOCK,{ x->vector.getNextShort()})
                 this[i][j].FromArrayToBase(base)
+            }
+        }
+    }
+
+    private fun createMatrixFromVectorBase(vector: ByteVector,flag: Flag):Array<Array<DataOpc>>{
+        val w=vector.getNextShort()
+        val h=vector.getNextShort()
+        val stepW:Int = if(flag.isChecked(Flag.Parameter.GlobalBase))vector.getNextShort().toInt() else 1
+        val stepH:Int = if(flag.isChecked(Flag.Parameter.GlobalBase))vector.getNextShort().toInt() else 1
+
+
+        val res= Array(w.toInt(),{ x-> Array(h.toInt()){y->DataOpc() }})
+        var base:ShortArray=kotlin.ShortArray(SIZEOFBLOCK)
+        for(i in 0 until w){
+            for(j in 0 until h){
+                if(i%stepW==0&&j%stepH==0)
+                    base=ShortArray(SIZEOFBLOCK,{ x->vector.getNextShort()})
+                res[i][j].FromArrayToBase(base)
+            }
+        }
+        return res
+    }
+    private fun Array<Array<DataOpc>>.readDataFromVector(vector: ByteVector,flag: Flag){
+        val w=vector.getNextShort()
+        val h=vector.getNextShort()
+        for (s in this){
+            for(d in s){
+                d.setFrom(vector,flag)
             }
         }
     }

@@ -1,11 +1,8 @@
-import ImageCompression.Containers.TripleDataOpcMatrix
-import ImageCompression.Containers.TripleShortMatrix
 import ImageCompression.Constants.State
+import ImageCompression.Containers.*
 import ImageCompression.ProcessingModules.*
 import ImageCompression.Utils.Functions.CompressionUtils
-import ImageCompression.Containers.Flag
 import ImageCompression.Utils.Functions.Steganography
-import ImageCompression.Containers.ByteVector
 import ImageCompression.ProcessingModules.ModuleOPC.StegoEncrWithOPC
 import ImageCompression.Utils.Functions.ByteVectorParser
 
@@ -242,7 +239,7 @@ class ConvertorDesktopTest {
         val rgb=myIm2.rgbMatrix
         AssertMatrixInRange(rgb,cpy,delta)
     }
-    fun testDirectReverseConverting(w:Int, h:Int, flag: Flag, delta:Int, compareCompression:Boolean=false){
+    fun testDirectReverseConverting(w:Int, h:Int, flag: Flag, delta:Int, compareCompression:Boolean=false,sameBase: Size =Size(1,1)){
         var matrix=getRandomMatrix(w,h)
         val t1=Date().time
         val cpy=matrix.copy()
@@ -268,10 +265,10 @@ class ConvertorDesktopTest {
         assertFails { AssertMatrixInRange(cpy,dct,0) }
         assertFails { AssertMatrixInRange(ybrCpy,dct,0) }
 
-        val seOpc= StegoEncrWithOPC(dct,flag,1,1,null,null,true)
+        val seOpc= StegoEncrWithOPC(dct,flag,sameBase.width,sameBase.height,null,null,true)
 //        val opcs=seOpc.getModuleOPC()
         val box=seOpc.getBoxOfOpc(true)
-        val vec=ByteVectorParser.instance.parseData(box,flag,1,1)
+        val vec=ByteVectorParser.instance.parseData(box,flag,sameBase.width,sameBase.height)
 //        val flag=opcs.flag
         //----
         val file=ModuleFile(pathToBmp)
