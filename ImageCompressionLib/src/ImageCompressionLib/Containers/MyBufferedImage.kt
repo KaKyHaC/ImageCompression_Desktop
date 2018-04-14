@@ -12,6 +12,7 @@ class MyBufferedImage (val width:Int,val height:Int){
     init{
         data= Array(width){ IntArray(height) }
     }
+
     fun setRGB(i:Int,j:Int,rgb:Int){
         data[i][j]=rgb
     }

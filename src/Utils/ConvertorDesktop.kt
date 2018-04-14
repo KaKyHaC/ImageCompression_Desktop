@@ -1,4 +1,4 @@
-package ImageCompressionLib.Convertor
+package Utils
 
 import ImageCompressionLib.ProcessingModules.*
 import ImageCompressionLib.Containers.Flag
@@ -33,7 +33,8 @@ class ConvertorDesktop private constructor(){
             timeManager.append("read bmp")
             progressListener?.invoke(10,"RGB to YcBcR")
             view?.invoke(bmp)
-        val mi = ModuleImage(bmp, info.flag)
+        val mbi=BuffImConvertor.instance.convert(bmp)
+        val mi = ModuleImage(mbi, info.flag)
         val matrix = mi.getYenlMatrix(isAsync)
             timeManager.append("rgb to yenl")
             progressListener?.invoke(30,"direct DCT")
@@ -80,16 +81,17 @@ class ConvertorDesktop private constructor(){
             progressListener?.invoke(70,"YcBcR to BMP");
         val af = ModuleImage(matrixYBR, flag);
         val res = af.bufferedImage
+        val bmp=BuffImConvertor.instance.convert(res)
             timeManager.append("yenl to bmp")
             progressListener?.invoke(90,"Write to BMP");
 //            view?.invoke(res)
         val file=File(getPathWithoutType(pathToBar) + "res.bmp")
         file.createNewFile()
-        ImageIO.write(res, "bmp", file)
+        ImageIO.write(bmp, "bmp", file)
             timeManager.append("write to bmp")
             progressListener?.invoke(100,"Ready after ${timeManager.getTotalTime()} ms");
             System.out.println(timeManager.getInfoInSec())
-            view?.invoke(res)
+            view?.invoke(bmp)
     }
 
     private fun getPathWithoutType(path: String): String {

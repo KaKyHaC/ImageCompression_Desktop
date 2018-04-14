@@ -49,8 +49,8 @@ public class ModuleImage {
 
             int [][]img=bitmap.getData();//convertTo2DWithoutUsingGetRGB(bitmap);
             futures[0] = executorService.submit(()-> imageToYbrTask(0,0,w/2,h/2,img));
-            futures[1] = executorService.submit(()-> imageToYbrTask(w/2,0,w,h,img));
-            futures[2] = executorService.submit(()-> imageToYbrTask(0,h/2,w,h,img));
+            futures[1] = executorService.submit(()-> imageToYbrTask(w/2,0,w,h/2,img));
+            futures[2] = executorService.submit(()-> imageToYbrTask(0,h/2,w/2,h,img));
             futures[3] = executorService.submit(()-> imageToYbrTask(w/2,h/2,w,h,img));
 
             for (Future future : futures) {
@@ -485,7 +485,7 @@ public class ModuleImage {
         appendTimeManager("mem"+wStart+hStart);
         for (int i = 0; i < w; i++) {
             for (int j = 0; j < h; j++) {
-                rgb[i][j] = image[ j + hStart][i + wStart];
+                rgb[i][j] = image[i+wStart][j+hStart];//image[ j + hStart][i + wStart];
             }
         }
 

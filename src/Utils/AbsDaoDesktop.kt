@@ -1,11 +1,10 @@
-package ImageCompressionLib.Convertor.Implementations
+package Utils
 
 import ImageCompressionLib.Containers.ByteVectorContainer
 import ImageCompressionLib.Containers.Flag
-import ImageCompressionLib.Containers.Size
+import ImageCompressionLib.Containers.MyBufferedImage
 import ImageCompressionLib.Convertor.ConvertorDefault
 import ImageCompressionLib.ProcessingModules.ModuleFile
-import java.awt.image.BufferedImage
 import java.io.File
 import javax.imageio.ImageIO
 
@@ -19,14 +18,17 @@ abstract class AbsDaoDesktop : ConvertorDefault.IDao {
         fileModule.write(vector,flag)
     }
 
-    final override fun onResultImage(image: BufferedImage, flag: Flag) {
+    final override fun onResultImage(image: MyBufferedImage, flag: Flag) {
         val file=File(getPathWithoutType(getFileTarget().absolutePath) + "res.bmp")
         file.createNewFile()
-        ImageIO.write(image, "bmp", file)
+        val bi=BuffImConvertor.instance.convert(image)
+        ImageIO.write(bi, "bmp", file)
     }
 
-    final override fun getImage(): Pair<BufferedImage, Flag> {
-        return Pair(ImageIO.read(File(getFileOriginal().absolutePath)),getFlag())
+    final override fun getImage(): Pair<MyBufferedImage, Flag> {
+        val im =ImageIO.read(File(getFileOriginal().absolutePath))
+        val mb=BuffImConvertor.instance.convert(im)
+        return Pair(mb,getFlag())
     }
 
     final override fun getByteVectorContainer(): Pair<ByteVectorContainer, Flag> {
