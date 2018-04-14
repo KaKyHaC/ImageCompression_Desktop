@@ -4,6 +4,7 @@ import ImageCompressionLib.Constants.State
 import ImageCompressionLib.Containers.TripleShortMatrix
 import ImageCompressionLib.ProcessingModules.ModuleImage
 import ImageCompressionLib.Containers.Flag
+import Utils.BuffImConvertor
 import org.junit.Before
 import org.junit.Test
 import java.awt.image.BufferedImage
@@ -39,7 +40,8 @@ class ImageIOTest{
     fun MyBufferedImageWriteTest(){
         val m=createMatrix(255,255)
         val mbi= ModuleImage(m, Flag())
-        val bi = mbi.bufferedImage
+        val mybi = mbi.bufferedImage
+        val bi=BuffImConvertor.instance.convert(mybi)
         ImageIO.write(bi,"bmp", File(pathToResBmp2))
     }
     companion object {

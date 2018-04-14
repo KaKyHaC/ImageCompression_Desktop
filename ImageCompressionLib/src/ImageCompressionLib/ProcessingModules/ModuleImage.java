@@ -27,12 +27,12 @@ public class ModuleImage {
     }
     public ModuleImage(TripleShortMatrix tripleShortMatrix, Flag flag){
         this.tripleShortMatrix = tripleShortMatrix;
-        bitmap = new MyBufferedImage(tripleShortMatrix.getWidth(), tripleShortMatrix.getHeight(), MyBufferedImage.TYPE_3BYTE_BGR);
+        bitmap = new MyBufferedImage(tripleShortMatrix.getWidth(), tripleShortMatrix.getHeight());//, MyBufferedImage.TYPE_3BYTE_BGR);
         this.flag=flag;
     }
     public ModuleImage(ByteVector vector, Flag flag){
         this.tripleShortMatrix =getMatrixFromByteVector(vector);
-        bitmap = new MyBufferedImage(tripleShortMatrix.getWidth(), tripleShortMatrix.getHeight(), MyBufferedImage.TYPE_3BYTE_BGR);
+        bitmap = new MyBufferedImage(tripleShortMatrix.getWidth(), tripleShortMatrix.getHeight());//, MyBufferedImage.TYPE_3BYTE_BGR);
         this.flag=flag;
     }
 
@@ -47,7 +47,7 @@ public class ModuleImage {
             ExecutorService executorService = Executors.newFixedThreadPool(4);
             Future[] futures=new Future[4];
 
-            int [][]img=convertTo2DWithoutUsingGetRGB(bitmap);
+            int [][]img=bitmap.getData();//convertTo2DWithoutUsingGetRGB(bitmap);
             futures[0] = executorService.submit(()-> imageToYbrTask(0,0,w/2,h/2,img));
             futures[1] = executorService.submit(()-> imageToYbrTask(w/2,0,w,h,img));
             futures[2] = executorService.submit(()-> imageToYbrTask(0,h/2,w,h,img));
@@ -68,7 +68,7 @@ public class ModuleImage {
 
         if (tripleShortMatrix.getState() == State.bitmap)
         {
-            int [][]img =convertTo2DWithoutUsingGetRGB(bitmap);
+            int [][]img =bitmap.getData();//convertTo2DWithoutUsingGetRGB(bitmap);
             forEach(bitmap.getWidth(),bitmap.getHeight(),(x, y) -> {
 //                int pixelColor=bitmap.getRGB(x,y);
                 int pixelColor=img[y][x];
@@ -369,7 +369,7 @@ public class ModuleImage {
     }
 
     //TODO make Async
-    public MyBufferedImage getIBufferedImage() {
+    public MyBufferedImage getBufferedImage() {
         switch(tripleShortMatrix.getState())
         {
             case RGB: FromRGBtoIBufferedImage();

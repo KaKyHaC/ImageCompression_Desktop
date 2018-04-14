@@ -1,15 +1,11 @@
 import ImageCompressionLib.Constants.Cosine;
 import ImageCompressionLib.Containers.Flag;
 import ImageCompressionLib.Containers.Size;
-import ImageCompressionLib.Containers.TripleDataOpcMatrix;
-import ImageCompressionLib.Containers.TripleShortMatrix;
 import ImageCompressionLib.Convertor.ConvertorDefault;
-import ImageCompressionLib.Convertor.Implementations.AbsDaoDesktop;
+import Utils.AbsDaoDesktop;
 import ImageCompressionLib.Convertor.Implementations.AbsFactoryDefault;
 import ImageCompressionLib.Parameters;
-import ImageCompressionLib.ProcessingModules.ModuleOPC.AbsModuleOPC;
-import ImageCompressionLib.ProcessingModules.ModuleOPC.StegoEncrWithOPC;
-import kotlin.Unit;
+import Utils.BuffImConvertor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -180,7 +176,7 @@ public class MainForm extends JFrame{
         convertor.setOnImageReadyListener(bufferedImage ->{
             new Thread(()->{
                 SwingUtilities.invokeLater(() -> {
-                    ImageIcon imageIcon = new ImageIcon(bufferedImage);
+                    ImageIcon imageIcon = new ImageIcon(BuffImConvertor.getInstance().convert(bufferedImage));
                     lInfo.setText("convertorDesktop:" + " \n " + imageIcon.getIconWidth() + "x" + imageIcon.getIconHeight());
                     Image image1 = imageIcon.getImage().getScaledInstance(600, 600, Image.SCALE_DEFAULT);
                     image.setIcon(new ImageIcon(image1));
