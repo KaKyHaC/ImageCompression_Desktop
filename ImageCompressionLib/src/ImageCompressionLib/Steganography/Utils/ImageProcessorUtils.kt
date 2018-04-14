@@ -48,9 +48,9 @@ class ImageProcessorUtils {
         val executorService = Executors.newFixedThreadPool(3)
         val futures = ArrayList<Future<IContainer<Short>>>()
 
-        futures.add(executorService.submit<IContainer<Short>> {  UnitContainerFactory.getData(units.r!!,width,height)})
-        futures.add(executorService.submit<IContainer<Short>> {  UnitContainerFactory.getData(units.g!!,width,height)})
-        futures.add(executorService.submit<IContainer<Short>> {  UnitContainerFactory.getData(units.b!!,width,height)})
+        futures.add(executorService.submit<IContainer<Short>> {  UnitContainerFactory.getData(units.r!!)})
+        futures.add(executorService.submit<IContainer<Short>> {  UnitContainerFactory.getData(units.g!!)})
+        futures.add(executorService.submit<IContainer<Short>> {  UnitContainerFactory.getData(units.b!!)})
 
         var r:IContainer<Short>?=null
         var g:IContainer<Short>?=null

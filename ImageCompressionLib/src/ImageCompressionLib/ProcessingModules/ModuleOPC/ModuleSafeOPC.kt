@@ -1,10 +1,7 @@
 package ImageCompressionLib.ProcessingModules.ModuleOPC
 
 import ImageCompressionLib.Constants.State
-import ImageCompressionLib.Containers.DataOpc
-import ImageCompressionLib.Containers.Flag
-import ImageCompressionLib.Containers.TripleDataOpcMatrix
-import ImageCompressionLib.Containers.TripleShortMatrix
+import ImageCompressionLib.Containers.*
 import ImageCompressionLib.Steganography.Containers.Container
 import ImageCompressionLib.Steganography.Containers.IContainer
 import ImageCompressionLib.Steganography.Containers.OpcContainer
@@ -17,19 +14,18 @@ import ImageCompressionLib.Steganography.Utils.UnitContainerFactory
 
 class ModuleSafeOPC :AbsModuleOPC{
     var message:String?
-    data class Info(var unit_H:Int,var unit_W:Int,var width:Int,var height:Int)
-    var info:Info
+    var sameBase: Size
     var isDivTwo=true
     var isMultiTWO=true
     val moduleStego:ModuleStego
 
-    constructor(tripleShort: TripleShortMatrix, flag: Flag, message: String?, info: Info) : super(tripleShort, flag) {
+    constructor(tripleShort: TripleShortMatrix, flag: Flag, message: String?, sameBase: Size) : super(tripleShort, flag) {
         this.message = message
-        this.info = info
+        this.sameBase = sameBase
     }
-    constructor(tripleDataOpc: TripleDataOpcMatrix, flag: Flag, message: String?, info: Info) : super(tripleDataOpc, flag) {
+    constructor(tripleDataOpc: TripleDataOpcMatrix, flag: Flag, message: String?, sameBase: Size) : super(tripleDataOpc, flag) {
         this.message = message
-        this.info = info
+        this.sameBase = sameBase
     }
 //    val ipu=ImageProcessorUtils()
     
@@ -60,7 +56,7 @@ class ModuleSafeOPC :AbsModuleOPC{
     }
     override fun reverce(tripleDataOpc: TripleDataOpcMatrix): TripleShortMatrix {
         val tmp = tripleDataOpc.toTripleContainer()
-        moduleStego.reverse(tmp,info.unit_W, info.unit_H, isMultiTWO)
+        moduleStego.reverse(tmp,sameBase.width, sameBase.height, isMultiTWO)
         return tripleShort!!
     }
 
@@ -94,7 +90,7 @@ class ModuleSafeOPC :AbsModuleOPC{
             tmp.base=this.b!![w,h]!!.base.toShortArray()
             tmp
         } }
-        return TripleDataOpcMatrix()
+        return res
     }
     
     fun TripleShortMatrix.toTripleContainer():ImageProcessorUtils.Triple<IContainer<UnitContainer<Short>>>{
@@ -102,17 +98,17 @@ class ModuleSafeOPC :AbsModuleOPC{
         val ca=Container<Short>(a.size,a[0].size){w, h ->  a[w][h]}
         val cb=Container<Short>(b.size,b[0].size){w, h ->  b[w][h]}
         val cc=Container<Short>(c.size,c[0].size){w, h ->  c[w][h]}
-        val a=UnitContainerFactory.getContainers(ca,info.unit_W,info.unit_H)
-        val b=UnitContainerFactory.getContainers(cb,info.unit_W,info.unit_H)
-        val c=UnitContainerFactory.getContainers(cc,info.unit_W,info.unit_H)
+        val a=UnitContainerFactory.getContainers(ca,sameBase.width,sameBase.height)
+        val b=UnitContainerFactory.getContainers(cb,sameBase.width,sameBase.height)
+        val c=UnitContainerFactory.getContainers(cc,sameBase.width,sameBase.height)
 
         return ImageProcessorUtils.Triple(a,b,c)
     }
     fun ImageProcessorUtils.Triple<IContainer<UnitContainer<Short>>>.toTripleShortMatrix():TripleShortMatrix{
         val res=TripleShortMatrix(0,0,ImageCompressionLib.Constants.State.Yenl)
-        val r= UnitContainerFactory.getData(this.r!!,info.width,info.height)
-        val g= UnitContainerFactory.getData(this.g!!,info.width,info.height)
-        val b= UnitContainerFactory.getData(this.b!!,info.width,info.height)
+        val r= UnitContainerFactory.getData(this.r!!)
+        val g= UnitContainerFactory.getData(this.g!!)
+        val b= UnitContainerFactory.getData(this.b!!)
 
         res.a=Array(r.width){i->ShortArray(r.height){j->r[i,j]!!}}
         res.b=Array(g.width){i->ShortArray(g.height){j->g[i,j]!!}}

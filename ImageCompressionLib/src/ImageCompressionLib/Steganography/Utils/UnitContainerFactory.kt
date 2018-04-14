@@ -26,11 +26,13 @@ class UnitContainerFactory private constructor(){
             }
             return res
         }
-        @JvmStatic fun  getData(data:IContainer<UnitContainer<Short>>, width:Int, height:Int)
+        @JvmStatic fun  getData(data:IContainer<UnitContainer<Short>>)
                 :IContainer<Short>{
 
             val unit_Width=data[0,0]!!.width
             val unit_Height=data[0,0]!!.height
+            val width=data.width*unit_Width
+            val height=data.height*unit_Height
             val res = Container<Short>(width,height){i,j->(0).toShort()}
 
             for(i in 0 until width){

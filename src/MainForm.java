@@ -1,7 +1,9 @@
 import ImageCompressionLib.Constants.Cosine;
-import ImageCompressionLib.Containers.Flag;
-import ImageCompressionLib.Containers.Size;
+import ImageCompressionLib.Containers.*;
 import ImageCompressionLib.Convertor.ConvertorDefault;
+import ImageCompressionLib.ProcessingModules.ModuleByteVector;
+import ImageCompressionLib.ProcessingModules.ModuleOPC.AbsModuleOPC;
+import ImageCompressionLib.ProcessingModules.ModuleOPC.ModuleSafeOPC;
 import Utils.AbsDaoDesktop;
 import ImageCompressionLib.Convertor.Implementations.AbsFactoryDefault;
 import ImageCompressionLib.Parameters;
@@ -125,7 +127,40 @@ public class MainForm extends JFrame{
                     messageField.setText(message);
             }
         };
-        convertor=new ConvertorDefault(dao,factory);
+        ConvertorDefault.IFactory safeFactory = new ConvertorDefault.IFactory() {
+            @NotNull
+            @Override
+            public AbsModuleOPC getModuleOPC(@NotNull TripleShortMatrix tripleShortMatrix, @NotNull Flag flag) {
+                int w=(int)spinnerW.getValue();
+                int h=(int)spinnerH.getValue();
+                String mess=messageField.getText();
+                return new ModuleSafeOPC(tripleShortMatrix,flag,mess,new Size(w,h));
+            }
+
+            @NotNull
+            @Override
+            public AbsModuleOPC getModuleOPC(@NotNull TripleDataOpcMatrix tripleDataOpcMatrix, @NotNull Flag flag) {
+                int w=(int)spinnerW.getValue();
+                int h=(int)spinnerH.getValue();
+                String mess=messageField.getText();
+                return new ModuleSafeOPC(tripleDataOpcMatrix,flag,mess,new Size(w,h));
+            }
+
+            @NotNull
+            @Override
+            public ModuleByteVector getModuleVectorParser(@NotNull TripleDataOpcMatrix tripleDataOpcMatrix, @NotNull Flag flag) {
+                int w=(int)spinnerW.getValue();
+                int h=(int)spinnerH.getValue();
+                return new ModuleByteVector(tripleDataOpcMatrix,flag,w,h);
+            }
+
+            @NotNull
+            @Override
+            public ModuleByteVector getModuleVectorParser(@NotNull ByteVectorContainer byteVectorContainer, @NotNull Flag flag) {
+                return new ModuleByteVector(byteVectorContainer,flag);
+            }
+        };
+        convertor=new ConvertorDefault(dao,safeFactory);
     }
     private void setListeners(){
         bSelect.addActionListener(new ActionListener() {
