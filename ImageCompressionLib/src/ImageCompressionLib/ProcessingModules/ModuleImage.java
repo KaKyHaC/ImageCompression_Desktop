@@ -71,7 +71,7 @@ public class ModuleImage {
             int [][]img =bitmap.getData();//convertTo2DWithoutUsingGetRGB(bitmap);
             forEach(bitmap.getWidth(),bitmap.getHeight(),(x, y) -> {
 //                int pixelColor=bitmap.getRGB(x,y);
-                int pixelColor=img[y][x];
+                int pixelColor=img[x][y];
                 // получим цвет каждого пикселя
                 double pixelRed = ((pixelColor)>>16&0xFF);
                 double pixelGreen= ((pixelColor)>>8&0xFF);
