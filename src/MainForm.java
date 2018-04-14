@@ -8,6 +8,7 @@ import Utils.AbsDaoDesktop;
 import ImageCompressionLib.Convertor.Implementations.AbsFactoryDefault;
 import ImageCompressionLib.Parameters;
 import Utils.BuffImConvertor;
+import kotlin.Unit;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -71,8 +72,8 @@ public class MainForm extends JFrame{
         Image image1=imageIcon.getImage().getScaledInstance(600,600,Image.SCALE_DEFAULT);
         image.setIcon(new ImageIcon(image1));
 
-        spinnerH.setValue(1);
-        spinnerW.setValue(1);
+        spinnerH.setValue(8);
+        spinnerW.setValue(8);
 
         new Thread(()->{
             Cosine.getCos(0,0);
@@ -142,8 +143,11 @@ public class MainForm extends JFrame{
             public AbsModuleOPC getModuleOPC(@NotNull TripleDataOpcMatrix tripleDataOpcMatrix, @NotNull Flag flag) {
                 int w=(int)spinnerW.getValue();
                 int h=(int)spinnerH.getValue();
-                String mess=messageField.getText();
-                return new ModuleSafeOPC(tripleDataOpcMatrix,flag,mess,new Size(w,h));
+                int iW=w*tripleDataOpcMatrix.getA().length;
+                int iH=h*tripleDataOpcMatrix.getA()[0].length;
+                ModuleSafeOPC m=new ModuleSafeOPC(tripleDataOpcMatrix,flag,new Size(w,h),new Size(iW,iH));
+                m.setOnMessageReadedListener(s -> {messageField.setText(s); return Unit.INSTANCE;});
+                return m;
             }
 
             @NotNull
@@ -160,7 +164,7 @@ public class MainForm extends JFrame{
                 return new ModuleByteVector(byteVectorContainer,flag);
             }
         };
-        convertor=new ConvertorDefault(dao,safeFactory);
+        convertor=new ConvertorDefault(dao,factory);
     }
     private void setListeners(){
         bSelect.addActionListener(new ActionListener() {

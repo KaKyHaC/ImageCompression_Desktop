@@ -3,7 +3,7 @@ package ImageCompressionLib.Containers
 import ImageCompressionLib.Constants.State
 import java.util.*
 
-class TripleShortMatrix(var Width: Int, var Height: Int, var state: State) {
+class TripleShortMatrix(val Width: Int, val Height: Int, var state: State) {
     var a: Array<ShortArray>
     var b: Array<ShortArray>
     var c: Array<ShortArray>

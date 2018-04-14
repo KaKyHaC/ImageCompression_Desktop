@@ -13,19 +13,24 @@ import ImageCompressionLib.Steganography.Utils.MessageParser
 import ImageCompressionLib.Steganography.Utils.UnitContainerFactory
 
 class ModuleSafeOPC :AbsModuleOPC{
-    var message:String?
+    var message:String?=null
     var sameBase: Size
+    var imageSize:Size?=null
     var isDivTwo=true
     var isMultiTWO=true
+
     val moduleStego:ModuleStego
+    var onMessageReadedListener:((message:String)->Unit)?=null
 
     constructor(tripleShort: TripleShortMatrix, flag: Flag, message: String?, sameBase: Size) : super(tripleShort, flag) {
         this.message = message
         this.sameBase = sameBase
+//        imageSize!!.imSize
     }
-    constructor(tripleDataOpc: TripleDataOpcMatrix, flag: Flag, message: String?, sameBase: Size) : super(tripleDataOpc, flag) {
-        this.message = message
+    constructor(tripleDataOpc: TripleDataOpcMatrix, flag: Flag, sameBase: Size,imSize: Size) : super(tripleDataOpc, flag) {
+//        this.message = message
         this.sameBase = sameBase
+        imageSize=imSize
     }
 //    val ipu=ImageProcessorUtils()
     
@@ -41,7 +46,11 @@ class ModuleSafeOPC :AbsModuleOPC{
             }
 
             override fun onMessageRead(message: BooleanArray?) {
-                if(message!=null)this@ModuleSafeOPC.message=MessageParser().toString(message)
+                if(message!=null) {
+                    val m = MessageParser().toString(message)
+                    this@ModuleSafeOPC.message = m
+                    onMessageReadedListener?.invoke(m)
+                }
             }
 
         }
@@ -106,9 +115,9 @@ class ModuleSafeOPC :AbsModuleOPC{
     }
     fun ImageProcessorUtils.Triple<IContainer<UnitContainer<Short>>>.toTripleShortMatrix():TripleShortMatrix{
         val res=TripleShortMatrix(0,0,ImageCompressionLib.Constants.State.Yenl)
-        val r= UnitContainerFactory.getData(this.r!!)
-        val g= UnitContainerFactory.getData(this.g!!)
-        val b= UnitContainerFactory.getData(this.b!!)
+        val r= UnitContainerFactory.getData(this.r!!,imageSize!!.width,imageSize!!.height)
+        val g= UnitContainerFactory.getData(this.g!!,imageSize!!.width,imageSize!!.height)
+        val b= UnitContainerFactory.getData(this.b!!,imageSize!!.width,imageSize!!.height)
 
         res.a=Array(r.width){i->ShortArray(r.height){j->r[i,j]!!}}
         res.b=Array(g.width){i->ShortArray(g.height){j->g[i,j]!!}}

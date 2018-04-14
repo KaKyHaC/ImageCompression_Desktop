@@ -22,7 +22,7 @@ abstract class AbsModuleOPC {
     constructor(tripleShort: TripleShortMatrix, flag: Flag) {
         this.flag = flag
         this.tripleShort = tripleShort
-        this.tripleDataOpc= TripleDataOpcMatrix();
+        this.tripleDataOpc= TripleDataOpcMatrix(); //TODO remove this line
         this.state=State.Data
     }
     constructor(tripleDataOpc: TripleDataOpcMatrix, flag: Flag) {

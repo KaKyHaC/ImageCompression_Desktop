@@ -20,7 +20,7 @@ class ModuleStego(val dao: IDao) {
         fun onUnitResult(result:ImageProcessorUtils.Triple<IContainer<UnitContainer<Short>>>)
         fun onMessageRead(message: BooleanArray?)
     }
-
+    //TODO make unsign
     val ipu= ImageProcessorUtils()
     fun direct(units:ImageProcessorUtils.Triple<IContainer<UnitContainer<Short>>>,message:BooleanArray?, isDivTwo:Boolean){
 //        val units=dao.getUnitContainer()
@@ -30,7 +30,7 @@ class ModuleStego(val dao: IDao) {
     }
     fun reverse(opcs:ImageProcessorUtils.Triple<IContainer<OpcContainer<Short>>>,unit_W: Int, unit_H: Int, isMultiTWO:Boolean) {
 //        val opcs=dao.getOpcContainer()
-        val units=ipu.reverceStego(opcs, unit_W, unit_H, isMultiTWO)
+        val units=ipu.reverceStegoOneThread(opcs, unit_W, unit_H, isMultiTWO)
         dao.onUnitResult(units)
         val message=ipu.getMessage(units)
         dao.onMessageRead(message)

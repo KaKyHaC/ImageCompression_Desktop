@@ -39,6 +39,8 @@ class StegoConvertor private constructor(){
 
         reverceForEach(width,height){ i: Int, j: Int ->
             val b=BigInteger.valueOf(base[j].toLong())
+            if(b== BigInteger.ZERO)
+                throw Exception("BI = 0")
             nextBase=curBase*b
             res[i][j]=((code/curBase)-(code/nextBase)*b).toShort()
             curBase=nextBase

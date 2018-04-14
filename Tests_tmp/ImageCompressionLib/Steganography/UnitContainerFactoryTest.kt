@@ -40,7 +40,7 @@ class UnitContainerFactoryTest {
     fun mainTest(w:Int,h:Int,unit_W:Int,unit_H:Int,range: Int){
         val data=Container<Short>(w,h){i,j->(i+j).toShort()}
         val uc= UnitContainerFactory.getContainers(data,unit_W,unit_H)
-        val res= UnitContainerFactory.getData(uc)
+        val res= UnitContainerFactory.getData(uc,w,h)
         assertTrue(data.inRange(res,range))
     }
 //    fun IContainer<Short>.inRange(other:IContainer<Short>,range: Int):Boolean{

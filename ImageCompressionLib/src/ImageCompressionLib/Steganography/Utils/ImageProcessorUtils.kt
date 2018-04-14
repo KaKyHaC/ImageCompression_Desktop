@@ -48,9 +48,9 @@ class ImageProcessorUtils {
         val executorService = Executors.newFixedThreadPool(3)
         val futures = ArrayList<Future<IContainer<Short>>>()
 
-        futures.add(executorService.submit<IContainer<Short>> {  UnitContainerFactory.getData(units.r!!)})
-        futures.add(executorService.submit<IContainer<Short>> {  UnitContainerFactory.getData(units.g!!)})
-        futures.add(executorService.submit<IContainer<Short>> {  UnitContainerFactory.getData(units.b!!)})
+        futures.add(executorService.submit<IContainer<Short>> {  UnitContainerFactory.getData(units.r!!,width,height)})
+        futures.add(executorService.submit<IContainer<Short>> {  UnitContainerFactory.getData(units.g!!,width, height)})
+        futures.add(executorService.submit<IContainer<Short>> {  UnitContainerFactory.getData(units.b!!,width, height)})
 
         var r:IContainer<Short>?=null
         var g:IContainer<Short>?=null
@@ -97,6 +97,7 @@ class ImageProcessorUtils {
 
         return opcs
     }
+
     fun reverceStego(opcs: Triple<IContainer<OpcContainer<Short>>>,
                      unit_W: Int, unit_H: Int, isMultiTWO: Boolean):
             Triple<IContainer<UnitContainer<Short>>> {
@@ -122,6 +123,16 @@ class ImageProcessorUtils {
 
         return units
     }
+    fun reverceStegoOneThread(opcs: Triple<IContainer<OpcContainer<Short>>>,
+                     unit_W: Int, unit_H: Int, isMultiTWO: Boolean):
+            Triple<IContainer<UnitContainer<Short>>> {
+        val units= Triple<IContainer<UnitContainer<Short>>>(null, null, null)
+        units.r=reverceConvert(opcs.r!!,unit_W,unit_H,isMultiTWO)
+        units.g=reverceConvert(opcs.g!!,unit_W,unit_H,isMultiTWO)
+        units.b=reverceConvert(opcs.b!!,unit_W,unit_H,isMultiTWO)
+        return units
+    }
+
 
     fun getMessageMaxSize(units: Triple<IContainer<UnitContainer<Short>>>):Int{
         var len=0
