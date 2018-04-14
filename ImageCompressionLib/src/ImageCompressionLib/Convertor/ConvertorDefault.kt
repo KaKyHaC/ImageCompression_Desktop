@@ -1,20 +1,17 @@
 package ImageCompressionLib.Convertor
 
-import ImageCompressionLib.Containers.ByteVectorContainer
-import ImageCompressionLib.Containers.Flag
-import ImageCompressionLib.Containers.TripleDataOpcMatrix
-import ImageCompressionLib.Containers.TripleShortMatrix
+import ImageCompressionLib.Containers.*
 import ImageCompressionLib.ProcessingModules.ModuleByteVector
 import ImageCompressionLib.ProcessingModules.ModuleDCT
 import ImageCompressionLib.ProcessingModules.ModuleOPC.AbsModuleOPC
-import ImageCompressionLib.ProcessingModules.MyBufferedImage
-import java.awt.image.BufferedImage
+import ImageCompressionLib.ProcessingModules.ModuleImage
+//import java.awt.image.MyBufferedImage
 
 class ConvertorDefault (val dao: IDao, val factory: IFactory) {
     interface IDao{
         fun onResultByteVectorContainer(vector: ByteVectorContainer, flag: Flag)
-        fun onResultImage(image: BufferedImage,flag: Flag)
-        fun getImage():Pair<BufferedImage,Flag>
+        fun onResultImage(image: MyBufferedImage, flag: Flag)
+        fun getImage():Pair<MyBufferedImage,Flag>
         fun getByteVectorContainer():Pair<ByteVectorContainer,Flag>
 //        fun getFlag():Flag
     }
@@ -32,7 +29,7 @@ class ConvertorDefault (val dao: IDao, val factory: IFactory) {
         val (bmp,flag)= dao.getImage()
         progressListener?.invoke(10,"RGB to YcBcR")
         onImageReadyListener?.invoke(bmp)
-        val mi = MyBufferedImage(bmp, flag)
+        val mi = ModuleImage(bmp, flag)
         val matrix = mi.getYenlMatrix(isAsync)
         progressListener?.invoke(30,"direct DCT")
         val bodum = ModuleDCT(matrix,flag)
@@ -58,7 +55,7 @@ class ConvertorDefault (val dao: IDao, val factory: IFactory) {
         val bodum1 = ModuleDCT(FFTM,flag)
         val matrixYBR=bodum1.getYCbCrMatrix(isAsync)
         progressListener?.invoke(70,"YcBcR to BMP");
-        val af = MyBufferedImage(matrixYBR,flag);
+        val af = MyIBufferedImage(matrixYBR,flag);
         val res = af.bufferedImage
         progressListener?.invoke(90,"Write to BMP");
         dao.onResultImage(res,flag)
@@ -68,5 +65,5 @@ class ConvertorDefault (val dao: IDao, val factory: IFactory) {
 
 
     var progressListener:((value:Int,text:String)->Unit)?=null
-    var onImageReadyListener:((image: BufferedImage)->Unit)?=null
+    var onImageReadyListener:((image: MyBufferedImage)->Unit)?=null
 }

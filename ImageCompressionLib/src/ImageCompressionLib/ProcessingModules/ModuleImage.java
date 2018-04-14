@@ -1,44 +1,44 @@
 package ImageCompressionLib.ProcessingModules;
 
+import ImageCompressionLib.Containers.MyBufferedImage;
 import ImageCompressionLib.Containers.TripleShortMatrix;
 import ImageCompressionLib.Constants.State;
 import ImageCompressionLib.Containers.ByteVector;
 import ImageCompressionLib.Containers.Flag;
 import ImageCompressionLib.Utils.Objects.TimeManager;
 
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
+//import java.awt.image.MyBufferedImage;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class MyBufferedImage {
-    private static final int SIZEOFBLOCK = 8;
+public class ModuleImage {
+//    private static final int SIZEOFBLOCK = 8;
     private TripleShortMatrix tripleShortMatrix;
-    private BufferedImage bitmap;
+    private MyBufferedImage bitmap;
     private Flag flag;
 
 
-    public MyBufferedImage(BufferedImage _b, Flag flag) {
+    public ModuleImage(MyBufferedImage _b, Flag flag) {
         bitmap = _b;
         tripleShortMatrix = new TripleShortMatrix(bitmap.getWidth(), bitmap.getHeight(),State.bitmap);
         this.flag=flag;
     }
-    public MyBufferedImage(TripleShortMatrix tripleShortMatrix,Flag flag){
+    public ModuleImage(TripleShortMatrix tripleShortMatrix, Flag flag){
         this.tripleShortMatrix = tripleShortMatrix;
-        bitmap = new BufferedImage(tripleShortMatrix.getWidth(), tripleShortMatrix.getHeight(),BufferedImage.TYPE_3BYTE_BGR);
+        bitmap = new MyBufferedImage(tripleShortMatrix.getWidth(), tripleShortMatrix.getHeight(), MyBufferedImage.TYPE_3BYTE_BGR);
         this.flag=flag;
     }
-    public MyBufferedImage(ByteVector vector,Flag flag){
+    public ModuleImage(ByteVector vector, Flag flag){
         this.tripleShortMatrix =getMatrixFromByteVector(vector);
-        bitmap = new BufferedImage(tripleShortMatrix.getWidth(), tripleShortMatrix.getHeight(),BufferedImage.TYPE_3BYTE_BGR);
+        bitmap = new MyBufferedImage(tripleShortMatrix.getWidth(), tripleShortMatrix.getHeight(), MyBufferedImage.TYPE_3BYTE_BGR);
         this.flag=flag;
     }
 
     //TODO string constructor
 //TODO fix threads
-    private void FromBufferedImageToYCbCrParallelMatrix() {
+    private void FromIBufferedImageToYCbCrParallelMatrix() {
         if (tripleShortMatrix.getState() == State.bitmap)
         {
             int w=bitmap.getWidth();
@@ -64,7 +64,7 @@ public class MyBufferedImage {
         }
 
     }
-    private void FromBufferedImageToYCbCr() {
+    private void FromIBufferedImageToYCbCr() {
 
         if (tripleShortMatrix.getState() == State.bitmap)
         {
@@ -100,7 +100,7 @@ public class MyBufferedImage {
         }
 
     }
-    private void FromYCbCrToBufferedImage(){
+    private void FromYCbCrToIBufferedImage(){
         if(tripleShortMatrix.getState() ==State.YBR){
             final int pixelAlpha=255; //for argb
 
@@ -135,14 +135,14 @@ public class MyBufferedImage {
 //              int val = (pixelAlpha<<24)| (pixelRed<<16) | (pixelGreen<<8) | pixelBlue; //for argb
                 int val =(pixelRed<<16) | (pixelGreen<<8) | pixelBlue; //for rgb
 
-                // полученный результат вернём в BufferedImage
+                // полученный результат вернём в MyBufferedImage
                 bitmap.setRGB(x, y, val);
             });
             tripleShortMatrix.setState(State.bitmap);
         }
     }
 
-    private void FromBufferedImageToRGB() {
+    private void FromIBufferedImageToRGB() {
 
         if(tripleShortMatrix.getState() ==State.bitmap) {
             int Width=bitmap.getWidth();
@@ -162,7 +162,7 @@ public class MyBufferedImage {
             tripleShortMatrix.setState(State.RGB);
         }
     }
-    private void FromRGBtoBufferedImage(){
+    private void FromRGBtoIBufferedImage(){
         if(tripleShortMatrix.getState() ==State.RGB)
         {
             int Width=bitmap.getWidth();
@@ -180,7 +180,7 @@ public class MyBufferedImage {
 //                    int val =(pixelAlpha<<24)| (pixelRed<<16) | (pixelGreen<<8) | pixelBlue; //for argb
                     int val =(pixelRed<<16) | (pixelGreen<<8) | pixelBlue; //for rgb
 
-                    // полученный результат вернём в BufferedImage
+                    // полученный результат вернём в MyBufferedImage
                     bitmap.setRGB(i, j, val);
                 }
             }
@@ -369,17 +369,17 @@ public class MyBufferedImage {
     }
 
     //TODO make Async
-    public BufferedImage getBufferedImage() {
+    public MyBufferedImage getIBufferedImage() {
         switch(tripleShortMatrix.getState())
         {
-            case RGB: FromRGBtoBufferedImage();
+            case RGB: FromRGBtoIBufferedImage();
                 break;
-            case YBR: FromYCbCrToBufferedImage();
+            case YBR: FromYCbCrToIBufferedImage();
                 break;
             case Yenl:
                 PixelRestoration();
                 TimeManager.getInstance().append("Restor");
-                FromYCbCrToBufferedImage();
+                FromYCbCrToIBufferedImage();
                 TimeManager.getInstance().append("ybr to im");
                 break;
             case bitmap:
@@ -402,9 +402,9 @@ public class MyBufferedImage {
                 break;
             case bitmap:
                 if(isAsync)
-                    FromBufferedImageToYCbCrParallelMatrix();
+                    FromIBufferedImageToYCbCrParallelMatrix();
                 else
-                    FromBufferedImageToYCbCr();
+                    FromIBufferedImageToYCbCr();
                 break;
             default:return null;
 
@@ -422,7 +422,7 @@ public class MyBufferedImage {
                 break;
             case Yenl:PixelRestoration();FromYBRtoRGB();
                 break;
-            case bitmap:FromBufferedImageToRGB();
+            case bitmap:FromIBufferedImageToRGB();
                 break;
             default:return null;
 
@@ -443,9 +443,9 @@ public class MyBufferedImage {
                 break;
             case bitmap:
                 if(isAsync)
-                    FromBufferedImageToYCbCrParallelMatrix();
+                    FromIBufferedImageToYCbCrParallelMatrix();
                 else
-                    FromBufferedImageToYCbCr();
+                    FromIBufferedImageToYCbCr();
 
                 TimeManager.getInstance().append("im to ybr");
                 PixelEnlargement();
@@ -466,7 +466,7 @@ public class MyBufferedImage {
                 break;
             case Yenl:PixelRestoration();FromYBRtoRGB();
                 break;
-            case bitmap:FromBufferedImageToRGB();
+            case bitmap:FromIBufferedImageToRGB();
                 break;
             default:return null;
         }
@@ -533,12 +533,12 @@ public class MyBufferedImage {
     private void appendTimeManager(String s){
 //        TimeManager.getInstance().append(s);
     }
-    private static int[][] convertTo2DWithoutUsingGetRGB(BufferedImage image) {
+    private static int[][] convertTo2DWithoutUsingGetRGB(MyBufferedImage image) {
 
-        final byte[] pixels = ((DataBufferByte) image.getRaster().getDataBuffer()).getData();
+        final byte[] pixels = image.getDataBuffer();//((DataBufferByte) image.getRaster().getDataBuffer()).getData();
         final int width = image.getWidth();
         final int height = image.getHeight();
-        final boolean hasAlphaChannel = image.getAlphaRaster() != null;
+        final boolean hasAlphaChannel =false;// image.getAlphaRaster() != null;
 
         int[][] result = new int[height][width];
         if (hasAlphaChannel) {

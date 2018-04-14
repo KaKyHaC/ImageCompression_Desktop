@@ -30,9 +30,9 @@ class ConvertorDesktopTest {
     @Test
     fun TestMyBufferedImageMatrix5(){
         var matrix=getRandomMatrix(w,h)
-        val mi=MyBufferedImage(matrix,flag)
+        val mi= ModuleImage(matrix, flag)
         val bi=mi.bufferedImage
-        val mi1=MyBufferedImage(bi,flag)
+        val mi1= ModuleImage(bi, flag)
 
 
         var matrix1=mi1.rgbMatrix
@@ -50,7 +50,7 @@ class ConvertorDesktopTest {
     @Test
     fun TestBoxOfDUM5(){
         var matrix=getRandomMatrix(w,h)
-        matrix=MyBufferedImage(matrix,flag).getYenlMatrix(true)
+        matrix= ModuleImage(matrix, flag).getYenlMatrix(true)
         val cpy=matrix.copy()
         val bo= ModuleDCT(matrix,flag)
 
@@ -63,7 +63,7 @@ class ConvertorDesktopTest {
     @Test
     fun TestTimeBoxofDum(){
         var matrix=getRandomMatrix(w,h)
-        matrix=MyBufferedImage(matrix,flag).getYenlMatrix(true)
+        matrix= ModuleImage(matrix, flag).getYenlMatrix(true)
         val bo= ModuleDCT(matrix,flag)
 
         var t1:Date=Date()
@@ -111,7 +111,7 @@ class ConvertorDesktopTest {
         val cpy=matrix.copy()
         AssertMatrixInRange(cpy,matrix,0)
 
-        val myImage=MyBufferedImage(matrix,f)
+        val myImage= ModuleImage(matrix, f)
         val ybr=myImage.getYenlMatrix(true)
         val ybrCpy=ybr.copy()
         assertFails { AssertMatrixInRange(cpy,ybr,1) }
@@ -143,7 +143,7 @@ class ConvertorDesktopTest {
         val ynlres=mDCT2.getYCbCrMatrix(true)
         AssertMatrixInRange(ynlres,ybrCpy,delta)
 
-        val myIm2=MyBufferedImage(ynlres,f1)
+        val myIm2= ModuleImage(ynlres, f1)
         val rgb=myIm2.rgbMatrix
         AssertMatrixInRange(rgb,cpy,delta)
         val t2=Date().time
@@ -210,7 +210,7 @@ class ConvertorDesktopTest {
         val cpy=matrix.copy()
         AssertMatrixInRange(cpy,matrix,0)
 
-        val myImage=MyBufferedImage(matrix,f)
+        val myImage= ModuleImage(matrix, f)
         val ybr=myImage.getYenlMatrix(true)
         val ybrCpy=ybr.copy()
         assertFails { AssertMatrixInRange(cpy,ybr,1) }
@@ -235,7 +235,7 @@ class ConvertorDesktopTest {
         val ynlres=mDCT2.getYCbCrMatrix(true)
         AssertMatrixInRange(ynlres,ybrCpy,delta)
 
-        val myIm2=MyBufferedImage(ynlres,f)
+        val myIm2= ModuleImage(ynlres, f)
         val rgb=myIm2.rgbMatrix
         AssertMatrixInRange(rgb,cpy,delta)
     }
@@ -245,7 +245,7 @@ class ConvertorDesktopTest {
         val cpy=matrix.copy()
         AssertMatrixInRange(cpy,matrix,0)
 
-        val myImage=MyBufferedImage(matrix,flag)
+        val myImage= ModuleImage(matrix, flag)
         //
         if(compareCompression) {
             val bv = myImage.byteVector
@@ -291,7 +291,7 @@ class ConvertorDesktopTest {
         val ynlres=mDCT2.getYCbCrMatrix(true)
         AssertMatrixInRange(ynlres,ybrCpy,delta)
 
-        val myIm2=MyBufferedImage(ynlres,flag)
+        val myIm2= ModuleImage(ynlres, flag)
         val rgb=myIm2.rgbMatrix
         AssertMatrixInRange(rgb,cpy,delta)
         assertEquals("${flag.flag}!=${f.flag}",flag.flag,f.flag)

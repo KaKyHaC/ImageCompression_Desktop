@@ -33,7 +33,7 @@ class ConvertorDesktop private constructor(){
             timeManager.append("read bmp")
             progressListener?.invoke(10,"RGB to YcBcR")
             view?.invoke(bmp)
-        val mi = MyBufferedImage(bmp, info.flag)
+        val mi = ModuleImage(bmp, info.flag)
         val matrix = mi.getYenlMatrix(isAsync)
             timeManager.append("rgb to yenl")
             progressListener?.invoke(30,"direct DCT")
@@ -78,7 +78,7 @@ class ConvertorDesktop private constructor(){
         val matrixYBR=bodum1.getYCbCrMatrix(isAsync)
             timeManager.append("reverse DCT")
             progressListener?.invoke(70,"YcBcR to BMP");
-        val af = MyBufferedImage(matrixYBR,flag);
+        val af = ModuleImage(matrixYBR, flag);
         val res = af.bufferedImage
             timeManager.append("yenl to bmp")
             progressListener?.invoke(90,"Write to BMP");

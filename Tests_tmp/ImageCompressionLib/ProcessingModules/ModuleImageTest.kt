@@ -13,7 +13,7 @@ import org.junit.Assert.*
 import org.junit.Before
 import kotlin.test.assertFails
 
-class MyBufferedImageTest {
+class ModuleImageTest {
     internal var flag = Flag("0")
     @Before
     fun befor(){
@@ -26,10 +26,10 @@ class MyBufferedImageTest {
         var w=bufferedImage.width
         var h=bufferedImage.height
 
-        val myBufferedImage = MyBufferedImage(bufferedImage, flag)
+        val myBufferedImage = ModuleImage(bufferedImage, flag)
         val matrix = myBufferedImage.getYenlMatrix(true)
 
-        val myBufferedImage1 = MyBufferedImage(matrix,flag)
+        val myBufferedImage1 = ModuleImage(matrix, flag)
         val bufferedImage1 = myBufferedImage1.bufferedImage
 
         val arr1 = bufferedImage?.getRGB(0, 0, w, h, null, 0, w)
@@ -43,12 +43,12 @@ class MyBufferedImageTest {
         val grad=getGradientMatrix(124,546)
         flag.setChecked(Flag.Parameter.Enlargement,true)
 
-        val mi=MyBufferedImage(grad,flag)
+        val mi= ModuleImage(grad, flag)
         val bmp=mi.rgbMatrix.copy()
         var enl=mi.getYenlMatrix(true)
         assertFails { assertTrue(bmp.assertMatrixInRange(enl,1)) }
 
-        val mi1=MyBufferedImage(enl,flag)
+        val mi1= ModuleImage(enl, flag)
         val bmp1=mi1.rgbMatrix
         kotlin.test.assertTrue { bmp1.assertMatrixInRange(bmp,4) }
 
@@ -75,7 +75,7 @@ class MyBufferedImageTest {
 
         TimeManager.Instance.startNewTrack("m BmpToYenl ${loop}l ${w}x$h")
         for(i in 0..loop-1) {
-            val myBufferedImage = MyBufferedImage(bufferedImage, flag)
+            val myBufferedImage = ModuleImage(bufferedImage, flag)
             val matrix = myBufferedImage.getYenlMatrix(true)
         }
         TimeManager.Instance.append("multi")
@@ -83,7 +83,7 @@ class MyBufferedImageTest {
         val t1=TimeManager.Instance.getTotalTime()
         TimeManager.Instance.startNewTrack("o BmpToYenl ${loop}l ${w}x$h")
         for(i in 0..loop-1) {
-            val myBufferedImage = MyBufferedImage(bufferedImage, flag)
+            val myBufferedImage = ModuleImage(bufferedImage, flag)
             val matrix = myBufferedImage.getYenlMatrix(false)
         }
         TimeManager.Instance.append("one")
