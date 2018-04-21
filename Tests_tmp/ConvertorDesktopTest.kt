@@ -32,20 +32,20 @@ class ConvertorDesktopTest {
         var matrix=getRandomMatrix(w,h)
         val mi= ModuleImage(matrix, flag)
         val bi=mi.bufferedImage
-        val mi1= ModuleImage(bi, flag)
+        val mi1= ModuleImage(bi!!, flag)
 
 
         var matrix1=mi1.rgbMatrix
-        matrix=mi.rgbMatrix
-        AssertMatrixInRange(matrix,matrix1,0)
+        matrix=mi.rgbMatrix!!
+        AssertMatrixInRange(matrix,matrix1!!,0)
 
-        matrix=mi.getYenlMatrix(true)
+        matrix=mi.getYenlMatrix(true)!!
         matrix1=mi1.getYenlMatrix(true)
-        AssertMatrixInRange(matrix,matrix1,0)
+        AssertMatrixInRange(matrix,matrix1!!,0)
 
         matrix1=mi1.rgbMatrix
-        matrix=mi.getYenlMatrix(true)
-        AssertMatrixInRange(matrix1,matrix,0,false)
+        matrix=mi.getYenlMatrix(true)!!
+        AssertMatrixInRange(matrix1!!,matrix,0,false)
     }
     @Test
     fun TestBoxOfDUM5(){

@@ -12,6 +12,7 @@ import java.util.concurrent.ExecutionException
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import java.util.concurrent.Future
+import kotlin.math.E
 
 class ModuleImage {
     //    private static final int SIZEOFBLOCK = 8;
@@ -19,10 +20,10 @@ class ModuleImage {
     private var bitmap: MyBufferedImage? = null
     private var flag: Flag? = null
 
-    private val byteVectorFromRGB: ByteVector?
+    private val byteVectorFromRGB: ByteVector
         get() {
             if (tripleShortMatrix!!.state != State.RGB)
-                return null
+                throw Exception("State not RGB")
 
             val vector = ByteVector(10)
             vector.append(tripleShortMatrix!!.Width.toShort())
@@ -49,7 +50,7 @@ class ModuleImage {
         }
 
     //TODO make Async
-    val bufferedImage: MyBufferedImage?
+    val bufferedImage: MyBufferedImage
         get() {
             when (tripleShortMatrix!!.state) {
                 State.RGB -> FromRGBtoIBufferedImage()
@@ -62,13 +63,13 @@ class ModuleImage {
                 }
                 State.bitmap -> {
                 }
-                else -> return null
+                else -> throw Exception("Sate not correct")
             }
 
-            return bitmap
+            return bitmap!!
         }
 
-    val rgbMatrix: TripleShortMatrix?
+    val rgbMatrix: TripleShortMatrix
         get() {
             when (tripleShortMatrix!!.state) {
                 State.RGB -> {
@@ -79,13 +80,13 @@ class ModuleImage {
                     FromYBRtoRGB()
                 }
                 State.bitmap -> FromIBufferedImageToRGB()
-                else -> return null
+                else -> throw Exception("state not correct")
             }
 
-            return tripleShortMatrix
+            return tripleShortMatrix!!
         }
 
-    val byteVector: ByteVector?
+    val byteVector: ByteVector
         get() {
             when (tripleShortMatrix!!.state) {
                 State.RGB -> {
@@ -96,7 +97,7 @@ class ModuleImage {
                     FromYBRtoRGB()
                 }
                 State.bitmap -> FromIBufferedImageToRGB()
-                else -> return null
+                else -> throw Exception("state not correct")
             }
             return byteVectorFromRGB
         }
@@ -439,7 +440,7 @@ class ModuleImage {
         return tripleShortMatrix
     }
 
-    fun getYCbCrMatrix(isAsync: Boolean): TripleShortMatrix? {
+    fun getYCbCrMatrix(isAsync: Boolean): TripleShortMatrix {
         when (tripleShortMatrix!!.state) {
             State.RGB -> FromRGBtoYBR()
             State.YBR -> {
@@ -449,13 +450,13 @@ class ModuleImage {
                 FromIBufferedImageToYCbCrParallelMatrix()
             else
                 FromIBufferedImageToYCbCr()
-            else -> return null
+            else -> throw Exception("State not correct")
         }
 
-        return tripleShortMatrix
+        return tripleShortMatrix!!
     }
 
-    fun getYenlMatrix(isAsync: Boolean): TripleShortMatrix? {
+    fun getYenlMatrix(isAsync: Boolean): TripleShortMatrix {
         TimeManager.Instance.append("start Yenl")
         when (tripleShortMatrix!!.state) {
             State.RGB -> {
@@ -475,9 +476,9 @@ class ModuleImage {
                 PixelEnlargement()
                 TimeManager.Instance.append("enl")
             }
-            else -> return null
+            else -> throw Exception("State not correct")
         }
-        return tripleShortMatrix
+        return tripleShortMatrix!!
     }
 
 
