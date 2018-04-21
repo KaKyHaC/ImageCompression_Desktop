@@ -83,7 +83,7 @@ public class DctConvertor {
         return buffer;
     }
 
-    @FunctionalInterface
+
     interface FIConvertor{
         short[][] convert(short[][] buf);
     }

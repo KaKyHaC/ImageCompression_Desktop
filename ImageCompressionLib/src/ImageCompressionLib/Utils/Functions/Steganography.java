@@ -155,7 +155,7 @@ public class Steganography {
     }
 
     private static Byte[] ReadMassageFromArray(short[][] arr, int BinaryPos) {
-        Vector<Byte> res = new Vector<>();
+        Vector<Byte> res = new Vector<Byte>();
 
         int posInByte = 0;
         byte last = 0, cur_b = 0;
