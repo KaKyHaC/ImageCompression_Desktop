@@ -40,11 +40,11 @@ class DctConvertorDesktopTest {
 
         val convertor=DctConvertor(data,DctConvertor.State.ORIGIN,TypeQuantization.luminosity,flag)
 
-        val dct=convertor.matrixDct
+        val dct=convertor.getMatrixDct()
         assertTrue(data.inRannge(dct,0))
         assertFails { (cpy.inRannge(dct,range))}
 
-        val res=convertor.matrixOrigin
+        val res=convertor.getMatrixOrigin()
         assertTrue(data.inRannge(cpy,range))
         assertTrue(data.inRannge(res,0))
 

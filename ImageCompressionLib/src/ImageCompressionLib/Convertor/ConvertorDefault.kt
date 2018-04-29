@@ -32,10 +32,10 @@ class ConvertorDefault (val dao: IDao, val factory: IFactory) {
         val mi = ModuleImage(bmp, flag)
         val matrix = mi.getYenlMatrix(isAsync)
         progressListener?.invoke(30,"direct DCT")
-        val bodum = ModuleDCT(matrix,flag)
+        val bodum = ModuleDCT(matrix!!,flag)
         val matrixDCT=bodum.getDCTMatrix(isAsync)
         progressListener?.invoke(60,"direct OPC")
-        val moduleOPC=factory.getModuleOPC(matrixDCT,flag)
+        val moduleOPC=factory.getModuleOPC(matrixDCT!!,flag)
         val box=moduleOPC.getTripleDataOpcMatrix()
         progressListener?.invoke(80,"write to file")
         val bvc=factory.getModuleVectorParser(box,flag).getVectorContainer()
@@ -55,10 +55,10 @@ class ConvertorDefault (val dao: IDao, val factory: IFactory) {
         val bodum1 = ModuleDCT(FFTM,flag)
         val matrixYBR=bodum1.getYCbCrMatrix(isAsync)
         progressListener?.invoke(70,"YcBcR to BMP");
-        val af = ModuleImage(matrixYBR,flag);
+        val af = ModuleImage(matrixYBR!!,flag);
         val res = af.bufferedImage
         progressListener?.invoke(90,"Write to BMP");
-        dao.onResultImage(res,flag)
+        dao.onResultImage(res!!,flag)
         progressListener?.invoke(100,"Ready after");
         onImageReadyListener?.invoke(res)
     }

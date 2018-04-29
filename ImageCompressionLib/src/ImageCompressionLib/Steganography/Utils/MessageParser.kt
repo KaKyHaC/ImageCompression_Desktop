@@ -53,7 +53,7 @@ class MessageParser {
     }
     fun fromFile(file: File):BooleanArray{
         val inputStream=DataInputStream(FileInputStream(file))
-        val bytes=inputStream.readAllBytes()
+        val bytes=inputStream.readBytes()
         inputStream.close()
 
         val res=parseMessage(bytes)

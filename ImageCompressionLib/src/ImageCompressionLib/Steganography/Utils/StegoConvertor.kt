@@ -1,5 +1,6 @@
 package ImageCompressionLib.Steganography.Utils
 
+import ImageCompressionLib.Constants.TWO
 import ImageCompressionLib.Steganography.Containers.OpcContainer
 import ImageCompressionLib.Steganography.Containers.UnitContainer
 import java.math.BigInteger
@@ -24,7 +25,7 @@ class StegoConvertor private constructor(){
         if(data.message)
             code+=curBase
 
-        if(isDivTWO)code/=BigInteger.TWO
+        if(isDivTWO)code/=TWO
 
         return OpcContainer(code, base)
     }
@@ -32,7 +33,7 @@ class StegoConvertor private constructor(){
         var curBase=BigInteger.ONE
         var nextBase=BigInteger.ONE
         val base=data.base
-        val code=if(isMultTWO)data.code* BigInteger.TWO else data.code
+        val code=if(isMultTWO)data.code* TWO else data.code
 
 
         val res=Array<Array<Short>>(width){ShortArray(height).toTypedArray()}
@@ -45,7 +46,7 @@ class StegoConvertor private constructor(){
             res[i][j]=((code/curBase)-(code/nextBase)*b).toShort()
             curBase=nextBase
         }
-        val message=(((code/curBase)-(code/(curBase* BigInteger.TWO))* BigInteger.TWO).toInt()==1)
+        val message=(((code/curBase)-(code/(curBase* TWO))* TWO).toInt()==1)
         return UnitContainer(res, message)
     }
 

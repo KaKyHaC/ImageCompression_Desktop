@@ -38,11 +38,11 @@ class ConvertorDesktop private constructor(){
         val matrix = mi.getYenlMatrix(isAsync)
             timeManager.append("rgb to yenl")
             progressListener?.invoke(30,"direct DCT")
-        val bodum = ModuleDCT(matrix,info.flag)
+        val bodum = ModuleDCT(matrix!!,info.flag)
         val matrixDCT=bodum.getDCTMatrix(isAsync)
             timeManager.append("direct DCT")
             progressListener?.invoke(60,"direct OPC")
-        val StEnOPC= StegoEncrWithOPC(matrixDCT,info.flag,info.sameBaseWidth,info.sameBaseHeight,info.message,info.password,isAsync)
+        val StEnOPC= StegoEncrWithOPC(matrixDCT!!,info.flag,info.sameBaseWidth,info.sameBaseHeight,info.message,info.password,isAsync)
 //        StEnOPC.password=password
 //        StEnOPC.baseSizeW=globalBaseW
 //        StEnOPC.baseSizeH=globalBaseH
@@ -79,9 +79,9 @@ class ConvertorDesktop private constructor(){
         val matrixYBR=bodum1.getYCbCrMatrix(isAsync)
             timeManager.append("reverse DCT")
             progressListener?.invoke(70,"YcBcR to BMP");
-        val af = ModuleImage(matrixYBR, flag);
+        val af = ModuleImage(matrixYBR!!, flag);
         val res = af.bufferedImage
-        val bmp=BuffImConvertor.instance.convert(res)
+        val bmp=BuffImConvertor.instance.convert(res!!)
             timeManager.append("yenl to bmp")
             progressListener?.invoke(90,"Write to BMP");
 //            view?.invoke(res)

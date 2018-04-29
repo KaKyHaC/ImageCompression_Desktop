@@ -11,10 +11,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
 import static ImageCompressionLib.Utils.Functions.OPCMultiThread.SIZEOFBLOCK;
 
@@ -115,12 +112,24 @@ public class ModuleOPC extends AbsModuleOPC{
         List<Future<DataOpc[][]>> futures=new ArrayList<Future<DataOpc[][]>>();
 
         appendTimeManager("direct OPC");
-        futures.add(executorService.submit(()->a.getDataOpcs()));
-        appendTimeManager("set A");
-        futures.add(executorService.submit(()->b.getDataOpcs()));
-        appendTimeManager("set B");
-        futures.add(executorService.submit(()->c.getDataOpcs()));
-        appendTimeManager("set C");
+        futures.add(executorService.submit(new Callable<DataOpc[][]>() {
+            @Override
+            public DataOpc[][] call() throws Exception {
+                return a.getDataOpcs();
+            }
+        }));
+        futures.add(executorService.submit(new Callable<DataOpc[][]>() {
+            @Override
+            public DataOpc[][] call() throws Exception {
+                return b.getDataOpcs();
+            }
+        }));
+        futures.add(executorService.submit(new Callable<DataOpc[][]>() {
+            @Override
+            public DataOpc[][] call() throws Exception {
+                return c.getDataOpcs();
+            }
+        }));
 
             try {
                 getTripleDataOpc().setB(futures.get(1).get());
@@ -144,13 +153,25 @@ public class ModuleOPC extends AbsModuleOPC{
         List<Future<short[][]>> futures=new ArrayList<Future<short[][]>>();
 
         appendTimeManager("start reOPC");
-        futures.add(executorService.submit(()->a.getDataOrigin()));
-        appendTimeManager("start a");
-        futures.add(executorService.submit(()->b.getDataOrigin()));
-        appendTimeManager("start b");
-        futures.add(executorService.submit(()->c.getDataOrigin()));
-        appendTimeManager("start c");
 
+        futures.add(executorService.submit(new Callable<short[][]>() {
+            @Override
+            public short[][] call() throws Exception {
+                return a.getDataOrigin();
+            }
+        }));
+        futures.add(executorService.submit(new Callable<short[][]>() {
+            @Override
+            public short[][] call() throws Exception {
+                return b.getDataOrigin();
+            }
+        }));
+        futures.add(executorService.submit(new Callable<short[][]>() {
+            @Override
+            public short[][] call() throws Exception {
+                return c.getDataOrigin();
+            }
+        }));
 
         try {
             getTripleShort().setB(futures.get(1).get());
