@@ -175,6 +175,7 @@ class DataOpc {
         }
     }
 
+    @Deprecated("use ByteVector")
     fun toString(flag: Flag): String {
 //        val offset = SIZEOFBLOCK / 2
         val sb = StringBuilder()
@@ -213,6 +214,7 @@ class DataOpc {
 
         return sb.toString()
     }
+    @Deprecated("use ByteVector")
     fun setFrom(s: String, flag: Flag): DataOpc {
         val offset = SIZEOFBLOCK
         var index = 0

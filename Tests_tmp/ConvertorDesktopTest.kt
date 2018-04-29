@@ -51,6 +51,7 @@ class ConvertorDesktopTest {
     fun TestBoxOfDUM5(){
         var matrix=getRandomMatrix(w,h)
         matrix= ModuleImage(matrix, flag).getYenlMatrix(true)
+        flag.setTrue(Flag.Parameter.DCT)
         val cpy=matrix.copy()
         val bo= ModuleDCT(matrix,flag)
 
@@ -62,6 +63,7 @@ class ConvertorDesktopTest {
     }
     @Test
     fun TestTimeBoxofDum(){
+        flag.setTrue(Flag.Parameter.DCT)
         var matrix=getRandomMatrix(w,h)
         matrix= ModuleImage(matrix, flag).getYenlMatrix(true)
         val bo= ModuleDCT(matrix,flag)
@@ -108,6 +110,7 @@ class ConvertorDesktopTest {
         f.setChecked(Flag.Parameter.LongCode,true)
         f.setChecked(Flag.Parameter.DC,true)
         f.setChecked(Flag.Parameter.OneFile,true)
+        f.setTrue(Flag.Parameter.DCT)
         val cpy=matrix.copy()
         AssertMatrixInRange(cpy,matrix,0)
 
@@ -157,6 +160,7 @@ class ConvertorDesktopTest {
         f.setChecked(Flag.Parameter.LongCode,true)
         f.setChecked(Flag.Parameter.DC,true)
         f.setChecked(Flag.Parameter.OneFile,true)
+        f.setTrue(Flag.Parameter.DCT)
         testDirectReverseConverting(1920,1080,f,8)
     }
     @Test
@@ -165,6 +169,7 @@ class ConvertorDesktopTest {
 //        f.setChecked(Flag.Parameter.LongCode,true)
         f.setChecked(Flag.Parameter.DC,true)
         f.setChecked(Flag.Parameter.OneFile,true)
+        f.setTrue(Flag.Parameter.DCT)
         testDirectReverseConverting(1920,1080,f,8)
     }
     @Test
@@ -172,6 +177,7 @@ class ConvertorDesktopTest {
         val f= Flag("0")
         f.setChecked(Flag.Parameter.LongCode,true)
         f.setChecked(Flag.Parameter.DC,true)
+        f.setTrue(Flag.Parameter.DCT)
         f.setChecked(Flag.Parameter.OneFile,true)
         testDirectReverseConverting(360,280,f,7,true)
     }
@@ -181,6 +187,7 @@ class ConvertorDesktopTest {
 //        f.setChecked(Flag.Parameter.LongCode,true)
         f.setChecked(Flag.Parameter.DC,true)
         f.setChecked(Flag.Parameter.OneFile,true)
+        f.setTrue(Flag.Parameter.DCT)
         testDirectReverseConverting(360,280,f,7)
     }
     @Test
@@ -190,6 +197,7 @@ class ConvertorDesktopTest {
         f.setChecked(Flag.Parameter.DC,true)
         f.setChecked(Flag.Parameter.OneFile,true)
         f.setChecked(Flag.Parameter.Enlargement,true)
+        f.setTrue(Flag.Parameter.DCT)
         testDirectReverseConverting(384,240,f,7)
     }
     @Test
@@ -207,6 +215,7 @@ class ConvertorDesktopTest {
         f.setChecked(Flag.Parameter.LongCode,true)
         f.setChecked(Flag.Parameter.DC,true)
         f.setChecked(Flag.Parameter.OneFile,true)
+        f.setTrue(Flag.Parameter.DCT)
         val cpy=matrix.copy()
         AssertMatrixInRange(cpy,matrix,0)
 

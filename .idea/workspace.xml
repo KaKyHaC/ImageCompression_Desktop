@@ -7,8 +7,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/DataOpc.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/DataOpc.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/OPCMultiThread.java" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/OPCMultiThread.java" />
+      <change beforePath="$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/DataOpc$Companion.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/DataOpc$Companion.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/DataOpc.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/DataOpc.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Flag$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Flag$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Flag$Encryption.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Flag$Encryption.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Flag$Parameter.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Flag$Parameter.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Flag$QuantizationState.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Flag$QuantizationState.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Flag.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Flag.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleDCT$getDCTMatrix$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleDCT$getDCTMatrix$2.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleDCT$getYCbCrMatrix$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleDCT$getYCbCrMatrix$2.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleDCT.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleDCT.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/OPCMultiThread.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/OPCMultiThread.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$AssertArrayArrayInRange$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$AssertArrayArrayInRange$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$TestFullAlgorithmWithoutFile8$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$TestFullAlgorithmWithoutFile8$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$TestFullAlgorithmWithoutFile8$2.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$TestFullAlgorithmWithoutFile8$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$TestFullAlgorithmWithoutFile8$3.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$TestFullAlgorithmWithoutFile8$3.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$copy$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$copy$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$getRandomMatrix$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$getRandomMatrix$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testDirectReverseConverting$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testDirectReverseConverting$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testDirectReverseConverting$2.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testDirectReverseConverting$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testDirectReverseConverting$3.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testDirectReverseConverting$3.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testModuleDCT$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testModuleDCT$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testModuleDCT$2.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testModuleDCT$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testModuleDCT$3.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testModuleDCT$3.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="760">
-              <caret line="58" column="15" lean-forward="true" selection-start-line="58" selection-start-column="15" selection-end-line="58" selection-end-column="15" />
+              <caret line="58" column="15" lean-forward="false" selection-start-line="58" selection-start-column="15" selection-end-line="58" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -34,7 +61,17 @@
         <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleDCT.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="25">
-              <caret line="5" column="5" lean-forward="true" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+              <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConvertorDesktopTest.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="103" column="9" lean-forward="true" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -54,7 +91,7 @@
         <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="760">
-              <caret line="118" column="0" lean-forward="true" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+              <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -64,7 +101,7 @@
         <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/OPCMultiThread.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="25">
-              <caret line="18" column="12" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+              <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -80,12 +117,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataOpc.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DataOpc.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/DataOpc.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="326" column="12" lean-forward="true" selection-start-line="326" selection-start-column="12" selection-end-line="326" selection-end-column="12" />
-              <folding />
+            <state relative-caret-position="434">
+              <caret line="288" column="12" lean-forward="false" selection-start-line="288" selection-start-column="12" selection-end-line="288" selection-end-column="12" />
+              <folding>
+                <element signature="n#!!block;n#toString#0;n#!!block;n#DataOpc#0" expanded="false" />
+                <element signature="n#!!block;n#setFrom#0;n#!!block;n#DataOpc#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -121,16 +161,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="792">
               <caret line="67" column="76" lean-forward="false" selection-start-line="67" selection-start-column="76" selection-end-line="67" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StegoEncrWithOPC.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOPC/StegoEncrWithOPC.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-15">
-              <caret line="44" column="19" lean-forward="false" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -273,17 +303,17 @@
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/DctConvertor.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt" />
         <option value="$PROJECT_DIR$/src/Utils/ConvertorDesktop.kt" />
-        <option value="$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleImage.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/DctConvertorDesktopTest.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Flag.java" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleDCT.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/OPCMultiThread.java" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/DataOpc.kt" />
+        <option value="$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1612" />
@@ -466,7 +496,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MainForm">
+  <component name="RunManager" selected="JUnit.ConvertorDesktopTest.TestFullAlgorithmWithoutFile8">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module />
       <option name="HTML_USED" value="false" />
@@ -522,19 +552,34 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="DctConvertorTest.getMatrixOrigin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ImageCompressionLib.Utils.Objects.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+    <configuration name="ConvertorDesktopTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="ImageCompressionKotlin" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ImageCompression.Utils.Objects" />
-      <option name="MAIN_CLASS_NAME" value="ImageCompression.Utils.Objects.DctConvertorTest" />
-      <option name="METHOD_NAME" value="getMatrixOrigin" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ConvertorDesktopTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="ConvertorDesktopTest.TestFullAlgorithmWithoutFile8" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="ImageCompressionKotlin" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ConvertorDesktopTest" />
+      <option name="METHOD_NAME" value="TestFullAlgorithmWithoutFile8" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -561,31 +606,6 @@
       <option name="MAIN_CLASS_NAME" value="ImageCompressionLib.ProcessingModules.ModuleImageTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="ModuleImageTest.TestDefault5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ImageCompressionLib.ProcessingModules.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="ImageCompressionKotlin" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ImageCompressionLib.ProcessingModules" />
-      <option name="MAIN_CLASS_NAME" value="ImageCompressionLib.ProcessingModules.ModuleImageTest" />
-      <option name="METHOD_NAME" value="TestDefault5" />
-      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -683,18 +703,19 @@
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.DctConvertorTest.getMatrixOrigin" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.All in ImageCompressionKotlin" />
-      <item index="2" class="java.lang.String" itemvalue="Application.MainForm" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.ModuleImageTest.TestDefault5" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.UnitContainerFactoryTest" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.All in ImageCompressionKotlin" />
+      <item index="1" class="java.lang.String" itemvalue="Application.MainForm" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.UnitContainerFactoryTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.ConvertorDesktopTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.ConvertorDesktopTest.TestFullAlgorithmWithoutFile8" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Application.MainForm" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.All in ImageCompressionKotlin" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.UnitContainerFactoryTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.ModuleImageTest.TestDefault5" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ConvertorDesktopTest.TestFullAlgorithmWithoutFile8" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ConvertorDesktopTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.All in ImageCompressionKotlin" />
+        <item index="3" class="java.lang.String" itemvalue="Application.MainForm" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.UnitContainerFactoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -730,14 +751,14 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_ImageCompressionKotlin - 2018.04.21 at 21h 51m 11s.xml">
+    <history-entry file="All_in_ImageCompressionKotlin - 2018.04.29 at 12h 55m 46s.xml">
       <configuration name="All in ImageCompressionKotlin" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BuffImConvertorTest_convertDiffSize - 2018.04.14 at 14h 30m 21s.xml">
-      <configuration name="BuffImConvertorTest.convertDiffSize" configurationId="JUnit" />
+    <history-entry file="ConvertorDesktopTest - 2018.04.29 at 12h 59m 46s.xml">
+      <configuration name="ConvertorDesktopTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ModuleImageTest - 2018.04.14 at 14h 35m 57s.xml">
-      <configuration name="ModuleImageTest" configurationId="JUnit" />
+    <history-entry file="ConvertorDesktopTest_TestFullAlgorithmWithoutFile8 - 2018.04.29 at 13h 00m 13s.xml">
+      <configuration name="ConvertorDesktopTest.TestFullAlgorithmWithoutFile8" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ModuleImageTest - 2018.04.14 at 14h 38m 05s.xml">
       <configuration name="ModuleImageTest" configurationId="JUnit" />
@@ -762,21 +783,23 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32309443" sideWeight="0.41614583" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41410694" sideWeight="0.5104167" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37087598" sideWeight="0.41927084" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37087598" sideWeight="0.41927084" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992035" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20677084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20677084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -798,7 +821,6 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13765642" sideWeight="0.48958334" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32309443" sideWeight="0.41614583" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1366,6 +1388,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="800">
           <caret line="39" column="53" lean-forward="false" selection-start-line="39" selection-start-column="53" selection-end-line="39" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1373,14 +1396,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14825">
           <caret line="605" column="0" lean-forward="false" selection-start-line="605" selection-start-column="0" selection-end-line="605" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="117" column="40" lean-forward="false" selection-start-line="117" selection-start-column="40" selection-end-line="117" selection-end-column="40" />
-          <folding />
+          <folding>
+            <element signature="e#47#571#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1471,7 +1489,7 @@
     <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="760">
-          <caret line="58" column="15" lean-forward="true" selection-start-line="58" selection-start-column="15" selection-end-line="58" selection-end-column="15" />
+          <caret line="58" column="15" lean-forward="false" selection-start-line="58" selection-start-column="15" selection-end-line="58" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -1479,7 +1497,7 @@
     <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleDCT.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
-          <caret line="5" column="5" lean-forward="true" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+          <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1487,7 +1505,7 @@
     <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="760">
-          <caret line="118" column="0" lean-forward="true" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+          <caret line="118" column="0" lean-forward="false" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1495,7 +1513,7 @@
     <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/OPCMultiThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
-          <caret line="18" column="12" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+          <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -1510,8 +1528,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/DataOpc.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="326" column="12" lean-forward="true" selection-start-line="326" selection-start-column="12" selection-end-line="326" selection-end-column="12" />
+        <state relative-caret-position="434">
+          <caret line="288" column="12" lean-forward="false" selection-start-line="288" selection-start-column="12" selection-end-line="288" selection-end-column="12" />
+          <folding>
+            <element signature="n#!!block;n#toString#0;n#!!block;n#DataOpc#0" expanded="false" />
+            <element signature="n#!!block;n#setFrom#0;n#!!block;n#DataOpc#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="103" column="9" lean-forward="true" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
           <folding />
         </state>
       </provider>
