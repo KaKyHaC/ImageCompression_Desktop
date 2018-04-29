@@ -1,6 +1,7 @@
 package ImageCompressionLib.Containers
 
 import ImageCompressionLib.Constants.SIZEOFBLOCK
+import ImageCompressionLib.Utils.Objects.DctConvertor
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -19,6 +20,7 @@ class TripleDataOpcMatrixTest {
 
         flag.setChecked(Flag.Parameter.GlobalBase,true)
         flag.setChecked(Flag.Parameter.OneFile,true)
+        flag.setTrue(Flag.Parameter.DCT)
     }
 
 

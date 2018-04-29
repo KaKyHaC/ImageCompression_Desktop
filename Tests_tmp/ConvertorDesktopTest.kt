@@ -332,49 +332,54 @@ class ConvertorDesktopTest {
         })
         return res
     }
-    fun AssertMatrixInRange(m: TripleShortMatrix, m1: TripleShortMatrix, delta:Int, inRange:Boolean=true){
-        if(inRange) {
-            assertEquals("m1.State=${m.state} m2.State=${m1.state}"
-                    , m.state, m1.state)
+    companion object {
+
+        @JvmStatic
+        fun AssertMatrixInRange(m: TripleShortMatrix, m1: TripleShortMatrix, delta: Int, inRange: Boolean = true) {
+            if (inRange) {
+                assertEquals("m1.State=${m.state} m2.State=${m1.state}"
+                        , m.state, m1.state)
 //            assertEquals("flag ${m.f}!=${m1.f}",m.f,m1.f)
-            assertEquals(m.Width, m1.Width)
-            assertEquals(m.Height, m1.Height)
-        }
-
-        AssertArrayArrayInRange(m.a,m1.a,delta,inRange)
-        AssertArrayArrayInRange(m.b,m1.b,delta,inRange)
-        AssertArrayArrayInRange(m.c,m1.c,delta,inRange)
-    }
-    fun AssertArrayArrayInRange(a:Array<ShortArray>,a1:Array<ShortArray>,delta:Int,inRange:Boolean=true){
-        assertEquals(a.size,a1.size)
-        assertEquals(a[0].size,a1[0].size)
-
-        var totalEqual=true
-        forEach(a.size,a[0].size,{x,y->
-            var isEqual=false
-            for(i in -delta..delta) {
-                if (a[x][y] == (a1[x][y] + i).toShort())
-                    isEqual = true
+                assertEquals(m.Width, m1.Width)
+                assertEquals(m.Height, m1.Height)
             }
-            if(inRange)
-                assertTrue("in [$x][$y] val ${a[x][y]}!=${a1[x][y]}"
-                        , isEqual)
 
-            totalEqual = totalEqual && isEqual
-
-
-        })
-        if(inRange){
-            assertTrue("total not equal",totalEqual)
-        }else{
-            assertFalse("total is equal",totalEqual)
+            AssertArrayArrayInRange(m.a, m1.a, delta, inRange)
+            AssertArrayArrayInRange(m.b, m1.b, delta, inRange)
+            AssertArrayArrayInRange(m.c, m1.c, delta, inRange)
         }
-    }
 
-    fun forEach(w:Int,h:Int,let:(x:Int,y:Int)->Unit){
-        for(i in 0..w-1){
-            for(j in 0..h-1){
-                let(i,j)
+        fun AssertArrayArrayInRange(a: Array<ShortArray>, a1: Array<ShortArray>, delta: Int, inRange: Boolean = true) {
+            assertEquals(a.size, a1.size)
+            assertEquals(a[0].size, a1[0].size)
+
+            var totalEqual = true
+            forEach(a.size, a[0].size, { x, y ->
+                var isEqual = false
+                for (i in -delta..delta) {
+                    if (a[x][y] == (a1[x][y] + i).toShort())
+                        isEqual = true
+                }
+                if (inRange)
+                    assertTrue("in [$x][$y] val ${a[x][y]}!=${a1[x][y]}"
+                            , isEqual)
+
+                totalEqual = totalEqual && isEqual
+
+
+            })
+            if (inRange) {
+                assertTrue("total not equal", totalEqual)
+            } else {
+                assertFalse("total is equal", totalEqual)
+            }
+        }
+
+        fun forEach(w: Int, h: Int, let: (x: Int, y: Int) -> Unit) {
+            for (i in 0..w - 1) {
+                for (j in 0..h - 1) {
+                    let(i, j)
+                }
             }
         }
     }

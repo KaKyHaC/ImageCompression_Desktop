@@ -11,10 +11,9 @@ import ImageCompressionLib.Utils.Functions.DCTMultiThread
  * use min Size and max Time
  * Created by Димка on 08.08.2016.
  */
-class DctConvertor
-//    private boolean isReady=false;
+class DctConvertor(private val dataOrigin: Array<ShortArray>, state: State, private val tq: TypeQuantization, private val flag: Flag) {
+    //    private boolean isReady=false;
 
-(private val dataOrigin: Array<ShortArray>, state: State, private val tq: TypeQuantization, private val flag: Flag) {
     var state: State? = null
         private set
     private val dataProcessed: Array<ShortArray>
