@@ -9,7 +9,7 @@ class OPCUtils private constructor(){
     companion object {
         @JvmStatic val instance= OPCUtils()
     }
-    private fun directOPC(parameters: Parameters, dataOrigin: Array<ShortArray>, DataOpcOld: DataOpcOld) {
+   /* private fun directOPC(parameters: Parameters, dataOrigin: Array<ShortArray>, DataOpcOld: DataOpcOld) {
         if (flag.isChecked(Flag.Parameter.DCT))
             MakeUnSigned(dataOrigin, DataOpcOld)
         if (flag.isChecked(Flag.Parameter.DC))
@@ -89,7 +89,7 @@ class OPCUtils private constructor(){
 
     private fun OPCdirect(dataOrigin: Array<ShortArray>, DataOpcOld: DataOpcOld) {//TODO diagonal for optimization
         DataOpcOld.N = OPCdirectLong(dataOrigin, DataOpcOld)
-        /*        BigInteger base= new BigInteger("1");
+        *//*        BigInteger base= new BigInteger("1");
         for(int i=SIZEOFBLOCK-1;i>=0;i--)
         {
             for(int j=SIZEOFBLOCK-1;j>=0;j--)
@@ -101,7 +101,7 @@ class OPCUtils private constructor(){
                 base=base.multiply(BigInteger.valueOf(DataOpcOld.getBase()[i]));
 
             }
-        }*/
+        }*//*
     }
 
     private fun OPCdirectLong(dataOrigin: Array<ShortArray>, DataOpcOld: DataOpcOld): BigInteger {
@@ -112,10 +112,10 @@ class OPCUtils private constructor(){
         for (i in SIZEOFBLOCK - 1 downTo 0) {
             for (j in SIZEOFBLOCK - 1 downTo 0) {
                 bufbase = base * DataOpcOld.base[i]
-                /* if(bufbase<res)
-                    System.out.println("res");*/
-                /*                if(bufbase<base)
-                    System.out.println("base");*/
+                *//* if(bufbase<res)
+                    System.out.println("res");*//*
+                *//*                if(bufbase<base)
+                    System.out.println("base");*//*
                 if (bufbase > MAX_LONG) {//is true ?
                     //                    System.out.println("go");
                     return OPCdirectBI(res, base, i, j, dataOrigin, DataOpcOld)
@@ -263,5 +263,5 @@ class OPCUtils private constructor(){
             OPCdirect(dataOrigin, d)
         return d
     }
-
+*/
 }
