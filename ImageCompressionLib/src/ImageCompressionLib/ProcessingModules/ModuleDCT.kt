@@ -80,18 +80,23 @@ class ModuleDCT(private val tripleShortMatrix: TripleShortMatrix, //    private 
         if (tripleShortMatrix.a.size > tripleShortMatrix.b.size && tripleShortMatrix.state == State.YBR)
             tripleShortMatrix.state = State.Yenl
     }
+    fun getYCbCrMatrix(isMultiThreads: Boolean): TripleShortMatrix{
+        return if(flag.isChecked(Flag.Parameter.DCT)) getYCbCrMatrix1(isMultiThreads) else tripleShortMatrix
+    }
+    fun getDCTMatrix(isMultiThreads: Boolean): TripleShortMatrix{
+        return if(flag.isChecked(Flag.Parameter.DCT)) getDCTMatrix1(isMultiThreads) else tripleShortMatrix
+    }
 
-    fun getYCbCrMatrix(isMultiThreads: Boolean): TripleShortMatrix {
+    private fun getYCbCrMatrix1(isMultiThreads: Boolean): TripleShortMatrix {
         when (tripleShortMatrix.state) {
             State.DCT -> if (isMultiThreads)
                 dataProcessingInThreads(DctConvertor::getMatrixOrigin)
             else
                 dataProcessing(DctConvertor::getMatrixOrigin)
         }
-        return if (tripleShortMatrix.state == State.YBR || tripleShortMatrix.state == State.Yenl) tripleShortMatrix else  throw Exception("State bot correct")
+        return if (tripleShortMatrix.state == State.YBR || tripleShortMatrix.state == State.Yenl) tripleShortMatrix else  throw Exception("State not correct")
     }
-
-    fun getDCTMatrix(isMultiThreads: Boolean): TripleShortMatrix {
+    fun getDCTMatrix1(isMultiThreads: Boolean): TripleShortMatrix {
         when (tripleShortMatrix.state) {
             State.YBR, State.Yenl -> if (isMultiThreads)
                 dataProcessingInThreads(DctConvertor::getMatrixDct)
