@@ -1,6 +1,7 @@
 package ImageCompressionLib.Utils.Functions
 
 import ImageCompressionLib.Constants.BITS_PER_BYTE
+import java.math.BigInteger
 
 class ByteArrayConvertor {
     companion object {
@@ -28,6 +29,7 @@ class ByteArrayConvertor {
         res = res or (array[0].toInt() and 0xff)
         return res
     }
+
     fun fromShort(value:Short):ByteArray{
         val res=ByteArray(2)
         var tmp=value.toInt()
@@ -42,5 +44,12 @@ class ByteArrayConvertor {
         res = res shl BITS_PER_BYTE
         res = res or (array[0].toInt() and 0xff)
         return res.toShort()
+    }
+
+    fun fromBigInt(value: BigInteger):ByteArray{
+        return value.toByteArray()
+    }
+    fun toBigInt(array: ByteArray):BigInteger{
+        return BigInteger(array)
     }
 }

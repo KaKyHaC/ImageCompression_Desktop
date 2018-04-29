@@ -40,7 +40,7 @@ class ByteVector:Iterable<Byte> {
     }
 
     fun append(byte: Byte){
-        if(size==maxSize-1){
+        if(size>=maxSize-1){
             grow(maxSize*2)
         }
         bytes[size++]=byte
@@ -63,6 +63,7 @@ class ByteVector:Iterable<Byte> {
     operator fun get(index: Int):Byte{
         return bytes[index]
     }
+
     fun getByteAt(index:Int):Byte{
         return bytes[index]
     }
@@ -117,6 +118,40 @@ class ByteVector:Iterable<Byte> {
         res = res or (bytes[curIndex++].toLong()and 0xFF)
         res=(res shl BITS_IN_BYTE)
         res = res or (bytes[curIndex++].toLong()and 0xFF)
+        return res
+    }
+
+    private var bitSetCounter= BITS_IN_BYTE
+    private var boolByteSetIndex=0
+    fun append(boolean: Boolean){
+        if(bitSetCounter == BITS_IN_BYTE){
+            bitSetCounter=0
+            boolByteSetIndex=size++
+        }
+        if(size>=maxSize-1)
+            grow(maxSize*2)
+
+        val v=if(boolean)1 else 0
+        var tmp=bytes[boolByteSetIndex].toInt() and 0xff
+        tmp=tmp shl 1
+        tmp=tmp or v
+        bytes[boolByteSetIndex]=tmp.toByte()
+        bitSetCounter++
+    }
+
+    private var bitGetCounter= BITS_IN_BYTE
+    private var boolByteGetIndex=0
+    fun getNextBoolean():Boolean{
+        if(bitGetCounter == BITS_IN_BYTE){
+            bitGetCounter=0
+            boolByteGetIndex=curIndex++
+        }
+
+        var tmp=bytes[boolByteGetIndex].toInt() and 0xff
+        val res=tmp and 1 == 1
+        tmp=tmp shr 1
+        bytes[boolByteGetIndex]=tmp.toByte()
+        bitGetCounter++
         return res
     }
 

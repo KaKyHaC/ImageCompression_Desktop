@@ -19,30 +19,9 @@ class DataOpc {
         vectorCode = Vector()
     }
 
-    var Dc: ByteArray
-        get() {
-            val res = ByteArray(2)
-            res[0] = (DC.toInt() shr BITS_PER_BYTE).toByte()
-            res[1] = DC.toByte()
-            return res
-        }
-        set(bytes) {
-            this.DC = bytes[0].toShort()
-            DC = (DC.toInt() shl BITS_PER_BYTE).toShort()
-            DC = (DC.toInt() or bytes[1].toInt()).toShort()
-        }
-
-    fun FromBigIntToArray(): ByteArray {
-        return N.toByteArray()
-    }
-    fun FromArrayToBigInt(code: ByteArray) {
-        N = BigInteger(code)
-    }
-
     fun FromBigIntToVector(vector: ByteVector, base: ShortArray) {
         val code = N.toByteArray()
-        //        assert (code.length<Short.MAX_VALUE);
-        //        vector.append((short)code.length);
+//        vector.append((short)code.length);
         var length = getLengthOfCode(base)
         while (length-- > code.size)
             vector.append(0.toByte())
@@ -50,12 +29,9 @@ class DataOpc {
         for (b in code) {
             vector.append(b)
         }
-
-        //        System.out.print(",dL="+(code.length-length));
-        //        assert code.length<=length:"cL:"+code.length+">l:"+length;
     }
     fun FromVectorToBigInt(vector: ByteVector, base: ShortArray) {
-        //        int len=vector.getNextShort();
+//        int len=vector.getNextShort();
         val len = getLengthOfCode(base)
         val code = ByteArray(len)
         for (i in 0 until len) {
@@ -174,86 +150,6 @@ class DataOpc {
         }
     }
 
-    @Deprecated("use ByteVector")
-    fun toString(flag: Flag): String {
-//        val offset = SIZEOFBLOCK / 2
-        val sb = StringBuilder()
-
-        if (flag.isChecked(Flag.Parameter.OneFile) && !flag.isChecked(Flag.Parameter.GlobalBase))
-            for (b in FromBaseToArray())
-                sb.append(b.toChar())
-
-        val sign = FromSignToArray()
-        for (i in sign.indices) {
-            sb.append(sign[i].toChar())
-        }
-
-        if (flag.isChecked(Flag.Parameter.DC))
-            sb.append(DC.toChar())
-
-        if (!flag.isChecked(Flag.Parameter.LongCode)) {
-            val n = FromBigIntToArray()
-            sb.append(n.size.toChar())
-            for (c in n) {
-                sb.append(c.toShort().toInt())
-            }
-        } else {
-            sb.append(vectorCode.size.toChar())
-            for (i in vectorCode.indices) {
-                var v = vectorCode.elementAt(i)
-                sb.append(v.toChar())
-                v = v shr 16
-                sb.append(v.toChar())
-                v = v shr 16
-                sb.append(v.toChar())
-                v = v shr 16
-                sb.append(v.toChar())
-            }
-        }
-
-        return sb.toString()
-    }
-    @Deprecated("use ByteVector")
-    fun setFrom(s: String, flag: Flag): DataOpc {
-        val offset = SIZEOFBLOCK
-        var index = 0
-
-        if (flag.isChecked(Flag.Parameter.OneFile)&& !flag.isChecked(Flag.Parameter.GlobalBase)) {
-            val a = ShortArray(offset)
-            for (i in 0 until offset) {
-                a[i] = s[index++].toShort()
-            }
-            FromArrayToBase(a)
-        }
-
-        val sign = ByteArray(offset)
-        for (i in 0 until offset) {
-            sign[i] = s[index++].toByte()
-        }
-        FromArrayToSing(sign)
-
-        if (flag.isChecked(Flag.Parameter.DC))
-            DC = s[index++].toShort()
-
-        if (!flag.isChecked(Flag.Parameter.LongCode)) {
-            val length = s[index++].toInt()
-            val code = ByteArray(length)
-            for (i in 0 until length) {
-                code[i] = s[index++].toByte()
-            }
-            FromArrayToBigInt(code)
-        } else {
-            val length = s[index++].toInt()
-            for (i in 0 until length) {
-                var v = s[index++].toLong()
-                v = v or (s[index++].toLong() shl 16)
-                v = v or (s[index++].toLong() shl 32)
-                v = v or (s[index++].toLong() shl 48)
-                vectorCode.add(v)
-            }
-        }
-        return this
-    }
 
     fun toByteVector(vector: ByteVector, f: Flag): ByteVector {
         if (f.isChecked(Flag.Parameter.DC))
