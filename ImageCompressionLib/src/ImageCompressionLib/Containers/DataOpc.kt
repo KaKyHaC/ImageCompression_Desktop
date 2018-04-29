@@ -266,7 +266,8 @@ class DataOpc {
         else
             FromBigIntToVector(vector, base)
 
-        FromSignToVector(vector)
+        if(f.isChecked(Flag.Parameter.DCT))
+            FromSignToVector(vector)
 
         return vector
     }
@@ -282,7 +283,8 @@ class DataOpc {
         else
             FromVectorToBigInt(vector, base)
 
-        FromVectorToSign(vector)
+        if(f.isChecked(Flag.Parameter.DCT))
+            FromVectorToSign(vector)
 
         return this
     }

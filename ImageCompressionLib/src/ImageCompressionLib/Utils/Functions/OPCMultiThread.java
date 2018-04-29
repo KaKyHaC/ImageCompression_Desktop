@@ -8,6 +8,8 @@ import ImageCompressionLib.Containers.Flag;
 
 import java.math.BigInteger;
 
+import static ImageCompressionLib.Containers.Flag.Parameter.DCT;
+
 //import static ImageCompressionLib.Constants.ConstantsKt.MAX_LONG;
 
 /**
@@ -18,7 +20,8 @@ public class OPCMultiThread { //singelton
     private OPCMultiThread(){}
 
     private static  void directOPC(Flag flag, short[][]dataOrigin, DataOpc DataOpc){
-        MakeUnSigned(dataOrigin,DataOpc);
+        if(flag.isChecked(DCT))
+            MakeUnSigned(dataOrigin,DataOpc);
         if(flag.isChecked(Flag.Parameter.DC))
             DCminus(dataOrigin,DataOpc);
         FindeBase(dataOrigin,DataOpc);
@@ -36,8 +39,9 @@ public class OPCMultiThread { //singelton
 
         if(flag.isChecked(Flag.Parameter.DC))
             DCplus(dataOrigin,DataOpc);
-        
-        MakeSigned(dataOrigin,DataOpc);
+
+        if(flag.isChecked(DCT))
+            MakeSigned(dataOrigin,DataOpc);
     }
 
 
