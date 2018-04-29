@@ -27,7 +27,7 @@ public class ModuleOPCTest {
     @Test
     public void TestDefault(){
         TripleDataOpcMatrix tripleDataOpcMatrix =new ModuleOPC(tripleShortMatrix,flag,true).getBoxOfOpc(true);
-        DataOpc[][] a,b,c;
+        DataOpcOld[][] a,b,c;
         ModuleOPC moduleOPC1 =new ModuleOPC(tripleDataOpcMatrix, flag,true);
         TripleShortMatrix res= moduleOPC1.getMatrix(true);
 

@@ -1,6 +1,5 @@
 package ImageCompressionLib.ProcessingModules.ModuleOPC
 
-import ImageCompressionLib.Constants.State
 import ImageCompressionLib.Containers.*
 import ImageCompressionLib.Steganography.Containers.Container
 import ImageCompressionLib.Steganography.Containers.IContainer
@@ -82,19 +81,19 @@ class ModuleSafeOPC :AbsModuleOPC{
     fun ImageProcessorUtils.Triple<IContainer<OpcContainer<Short>>>.toTripleDataOpcMatrix():TripleDataOpcMatrix{
         val res=TripleDataOpcMatrix()
         res.a=Array(this.r!!.width){w->Array(this.r!!.height){h->
-            val tmp=DataOpc()
+            val tmp= DataOpcOld()
             tmp.N=this.r!![w,h]!!.code
             tmp.base=this.r!![w,h]!!.base.toShortArray()
             tmp
         } }
         res.b=Array(this.g!!.width){w->Array(this.g!!.height){h->
-            val tmp=DataOpc()
+            val tmp= DataOpcOld()
             tmp.N=this.g!![w,h]!!.code
             tmp.base=this.g!![w,h]!!.base.toShortArray()
             tmp
         } }
         res.c=Array(this.b!!.width){w->Array(this.b!!.height){h->
-            val tmp=DataOpc()
+            val tmp= DataOpcOld()
             tmp.N=this.b!![w,h]!!.code
             tmp.base=this.b!![w,h]!!.base.toShortArray()
             tmp

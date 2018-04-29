@@ -1,6 +1,6 @@
 package ImageCompressionLib.Utils;
 
-import ImageCompressionLib.Containers.DataOpc;
+import ImageCompressionLib.Containers.DataOpcOld;
 import ImageCompressionLib.Containers.TripleDataOpcMatrix;
 import ImageCompressionLib.Constants.State;
 import ImageCompressionLib.ProcessingModules.ModuleOPC.ModuleOPC;
@@ -40,7 +40,7 @@ public class EncryptionTest {
         AssertDataEqual(a.getB(),b.getB());
         AssertDataEqual(a.getC(),b.getC());
     }
-    private void AssertDataEqual(DataOpc[][] a, DataOpc[][] b){
+    private void AssertDataEqual(DataOpcOld[][] a, DataOpcOld[][] b){
         assertEquals(a.length,b.length);
         assertEquals(a[0].length,b[0].length);
         for(int i=0;i<a.length;i++){
@@ -49,7 +49,7 @@ public class EncryptionTest {
             }
         }
     }
-    private void AssertDataEqual(DataOpc a,DataOpc b){
+    private void AssertDataEqual(DataOpcOld a, DataOpcOld b){
         assertEquals(a.getDC(),b.getDC());
         assertEquals(a.getVectorCode(),b.getVectorCode());
         assertEquals(a.getSign(),b.getSign());

@@ -14,7 +14,7 @@ package JpegEncoder;
 // Jpeg Group's Jpeg 6a library, Copyright Thomas G. Lane.
 // See license.txt for details.
 
-import ImageCompressionLib.Containers.DataOpc;
+import ImageCompressionLib.Containers.DataOpcOld;
 import ImageCompressionLib.Utils.Functions.OPCMultiThread;
 import ImageCompressionLib.Containers.ByteVector;
 import ImageCompressionLib.Containers.Flag;
@@ -163,15 +163,15 @@ class OPC
                 buffer[i][j]=(short)zigzag[i*8+j];
             }
         }
-        DataOpc DataOpc=OPCMultiThread.getDataOpc(buffer,flag);//TODO make flag as argument
-        DataOpctoStream(DataOpc,outStream);
+        DataOpcOld DataOpcOld =OPCMultiThread.getDataOpc(buffer,flag);//TODO make flag as argument
+        DataOpctoStream(DataOpcOld,outStream);
 //        System.out.print(totalSize+",");
-//        DataOpc
+//        DataOpcOld
     }
     public static int opcSize=0;
-    void DataOpctoStream(DataOpc DataOpc, BufferedOutputStream os){
+    void DataOpctoStream(DataOpcOld DataOpcOld, BufferedOutputStream os){
         ByteVector byteVector=new ByteVector(8);
-        DataOpc.toByteVector(byteVector,flag);
+        DataOpcOld.toByteVector(byteVector,flag);
         opcSize+=byteVector.getSize();
         for(byte b :byteVector){
             bufferIt(os,b,8);

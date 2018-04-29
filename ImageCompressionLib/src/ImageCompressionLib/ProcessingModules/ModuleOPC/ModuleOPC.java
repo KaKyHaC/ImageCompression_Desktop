@@ -2,9 +2,6 @@ package ImageCompressionLib.ProcessingModules.ModuleOPC;
 
 
 import ImageCompressionLib.Containers.*;
-import ImageCompressionLib.Constants.State;
-import ImageCompressionLib.Utils.Functions.OPCMultiThread;
-import ImageCompressionLib.Utils.Functions.DCTMultiThread;
 import ImageCompressionLib.Utils.Objects.OpcConvertor;
 import org.jetbrains.annotations.NotNull;
 //import com.sun.glass.ui.Size;
@@ -12,8 +9,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
-
-import static ImageCompressionLib.Utils.Functions.OPCMultiThread.SIZEOFBLOCK;
 
 /**
  * Created by Димка on 09.10.2016.
@@ -51,9 +46,9 @@ public class ModuleOPC extends AbsModuleOPC{
 
 //        tripleOPC=new TripleDataOpcMatrix();
 //        setTripleDataOpc(new TripleDataOpcMatrix());
-//        getByteVectorContainer().setA(new DataOpc[widthOPC][heightOPC]);
-//        getByteVectorContainer().setB(new DataOpc[widthOPC/k][heightOPC/k]);
-//        getByteVectorContainer().setC(new DataOpc[widthOPC/k][heightOPC/k]);
+//        getByteVectorContainer().setA(new DataOpcOld[widthOPC][heightOPC]);
+//        getByteVectorContainer().setB(new DataOpcOld[widthOPC/k][heightOPC/k]);
+//        getByteVectorContainer().setC(new DataOpcOld[widthOPC/k][heightOPC/k]);
     }
     public ModuleOPC(TripleDataOpcMatrix tripleDataOpc, Flag flag,Boolean isAsyn){
         super(tripleDataOpc,flag);
@@ -80,11 +75,11 @@ public class ModuleOPC extends AbsModuleOPC{
             return;
 
         appendTimeManager("direct OPC");
-        getTripleDataOpc().setA(a.getDataOpcs());
+        getTripleDataOpc().setA(a.getDataOpcOlds());
         appendTimeManager("get A");
-        getTripleDataOpc().setB(b.getDataOpcs());
+        getTripleDataOpc().setB(b.getDataOpcOlds());
         appendTimeManager("get B");
-        getTripleDataOpc().setC(c.getDataOpcs());
+        getTripleDataOpc().setC(c.getDataOpcOlds());
         appendTimeManager("get C");
 
         isReady=true;
@@ -109,25 +104,25 @@ public class ModuleOPC extends AbsModuleOPC{
             return;
 
         ExecutorService executorService = Executors.newFixedThreadPool(3);
-        List<Future<DataOpc[][]>> futures=new ArrayList<Future<DataOpc[][]>>();
+        List<Future<DataOpcOld[][]>> futures=new ArrayList<Future<DataOpcOld[][]>>();
 
         appendTimeManager("direct OPC");
-        futures.add(executorService.submit(new Callable<DataOpc[][]>() {
+        futures.add(executorService.submit(new Callable<DataOpcOld[][]>() {
             @Override
-            public DataOpc[][] call() throws Exception {
-                return a.getDataOpcs();
+            public DataOpcOld[][] call() throws Exception {
+                return a.getDataOpcOlds();
             }
         }));
-        futures.add(executorService.submit(new Callable<DataOpc[][]>() {
+        futures.add(executorService.submit(new Callable<DataOpcOld[][]>() {
             @Override
-            public DataOpc[][] call() throws Exception {
-                return b.getDataOpcs();
+            public DataOpcOld[][] call() throws Exception {
+                return b.getDataOpcOlds();
             }
         }));
-        futures.add(executorService.submit(new Callable<DataOpc[][]>() {
+        futures.add(executorService.submit(new Callable<DataOpcOld[][]>() {
             @Override
-            public DataOpc[][] call() throws Exception {
-                return c.getDataOpcs();
+            public DataOpcOld[][] call() throws Exception {
+                return c.getDataOpcOlds();
             }
         }));
 
@@ -195,9 +190,9 @@ public class ModuleOPC extends AbsModuleOPC{
 
         //omp parallel
         {
-            getTripleDataOpc().setA(a.getDataOpcs());
-            getTripleDataOpc().setB(b.getDataOpcs());
-            getTripleDataOpc().setC(c.getDataOpcs());
+            getTripleDataOpc().setA(a.getDataOpcOlds());
+            getTripleDataOpc().setB(b.getDataOpcOlds());
+            getTripleDataOpc().setC(c.getDataOpcOlds());
         }
         isReady=true;
     }

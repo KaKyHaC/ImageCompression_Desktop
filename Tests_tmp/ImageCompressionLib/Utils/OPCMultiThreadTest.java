@@ -1,6 +1,6 @@
 package ImageCompressionLib.Utils;
 
-import ImageCompressionLib.Containers.DataOpc;
+import ImageCompressionLib.Containers.DataOpcOld;
 import ImageCompressionLib.Containers.Flag;
 import ImageCompressionLib.Utils.Functions.OPCMultiThread;
 import org.junit.Before;
@@ -26,17 +26,17 @@ public class OPCMultiThreadTest {
 
     @Test
     public void TestOPC() throws Exception {
-        DataOpc DataOpc=OPCMultiThread.getDataOpc(data,flag);
-        res=OPCMultiThread.getDataOrigin(DataOpc,flag);
+        DataOpcOld DataOpcOld =OPCMultiThread.getDataOpc(data,flag);
+        res=OPCMultiThread.getDataOrigin(DataOpcOld,flag);
 
         assertArrayEquals(data,res);
     }
 
     @Test
     public void TestOPCwithFindedBase() throws Exception {
-        DataOpc base=OPCMultiThread.findBase(data,flag);
-        DataOpc DataOpc=OPCMultiThread.directOPCwithFindedBase(data,base,flag);
-        res=OPCMultiThread.getDataOrigin(DataOpc,flag);
+        DataOpcOld base=OPCMultiThread.findBase(data,flag);
+        DataOpcOld DataOpcOld =OPCMultiThread.directOPCwithFindedBase(data,base,flag);
+        res=OPCMultiThread.getDataOrigin(DataOpcOld,flag);
 
         assertArrayEquals(data,res);
     }
@@ -64,7 +64,7 @@ public class OPCMultiThreadTest {
                         {0,0,0,0,0,0,0,0},
                         {0,0,0,0,0,0,0,0}};
 
-        DataOpc dopc=OPCMultiThread.getDataOpc(jpg,flag);
+        DataOpcOld dopc=OPCMultiThread.getDataOpc(jpg,flag);
         System.out.println("dopc after jpg size ="+dopc.getByteSize(flag));
 
         short[][]res=OPCMultiThread.getDataOrigin(dopc,flag);

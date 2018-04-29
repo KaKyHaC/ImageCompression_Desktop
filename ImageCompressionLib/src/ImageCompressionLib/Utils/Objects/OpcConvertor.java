@@ -1,6 +1,6 @@
 package ImageCompressionLib.Utils.Objects;
 
-import ImageCompressionLib.Containers.DataOpc;
+import ImageCompressionLib.Containers.DataOpcOld;
 import ImageCompressionLib.Containers.Flag;
 import ImageCompressionLib.Containers.Size;
 import ImageCompressionLib.Utils.Functions.DCTMultiThread;
@@ -12,7 +12,7 @@ public class OpcConvertor {
     enum State{Opc,Origin}
     final State state;
     short[][] dataOrigin;
-    DataOpc[][] dataOpcs;
+    DataOpcOld[][] dataOpcOlds;
     Flag flag;
     boolean isReady=false;
 
@@ -22,13 +22,13 @@ public class OpcConvertor {
         state=State.Origin;
     }
 
-    public OpcConvertor(DataOpc[][] dataOpcs, Flag flag) {
-        this.dataOpcs = dataOpcs;
+    public OpcConvertor(DataOpcOld[][] dataOpcOlds, Flag flag) {
+        this.dataOpcOlds = dataOpcOlds;
         this.flag = flag;
         state=State.Opc;
     }
 
-    private DataOpc[][] directOPC(short[][]dataOrigin){
+    private DataOpcOld[][] directOPC(short[][]dataOrigin){
 
         Size size=sizeOpcCalculate(dataOrigin.length, dataOrigin[0].length);
         int duWidth= size.getWidth();
@@ -36,7 +36,7 @@ public class OpcConvertor {
         int Width=dataOrigin.length;
         int Height=dataOrigin[0].length;
 
-        DataOpc[][]dopc=new DataOpc[duWidth][duHeight];
+        DataOpcOld[][]dopc=new DataOpcOld[duWidth][duHeight];
         short[][]buf=new short[SIZEOFBLOCK][SIZEOFBLOCK];
         for (int i = 0; i < duWidth; i++) {
 //            System.out.print(Thread.currentThread().getId());
@@ -61,7 +61,7 @@ public class OpcConvertor {
         }
         return dopc;
     }
-    private short[][] reverceOPC(DataOpc[][]dopc){
+    private short[][] reverceOPC(DataOpcOld[][]dopc){
 
         int duWidth=dopc.length;
         int duHeight=dopc[0].length;
@@ -95,8 +95,8 @@ public class OpcConvertor {
         return res;
     }
 
-    private DataOpc[][] directOpcGlobalBase(int n, int m, short[][]dataOrigin){
-        DataOpc[][]dopc=createDataOpc(dataOrigin);
+    private DataOpcOld[][] directOpcGlobalBase(int n, int m, short[][]dataOrigin){
+        DataOpcOld[][]dopc=createDataOpc(dataOrigin);
 
         findAllBase(dataOrigin,dopc);
 
@@ -106,15 +106,15 @@ public class OpcConvertor {
 
         return dopc;
     }
-    private DataOpc[][] createDataOpc(short[][]dataOrigin){
+    private DataOpcOld[][] createDataOpc(short[][]dataOrigin){
         Size size=sizeOpcCalculate(dataOrigin.length, dataOrigin[0].length);
         int duWidth= size.getWidth();
         int duHeight= size.getHeight();
 
-        DataOpc[][]dopc=new DataOpc[duWidth][duHeight];
+        DataOpcOld[][]dopc=new DataOpcOld[duWidth][duHeight];
         return dopc;
     }
-    private void findAllBase(short[][]dataOrigin,DataOpc[][]dopc){
+    private void findAllBase(short[][]dataOrigin, DataOpcOld[][]dopc){
         short[][]buf=new short[SIZEOFBLOCK][SIZEOFBLOCK];
 
         int duWidth=dopc.length;
@@ -145,7 +145,7 @@ public class OpcConvertor {
             }
         }
     }
-    private void setMaxBaseForAll(int n,int m,DataOpc[][]dopc){
+    private void setMaxBaseForAll(int n, int m, DataOpcOld[][]dopc){
         int duWidth=dopc.length;
         int duHeight=dopc[0].length;
         int i = 0;
@@ -180,7 +180,7 @@ public class OpcConvertor {
         }
         return a;
     }
-    private void directOPCwithGlobalBase(short[][]dataOrigin,DataOpc[][]dopc){
+    private void directOPCwithGlobalBase(short[][]dataOrigin, DataOpcOld[][]dopc){
         short[][]buf=new short[SIZEOFBLOCK][SIZEOFBLOCK];
         int duWidth=dopc.length;
         int duHeight=dopc[0].length;
@@ -219,34 +219,34 @@ public class OpcConvertor {
 
     public short[][] getDataOrigin() {
         if(state==State.Opc&&!isReady) {
-            dataOrigin = reverceOPC(dataOpcs);
+            dataOrigin = reverceOPC(dataOpcOlds);
             isReady=true;
         }
 
         return dataOrigin;
     }
 
-    public DataOpc[][] getDataOpcs() {
+    public DataOpcOld[][] getDataOpcOlds() {
         if(state==State.Origin&&!isReady) {
-            dataOpcs = directOPC(dataOrigin);
+            dataOpcOlds = directOPC(dataOrigin);
             isReady=true;
         }
 
-        return dataOpcs;
+        return dataOpcOlds;
     }
 
     /**
      * calculate(if need) DataOpcs with global base for (nxm)
      * @param n - vertical size of same base
      * @param m - horizonlat size of same base
-     * @return matrix of DataOpc with same base 
+     * @return matrix of DataOpcOld with same base
      */
-    public DataOpc[][] getDataOpcs(int n,int m){
+    public DataOpcOld[][] getDataOpcs(int n, int m){
         if(state==State.Origin&&!isReady) {
-            dataOpcs = directOpcGlobalBase(n,m,dataOrigin);
+            dataOpcOlds = directOpcGlobalBase(n,m,dataOrigin);
             isReady=true;
         }
 
-        return dataOpcs;
+        return dataOpcOlds;
     }
 }

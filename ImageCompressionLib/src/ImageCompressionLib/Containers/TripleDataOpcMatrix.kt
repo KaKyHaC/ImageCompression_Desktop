@@ -4,13 +4,13 @@ import ImageCompressionLib.Constants.SIZEOFBLOCK
 import java.util.*
 
 class TripleDataOpcMatrix {
-    var a: Array<Array<DataOpc>>?=null
-    var b: Array<Array<DataOpc>>?=null
-    var c: Array<Array<DataOpc>>?=null
+    var a: Array<Array<DataOpcOld>>?=null
+    var b: Array<Array<DataOpcOld>>?=null
+    var c: Array<Array<DataOpcOld>>?=null
     //TODO add flag
 
     constructor(){    }
-    constructor(a:Array<Array<DataOpc>>,b:Array<Array<DataOpc>>,c:Array<Array<DataOpc>>){
+    constructor(a:Array<Array<DataOpcOld>>, b:Array<Array<DataOpcOld>>, c:Array<Array<DataOpcOld>>){
         this.a=a
         this.b=b
         this.c=c
@@ -55,7 +55,7 @@ class TripleDataOpcMatrix {
 //        c!!.readBaseFromVector(vector,flag)
     }
 
-    private fun Array<Array<DataOpc>>.appendVectorOne(vector: ByteVector, flag: Flag){
+    private fun Array<Array<DataOpcOld>>.appendVectorOne(vector: ByteVector, flag: Flag){
         val w=this.size
         val h=this[0].size
         vector.append(w.toShort())
@@ -66,12 +66,12 @@ class TripleDataOpcMatrix {
             }
         }
     }
-    private fun createMatrixFromVectorOne(vector: ByteVector, flag: Flag):Array<Array<DataOpc>>{
+    private fun createMatrixFromVectorOne(vector: ByteVector, flag: Flag):Array<Array<DataOpcOld>>{
         val w=vector.getNextShort()
         val h=vector.getNextShort()
-        return Array(w.toInt(),{ x-> Array(h.toInt(),{y->DataOpc.valueOf (vector,flag)}) })
+        return Array(w.toInt(),{ x-> Array(h.toInt(),{y-> DataOpcOld.valueOf (vector,flag)}) })
     }
-    private fun Array<Array<DataOpc>>.appendBaseToVector(vector: ByteVector, flag: Flag, baseW:Int, baseH:Int){
+    private fun Array<Array<DataOpcOld>>.appendBaseToVector(vector: ByteVector, flag: Flag, baseW:Int, baseH:Int){
         val w=this.size
         val h=this[0].size
         val stepW:Int = if(flag.isChecked(Flag.Parameter.GlobalBase))baseW else 1
@@ -94,7 +94,7 @@ class TripleDataOpcMatrix {
         }
 
     }
-    private fun Array<Array<DataOpc>>.readBaseFromVector(vector: ByteVector, flag: Flag){
+    private fun Array<Array<DataOpcOld>>.readBaseFromVector(vector: ByteVector, flag: Flag){
         val w=vector.getNextShort()
         val h=vector.getNextShort()
         val stepW:Int = if(flag.isChecked(Flag.Parameter.GlobalBase))vector.getNextShort().toInt() else 1
@@ -110,14 +110,14 @@ class TripleDataOpcMatrix {
         }
     }
 
-    private fun createMatrixFromVectorBase(vector: ByteVector,flag: Flag):Array<Array<DataOpc>>{
+    private fun createMatrixFromVectorBase(vector: ByteVector,flag: Flag):Array<Array<DataOpcOld>>{
         val w=vector.getNextShort()
         val h=vector.getNextShort()
         val stepW:Int = if(flag.isChecked(Flag.Parameter.GlobalBase))vector.getNextShort().toInt() else 1
         val stepH:Int = if(flag.isChecked(Flag.Parameter.GlobalBase))vector.getNextShort().toInt() else 1
 
 
-        val res= Array(w.toInt(),{ x-> Array(h.toInt()){y->DataOpc() }})
+        val res= Array(w.toInt(),{ x-> Array(h.toInt()){y-> DataOpcOld() }})
         var base:ShortArray=kotlin.ShortArray(SIZEOFBLOCK)
         for(i in 0 until w){
             for(j in 0 until h){
@@ -128,7 +128,7 @@ class TripleDataOpcMatrix {
         }
         return res
     }
-    private fun Array<Array<DataOpc>>.readDataFromVector(vector: ByteVector,flag: Flag){
+    private fun Array<Array<DataOpcOld>>.readDataFromVector(vector: ByteVector, flag: Flag){
         val w=vector.getNextShort()
         val h=vector.getNextShort()
         for (s in this){
@@ -139,14 +139,14 @@ class TripleDataOpcMatrix {
     }
 
 
-    fun Array<Array<DataOpc>>?.Equals(other:Any?):Boolean{
+    fun Array<Array<DataOpcOld>>?.Equals(other:Any?):Boolean{
         if (this === other) return true
         val cl=other?.javaClass
         val jc=this?.javaClass
         if (this?.javaClass != other?.javaClass) return false
 
-        val buf:Array<Array<DataOpc>> = other as Array<Array<DataOpc>>?:return false
-        val buf1:Array<Array<DataOpc>> = this as Array<Array<DataOpc>>?:return false
+        val buf:Array<Array<DataOpcOld>> = other as Array<Array<DataOpcOld>>?:return false
+        val buf1:Array<Array<DataOpcOld>> = this as Array<Array<DataOpcOld>>?:return false
         if(buf1.size!= buf.size)
             return false
         if(buf1[0].size!= buf.get(0).size)
@@ -170,8 +170,8 @@ class TripleDataOpcMatrix {
         box.c=c?.copy()
         return box
     }
-    fun Array<Array<DataOpc>>?.copy():Array<Array<DataOpc>>?{
-        val buf:Array<Array<DataOpc>> = this?:return null
+    fun Array<Array<DataOpcOld>>?.copy():Array<Array<DataOpcOld>>?{
+        val buf:Array<Array<DataOpcOld>> = this?:return null
         val w=buf.size?:0
         val h=buf.get(0).size?:0
         val arr=Array(w,{x->Array(h,{y-> buf.get(x).get(y).copy()}) })

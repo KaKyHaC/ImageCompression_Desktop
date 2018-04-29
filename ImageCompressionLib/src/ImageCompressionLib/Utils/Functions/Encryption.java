@@ -1,7 +1,7 @@
 package ImageCompressionLib.Utils.Functions;
 
 
-import ImageCompressionLib.Containers.DataOpc;
+import ImageCompressionLib.Containers.DataOpcOld;
 import ImageCompressionLib.Containers.TripleDataOpcMatrix;
 import org.jetbrains.annotations.NotNull;
 
@@ -22,7 +22,7 @@ public class Encryption { //singleton
         Encryption.encode(bopc.getC());
     }
 
-    private static void encode(DataOpc[][] dopcs){
+    private static void encode(DataOpcOld[][] dopcs){
         for(int i=0;i<dopcs.length;i++){
             for(int j =0;j<dopcs[0].length;j++){
                 encode(dopcs[i][j]);
@@ -30,8 +30,8 @@ public class Encryption { //singleton
         }
     }
 
-    private static void encode(DataOpc DataOpc){
-        DataOpc.setBase(encode(DataOpc.getBase()));
+    private static void encode(DataOpcOld DataOpcOld){
+        DataOpcOld.setBase(encode(DataOpcOld.getBase()));
     }
 
     // метод для шифровки текста с помощью XOR

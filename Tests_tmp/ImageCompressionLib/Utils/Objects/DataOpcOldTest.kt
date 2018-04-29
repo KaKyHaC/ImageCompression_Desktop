@@ -2,7 +2,7 @@ package ImageCompressionLib.Utils.Objects
 
 import ImageCompressionLib.Constants.SIZEOFBLOCK
 import ImageCompressionLib.Containers.ByteVector
-import ImageCompressionLib.Containers.DataOpc
+import ImageCompressionLib.Containers.DataOpcOld
 import ImageCompressionLib.Containers.Flag
 
 import org.junit.Assert.*
@@ -13,9 +13,9 @@ import java.math.BigInteger
 import java.util.*
 import kotlin.test.assertFails
 
-class DataOpcTest {
-    var dopc=DataOpc()
-    var dopc1= DataOpc()
+class DataOpcOldTest {
+    var dopc= DataOpcOld()
+    var dopc1= DataOpcOld()
     val rand=Random()
 
     @Test
@@ -83,7 +83,7 @@ class DataOpcTest {
         AssertDataOpcEqual(dopc,dopc1)
 
         dopc.N= BigInteger("292304395025234324")
-        dopc.vectorCode=DataOpc().vectorCode
+        dopc.vectorCode= DataOpcOld().vectorCode
         assertFails { AssertDataOpcEqual(dopc1,dopc) }
 
 //        f.isLongvectorCode=false
@@ -147,8 +147,8 @@ class DataOpcTest {
     }
     @Test
     fun TestAssertFun(){
-        var dopc=DataOpc()
-        var dopc1=DataOpc()
+        var dopc= DataOpcOld()
+        var dopc1= DataOpcOld()
         AssertDataOpcEqual(dopc,dopc1)
 
         initDopc(dopc)
@@ -169,8 +169,8 @@ class DataOpcTest {
         assertFails { AssertDataOpcEqual(dopc,dopc1) }
     }
 
-    fun DataOpc.copy():DataOpc{
-        var res=DataOpc()
+    fun DataOpcOld.copy(): DataOpcOld {
+        var res= DataOpcOld()
         res.N= BigInteger(N.toByteArray())
         res.DC=DC
         for(i in 0..SIZEOFBLOCK-1) {
@@ -184,7 +184,7 @@ class DataOpcTest {
         return res
     }
 
-    fun AssertDataOpcEqual(a:DataOpc,b:DataOpc){
+    fun AssertDataOpcEqual(a: DataOpcOld, b: DataOpcOld){
         for(i in 0..a.base.size-1)
             assertEquals("at $i base ${a.base[i]}!=${b.base[i]}",a.base[i],b.base[i])
 
@@ -199,33 +199,33 @@ class DataOpcTest {
 
         assertEquals("BI ${a.N}!=${b.N}",a.N,b.N)
     }
-    fun initDopc(DataOpc: DataOpc){
+    fun initDopc(DataOpcOld: DataOpcOld){
         val size=5
         for(i in 0..size)
-            DataOpc.vectorCode.addElement(rand.nextLong())
+            DataOpcOld.vectorCode.addElement(rand.nextLong())
 
-        DataOpc.DC=rand.nextInt().toShort()
-        DataOpc.N= BigInteger(kotlin.ByteArray(size,{x->x.toByte()}))
-        DataOpc.N= BigInteger("342352522332214")
-        forEach(SIZEOFBLOCK,SIZEOFBLOCK,{x, y -> DataOpc.base[x]=rand.nextInt(0xff).toShort() })
-        forEach(SIZEOFBLOCK,SIZEOFBLOCK,{x, y -> DataOpc.sign[x][y]=rand.nextBoolean() })
+        DataOpcOld.DC=rand.nextInt().toShort()
+        DataOpcOld.N= BigInteger(kotlin.ByteArray(size,{ x->x.toByte()}))
+        DataOpcOld.N= BigInteger("342352522332214")
+        forEach(SIZEOFBLOCK,SIZEOFBLOCK,{x, y -> DataOpcOld.base[x]=rand.nextInt(0xff).toShort() })
+        forEach(SIZEOFBLOCK,SIZEOFBLOCK,{x, y -> DataOpcOld.sign[x][y]=rand.nextBoolean() })
 
     }
-    fun initDopc(DataOpc: DataOpc,flag: Flag){
+    fun initDopc(DataOpcOld: DataOpcOld, flag: Flag){
         val size=5
         if(flag.isChecked(Flag.Parameter.LongCode))
             for(i in 0..size)
-                DataOpc.vectorCode.addElement(rand.nextLong())
+                DataOpcOld.vectorCode.addElement(rand.nextLong())
         else
-            DataOpc.N= BigInteger(kotlin.ByteArray(size,{x->x.toByte()}))
+            DataOpcOld.N= BigInteger(kotlin.ByteArray(size,{ x->x.toByte()}))
 
         if(flag.isChecked(Flag.Parameter.DC))
-            DataOpc.DC=rand.nextInt().toShort()
+            DataOpcOld.DC=rand.nextInt().toShort()
 
         if(flag.isChecked(Flag.Parameter.OneFile)&&!flag.isChecked(Flag.Parameter.GlobalBase))
-            forEach(SIZEOFBLOCK,SIZEOFBLOCK,{x, y -> DataOpc.base[x]=rand.nextInt(0xff).toShort() })
+            forEach(SIZEOFBLOCK,SIZEOFBLOCK,{x, y -> DataOpcOld.base[x]=rand.nextInt(0xff).toShort() })
 
-        forEach(SIZEOFBLOCK,SIZEOFBLOCK,{x, y -> DataOpc.sign[x][y]=rand.nextBoolean() })
+        forEach(SIZEOFBLOCK,SIZEOFBLOCK,{x, y -> DataOpcOld.sign[x][y]=rand.nextBoolean() })
 
     }
     fun forEach(w:Int,h:Int,let:(x:Int,y:Int)->Unit){

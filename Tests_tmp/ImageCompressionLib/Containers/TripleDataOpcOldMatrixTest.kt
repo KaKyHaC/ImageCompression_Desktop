@@ -1,15 +1,14 @@
 package ImageCompressionLib.Containers
 
 import ImageCompressionLib.Constants.SIZEOFBLOCK
-import ImageCompressionLib.Utils.Objects.DctConvertor
 import org.junit.Test
 
 import org.junit.Assert.*
 import org.junit.Before
 import java.math.BigInteger
 
-class TripleDataOpcMatrixTest {
-    val dopc=DataOpc()
+class TripleDataOpcOldMatrixTest {
+    val dopc= DataOpcOld()
     val flag=Flag()
     @Before
     fun init(){

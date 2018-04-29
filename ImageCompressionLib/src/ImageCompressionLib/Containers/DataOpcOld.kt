@@ -2,11 +2,11 @@ package ImageCompressionLib.Containers
 
 import java.math.BigInteger
 import java.util.*
-
+@Deprecated("use DataOpc")
 /**
  * Created by Димка on 27.09.2016.
  */
-class DataOpc {
+class DataOpcOld {
     var base: ShortArray
     var sign: Array<BooleanArray>
     var DC: Short = 0
@@ -215,7 +215,7 @@ class DataOpc {
         return sb.toString()
     }
     @Deprecated("use ByteVector")
-    fun setFrom(s: String, flag: Flag): DataOpc {
+    fun setFrom(s: String, flag: Flag): DataOpcOld {
         val offset = SIZEOFBLOCK
         var index = 0
 
@@ -273,7 +273,7 @@ class DataOpc {
 
         return vector
     }
-    fun setFrom(vector: ByteVector, f: Flag): DataOpc {
+    fun setFrom(vector: ByteVector, f: Flag): DataOpcOld {
         if (f.isChecked(Flag.Parameter.DC))
             FromVectorToDc(vector)
 
@@ -295,10 +295,10 @@ class DataOpc {
     override fun equals(other: Any?): Boolean {
         if (this === other)
             return true
-        if (other!!.javaClass != DataOpc::class.java)
+        if (other!!.javaClass != DataOpcOld::class.java)
             return false
 
-        val d = other as DataOpc?
+        val d = other as DataOpcOld?
         if (d!!.DC != DC)
             return false
         for (i in 0 until SIZEOFBLOCK) {
@@ -326,13 +326,13 @@ class DataOpc {
         result = 31 * result + vectorCode.hashCode()
         return result
     }
-    fun copy():DataOpc{
-        val res=DataOpc()
+    fun copy(): DataOpcOld {
+        val res= DataOpcOld()
         res.N= BigInteger(N.toByteArray())
         res.DC=DC
-        for(i in 0..DataOpc.SIZEOFBLOCK -1) {
+        for(i in 0..DataOpcOld.SIZEOFBLOCK -1) {
             res.base[i]=base[i]
-            for(j in 0..DataOpc.SIZEOFBLOCK -1)
+            for(j in 0..DataOpcOld.SIZEOFBLOCK -1)
                 res.sign[i][j]=sign[i][j]
         }
         for (i in 0..vectorCode.size-1)
@@ -364,15 +364,15 @@ class DataOpc {
         }
 
         @JvmStatic
-        fun valueOf(byteVector: ByteVector, flag: Flag): DataOpc {
-            val dataOpc=DataOpc()
+        fun valueOf(byteVector: ByteVector, flag: Flag): DataOpcOld {
+            val dataOpc= DataOpcOld()
             dataOpc.setFrom(byteVector,flag)
             return dataOpc
         }
 
         @JvmStatic
-        fun valueOf(s:String,flag: Flag): DataOpc {
-            val dataOpc=DataOpc()
+        fun valueOf(s:String,flag: Flag): DataOpcOld {
+            val dataOpc= DataOpcOld()
             dataOpc.setFrom(s,flag)
             return dataOpc
         }
