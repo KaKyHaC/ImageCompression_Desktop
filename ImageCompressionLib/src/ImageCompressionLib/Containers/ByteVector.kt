@@ -1,5 +1,7 @@
 package ImageCompressionLib.Containers
 
+import ImageCompressionLib.Constants.BITS_PER_BYTE
+import ImageCompressionLib.Constants.ONE_LEFT_BIT
 import java.util.*
 
 /**
@@ -7,9 +9,6 @@ import java.util.*
  * Iterator for Array<Byte>
  */
 class ByteVector:Iterable<Byte> {
-    companion object {
-        @JvmStatic val BITS_IN_BYTE=8
-    }
     var bytes:Array<Byte>
     var size:Int
         private set;
@@ -46,17 +45,18 @@ class ByteVector:Iterable<Byte> {
         bytes[size++]=byte
     }
     fun append(short:Short){
-        append((short.toInt() shr BITS_IN_BYTE).toByte())
+        append((short.toInt() shr BITS_PER_BYTE).toByte())
         append(short.toByte())
     }
     fun append(long: Long){
-        append((long shr (BITS_IN_BYTE *7)).toByte())
-        append((long shr (BITS_IN_BYTE *6)).toByte())
-        append((long shr (BITS_IN_BYTE *5)).toByte())
-        append((long shr (BITS_IN_BYTE *4)).toByte())
-        append((long shr (BITS_IN_BYTE *3)).toByte())
-        append((long shr (BITS_IN_BYTE *2)).toByte())
-        append((long shr BITS_IN_BYTE).toByte())
+        //todo replace with tmp
+        append((long shr (BITS_PER_BYTE *7)).toByte())
+        append((long shr (BITS_PER_BYTE *6)).toByte())
+        append((long shr (BITS_PER_BYTE *5)).toByte())
+        append((long shr (BITS_PER_BYTE *4)).toByte())
+        append((long shr (BITS_PER_BYTE *3)).toByte())
+        append((long shr (BITS_PER_BYTE *2)).toByte())
+        append((long shr BITS_PER_BYTE).toByte())
         append(long.toByte())
     }
 
@@ -73,84 +73,81 @@ class ByteVector:Iterable<Byte> {
 
     fun getShortFrom(index: Int):Short{
         var res=bytes[index].toInt()and 0xFF
-        res=(res shl BITS_IN_BYTE)
+        res=(res shl BITS_PER_BYTE)
         res = res or (bytes[index+1].toInt()and 0xFF)
         return res.toShort()
     }
     fun getNextShort():Short{
         var res=bytes[curIndex++].toInt()and 0xFF
-        res=(res shl BITS_IN_BYTE)
+        res=(res shl BITS_PER_BYTE)
         res = res or (bytes[curIndex++].toInt()and 0xFF)
         return res.toShort()
     }
 
     fun getLongFrom(index: Int):Long{
         var res=(bytes[index].toLong() and 0xFF)
-        res=(res shl BITS_IN_BYTE)
+        res=(res shl BITS_PER_BYTE)
         res = res or (bytes[index+1].toLong()and 0xFF)
-        res=(res shl BITS_IN_BYTE)
+        res=(res shl BITS_PER_BYTE)
         res = res or (bytes[index+2].toLong()and 0xFF)
-        res=(res shl BITS_IN_BYTE)
+        res=(res shl BITS_PER_BYTE)
         res = res or (bytes[index+3].toLong()and 0xFF)
-        res=(res shl BITS_IN_BYTE)
+        res=(res shl BITS_PER_BYTE)
         res = res or (bytes[index+4].toLong()and 0xFF)
-        res=(res shl BITS_IN_BYTE)
+        res=(res shl BITS_PER_BYTE)
         res = res or (bytes[index+5].toLong()and 0xFF)
-        res=(res shl BITS_IN_BYTE)
+        res=(res shl BITS_PER_BYTE)
         res = res or (bytes[index+6].toLong()and 0xFF)
-        res=(res shl BITS_IN_BYTE)
+        res=(res shl BITS_PER_BYTE)
         res = res or (bytes[index+7].toLong()and 0xFF)
         return res
     }
     fun getNextLong():Long{
         var res=(bytes[curIndex++].toLong() and 0xFF)
-        res=(res shl BITS_IN_BYTE)
+        res=(res shl BITS_PER_BYTE)
         res = res or (bytes[curIndex++].toLong()and 0xFF)
-        res=(res shl BITS_IN_BYTE)
+        res=(res shl BITS_PER_BYTE)
         res = res or (bytes[curIndex++].toLong()and 0xFF)
-        res=(res shl BITS_IN_BYTE)
+        res=(res shl BITS_PER_BYTE)
         res = res or (bytes[curIndex++].toLong()and 0xFF)
-        res=(res shl BITS_IN_BYTE)
+        res=(res shl BITS_PER_BYTE)
         res = res or (bytes[curIndex++].toLong()and 0xFF)
-        res=(res shl BITS_IN_BYTE)
+        res=(res shl BITS_PER_BYTE)
         res = res or (bytes[curIndex++].toLong()and 0xFF)
-        res=(res shl BITS_IN_BYTE)
+        res=(res shl BITS_PER_BYTE)
         res = res or (bytes[curIndex++].toLong()and 0xFF)
-        res=(res shl BITS_IN_BYTE)
+        res=(res shl BITS_PER_BYTE)
         res = res or (bytes[curIndex++].toLong()and 0xFF)
         return res
     }
 
-    private var bitSetCounter= BITS_IN_BYTE
+    private var bitSetCounter= BITS_PER_BYTE
     private var boolByteSetIndex=0
     fun append(boolean: Boolean){
-        if(bitSetCounter == BITS_IN_BYTE){
+        if(bitSetCounter == BITS_PER_BYTE){
             bitSetCounter=0
             boolByteSetIndex=size++
         }
         if(size>=maxSize-1)
             grow(maxSize*2)
 
-        val v=if(boolean)1 else 0
-        var tmp=bytes[boolByteSetIndex].toInt() and 0xff
-        tmp=tmp shl 1
+        val v=if(boolean) Math.pow(2.0,bitSetCounter.toDouble()).toInt() else 0
+        var tmp=bytes[boolByteSetIndex].toInt()// and 0xff
         tmp=tmp or v
         bytes[boolByteSetIndex]=tmp.toByte()
         bitSetCounter++
     }
 
-    private var bitGetCounter= BITS_IN_BYTE
+    private var bitGetCounter= BITS_PER_BYTE
     private var boolByteGetIndex=0
     fun getNextBoolean():Boolean{
-        if(bitGetCounter == BITS_IN_BYTE){
+        if(bitGetCounter == BITS_PER_BYTE){
             bitGetCounter=0
             boolByteGetIndex=curIndex++
         }
 
-        var tmp=bytes[boolByteGetIndex].toInt() and 0xff
-        val res=tmp and 1 == 1
-        tmp=tmp shr 1
-        bytes[boolByteGetIndex]=tmp.toByte()
+        val bitN=Math.pow(2.0,bitGetCounter.toDouble()).toInt()
+        val res=bytes[boolByteGetIndex].toInt() and bitN == bitN
         bitGetCounter++
         return res
     }

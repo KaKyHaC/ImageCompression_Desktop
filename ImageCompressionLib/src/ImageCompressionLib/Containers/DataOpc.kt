@@ -2,6 +2,7 @@ package ImageCompressionLib.Containers
 
 import java.math.BigInteger
 import java.util.*
+import kotlin.experimental.and
 
 class DataOpc {
     var base: ShortArray
@@ -75,7 +76,7 @@ class DataOpc {
 
     fun FromBaseToVector(vector: ByteVector, flag: Flag, height: Int) {
         var i=0
-        if(!flag.isChecked(Flag.Parameter.DC))
+        if(!flag.isChecked(Flag.Parameter.DC)&&flag.isChecked(Flag.Parameter.DCT))
             vector.append(base[i++])
         while (i< height){
             vector.append(base[i++].toByte())
@@ -83,10 +84,10 @@ class DataOpc {
     }
     fun FromVectorToBase(vector: ByteVector, flag: Flag, height: Int) {
         var i=0
-        if(!flag.isChecked(Flag.Parameter.DC))
+        if(!flag.isChecked(Flag.Parameter.DC)&&flag.isChecked(Flag.Parameter.DCT))
             base[i++]=vector.getNextShort()
         while (i< height){
-            base[i++]=vector.getNext().toShort()
+            base[i++]=vector.getNext().toShort() and 0xff
         }
     }
 
@@ -154,26 +155,30 @@ class DataOpc {
         if (this === other)
             return true
         if (other!!.javaClass != DataOpc::class.java)
-            return false
+            throw Exception("other class ${other!!.javaClass}")//return false
 
         val d = other as DataOpc?
         if (d!!.DC != DC)
-            return false
+            throw Exception("DC: ${DC}!=${d.DC}")//return false
         for (i in 0 until base.size) {
             if (d.base[i] != base[i])
-                return false
+                throw Exception("base[$i]: ${base[i]}!=${d.base[i]}")//return false
             for (j in 0 until sign[0].size) {
                 if (d.sign[i][j] != sign[i][j])
-                    return false
+                    throw Exception("sign[$i][$j]: ${sign[i][j]}!=${d.sign[i][j]}")//return false
             }
         }
         if (d.vectorCode.size != vectorCode.size)
-            return false
+            throw Exception("vectorCode.size not equals")//return false
 
         for (i in vectorCode.indices) {
             if (d.vectorCode[i] != vectorCode[i])
-                return false
+                throw Exception("code[$i]: ${vectorCode[i]}!=${d.vectorCode[i]}")//return false
         }
+
+        if(N.compareTo(d.N)!=0)
+            throw Exception("BI: $N!=${d.N}")
+
         return true
     }
     override fun hashCode(): Int {

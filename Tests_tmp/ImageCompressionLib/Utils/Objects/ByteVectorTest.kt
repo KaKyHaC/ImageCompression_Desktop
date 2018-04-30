@@ -1,5 +1,6 @@
 package ImageCompressionLib.Utils.Objects
 
+import ImageCompressionLib.Constants.BITS_PER_BYTE
 import ImageCompressionLib.Containers.ByteVector
 import org.junit.Before
 
@@ -80,7 +81,7 @@ class ByteVectorTest {
         val t1=Date().time
         for(i in 0..loop) {
             var r = 18149322522L
-            r = (r shr (ByteVector.BITS_IN_BYTE))
+            r = (r shr (BITS_PER_BYTE))
             var g = (r).toByte()
         }
         val t2=Date().time
@@ -88,9 +89,9 @@ class ByteVectorTest {
         val t3=Date().time
         for(i in 0..loop) {
             var r = 18149322522L
-            var g=((r shr (ByteVector.BITS_IN_BYTE*3)).toByte())
-            g=((r shr (ByteVector.BITS_IN_BYTE*2)).toByte())
-            g=((r shr ByteVector.BITS_IN_BYTE).toByte())
+            var g=((r shr (BITS_PER_BYTE*3)).toByte())
+            g=((r shr (BITS_PER_BYTE*2)).toByte())
+            g=((r shr BITS_PER_BYTE).toByte())
             g=g
         }
         val t4=Date().time
