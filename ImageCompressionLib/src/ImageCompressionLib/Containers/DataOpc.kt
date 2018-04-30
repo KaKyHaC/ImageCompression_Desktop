@@ -1,6 +1,5 @@
 package ImageCompressionLib.Containers
 
-import ImageCompressionLib.Constants.BITS_PER_BYTE
 import java.math.BigInteger
 import java.util.*
 
@@ -18,21 +17,38 @@ class DataOpc {
         N = BigInteger("0")
         vectorCode = Vector()
     }
+    constructor(unitSize: Size){
+        base = ShortArray(unitSize.height)
+        sign = Array(unitSize.width) { BooleanArray(unitSize.height) }
+        DC = 0
+        N = BigInteger("0")
+        vectorCode = Vector()
+    }
+    constructor(DC: Short, N: BigInteger, vectorCode: Vector<Long>,base: ShortArray, sign: Array<BooleanArray>) {
+        this.base = base
+        this.sign = sign
+        this.DC = DC
+        this.N = N
+        this.vectorCode = vectorCode
+    }
 
-    fun FromBigIntToVector(vector: ByteVector, base: ShortArray) {
+
+    fun FromBigIntToVector(vector: ByteVector, length:Int) {
         val code = N.toByteArray()
 //        vector.append((short)code.length);
-        var length = getLengthOfCode(base)
-        while (length-- > code.size)
+//        var length = getLengthOfCode(base)
+        var len=length
+        while (len-- > code.size)
             vector.append(0.toByte())
 
         for (b in code) {
             vector.append(b)
         }
     }
-    fun FromVectorToBigInt(vector: ByteVector, base: ShortArray) {
+    fun FromVectorToBigInt(vector: ByteVector, length: Int) {
 //        int len=vector.getNextShort();
-        val len = getLengthOfCode(base)
+//        val len = getLengthOfCode(base)
+        val len =length
         val code = ByteArray(len)
         for (i in 0 until len) {
             code[i] = vector.getNext()
@@ -40,92 +56,38 @@ class DataOpc {
         N = BigInteger(code)
     }
 
-    fun FromSignToArray(): ByteArray {
-        val res = ByteArray(SIZEOFBLOCK)
-        for (i in 0 until SIZEOFBLOCK) {
-            for (j in 0 until SIZEOFBLOCK) {
-                res[i] = (res[i].toInt() shl 1).toByte()
-                if (sign[i][j]) {
-                    res[i] = (res[i].toInt() or 1).toByte()
-                }
+
+    fun FromSignToVector(vector: ByteVector,size: Size) {
+        for (i in 0 until size.width) {
+            for (j in 0 until size.height) {
+                vector.append(sign[i][j])
             }
         }
-        return res
     }
-    fun FromArrayToSing(s: ByteArray) {
-        for (i in SIZEOFBLOCK - 1 downTo 0) {
-            for (j in SIZEOFBLOCK - 1 downTo 0) {
-                sign[i][j] = (s[i].toInt() and 1 == 1)
-                s[i] = (s[i].toInt() shr 1).toByte()
+    fun FromVectorToSign(vector: ByteVector,size: Size) {
+        for (i in 0 until size.width) {
+            for (j in 0 until size.height) {
+                sign[i][j] = vector.getNextBoolean()
             }
         }
     }
 
-    fun FromSignToVector(vector: ByteVector) {
-        for (i in 0 until SIZEOFBLOCK) {
-            var res: Byte = 0
-            for (j in 0 until SIZEOFBLOCK) {
-                res = (res.toInt() shl 1).toByte()
-                if (sign[i][j]) {
-                    res = (res.toInt() or 1).toByte()
-                }
-            }
-            vector.append(res)
+
+    fun FromBaseToVector(vector: ByteVector, flag: Flag, height: Int) {
+        var i=0
+        if(!flag.isChecked(Flag.Parameter.DC))
+            vector.append(base[i++])
+        while (i< height){
+            vector.append(base[i++].toByte())
         }
     }
-    fun FromVectorToSign(vector: ByteVector) {
-        for (i in 0 until SIZEOFBLOCK) {
-            var s = vector.getNext()
-            for (j in SIZEOFBLOCK - 1 downTo 0) {
-                sign[i][j] = (s.toInt() and 1 == 1)
-                s = (s.toInt() shr 1).toByte()
-            }
+    fun FromVectorToBase(vector: ByteVector, flag: Flag, height: Int) {
+        var i=0
+        if(!flag.isChecked(Flag.Parameter.DC))
+            base[i++]=vector.getNextShort()
+        while (i< height){
+            base[i++]=vector.getNext().toShort()
         }
-    }
-
-    fun FromBaseToArray(): ShortArray {
-        val res = ShortArray(SIZEOFBLOCK)
-        System.arraycopy(base, 0, res, 0, res.size)
-        return res
-    }
-    fun FromArrayToBase(b: ShortArray) {
-        System.arraycopy(b, 0, base, 0, b.size)
-    }
-
-    fun FromBaseToVector(vector: ByteVector) {
-        //        if(!flag.isDC()){
-        //            vector.append(base[i++]);
-        //        }
-        //        while (i<SIZEOFBLOCK){
-        //            assert (base[i]<0xff):"base["+i+"]="+base[i];
-        //            vector.append((byte)base[i++]);
-        //        }
-        vector.append(base[0])
-        vector.append(base[1])
-        vector.append(base[2])
-        vector.append(base[3])
-
-        vector.append(base[4])
-        vector.append(base[5])
-        vector.append(base[6])
-        vector.append(base[7])
-    }
-    fun FromVectorToBase(vector: ByteVector) {
-        //        if(!flag.isDC()){
-        //            base[i++]=vector.getNextShort();
-        //        }
-        //        while (i<SIZEOFBLOCK) {
-        //            base[i++]=(short)((vector.getNext())&0xff);
-        //        }
-        base[0] = vector.getNextShort()
-        base[1] = vector.getNextShort()
-        base[2] = vector.getNextShort()
-        base[3] = vector.getNextShort()
-
-        base[4] = vector.getNextShort()
-        base[5] = vector.getNextShort()
-        base[6] = vector.getNextShort()
-        base[7] = vector.getNextShort()
     }
 
     fun FromDcToVector(vector: ByteVector) {
@@ -150,38 +112,39 @@ class DataOpc {
         }
     }
 
-
-    fun toByteVector(vector: ByteVector, f: Flag): ByteVector {
+    fun toByteVector(vector: ByteVector, parameters: Parameters): ByteVector {
+        val f=parameters.flag
         if (f.isChecked(Flag.Parameter.DC))
             FromDcToVector(vector)
 
         if (!f.isChecked(Flag.Parameter.GlobalBase) && f.isChecked(Flag.Parameter.OneFile))
-            FromBaseToVector(vector)
+            FromBaseToVector(vector,f,parameters.unitSize.height)
 
         if (f.isChecked(Flag.Parameter.LongCode))
             FromCodeToVector(vector)
         else
-            FromBigIntToVector(vector, base)
+            FromBigIntToVector(vector,getLengthOfCode(base,parameters.unitSize))
 
         if(f.isChecked(Flag.Parameter.DCT))
-            FromSignToVector(vector)
+            FromSignToVector(vector,parameters.unitSize)
 
         return vector
     }
-    fun setFrom(vector: ByteVector, f: Flag): DataOpc {
+    fun setFrom(vector: ByteVector, parameters: Parameters): DataOpc {
+        val f = parameters.flag
         if (f.isChecked(Flag.Parameter.DC))
             FromVectorToDc(vector)
 
         if (!f.isChecked(Flag.Parameter.GlobalBase) && f.isChecked(Flag.Parameter.OneFile))
-            FromVectorToBase(vector)
+            FromVectorToBase(vector,f,parameters.unitSize.height)
 
         if (f.isChecked(Flag.Parameter.LongCode))
             FromVectorToCode(vector)
         else
-            FromVectorToBigInt(vector, base)
+            FromVectorToBigInt(vector, getLengthOfCode(base,parameters.unitSize))
 
         if(f.isChecked(Flag.Parameter.DCT))
-            FromVectorToSign(vector)
+            FromVectorToSign(vector,parameters.unitSize)
 
         return this
     }
@@ -190,16 +153,16 @@ class DataOpc {
     override fun equals(other: Any?): Boolean {
         if (this === other)
             return true
-        if (other!!.javaClass != DataOpcOld::class.java)
+        if (other!!.javaClass != DataOpc::class.java)
             return false
 
-        val d = other as DataOpcOld?
+        val d = other as DataOpc?
         if (d!!.DC != DC)
             return false
-        for (i in 0 until SIZEOFBLOCK) {
+        for (i in 0 until base.size) {
             if (d.base[i] != base[i])
                 return false
-            for (j in 0 until SIZEOFBLOCK) {
+            for (j in 0 until sign[0].size) {
                 if (d.sign[i][j] != sign[i][j])
                     return false
             }
@@ -221,54 +184,40 @@ class DataOpc {
         result = 31 * result + vectorCode.hashCode()
         return result
     }
-    fun copy(): DataOpcOld {
-        val res= DataOpcOld()
-        res.N= BigInteger(N.toByteArray())
-        res.DC=DC
-        for(i in 0..DataOpcOld.SIZEOFBLOCK -1) {
-            res.base[i]=base[i]
-            for(j in 0..DataOpcOld.SIZEOFBLOCK -1)
-                res.sign[i][j]=sign[i][j]
-        }
-        for (i in 0..vectorCode.size-1)
-            res.vectorCode.addElement(vectorCode[i])
+    fun copy(): DataOpc {
+        val rN= BigInteger(N.toByteArray())
+        val rDC=DC
+        val rbase=ShortArray(base.size){base[it]}
+        val rsign=Array(sign.size){i->BooleanArray(sign[0].size){j->sign[i][j]}}
+        val rcode=Vector<Long>()
+        for(el in this.vectorCode)
+            rcode.addElement(el)
 
-        return res
+        return DataOpc(rDC,rN,rcode,rbase,rsign)
     }
 
-    fun getByteSize(flag: Flag): Long {
+    fun getByteSize(parameters: Parameters): Int {
         val vector = ByteVector(10)
-        toByteVector(vector, flag)
-        return vector.size.toLong()
+        toByteVector(vector, parameters)
+        return vector.size
     }
 
 
     companion object {
-        val SIZEOFBLOCK = 8
-
         //support utils
-        private fun getLengthOfCode(base: ShortArray): Int {//TODO optimize this fun
+        private fun getLengthOfCode(base: ShortArray,unitSize: Size): Int {//TODO optimize this fun
             var bi = BigInteger("1")
-            for (i in 0 until SIZEOFBLOCK) {
-                for (j in 0 until SIZEOFBLOCK)
+            for (i in 0 until unitSize.width) {
+                for (j in 0 until unitSize.height)
                     bi = bi.multiply(BigInteger.valueOf(base[i].toLong()))
             }
-            //        if(bi.compareTo(N)<0)
-            //            System.out.println("Alarm");
             return bi.toByteArray().size
         }
 
         @JvmStatic
-        fun valueOf(byteVector: ByteVector, flag: Flag): DataOpcOld {
-            val dataOpc= DataOpcOld()
-            dataOpc.setFrom(byteVector,flag)
-            return dataOpc
-        }
-
-        @JvmStatic
-        fun valueOf(s:String,flag: Flag): DataOpcOld {
-            val dataOpc= DataOpcOld()
-            dataOpc.setFrom(s,flag)
+        fun valueOf(byteVector: ByteVector, parameters: Parameters): DataOpc {
+            val dataOpc = DataOpc(parameters)
+            dataOpc.setFrom(byteVector,parameters)
             return dataOpc
         }
     }
