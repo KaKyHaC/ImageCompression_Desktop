@@ -36,9 +36,8 @@ class DataOpcTest {
         assertEquals(dataOpc,res)
     }
     @Test
-    fun toSignByteVector() {
+    fun signToByteVector() {
         val f=Flag.createDefaultFlag()
-        val parameters=Parameters(f, Size(100,100),size)
         val vector=ByteVector()
         val cpy=dataOpc.copy()
 
