@@ -39,6 +39,26 @@ class ShortMatrix {
         }
     }
 
+    fun copy():ShortMatrix{
+        return ShortMatrix(width,height){i, j -> matrix[i][j] }
+    }
+    fun assertInRange(other:ShortMatrix,range:Int): Boolean {
+        if(width!=other.width)
+            throw Exception("width: $width!=${other.width}")
+        if(height!=other.height)
+            throw Exception("height: $height!=${other.height}")
+        for(i in 0 until width){
+            for(j in 0 until height){
+                var inRange=false
+                for(r in -range..range)
+                    if(matrix[i][j]+r==other[i][j].toInt())
+                        inRange=true
+                if(!inRange)
+                    throw Exception("data[$i][$j]: ${matrix[i][j]}!=${other[i][j]}")
+            }
+        }
+        return true
+    }
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
@@ -52,13 +72,18 @@ class ShortMatrix {
 
         return true
     }
-
     override fun hashCode(): Int {
         return Arrays.hashCode(matrix)
     }
-
     override fun toString(): String {
-        return "ShortMatrix(matrix=${Arrays.toString(matrix)})"
+        val sb=StringBuilder()
+        for(i in 0 until width){
+            for(j in 0 until height){
+                sb.append("${matrix[i][j]},")
+            }
+            sb.append("\n")
+        }
+        return sb.toString()
     }
 
     fun toShortArray(): Array<ShortArray> {

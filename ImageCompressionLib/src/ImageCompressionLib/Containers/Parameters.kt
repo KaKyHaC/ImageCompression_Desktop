@@ -1,5 +1,4 @@
 package ImageCompressionLib.Containers
-
 import ImageCompressionLib.Constants.SIZEOFBLOCK
 
 class Parameters {
