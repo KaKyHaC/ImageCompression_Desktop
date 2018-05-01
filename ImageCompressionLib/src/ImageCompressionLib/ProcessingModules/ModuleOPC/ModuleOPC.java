@@ -2,7 +2,7 @@ package ImageCompressionLib.ProcessingModules.ModuleOPC;
 
 
 import ImageCompressionLib.Containers.*;
-import ImageCompressionLib.Utils.Objects.OpcConvertor;
+import ImageCompressionLib.Utils.Objects.OpcConvertorOld;
 import org.jetbrains.annotations.NotNull;
 //import com.sun.glass.ui.Size;
 
@@ -19,7 +19,7 @@ public class ModuleOPC extends AbsModuleOPC{
 //    private TripleDataOpcMatrix tripleOPC;
 //    private int widthOPC,heightOPC;
 //    private TripleShortMatrix getTripleShort();
-    private OpcConvertor a,b,c;
+    private OpcConvertorOld a,b,c;
 //    private Flag flag;
     private final State state;
     private boolean isReady=false;
@@ -33,9 +33,9 @@ public class ModuleOPC extends AbsModuleOPC{
         this.isAsyn=isAsyn;
         state=State.Data;
         
-        a=new OpcConvertor(getTripleShort().getA(),flag);
-        b=new OpcConvertor(getTripleShort().getB(),flag);
-        c=new OpcConvertor(getTripleShort().getC(),flag);
+        a=new OpcConvertorOld(getTripleShort().getA(),flag);
+        b=new OpcConvertorOld(getTripleShort().getB(),flag);
+        c=new OpcConvertorOld(getTripleShort().getC(),flag);
         
 //        this.getTripleShort()=getTripleShort();
 
@@ -54,9 +54,9 @@ public class ModuleOPC extends AbsModuleOPC{
         super(tripleDataOpc,flag);
 //        this.getByteVectorContainer() = getByteVectorContainer();
 
-        a=new OpcConvertor(tripleDataOpc.getA(),flag);
-        b=new OpcConvertor(tripleDataOpc.getB(),flag);
-        c=new OpcConvertor(tripleDataOpc.getC(),flag);
+        a=new OpcConvertorOld(tripleDataOpc.getA(),flag);
+        b=new OpcConvertorOld(tripleDataOpc.getB(),flag);
+        c=new OpcConvertorOld(tripleDataOpc.getC(),flag);
 
         int widthOPC= tripleDataOpc.getA().length;
         int heightOPC= tripleDataOpc.getA()[0].length;

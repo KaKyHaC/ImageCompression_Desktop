@@ -8,7 +8,8 @@ import ImageCompressionLib.Utils.Functions.OPCMultiThread;
 
 import static ImageCompressionLib.Utils.Functions.OPCMultiThread.SIZEOFBLOCK;
 
-public class OpcConvertor {
+@Deprecated
+public class OpcConvertorOld {
     enum State{Opc,Origin}
     final State state;
     short[][] dataOrigin;
@@ -16,13 +17,13 @@ public class OpcConvertor {
     Flag flag;
     boolean isReady=false;
 
-    public OpcConvertor(short[][] dataOrigin, Flag flag) {
+    public OpcConvertorOld(short[][] dataOrigin, Flag flag) {
         this.dataOrigin = dataOrigin;
         this.flag = flag;
         state=State.Origin;
     }
 
-    public OpcConvertor(DataOpcOld[][] dataOpcOlds, Flag flag) {
+    public OpcConvertorOld(DataOpcOld[][] dataOpcOlds, Flag flag) {
         this.dataOpcOlds = dataOpcOlds;
         this.flag = flag;
         state=State.Opc;
