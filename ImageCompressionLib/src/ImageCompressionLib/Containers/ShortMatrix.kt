@@ -77,8 +77,8 @@ class ShortMatrix {
     }
     override fun toString(): String {
         val sb=StringBuilder()
-        for(i in 0 until width){
-            for(j in 0 until height){
+        for(j in 0 until height){
+            for(i in 0 until width){
                 sb.append("${matrix[i][j]},")
             }
             sb.append("\n")

@@ -76,22 +76,5 @@ class OpcAlgorithmsKtTest {
         OpcReverseUseOnlyLong(matrixEmpty,dataOpc)
         assertEquals(matrixEmpty,cpy)
     }
-    @Test
-    fun testOPCWithMessageAtFirstInit() {
-        val cpy=matrix.copy()
-        val message=Random().nextBoolean()
-        OpcDirectWithMessageAtFirst(matrix,dataOpc,message)
-        val res =OpcReverceWithMessageAtFirst(matrixEmpty,dataOpc)
-        assertEquals(message,res)
 
-        cpy.assertInRange(matrixEmpty,2)
-    }
-//    @Test
-    fun testOPCWithMessageAtFirstNotInit() {
-        val cpy=matrix.copy()
-        val message=Random().nextBoolean()
-        OpcDirectWithMessageAtFirst(matrix,dataOpc,message)
-        OpcReverseDefault(matrixEmpty,dataOpc)
-        cpy.assertInRange(matrixEmpty,2)
-    }
 }
