@@ -34,8 +34,8 @@ import java.math.BigInteger
          for (i in 0 until dataOrigin.height) {
              dataOpc.base[i] = dataOrigin[i][0]
              for (j in 0 until dataOrigin.width) {
-                 if (dataOpc.base[i] < dataOrigin[i][j]) {
-                     dataOpc.base[i] = dataOrigin[i][j]
+                 if (dataOpc.base[i] < dataOrigin[j][i]) {
+                     dataOpc.base[i] = dataOrigin[j][i]
                  }
              }
              dataOpc.base[i]++
