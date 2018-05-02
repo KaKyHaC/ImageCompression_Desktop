@@ -1,6 +1,11 @@
 package ImageCompressionLib.Utils.Functions
 
 import ImageCompressionLib.Containers.*
+import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcDirectDefault
+import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcDirectLongAndBI
+import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcDirectUseOnlyLong
+import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcReverseDefault
+import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcReverseUseOnlyLong
 import org.junit.Test
 
 import org.junit.Assert.*

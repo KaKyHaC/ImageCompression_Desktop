@@ -1,6 +1,10 @@
 package ImageCompressionLib.Utils.Functions
 
 import ImageCompressionLib.Containers.*
+import ImageCompressionLib.Utils.Functions.OpcProcess.Companion.afterReverceOpcProcess
+import ImageCompressionLib.Utils.Functions.OpcProcess.Companion.directOPC
+import ImageCompressionLib.Utils.Functions.OpcProcess.Companion.preDirectOpcProcess
+import ImageCompressionLib.Utils.Functions.OpcProcess.Companion.reverseOPC
 import org.junit.Test
 
 import org.junit.Before

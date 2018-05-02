@@ -1,6 +1,10 @@
 package ImageCompressionLib.Utils.Functions
 
 import ImageCompressionLib.Containers.*
+import ImageCompressionLib.Utils.Functions.OpcProcess.Companion.afterReverceOpcProcess
+import ImageCompressionLib.Utils.Functions.OpcProcess.Companion.directOpcWithMessageAt
+import ImageCompressionLib.Utils.Functions.OpcProcess.Companion.preDirectOpcProcess
+import ImageCompressionLib.Utils.Functions.OpcProcess.Companion.reverseOpcWithMessageAt
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
