@@ -89,6 +89,40 @@ class ShortMatrix {
     fun toShortArray(): Array<ShortArray> {
         return Array(width){i->ShortArray(height){j->matrix[i][j]}}
     }
+
+    fun rect(wStart:Int,hStart:Int,wEnd:Int,hEnd:Int):ShortMatrix{
+        return ShortMatrix(wEnd-wStart,hEnd-hStart){ i, j ->matrix[i+wStart][j+hStart]}
+    }
+    fun rectSave(wStart:Int,hStart:Int,wEnd:Int,hEnd:Int):ShortMatrix{
+        var wtmp=wEnd
+        var htmp=hEnd
+        var wtmpS=wStart
+        var htmpS=hStart
+        if(wEnd>=width)
+            wtmp=width-1
+        if(hEnd>=height)
+            htmp=height-1
+
+        if(wStart<0)
+            wtmpS=0
+        if(hStart<0)
+            htmpS=0
+
+        val w=wtmp-wtmpS
+        val h=htmp-htmpS
+        return ShortMatrix(w,h){i, j ->matrix[i+wStart][j+hStart]}
+    }
+    fun split(horizontalStep:Int,verticalStep:Int):Array<Array<ShortMatrix>>{
+        var w=width/horizontalStep
+        var h=height/verticalStep
+        if(width%horizontalStep!=0)w++
+        if(height%verticalStep!=0)h++
+        val res=Array(w){i->Array(h){j->
+            rectSave(i*horizontalStep,j*verticalStep,i*horizontalStep+horizontalStep,j*verticalStep+verticalStep)
+        }}
+        return res
+    }
+
     companion object {
         @JvmStatic fun valueOf(mat:Array<ShortArray>): ShortMatrix {
             return ShortMatrix(mat.size,mat[0].size){i, j -> mat[i][j]}
