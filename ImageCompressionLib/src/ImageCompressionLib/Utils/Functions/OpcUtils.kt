@@ -3,7 +3,7 @@ package ImageCompressionLib.Utils.Functions
 import ImageCompressionLib.Containers.*
 import java.math.BigInteger
 
-//    private fun directOPC(parameters: Parameters, dataOrigin: ShortMatrix, DataOpc: DataOpc) {
+//     fun directOPC(parameters: Parameters, dataOrigin: ShortMatrix, DataOpc: DataOpc) {
 //        if (flag.isChecked(Flag.Parameter.DCT))
 //            MakeUnSigned(dataOrigin, DataOpc)
 //        if (flag.isChecked(Flag.Parameter.DC))
@@ -16,7 +16,7 @@ import java.math.BigInteger
 //            OPCdirect(dataOrigin, DataOpc)
 //    }
 //
-//    private fun reverseOPC(parameters: Parameters,DataOpc: DataOpc,dataOrigin: ShortMatrix) {
+//     fun reverseOPC(parameters: Parameters,DataOpc: DataOpc,dataOrigin: ShortMatrix) {
 //        if (flag.isChecked(Flag.Parameter.LongCode))
 //            OPCreverseUseOnlyLong(dataOrigin, DataOpc)
 //        else
@@ -30,19 +30,40 @@ import java.math.BigInteger
 //    }
 
 
-    private fun FindBase(dataOrigin: ShortMatrix, dataOpc: DataOpc){
-        for (i in 0 until dataOrigin.height) {
-            dataOpc.base[i] = dataOrigin[i][0]
-            for (j in 0 until dataOrigin.width) {
-                if (dataOpc.base[i] < dataOrigin[i][j]) {
-                    dataOpc.base[i] = dataOrigin[i][j]
+     fun FindBase(dataOrigin: ShortMatrix, dataOpc: DataOpc) {
+         for (i in 0 until dataOrigin.height) {
+             dataOpc.base[i] = dataOrigin[i][0]
+             for (j in 0 until dataOrigin.width) {
+                 if (dataOpc.base[i] < dataOrigin[i][j]) {
+                     dataOpc.base[i] = dataOrigin[i][j]
+                 }
+             }
+             dataOpc.base[i]++
+         }
+     }
+    fun setSameBaseIn(dataOrigin: DataOpcMatrix,baseSize:Int) {
+        val res=ShortArray(baseSize)
+        for(b in 0 until baseSize) {
+            for (i in 0 until dataOrigin.height) {
+                for (j in 0 until dataOrigin.width) {
+                    if (dataOrigin[i][j].base[b] > res[b]) {
+                        res[b]=dataOrigin[i][j].base[b]
+                    }
                 }
             }
-            dataOpc.base[i]++
+        }
+        for(b in 0 until baseSize) {
+            for (i in 0 until dataOrigin.height) {
+                for (j in 0 until dataOrigin.width) {
+                    dataOrigin[i][j].base[b]=res[b]
+                }
+            }
         }
     }
 
-    private fun MakeUnSigned(dataOrigin: ShortMatrix, dataOpc: DataOpc) {
+
+
+     fun MakeUnSigned(dataOrigin: ShortMatrix, dataOpc: DataOpc) {
         for (i in 0 until dataOrigin.width) {
             for (j in 0 until dataOrigin.height) {
                 if (dataOrigin[i][j] < 0.toShort()) {
@@ -55,7 +76,7 @@ import java.math.BigInteger
         }
     }
 
-    private fun MakeSigned(dataOrigin: ShortMatrix, DataOpc: DataOpc){
+     fun MakeSigned(dataOrigin: ShortMatrix, DataOpc: DataOpc){
         for (i in 0 until dataOrigin.width) {
             for (j in 0 until dataOrigin.height) {
                 if (!DataOpc.sign[i][j]) {
@@ -65,12 +86,12 @@ import java.math.BigInteger
         }
     }
 
-    private fun DCminus(dataOrigin: ShortMatrix, DataOpc: DataOpc) {
+     fun DCminus(dataOrigin: ShortMatrix, DataOpc: DataOpc) {
         DataOpc.DC = dataOrigin[0][0]
         dataOrigin[0][0] = 0
     }
 
-    private fun DCplus(dataOrigin: ShortMatrix, DataOpc: DataOpc) {
+     fun DCplus(dataOrigin: ShortMatrix, DataOpc: DataOpc) {
         dataOrigin[0][0] = DataOpc.DC
     }
 

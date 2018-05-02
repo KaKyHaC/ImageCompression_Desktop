@@ -178,7 +178,7 @@ fun OpcDirectWithMessageAt(dataOrigin: ShortMatrix,dataOpc: DataOpc,message:Bool
         }
     }
 }
-fun OpcReverseWithMessageAt(dataOrigin: ShortMatrix, DataOpc: DataOpc,message_position:Int):Boolean {// method copy from C++ Project MAH
+fun OpcReverceWithMessageAt(dataOrigin: ShortMatrix, DataOpc: DataOpc, message_position:Int):Boolean {// method copy from C++ Project MAH
     var copy = BigInteger.ONE
     var b: BigInteger
     var message=false

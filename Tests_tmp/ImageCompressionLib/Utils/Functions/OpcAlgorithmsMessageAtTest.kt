@@ -8,7 +8,6 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import java.text.FieldPosition
 
 @RunWith(value = Parameterized::class)
 class OpcAlgorithmsMessageAtTest{
@@ -73,7 +72,7 @@ class OpcAlgorithmsMessageAtTest{
         val cpy=matrix.copy()
         val message= true
         OpcDirectWithMessageAt(matrix,dataOpc,message,position)
-        val res = OpcReverseWithMessageAt(matrixEmpty,dataOpc,position)
+        val res = OpcReverceWithMessageAt(matrixEmpty,dataOpc,position)
         assertEquals(message,res)
         cpy.assertInRange(matrixEmpty,range)
     }
@@ -82,7 +81,7 @@ class OpcAlgorithmsMessageAtTest{
         val cpy=matrix.copy()
         val message= false
         OpcDirectWithMessageAt(matrix,dataOpc,message,position)
-        val res = OpcReverseWithMessageAt(matrixEmpty,dataOpc,position)
+        val res = OpcReverceWithMessageAt(matrixEmpty,dataOpc,position)
         assertEquals(message,res)
         cpy.assertInRange(matrixEmpty,range)
     }
