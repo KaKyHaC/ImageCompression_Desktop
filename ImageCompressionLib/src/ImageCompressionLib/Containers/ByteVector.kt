@@ -189,6 +189,15 @@ class ByteVector:Iterable<Byte> {
         }
         return MyIterator()
     }
+    fun hasNext():Boolean{
+        return curIndex<size
+    }
+    fun hasNextBit():Boolean{
+        var tmp=boolByteGetIndex
+        if(bitGetCounter == BITS_PER_BYTE)
+            tmp++
+        return tmp<size
+    }
     override fun equals(other: Any?): Boolean {
         if(other is ByteVector){
             if(this.size!=other.size)

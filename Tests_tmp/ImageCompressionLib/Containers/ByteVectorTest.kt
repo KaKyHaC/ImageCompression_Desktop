@@ -78,4 +78,27 @@ class ByteVectorTest {
             assertEquals(vector.getNextBoolean(),tmp[q])
         }
     }
+
+    val message="21fdsvd dwfwe"
+    @Test
+    fun StringIOtest(){
+        val bytes=message.toByteArray()
+        assertEquals(message, String(bytes))
+
+        val vector=ByteVector()
+        for(b in bytes)
+            vector.append(b)
+
+        val vector2=ByteVector()
+        while (vector.hasNextBit())
+            vector2.append(vector.getNextBoolean())
+
+        assertEquals(vector,vector2)
+
+        val resB=vector2.toByteArray()
+//        assertEquals(bytes,resB)
+
+        val sR= String(resB)
+        assertEquals(message,sR)
+    }
 }
