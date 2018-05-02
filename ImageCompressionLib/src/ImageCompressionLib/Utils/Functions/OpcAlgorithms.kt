@@ -27,9 +27,7 @@ fun OpcReverseDefault(dataOrigin: ShortMatrix, DataOpc: DataOpc) {// method copy
             val a = DataOpc.N.divide(copy)
             val baseL=DataOpc.base[j].toLong()
             copy = copy.multiply(BigInteger.valueOf(baseL))
-
-            b = DataOpc.N.divide(copy)
-            b = b.multiply(BigInteger.valueOf(baseL))
+            b = DataOpc.N.divide(copy).multiply(BigInteger.valueOf(baseL))
             dataOrigin[i][j] = a.subtract(b).toShort()
         }
     }
@@ -42,7 +40,7 @@ fun OpcDirectLongAndBI(dataOrigin: ShortMatrix, DataOpc: DataOpc) {
     for (i in dataOrigin.width - 1 downTo 0) {
         for (j in dataOrigin.height - 1 downTo 0) {
             bufbase = base * DataOpc.base[j]
-            if (bufbase > MAX_LONG) {//is true ? //todo try <-1
+            if (bufbase > MAX_LONG) {//is true ? //todo try < -1
                 OpcDirectBIfromLong(res, base, i, j, dataOrigin, DataOpc)
                 return
             }
@@ -148,11 +146,10 @@ fun OpcReverceWithMessageAtFirst(dataOrigin: ShortMatrix,dataOpc: DataOpc):Boole
     var b: BigInteger
     for (i in dataOrigin.width- 1 downTo 0) {
         for (j in dataOrigin.height - 1 downTo 0) {
-
+            val baseL=dataOpc.base[j].toLong()
             val a = dataOpc.N.divide(copy)
-            copy = copy.multiply(BigInteger.valueOf(dataOpc.base[j].toLong()))
-            b = dataOpc.N.divide(copy)
-            b = b.multiply(BigInteger.valueOf(dataOpc.base[j].toLong()))
+            copy = copy.multiply(BigInteger.valueOf(baseL))
+            b = dataOpc.N.divide(copy).multiply(BigInteger.valueOf(baseL))
             dataOrigin[i][j] = a.subtract(b).toShort()
         }
     }
@@ -192,8 +189,7 @@ fun OpcReverseWithMessageAt(dataOrigin: ShortMatrix, DataOpc: DataOpc,message_po
             val baseL=DataOpc.base[j].toLong()
             copy = copy.multiply(BigInteger.valueOf(baseL))
 
-            b = DataOpc.N.divide(copy)
-            b = b.multiply(BigInteger.valueOf(baseL))
+            b = DataOpc.N.divide(copy).multiply(BigInteger.valueOf(baseL))
             dataOrigin[i][j] = a.subtract(b).toShort()
 
             if(i*dataOrigin.width+j==message_position){

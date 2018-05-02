@@ -1,5 +1,6 @@
 package ImageCompressionLib.Containers
 
+import com.sun.java.browser.plugin2.DOM
 import java.util.*
 
 class DataOpcMatrix {
@@ -58,5 +59,36 @@ class DataOpcMatrix {
         return Arrays.hashCode(matrix)
     }
 
+    fun rect(wStart:Int,hStart:Int,wEnd:Int,hEnd:Int):DataOpcMatrix{
+        return DataOpcMatrix(wEnd-wStart,hEnd-hStart){i, j ->matrix[i+wStart][j+hStart]}
+    }
+    fun rectSave(wStart:Int,hStart:Int,wEnd:Int,hEnd:Int):DataOpcMatrix{
+        var wtmp=wEnd
+        var htmp=hEnd
+        var wtmpS=wStart
+        var htmpS=hStart
+        if(wEnd>=width)
+            wtmp=width-1
+        if(hEnd>=height)
+            htmp=height-1
 
+        if(wStart<0)
+            wtmpS=0
+        if(hStart<0)
+            htmpS=0
+
+        var w=wtmp-wtmpS
+        var h=htmp-htmpS
+        return DataOpcMatrix(w,h){i, j ->matrix[i+wStart][j+hStart]}
+    }
+    fun split(horizontalStep:Int,verticalStep:Int):Array<Array<DataOpcMatrix>>{
+        var w=width/horizontalStep
+        var h=height/verticalStep
+        if(width%horizontalStep!=0)w++
+        if(height%verticalStep!=0)h++
+        val res=Array(w){i->Array(h){j->
+            rectSave(i*horizontalStep,j*verticalStep,i*horizontalStep+horizontalStep,j*verticalStep+verticalStep)
+        }}
+        return res
+    }
 }
