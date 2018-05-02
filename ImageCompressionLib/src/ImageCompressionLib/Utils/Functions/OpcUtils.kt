@@ -6,10 +6,10 @@ class OpcUtils {
         @JvmStatic
         fun FindBase(dataOrigin: ShortMatrix, dataOpc: DataOpc) {
             for (i in 0 until dataOrigin.height) {
-                dataOpc.base[i] = dataOrigin[i][0]
+                dataOpc.base[i] = dataOrigin[i,0]
                 for (j in 0 until dataOrigin.width) {
-                    if (dataOpc.base[i] < dataOrigin[j][i]) {
-                        dataOpc.base[i] = dataOrigin[j][i]
+                    if (dataOpc.base[i] < dataOrigin[j,i]) {
+                        dataOpc.base[i] = dataOrigin[j,i]
                     }
                 }
                 dataOpc.base[i]++
@@ -21,8 +21,8 @@ class OpcUtils {
             for (b in 0 until baseSize) {
                 for (i in 0 until dataOrigin.height) {
                     for (j in 0 until dataOrigin.width) {
-                        if (dataOrigin[i][j].base[b] > res[b]) {
-                            res[b] = dataOrigin[i][j].base[b]
+                        if (dataOrigin[i,j].base[b] > res[b]) {
+                            res[b] = dataOrigin[i,j].base[b]
                         }
                     }
                 }
@@ -30,7 +30,7 @@ class OpcUtils {
             for (b in 0 until baseSize) {
                 for (i in 0 until dataOrigin.height) {
                     for (j in 0 until dataOrigin.width) {
-                        dataOrigin[i][j].base[b] = res[b]
+                        dataOrigin[i,j].base[b] = res[b]
                     }
                 }
             }
@@ -39,8 +39,8 @@ class OpcUtils {
         fun MakeUnSigned(dataOrigin: ShortMatrix, dataOpc: DataOpc) {
             for (i in 0 until dataOrigin.width) {
                 for (j in 0 until dataOrigin.height) {
-                    if (dataOrigin[i][j] < 0.toShort()) {
-                        dataOrigin[i][j] = (dataOrigin[i][j] * -1).toShort()
+                    if (dataOrigin[i,j] < 0.toShort()) {
+                        dataOrigin[i,j] = (dataOrigin[i,j] * -1).toShort()
                         dataOpc.sign[i][j] = false
                     } else {
                         dataOpc.sign[i][j] = true
@@ -53,19 +53,19 @@ class OpcUtils {
             for (i in 0 until dataOrigin.width) {
                 for (j in 0 until dataOrigin.height) {
                     if (!DataOpc.sign[i][j]) {
-                        dataOrigin[i][j] = (dataOrigin[i][j] * -1).toShort()
+                        dataOrigin[i,j] = (dataOrigin[i,j] * -1).toShort()
                     }
                 }
             }
         }
         @JvmStatic
         fun DCminus(dataOrigin: ShortMatrix, DataOpc: DataOpc) {
-            DataOpc.DC = dataOrigin[0][0]
-            dataOrigin[0][0] = 0
+            DataOpc.DC = dataOrigin[0,0]
+            dataOrigin[0,0] = 0
         }
         @JvmStatic
         fun DCplus(dataOrigin: ShortMatrix, DataOpc: DataOpc) {
-            dataOrigin[0][0] = DataOpc.DC
+            dataOrigin[0,0] = DataOpc.DC
         }
     }
 }

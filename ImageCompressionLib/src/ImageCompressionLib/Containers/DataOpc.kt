@@ -1,10 +1,11 @@
 package ImageCompressionLib.Containers
 
+import ImageCompressionLib.Constants.ICopyble
 import java.math.BigInteger
 import java.util.*
 import kotlin.experimental.and
 
-class DataOpc {
+class DataOpc :ICopyble{
     var base: ShortArray
     var sign: Array<BooleanArray>
     var DC: Short
@@ -189,7 +190,7 @@ class DataOpc {
         result = 31 * result + vectorCode.hashCode()
         return result
     }
-    fun copy(): DataOpc {
+    override fun copy(): DataOpc {
         val rN= BigInteger(N.toByteArray())
         val rDC=DC
         val rbase=ShortArray(base.size){base[it]}

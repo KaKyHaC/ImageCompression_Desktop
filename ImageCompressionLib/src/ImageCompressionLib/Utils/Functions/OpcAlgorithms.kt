@@ -15,8 +15,8 @@ class OpcAlgorithms {
             var base = BigInteger.ONE
             for (i in dataOrigin.width - 1 downTo 0) {
                 for (j in dataOrigin.height - 1 downTo 0) {
-                    if (dataOrigin[i][j].toInt() != 0) {
-                        DataOpc.N = DataOpc.N.add(base.multiply(BigInteger.valueOf(dataOrigin[i][j].toLong())));
+                    if (dataOrigin[i,j].toInt() != 0) {
+                        DataOpc.N = DataOpc.N.add(base.multiply(BigInteger.valueOf(dataOrigin[i,j].toLong())));
                     }
                     base = base.multiply(BigInteger.valueOf(DataOpc.base[j].toLong()));
                 }
@@ -33,7 +33,7 @@ class OpcAlgorithms {
                     val baseL = DataOpc.base[j].toLong()
                     copy = copy.multiply(BigInteger.valueOf(baseL))
                     b = DataOpc.N.divide(copy).multiply(BigInteger.valueOf(baseL))
-                    dataOrigin[i][j] = a.subtract(b).toShort()
+                    dataOrigin[i,j] = a.subtract(b).toShort()
                 }
             }
         }
@@ -50,8 +50,8 @@ class OpcAlgorithms {
                         OpcDirectBIfromLong(res, base, i, j, dataOrigin, DataOpc)
                         return
                     }
-                    if (dataOrigin[i][j].toInt() != 0) {
-                        res += base * dataOrigin[i][j]
+                    if (dataOrigin[i,j].toInt() != 0) {
+                        res += base * dataOrigin[i,j]
                     }
                     base = bufbase
                 }
@@ -67,8 +67,8 @@ class OpcAlgorithms {
             var j = j1
             while (i >= 0) {
                 while (j >= 0) {
-                    if (dataOrigin[i][j].toInt() != 0) {
-                        `val` = `val`.add(base.multiply(BigInteger.valueOf(dataOrigin[i][j].toLong())))
+                    if (dataOrigin[i,j].toInt() != 0) {
+                        `val` = `val`.add(base.multiply(BigInteger.valueOf(dataOrigin[i,j].toLong())))
                     }
                     base = base.multiply(BigInteger.valueOf(DataOpc.base[j].toLong()))
                     j--
@@ -93,8 +93,8 @@ class OpcAlgorithms {
                         res = 0
                         bufbase = base * DataOpc.base[j]
                     }
-                    if (dataOrigin[i][j].toInt() != 0) {
-                        res += base * dataOrigin[i][j]
+                    if (dataOrigin[i,j].toInt() != 0) {
+                        res += base * dataOrigin[i,j]
                     }
                     base = bufbase
                 }
@@ -128,7 +128,7 @@ class OpcAlgorithms {
 
                     b = curN / copy
                     b = b * DataOpc.base[j]
-                    dataOrigin[i][j] = (a - b).toShort()
+                    dataOrigin[i,j] = (a - b).toShort()
                 }
             }
         }
@@ -138,8 +138,8 @@ class OpcAlgorithms {
             var base = BigInteger.ONE
             for (i in dataOrigin.width - 1 downTo 0) {
                 for (j in dataOrigin.height - 1 downTo 0) {
-                    if (dataOrigin[i][j].toInt() != 0) {
-                        dataOpc.N = dataOpc.N.add(base.multiply(BigInteger.valueOf(dataOrigin[i][j].toLong())));
+                    if (dataOrigin[i,j].toInt() != 0) {
+                        dataOpc.N = dataOpc.N.add(base.multiply(BigInteger.valueOf(dataOrigin[i,j].toLong())));
                     }
                     base = base.multiply(BigInteger.valueOf(dataOpc.base[j].toLong()));
                 }
@@ -161,7 +161,7 @@ class OpcAlgorithms {
                     val a = dataOpc.N.divide(copy)
                     copy = copy.multiply(BigInteger.valueOf(baseL))
                     b = dataOpc.N.divide(copy).multiply(BigInteger.valueOf(baseL))
-                    dataOrigin[i][j] = a.subtract(b).toShort()
+                    dataOrigin[i,j] = a.subtract(b).toShort()
                 }
             }
             val message = (((dataOpc.N / copy) - (dataOpc.N / (copy * TWO)) * TWO).toInt() == 1)
@@ -173,8 +173,8 @@ class OpcAlgorithms {
             var base = BigInteger.ONE
             for (i in dataOrigin.width - 1 downTo 0) {
                 for (j in dataOrigin.height - 1 downTo 0) {
-                    if (dataOrigin[i][j].toInt() != 0) {
-                        dataOpc.N = dataOpc.N.add(base.multiply(BigInteger.valueOf(dataOrigin[i][j].toLong())));
+                    if (dataOrigin[i,j].toInt() != 0) {
+                        dataOpc.N = dataOpc.N.add(base.multiply(BigInteger.valueOf(dataOrigin[i,j].toLong())));
                     }
                     base = base.multiply(BigInteger.valueOf(dataOpc.base[j].toLong()));
 
@@ -205,7 +205,7 @@ class OpcAlgorithms {
                     copy = copy.multiply(BigInteger.valueOf(baseL))
 
                     b = DataOpc.N.divide(copy).multiply(BigInteger.valueOf(baseL))
-                    dataOrigin[i][j] = a.subtract(b).toShort()
+                    dataOrigin[i,j] = a.subtract(b).toShort()
 
                     if (i * dataOrigin.width + j == message_position) {
                         val tmp = (DataOpc.N / copy) - (DataOpc.N / (copy * TWO) * TWO)

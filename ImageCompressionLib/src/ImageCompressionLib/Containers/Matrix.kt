@@ -3,8 +3,7 @@ package ImageCompressionLib.Containers
 import ImageCompressionLib.Constants.ICopyble
 import java.util.*
 
-interface IElement:ICopyble
-class Matrix<T:IElement>  :IElement{
+open class Matrix<T:Any> {
     val matrix:Array<Array<Any>>
 
     constructor(matrix: Array<Array<T>>) {
@@ -37,9 +36,9 @@ class Matrix<T:IElement>  :IElement{
             }
         }
     }
-    override fun copy():Matrix<T>{
-        return Matrix(Size(width,height)){i, j -> (matrix[i][j] as T).copy() }
-    }
+//    override fun copy():Matrix<T>{
+//        return Matrix(Size(width,height)){i, j -> (matrix[i][j] as T).copy() }
+//    }
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
