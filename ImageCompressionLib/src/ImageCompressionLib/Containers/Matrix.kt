@@ -7,7 +7,7 @@ open class Matrix<T:Any> {
     val matrix:Array<Array<Any>>
 
     constructor(matrix: Array<Array<T>>) {
-        this.matrix = Array(matrix.size){i->Array(matrix[0].size){j-> matrix[i][j].to(Any()).second}}
+        this.matrix = Array(matrix.size){i->Array(matrix[0].size){j-> matrix[i][j] as Any}}
     }
     constructor(size: Size,init:(i:Int,j:Int)->Any){
         matrix= Array(size.width){ i -> Array(size.height){j-> init(i,j)} }
@@ -39,11 +39,12 @@ open class Matrix<T:Any> {
 //    override fun copy():Matrix<T>{
 //        return Matrix(Size(width,height)){i, j -> (matrix[i][j] as T).copy() }
 //    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as ShortMatrix
+        other as Matrix<T>
 
         for(i in 0 until width)
             for(j in 0 until height)
@@ -59,7 +60,7 @@ open class Matrix<T:Any> {
         val sb=StringBuilder()
         for(j in 0 until height){
             for(i in 0 until width){
-                sb.append("${matrix[i][j]},")
+                sb.append("${(matrix[i][j] as T)},")
             }
             sb.append("\n")
         }
@@ -97,5 +98,4 @@ open class Matrix<T:Any> {
         val res1=Matrix<Matrix<T>>(w,h){i, j ->  rectSave(i*horizontalStep,j*verticalStep,i*horizontalStep+horizontalStep,j*verticalStep+verticalStep)}
         return res1
     }
-
-}
+    }
