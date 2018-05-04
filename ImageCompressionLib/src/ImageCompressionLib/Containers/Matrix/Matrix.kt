@@ -5,28 +5,31 @@ import java.util.*
 
 open class Matrix<T:Any> {
     //TODO matrixIterator class
-    val matrix: Array<Array<Any>>
-
+    internal val matrix: Array<Array<Any>>
+    protected val size:Size
 
     //    constructor(matrix: Array<Array<T>>) {
 //        this.matrix = Array(matrix.size){i->Array(matrix[0].size){j-> matrix[i][j] as Any}}
 //    }
     constructor(size: Size, init: (i: Int, j: Int) -> Any) {
         matrix = Array(size.width) { i -> Array(size.height) { j -> init(i, j) } }
+        this.size=size
     }
 
     constructor(width: Int, height: Int, init: (i: Int, j: Int) -> Any) {
         matrix = Array(width) { i -> Array(height) { j -> init(i, j) } }
+        size= Size(width,height)
     }
 
     protected constructor(matrix: Array<Array<Any>>) {
         this.matrix = matrix
+        size= Size(matrix.size,matrix[0].size)
     }
 
     open val width: Int
-        get() = matrix.size
+        get() = size.width
     open val height: Int
-        get() = matrix[0].size
+        get() = size.height
 
 
     open operator fun get(i: Int, j: Int): T {
