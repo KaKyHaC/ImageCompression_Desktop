@@ -3,13 +3,13 @@ package ImageCompressionLib.Utils.Functions
 import ImageCompressionLib.Constants.MAX_LONG
 import ImageCompressionLib.Constants.TWO
 import ImageCompressionLib.Containers.Type.DataOpc
-import ImageCompressionLib.Containers.Matrix.ShortMatrix
+import ImageCompressionLib.Containers.Matrix.Matrix
 import java.math.BigInteger
 
 class OpcAlgorithms {
     companion object {
         @JvmStatic
-        fun OpcDirectDefault(dataOrigin: ShortMatrix, DataOpc: DataOpc) {//TODO diagonal for optimization
+        fun OpcDirectDefault(dataOrigin: Matrix<Short>, DataOpc: DataOpc) {//TODO diagonal for optimization
             var base = BigInteger.ONE
             for (i in dataOrigin.width - 1 downTo 0) {
                 for (j in dataOrigin.height - 1 downTo 0) {
@@ -22,7 +22,7 @@ class OpcAlgorithms {
         }
 
         @JvmStatic
-        fun OpcReverseDefault(dataOrigin: ShortMatrix, DataOpc: DataOpc) {// method copy from C++ Project MAH
+        fun OpcReverseDefault(dataOrigin: Matrix<Short>, DataOpc: DataOpc) {// method copy from C++ Project MAH
             var copy = BigInteger.ONE
             var b: BigInteger
             for (i in dataOrigin.width - 1 downTo 0) {
@@ -37,7 +37,7 @@ class OpcAlgorithms {
         }
 
         @JvmStatic
-        fun OpcDirectLongAndBI(dataOrigin: ShortMatrix, DataOpc: DataOpc) {
+        fun OpcDirectLongAndBI(dataOrigin: Matrix<Short>, DataOpc: DataOpc) {
             var base: Long = 1
             var res: Long = 0
             var bufbase: Long = 1
@@ -57,7 +57,7 @@ class OpcAlgorithms {
             DataOpc.N = BigInteger.valueOf(res)
         }
 
-        private fun OpcDirectBIfromLong(res: Long, baseval: Long, i1: Int, j1: Int, dataOrigin: ShortMatrix, DataOpc: DataOpc) {
+        private fun OpcDirectBIfromLong(res: Long, baseval: Long, i1: Int, j1: Int, dataOrigin: Matrix<Short>, DataOpc: DataOpc) {
             var `val` = BigInteger.valueOf(res)
             var base = BigInteger.valueOf(baseval)
 
@@ -78,7 +78,7 @@ class OpcAlgorithms {
         }
 
         @JvmStatic
-        fun OpcDirectUseOnlyLong(dataOrigin: ShortMatrix, DataOpc: DataOpc) {
+        fun OpcDirectUseOnlyLong(dataOrigin: Matrix<Short>, DataOpc: DataOpc) {
             var base: Long = 1
             var res: Long = 0
             var bufbase: Long
@@ -101,7 +101,7 @@ class OpcAlgorithms {
         }
 
         @JvmStatic
-        fun OpcReverseUseOnlyLong(dataOrigin: ShortMatrix, DataOpc: DataOpc) {
+        fun OpcReverseUseOnlyLong(dataOrigin: Matrix<Short>, DataOpc: DataOpc) {
             var copy: Long = 1
             var index = 0
             var curN = DataOpc.vectorCode.elementAt(index)
@@ -132,7 +132,7 @@ class OpcAlgorithms {
         }
 
         @JvmStatic
-        fun OpcDirectWithMessageAtFirst(dataOrigin: ShortMatrix, dataOpc: DataOpc, message: Boolean) {
+        fun OpcDirectWithMessageAtFirst(dataOrigin: Matrix<Short>, dataOpc: DataOpc, message: Boolean) {
             var base = BigInteger.ONE
             for (i in dataOrigin.width - 1 downTo 0) {
                 for (j in dataOrigin.height - 1 downTo 0) {
@@ -149,7 +149,7 @@ class OpcAlgorithms {
         }
 
         @JvmStatic
-        fun OpcReverceWithMessageAtFirst(dataOrigin: ShortMatrix, dataOpc: DataOpc): Boolean {
+        fun OpcReverceWithMessageAtFirst(dataOrigin: Matrix<Short>, dataOpc: DataOpc): Boolean {
             dataOpc.N *= TWO
             var copy = BigInteger.ONE
             var b: BigInteger
@@ -167,7 +167,7 @@ class OpcAlgorithms {
         }
 
         @JvmStatic
-        fun OpcDirectWithMessageAt(dataOrigin: ShortMatrix, dataOpc: DataOpc, message: Boolean, message_position: Int) {
+        fun OpcDirectWithMessageAt(dataOrigin: Matrix<Short>, dataOpc: DataOpc, message: Boolean, message_position: Int) {
             var base = BigInteger.ONE
             for (i in dataOrigin.width - 1 downTo 0) {
                 for (j in dataOrigin.height - 1 downTo 0) {
@@ -191,7 +191,7 @@ class OpcAlgorithms {
         }
 
         @JvmStatic
-        fun OpcReverceWithMessageAt(dataOrigin: ShortMatrix, DataOpc: DataOpc, message_position: Int): Boolean {// method copy from C++ Project MAH
+        fun OpcReverceWithMessageAt(dataOrigin: Matrix<Short>, DataOpc: DataOpc, message_position: Int): Boolean {// method copy from C++ Project MAH
             var copy = BigInteger.ONE
             var b: BigInteger
             var message = false

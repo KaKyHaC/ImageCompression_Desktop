@@ -1,13 +1,13 @@
 package ImageCompressionLib.Utils.Functions
 
 import ImageCompressionLib.Containers.Matrix.DataOpcMatrix
-import ImageCompressionLib.Containers.Matrix.ShortMatrix
+import ImageCompressionLib.Containers.Matrix.Matrix
 import ImageCompressionLib.Containers.Type.DataOpc
 
 class OpcUtils {
     companion object {
         @JvmStatic
-        fun FindBase(dataOrigin: ShortMatrix, dataOpc: DataOpc) {
+        fun FindBase(dataOrigin: Matrix<Short>, dataOpc: DataOpc) {
             for (i in 0 until dataOrigin.height) {
                 dataOpc.base[i] = dataOrigin[0,i]
                 for (j in 0 until dataOrigin.width) {
@@ -40,7 +40,7 @@ class OpcUtils {
             }
         }
         @JvmStatic
-        fun MakeUnSigned(dataOrigin: ShortMatrix, dataOpc: DataOpc) {
+        fun MakeUnSigned(dataOrigin: Matrix<Short>, dataOpc: DataOpc) {
             for (i in 0 until dataOrigin.width) {
                 for (j in 0 until dataOrigin.height) {
                     if (dataOrigin[i,j] < 0.toShort()) {
@@ -53,7 +53,7 @@ class OpcUtils {
             }
         }
         @JvmStatic
-        fun MakeSigned(dataOrigin: ShortMatrix, DataOpc: DataOpc) {
+        fun MakeSigned(dataOrigin: Matrix<Short>, DataOpc: DataOpc) {
             for (i in 0 until dataOrigin.width) {
                 for (j in 0 until dataOrigin.height) {
                     if (!DataOpc.sign[i][j]) {
@@ -63,12 +63,12 @@ class OpcUtils {
             }
         }
         @JvmStatic
-        fun DCminus(dataOrigin: ShortMatrix, DataOpc: DataOpc) {
+        fun DCminus(dataOrigin: Matrix<Short>, DataOpc: DataOpc) {
             DataOpc.DC = dataOrigin[0,0]
             dataOrigin[0,0] = 0
         }
         @JvmStatic
-        fun DCplus(dataOrigin: ShortMatrix, DataOpc: DataOpc) {
+        fun DCplus(dataOrigin: Matrix<Short>, DataOpc: DataOpc) {
             dataOrigin[0,0] = DataOpc.DC
         }
     }

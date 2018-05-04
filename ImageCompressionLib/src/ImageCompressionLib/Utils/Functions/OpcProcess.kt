@@ -3,7 +3,7 @@ package ImageCompressionLib.Utils.Functions
 import ImageCompressionLib.Containers.Type.DataOpc
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Containers.Parameters
-import ImageCompressionLib.Containers.Matrix.ShortMatrix
+import ImageCompressionLib.Containers.Matrix.Matrix
 import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcDirectLongAndBI
 import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcDirectUseOnlyLong
 import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcDirectWithMessageAt
@@ -21,7 +21,7 @@ import ImageCompressionLib.Utils.Functions.OpcUtils.Companion.MakeUnSigned
 class OpcProcess {
     companion object {
         @JvmStatic
-        fun preDirectOpcProcess(parameters: Parameters, dataOrigin: ShortMatrix, DataOpc: DataOpc) {
+        fun preDirectOpcProcess(parameters: Parameters, dataOrigin: Matrix<Short>, DataOpc: DataOpc) {
             val flag = parameters.flag
 
             if (flag.isChecked(Flag.Parameter.DCT))
@@ -32,7 +32,7 @@ class OpcProcess {
             FindBase(dataOrigin, DataOpc)
         }
         @JvmStatic
-        fun afterReverceOpcProcess(parameters: Parameters, DataOpc: DataOpc, dataOrigin: ShortMatrix) {
+        fun afterReverceOpcProcess(parameters: Parameters, DataOpc: DataOpc, dataOrigin: Matrix<Short>) {
             val flag = parameters.flag
 
             if (flag.isChecked(Flag.Parameter.DC))
@@ -41,14 +41,14 @@ class OpcProcess {
                 MakeSigned(dataOrigin, DataOpc)
         }
         @JvmStatic
-        fun directOPC(parameters: Parameters, dataOrigin: ShortMatrix, DataOpc: DataOpc) {
+        fun directOPC(parameters: Parameters, dataOrigin: Matrix<Short>, DataOpc: DataOpc) {
             if (parameters.flag.isChecked(Flag.Parameter.LongCode))
                 OpcDirectUseOnlyLong(dataOrigin, DataOpc)
             else
                 OpcDirectLongAndBI(dataOrigin, DataOpc)
         }
         @JvmStatic
-        fun reverseOPC(parameters: Parameters, DataOpc: DataOpc, dataOrigin: ShortMatrix) {
+        fun reverseOPC(parameters: Parameters, DataOpc: DataOpc, dataOrigin: Matrix<Short>) {
             val flag = parameters.flag
             if (flag.isChecked(Flag.Parameter.LongCode))
                 OpcReverseUseOnlyLong(dataOrigin, DataOpc)
@@ -56,7 +56,7 @@ class OpcProcess {
                 OpcReverseDefault(dataOrigin, DataOpc)
         }
         @JvmStatic
-        fun directOpcWithMessageAt(parameters: Parameters, dataOrigin: ShortMatrix, DataOpc: DataOpc, message: Boolean, position: Int) {
+        fun directOpcWithMessageAt(parameters: Parameters, dataOrigin: Matrix<Short>, DataOpc: DataOpc, message: Boolean, position: Int) {
             val flag = parameters.flag
 
             if (flag.isChecked(Flag.Parameter.LongCode))
@@ -68,7 +68,7 @@ class OpcProcess {
                 OpcDirectWithMessageAt(dataOrigin, DataOpc, message, position)
         }
         @JvmStatic
-        fun reverseOpcWithMessageAt(parameters: Parameters, DataOpc: DataOpc, dataOrigin: ShortMatrix, position: Int): Boolean {
+        fun reverseOpcWithMessageAt(parameters: Parameters, DataOpc: DataOpc, dataOrigin: Matrix<Short>, position: Int): Boolean {
             val flag = parameters.flag
             if (flag.isChecked(Flag.Parameter.LongCode))
                 throw Exception("can't read message using LongCode")
