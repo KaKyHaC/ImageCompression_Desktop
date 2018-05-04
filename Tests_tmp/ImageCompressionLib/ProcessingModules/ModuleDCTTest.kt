@@ -1,5 +1,6 @@
 package ImageCompressionLib.ProcessingModules
 
+import ImageCompressionLib.Containers.Parameters
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Utils.Functions.ImageIOTest
 import ImageCompressionLib.Utils.Objects.TimeManager
@@ -11,7 +12,7 @@ class ModuleDCTTest{
     @Test
     fun DerRevDCTTest() {
         val m = ImageIOTest.createMatrix(1920, 1080)
-        val mi = ModuleImage(m, Flag())
+        val mi = ModuleImage(m, Parameters.createParametresForTest())
         val enl = mi.getYenlMatrix(true)
         val cpy=enl.copy()
         assertEquals(cpy,enl)
@@ -65,7 +66,7 @@ class ModuleDCTTest{
 
     fun TimeTest(w:Int ,h:Int,loop:Int){
         val m= ImageIOTest.createMatrix(w,h)
-        val mi= ModuleImage(m, Flag())
+        val mi= ModuleImage(m, Parameters.createParametresForTest())
         val enl=mi.getYenlMatrix(true)
         val cpy=enl.copy()
 
@@ -96,7 +97,7 @@ class ModuleDCTTest{
     }
     fun GlobalTest(w:Int,h:Int,loop:Int,dif:Int){
         val m = ImageIOTest.createMatrix(w, h)
-        val mi = ModuleImage(m, Flag())
+        val mi = ModuleImage(m, Parameters.createParametresForTest())
         val enl = mi.getYenlMatrix(true)
         val cpy=enl.copy()
         assertEquals(cpy,enl)

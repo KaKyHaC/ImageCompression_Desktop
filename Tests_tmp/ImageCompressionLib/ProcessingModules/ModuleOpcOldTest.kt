@@ -2,13 +2,10 @@ package ImageCompressionLib.ProcessingModules
 
 import ImageCompressionLib.Constants.State
 import ImageCompressionLib.Containers.Parameters
-import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.ProcessingModules.ModuleOPC.ModuleOpc
 import ImageCompressionLib.Utils.Functions.ImageIOTest
 import ImageCompressionLib.Utils.Objects.TimeManager
 import org.junit.Assert.*
 import org.junit.Test
-import java.util.*
 
 class ModuleOpcTest {
     /*@Test
@@ -82,7 +79,7 @@ class ModuleOpcTest {
         assertEquals(m,cpy)
 
         val tdom=opcModule.getTripleDataOpcMatrix(null)
-        val m2=ModuleOpc(tdom,Parameters.createParametresForTest())
+        val m2= ModuleOpc(tdom, Parameters.createParametresForTest())
         val res  = m2.getTripleShortMatrix(null).first
 
         assertEquals(res,cpy)

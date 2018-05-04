@@ -1,6 +1,9 @@
 package ImageCompressionLib.ProcessingModules
 
 import ImageCompressionLib.Constants.State
+import ImageCompressionLib.Containers.Matrix.ShortMatrix
+import ImageCompressionLib.Containers.Parameters
+import ImageCompressionLib.Containers.TripleShortMatrix
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Utils.Objects.TimeManager
 import Utils.BuffImConvertor
@@ -14,10 +17,11 @@ import org.junit.Before
 import kotlin.test.assertFails
 
 class ModuleImageTest {
-    internal var flag = Flag("0")
+    internal var param =Parameters.createParametresForTest()
     @Before
     fun befor(){
-        flag= Flag()
+        param =Parameters.createParametresForTest()
+//        param = Flag()
     }
 
     @Test
@@ -28,10 +32,10 @@ class ModuleImageTest {
         var w=bufferedImage.width
         var h=bufferedImage.height
 
-        val myBufferedImage = ModuleImage(bufferedImage, flag)
+        val myBufferedImage = ModuleImage(bufferedImage, param)
         val matrix = myBufferedImage.getYenlMatrix(true)
 
-        val myBufferedImage1 = ModuleImage(matrix, flag)
+        val myBufferedImage1 = ModuleImage(matrix, param)
         val bufferedImage1 = myBufferedImage1.bufferedImage
 
         val arr1 = bufferedImage.getIntArray()//?.getRGB(0, 0, w, h, null, 0, w)
@@ -43,14 +47,14 @@ class ModuleImageTest {
     @Test
     fun TestEnlagment4() {
         val grad=getGradientMatrix(124,546)
-        flag.setChecked(Flag.Parameter.Enlargement,true)
+        param.flag.setChecked(Flag.Parameter.Enlargement,true)
 
-        val mi= ModuleImage(grad, flag)
+        val mi= ModuleImage(grad, param)
         val bmp=mi.rgbMatrixOld.copy()
         var enl=mi.getYenlMatrix(true)
         assertFails { assertTrue(bmp.assertMatrixInRange(enl,1)) }
 
-        val mi1= ModuleImage(enl, flag)
+        val mi1= ModuleImage(enl, param)
         val bmp1=mi1.rgbMatrixOld
         kotlin.test.assertTrue { bmp1.assertMatrixInRange(bmp,4) }
 
@@ -78,7 +82,7 @@ class ModuleImageTest {
 
         TimeManager.Instance.startNewTrack("m BmpToYenl ${loop}l ${w}x$h")
         for(i in 0..loop-1) {
-            val myBufferedImage = ModuleImage(mBI, flag)
+            val myBufferedImage = ModuleImage(mBI, param)
             val matrix = myBufferedImage.getYenlMatrix(true)
         }
         TimeManager.Instance.append("multi")
@@ -86,7 +90,7 @@ class ModuleImageTest {
         val t1=TimeManager.Instance.getTotalTime()
         TimeManager.Instance.startNewTrack("o BmpToYenl ${loop}l ${w}x$h")
         for(i in 0..loop-1) {
-            val myBufferedImage = ModuleImage(mBI, flag)
+            val myBufferedImage = ModuleImage(mBI, param)
             val matrix = myBufferedImage.getYenlMatrix(false)
         }
         TimeManager.Instance.append("one")
@@ -96,16 +100,12 @@ class ModuleImageTest {
         assertTrue(t2>t1)
 
     }
-    fun getGradientMatrix(w:Int,h:Int): TripleShortMatrixOld {
-        var m= TripleShortMatrixOld(w,h,State.RGB)
-        forEach(w,h, { x, y ->
-            run {
-                m.a[x][y] = ((x + y)%255).toShort()
-                m.b[x][y] = ((x + y)%255).toShort()
-                m.c[x][y] = ((x + y)%255).toShort()
-            }
-        })
-        return m
+    fun getGradientMatrix(w:Int,h:Int): TripleShortMatrix {
+        val a=ShortMatrix(w,h){i, j -> (i*j%255).toShort() }
+        val b=ShortMatrix(w,h){i, j -> (i*j%255).toShort() }
+        val c=ShortMatrix(w,h){i, j -> (i*j%255).toShort() }
+        return TripleShortMatrix(a,b,c,param,State.RGB)
+
     }
     private fun forEach(w: Int, h: Int, `fun`: (x:Int,y:Int)->Unit) {
         for (i in 0 .. w-1) {

@@ -24,7 +24,7 @@ class OpcConvertorTest(flag: Flag,imageSize: Size,unitSize: Size,baseSize: Size)
     }
     companion object {
         @JvmStatic
-        @Parameterized.Parameters(name = "Image:{1},unit{2},flag{0}")
+        @Parameterized.Parameters(name = "Image:{1},unit{2},param{0}")
         fun data(): Collection<Array<Any>> {
             val flag= Flag.createDefaultFlag()
             val flagSB= Flag.createDefaultFlag()

@@ -1,4 +1,4 @@
-package ImageCompressionLib.ProcessingModules.ModuleOPC
+package ImageCompressionLib.ProcessingModules
 
 import ImageCompressionLib.Constants.DEFAULT_PASSWORD
 import ImageCompressionLib.Containers.*

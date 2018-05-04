@@ -19,7 +19,7 @@
 //    val pathToBmpRes:String="/files/desktest.bmp"
 //    val w=1920
 //    val h=1080
-//    val flag= Flag()
+//    val param= Flag()
 //
 //    @Test
 //    fun TestReadWrite(){
@@ -30,9 +30,9 @@
 //    @Test
 //    fun TestMyBufferedImageMatrix5(){
 //        var matrix=getRandomMatrix(w,h)
-//        val mi= ModuleImage(matrix, flag)
+//        val mi= ModuleImage(matrix, param)
 //        val bi=mi.bufferedImage
-//        val mi1= ModuleImage(bi!!, flag)
+//        val mi1= ModuleImage(bi!!, param)
 //
 //
 //        var matrix1=mi1.rgbMatrixOld
@@ -50,10 +50,10 @@
 //    @Test
 //    fun TestBoxOfDUM5(){
 //        var matrix=getRandomMatrix(w,h)
-//        matrix= ModuleImage(matrix, flag).getYenlMatrix(true)
-//        flag.setTrue(Flag.Parameter.DCT)
+//        matrix= ModuleImage(matrix, param).getYenlMatrix(true)
+//        param.setTrue(Flag.Parameter.DCT)
 //        val cpy=matrix.copy()
-//        val bo= ModuleDCT(matrix,flag)
+//        val bo= ModuleDCT(matrix,param)
 //
 //        bo.getDCTMatrix(true)
 //        AssertMatrixInRange(matrix,cpy,5,false)
@@ -63,10 +63,10 @@
 //    }
 //    @Test
 //    fun TestTimeBoxofDum(){
-//        flag.setTrue(Flag.Parameter.DCT)
+//        param.setTrue(Flag.Parameter.DCT)
 //        var matrix=getRandomMatrix(w,h)
-//        matrix= ModuleImage(matrix, flag).getYenlMatrix(true)
-//        val bo= ModuleDCT(matrix,flag)
+//        matrix= ModuleImage(matrix, param).getYenlMatrix(true)
+//        val bo= ModuleDCT(matrix,param)
 //
 //        var t1:Date=Date()
 //        bo.getDCTMatrix(false)
@@ -234,7 +234,7 @@
 //        val seOpc= StegoEncrWithOpcOld(dct,f,1,1,null,null,true)
 ////        val opcs=seOpc.getModuleOPC()
 //        val box=seOpc.getBoxOfOpc(true)
-////        f=opcs.flag
+////        f=opcs.param
 //
 //        val seOpc2= StegoEncrWithOpcOld(box, f,1,1,null,true)
 //        val dctres=seOpc2.getMatrix(true)
@@ -248,13 +248,13 @@
 //        val rgb=myIm2.rgbMatrixOld
 //        AssertMatrixInRange(rgb,cpy,delta)
 //    }
-//    fun testDirectReverseConverting(w:Int, h:Int, flag: Flag, delta:Int, compareCompression:Boolean=false, sameBase: Size = Size(1, 1)){
+//    fun testDirectReverseConverting(w:Int, h:Int, param: Flag, delta:Int, compareCompression:Boolean=false, sameBase: Size = Size(1, 1)){
 //        var matrix=getRandomMatrix(w,h)
 //        val t1=Date().time
 //        val cpy=matrix.copy()
 //        AssertMatrixInRange(cpy,matrix,0)
 //
-//        val myImage= ModuleImage(matrix, flag)
+//        val myImage= ModuleImage(matrix, param)
 //        //
 //        if(compareCompression) {
 //            val bv = myImage.byteVector
@@ -268,20 +268,20 @@
 //        assertFails { AssertMatrixInRange(cpy,ybr,0) }
 //        AssertMatrixInRange(ybrCpy,ybr,0)
 //
-//        val mDCT=ModuleDCT(ybr,flag)
+//        val mDCT=ModuleDCT(ybr,param)
 //        val dct=mDCT.getDCTMatrix(true)
 //        val dctCpy=dct.copy()
 //        assertFails { AssertMatrixInRange(cpy,dct,0) }
 //        assertFails { AssertMatrixInRange(ybrCpy,dct,0) }
 //
-//        val seOpc= StegoEncrWithOpcOld(dct,flag,sameBase.width,sameBase.height,null,null,true)
+//        val seOpc= StegoEncrWithOpcOld(dct,param,sameBase.width,sameBase.height,null,null,true)
 ////        val opcs=seOpc.getModuleOPC()
 //        val box=seOpc.getBoxOfOpc(true)
-//        val vec=ByteVectorParser.instance.parseData(box,flag,sameBase.width,sameBase.height)
-////        val flag=opcs.flag
+//        val vec=ByteVectorParser.instance.parseData(box,param,sameBase.width,sameBase.height)
+////        val param=opcs.param
 //        //----
 //        val file=ModuleFile(pathToBmp)
-//        file.write(vec,flag)
+//        file.write(vec,param)
 //        //======
 //        val pair=file.read()
 //        //----
@@ -290,23 +290,23 @@
 //        val rBox=ByteVectorParser.instance.parseVector(cont,f)
 //
 //        assertEquals("box not equal",rBox,box)
-//        assertEquals("flag $f!=$flag",f,flag)
+//        assertEquals("param $f!=$param",f,param)
 //
 //        val seOpc2= StegoEncrWithOpcOld(rBox, f,1,1,null,true)
 //        val dctres=seOpc2.getMatrix(true)
 //        AssertMatrixInRange(dctres,dctCpy,0)
 //
-//        val mDCT2=ModuleDCT(dctres,flag)
+//        val mDCT2=ModuleDCT(dctres,param)
 //        val ynlres=mDCT2.getYCbCrMatrix(true)
 //        AssertMatrixInRange(ynlres,ybrCpy,delta)
 //
-//        val myIm2= ModuleImage(ynlres, flag)
+//        val myIm2= ModuleImage(ynlres, param)
 //        val rgb=myIm2.rgbMatrixOld
 //        AssertMatrixInRange(rgb,cpy,delta)
-//        assertEquals("${flag.flag}!=${f.flag}",flag.flag,f.flag)
+//        assertEquals("${param.param}!=${f.param}",param.param,f.param)
 //        val t2=Date().time
 //
-//        System.out.println("Test d/r Image=${w}x${h}. Time= ${t2-t1}. Flag=${f.flag}." +
+//        System.out.println("Test d/r Image=${w}x${h}. Time= ${t2-t1}. Flag=${f.param}." +
 //                " Bar File=${file.getMainFileLength()/1024}kb. Delta=${delta}")
 //    }
 //    fun getRandomMatrix(w:Int,h:Int): TripleShortMatrixOld {
@@ -339,7 +339,7 @@
 //            if (inRange) {
 //                assertEquals("m1.State=${m.state} m2.State=${m1.state}"
 //                        , m.state, m1.state)
-////            assertEquals("flag ${m.f}!=${m1.f}",m.f,m1.f)
+////            assertEquals("param ${m.f}!=${m1.f}",m.f,m1.f)
 //                assertEquals(m.Width, m1.Width)
 //                assertEquals(m.Height, m1.Height)
 //            }

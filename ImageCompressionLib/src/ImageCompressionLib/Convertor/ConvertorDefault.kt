@@ -2,12 +2,11 @@ package ImageCompressionLib.Convertor
 
 import ImageCompressionLib.Containers.*
 import ImageCompressionLib.Containers.Type.ByteVector
-import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Containers.Type.MyBufferedImage
 //import ImageCompressionLib.ProcessingModules.ModuleByteVector
 import ImageCompressionLib.ProcessingModules.ModuleDCT
 import ImageCompressionLib.ProcessingModules.ModuleImage
-import ImageCompressionLib.ProcessingModules.ModuleOPC.ModuleOpc
+import ImageCompressionLib.ProcessingModules.ModuleOpc
 
 //import java.awt.image.MyBufferedImage
 
@@ -39,7 +38,7 @@ class ConvertorDefault (val dao: IDao,val guard:IGuard) {
         val bodum = ModuleDCT(matrix!!,parameters.flag)
         val matrixDCT=bodum.getDCTMatrix(isAsync)
         progressListener?.invoke(60,"direct OPC")
-        val moduleOPC=ModuleOpc(matrixDCT!!,parameters)
+        val moduleOPC= ModuleOpc(matrixDCT!!, parameters)
         val box=moduleOPC.getTripleDataOpcMatrix(guard.getEncryptProperty())
         progressListener?.invoke(80,"write to file")
         val bvc=box.toByteVectorContainer()
@@ -54,7 +53,7 @@ class ConvertorDefault (val dao: IDao,val guard:IGuard) {
         val box=TripleDataOpcMatrix.valueOf(bvc)
         val parameters=box.parameters
         progressListener?.invoke(10,"reverse OPC")
-        val mOPC= ModuleOpc(box,parameters)
+        val mOPC= ModuleOpc(box, parameters)
         val (FFTM,message) =mOPC.getTripleShortMatrix(guard.getEncryptProperty())
         message?.let { guard.onMessageRead(message)}
         progressListener?.invoke(50,"reverse DCT")
