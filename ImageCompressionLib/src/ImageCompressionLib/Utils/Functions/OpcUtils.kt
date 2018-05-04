@@ -19,7 +19,7 @@ class OpcUtils {
             }
         }
         @JvmStatic
-        fun setSameBaseIn(dataOrigin: DataOpcMatrix) {
+        fun setSameBaseIn(dataOrigin: Matrix<DataOpc>) {
             val baseSize=dataOrigin[0,0].base.size
             val res = ShortArray(baseSize)
             for (b in 0 until baseSize) {

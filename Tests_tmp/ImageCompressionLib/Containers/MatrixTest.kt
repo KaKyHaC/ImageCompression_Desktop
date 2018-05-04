@@ -1,6 +1,7 @@
 package ImageCompressionLib.Containers
 
 import ImageCompressionLib.Containers.Matrix.Matrix
+import ImageCompressionLib.Containers.Type.Size
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -44,5 +45,25 @@ class MatrixTest {
     fun split(){
         val tmp=matrix.split(2,2)
         assertEquals(matrix22,tmp[0,0])
+    }
+    @Test
+    fun splitIterator(){
+        val tmp=matrix.splitBuffer(2,2)
+        assertEquals(matrix22,tmp[0,0])
+        assertEquals(tmp[0,0].width,2)
+
+        val t=5
+        tmp[0,0][0,0]=5
+        assertEquals(matrix[0,0],t)
+    }
+    @Test
+    fun rectIterator(){
+        val tmp=matrix.rectIterator(0,0, Size(2,2))
+        assertEquals(matrix22,tmp)
+        assertEquals(tmp.width,2)
+
+        val t=5
+        tmp[0,0]=5
+        assertEquals(matrix[0,0],t)
     }
 }

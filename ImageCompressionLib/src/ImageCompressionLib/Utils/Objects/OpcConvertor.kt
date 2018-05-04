@@ -17,7 +17,7 @@ class OpcConvertor {
     //TODO replace forEach with for()
     //TODO do all process in one loop
 
-    private val shortMatrix: ShortMatrix
+    private val shortMatrix: Matrix<Short>
     private val dataOpcMatrix: DataOpcMatrix
     private val parameters:Parameters
     var isReady = false
@@ -55,20 +55,20 @@ class OpcConvertor {
     }
     private fun beforDirectOpc(){
         dataOpcMatrix.forEach() { i, j, value ->
-            OpcProcess.preDirectOpcProcess(parameters, ShortMatrix.valueOf(splitedShortMatrix[i, j]), value)
+            OpcProcess.preDirectOpcProcess(parameters, splitedShortMatrix[i, j], value)
             return@forEach null
         }
     }
     private fun afterReverceOpc(){
         dataOpcMatrix.forEach() { i, j, value ->
-            OpcProcess.afterReverceOpcProcess(parameters,value, ShortMatrix.valueOf(splitedShortMatrix[i, j]) )
+            OpcProcess.afterReverceOpcProcess(parameters,value, splitedShortMatrix[i, j])
             return@forEach null
         }
     }
     private fun setGlobalBase(){
         if(!parameters.flag.isChecked(Flag.Parameter.GlobalBase))
             return
-        val splitedDataOpcMatrix=dataOpcMatrix.splitBuffer(parameters.sameBaseSize.width,parameters.sameBaseSize.height) as Matrix<DataOpcMatrix>
+        val splitedDataOpcMatrix=dataOpcMatrix.splitBuffer(parameters.sameBaseSize.width,parameters.sameBaseSize.height)
         splitedDataOpcMatrix.forEach(){i, j, value ->
             OpcUtils.setSameBaseIn(value)
             return@forEach null
@@ -76,29 +76,29 @@ class OpcConvertor {
     }
     private fun directOpc(){
         dataOpcMatrix.forEach(){i, j, value ->
-            OpcProcess.directOPC(parameters, ShortMatrix.valueOf(splitedShortMatrix[i,j]),value)
+            OpcProcess.directOPC(parameters, splitedShortMatrix[i,j],value)
             return@forEach null
         }
     }
     private fun reverceOPC(){
         dataOpcMatrix.forEach(){i, j, value ->
-            OpcProcess.reverseOPC(parameters,value, ShortMatrix.valueOf(splitedShortMatrix[i,j]) )
+            OpcProcess.reverseOPC(parameters,value, splitedShortMatrix[i,j])
             return@forEach null
         }
     }
     private fun directOpcWithMessageAt(position: Int,message: ByteVector){
         dataOpcMatrix.forEach(){i, j, value ->
             if(message.hasNextBit())
-                OpcProcess.directOpcWithMessageAt(parameters, ShortMatrix.valueOf(splitedShortMatrix[i,j]) ,value,message.getNextBoolean(),position)
+                OpcProcess.directOpcWithMessageAt(parameters, splitedShortMatrix[i,j] ,value,message.getNextBoolean(),position)
             else
-                OpcProcess.directOpcWithMessageAt(parameters, ShortMatrix.valueOf(splitedShortMatrix[i,j]) ,value,false,position)
+                OpcProcess.directOpcWithMessageAt(parameters, splitedShortMatrix[i,j] ,value,false,position)
             return@forEach null
         }
     }
     private fun reverceOPCWithMessageAt(position: Int): ByteVector {
         val res= ByteVector()
         dataOpcMatrix.forEach(){i, j, value ->
-            res.append(OpcProcess.reverseOpcWithMessageAt(parameters,value, ShortMatrix.valueOf(splitedShortMatrix[i,j]) ,position))
+            res.append(OpcProcess.reverseOpcWithMessageAt(parameters,value, splitedShortMatrix[i,j] ,position))
             return@forEach null
         }
         return res
@@ -137,7 +137,7 @@ class OpcConvertor {
             isReady = true
         }
 
-        return shortMatrix.toArrayShort()
+        return ShortMatrix.valueOf(shortMatrix).toArrayShort()
     }
 
     /**

@@ -53,7 +53,7 @@ open class Matrix<T:Any> {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (javaClass != other?.javaClass) return false
+//        if (javaClass != other?.javaClass) return false
 
         other as Matrix<T>
 
@@ -93,64 +93,60 @@ open class Matrix<T:Any> {
     }
     @Deprecated("use Size")
     fun rectSave(wStart: Int, hStart: Int, wEnd: Int, hEnd: Int): Matrix<T> {
-        var wtmp = wEnd
-        var htmp = hEnd
+        var wEnd = wStart+size.width
+        var hEnd = hStart+size.height
         var wtmpS = wStart
         var htmpS = hStart
-        if (wEnd >= width)
-            wtmp = width - 1
-        if (hEnd >= height)
-            htmp = height - 1
+        if (wEnd > width)
+            wEnd = width
+        if (hEnd > height)
+            hEnd = height
 
         if (wStart < 0)
             wtmpS = 0
         if (hStart < 0)
             htmpS = 0
 
-        val w = wtmp - wtmpS
-        val h = htmp - htmpS
+        val w = wEnd - wtmpS
+        val h = hEnd - htmpS
         return Matrix(w, h) { i, j -> matrix[i + wStart][j + hStart] as T }
     }
     fun rectSave(wStart: Int, hStart: Int,size: Size): Matrix<T> {
-        var wtmp = size.width
         var wEnd = wStart+size.width
         var hEnd = hStart+size.height
-        var htmp = size.height
         var wtmpS = wStart
         var htmpS = hStart
-        if (wEnd >= width)
-            wtmp = width - 1
-        if (hEnd >= height)
-            htmp = height - 1
+        if (wEnd > width)
+            wEnd = width
+        if (hEnd > height)
+            hEnd = height
 
         if (wStart < 0)
             wtmpS = 0
         if (hStart < 0)
             htmpS = 0
 
-        val w = wtmp - wtmpS
-        val h = htmp - htmpS
+        val w = wEnd - wtmpS
+        val h = hEnd - htmpS
         return Matrix(w, h) { i, j -> matrix[i + wStart][j + hStart] as T }
     }
     fun rectSaveIterator(wStart: Int, hStart: Int,size: Size): Matrix<T> {
-        var wtmp = size.width
         var wEnd = wStart+size.width
         var hEnd = hStart+size.height
-        var htmp = size.height
         var wtmpS = wStart
         var htmpS = hStart
-        if (wEnd >= width)
-            wtmp = width - 1
-        if (hEnd >= height)
-            htmp = height - 1
+        if (wEnd > width)
+            wEnd = width
+        if (hEnd > height)
+            hEnd = height
 
         if (wStart < 0)
             wtmpS = 0
         if (hStart < 0)
             htmpS = 0
 
-        val w = wtmp - wtmpS
-        val h = htmp - htmpS
+        val w = wEnd - wtmpS
+        val h = hEnd - htmpS
         return IteratorMatrix<T>(matrix,wStart,hStart, Size(w,h))
     }
 
@@ -168,7 +164,7 @@ open class Matrix<T:Any> {
         var h = height / verticalStep
         if (width % horizontalStep != 0) w++
         if (height % verticalStep != 0) h++
-        val res1 = Matrix<Matrix<T>>(w, h) { i, j -> rectSaveIterator(i * horizontalStep, j * verticalStep, Size(i * horizontalStep + horizontalStep, j * verticalStep + verticalStep)) }
+        val res1 = Matrix<Matrix<T>>(w, h) { i, j -> rectSaveIterator(i * horizontalStep, j * verticalStep, Size(horizontalStep,verticalStep)) }
         return res1
     }
 
