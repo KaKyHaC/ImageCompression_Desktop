@@ -3,7 +3,7 @@ package ImageCompressionLib.Utils.Functions
 import ImageCompressionLib.Containers.Type.ByteVector
 import ImageCompressionLib.Containers.ByteVectorContainer
 import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.Containers.TripleDataOpcMatrix
+import ImageCompressionLib.Containers.TripleDataOpcMatrixOld
 import ImageCompressionLib.Utils.Objects.TimeManager
 
 class ByteVectorParser private constructor(){
@@ -11,13 +11,13 @@ class ByteVectorParser private constructor(){
         @JvmStatic val instance= ByteVectorParser()
     }
 
-    fun parseData(data:TripleDataOpcMatrix, flag: Flag, globalBaseW:Int, globalBaseH:Int): ByteVectorContainer {
+    fun parseData(dataOld: TripleDataOpcMatrixOld, flag: Flag, globalBaseW:Int, globalBaseH:Int): ByteVectorContainer {
         val v = ByteVector()
 
         if(flag.isChecked(Flag.Parameter.GlobalBase)&&flag.isChecked(Flag.Parameter.OneFile)){
-            data.writeBaseToVector(v,flag,globalBaseW,globalBaseH)
+            dataOld.writeBaseToVector(v,flag,globalBaseW,globalBaseH)
         }
-        data.writeToVector(v, flag)
+        dataOld.writeToVector(v, flag)
 
 //        TimeManager.Instance.append("box to vector")
 
@@ -26,15 +26,15 @@ class ByteVectorParser private constructor(){
         var vbase: ByteVector?=null
         if (!flag.isChecked(Flag.Parameter.OneFile)) {
             vbase = ByteVector()
-            data.writeBaseToVector(vbase,flag,globalBaseW,globalBaseH)
+            dataOld.writeBaseToVector(vbase,flag,globalBaseW,globalBaseH)
             TimeManager.Instance.append("base to vector")
 //            val bw = ByteVectorFile(pathToName + ModuleFile.typeSup)
 //            bw.write(vbase, flag)
         }
         return ByteVectorContainer(v,vbase)
     }
-    fun parseVector(container: ByteVectorContainer, flag: Flag): TripleDataOpcMatrix {
-        val opcs= TripleDataOpcMatrix()
+    fun parseVector(container: ByteVectorContainer, flag: Flag): TripleDataOpcMatrixOld {
+        val opcs= TripleDataOpcMatrixOld()
         val vmain=container.mainData
 
 

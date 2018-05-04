@@ -2,7 +2,7 @@ package ImageCompressionLib.Utils.Functions;
 
 
 import ImageCompressionLib.Constants.ConstantsKt;
-import ImageCompressionLib.Containers.TripleShortMatrix;
+import ImageCompressionLib.Containers.TripleShortMatrixOld;
 //import ImageCompressionLib.Parameters;
 
 import java.io.FileInputStream;
@@ -19,18 +19,18 @@ public class Steganography {
 
     private Steganography() {    }
 
-    public static void ReadMassageFromMatrixtoFile(TripleShortMatrix tripleShortMatrix, String file) {
-        Byte[] res = ReadMassageFromMatrix(tripleShortMatrix);
+    public static void ReadMassageFromMatrixtoFile(TripleShortMatrixOld tripleShortMatrixOld, String file) {
+        Byte[] res = ReadMassageFromMatrix(tripleShortMatrixOld);
         byte[] buf = new byte[res.length];
         for (int i = 0; i < res.length; i++)
             buf[i] = res[i];
         WriteByteArrayToFile(file, buf);
     }
 
-    public static Byte[] ReadMassageFromMatrix(TripleShortMatrix tripleShortMatrix) {
-        Byte[] bufC = ReadMassageFromArray(tripleShortMatrix.getC(), ConstantsKt.getBINARY_VALUE_OF_POSITION());
-        Byte[] bufB = ReadMassageFromArray(tripleShortMatrix.getB(), ConstantsKt.getBINARY_VALUE_OF_POSITION());
-        Byte[] bufA = ReadMassageFromArray(tripleShortMatrix.getA(), ConstantsKt.getBINARY_VALUE_OF_POSITION());
+    public static Byte[] ReadMassageFromMatrix(TripleShortMatrixOld tripleShortMatrixOld) {
+        Byte[] bufC = ReadMassageFromArray(tripleShortMatrixOld.getC(), ConstantsKt.getBINARY_VALUE_OF_POSITION());
+        Byte[] bufB = ReadMassageFromArray(tripleShortMatrixOld.getB(), ConstantsKt.getBINARY_VALUE_OF_POSITION());
+        Byte[] bufA = ReadMassageFromArray(tripleShortMatrixOld.getA(), ConstantsKt.getBINARY_VALUE_OF_POSITION());
 
         Byte[] res = new Byte[bufC.length + bufB.length + bufA.length];
         System.arraycopy(bufC, 0, res, 0, bufC.length);
@@ -39,23 +39,23 @@ public class Steganography {
         return res;
     }
 
-    public static TripleShortMatrix WriteMassageFromFileToMatrix(TripleShortMatrix tripleShortMatrix, String file) {
+    public static TripleShortMatrixOld WriteMassageFromFileToMatrix(TripleShortMatrixOld tripleShortMatrixOld, String file) {
         byte[] massage = ReadByteArrayFromFile(file);
-        return WriteMassageFromByteArrayToMatrix(tripleShortMatrix, massage);
+        return WriteMassageFromByteArrayToMatrix(tripleShortMatrixOld, massage);
     }
 
-    public static TripleShortMatrix WriteMassageFromByteArrayToMatrix(TripleShortMatrix tripleShortMatrix, byte[] massage) {
+    public static TripleShortMatrixOld WriteMassageFromByteArrayToMatrix(TripleShortMatrixOld tripleShortMatrixOld, byte[] massage) {
         int binaryPos = ConstantsKt.getBINARY_VALUE_OF_POSITION();
         //byte[] massage=ReadByteArrayFromFile(File);
         int massLen = massage.length;
-        int maxLen = CalulateMaxSizeOfMassage(tripleShortMatrix);
+        int maxLen = CalulateMaxSizeOfMassage(tripleShortMatrixOld);
         if (massLen >= maxLen) {
             System.out.println("to much massage");
             return null;
         }
-        int lenA = MaxSizePerArray(tripleShortMatrix.getA());
-        int lenB = MaxSizePerArray(tripleShortMatrix.getB());
-        int lenC = MaxSizePerArray(tripleShortMatrix.getC());
+        int lenA = MaxSizePerArray(tripleShortMatrixOld.getA());
+        int lenB = MaxSizePerArray(tripleShortMatrixOld.getB());
+        int lenC = MaxSizePerArray(tripleShortMatrixOld.getC());
 
         if (lenC < massLen) massLen -= lenC;
         else {
@@ -81,11 +81,11 @@ public class Steganography {
         System.arraycopy(massage, lenC, bufB, 0, lenB);
         System.arraycopy(massage, lenB + lenC, bufA, 0, lenA);
 
-        tripleShortMatrix.setC(WriteMessagesToArray(tripleShortMatrix.getC(), bufC, binaryPos));
-        tripleShortMatrix.setB(WriteMessagesToArray(tripleShortMatrix.getB(), bufB, binaryPos));
-        tripleShortMatrix.setA(WriteMessagesToArray(tripleShortMatrix.getA(), bufA, binaryPos));
+        tripleShortMatrixOld.setC(WriteMessagesToArray(tripleShortMatrixOld.getC(), bufC, binaryPos));
+        tripleShortMatrixOld.setB(WriteMessagesToArray(tripleShortMatrixOld.getB(), bufB, binaryPos));
+        tripleShortMatrixOld.setA(WriteMessagesToArray(tripleShortMatrixOld.getA(), bufA, binaryPos));
 
-        return tripleShortMatrix;
+        return tripleShortMatrixOld;
     }
 
     private static byte[] ReadByteArrayFromFile(String file) {
@@ -116,8 +116,8 @@ public class Steganography {
 
     }
 
-    public static int CalulateMaxSizeOfMassage(TripleShortMatrix tripleShortMatrix) {
-        return MaxSizePerArray(tripleShortMatrix.getA()) + MaxSizePerArray(tripleShortMatrix.getB()) + MaxSizePerArray(tripleShortMatrix.getC());
+    public static int CalulateMaxSizeOfMassage(TripleShortMatrixOld tripleShortMatrixOld) {
+        return MaxSizePerArray(tripleShortMatrixOld.getA()) + MaxSizePerArray(tripleShortMatrixOld.getB()) + MaxSizePerArray(tripleShortMatrixOld.getC());
     }
 
     private static int MaxSizePerArray(short[][] arr) {

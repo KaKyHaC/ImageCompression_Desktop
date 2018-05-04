@@ -38,15 +38,15 @@ class ConvertorDesktopTest {
         val mi1= ModuleImage(bi!!, flag)
 
 
-        var matrix1=mi1.rgbMatrix
-        matrix=mi.rgbMatrix!!
+        var matrix1=mi1.rgbMatrixOld
+        matrix=mi.rgbMatrixOld!!
         AssertMatrixInRange(matrix,matrix1!!,0)
 
         matrix=mi.getYenlMatrix(true)!!
         matrix1=mi1.getYenlMatrix(true)
         AssertMatrixInRange(matrix,matrix1!!,0)
 
-        matrix1=mi1.rgbMatrix
+        matrix1=mi1.rgbMatrixOld
         matrix=mi.getYenlMatrix(true)!!
         AssertMatrixInRange(matrix1!!,matrix,0,false)
     }
@@ -137,7 +137,7 @@ class ConvertorDesktopTest {
         //----
         //----
         val f1=f
-        val rBox= TripleDataOpcMatrix()
+        val rBox= TripleDataOpcMatrixOld()
         rBox.readFromVector(vb,f1)
         assertEquals(rBox,box)
 
@@ -150,7 +150,7 @@ class ConvertorDesktopTest {
         AssertMatrixInRange(ynlres,ybrCpy,delta)
 
         val myIm2= ModuleImage(ynlres, f1)
-        val rgb=myIm2.rgbMatrix
+        val rgb=myIm2.rgbMatrixOld
         AssertMatrixInRange(rgb,cpy,delta)
         val t2=Date().time
 
@@ -248,7 +248,7 @@ class ConvertorDesktopTest {
         AssertMatrixInRange(ynlres,ybrCpy,delta)
 
         val myIm2= ModuleImage(ynlres, f)
-        val rgb=myIm2.rgbMatrix
+        val rgb=myIm2.rgbMatrixOld
         AssertMatrixInRange(rgb,cpy,delta)
     }
     fun testDirectReverseConverting(w:Int, h:Int, flag: Flag, delta:Int, compareCompression:Boolean=false, sameBase: Size = Size(1, 1)){
@@ -304,7 +304,7 @@ class ConvertorDesktopTest {
         AssertMatrixInRange(ynlres,ybrCpy,delta)
 
         val myIm2= ModuleImage(ynlres, flag)
-        val rgb=myIm2.rgbMatrix
+        val rgb=myIm2.rgbMatrixOld
         AssertMatrixInRange(rgb,cpy,delta)
         assertEquals("${flag.flag}!=${f.flag}",flag.flag,f.flag)
         val t2=Date().time
@@ -312,8 +312,8 @@ class ConvertorDesktopTest {
         System.out.println("Test d/r Image=${w}x${h}. Time= ${t2-t1}. Flag=${f.flag}." +
                 " Bar File=${file.getMainFileLength()/1024}kb. Delta=${delta}")
     }
-    fun getRandomMatrix(w:Int,h:Int): TripleShortMatrix {
-        val m = TripleShortMatrix(w,h,State.RGB)
+    fun getRandomMatrix(w:Int,h:Int): TripleShortMatrixOld {
+        val m = TripleShortMatrixOld(w,h,State.RGB)
         val rand=Random()
         forEach(w,h,{x, y ->
 //            m.a[x][y]=rand.nextInt(255).toShort()
@@ -326,8 +326,8 @@ class ConvertorDesktopTest {
         return m
     }
 
-    fun TripleShortMatrix.copy(): TripleShortMatrix {
-        var res= TripleShortMatrix(this.Width,this.Height,state)
+    fun TripleShortMatrixOld.copy(): TripleShortMatrixOld {
+        var res= TripleShortMatrixOld(this.Width,this.Height,state)
         forEach(Width,Height,{x,y->
             res.a[x][y]=a[x][y]
             res.b[x][y]=b[x][y]
@@ -338,7 +338,7 @@ class ConvertorDesktopTest {
     companion object {
 
         @JvmStatic
-        fun AssertMatrixInRange(m: TripleShortMatrix, m1: TripleShortMatrix, delta: Int, inRange: Boolean = true) {
+        fun AssertMatrixInRange(m: TripleShortMatrixOld, m1: TripleShortMatrixOld, delta: Int, inRange: Boolean = true) {
             if (inRange) {
                 assertEquals("m1.State=${m.state} m2.State=${m1.state}"
                         , m.state, m1.state)

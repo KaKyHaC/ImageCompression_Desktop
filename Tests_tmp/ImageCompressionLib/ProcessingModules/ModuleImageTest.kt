@@ -1,7 +1,7 @@
 package ImageCompressionLib.ProcessingModules
 
 import ImageCompressionLib.Constants.State
-import ImageCompressionLib.Containers.TripleShortMatrix
+import ImageCompressionLib.Containers.TripleShortMatrixOld
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Utils.Objects.TimeManager
 import Utils.BuffImConvertor
@@ -47,12 +47,12 @@ class ModuleImageTest {
         flag.setChecked(Flag.Parameter.Enlargement,true)
 
         val mi= ModuleImage(grad, flag)
-        val bmp=mi.rgbMatrix.copy()
+        val bmp=mi.rgbMatrixOld.copy()
         var enl=mi.getYenlMatrix(true)
         assertFails { assertTrue(bmp.assertMatrixInRange(enl,1)) }
 
         val mi1= ModuleImage(enl, flag)
-        val bmp1=mi1.rgbMatrix
+        val bmp1=mi1.rgbMatrixOld
         kotlin.test.assertTrue { bmp1.assertMatrixInRange(bmp,4) }
 
     }
@@ -97,8 +97,8 @@ class ModuleImageTest {
         assertTrue(t2>t1)
 
     }
-    fun getGradientMatrix(w:Int,h:Int): TripleShortMatrix {
-        var m= TripleShortMatrix(w,h,State.RGB)
+    fun getGradientMatrix(w:Int,h:Int): TripleShortMatrixOld {
+        var m= TripleShortMatrixOld(w,h,State.RGB)
         forEach(w,h, { x, y ->
             run {
                 m.a[x][y] = ((x + y)%255).toShort()

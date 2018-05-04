@@ -18,9 +18,9 @@ class ConvertorDefault (val dao: IDao, val factory: IFactory) {
 //        fun getFlag():Flag
     }
     interface IFactory{
-        fun getModuleOPC(tripleShortMatrix: TripleShortMatrix,flag: Flag):AbsModuleOPC
-        fun getModuleOPC(tripleDataOpcMatrix: TripleDataOpcMatrix,flag: Flag):AbsModuleOPC
-        fun getModuleVectorParser(tripleDataOpcMatrix: TripleDataOpcMatrix,flag: Flag):ModuleByteVector
+        fun getModuleOPC(tripleShortMatrixOld: TripleShortMatrixOld, flag: Flag):AbsModuleOPC
+        fun getModuleOPC(tripleDataOpcMatrixOld: TripleDataOpcMatrixOld, flag: Flag):AbsModuleOPC
+        fun getModuleVectorParser(tripleDataOpcMatrixOld: TripleDataOpcMatrixOld, flag: Flag):ModuleByteVector
         fun getModuleVectorParser(byteVectorContainer: ByteVectorContainer,flag: Flag):ModuleByteVector
     }
 

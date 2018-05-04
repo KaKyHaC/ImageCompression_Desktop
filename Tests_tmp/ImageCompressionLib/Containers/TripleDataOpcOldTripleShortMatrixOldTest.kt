@@ -9,9 +9,9 @@ import java.math.BigInteger
 import java.util.*
 import kotlin.test.assertFails
 
-class TripleDataOpcOldTripleShortMatrixTest {
-    val box= TripleDataOpcMatrix()
-    val box1= TripleDataOpcMatrix()
+class TripleDataOpcOldTripleShortMatrixOldTest {
+    val box= TripleDataOpcMatrixOld()
+    val box1= TripleDataOpcMatrixOld()
     val flag= Flag("0")
     var rand=Random()
 
@@ -43,18 +43,18 @@ class TripleDataOpcOldTripleShortMatrixTest {
         assertEquals(box,box1)
     }
 
-    fun init(boxMatrixData: TripleDataOpcMatrix){
+    fun init(boxMatrixDataOld: TripleDataOpcMatrixOld){
         flag.setChecked(Flag.Parameter.OneFile,true)
         flag.setChecked(Flag.Parameter.DC,true)
         flag.setChecked(Flag.Parameter.LongCode,true)
         val size=200
 
         var a=Array(size,{x->Array(size,{y->initDopc(DataOpcOld(),flag)})})
-        boxMatrixData.a=a
+        boxMatrixDataOld.a=a
         a=Array(size,{x->Array(size,{y->initDopc(DataOpcOld(),flag)})})
-        boxMatrixData.b=a
+        boxMatrixDataOld.b=a
         a=Array(size,{x->Array(size,{y->initDopc(DataOpcOld(),flag)})})
-        boxMatrixData.c=a
+        boxMatrixDataOld.c=a
     }
     fun initDopc(DataOpcOld: DataOpcOld, flag: Flag): DataOpcOld {
         val size=5

@@ -2,7 +2,7 @@ package ImageCompressionLib.ProcessingModules
 
 
 import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.Containers.TripleShortMatrix
+import ImageCompressionLib.Containers.TripleShortMatrixOld
 import ImageCompressionLib.Constants.State
 import ImageCompressionLib.Constants.TypeQuantization
 import ImageCompressionLib.Utils.Objects.DctConvertor
@@ -15,7 +15,7 @@ import kotlin.reflect.KFunction1
 /**
  * Created by Димка on 19.09.2016.
  */
-class ModuleDCT(private val tripleShortMatrix: TripleShortMatrix, //    private TripleShortMatrix resTripleShortMatrix;
+class ModuleDCT(private val tripleShortMatrixOld: TripleShortMatrixOld, //    private TripleShortMatrixOld resTripleShortMatrix;
                 private val flag: Flag) {
     private var a: DctConvertor
     private var b: DctConvertor
@@ -23,24 +23,24 @@ class ModuleDCT(private val tripleShortMatrix: TripleShortMatrix, //    private 
 
     init {
 
-//        if (tripleShortMatrix.state == State.Yenl)
+//        if (tripleShortMatrixOld.state == State.Yenl)
 //        //new code . Does it is needed ?
-//            tripleShortMatrix.state = State.YBR
+//            tripleShortMatrixOld.state = State.YBR
 
-        val state = if (tripleShortMatrix.state == State.DCT) DctConvertor.State.DCT else DctConvertor.State.ORIGIN
+        val state = if (tripleShortMatrixOld.state == State.DCT) DctConvertor.State.DCT else DctConvertor.State.ORIGIN
 
-        a = DctConvertor(tripleShortMatrix.a, state, TypeQuantization.luminosity, flag)
-        b = DctConvertor(tripleShortMatrix.b, state, TypeQuantization.Chromaticity, flag)
-        c = DctConvertor(tripleShortMatrix.c, state, TypeQuantization.Chromaticity, flag)
+        a = DctConvertor(tripleShortMatrixOld.a, state, TypeQuantization.luminosity, flag)
+        b = DctConvertor(tripleShortMatrixOld.b, state, TypeQuantization.Chromaticity, flag)
+        c = DctConvertor(tripleShortMatrixOld.c, state, TypeQuantization.Chromaticity, flag)
 
-    }//        this.resTripleShortMatrix=tripleShortMatrix;
+    }//        this.resTripleShortMatrix=tripleShortMatrixOld;
 
 
 
     fun dataProcessing(forEach: KFunction1<DctConvertor, Array<ShortArray>>) {
-//        if (tripleShortMatrix.state == State.Yenl)
+//        if (tripleShortMatrixOld.state == State.Yenl)
 //        //new code . Does it is needed ?
-//            tripleShortMatrix.state = State.YBR
+//            tripleShortMatrixOld.state = State.YBR
 
         forEach.invoke(a)
         forEach.invoke(b)
@@ -50,9 +50,9 @@ class ModuleDCT(private val tripleShortMatrix: TripleShortMatrix, //    private 
     }
 
     fun dataProcessingInThreads(forEach: KFunction1<DctConvertor, Array<ShortArray>>) {
-//        if (tripleShortMatrix.state == State.Yenl)
+//        if (tripleShortMatrixOld.state == State.Yenl)
 //        //new code . Does it is needed ?
-//            tripleShortMatrix.state = State.YBR
+//            tripleShortMatrixOld.state = State.YBR
 
         val executorService = Executors.newFixedThreadPool(3)
         val futures = arrayOfNulls<Future<*>>(3)
@@ -74,56 +74,56 @@ class ModuleDCT(private val tripleShortMatrix: TripleShortMatrix, //    private 
 
         processState()
     }
-    fun getYCbCrMatrix(isMultiThreads: Boolean): TripleShortMatrix{
+    fun getYCbCrMatrix(isMultiThreads: Boolean): TripleShortMatrixOld {
         if(flag.isChecked(Flag.Parameter.DCT))
             return getYCbCrMatrix1(isMultiThreads)
         else {
             setState(DctConvertor.State.ORIGIN)
             processState()
-            return tripleShortMatrix
+            return tripleShortMatrixOld
         }
     }
-    fun getDCTMatrix(isMultiThreads: Boolean): TripleShortMatrix{
+    fun getDCTMatrix(isMultiThreads: Boolean): TripleShortMatrixOld {
         if(flag.isChecked(Flag.Parameter.DCT))
             return getDCTMatrix1(isMultiThreads)
         else {
             setState(DctConvertor.State.DCT)
             processState()
-            return tripleShortMatrix
+            return tripleShortMatrixOld
         }
     }
 
-    private fun getYCbCrMatrix1(isMultiThreads: Boolean): TripleShortMatrix {
-        when (tripleShortMatrix.state) {
+    private fun getYCbCrMatrix1(isMultiThreads: Boolean): TripleShortMatrixOld {
+        when (tripleShortMatrixOld.state) {
             State.DCT -> if (isMultiThreads)
                 dataProcessingInThreads(DctConvertor::getMatrixOrigin)
             else
                 dataProcessing(DctConvertor::getMatrixOrigin)
         }
-        return if (tripleShortMatrix.state == State.YBR || tripleShortMatrix.state == State.Yenl) tripleShortMatrix else  throw Exception("State not correct")
+        return if (tripleShortMatrixOld.state == State.YBR || tripleShortMatrixOld.state == State.Yenl) tripleShortMatrixOld else  throw Exception("State not correct")
     }
-    fun getDCTMatrix1(isMultiThreads: Boolean): TripleShortMatrix {
-        when (tripleShortMatrix.state) {
+    fun getDCTMatrix1(isMultiThreads: Boolean): TripleShortMatrixOld {
+        when (tripleShortMatrixOld.state) {
             State.YBR, State.Yenl -> if (isMultiThreads)
                 dataProcessingInThreads(DctConvertor::getMatrixDct)
             else
                 dataProcessing(DctConvertor::getMatrixDct)
         }
 
-        return if (tripleShortMatrix.state == State.DCT) tripleShortMatrix else throw Exception("state not correct")
+        return if (tripleShortMatrixOld.state == State.DCT) tripleShortMatrixOld else throw Exception("state not correct")
     }
     private fun processState(){
-        tripleShortMatrix.state = if (a.state == DctConvertor.State.DCT) State.DCT else State.YBR
-        if (tripleShortMatrix.a.size > tripleShortMatrix.b.size && tripleShortMatrix.state == State.YBR)
-            tripleShortMatrix.state = State.Yenl
+        tripleShortMatrixOld.state = if (a.state == DctConvertor.State.DCT) State.DCT else State.YBR
+        if (tripleShortMatrixOld.a.size > tripleShortMatrixOld.b.size && tripleShortMatrixOld.state == State.YBR)
+            tripleShortMatrixOld.state = State.Yenl
     }
     private fun setState(state:DctConvertor.State){
-        a = DctConvertor(tripleShortMatrix.a, state, TypeQuantization.luminosity, flag)
-        b = DctConvertor(tripleShortMatrix.b, state, TypeQuantization.Chromaticity, flag)
-        c = DctConvertor(tripleShortMatrix.c, state, TypeQuantization.Chromaticity, flag)
+        a = DctConvertor(tripleShortMatrixOld.a, state, TypeQuantization.luminosity, flag)
+        b = DctConvertor(tripleShortMatrixOld.b, state, TypeQuantization.Chromaticity, flag)
+        c = DctConvertor(tripleShortMatrixOld.c, state, TypeQuantization.Chromaticity, flag)
     }
 
-    //    public TripleShortMatrix getMatrix() {
-    //        return tripleShortMatrix;
+    //    public TripleShortMatrixOld getMatrix() {
+    //        return tripleShortMatrixOld;
     //    }
 }

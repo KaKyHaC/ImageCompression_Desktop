@@ -12,13 +12,14 @@ class DataOpc :ICopyble{
     var DC: Short
     var N: BigInteger
     var vectorCode: Vector<Long>
-
+    private val size:Size
     constructor(parameters: Parameters){
         base = ShortArray(parameters.unitSize.height)
         sign = Array(parameters.unitSize.width) { BooleanArray(parameters.unitSize.height) }
         DC = 0
         N = BigInteger("0")
         vectorCode = Vector()
+        size=parameters.unitSize
     }
     constructor(unitSize: Size){
         base = ShortArray(unitSize.height)
@@ -26,6 +27,7 @@ class DataOpc :ICopyble{
         DC = 0
         N = BigInteger("0")
         vectorCode = Vector()
+        size=unitSize
     }
     constructor(DC: Short, N: BigInteger, vectorCode: Vector<Long>,base: ShortArray, sign: Array<BooleanArray>) {
         this.base = base
@@ -33,6 +35,7 @@ class DataOpc :ICopyble{
         this.DC = DC
         this.N = N
         this.vectorCode = vectorCode
+        size=Size(sign.size,sign[0].size)
     }
 
 
@@ -60,14 +63,14 @@ class DataOpc :ICopyble{
     }
 
 
-    fun FromSignToVector(vector: ByteVector, size: Size) {
+    fun FromSignToVector(vector: ByteVector) {
         for (i in 0 until size.width) {
             for (j in 0 until size.height) {
                 vector.append(sign[i][j])
             }
         }
     }
-    fun FromVectorToSign(vector: ByteVector, size: Size) {
+    fun FromVectorToSign(vector: ByteVector) {
         for (i in 0 until size.width) {
             for (j in 0 until size.height) {
                 sign[i][j] = vector.getNextBoolean()
@@ -76,19 +79,19 @@ class DataOpc :ICopyble{
     }
 
 
-    fun FromBaseToVector(vector: ByteVector, flag: Flag, height: Int) {
+    fun FromBaseToVector(vector: ByteVector, flag: Flag) {
         var i=0
         if(!flag.isChecked(Flag.Parameter.DC)&&flag.isChecked(Flag.Parameter.DCT))
             vector.append(base[i++])
-        while (i< height){
+        while (i< size.height){
             vector.append(base[i++].toByte())
         }
     }
-    fun FromVectorToBase(vector: ByteVector, flag: Flag, height: Int) {
+    fun FromVectorToBase(vector: ByteVector, flag: Flag) {
         var i=0
         if(!flag.isChecked(Flag.Parameter.DC)&&flag.isChecked(Flag.Parameter.DCT))
             base[i++]=vector.getNextShort()
-        while (i< height){
+        while (i< size.height){
             base[i++]=vector.getNext().toShort() and 0xff
         }
     }
@@ -121,7 +124,7 @@ class DataOpc :ICopyble{
             FromDcToVector(vector)
 
         if (!f.isChecked(Flag.Parameter.GlobalBase) && f.isChecked(Flag.Parameter.OneFile))
-            FromBaseToVector(vector,f,parameters.unitSize.height)
+            FromBaseToVector(vector,f)
 
         if (f.isChecked(Flag.Parameter.LongCode))
             FromCodeToVector(vector)
@@ -129,7 +132,7 @@ class DataOpc :ICopyble{
             FromBigIntToVector(vector, getLengthOfCode(base, parameters.unitSize))
 
         if(f.isChecked(Flag.Parameter.DCT))
-            FromSignToVector(vector,parameters.unitSize)
+            FromSignToVector(vector)
 
         return vector
     }
@@ -139,7 +142,7 @@ class DataOpc :ICopyble{
             FromVectorToDc(vector)
 
         if (!f.isChecked(Flag.Parameter.GlobalBase) && f.isChecked(Flag.Parameter.OneFile))
-            FromVectorToBase(vector,f,parameters.unitSize.height)
+            FromVectorToBase(vector,f)
 
         if (f.isChecked(Flag.Parameter.LongCode))
             FromVectorToCode(vector)
@@ -147,7 +150,7 @@ class DataOpc :ICopyble{
             FromVectorToBigInt(vector, getLengthOfCode(base, parameters.unitSize))
 
         if(f.isChecked(Flag.Parameter.DCT))
-            FromVectorToSign(vector,parameters.unitSize)
+            FromVectorToSign(vector)
 
         return this
     }

@@ -1,9 +1,9 @@
 package ImageCompressionLib.ProcessingModules.ModuleOPC
 
-import ImageCompressionLib.Containers.TripleDataOpcMatrix
-import ImageCompressionLib.Containers.TripleShortMatrix
+import ImageCompressionLib.Containers.TripleDataOpcMatrixOld
+import ImageCompressionLib.Containers.TripleShortMatrixOld
 
 interface IUtilOPC {
-    fun getTripleShortMatrix(tripleDataOpcMatrix :TripleDataOpcMatrix): TripleShortMatrix
-    fun getTripleDataOpcMatrix(tripleShortMatrix: TripleShortMatrix): TripleDataOpcMatrix
+    fun getTripleShortMatrix(tripleDataOpcMatrixOld: TripleDataOpcMatrixOld): TripleShortMatrixOld
+    fun getTripleDataOpcMatrix(tripleShortMatrixOld: TripleShortMatrixOld): TripleDataOpcMatrixOld
 }

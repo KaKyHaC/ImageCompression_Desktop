@@ -1,7 +1,7 @@
 package ImageCompressionLib.ProcessingModules
 
 import ImageCompressionLib.Containers.Type.MyBufferedImage
-import ImageCompressionLib.Containers.TripleShortMatrix
+import ImageCompressionLib.Containers.TripleShortMatrixOld
 import ImageCompressionLib.Constants.State
 import ImageCompressionLib.Containers.Type.ByteVector
 import ImageCompressionLib.Containers.Type.Flag
@@ -14,31 +14,31 @@ import java.util.concurrent.Future
 
 class ModuleImage {
     //    private static final int SIZEOFBLOCK = 8;
-    private var tripleShortMatrix: TripleShortMatrix? = null
+    private var tripleShortMatrixOld: TripleShortMatrixOld? = null
     private var bitmap: MyBufferedImage? = null
     private var flag: Flag? = null
 
     private val byteVectorFromRGB: ByteVector
         get() {
-            if (tripleShortMatrix!!.state != State.RGB)
+            if (tripleShortMatrixOld!!.state != State.RGB)
                 throw Exception("State not RGB")
 
             val vector = ByteVector(10)
-            vector.append(tripleShortMatrix!!.Width.toShort())
-            vector.append(tripleShortMatrix!!.Height.toShort())
+            vector.append(tripleShortMatrixOld!!.Width.toShort())
+            vector.append(tripleShortMatrixOld!!.Height.toShort())
             vector.append(flag!!.flag)
 
-            for (i in 0 until tripleShortMatrix!!.Width) {
-                for (j in 0 until tripleShortMatrix!!.Height) {
+            for (i in 0 until tripleShortMatrixOld!!.Width) {
+                for (j in 0 until tripleShortMatrixOld!!.Height) {
                     val r: Byte
                     val g: Byte
                     val b: Byte
-                    assert(tripleShortMatrix!!.a[i][j] < 0xff)
-                    assert(tripleShortMatrix!!.b[i][j] < 0xff)
-                    assert(tripleShortMatrix!!.c[i][j] < 0xff)
-                    r = tripleShortMatrix!!.a[i][j].toByte()
-                    g = tripleShortMatrix!!.b[i][j].toByte()
-                    b = tripleShortMatrix!!.c[i][j].toByte()
+                    assert(tripleShortMatrixOld!!.a[i][j] < 0xff)
+                    assert(tripleShortMatrixOld!!.b[i][j] < 0xff)
+                    assert(tripleShortMatrixOld!!.c[i][j] < 0xff)
+                    r = tripleShortMatrixOld!!.a[i][j].toByte()
+                    g = tripleShortMatrixOld!!.b[i][j].toByte()
+                    b = tripleShortMatrixOld!!.c[i][j].toByte()
                     vector.append(r)
                     vector.append(g)
                     vector.append(b)
@@ -50,7 +50,7 @@ class ModuleImage {
     //TODO make Async
     val bufferedImage: MyBufferedImage
         get() {
-            when (tripleShortMatrix!!.state) {
+            when (tripleShortMatrixOld!!.state) {
                 State.RGB -> FromRGBtoIBufferedImage()
                 State.YBR -> FromYCbCrToIBufferedImage()
                 State.Yenl -> {
@@ -67,9 +67,9 @@ class ModuleImage {
             return bitmap!!
         }
 
-    val rgbMatrix: TripleShortMatrix
+    val rgbMatrixOld: TripleShortMatrixOld
         get() {
-            when (tripleShortMatrix!!.state) {
+            when (tripleShortMatrixOld!!.state) {
                 State.RGB -> {
                 }
                 State.YBR -> FromYBRtoRGB()
@@ -81,12 +81,12 @@ class ModuleImage {
                 else -> throw Exception("state not correct")
             }
 
-            return tripleShortMatrix!!
+            return tripleShortMatrixOld!!
         }
 
     val byteVector: ByteVector
         get() {
-            when (tripleShortMatrix!!.state) {
+            when (tripleShortMatrixOld!!.state) {
                 State.RGB -> {
                 }
                 State.YBR -> FromYBRtoRGB()
@@ -103,26 +103,26 @@ class ModuleImage {
 
     constructor(_b: MyBufferedImage, flag: Flag) {
         bitmap = _b
-        tripleShortMatrix = TripleShortMatrix(bitmap!!.width, bitmap!!.height, State.bitmap)
+        tripleShortMatrixOld = TripleShortMatrixOld(bitmap!!.width, bitmap!!.height, State.bitmap)
         this.flag = flag
     }
 
-    constructor(tripleShortMatrix: TripleShortMatrix, flag: Flag) {
-        this.tripleShortMatrix = tripleShortMatrix
-        bitmap = MyBufferedImage(tripleShortMatrix.Width, tripleShortMatrix.Height)//, MyBufferedImage.TYPE_3BYTE_BGR);
+    constructor(tripleShortMatrixOld: TripleShortMatrixOld, flag: Flag) {
+        this.tripleShortMatrixOld = tripleShortMatrixOld
+        bitmap = MyBufferedImage(tripleShortMatrixOld.Width, tripleShortMatrixOld.Height)//, MyBufferedImage.TYPE_3BYTE_BGR);
         this.flag = flag
     }
 
     constructor(vector: ByteVector, flag: Flag) {
-        this.tripleShortMatrix = getMatrixFromByteVector(vector)
-        bitmap = MyBufferedImage(tripleShortMatrix!!.Width, tripleShortMatrix!!.Height)//, MyBufferedImage.TYPE_3BYTE_BGR);
+        this.tripleShortMatrixOld = getMatrixFromByteVector(vector)
+        bitmap = MyBufferedImage(tripleShortMatrixOld!!.Width, tripleShortMatrixOld!!.Height)//, MyBufferedImage.TYPE_3BYTE_BGR);
         this.flag = flag
     }
 
     //TODO string constructor
     //TODO fix threads
     private fun FromIBufferedImageToYCbCrParallelMatrix() {
-        if (tripleShortMatrix!!.state == State.bitmap) {
+        if (tripleShortMatrixOld!!.state == State.bitmap) {
             val w = bitmap!!.width
             val h = bitmap!!.height
 
@@ -145,14 +145,14 @@ class ModuleImage {
                 }
 
             }
-            tripleShortMatrix!!.state = State.YBR
+            tripleShortMatrixOld!!.state = State.YBR
         }
 
     }
 
     private fun FromIBufferedImageToYCbCr() {
 
-        if (tripleShortMatrix!!.state == State.bitmap) {
+        if (tripleShortMatrixOld!!.state == State.bitmap) {
             val img = bitmap!!.getData()//convertTo2DWithoutUsingGetRGB(bitmap);
             forEach(bitmap!!.width, bitmap!!.height, { x, y ->
                 //                int pixelColor=bitmap.getRGB(x,y);
@@ -175,28 +175,28 @@ class ModuleImage {
                 //                       vcr++;
 
 
-                tripleShortMatrix!!.a[x][y] = vy.toShort()
-                tripleShortMatrix!!.b[x][y] = vcb.toShort()
-                tripleShortMatrix!!.c[x][y] = vcr.toShort()
+                tripleShortMatrixOld!!.a[x][y] = vy.toShort()
+                tripleShortMatrixOld!!.b[x][y] = vcb.toShort()
+                tripleShortMatrixOld!!.c[x][y] = vcr.toShort()
 
             })
 
-            tripleShortMatrix!!.state = State.YBR
+            tripleShortMatrixOld!!.state = State.YBR
         }
 
     }
 
     private fun FromYCbCrToIBufferedImage() {
-        if (tripleShortMatrix!!.state == State.YBR) {
+        if (tripleShortMatrixOld!!.state == State.YBR) {
             val pixelAlpha = 255 //for argb
 
-            forEach(tripleShortMatrix!!.Width, tripleShortMatrix!!.Height, { x, y ->
+            forEach(tripleShortMatrixOld!!.Width, tripleShortMatrixOld!!.Height, { x, y ->
                 var r: Double
                 var g: Double
                 var b: Double
-                r = tripleShortMatrix!!.a[x][y] + 1.402 * (tripleShortMatrix!!.c[x][y] - 128)
-                g = tripleShortMatrix!!.a[x][y].toDouble() - 0.34414 * (tripleShortMatrix!!.b[x][y] - 128) - 0.71414 * (tripleShortMatrix!!.c[x][y] - 128)
-                b = tripleShortMatrix!!.a[x][y] + 1.772 * (tripleShortMatrix!!.b[x][y] - 128)
+                r = tripleShortMatrixOld!!.a[x][y] + 1.402 * (tripleShortMatrixOld!!.c[x][y] - 128)
+                g = tripleShortMatrixOld!!.a[x][y].toDouble() - 0.34414 * (tripleShortMatrixOld!!.b[x][y] - 128) - 0.71414 * (tripleShortMatrixOld!!.c[x][y] - 128)
+                b = tripleShortMatrixOld!!.a[x][y] + 1.772 * (tripleShortMatrixOld!!.b[x][y] - 128)
 
                 if (g < 0) g = 0.0//new
                 if (r < 0) r = 0.0
@@ -226,13 +226,13 @@ class ModuleImage {
                 // полученный результат вернём в MyBufferedImage
                 bitmap!!.setRGB(x, y, `val`)
             })
-            tripleShortMatrix!!.state = State.bitmap
+            tripleShortMatrixOld!!.state = State.bitmap
         }
     }
 
     private fun FromIBufferedImageToRGB() {
 
-        if (tripleShortMatrix!!.state == State.bitmap) {
+        if (tripleShortMatrixOld!!.state == State.bitmap) {
             val Width = bitmap!!.width
             val Height = bitmap!!.height
 
@@ -241,18 +241,18 @@ class ModuleImage {
                     //                    int pixelColor = rgb[i*Height + j];
                     val pixelColor = bitmap!!.getRGB(i, j)
                     // получим цвет каждого пикселя
-                    tripleShortMatrix!!.a[i][j] = (pixelColor shr 16 and 0xFF).toShort()
-                    tripleShortMatrix!!.b[i][j] = (pixelColor shr 8 and 0xFF).toShort()
-                    tripleShortMatrix!!.c[i][j] = (pixelColor and 0xFF).toShort()
+                    tripleShortMatrixOld!!.a[i][j] = (pixelColor shr 16 and 0xFF).toShort()
+                    tripleShortMatrixOld!!.b[i][j] = (pixelColor shr 8 and 0xFF).toShort()
+                    tripleShortMatrixOld!!.c[i][j] = (pixelColor and 0xFF).toShort()
 
                 }
             }
-            tripleShortMatrix!!.state = State.RGB
+            tripleShortMatrixOld!!.state = State.RGB
         }
     }
 
     private fun FromRGBtoIBufferedImage() {
-        if (tripleShortMatrix!!.state == State.RGB) {
+        if (tripleShortMatrixOld!!.state == State.RGB) {
             val Width = bitmap!!.width
             val Height = bitmap!!.height
 
@@ -260,9 +260,9 @@ class ModuleImage {
                 for (j in 0 until Height) {
 
                     val pixelAlpha = 255 //for argb
-                    val pixelBlue = tripleShortMatrix!!.c[i][j].toInt() and 0xFF
-                    val pixelRed = tripleShortMatrix!!.a[i][j].toInt() and 0xFF
-                    val pixelGreen = tripleShortMatrix!!.b[i][j].toInt() and 0xFF
+                    val pixelBlue = tripleShortMatrixOld!!.c[i][j].toInt() and 0xFF
+                    val pixelRed = tripleShortMatrixOld!!.a[i][j].toInt() and 0xFF
+                    val pixelGreen = tripleShortMatrixOld!!.b[i][j].toInt() and 0xFF
                     //                    int val =(pixelAlpha<<24)| (pixelRed<<16) | (pixelGreen<<8) | pixelBlue; //for argb
                     val `val` = pixelRed shl 16 or (pixelGreen shl 8) or pixelBlue //for rgb
 
@@ -270,13 +270,13 @@ class ModuleImage {
                     bitmap!!.setRGB(i, j, `val`)
                 }
             }
-            tripleShortMatrix!!.state = State.bitmap
+            tripleShortMatrixOld!!.state = State.bitmap
         }
     }
 
     private fun FromYBRtoRGB() {
 
-        if (tripleShortMatrix!!.state == State.YBR) {
+        if (tripleShortMatrixOld!!.state == State.YBR) {
             val Width = bitmap!!.width
             val Height = bitmap!!.height
 
@@ -285,9 +285,9 @@ class ModuleImage {
                     var r: Double
                     var g: Double
                     var b: Double
-                    r = tripleShortMatrix!!.a[i][j] + 1.402 * (tripleShortMatrix!!.c[i][j] - 128)
-                    g = tripleShortMatrix!!.a[i][j].toDouble() - 0.34414 * (tripleShortMatrix!!.b[i][j] - 128) - 0.71414 * (tripleShortMatrix!!.c[i][j] - 128)
-                    b = tripleShortMatrix!!.a[i][j] + 1.772 * (tripleShortMatrix!!.b[i][j] - 128)
+                    r = tripleShortMatrixOld!!.a[i][j] + 1.402 * (tripleShortMatrixOld!!.c[i][j] - 128)
+                    g = tripleShortMatrixOld!!.a[i][j].toDouble() - 0.34414 * (tripleShortMatrixOld!!.b[i][j] - 128) - 0.71414 * (tripleShortMatrixOld!!.c[i][j] - 128)
+                    b = tripleShortMatrixOld!!.a[i][j] + 1.772 * (tripleShortMatrixOld!!.b[i][j] - 128)
                     //add
                     if (r % 1 >= 0.5)
                         r = (++r).toShort().toDouble()
@@ -304,27 +304,27 @@ class ModuleImage {
                     if (r > 255) r = 255.0
                     if (g > 255) g = 255.0
                     if (b > 255) b = 255.0
-                    tripleShortMatrix!!.a[i][j] = r.toShort()
-                    tripleShortMatrix!!.b[i][j] = g.toShort()
-                    tripleShortMatrix!!.c[i][j] = b.toShort()
+                    tripleShortMatrixOld!!.a[i][j] = r.toShort()
+                    tripleShortMatrixOld!!.b[i][j] = g.toShort()
+                    tripleShortMatrixOld!!.c[i][j] = b.toShort()
                 }
             }
-            tripleShortMatrix!!.state = State.RGB
+            tripleShortMatrixOld!!.state = State.RGB
         }
     }
 
     private fun FromRGBtoYBR() {
 
-        if (tripleShortMatrix!!.state == State.RGB) {
+        if (tripleShortMatrixOld!!.state == State.RGB) {
             val Width = bitmap!!.width
             val Height = bitmap!!.height
 
             for (i in 0 until Width) {
                 for (j in 0 until Height) {
                     // получим цвет каждого пикселя
-                    val pixelRed = tripleShortMatrix!!.a[i][j].toDouble()
-                    val pixelGreen = tripleShortMatrix!!.b[i][j].toDouble()
-                    val pixelBlue = tripleShortMatrix!!.c[i][j].toDouble()
+                    val pixelRed = tripleShortMatrixOld!!.a[i][j].toDouble()
+                    val pixelGreen = tripleShortMatrixOld!!.b[i][j].toDouble()
+                    val pixelBlue = tripleShortMatrixOld!!.c[i][j].toDouble()
 
                     val vy = 0.299 * pixelRed + 0.587 * pixelGreen + 0.114 * pixelBlue
                     val vcb = 128.0 - 0.168736 * pixelRed - 0.331264 * pixelGreen + 0.5 * pixelBlue
@@ -337,61 +337,61 @@ class ModuleImage {
                     //                    if(vcr%1>=0.5)
                     //                        vcr++;
 
-                    tripleShortMatrix!!.a[i][j] = vy.toShort()
-                    tripleShortMatrix!!.b[i][j] = vcb.toShort()
-                    tripleShortMatrix!!.c[i][j] = vcr.toShort()
+                    tripleShortMatrixOld!!.a[i][j] = vy.toShort()
+                    tripleShortMatrixOld!!.b[i][j] = vcb.toShort()
+                    tripleShortMatrixOld!!.c[i][j] = vcr.toShort()
                 }
             }
-            tripleShortMatrix!!.state = State.YBR
+            tripleShortMatrixOld!!.state = State.YBR
         }
     }
 
     private fun PixelEnlargement() {
-        if (tripleShortMatrix!!.state == State.YBR && flag!!.isChecked(Flag.Parameter.Enlargement)) {
-            val cWidth = tripleShortMatrix!!.Width / 2
-            val cHeight = tripleShortMatrix!!.Height / 2
+        if (tripleShortMatrixOld!!.state == State.YBR && flag!!.isChecked(Flag.Parameter.Enlargement)) {
+            val cWidth = tripleShortMatrixOld!!.Width / 2
+            val cHeight = tripleShortMatrixOld!!.Height / 2
             val enlCb = Array(cWidth) { ShortArray(cHeight) }
             val enlCr = Array(cWidth) { ShortArray(cHeight) }
             for (i in 0 until cWidth) {
                 for (j in 0 until cHeight) {
-                    enlCb[i][j] = ((tripleShortMatrix!!.b[i * 2][j * 2].toInt() + tripleShortMatrix!!.b[i * 2 + 1][j * 2].toInt()
-                            + tripleShortMatrix!!.b[i * 2][j * 2 + 1].toInt() + tripleShortMatrix!!.b[i * 2 + 1][j * 2 + 1].toInt()) / 4).toShort()
-                    enlCr[i][j] = ((tripleShortMatrix!!.c[i * 2][j * 2].toInt() + tripleShortMatrix!!.c[i * 2 + 1][j * 2].toInt()
-                            + tripleShortMatrix!!.c[i * 2][j * 2 + 1].toInt() + tripleShortMatrix!!.c[i * 2 + 1][j * 2 + 1].toInt()) / 4).toShort()
+                    enlCb[i][j] = ((tripleShortMatrixOld!!.b[i * 2][j * 2].toInt() + tripleShortMatrixOld!!.b[i * 2 + 1][j * 2].toInt()
+                            + tripleShortMatrixOld!!.b[i * 2][j * 2 + 1].toInt() + tripleShortMatrixOld!!.b[i * 2 + 1][j * 2 + 1].toInt()) / 4).toShort()
+                    enlCr[i][j] = ((tripleShortMatrixOld!!.c[i * 2][j * 2].toInt() + tripleShortMatrixOld!!.c[i * 2 + 1][j * 2].toInt()
+                            + tripleShortMatrixOld!!.c[i * 2][j * 2 + 1].toInt() + tripleShortMatrixOld!!.c[i * 2 + 1][j * 2 + 1].toInt()) / 4).toShort()
                 }
             }
-            tripleShortMatrix!!.b = enlCb
-            tripleShortMatrix!!.c = enlCr
-            tripleShortMatrix!!.state = State.Yenl
+            tripleShortMatrixOld!!.b = enlCb
+            tripleShortMatrixOld!!.c = enlCr
+            tripleShortMatrixOld!!.state = State.Yenl
         }
 
     }
 
     private fun PixelRestoration() {
 
-        if (tripleShortMatrix!!.state == State.Yenl && flag!!.isChecked(Flag.Parameter.Enlargement)) {
-            val cWidth = tripleShortMatrix!!.Width / 2
-            val cHeight = tripleShortMatrix!!.Height / 2
-            val Width = tripleShortMatrix!!.Width
-            val Height = tripleShortMatrix!!.Height
+        if (tripleShortMatrixOld!!.state == State.Yenl && flag!!.isChecked(Flag.Parameter.Enlargement)) {
+            val cWidth = tripleShortMatrixOld!!.Width / 2
+            val cHeight = tripleShortMatrixOld!!.Height / 2
+            val Width = tripleShortMatrixOld!!.Width
+            val Height = tripleShortMatrixOld!!.Height
             val Cb = Array(Width) { ShortArray(Height) }
             val Cr = Array(Width) { ShortArray(Height) }
             for (i in 0 until cWidth) {
                 for (j in 0 until cHeight) {
-                    Cb[i * 2 + 1][j * 2 + 1] = tripleShortMatrix!!.b[i][j]
+                    Cb[i * 2 + 1][j * 2 + 1] = tripleShortMatrixOld!!.b[i][j]
                     Cb[i * 2][j * 2 + 1] = Cb[i * 2 + 1][j * 2 + 1]
                     Cb[i * 2 + 1][j * 2] = Cb[i * 2][j * 2 + 1]
                     Cb[i * 2][j * 2] = Cb[i * 2 + 1][j * 2]
-                    Cr[i * 2 + 1][j * 2 + 1] = tripleShortMatrix!!.c[i][j]
+                    Cr[i * 2 + 1][j * 2 + 1] = tripleShortMatrixOld!!.c[i][j]
                     Cr[i * 2][j * 2 + 1] = Cr[i * 2 + 1][j * 2 + 1]
                     Cr[i * 2 + 1][j * 2] = Cr[i * 2][j * 2 + 1]
                     Cr[i * 2][j * 2] = Cr[i * 2 + 1][j * 2]
                 }
             }
-            tripleShortMatrix!!.b = Cb
-            tripleShortMatrix!!.c = Cr
+            tripleShortMatrixOld!!.b = Cb
+            tripleShortMatrixOld!!.c = Cr
 
-            tripleShortMatrix!!.state = State.YBR
+            tripleShortMatrixOld!!.state = State.YBR
         }
     }
 
@@ -412,22 +412,22 @@ class ModuleImage {
     }
 
     private fun minus128() {
-        minus128(tripleShortMatrix!!.a)
-        minus128(tripleShortMatrix!!.b)
-        minus128(tripleShortMatrix!!.c)
+        minus128(tripleShortMatrixOld!!.a)
+        minus128(tripleShortMatrixOld!!.b)
+        minus128(tripleShortMatrixOld!!.c)
     }
 
     private fun plus128() {
-        plus128(tripleShortMatrix!!.a)
-        plus128(tripleShortMatrix!!.b)
-        plus128(tripleShortMatrix!!.c)
+        plus128(tripleShortMatrixOld!!.a)
+        plus128(tripleShortMatrixOld!!.b)
+        plus128(tripleShortMatrixOld!!.c)
     }
 
-    private fun getMatrixFromByteVector(vector: ByteVector): TripleShortMatrix {
+    private fun getMatrixFromByteVector(vector: ByteVector): TripleShortMatrixOld {
         val w = vector.getNextShort().toInt()
         val h = vector.getNextShort().toInt()
         val flag = Flag(vector.getNextShort())
-        val tripleShortMatrix = TripleShortMatrix(w, h, State.RGB)
+        val tripleShortMatrix = TripleShortMatrixOld(w, h, State.RGB)
         for (i in 0 until w) {
             for (j in 0 until h) {
                 tripleShortMatrix.a[i][j] = (vector.getNext().toInt() and 0xff).toShort()
@@ -438,8 +438,8 @@ class ModuleImage {
         return tripleShortMatrix
     }
 
-    fun getYCbCrMatrix(isAsync: Boolean): TripleShortMatrix {
-        when (tripleShortMatrix!!.state) {
+    fun getYCbCrMatrix(isAsync: Boolean): TripleShortMatrixOld {
+        when (tripleShortMatrixOld!!.state) {
             State.RGB -> FromRGBtoYBR()
             State.YBR -> {
             }
@@ -451,12 +451,12 @@ class ModuleImage {
             else -> throw Exception("State not correct")
         }
 
-        return tripleShortMatrix!!
+        return tripleShortMatrixOld!!
     }
 
-    fun getYenlMatrix(isAsync: Boolean): TripleShortMatrix {
+    fun getYenlMatrix(isAsync: Boolean): TripleShortMatrixOld {
         TimeManager.Instance.append("start Yenl")
-        when (tripleShortMatrix!!.state) {
+        when (tripleShortMatrixOld!!.state) {
             State.RGB -> {
                 FromRGBtoYBR()
                 PixelEnlargement()
@@ -476,7 +476,7 @@ class ModuleImage {
             }
             else -> throw Exception("State not correct")
         }
-        return tripleShortMatrix!!
+        return tripleShortMatrixOld!!
     }
 
 
@@ -516,9 +516,9 @@ class ModuleImage {
                 //                   if(vcr%1>=0.5)
                 //                       vcr++;
 
-                //                tripleShortMatrix.getA()[i][j] = (short) vy;
-                //                tripleShortMatrix.getB()[i][j] = (short) vcb;
-                //                tripleShortMatrix.getC()[i][j] = (short) vcr;
+                //                tripleShortMatrixOld.getA()[i][j] = (short) vy;
+                //                tripleShortMatrixOld.getB()[i][j] = (short) vcb;
+                //                tripleShortMatrixOld.getC()[i][j] = (short) vcr;
 
                 _a[i][j] = vy.toShort()
                 _b[i][j] = vcb.toShort()
@@ -529,9 +529,9 @@ class ModuleImage {
         appendTimeManager("ybr calc" + wStart + hStart)
         for (i in wStart until wEnd) {
             for (j in hStart until hEnd) {
-                tripleShortMatrix!!.a[i][j] = _a[i - wStart][j - hStart]
-                tripleShortMatrix!!.b[i][j] = _b[i - wStart][j - hStart]
-                tripleShortMatrix!!.c[i][j] = _c[i - wStart][j - hStart]
+                tripleShortMatrixOld!!.a[i][j] = _a[i - wStart][j - hStart]
+                tripleShortMatrixOld!!.b[i][j] = _b[i - wStart][j - hStart]
+                tripleShortMatrixOld!!.c[i][j] = _c[i - wStart][j - hStart]
             }
         }
         appendTimeManager("ybr set" + wStart + hStart)

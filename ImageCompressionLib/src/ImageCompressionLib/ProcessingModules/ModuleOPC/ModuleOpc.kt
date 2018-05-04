@@ -1,13 +1,10 @@
 package ImageCompressionLib.ProcessingModules.ModuleOPC
 
 import ImageCompressionLib.Containers.DataOpcOld
-import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Parameters
-import ImageCompressionLib.Containers.TripleDataOpcMatrix
-import ImageCompressionLib.Containers.TripleShortMatrix
-import ImageCompressionLib.Containers.Type.Flag
+import ImageCompressionLib.Containers.TripleDataOpcMatrixOld
+import ImageCompressionLib.Containers.TripleShortMatrixOld
 import ImageCompressionLib.Utils.Objects.OpcConvertor
-import ImageCompressionLib.Utils.Objects.OpcConvertorOld
 import java.util.ArrayList
 import java.util.concurrent.Callable
 import java.util.concurrent.ExecutionException
@@ -21,20 +18,20 @@ class ModuleOpc {
         private var c:OpcConvertor
         var isAsyn: Boolean = false
 
-        constructor(tripleShortMatrix: TripleShortMatrix, parameters: Parameters, isAsyn: Boolean=true): super(tripleShortMatrix, parameters.flag){
+        constructor(tripleShortMatrixOld: TripleShortMatrixOld, parameters: Parameters, isAsyn: Boolean=true): super(tripleShortMatrixOld, parameters.flag){
             this.isAsyn = isAsyn
 
-            a = OpcConvertor(tripleShort.a, parameters)
-            b = OpcConvertor(tripleShort.b, parameters)
-            c = OpcConvertor(tripleShort.c, parameters)
+            a = OpcConvertor(tripleShortOld.a, parameters)
+            b = OpcConvertor(tripleShortOld.b, parameters)
+            c = OpcConvertor(tripleShortOld.c, parameters)
         }
 
-        constructor(tripleDataOpc: TripleDataOpcMatrix, parameters: Parameters, isAsyn: Boolean=true):super(tripleDataOpc, parameters.flag) {
+        constructor(tripleDataOpcOld: TripleDataOpcMatrixOld, parameters: Parameters, isAsyn: Boolean=true):super(tripleDataOpcOld, parameters.flag) {
             this.isAsyn=isAsyn
 
-            a = OpcConvertor(tripleDataOpc.a, parameters)
-            b = OpcConvertor(tripleDataOpc.b, parameters)
-            c = OpcConvertor(tripleDataOpc.c, parameters)
+            a = OpcConvertor(tripleDataOpcOld.a, parameters)
+            b = OpcConvertor(tripleDataOpcOld.b, parameters)
+            c = OpcConvertor(tripleDataOpcOld.c, parameters)
         }
 
 
@@ -43,11 +40,11 @@ class ModuleOpc {
                 return
 
             appendTimeManager("direct OPC")
-            tripleDataOpc.a = a!!.dataOpcOlds
+            tripleDataOpcOld.a = a!!.dataOpcOlds
             appendTimeManager("get A")
-            tripleDataOpc.b = b!!.getDataOpcOlds()
+            tripleDataOpcOld.b = b!!.getDataOpcOlds()
             appendTimeManager("get B")
-            tripleDataOpc.c = c!!.getDataOpcOlds()
+            tripleDataOpcOld.c = c!!.getDataOpcOlds()
             appendTimeManager("get C")
 
             isReady = true
@@ -58,11 +55,11 @@ class ModuleOpc {
                 return
 
             appendTimeManager("start reOPC")
-            tripleShort.a = a!!.dataOrigin
+            tripleShortOld.a = a!!.dataOrigin
             appendTimeManager("get A")
-            tripleShort.b = b!!.getDataOrigin()
+            tripleShortOld.b = b!!.getDataOrigin()
             appendTimeManager("get B")
-            tripleShort.c = c!!.getDataOrigin()
+            tripleShortOld.c = c!!.getDataOrigin()
             appendTimeManager("get C")
 
             isReady = true
@@ -81,11 +78,11 @@ class ModuleOpc {
             futures.add(executorService.submit(Callable { c!!.getDataOpcOlds() }))
 
             try {
-                tripleDataOpc.b = futures[1].get()
+                tripleDataOpcOld.b = futures[1].get()
                 appendTimeManager("get B")
-                tripleDataOpc.c = futures[2].get()
+                tripleDataOpcOld.c = futures[2].get()
                 appendTimeManager("get C")
-                tripleDataOpc.a = futures[0].get()
+                tripleDataOpcOld.a = futures[0].get()
                 appendTimeManager("get A")
             } catch (e: InterruptedException) {
                 e.printStackTrace()
@@ -96,7 +93,7 @@ class ModuleOpc {
             isReady = true
         }
 
-        fun reverseOPCMultiThreads() {// create getTripleShort()() with corect size of b and c (complite)  //multy thred
+        fun reverseOPCMultiThreads() {// create getTripleShortOld()() with corect size of b and c (complite)  //multy thred
             if (state === AbsModuleOPC.State.Data || isReady)
                 return
 
@@ -110,13 +107,13 @@ class ModuleOpc {
             futures.add(executorService.submit(Callable { c!!.getDataOrigin() }))
 
             try {
-                tripleShort.b = futures[1].get()
+                tripleShortOld.b = futures[1].get()
                 appendTimeManager("get B")
-                tripleShort.c = futures[2].get()
+                tripleShortOld.c = futures[2].get()
                 appendTimeManager("get C")
-                tripleShort.a = futures[0].get()
+                tripleShortOld.a = futures[0].get()
                 appendTimeManager("get A")
-                //            getTripleShort()().setC(futures.get(2).get());
+                //            getTripleShortOld()().setC(futures.get(2).get());
             } catch (e: InterruptedException) {
                 e.printStackTrace()
             } catch (e: ExecutionException) {
@@ -132,9 +129,9 @@ class ModuleOpc {
 
             //omp parallel
             run {
-                tripleDataOpc.a = a!!.dataOpcOlds
-                tripleDataOpc.b = b!!.getDataOpcOlds()
-                tripleDataOpc.c = c!!.getDataOpcOlds()
+                tripleDataOpcOld.a = a!!.dataOpcOlds
+                tripleDataOpcOld.b = b!!.getDataOpcOlds()
+                tripleDataOpcOld.c = c!!.getDataOpcOlds()
             }
             isReady = true
         }
@@ -145,9 +142,9 @@ class ModuleOpc {
 
             //omp parallel
             run {
-                tripleShort.a = a!!.dataOrigin
-                tripleShort.b = b!!.getDataOrigin()
-                tripleShort.c = c!!.getDataOrigin()
+                tripleShortOld.a = a!!.dataOrigin
+                tripleShortOld.b = b!!.getDataOrigin()
+                tripleShortOld.c = c!!.getDataOrigin()
             }
             isReady = true
         }
@@ -155,16 +152,16 @@ class ModuleOpc {
         fun directOpcGlobalBase(n: Int, m: Int) {
             if (state === AbsModuleOPC.State.OPC || isReady)
                 return
-            tripleDataOpc.a = a!!.getDataOpcs(n, m) //TODO set a
-            tripleDataOpc.b = b!!.getDataOpcs(n, m) //TODO set a
-            tripleDataOpc.c = c!!.getDataOpcs(n, m) //TODO set a
+            tripleDataOpcOld.a = a!!.getDataOpcs(n, m) //TODO set a
+            tripleDataOpcOld.b = b!!.getDataOpcs(n, m) //TODO set a
+            tripleDataOpcOld.c = c!!.getDataOpcs(n, m) //TODO set a
 
             isReady = true
         }
 
 
         @Deprecated("")
-        fun getMatrix(isAsync: Boolean): TripleShortMatrix {
+        fun getMatrix(isAsync: Boolean): TripleShortMatrixOld {
             if (state !== AbsModuleOPC.State.Data && !isReady) {
                 if (isAsync)
                     reverseOPCMultiThreads()
@@ -172,11 +169,11 @@ class ModuleOpc {
                     reverseOPC()
             }
 
-            return tripleShort
+            return tripleShortOld
         }
 
         @Deprecated("")
-        fun getBoxOfOpc(isAsync: Boolean): TripleDataOpcMatrix {
+        fun getBoxOfOpc(isAsync: Boolean): TripleDataOpcMatrixOld {
             if (state !== AbsModuleOPC.State.OPC && !isReady) {
                 if (isAsync)
                     directOPCMultiThreads()
@@ -184,18 +181,18 @@ class ModuleOpc {
                     directOPC()
             }
 
-            return tripleDataOpc
+            return tripleDataOpcOld
         }
 
         private fun appendTimeManager(s: String) {
             //        TimeManager.getInstance().append(s);
         }
 
-        override fun direct(shortMatrix: TripleShortMatrix): TripleDataOpcMatrix {
+        override fun direct(shortMatrixOld: TripleShortMatrixOld): TripleDataOpcMatrixOld {
             return getBoxOfOpc(isAsyn)
         }
 
-        override fun reverce(dataOpcMatrix: TripleDataOpcMatrix): TripleShortMatrix {
+        override fun reverce(dataOpcMatrixOld: TripleDataOpcMatrixOld): TripleShortMatrixOld {
             return getMatrix(isAsyn)
         }
 

@@ -133,7 +133,7 @@ public class MainForm extends JFrame{
         ConvertorDefault.IFactory safeFactory = new ConvertorDefault.IFactory() {
             @NotNull
             @Override
-            public AbsModuleOPC getModuleOPC(@NotNull TripleShortMatrix tripleShortMatrix, @NotNull Flag flag) {
+            public AbsModuleOPC getModuleOPC(@NotNull TripleShortMatrixOld tripleShortMatrix, @NotNull Flag flag) {
                 int w=(int)spinnerW.getValue();
                 int h=(int)spinnerH.getValue();
                 String mess=messageField.getText();
@@ -142,7 +142,7 @@ public class MainForm extends JFrame{
 
             @NotNull
             @Override
-            public AbsModuleOPC getModuleOPC(@NotNull TripleDataOpcMatrix tripleDataOpcMatrix, @NotNull Flag flag) {
+            public AbsModuleOPC getModuleOPC(@NotNull TripleDataOpcMatrixOld tripleDataOpcMatrix, @NotNull Flag flag) {
                 int w=(int)spinnerW.getValue();
                 int h=(int)spinnerH.getValue();
                 int iW=w*tripleDataOpcMatrix.getA().length;
@@ -154,7 +154,7 @@ public class MainForm extends JFrame{
 
             @NotNull
             @Override
-            public ModuleByteVector getModuleVectorParser(@NotNull TripleDataOpcMatrix tripleDataOpcMatrix, @NotNull Flag flag) {
+            public ModuleByteVector getModuleVectorParser(@NotNull TripleDataOpcMatrixOld tripleDataOpcMatrix, @NotNull Flag flag) {
                 int w=(int)spinnerW.getValue();
                 int h=(int)spinnerH.getValue();
                 return new ModuleByteVector(tripleDataOpcMatrix,flag,w,h);

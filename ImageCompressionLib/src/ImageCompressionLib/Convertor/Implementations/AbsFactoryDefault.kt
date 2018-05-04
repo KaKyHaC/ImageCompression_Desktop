@@ -14,26 +14,26 @@ abstract class AbsFactoryDefault :ConvertorDefault.IFactory {
     abstract fun getPassword():String?
     abstract fun onMessageListener(message:String?)
 
-    override fun getModuleOPC(tripleShortMatrix: TripleShortMatrix, flag: Flag): AbsModuleOPC {
+    override fun getModuleOPC(tripleShortMatrixOld: TripleShortMatrixOld, flag: Flag): AbsModuleOPC {
         val s=getSameBaseSize()
         val m=getMesasge()
         val p=getPassword()
-        val r= StegoEncrWithOpcOld(tripleShortMatrix,flag,s.width,s.height,m,p,true)
+        val r= StegoEncrWithOpcOld(tripleShortMatrixOld,flag,s.width,s.height,m,p,true)
         r.onMessageReadedListener=this::onMessageListener
         return r
     }
 
-    override fun getModuleOPC(tripleDataOpcMatrix: TripleDataOpcMatrix, flag: Flag): AbsModuleOPC {
+    override fun getModuleOPC(tripleDataOpcMatrixOld: TripleDataOpcMatrixOld, flag: Flag): AbsModuleOPC {
         val p=getPassword()
         val s=getSameBaseSize()
-        val r= StegoEncrWithOpcOld(tripleDataOpcMatrix,flag,s.width,s.height,p,true)
+        val r= StegoEncrWithOpcOld(tripleDataOpcMatrixOld,flag,s.width,s.height,p,true)
         r.onMessageReadedListener=this::onMessageListener
         return r
     }
 
-    override fun getModuleVectorParser(tripleDataOpcMatrix: TripleDataOpcMatrix, flag: Flag): ModuleByteVector {
+    override fun getModuleVectorParser(tripleDataOpcMatrixOld: TripleDataOpcMatrixOld, flag: Flag): ModuleByteVector {
         val s=getSameBaseSize()
-        return ModuleByteVector(tripleDataOpcMatrix,flag,s.width,s.height)
+        return ModuleByteVector(tripleDataOpcMatrixOld,flag,s.width,s.height)
     }
 
     override fun getModuleVectorParser(byteVectorContainer: ByteVectorContainer, flag: Flag): ModuleByteVector {

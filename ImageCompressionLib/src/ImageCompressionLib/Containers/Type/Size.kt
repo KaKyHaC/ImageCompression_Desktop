@@ -1,3 +1,3 @@
 package ImageCompressionLib.Containers.Type
 
-data class Size(var width: Int, var height: Int)
+data class Size(val width: Int, val height: Int)

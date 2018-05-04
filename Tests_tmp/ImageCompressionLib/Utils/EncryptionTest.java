@@ -1,10 +1,10 @@
 package ImageCompressionLib.Utils;
 
 import ImageCompressionLib.Containers.DataOpcOld;
-import ImageCompressionLib.Containers.TripleDataOpcMatrix;
+import ImageCompressionLib.Containers.TripleDataOpcMatrixOld;
 import ImageCompressionLib.Constants.State;
 import ImageCompressionLib.ProcessingModules.ModuleOPC.ModuleOpcOld;
-import ImageCompressionLib.Containers.TripleShortMatrix;
+import ImageCompressionLib.Containers.TripleShortMatrixOld;
 import ImageCompressionLib.Utils.Functions.Encryption;
 import ImageCompressionLib.Containers.Type.Flag;
 import org.junit.Before;
@@ -15,13 +15,13 @@ import static org.junit.Assert.*;
 public class EncryptionTest {
     ModuleOpcOld moduleOpcOld, _moduleOpcOld;
     String key="dimas";
-    TripleShortMatrix tripleShortMatrix =new TripleShortMatrix(200,200, State.RGB);
+    TripleShortMatrixOld tripleShortMatrixOld =new TripleShortMatrixOld(200,200, State.RGB);
     Flag flag;
     @Before
     public void setUp() throws Exception {
         flag=new Flag();
-        moduleOpcOld =new ModuleOpcOld(tripleShortMatrix,flag,true);
-        _moduleOpcOld =new ModuleOpcOld(tripleShortMatrix,flag,true);
+        moduleOpcOld =new ModuleOpcOld(tripleShortMatrixOld,flag,true);
+        _moduleOpcOld =new ModuleOpcOld(tripleShortMatrixOld,flag,true);
     }
 
     @Test
@@ -35,7 +35,7 @@ public class EncryptionTest {
         Encryption.encode(moduleOpcOld.getBoxOfOpc(true),key);
         AssertBoxEquals(moduleOpcOld.getBoxOfOpc(true), _moduleOpcOld.getBoxOfOpc(true));
     }
-    private void AssertBoxEquals(TripleDataOpcMatrix a, TripleDataOpcMatrix b){
+    private void AssertBoxEquals(TripleDataOpcMatrixOld a, TripleDataOpcMatrixOld b){
         AssertDataEqual(a.getA(),b.getA());
         AssertDataEqual(a.getB(),b.getB());
         AssertDataEqual(a.getC(),b.getC());

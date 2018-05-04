@@ -3,7 +3,7 @@ package ImageCompressionLib.Convertor
 import ConvertorDesktopTest.Companion.AssertMatrixInRange
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Containers.Type.Size
-import ImageCompressionLib.Containers.TripleShortMatrixTest.Companion.getRandomMatrix
+import ImageCompressionLib.Containers.TripleShortMatrixOldTest.Companion.getRandomMatrix
 import ImageCompressionLib.ProcessingModules.ModuleDCT
 import ImageCompressionLib.ProcessingModules.ModuleImage
 import ImageCompressionLib.ProcessingModules.ModuleOPC.StegoEncrWithOpcOld
@@ -75,7 +75,7 @@ class ConvertorDefaultTestDCT {
         AssertMatrixInRange(ynlres,ybrCpy,delta)
 
         val myIm2= ModuleImage(ynlres, flag)
-        val rgb=myIm2.rgbMatrix
+        val rgb=myIm2.rgbMatrixOld
         AssertMatrixInRange(rgb,cpy,delta)
         assertEquals("${flag.flag}!=${f.flag}",flag.flag,f.flag)
         val t2= Date().time

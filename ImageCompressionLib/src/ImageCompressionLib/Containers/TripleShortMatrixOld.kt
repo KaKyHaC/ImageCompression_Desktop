@@ -3,7 +3,8 @@ package ImageCompressionLib.Containers
 import ImageCompressionLib.Constants.State
 import java.util.*
 
-class TripleShortMatrix(val Width: Int, val Height: Int, var state: State) {
+@Deprecated("use new v")
+class TripleShortMatrixOld(val Width: Int, val Height: Int, var state: State) {
     var a: Array<ShortArray>
     var b: Array<ShortArray>
     var c: Array<ShortArray>
@@ -16,15 +17,15 @@ class TripleShortMatrix(val Width: Int, val Height: Int, var state: State) {
         c = Array(Width) { ShortArray(Height) }
     }
 
-    fun assertMatrixInRange(tripleShortMatrix: TripleShortMatrix, range: Int):Boolean{
-        if (Width != tripleShortMatrix.Width) return false
-        if (Height != tripleShortMatrix.Height) return false
-//        if (f != tripleShortMatrix.f) return false
-        if (state != tripleShortMatrix.state) return false
+    fun assertMatrixInRange(tripleShortMatrixOld: TripleShortMatrixOld, range: Int):Boolean{
+        if (Width != tripleShortMatrixOld.Width) return false
+        if (Height != tripleShortMatrixOld.Height) return false
+//        if (f != tripleShortMatrixOld.f) return false
+        if (state != tripleShortMatrixOld.state) return false
 
-        if(!a.inRannge(tripleShortMatrix.a,range))return false
-        if(!b.inRannge(tripleShortMatrix.b,range))return false
-        if(!c.inRannge(tripleShortMatrix.c,range))return false
+        if(!a.inRannge(tripleShortMatrixOld.a,range))return false
+        if(!b.inRannge(tripleShortMatrixOld.b,range))return false
+        if(!c.inRannge(tripleShortMatrixOld.c,range))return false
 
         return true
     }
@@ -54,7 +55,7 @@ class TripleShortMatrix(val Width: Int, val Height: Int, var state: State) {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as TripleShortMatrix
+        other as TripleShortMatrixOld
 
         if (Width != other.Width) return false
         if (Height != other.Height) return false
@@ -78,8 +79,8 @@ class TripleShortMatrix(val Width: Int, val Height: Int, var state: State) {
         return result
     }
 
-    fun copy(): TripleShortMatrix {
-        var res= TripleShortMatrix(Width,Height,state)
+    fun copy(): TripleShortMatrixOld {
+        var res= TripleShortMatrixOld(Width,Height,state)
         res.a=a.copy()
         res.b=b.copy()
         res.c=c.copy()

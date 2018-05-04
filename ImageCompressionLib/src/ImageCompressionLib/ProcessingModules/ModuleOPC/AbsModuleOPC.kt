@@ -2,56 +2,56 @@ package ImageCompressionLib.ProcessingModules.ModuleOPC
 
 import ImageCompressionLib.Constants.SIZEOFBLOCK
 import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.Containers.TripleDataOpcMatrix
-import ImageCompressionLib.Containers.TripleShortMatrix
+import ImageCompressionLib.Containers.TripleDataOpcMatrixOld
+import ImageCompressionLib.Containers.TripleShortMatrixOld
 
 abstract class AbsModuleOPC {
     protected enum class State {
         OPC, Data
     }
 
-    protected var tripleDataOpc:TripleDataOpcMatrix
+    protected var tripleDataOpcOld: TripleDataOpcMatrixOld
 //        private set
-    protected var tripleShort:TripleShortMatrix
+    protected var tripleShortOld: TripleShortMatrixOld
 //        private set
     protected val flag: Flag
     protected val state:State
     var isReady:Boolean=false
         private set
 
-    constructor(tripleShort: TripleShortMatrix, flag: Flag) {
+    constructor(tripleShortOld: TripleShortMatrixOld, flag: Flag) {
         this.flag = flag
-        this.tripleShort = tripleShort
-        this.tripleDataOpc= TripleDataOpcMatrix(); //TODO remove this line
+        this.tripleShortOld = tripleShortOld
+        this.tripleDataOpcOld = TripleDataOpcMatrixOld(); //TODO remove this line
         this.state=State.Data
     }
-    constructor(tripleDataOpc: TripleDataOpcMatrix, flag: Flag) {
+    constructor(tripleDataOpcOld: TripleDataOpcMatrixOld, flag: Flag) {
         this.flag = flag
-        this.tripleDataOpc=tripleDataOpc
+        this.tripleDataOpcOld = tripleDataOpcOld
         this.state=State.OPC
 
-        val widthOPC = tripleDataOpc.a!!.size
-        val heightOPC = tripleDataOpc.a!![0].size
-        this.tripleShort = TripleShortMatrix(widthOPC * SIZEOFBLOCK, heightOPC * SIZEOFBLOCK, ImageCompressionLib.Constants.State.DCT)
+        val widthOPC = tripleDataOpcOld.a!!.size
+        val heightOPC = tripleDataOpcOld.a!![0].size
+        this.tripleShortOld = TripleShortMatrixOld(widthOPC * SIZEOFBLOCK, heightOPC * SIZEOFBLOCK, ImageCompressionLib.Constants.State.DCT)
 
     }
 
-    abstract protected fun direct(tripleShort: TripleShortMatrix):TripleDataOpcMatrix
-    abstract protected fun reverce(tripleDataOpc: TripleDataOpcMatrix):TripleShortMatrix
+    abstract protected fun direct(tripleShortOld: TripleShortMatrixOld): TripleDataOpcMatrixOld
+    abstract protected fun reverce(tripleDataOpcOld: TripleDataOpcMatrixOld): TripleShortMatrixOld
 
-    fun getTripleShortMatrix(): TripleShortMatrix {
+    fun getTripleShortMatrix(): TripleShortMatrixOld {
         if(state==State.OPC&&!isReady) {
-            tripleShort = reverce(tripleDataOpc)
+            tripleShortOld = reverce(tripleDataOpcOld)
             isReady=true
         }
 
-        return tripleShort
+        return tripleShortOld
     }
-    fun getTripleDataOpcMatrix(): TripleDataOpcMatrix {
+    fun getTripleDataOpcMatrix(): TripleDataOpcMatrixOld {
         if(state==State.Data&&!isReady) {
-            tripleDataOpc = direct(tripleShort)
+            tripleDataOpcOld = direct(tripleShortOld)
             isReady=true
         }
-        return tripleDataOpc
+        return tripleDataOpcOld
     }
 }

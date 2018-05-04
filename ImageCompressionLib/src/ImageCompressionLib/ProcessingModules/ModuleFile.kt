@@ -56,7 +56,7 @@ class ModuleFile{
         val p=fr.read()
         val flag=p.second
         val vmain=p.first
-//        val opcs= TripleDataOpcMatrix()
+//        val opcs= TripleDataOpcMatrixOld()
 
 //        opcs.readFromVector(vmain,flag)
 //        if(flag.isChecked(Flag.Parameter.GlobalBase)){

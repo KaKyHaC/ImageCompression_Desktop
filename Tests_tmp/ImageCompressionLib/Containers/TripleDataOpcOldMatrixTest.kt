@@ -30,8 +30,8 @@ class TripleDataOpcOldMatrixTest {
     fun testEquals(){
         val size=9
         val arr=Array(size){Array(size){dopc}}
-        val trip1=TripleDataOpcMatrix(arr,arr,arr)
-        val trip2=TripleDataOpcMatrix(arr,arr,arr)
+        val trip1= TripleDataOpcMatrixOld(arr,arr,arr)
+        val trip2= TripleDataOpcMatrixOld(arr,arr,arr)
 
         assertEquals(trip1,trip1)
         assertEquals(trip1,trip2)
@@ -58,13 +58,13 @@ class TripleDataOpcOldMatrixTest {
     }
     fun IOGloalBase(size: Size, globalBase: Size) {
         val arr=Array(size.width){Array(size.height){dopc}}
-        val trip1=TripleDataOpcMatrix(arr,arr,arr)
+        val trip1= TripleDataOpcMatrixOld(arr,arr,arr)
 
         val vec= ByteVector()
         trip1.writeBaseToVector(vec,flag,globalBase.width,globalBase.height)
         trip1.writeToVector(vec,flag)
 
-        val trip2=TripleDataOpcMatrix()
+        val trip2= TripleDataOpcMatrixOld()
         trip2.readBaseFromVector(vec,flag)
         trip2.readFromVector(vec,flag)
 

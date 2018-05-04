@@ -1,7 +1,7 @@
 package ImageCompressionLib.Utils.Functions
 
 import ImageCompressionLib.Constants.State
-import ImageCompressionLib.Containers.TripleShortMatrix
+import ImageCompressionLib.Containers.TripleShortMatrixOld
 import ImageCompressionLib.ProcessingModules.ModuleImage
 import ImageCompressionLib.Containers.Type.Flag
 import Utils.BuffImConvertor
@@ -45,8 +45,8 @@ class ImageIOTest{
         ImageIO.write(bi,"bmp", File(pathToResBmp2))
     }
     companion object {
-        fun createMatrix(w:Int,h:Int): TripleShortMatrix {
-            val m= TripleShortMatrix(w,h,State.RGB)
+        fun createMatrix(w:Int,h:Int): TripleShortMatrixOld {
+            val m= TripleShortMatrixOld(w,h,State.RGB)
             for(i in 0..w-1){
                 for(j in 0..h-1){
                     m.a[i][j]=((i+j)%255).toShort()

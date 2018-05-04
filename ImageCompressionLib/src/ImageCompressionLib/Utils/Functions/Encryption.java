@@ -2,7 +2,7 @@ package ImageCompressionLib.Utils.Functions;
 
 
 import ImageCompressionLib.Containers.DataOpcOld;
-import ImageCompressionLib.Containers.TripleDataOpcMatrix;
+import ImageCompressionLib.Containers.TripleDataOpcMatrixOld;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -15,7 +15,7 @@ public class Encryption { //singleton
 
     static short[] key;
 
-    public static void encode(TripleDataOpcMatrix bopc,@NotNull String key){
+    public static void encode(TripleDataOpcMatrixOld bopc, @NotNull String key){
         ourInstance.key=KeyGen(key);
         Encryption.encode(bopc.getA());
         Encryption.encode(bopc.getB());

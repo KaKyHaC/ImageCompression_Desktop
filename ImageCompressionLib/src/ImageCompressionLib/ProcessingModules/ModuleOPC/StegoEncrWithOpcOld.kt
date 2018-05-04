@@ -1,7 +1,7 @@
 package ImageCompressionLib.ProcessingModules.ModuleOPC
 
-import ImageCompressionLib.Containers.TripleDataOpcMatrix
-import ImageCompressionLib.Containers.TripleShortMatrix
+import ImageCompressionLib.Containers.TripleDataOpcMatrixOld
+import ImageCompressionLib.Containers.TripleShortMatrixOld
 import ImageCompressionLib.Utils.Functions.Encryption
 import ImageCompressionLib.Utils.Functions.Steganography
 import ImageCompressionLib.Containers.Type.Flag
@@ -11,20 +11,20 @@ class StegoEncrWithOpcOld : ModuleOpcOld {
     val DEFAULT_PASS=" "
 //    private var super: ModuleOpcOld
 
-    constructor(tripleShortMatrix: TripleShortMatrix,flag: Flag
-                ,sameBaseWidth:Int,sameBaseHeight:Int,message:String?,password:String?,isAsync: Boolean):
-            super(tripleShortMatrix,flag,isAsync){
-//        super= ModuleOpcOld(tripleShortMatrix,flag)
+    constructor(tripleShortMatrixOld: TripleShortMatrixOld, flag: Flag
+                , sameBaseWidth:Int, sameBaseHeight:Int, message:String?, password:String?, isAsync: Boolean):
+            super(tripleShortMatrixOld,flag,isAsync){
+//        super= ModuleOpcOld(tripleShortMatrixOld,flag)
 //        getTripleShortMatrix=true
         baseSizeH=sameBaseHeight
         baseSizeW=sameBaseWidth
         this.message=message
         this.password=password
     }
-    constructor(tripleDataOpcMatrix: TripleDataOpcMatrix, flag: Flag
-                ,sameBaseWidth:Int=1,sameBaseHeight:Int=1,password:String?,isAsync: Boolean) :
-            super(tripleDataOpcMatrix,flag,isAsync){
-//        this.super= ModuleOpcOld(tripleDataOpcMatrix, flag)
+    constructor(tripleDataOpcMatrixOld: TripleDataOpcMatrixOld, flag: Flag
+                , sameBaseWidth:Int=1, sameBaseHeight:Int=1, password:String?, isAsync: Boolean) :
+            super(tripleDataOpcMatrixOld,flag,isAsync){
+//        this.super= ModuleOpcOld(tripleDataOpcMatrixOld, flag)
 //        isOPCS=true
         baseSizeH=sameBaseHeight
         baseSizeW=sameBaseWidth
@@ -121,14 +121,14 @@ class StegoEncrWithOpcOld : ModuleOpcOld {
     }
 
 
-/*    fun getMatrix(isAsync: Boolean=true): TripleShortMatrix {
+/*    fun getMatrix(isAsync: Boolean=true): TripleShortMatrixOld {
         if(!super.isTripleShortMatrix)
             FromOpcToMatrix(isAsync)
 
         assert(super.isTripleShortMatrix)
         return super.getMatrix(isAsync)
     }
-    fun getBoxOfOpc(isAsync: Boolean=true): TripleDataOpcMatrix {
+    fun getBoxOfOpc(isAsync: Boolean=true): TripleDataOpcMatrixOld {
         if(!super.isOpcs)
             FromMatrixToOpcs(isAsync)
 
@@ -136,18 +136,18 @@ class StegoEncrWithOpcOld : ModuleOpcOld {
         return super.getBoxOfOpc(isAsync)
     }*/
 
-    override fun direct(shortMatrix: TripleShortMatrix): TripleDataOpcMatrix {
+    override fun direct(shortMatrixOld: TripleShortMatrixOld): TripleDataOpcMatrixOld {
 //        if(!super.isOpcs)
         FromMatrixToOpcs(isAsyn)
 
 //        assert(super.isOpcs)
-        return super.tripleDataOpc//TODO
+        return super.tripleDataOpcOld//TODO
     }
-    override fun reverce(dataOpcMatrix: TripleDataOpcMatrix): TripleShortMatrix {
+    override fun reverce(dataOpcMatrixOld: TripleDataOpcMatrixOld): TripleShortMatrixOld {
 //        if(!super.isTripleShortMatrix)
         FromOpcToMatrix(isAsyn)
 
 //        assert(super.isTripleShortMatrix)
-        return super.tripleShort//TODO
+        return super.tripleShortOld//TODO
     }
 }
