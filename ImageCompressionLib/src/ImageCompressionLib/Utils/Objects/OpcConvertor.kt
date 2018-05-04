@@ -38,7 +38,7 @@ class OpcConvertor {
     }
 
     constructor(dataOpcMatrix: Array<Array<DataOpc>>, parameters: Parameters){
-        this.dataOpcMatrix= DataOpcMatrix(dataOpcMatrix)
+        this.dataOpcMatrix= DataOpcMatrix.valueOf(dataOpcMatrix)
         this.parameters=parameters
         state = State.Opc
         shortMatrix= ShortMatrix(parameters.imageSize.width, parameters.imageSize.height)

@@ -24,5 +24,8 @@ class DataOpcMatrix : Matrix<DataOpc> {
         @JvmStatic fun valueOf(mat: Matrix<DataOpc>): DataOpcMatrix {
             return DataOpcMatrix(mat.matrix)
         }
+        @JvmStatic fun valueOf(mat: Array<Array<DataOpc>>): DataOpcMatrix {
+            return DataOpcMatrix(mat as Array<Array<Any>>)
+        }
     }
 }

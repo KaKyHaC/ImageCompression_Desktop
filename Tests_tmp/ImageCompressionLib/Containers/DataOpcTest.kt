@@ -45,8 +45,8 @@ class DataOpcTest {
         val vector= ByteVector()
         val cpy=dataOpc.copy()
 
-        dataOpc.FromSignToVector(vector, size)
-        cpy.FromVectorToSign(vector, size)
+        dataOpc.FromSignToVector(vector)
+        cpy.FromVectorToSign(vector)
 
         assertEquals(dataOpc,cpy)
     }
