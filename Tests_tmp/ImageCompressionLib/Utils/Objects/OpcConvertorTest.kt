@@ -41,7 +41,7 @@ class OpcConvertorTest(flag: Flag,imageSize: Size,unitSize: Size,baseSize: Size)
     }
 
     @Test
-    fun testDefaltAlgorithm(){
+    fun testDefaultAlgorithm(){
         val convertor=OpcConvertor(shortMatrix.toArrayShort(),parameters)
         val d=convertor.getDataOpcs()
         val convertor1=OpcConvertor(d,parameters)

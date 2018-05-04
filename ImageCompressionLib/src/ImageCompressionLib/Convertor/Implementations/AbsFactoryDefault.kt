@@ -6,7 +6,7 @@ import ImageCompressionLib.Containers.Type.Size
 import ImageCompressionLib.Convertor.ConvertorDefault
 import ImageCompressionLib.ProcessingModules.ModuleByteVector
 import ImageCompressionLib.ProcessingModules.ModuleOPC.AbsModuleOPC
-import ImageCompressionLib.ProcessingModules.ModuleOPC.StegoEncrWithOPC
+import ImageCompressionLib.ProcessingModules.ModuleOPC.StegoEncrWithOpcOld
 
 abstract class AbsFactoryDefault :ConvertorDefault.IFactory {
     abstract fun getSameBaseSize(): Size
@@ -18,7 +18,7 @@ abstract class AbsFactoryDefault :ConvertorDefault.IFactory {
         val s=getSameBaseSize()
         val m=getMesasge()
         val p=getPassword()
-        val r= StegoEncrWithOPC(tripleShortMatrix,flag,s.width,s.height,m,p,true)
+        val r= StegoEncrWithOpcOld(tripleShortMatrix,flag,s.width,s.height,m,p,true)
         r.onMessageReadedListener=this::onMessageListener
         return r
     }
@@ -26,7 +26,7 @@ abstract class AbsFactoryDefault :ConvertorDefault.IFactory {
     override fun getModuleOPC(tripleDataOpcMatrix: TripleDataOpcMatrix, flag: Flag): AbsModuleOPC {
         val p=getPassword()
         val s=getSameBaseSize()
-        val r= StegoEncrWithOPC(tripleDataOpcMatrix,flag,s.width,s.height,p,true)
+        val r= StegoEncrWithOpcOld(tripleDataOpcMatrix,flag,s.width,s.height,p,true)
         r.onMessageReadedListener=this::onMessageListener
         return r
     }

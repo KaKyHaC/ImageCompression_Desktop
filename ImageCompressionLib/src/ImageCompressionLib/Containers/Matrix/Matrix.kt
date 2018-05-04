@@ -4,7 +4,6 @@ import ImageCompressionLib.Containers.Type.Size
 import java.util.*
 
 open class Matrix<T:Any> {
-    //TODO matrixIterator class
     internal val matrix: Array<Array<Any>>
     protected val size:Size
 

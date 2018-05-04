@@ -2,7 +2,7 @@ package Utils
 
 import ImageCompressionLib.ProcessingModules.*
 import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.ProcessingModules.ModuleOPC.StegoEncrWithOPC
+import ImageCompressionLib.ProcessingModules.ModuleOPC.StegoEncrWithOpcOld
 import ImageCompressionLib.Utils.Functions.ByteVectorParser
 import ImageCompressionLib.Utils.Objects.TimeManager
 import java.awt.image.BufferedImage
@@ -42,7 +42,7 @@ class ConvertorDesktop private constructor(){
         val matrixDCT=bodum.getDCTMatrix(isAsync)
             timeManager.append("direct DCT")
             progressListener?.invoke(60,"direct OPC")
-        val StEnOPC= StegoEncrWithOPC(matrixDCT!!,info.flag,info.sameBaseWidth,info.sameBaseHeight,info.message,info.password,isAsync)
+        val StEnOPC= StegoEncrWithOpcOld(matrixDCT!!,info.flag,info.sameBaseWidth,info.sameBaseHeight,info.message,info.password,isAsync)
 //        StEnOPC.password=password
 //        StEnOPC.baseSizeW=globalBaseW
 //        StEnOPC.baseSizeH=globalBaseH
@@ -70,7 +70,7 @@ class ConvertorDesktop private constructor(){
 //        val flag=pair.second
             timeManager.append("read from file")
             progressListener?.invoke(10,"reverse OPC")
-        val mOPC= StegoEncrWithOPC(box, flag,password=password,isAsync = isAsync)
+        val mOPC= StegoEncrWithOpcOld(box, flag,password=password,isAsync = isAsync)
 //        mOPC.password=password
         val FFTM =mOPC.getTripleShortMatrix()
             timeManager.append("reverse OPC")

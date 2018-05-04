@@ -14,8 +14,8 @@ import java.util.concurrent.*;
 /**
  * Created by Димка on 09.10.2016.
  */
-
-public class ModuleOPC extends AbsModuleOPC{
+@Deprecated
+public class ModuleOpcOld extends AbsModuleOPC{
 //    private enum State{OPC,Data}
 //    private TripleDataOpcMatrix tripleOPC;
 //    private int widthOPC,heightOPC;
@@ -28,7 +28,7 @@ public class ModuleOPC extends AbsModuleOPC{
 //    private boolean isMatrix=false;
 //    private boolean isOpcs=false;
 
-    public ModuleOPC(TripleShortMatrix tripleShortMatrix, Flag flag, Boolean isAsyn){
+    public ModuleOpcOld(TripleShortMatrix tripleShortMatrix, Flag flag, Boolean isAsyn){
         super(tripleShortMatrix,flag);
 //        this.flag=flag;
         this.isAsyn=isAsyn;
@@ -51,7 +51,7 @@ public class ModuleOPC extends AbsModuleOPC{
 //        getByteVectorContainer().setB(new DataOpcOld[widthOPC/k][heightOPC/k]);
 //        getByteVectorContainer().setC(new DataOpcOld[widthOPC/k][heightOPC/k]);
     }
-    public ModuleOPC(TripleDataOpcMatrix tripleDataOpc, Flag flag,Boolean isAsyn){
+    public ModuleOpcOld(TripleDataOpcMatrix tripleDataOpc, Flag flag, Boolean isAsyn){
         super(tripleDataOpc,flag);
 //        this.getByteVectorContainer() = getByteVectorContainer();
 

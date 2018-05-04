@@ -6,7 +6,7 @@ import ImageCompressionLib.Containers.Type.Size
 import ImageCompressionLib.Containers.TripleShortMatrixTest.Companion.getRandomMatrix
 import ImageCompressionLib.ProcessingModules.ModuleDCT
 import ImageCompressionLib.ProcessingModules.ModuleImage
-import ImageCompressionLib.ProcessingModules.ModuleOPC.StegoEncrWithOPC
+import ImageCompressionLib.ProcessingModules.ModuleOPC.StegoEncrWithOpcOld
 import ImageCompressionLib.Utils.Functions.ByteVectorParser
 import org.junit.Before
 
@@ -47,7 +47,7 @@ class ConvertorDefaultTestDCT {
         assertFails { AssertMatrixInRange(cpy,dct,0)}
 //        AssertMatrixInRange(ybrCpy,dct,0)
 
-        val seOpc= StegoEncrWithOPC(dct,flag,sameBase.width,sameBase.height,null,null,true)
+        val seOpc= StegoEncrWithOpcOld(dct,flag,sameBase.width,sameBase.height,null,null,true)
 //        val opcs=seOpc.getModuleOPC()
         val box=seOpc.getBoxOfOpc(true)
         val vec= ByteVectorParser.instance.parseData(box,flag,sameBase.width,sameBase.height)
@@ -65,7 +65,7 @@ class ConvertorDefaultTestDCT {
         assertEquals("box not equal",rBox,box)
         assertEquals("flag $f!=$flag",f,flag)
 
-        val seOpc2= StegoEncrWithOPC(rBox, f,1,1,null,true)
+        val seOpc2= StegoEncrWithOpcOld(rBox, f,1,1,null,true)
         val dctres=seOpc2.getMatrix(true)
 //        AssertMatrixInRange(dctres,dctCpy,0)
 

@@ -2,19 +2,19 @@ package ImageCompressionLib.ProcessingModules
 
 import ImageCompressionLib.Constants.State
 import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.ProcessingModules.ModuleOPC.ModuleOPC
+import ImageCompressionLib.ProcessingModules.ModuleOPC.ModuleOpcOld
 import ImageCompressionLib.Utils.Functions.ImageIOTest
 import ImageCompressionLib.Utils.Objects.TimeManager
 import org.junit.Assert.*
 import org.junit.Test
 import java.util.*
 
-class ModuleOPCTest{
+class ModuleOpcOldTest {
     @Test
     fun TestDirectTime(){
         val m=ImageIOTest.createMatrix(1080,1920)
         m.state=State.DCT
-        val opcModule= ModuleOPC(m, Flag(),true)
+        val opcModule= ModuleOpcOld(m, Flag(), true)
 
         val loop=1
         val t1=Date().time
@@ -36,7 +36,7 @@ class ModuleOPCTest{
     fun TestReverseTime(){
         val m=ImageIOTest.createMatrix(1080,1920)
         m.state=State.DCT
-        val opcModule= ModuleOPC(m, Flag(),true)
+        val opcModule= ModuleOpcOld(m, Flag(), true)
         val box=opcModule.getBoxOfOpc(true)
 
         val loop=1
@@ -74,7 +74,7 @@ class ModuleOPCTest{
     fun GlobalTest(w:Int,h:Int,loop:Int){
         val m=ImageIOTest.createMatrix(w,h)
         m.state=State.DCT
-        val opcModule= ModuleOPC(m, Flag(),false)
+        val opcModule= ModuleOpcOld(m, Flag(), false)
         val tm=TimeManager.Instance
 
         val cpy=m.copy()
@@ -83,7 +83,7 @@ class ModuleOPCTest{
         tm.startNewTrack("mOPC(${w}x$h),${loop}l")
         for(i in 0..loop-1){
             opcModule.directOPC()
-            val resModule = ModuleOPC(opcModule.getBoxOfOpc(false), Flag(),false)
+            val resModule = ModuleOpcOld(opcModule.getBoxOfOpc(false), Flag(), false)
             resModule.reverseOPC()
             val res=resModule.getMatrix(false)
             assertEquals(res,cpy)
@@ -92,7 +92,7 @@ class ModuleOPCTest{
 
         for(i in 0..loop-1){
             opcModule.directOPCMultiThreads()
-            val resModule = ModuleOPC(opcModule.getBoxOfOpc(true), Flag(),true)
+            val resModule = ModuleOpcOld(opcModule.getBoxOfOpc(true), Flag(), true)
             resModule.reverseOPCMultiThreads()
             val res=resModule.getMatrix(true)
             assertEquals(res,cpy)

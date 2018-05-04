@@ -66,8 +66,8 @@ class OpcConvertor {
         }
     }
     private fun setGlobalBase(){
-        if(!parameters.flag.isChecked(Flag.Parameter.GlobalBase))
-            return
+//        if(!parameters.flag.isChecked(Flag.Parameter.GlobalBase))
+//            return
         val splitedDataOpcMatrix=dataOpcMatrix.splitBuffer(parameters.sameBaseSize.width,parameters.sameBaseSize.height)
         splitedDataOpcMatrix.forEach(){i, j, value ->
             OpcUtils.setSameBaseIn(value)
@@ -112,7 +112,8 @@ class OpcConvertor {
             setGlobalBase()
 
         if(position!=null&&message!=null)
-            directOpcWithMessageAt(position,message)
+            if(parameters.flag.isChecked(Flag.Parameter.Steganography))//TODO remove
+                directOpcWithMessageAt(position,message)
         else
             directOpc()
     }
@@ -121,6 +122,7 @@ class OpcConvertor {
 
         var res: ByteVector?=null
         if(position!=null)
+            if(parameters.flag.isChecked(Flag.Parameter.Steganography))//TODO remove
             res=reverceOPCWithMessageAt(position)
         else
             reverceOPC()

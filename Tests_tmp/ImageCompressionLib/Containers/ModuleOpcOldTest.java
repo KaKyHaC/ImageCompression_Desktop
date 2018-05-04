@@ -2,7 +2,7 @@ package ImageCompressionLib.Containers;
 
 import ImageCompressionLib.Constants.State;
 import ImageCompressionLib.Containers.Type.Flag;
-import ImageCompressionLib.ProcessingModules.ModuleOPC.ModuleOPC;
+import ImageCompressionLib.ProcessingModules.ModuleOPC.ModuleOpcOld;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,7 +10,7 @@ import java.util.Date;
 
 import static org.junit.Assert.*;
 
-public class ModuleOPCTest {
+public class ModuleOpcOldTest {
     int size=200;
     Flag flag=new Flag("0");
     TripleShortMatrix tripleShortMatrix =new TripleShortMatrix(size,size, State.RGB);
@@ -27,31 +27,31 @@ public class ModuleOPCTest {
 
     @Test
     public void TestDefault(){
-        TripleDataOpcMatrix tripleDataOpcMatrix =new ModuleOPC(tripleShortMatrix,flag,true).getBoxOfOpc(true);
+        TripleDataOpcMatrix tripleDataOpcMatrix =new ModuleOpcOld(tripleShortMatrix,flag,true).getBoxOfOpc(true);
         DataOpcOld[][] a,b,c;
-        ModuleOPC moduleOPC1 =new ModuleOPC(tripleDataOpcMatrix, flag,true);
-        TripleShortMatrix res= moduleOPC1.getMatrix(true);
+        ModuleOpcOld moduleOpcOld1 =new ModuleOpcOld(tripleDataOpcMatrix, flag,true);
+        TripleShortMatrix res= moduleOpcOld1.getMatrix(true);
 
         AssertMatrixInRange(tripleShortMatrix,res,1,true);
     }
     @Test
     public void TestTime(){
-        ModuleOPC moduleOPC =new ModuleOPC(tripleShortMatrix,flag,true);
+        ModuleOpcOld moduleOpcOld =new ModuleOpcOld(tripleShortMatrix,flag,true);
         Date t1=new Date();
-        moduleOPC.directOPCMultiThreads();
-        moduleOPC.reverseOPCMultiThreads();
+        moduleOpcOld.directOPCMultiThreads();
+        moduleOpcOld.reverseOPCMultiThreads();
         Date t2=new Date();
         System.out.println("in multi threads t="+(t2.getTime()-t1.getTime()));
 
         Date t3=new Date();
-        moduleOPC.directOPC();
-        moduleOPC.reverseOPC();
+        moduleOpcOld.directOPC();
+        moduleOpcOld.reverseOPC();
         Date t4=new Date();
         System.out.println("in one thread t="+(t4.getTime()-t3.getTime()));
 
         Date t5=new Date();
-        moduleOPC.directOpcGlobalBase(5,5);
-        moduleOPC.reverseOPC();
+        moduleOpcOld.directOpcGlobalBase(5,5);
+        moduleOpcOld.reverseOPC();
         Date t6=new Date();
         System.out.println("Global Base t="+(t6.getTime()-t5.getTime()));
 

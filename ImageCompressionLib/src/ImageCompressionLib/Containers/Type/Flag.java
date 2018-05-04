@@ -5,7 +5,7 @@ package ImageCompressionLib.Containers.Type;
  */
 
 public class Flag {
-
+    //TODO remove steganography
     public enum Parameter{
         // empty value 8
         OneFile(16),Enlargement(32),DC(64),LongCode(128),GlobalBase(256),
