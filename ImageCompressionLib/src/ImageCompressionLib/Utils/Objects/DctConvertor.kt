@@ -1,9 +1,8 @@
 package ImageCompressionLib.Utils.Objects
 
 
-import ImageCompressionLib.Constants.State
 import ImageCompressionLib.Constants.TypeQuantization
-import ImageCompressionLib.Containers.Flag
+import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Utils.Functions.DCTMultiThread
 
 /**

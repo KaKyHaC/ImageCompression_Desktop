@@ -2,7 +2,7 @@ package ImageCompressionLib.ProcessingModules
 
 import ImageCompressionLib.Constants.State
 import ImageCompressionLib.Containers.TripleShortMatrix
-import ImageCompressionLib.Containers.Flag
+import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Utils.Objects.TimeManager
 import Utils.BuffImConvertor
 import org.junit.Test
@@ -18,7 +18,7 @@ class ModuleImageTest {
     internal var flag = Flag("0")
     @Before
     fun befor(){
-        flag=Flag()
+        flag= Flag()
     }
 
     @Test

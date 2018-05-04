@@ -2,10 +2,8 @@ package ImageCompressionLib.Utils.Functions
 
 import ImageCompressionLib.Constants.MAX_LONG
 import ImageCompressionLib.Constants.TWO
-import ImageCompressionLib.Containers.DataOpc
-import ImageCompressionLib.Containers.ShortMatrix
-import ImageCompressionLib.Containers.Size
-import com.sun.javafx.scene.control.behavior.TwoLevelFocusBehavior
+import ImageCompressionLib.Containers.Type.DataOpc
+import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import java.math.BigInteger
 
 class OpcAlgorithms {

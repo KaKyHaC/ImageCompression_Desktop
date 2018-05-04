@@ -1,4 +1,4 @@
-package ImageCompressionLib.Containers
+package ImageCompressionLib.Containers.Type
 
 class MyBufferedImage (val width:Int,val height:Int){
     companion object {
@@ -20,7 +20,7 @@ class MyBufferedImage (val width:Int,val height:Int){
         return data[i][j]
     }
     fun getDataBuffer():ByteArray{
-        val v=ByteVector()
+        val v= ByteVector()
         for(i in 0 until width)
             for(j in 0 until height){
                 v.append(getB(i,j).toByte())

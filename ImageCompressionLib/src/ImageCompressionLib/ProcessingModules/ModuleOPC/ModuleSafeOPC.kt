@@ -1,6 +1,8 @@
 package ImageCompressionLib.ProcessingModules.ModuleOPC
 
 import ImageCompressionLib.Containers.*
+import ImageCompressionLib.Containers.Type.Flag
+import ImageCompressionLib.Containers.Type.Size
 import ImageCompressionLib.Steganography.Containers.Container
 import ImageCompressionLib.Steganography.Containers.IContainer
 import ImageCompressionLib.Steganography.Containers.OpcContainer
@@ -14,7 +16,7 @@ import ImageCompressionLib.Steganography.Utils.UnitContainerFactory
 class ModuleSafeOPC :AbsModuleOPC{
     var message:String?=null
     var sameBase: Size
-    var imageSize:Size?=null
+    var imageSize: Size?=null
     var isDivTwo=true
     var isMultiTWO=true
 
@@ -26,7 +28,7 @@ class ModuleSafeOPC :AbsModuleOPC{
         this.sameBase = sameBase
 //        imageSize!!.imSize
     }
-    constructor(tripleDataOpc: TripleDataOpcMatrix, flag: Flag, sameBase: Size,imSize: Size) : super(tripleDataOpc, flag) {
+    constructor(tripleDataOpc: TripleDataOpcMatrix, flag: Flag, sameBase: Size, imSize: Size) : super(tripleDataOpc, flag) {
 //        this.message = message
         this.sameBase = sameBase
         imageSize=imSize

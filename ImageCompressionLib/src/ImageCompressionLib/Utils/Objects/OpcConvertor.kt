@@ -1,8 +1,14 @@
 package ImageCompressionLib.Utils.Objects
 
 import ImageCompressionLib.Containers.*
+import ImageCompressionLib.Containers.Matrix.DataOpcMatrix
+import ImageCompressionLib.Containers.Matrix.Matrix
+import ImageCompressionLib.Containers.Matrix.ShortMatrix
+import ImageCompressionLib.Containers.Type.ByteVector
+import ImageCompressionLib.Containers.Type.DataOpc
+import ImageCompressionLib.Containers.Type.Flag
+import ImageCompressionLib.Containers.Type.Size
 import ImageCompressionLib.Utils.Functions.*
-import java.text.FieldPosition
 
 class OpcConvertor {
     enum class State {
@@ -19,33 +25,33 @@ class OpcConvertor {
     var state: State
         private set
 
-    private lateinit var splitedShortMatrix:Matrix<Matrix<Short>>
+    private lateinit var splitedShortMatrix: Matrix<Matrix<Short>>
 //    private lateinit var splitedDataOpcMatrix:Matrix<DataOpcMatrix>//TODO make local
 
 
     constructor(dataOrigin: Array<Array<Short>>, parameters: Parameters) {
-        this.shortMatrix = ShortMatrix(dataOrigin)
+        this.shortMatrix = ShortMatrix.valueOf(dataOrigin)
         this.parameters=parameters
         state = State.Origin
         val size=calculataDataOpcMatrixSize(parameters)
-        dataOpcMatrix=DataOpcMatrix(size.width,size.height,parameters.unitSize)
+        dataOpcMatrix= DataOpcMatrix(size.width, size.height, parameters.unitSize)
     }
 
     constructor(dataOpcMatrix: Array<Array<DataOpc>>, parameters: Parameters){
         this.dataOpcMatrix= DataOpcMatrix(dataOpcMatrix)
         this.parameters=parameters
         state = State.Opc
-        shortMatrix=ShortMatrix(parameters.imageSize.width,parameters.imageSize.height)
+        shortMatrix= ShortMatrix(parameters.imageSize.width, parameters.imageSize.height)
     }
     private fun createSplitedMatrix(){
         splitedShortMatrix=shortMatrix.split(parameters.unitSize.width,parameters.unitSize.height)
     }
-    private fun calculataDataOpcMatrixSize(parameters: Parameters):Size{
+    private fun calculataDataOpcMatrixSize(parameters: Parameters): Size {
         var w=parameters.imageSize.width/parameters.unitSize.width
         var h=parameters.imageSize.height/parameters.unitSize.height
         if(parameters.imageSize.width%parameters.unitSize.width!=0)w++
         if(parameters.imageSize.height%parameters.unitSize.height!=0)h++
-        return Size(w,h)
+        return Size(w, h)
     }
     private fun beforDirectOpc(){
         dataOpcMatrix.forEach() { i, j, value ->
@@ -55,7 +61,7 @@ class OpcConvertor {
     }
     private fun afterReverceOpc(){
         dataOpcMatrix.forEach() { i, j, value ->
-            OpcProcess.afterReverceOpcProcess(parameters,value,splitedShortMatrix[i, j] as ShortMatrix)
+            OpcProcess.afterReverceOpcProcess(parameters,value, ShortMatrix.valueOf(splitedShortMatrix[i, j]) )
             return@forEach null
         }
     }
@@ -70,29 +76,29 @@ class OpcConvertor {
     }
     private fun directOpc(){
         dataOpcMatrix.forEach(){i, j, value ->
-            OpcProcess.directOPC(parameters,splitedShortMatrix[i,j] as ShortMatrix,value)
+            OpcProcess.directOPC(parameters, ShortMatrix.valueOf(splitedShortMatrix[i,j]),value)
             return@forEach null
         }
     }
     private fun reverceOPC(){
         dataOpcMatrix.forEach(){i, j, value ->
-            OpcProcess.reverseOPC(parameters,value,splitedShortMatrix[i,j] as ShortMatrix)
+            OpcProcess.reverseOPC(parameters,value, ShortMatrix.valueOf(splitedShortMatrix[i,j]) )
             return@forEach null
         }
     }
-    private fun directOpcWithMessageAt(position: Int,message:ByteVector){
+    private fun directOpcWithMessageAt(position: Int,message: ByteVector){
         dataOpcMatrix.forEach(){i, j, value ->
             if(message.hasNextBit())
-                OpcProcess.directOpcWithMessageAt(parameters,splitedShortMatrix[i,j] as ShortMatrix,value,message.getNextBoolean(),position)
+                OpcProcess.directOpcWithMessageAt(parameters, ShortMatrix.valueOf(splitedShortMatrix[i,j]) ,value,message.getNextBoolean(),position)
             else
-                OpcProcess.directOpcWithMessageAt(parameters,splitedShortMatrix[i,j] as ShortMatrix,value,false,position)
+                OpcProcess.directOpcWithMessageAt(parameters, ShortMatrix.valueOf(splitedShortMatrix[i,j]) ,value,false,position)
             return@forEach null
         }
     }
-    private fun reverceOPCWithMessageAt(position: Int):ByteVector{
-        val res=ByteVector()
+    private fun reverceOPCWithMessageAt(position: Int): ByteVector {
+        val res= ByteVector()
         dataOpcMatrix.forEach(){i, j, value ->
-            res.append(OpcProcess.reverseOpcWithMessageAt(parameters,value,splitedShortMatrix[i,j] as ShortMatrix,position))
+            res.append(OpcProcess.reverseOpcWithMessageAt(parameters,value, ShortMatrix.valueOf(splitedShortMatrix[i,j]) ,position))
             return@forEach null
         }
         return res
@@ -110,8 +116,10 @@ class OpcConvertor {
         else
             directOpc()
     }
-    private fun reverceProcess(position: Int?):ByteVector?{
-        var res:ByteVector?=null
+    private fun reverceProcess(position: Int?): ByteVector?{
+        createSplitedMatrix()
+
+        var res: ByteVector?=null
         if(position!=null)
             res=reverceOPCWithMessageAt(position)
         else

@@ -1,9 +1,9 @@
 package ImageCompressionLib.Utils.Functions
 
-import ImageCompressionLib.Containers.DataOpc
-import ImageCompressionLib.Containers.Flag
+import ImageCompressionLib.Containers.Type.DataOpc
+import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Containers.Parameters
-import ImageCompressionLib.Containers.ShortMatrix
+import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcDirectLongAndBI
 import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcDirectUseOnlyLong
 import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcDirectWithMessageAt

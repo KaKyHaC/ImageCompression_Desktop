@@ -2,9 +2,9 @@ package ImageCompressionLib.Steganography
 
 import ImageCompressionLib.Steganography.Utils.ImageProcessorUtils
 import ImageCompressionLib.Steganography.Utils.OpcsParser
-import ImageCompressionLib.Containers.ByteVector
+import ImageCompressionLib.Containers.Type.ByteVector
 import ImageCompressionLib.Utils.Objects.ByteVectorFile
-import ImageCompressionLib.Containers.Flag
+import ImageCompressionLib.Containers.Type.Flag
 import java.awt.image.BufferedImage
 import java.io.File
 import javax.imageio.ImageIO

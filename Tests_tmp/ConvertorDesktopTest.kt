@@ -1,5 +1,8 @@
 import ImageCompressionLib.Constants.State
 import ImageCompressionLib.Containers.*
+import ImageCompressionLib.Containers.Type.ByteVector
+import ImageCompressionLib.Containers.Type.Flag
+import ImageCompressionLib.Containers.Type.Size
 import ImageCompressionLib.ProcessingModules.*
 import ImageCompressionLib.Utils.Functions.CompressionUtils
 import ImageCompressionLib.Utils.Functions.Steganography
@@ -19,7 +22,7 @@ class ConvertorDesktopTest {
     val pathToBmpRes:String="/files/desktest.bmp"
     val w=1920
     val h=1080
-    val flag=Flag()
+    val flag= Flag()
 
     @Test
     fun TestReadWrite(){
@@ -106,7 +109,7 @@ class ConvertorDesktopTest {
         val delta=8
         val matrix=getRandomMatrix(w,h)
         val t1=Date().time
-        val f:Flag=Flag()
+        val f: Flag = Flag()
         f.setChecked(Flag.Parameter.LongCode,true)
         f.setChecked(Flag.Parameter.DC,true)
         f.setChecked(Flag.Parameter.OneFile,true)
@@ -211,7 +214,7 @@ class ConvertorDesktopTest {
 
     fun testModuleDCT(delta: Int){
         val matrix=getRandomMatrix(w,h)
-        var f=Flag()
+        var f= Flag()
         f.setChecked(Flag.Parameter.LongCode,true)
         f.setChecked(Flag.Parameter.DC,true)
         f.setChecked(Flag.Parameter.OneFile,true)
@@ -248,7 +251,7 @@ class ConvertorDesktopTest {
         val rgb=myIm2.rgbMatrix
         AssertMatrixInRange(rgb,cpy,delta)
     }
-    fun testDirectReverseConverting(w:Int, h:Int, flag: Flag, delta:Int, compareCompression:Boolean=false,sameBase: Size =Size(1,1)){
+    fun testDirectReverseConverting(w:Int, h:Int, flag: Flag, delta:Int, compareCompression:Boolean=false, sameBase: Size = Size(1, 1)){
         var matrix=getRandomMatrix(w,h)
         val t1=Date().time
         val cpy=matrix.copy()

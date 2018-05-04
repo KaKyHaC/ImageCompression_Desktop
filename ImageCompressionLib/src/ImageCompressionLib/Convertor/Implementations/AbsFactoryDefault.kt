@@ -1,13 +1,15 @@
 package ImageCompressionLib.Convertor.Implementations
 
 import ImageCompressionLib.Containers.*
+import ImageCompressionLib.Containers.Type.Flag
+import ImageCompressionLib.Containers.Type.Size
 import ImageCompressionLib.Convertor.ConvertorDefault
 import ImageCompressionLib.ProcessingModules.ModuleByteVector
 import ImageCompressionLib.ProcessingModules.ModuleOPC.AbsModuleOPC
 import ImageCompressionLib.ProcessingModules.ModuleOPC.StegoEncrWithOPC
 
 abstract class AbsFactoryDefault :ConvertorDefault.IFactory {
-    abstract fun getSameBaseSize():Size
+    abstract fun getSameBaseSize(): Size
     abstract fun getMesasge():String?
     abstract fun getPassword():String?
     abstract fun onMessageListener(message:String?)

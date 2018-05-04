@@ -1,9 +1,10 @@
-package ImageCompressionLib.Containers
+package ImageCompressionLib.Containers.Matrix
 
-import ImageCompressionLib.Constants.ICopyble
+import ImageCompressionLib.Containers.Type.Size
 import java.util.*
 
 open class Matrix<T:Any> {
+    //TODO matrixIterator class
     val matrix: Array<Array<Any>>
 
 
@@ -112,6 +113,9 @@ open class Matrix<T:Any> {
 
     companion object {
         @JvmStatic fun <T:Any>valueOf(mat:Array<Array<T>>): Matrix<T> {
+            return Matrix<T>(mat as Array<Array<Any>>)
+        }
+        @JvmStatic fun <T:Any>glueTogether(mat: Matrix<Matrix<T>>): Matrix<T> {
             return Matrix<T>(mat as Array<Array<Any>>)
         }
     }

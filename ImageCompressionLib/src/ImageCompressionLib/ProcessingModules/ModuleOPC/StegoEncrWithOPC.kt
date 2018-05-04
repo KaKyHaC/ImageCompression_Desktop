@@ -4,14 +4,14 @@ import ImageCompressionLib.Containers.TripleDataOpcMatrix
 import ImageCompressionLib.Containers.TripleShortMatrix
 import ImageCompressionLib.Utils.Functions.Encryption
 import ImageCompressionLib.Utils.Functions.Steganography
-import ImageCompressionLib.Containers.Flag
+import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Utils.Objects.TimeManager
 
 class StegoEncrWithOPC :ModuleOPC{
     val DEFAULT_PASS=" "
 //    private var super: ModuleOPC
 
-    constructor(tripleShortMatrix: TripleShortMatrix,flag:Flag
+    constructor(tripleShortMatrix: TripleShortMatrix,flag: Flag
                 ,sameBaseWidth:Int,sameBaseHeight:Int,message:String?,password:String?,isAsync: Boolean):
             super(tripleShortMatrix,flag,isAsync){
 //        super= ModuleOPC(tripleShortMatrix,flag)

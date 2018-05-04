@@ -1,12 +1,15 @@
 package ImageCompressionLib.Utils.Functions
 
-import ImageCompressionLib.Containers.*
+import ImageCompressionLib.Containers.Matrix.DataOpcMatrix
+import ImageCompressionLib.Containers.Matrix.ShortMatrix
+import ImageCompressionLib.Containers.Type.DataOpc
+
 class OpcUtils {
     companion object {
         @JvmStatic
         fun FindBase(dataOrigin: ShortMatrix, dataOpc: DataOpc) {
             for (i in 0 until dataOrigin.height) {
-                dataOpc.base[i] = dataOrigin[i,0]
+                dataOpc.base[i] = dataOrigin[0,i]
                 for (j in 0 until dataOrigin.width) {
                     if (dataOpc.base[i] < dataOrigin[j,i]) {
                         dataOpc.base[i] = dataOrigin[j,i]

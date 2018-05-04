@@ -1,8 +1,8 @@
 package ImageCompressionLib.Utils.Functions
 
-import ImageCompressionLib.Containers.DataOpc
-import ImageCompressionLib.Containers.ShortMatrix
-import ImageCompressionLib.Containers.Size
+import ImageCompressionLib.Containers.Type.DataOpc
+import ImageCompressionLib.Containers.Matrix.ShortMatrix
+import ImageCompressionLib.Containers.Type.Size
 import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcDirectWithMessageAt
 import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcReverceWithMessageAt
 import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcReverseDefault
@@ -23,7 +23,7 @@ class OpcAlgorithmsMessageAtTest{
     var range:Int
     var position:Int
 
-    constructor(size: Size, max: Int, range:Int,position: Int) {
+    constructor(size: Size, max: Int, range:Int, position: Int) {
         this.size = size
         this.max = max
         this.range=range
@@ -66,8 +66,8 @@ class OpcAlgorithmsMessageAtTest{
         for(i in 0 until size.height){
             dataOpc.base[i]=(max+1).toShort()
         }
-        matrix= ShortMatrix(size.width,size.height){ i, j -> ((i+1)*(j+1)%max).toShort() }
-        matrixEmpty= ShortMatrix(size.width,size.height)
+        matrix= ShortMatrix(size.width, size.height) { i, j -> ((i + 1) * (j + 1) % max).toShort() }
+        matrixEmpty= ShortMatrix(size.width, size.height)
     }
 
     @Test

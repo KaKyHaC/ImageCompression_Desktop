@@ -1,6 +1,8 @@
 package ImageCompressionLib.Containers
 
 import ImageCompressionLib.Constants.SIZEOFBLOCK
+import ImageCompressionLib.Containers.Type.ByteVector
+import ImageCompressionLib.Containers.Type.Flag
 import java.util.*
 
 class TripleDataOpcMatrix {
@@ -110,7 +112,7 @@ class TripleDataOpcMatrix {
         }
     }
 
-    private fun createMatrixFromVectorBase(vector: ByteVector,flag: Flag):Array<Array<DataOpcOld>>{
+    private fun createMatrixFromVectorBase(vector: ByteVector, flag: Flag):Array<Array<DataOpcOld>>{
         val w=vector.getNextShort()
         val h=vector.getNextShort()
         val stepW:Int = if(flag.isChecked(Flag.Parameter.GlobalBase))vector.getNextShort().toInt() else 1

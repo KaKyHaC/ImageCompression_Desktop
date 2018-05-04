@@ -1,16 +1,9 @@
 package ImageCompressionLib.Steganography
 
-import ImageCompressionLib.Containers.ByteVector
-import ImageCompressionLib.Containers.Flag
 import ImageCompressionLib.Steganography.Containers.IContainer
 import ImageCompressionLib.Steganography.Containers.OpcContainer
 import ImageCompressionLib.Steganography.Containers.UnitContainer
 import ImageCompressionLib.Steganography.Utils.ImageProcessorUtils
-import ImageCompressionLib.Steganography.Utils.OpcsParser
-import ImageCompressionLib.Utils.Objects.ByteVectorFile
-import java.awt.image.BufferedImage
-import java.io.File
-import javax.imageio.ImageIO
 
 class ModuleStego(val dao: IDao) {
     interface IDao{

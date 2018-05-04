@@ -1,5 +1,9 @@
 package ImageCompressionLib.Containers
 
+import ImageCompressionLib.Containers.Type.ByteVector
+import ImageCompressionLib.Containers.Type.DataOpc
+import ImageCompressionLib.Containers.Type.Flag
+import ImageCompressionLib.Containers.Type.Size
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -8,8 +12,8 @@ import java.math.BigInteger
 import java.util.*
 
 class DataOpcTest {
-    lateinit var dataOpc:DataOpc
-    val size=Size(10,10)
+    lateinit var dataOpc: DataOpc
+    val size= Size(10, 10)
     val rand=Random()
     @Before
     fun setUp(){
@@ -25,10 +29,10 @@ class DataOpcTest {
     }
     @Test
     fun toByteVector() {
-        val f=Flag.createDefaultFlag()
+        val f= Flag.createDefaultFlag()
         f.setFalse(Flag.Parameter.LongCode)
-        val parameters=Parameters(f, Size(100,100),size)
-        val vector=ByteVector()
+        val parameters=Parameters(f, Size(100, 100),size)
+        val vector= ByteVector()
 
         dataOpc.toByteVector(vector, parameters)
         val res= DataOpc.valueOf(vector,parameters)
@@ -37,8 +41,8 @@ class DataOpcTest {
     }
     @Test
     fun signToByteVector() {
-        val f=Flag.createDefaultFlag()
-        val vector=ByteVector()
+        val f= Flag.createDefaultFlag()
+        val vector= ByteVector()
         val cpy=dataOpc.copy()
 
         dataOpc.FromSignToVector(vector, size)

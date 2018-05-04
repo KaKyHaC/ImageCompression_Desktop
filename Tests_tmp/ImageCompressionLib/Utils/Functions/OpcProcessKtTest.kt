@@ -1,6 +1,10 @@
 package ImageCompressionLib.Utils.Functions
 
 import ImageCompressionLib.Containers.*
+import ImageCompressionLib.Containers.Matrix.ShortMatrix
+import ImageCompressionLib.Containers.Type.DataOpc
+import ImageCompressionLib.Containers.Type.Flag
+import ImageCompressionLib.Containers.Type.Size
 import ImageCompressionLib.Utils.Functions.OpcProcess.Companion.afterReverceOpcProcess
 import ImageCompressionLib.Utils.Functions.OpcProcess.Companion.directOPC
 import ImageCompressionLib.Utils.Functions.OpcProcess.Companion.preDirectOpcProcess
@@ -14,7 +18,7 @@ import java.util.*
 import kotlin.test.assertEquals
 
 @RunWith(value = Parameterized::class)
-class OpcProcessKtTest(val size: Size,val flag: Flag) {
+class OpcProcessKtTest(val size: Size, val flag: Flag) {
     lateinit var shortMatrix: ShortMatrix
     lateinit var dataOpc: DataOpc
     lateinit var parameters: Parameters
@@ -22,8 +26,8 @@ class OpcProcessKtTest(val size: Size,val flag: Flag) {
     val rand=Random()
     @Before
     fun setUp() {
-        shortMatrix= ShortMatrix(size.width,size.height){ i, j -> ((i+1)*(j+1)%255).toShort() }
-        emptyMatrix= ShortMatrix(size.width,size.height)
+        shortMatrix= ShortMatrix(size.width, size.height) { i, j -> ((i + 1) * (j + 1) % 255).toShort() }
+        emptyMatrix= ShortMatrix(size.width, size.height)
         dataOpc= DataOpc(size)
         parameters= Parameters(flag,size,size)
     }
@@ -45,10 +49,10 @@ class OpcProcessKtTest(val size: Size,val flag: Flag) {
             ,arrayOf(size, flag1)
             ,arrayOf(size, flag2)
             ,arrayOf(size, flag3)
-            ,arrayOf(Size(23,11), flag)
-            ,arrayOf(Size(40,40), flag3)
-            ,arrayOf(Size(1,1), flag2)
-            ,arrayOf(Size(23,12), flag1))
+            ,arrayOf(Size(23, 11), flag)
+            ,arrayOf(Size(40, 40), flag3)
+            ,arrayOf(Size(1, 1), flag2)
+            ,arrayOf(Size(23, 12), flag1))
         }
     }
 
@@ -66,7 +70,7 @@ class OpcProcessKtTest(val size: Size,val flag: Flag) {
     }
     @Test
     fun OpcDefaultRandomIntiWithDCTflag() {
-        shortMatrix= ShortMatrix(size.width,size.height){ i, j -> (rand.nextInt()%255).toShort() }
+        shortMatrix= ShortMatrix(size.width, size.height) { i, j -> (rand.nextInt() % 255).toShort() }
         parameters.flag.setTrue(Flag.Parameter.DCT)
         val cpy=shortMatrix.copy()
         assertEquals(cpy,shortMatrix)

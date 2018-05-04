@@ -1,5 +1,6 @@
 package ImageCompressionLib.Containers
 
+import ImageCompressionLib.Containers.Matrix.Matrix
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -9,8 +10,8 @@ class MatrixTest {
     val size=2
     val data44:Array<Array<Int>>
     val data22:Array<Array<Int>>
-    lateinit var matrix:Matrix<Int>
-    lateinit var matrix22:Matrix<Int>
+    lateinit var matrix: Matrix<Int>
+    lateinit var matrix22: Matrix<Int>
 
     constructor(){
         data22= Array(size ){i->Array(size){j->(i+1)*j}}
@@ -20,7 +21,7 @@ class MatrixTest {
     @Before
     fun setUp() {
         matrix= Matrix.valueOf(data44)
-        matrix22=Matrix.valueOf(data22)
+        matrix22= Matrix.valueOf(data22)
     }
     @Test
     fun testGet(){

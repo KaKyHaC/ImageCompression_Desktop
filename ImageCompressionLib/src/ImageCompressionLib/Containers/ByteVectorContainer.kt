@@ -1,3 +1,5 @@
 package ImageCompressionLib.Containers
 
-data class ByteVectorContainer(val mainData:ByteVector,val suportData:ByteVector?){    }
+import ImageCompressionLib.Containers.Type.ByteVector
+
+data class ByteVectorContainer(val mainData: ByteVector, val suportData: ByteVector?){    }

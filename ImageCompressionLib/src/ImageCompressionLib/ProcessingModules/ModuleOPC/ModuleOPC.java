@@ -2,6 +2,7 @@ package ImageCompressionLib.ProcessingModules.ModuleOPC;
 
 
 import ImageCompressionLib.Containers.*;
+import ImageCompressionLib.Containers.Type.Flag;
 import ImageCompressionLib.Utils.Objects.OpcConvertorOld;
 import org.jetbrains.annotations.NotNull;
 //import com.sun.glass.ui.Size;
@@ -27,7 +28,7 @@ public class ModuleOPC extends AbsModuleOPC{
 //    private boolean isMatrix=false;
 //    private boolean isOpcs=false;
 
-    public ModuleOPC(TripleShortMatrix tripleShortMatrix,Flag flag,Boolean isAsyn){
+    public ModuleOPC(TripleShortMatrix tripleShortMatrix, Flag flag, Boolean isAsyn){
         super(tripleShortMatrix,flag);
 //        this.flag=flag;
         this.isAsyn=isAsyn;

@@ -1,6 +1,10 @@
 package ImageCompressionLib.Utils.Functions
 
 import ImageCompressionLib.Containers.*
+import ImageCompressionLib.Containers.Matrix.ShortMatrix
+import ImageCompressionLib.Containers.Type.DataOpc
+import ImageCompressionLib.Containers.Type.Flag
+import ImageCompressionLib.Containers.Type.Size
 import ImageCompressionLib.Utils.Functions.OpcProcess.Companion.afterReverceOpcProcess
 import ImageCompressionLib.Utils.Functions.OpcProcess.Companion.directOpcWithMessageAt
 import ImageCompressionLib.Utils.Functions.OpcProcess.Companion.preDirectOpcProcess
@@ -10,10 +14,9 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import java.text.FieldPosition
 
 @RunWith(Parameterized::class)
-class OpcProcessWithMessageTest(val size: Size,val position: Int,val message:Boolean) {
+class OpcProcessWithMessageTest(val size: Size, val position: Int, val message:Boolean) {
     lateinit var shortMatrix: ShortMatrix
     lateinit var dataOpc: DataOpc
     lateinit var parameters: Parameters
@@ -31,7 +34,7 @@ class OpcProcessWithMessageTest(val size: Size,val position: Int,val message:Boo
         @JvmStatic
         @Parameterized.Parameters(name = "{0},pos={1},mess={2}")
         fun data(): Collection<Array<Any>> {
-            val size=Size(8,8)
+            val size= Size(8, 8)
             return listOf(
                     arrayOf(size,0,true)
                     ,arrayOf(size,0,false)

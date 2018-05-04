@@ -1,6 +1,7 @@
-package ImageCompressionLib.Containers
+package ImageCompressionLib.Containers.Type
 
 import ImageCompressionLib.Constants.ICopyble
+import ImageCompressionLib.Containers.Parameters
 import java.math.BigInteger
 import java.util.*
 import kotlin.experimental.and
@@ -59,14 +60,14 @@ class DataOpc :ICopyble{
     }
 
 
-    fun FromSignToVector(vector: ByteVector,size: Size) {
+    fun FromSignToVector(vector: ByteVector, size: Size) {
         for (i in 0 until size.width) {
             for (j in 0 until size.height) {
                 vector.append(sign[i][j])
             }
         }
     }
-    fun FromVectorToSign(vector: ByteVector,size: Size) {
+    fun FromVectorToSign(vector: ByteVector, size: Size) {
         for (i in 0 until size.width) {
             for (j in 0 until size.height) {
                 sign[i][j] = vector.getNextBoolean()
@@ -125,7 +126,7 @@ class DataOpc :ICopyble{
         if (f.isChecked(Flag.Parameter.LongCode))
             FromCodeToVector(vector)
         else
-            FromBigIntToVector(vector,getLengthOfCode(base,parameters.unitSize))
+            FromBigIntToVector(vector, getLengthOfCode(base, parameters.unitSize))
 
         if(f.isChecked(Flag.Parameter.DCT))
             FromSignToVector(vector,parameters.unitSize)
@@ -143,7 +144,7 @@ class DataOpc :ICopyble{
         if (f.isChecked(Flag.Parameter.LongCode))
             FromVectorToCode(vector)
         else
-            FromVectorToBigInt(vector, getLengthOfCode(base,parameters.unitSize))
+            FromVectorToBigInt(vector, getLengthOfCode(base, parameters.unitSize))
 
         if(f.isChecked(Flag.Parameter.DCT))
             FromVectorToSign(vector,parameters.unitSize)
@@ -199,7 +200,7 @@ class DataOpc :ICopyble{
         for(el in this.vectorCode)
             rcode.addElement(el)
 
-        return DataOpc(rDC,rN,rcode,rbase,rsign)
+        return DataOpc(rDC, rN, rcode, rbase, rsign)
     }
 
     fun getByteSize(parameters: Parameters): Int {

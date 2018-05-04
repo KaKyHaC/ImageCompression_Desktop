@@ -1,7 +1,7 @@
 package ImageCompressionLib.ProcessingModules.ModuleOPC
 
 import ImageCompressionLib.Constants.SIZEOFBLOCK
-import ImageCompressionLib.Containers.Flag
+import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Containers.TripleDataOpcMatrix
 import ImageCompressionLib.Containers.TripleShortMatrix
 

@@ -1,6 +1,6 @@
 package ImageCompressionLib.ProcessingModules
 
-import ImageCompressionLib.Containers.Flag
+import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Utils.Functions.ImageIOTest
 import ImageCompressionLib.Utils.Objects.TimeManager
 import org.junit.Assert.*
@@ -16,7 +16,7 @@ class ModuleDCTTest{
         val cpy=enl.copy()
         assertEquals(cpy,enl)
 
-        val dctModule = ModuleDCT(enl,Flag())
+        val dctModule = ModuleDCT(enl, Flag())
 
         dctModule.getDCTMatrix(true);
         assertFalse( cpy.assertMatrixInRange(enl,8))
@@ -69,7 +69,7 @@ class ModuleDCTTest{
         val enl=mi.getYenlMatrix(true)
         val cpy=enl.copy()
 
-        val dctModule=ModuleDCT(enl,Flag())
+        val dctModule=ModuleDCT(enl, Flag())
 
         val t1= Date().time
         for (i in 0..loop-1){
@@ -101,7 +101,7 @@ class ModuleDCTTest{
         val cpy=enl.copy()
         assertEquals(cpy,enl)
 
-        val dctModule = ModuleDCT(enl,Flag())
+        val dctModule = ModuleDCT(enl, Flag())
 
         TimeManager.Instance.startNewTrack("mDCT ${loop}l,${dif}dif (${w}x$h)")
         for(i in 0..loop-1) {

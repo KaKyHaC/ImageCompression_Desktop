@@ -1,7 +1,7 @@
 package ImageCompressionLib.ProcessingModules
 
 import ImageCompressionLib.Containers.ByteVectorContainer
-import ImageCompressionLib.Containers.Flag
+import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Containers.TripleDataOpcMatrix
 import ImageCompressionLib.Utils.Functions.ByteVectorParser
 
@@ -23,7 +23,7 @@ class ModuleByteVector {
         globalH=1
         globalW=1
     }
-    constructor(dataOpcMatrix: TripleDataOpcMatrix, flag: Flag,globalW:Int,globalH: Int) {
+    constructor(dataOpcMatrix: TripleDataOpcMatrix, flag: Flag, globalW:Int, globalH: Int) {
         this.vectorContainer = null
         this.flag = flag
         this.data=dataOpcMatrix

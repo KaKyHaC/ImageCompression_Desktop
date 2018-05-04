@@ -1,8 +1,8 @@
 package ImageCompressionLib.Utils.Objects;
 
 import ImageCompressionLib.Containers.DataOpcOld;
-import ImageCompressionLib.Containers.Flag;
-import ImageCompressionLib.Containers.Size;
+import ImageCompressionLib.Containers.Type.Flag;
+import ImageCompressionLib.Containers.Type.Size;
 import ImageCompressionLib.Utils.Functions.DCTMultiThread;
 import ImageCompressionLib.Utils.Functions.OPCMultiThread;
 

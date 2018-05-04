@@ -1,18 +1,16 @@
 package ImageCompressionLib.ProcessingModules
 
-import ImageCompressionLib.Containers.MyBufferedImage
+import ImageCompressionLib.Containers.Type.MyBufferedImage
 import ImageCompressionLib.Containers.TripleShortMatrix
 import ImageCompressionLib.Constants.State
-import ImageCompressionLib.Containers.ByteVector
-import ImageCompressionLib.Containers.Flag
+import ImageCompressionLib.Containers.Type.ByteVector
+import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Utils.Objects.TimeManager
 
 //import java.awt.image.MyBufferedImage;
 import java.util.concurrent.ExecutionException
-import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import java.util.concurrent.Future
-import kotlin.math.E
 
 class ModuleImage {
     //    private static final int SIZEOFBLOCK = 8;

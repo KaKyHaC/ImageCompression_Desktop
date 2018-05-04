@@ -6,7 +6,7 @@ import ImageCompressionLib.Constants.State;
 import ImageCompressionLib.ProcessingModules.ModuleOPC.ModuleOPC;
 import ImageCompressionLib.Containers.TripleShortMatrix;
 import ImageCompressionLib.Utils.Functions.Encryption;
-import ImageCompressionLib.Containers.Flag;
+import ImageCompressionLib.Containers.Type.Flag;
 import org.junit.Before;
 import org.junit.Test;
 

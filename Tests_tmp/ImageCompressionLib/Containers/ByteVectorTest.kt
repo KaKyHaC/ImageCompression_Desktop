@@ -1,5 +1,6 @@
 package ImageCompressionLib.Containers
 
+import ImageCompressionLib.Containers.Type.ByteVector
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -85,11 +86,11 @@ class ByteVectorTest {
         val bytes=message.toByteArray()
         assertEquals(message, String(bytes))
 
-        val vector=ByteVector()
+        val vector= ByteVector()
         for(b in bytes)
             vector.append(b)
 
-        val vector2=ByteVector()
+        val vector2= ByteVector()
         while (vector.hasNextBit())
             vector2.append(vector.getNextBoolean())
 

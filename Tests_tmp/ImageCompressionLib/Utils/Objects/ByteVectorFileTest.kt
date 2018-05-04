@@ -1,7 +1,7 @@
 package ImageCompressionLib.Utils.Objects
 
-import ImageCompressionLib.Containers.ByteVector
-import ImageCompressionLib.Containers.Flag
+import ImageCompressionLib.Containers.Type.ByteVector
+import ImageCompressionLib.Containers.Type.Flag
 import org.junit.Assert.*
 import org.junit.Test
 import java.util.*

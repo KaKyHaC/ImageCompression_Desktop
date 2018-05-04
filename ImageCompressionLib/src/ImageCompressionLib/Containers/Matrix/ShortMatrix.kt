@@ -1,19 +1,19 @@
-package ImageCompressionLib.Containers
+package ImageCompressionLib.Containers.Matrix
 
-import java.util.*
+import ImageCompressionLib.Containers.Type.Size
 
-class ShortMatrix:Matrix<Short> {
+class ShortMatrix: Matrix<Short> {
 //    constructor(matrix: Array<Array<Short>>):super(matrix as Array<Array<Any>>) { }
     private constructor(matrix: Array<Array<Any>>):super(matrix) { }
     constructor(w:Int,h:Int):super(w,h,{i, j -> (0).toShort() }){    }
     constructor(w:Int,h:Int,init:(i:Int,j:Int)->Short):super(w,h,init){}
-    constructor(size: Size,init:(i:Int,j:Int)->Short):super(size,init){}
+    constructor(size: Size, init:(i:Int, j:Int)->Short):super(size,init){}
 
 
-    fun copy():ShortMatrix{
-        return ShortMatrix(width,height){i, j -> matrix[i][j] as Short}
+    fun copy(): ShortMatrix {
+        return ShortMatrix(width, height) { i, j -> matrix[i][j] as Short }
     }
-    fun assertInRange(other:ShortMatrix,range:Int): Boolean {
+    fun assertInRange(other: ShortMatrix, range:Int): Boolean {
         if(width!=other.width)
             throw Exception("width: $width!=${other.width}")
         if(height!=other.height)
@@ -36,19 +36,19 @@ class ShortMatrix:Matrix<Short> {
     fun toArrayShort(): Array<Array<Short>> {
         return Array(width){i->Array(height){j->matrix[i][j] as Short}}
     }
-    fun toMatrix():Matrix<Short>{
+    fun toMatrix(): Matrix<Short> {
         return this
     }
 
     companion object {
         @Deprecated("use Array<Array<Short>>")
         @JvmStatic fun valueOf(mat:Array<ShortArray>): ShortMatrix {
-            return ShortMatrix(mat.size,mat[0].size){i, j -> mat[i][j]}
+            return ShortMatrix(mat.size, mat[0].size) { i, j -> mat[i][j] }
         }
         @JvmStatic fun valueOf(mat:Array<Array<Short>>): ShortMatrix {
             return ShortMatrix(mat as Array<Array<Any>>)
         }
-        @JvmStatic fun valueOf(mat:Matrix<Short>): ShortMatrix {
+        @JvmStatic fun valueOf(mat: Matrix<Short>): ShortMatrix {
             return ShortMatrix(mat.matrix)
         }
     }

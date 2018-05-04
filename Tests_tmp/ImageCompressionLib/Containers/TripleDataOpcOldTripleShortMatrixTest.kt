@@ -1,6 +1,8 @@
 package ImageCompressionLib.Containers
 
 import ImageCompressionLib.Constants.SIZEOFBLOCK
+import ImageCompressionLib.Containers.Type.ByteVector
+import ImageCompressionLib.Containers.Type.Flag
 import org.junit.Assert.*
 import org.junit.Test
 import java.math.BigInteger

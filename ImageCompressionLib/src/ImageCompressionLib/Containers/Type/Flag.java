@@ -1,6 +1,4 @@
-package ImageCompressionLib.Containers;
-
-import ImageCompressionLib.Utils.Functions.Steganography;
+package ImageCompressionLib.Containers.Type;
 
 /**
  * Created by Димка on 13.10.2016.

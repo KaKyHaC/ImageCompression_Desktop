@@ -1,10 +1,9 @@
 package ImageCompressionLib.ProcessingModules
 
-import ImageCompressionLib.Containers.TripleDataOpcMatrix
-import ImageCompressionLib.Containers.ByteVector
+import ImageCompressionLib.Containers.Type.ByteVector
 import ImageCompressionLib.Containers.ByteVectorContainer
 import ImageCompressionLib.Utils.Objects.ByteVectorFile
-import ImageCompressionLib.Containers.Flag
+import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Utils.Objects.TimeManager
 import java.io.File
 
@@ -63,7 +62,7 @@ class ModuleFile{
 //        if(flag.isChecked(Flag.Parameter.GlobalBase)){
 //            opcs.readBaseFromVector(vmain,flag)
 //        }
-        var base:ByteVector?=null
+        var base: ByteVector?=null
         if(!flag.isChecked(Flag.Parameter.OneFile)){
             val br=ByteVectorFile(pathToName+ typeSup)
             val bp=br.read()

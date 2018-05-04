@@ -3,12 +3,12 @@ package ImageCompressionLib.Utils.Functions;
 
 import ImageCompressionLib.Constants.ConstantsKt;
 import ImageCompressionLib.Containers.DataOpcOld;
-import ImageCompressionLib.Containers.Flag;
+import ImageCompressionLib.Containers.Type.Flag;
 //import ImageCompressionLib.Parameters;
 
 import java.math.BigInteger;
 
-import static ImageCompressionLib.Containers.Flag.Parameter.DCT;
+import static ImageCompressionLib.Containers.Type.Flag.Parameter.DCT;
 
 //import static ImageCompressionLib.Constants.ConstantsKt.MAX_LONG;
 

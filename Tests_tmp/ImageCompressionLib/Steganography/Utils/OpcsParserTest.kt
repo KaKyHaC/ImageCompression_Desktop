@@ -3,7 +3,7 @@ package ImageCompressionLib.Steganography.Utils
 import ImageCompressionLib.Steganography.Containers.Container
 import ImageCompressionLib.Steganography.Containers.IContainer
 import ImageCompressionLib.Steganography.Containers.OpcContainer
-import ImageCompressionLib.Containers.ByteVector
+import ImageCompressionLib.Containers.Type.ByteVector
 import org.junit.Assert.*
 import org.junit.Test
 import java.math.BigInteger

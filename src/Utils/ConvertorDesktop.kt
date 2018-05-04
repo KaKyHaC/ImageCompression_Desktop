@@ -1,7 +1,7 @@
 package Utils
 
 import ImageCompressionLib.ProcessingModules.*
-import ImageCompressionLib.Containers.Flag
+import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.ProcessingModules.ModuleOPC.StegoEncrWithOPC
 import ImageCompressionLib.Utils.Functions.ByteVectorParser
 import ImageCompressionLib.Utils.Objects.TimeManager
@@ -21,8 +21,8 @@ class ConvertorDesktop private constructor(){
         }
     }
     enum class Computing{OneThread,MultiThreads,MultiProcessor}
-    data class Info(val flag: Flag,val password: String?=null
-                    ,val message: String?=null,val sameBaseWidth:Int=1,val sameBaseHeight:Int=1)
+    data class Info(val flag: Flag, val password: String?=null
+                    , val message: String?=null, val sameBaseWidth:Int=1, val sameBaseHeight:Int=1)
 
     fun FromBmpToBar(pathToBmp: String, info: Info, computing: Computing = Computing.MultiThreads) {
         val isAsync=(computing== Computing.MultiThreads)

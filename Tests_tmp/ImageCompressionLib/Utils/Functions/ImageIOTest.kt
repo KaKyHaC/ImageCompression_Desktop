@@ -3,7 +3,7 @@ package ImageCompressionLib.Utils.Functions
 import ImageCompressionLib.Constants.State
 import ImageCompressionLib.Containers.TripleShortMatrix
 import ImageCompressionLib.ProcessingModules.ModuleImage
-import ImageCompressionLib.Containers.Flag
+import ImageCompressionLib.Containers.Type.Flag
 import Utils.BuffImConvertor
 import org.junit.Before
 import org.junit.Test

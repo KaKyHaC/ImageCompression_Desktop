@@ -1,4 +1,4 @@
-import ImageCompressionLib.Containers.Flag;
+import ImageCompressionLib.Containers.Type.Flag;
 
 import javax.swing.*;
 import java.awt.*;

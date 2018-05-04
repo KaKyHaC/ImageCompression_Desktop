@@ -1,8 +1,8 @@
 package Utils
 
 import ImageCompressionLib.Containers.ByteVectorContainer
-import ImageCompressionLib.Containers.Flag
-import ImageCompressionLib.Containers.MyBufferedImage
+import ImageCompressionLib.Containers.Type.Flag
+import ImageCompressionLib.Containers.Type.MyBufferedImage
 import ImageCompressionLib.Convertor.ConvertorDefault
 import ImageCompressionLib.ProcessingModules.ModuleFile
 import java.io.File
@@ -11,7 +11,7 @@ import javax.imageio.ImageIO
 abstract class AbsDaoDesktop : ConvertorDefault.IDao {
     abstract fun getFileOriginal(): File
     abstract fun getFileTarget():File
-    abstract fun getFlag():Flag
+    abstract fun getFlag(): Flag
 
     final override fun onResultByteVectorContainer(vector: ByteVectorContainer, flag: Flag) {
         val fileModule=ModuleFile(getFileTarget().absoluteFile)

@@ -1,6 +1,8 @@
 package ImageCompressionLib.Utils.Functions
 
-import ImageCompressionLib.Containers.*
+import ImageCompressionLib.Containers.Matrix.ShortMatrix
+import ImageCompressionLib.Containers.Type.DataOpc
+import ImageCompressionLib.Containers.Type.Size
 import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcDirectDefault
 import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcDirectLongAndBI
 import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcDirectUseOnlyLong
@@ -12,15 +14,13 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import java.awt.Container
-import java.util.*
 
 @RunWith(value = Parameterized::class)
 class OpcAlgorithmsKtTest {
     lateinit var matrix: ShortMatrix
     lateinit var matrixEmpty: ShortMatrix
     lateinit var dataOpc: DataOpc
-    var size= Size(8,1)
+    var size= Size(8, 1)
     var max=255;
 
     constructor(size: Size, max: Int) {
@@ -51,8 +51,8 @@ class OpcAlgorithmsKtTest {
         for(i in 0 until size.height){
             dataOpc.base[i]=(max+1).toShort()
         }
-        matrix= ShortMatrix(size.width,size.height){ i, j -> (i*j%max).toShort() }
-        matrixEmpty= ShortMatrix(size.width,size.height)
+        matrix= ShortMatrix(size.width, size.height) { i, j -> (i * j % max).toShort() }
+        matrixEmpty= ShortMatrix(size.width, size.height)
     }
 
     @Test

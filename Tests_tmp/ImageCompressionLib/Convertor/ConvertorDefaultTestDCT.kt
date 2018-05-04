@@ -1,15 +1,13 @@
 package ImageCompressionLib.Convertor
 
 import ConvertorDesktopTest.Companion.AssertMatrixInRange
-import ImageCompressionLib.Containers.Flag
-import ImageCompressionLib.Containers.Size
+import ImageCompressionLib.Containers.Type.Flag
+import ImageCompressionLib.Containers.Type.Size
 import ImageCompressionLib.Containers.TripleShortMatrixTest.Companion.getRandomMatrix
 import ImageCompressionLib.ProcessingModules.ModuleDCT
-import ImageCompressionLib.ProcessingModules.ModuleFile
 import ImageCompressionLib.ProcessingModules.ModuleImage
 import ImageCompressionLib.ProcessingModules.ModuleOPC.StegoEncrWithOPC
 import ImageCompressionLib.Utils.Functions.ByteVectorParser
-import ImageCompressionLib.Utils.Functions.CompressionUtils
 import org.junit.Before
 
 import org.junit.Assert.*
@@ -25,12 +23,12 @@ class ConvertorDefaultTestDCT {
 
     @Test
     fun testConvertorWithoutDCT(){
-        val f=Flag.createDefaultFlag()
+        val f= Flag.createDefaultFlag()
         f.setFalse(Flag.Parameter.DCT)
         f.setFalse(Flag.Parameter.Enlargement)
         testDirectReverseConverting(256,256,f,5)
     }
-    fun testDirectReverseConverting(w:Int, h:Int, flag: Flag, delta:Int, compareCompression:Boolean=false, sameBase: Size = Size(1,1)){
+    fun testDirectReverseConverting(w:Int, h:Int, flag: Flag, delta:Int, compareCompression:Boolean=false, sameBase: Size = Size(1, 1)){
         var matrix=getRandomMatrix(w,h)
         val t1= Date().time
         val cpy=matrix.copy()

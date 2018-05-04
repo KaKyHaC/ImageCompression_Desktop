@@ -1,7 +1,6 @@
-package ImageCompressionLib.Containers
+package ImageCompressionLib.Containers.Type
 
 import ImageCompressionLib.Constants.BITS_PER_BYTE
-import ImageCompressionLib.Constants.ONE_LEFT_BIT
 import java.util.*
 
 /**

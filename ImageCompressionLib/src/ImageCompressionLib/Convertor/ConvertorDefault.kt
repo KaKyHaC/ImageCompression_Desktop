@@ -1,6 +1,8 @@
 package ImageCompressionLib.Convertor
 
 import ImageCompressionLib.Containers.*
+import ImageCompressionLib.Containers.Type.Flag
+import ImageCompressionLib.Containers.Type.MyBufferedImage
 import ImageCompressionLib.ProcessingModules.ModuleByteVector
 import ImageCompressionLib.ProcessingModules.ModuleDCT
 import ImageCompressionLib.ProcessingModules.ModuleOPC.AbsModuleOPC
@@ -11,8 +13,8 @@ class ConvertorDefault (val dao: IDao, val factory: IFactory) {
     interface IDao{
         fun onResultByteVectorContainer(vector: ByteVectorContainer, flag: Flag)
         fun onResultImage(image: MyBufferedImage, flag: Flag)
-        fun getImage():Pair<MyBufferedImage,Flag>
-        fun getByteVectorContainer():Pair<ByteVectorContainer,Flag>
+        fun getImage():Pair<MyBufferedImage, Flag>
+        fun getByteVectorContainer():Pair<ByteVectorContainer, Flag>
 //        fun getFlag():Flag
     }
     interface IFactory{

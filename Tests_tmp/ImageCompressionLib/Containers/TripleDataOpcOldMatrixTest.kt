@@ -1,6 +1,9 @@
 package ImageCompressionLib.Containers
 
 import ImageCompressionLib.Constants.SIZEOFBLOCK
+import ImageCompressionLib.Containers.Type.ByteVector
+import ImageCompressionLib.Containers.Type.Flag
+import ImageCompressionLib.Containers.Type.Size
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -9,7 +12,7 @@ import java.math.BigInteger
 
 class TripleDataOpcOldMatrixTest {
     val dopc= DataOpcOld()
-    val flag=Flag()
+    val flag= Flag()
     @Before
     fun init(){
 //        dopc.DC=200
@@ -35,29 +38,29 @@ class TripleDataOpcOldMatrixTest {
     }
     @Test
     fun testGlobalBase1(){
-        IOGloalBase(Size(1,1), Size(1,1))
+        IOGloalBase(Size(1, 1), Size(1, 1))
     }
     @Test
     fun testGlobalBase4_1(){
-        IOGloalBase(Size(4,4),Size(1,1))
+        IOGloalBase(Size(4, 4), Size(1, 1))
     }
     @Test
     fun testGlobalBase4_2(){
-        IOGloalBase(Size(4,4),Size(2,2))
+        IOGloalBase(Size(4, 4), Size(2, 2))
     }
     @Test
     fun testGlobalBase400_20(){
-        IOGloalBase(Size(400,400),Size(20,20))
+        IOGloalBase(Size(400, 400), Size(20, 20))
     }
     @Test
     fun testGlobalBase4_3(){
-        IOGloalBase(Size(4,4),Size(3,3))
+        IOGloalBase(Size(4, 4), Size(3, 3))
     }
-    fun IOGloalBase(size: Size,globalBase:Size) {
+    fun IOGloalBase(size: Size, globalBase: Size) {
         val arr=Array(size.width){Array(size.height){dopc}}
         val trip1=TripleDataOpcMatrix(arr,arr,arr)
 
-        val vec=ByteVector()
+        val vec= ByteVector()
         trip1.writeBaseToVector(vec,flag,globalBase.width,globalBase.height)
         trip1.writeToVector(vec,flag)
 

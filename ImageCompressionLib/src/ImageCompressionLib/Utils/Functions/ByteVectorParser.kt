@@ -1,8 +1,8 @@
 package ImageCompressionLib.Utils.Functions
 
-import ImageCompressionLib.Containers.ByteVector
+import ImageCompressionLib.Containers.Type.ByteVector
 import ImageCompressionLib.Containers.ByteVectorContainer
-import ImageCompressionLib.Containers.Flag
+import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Containers.TripleDataOpcMatrix
 import ImageCompressionLib.Utils.Objects.TimeManager
 
@@ -23,7 +23,7 @@ class ByteVectorParser private constructor(){
 
 //        val vw = ByteVectorFile(pathToName + ModuleFile.typeMain)
 //        vw.write(v, flag)
-        var vbase:ByteVector?=null
+        var vbase: ByteVector?=null
         if (!flag.isChecked(Flag.Parameter.OneFile)) {
             vbase = ByteVector()
             data.writeBaseToVector(vbase,flag,globalBaseW,globalBaseH)
@@ -33,7 +33,7 @@ class ByteVectorParser private constructor(){
         }
         return ByteVectorContainer(v,vbase)
     }
-    fun parseVector(container: ByteVectorContainer, flag:Flag): TripleDataOpcMatrix {
+    fun parseVector(container: ByteVectorContainer, flag: Flag): TripleDataOpcMatrix {
         val opcs= TripleDataOpcMatrix()
         val vmain=container.mainData
 

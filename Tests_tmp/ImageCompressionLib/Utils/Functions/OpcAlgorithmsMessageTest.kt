@@ -1,8 +1,8 @@
 package ImageCompressionLib.Utils.Functions
 
-import ImageCompressionLib.Containers.DataOpc
-import ImageCompressionLib.Containers.ShortMatrix
-import ImageCompressionLib.Containers.Size
+import ImageCompressionLib.Containers.Type.DataOpc
+import ImageCompressionLib.Containers.Matrix.ShortMatrix
+import ImageCompressionLib.Containers.Type.Size
 import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcDirectWithMessageAtFirst
 import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcReverceWithMessageAtFirst
 import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcReverseDefault
@@ -12,7 +12,6 @@ import org.junit.Test
 import org.junit.Assert.*
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
-import java.util.*
 
 @RunWith(value = Parameterized::class)
 class OpcAlgorithmsMessageTest {
@@ -20,11 +19,11 @@ class OpcAlgorithmsMessageTest {
     lateinit var matrix: ShortMatrix
     lateinit var matrixEmpty: ShortMatrix
     lateinit var dataOpc: DataOpc
-    var size:Size
+    var size: Size
     var max:Int
     var range:Int
 
-    constructor(size: Size, max: Int,range:Int) {
+    constructor(size: Size, max: Int, range:Int) {
         this.size = size
         this.max = max
         this.range=range
@@ -48,8 +47,8 @@ class OpcAlgorithmsMessageTest {
         for(i in 0 until size.height){
             dataOpc.base[i]=(max+1).toShort()
         }
-        matrix= ShortMatrix(size.width,size.height){ i, j -> ((i+1)*(j+1)%max).toShort() }
-        matrixEmpty= ShortMatrix(size.width,size.height)
+        matrix= ShortMatrix(size.width, size.height) { i, j -> ((i + 1) * (j + 1) % max).toShort() }
+        matrixEmpty= ShortMatrix(size.width, size.height)
     }
 
     @Test

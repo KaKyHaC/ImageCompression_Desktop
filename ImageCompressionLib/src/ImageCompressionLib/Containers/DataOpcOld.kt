@@ -1,5 +1,7 @@
 package ImageCompressionLib.Containers
 
+import ImageCompressionLib.Containers.Type.ByteVector
+import ImageCompressionLib.Containers.Type.Flag
 import java.math.BigInteger
 import java.util.*
 @Deprecated("use DataOpc")

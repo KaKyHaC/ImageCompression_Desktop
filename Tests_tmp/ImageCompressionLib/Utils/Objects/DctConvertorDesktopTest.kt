@@ -1,7 +1,7 @@
 package ImageCompressionLib.Utils.Objects
 
 import ImageCompressionLib.Constants.TypeQuantization
-import ImageCompressionLib.Containers.Flag
+import ImageCompressionLib.Containers.Type.Flag
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -9,7 +9,7 @@ import org.junit.Before
 import kotlin.test.assertFails
 
 class DctConvertorDesktopTest {
-    val flag=Flag()
+    val flag= Flag()
 
     @Before
     fun init(){
