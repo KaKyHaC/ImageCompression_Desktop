@@ -2,7 +2,10 @@ package ImageCompressionLib.Utils.Functions;
 
 
 import ImageCompressionLib.Containers.DataOpcOld;
+import ImageCompressionLib.Containers.Matrix.Matrix;
+import ImageCompressionLib.Containers.TripleDataOpcMatrix;
 import ImageCompressionLib.Containers.TripleDataOpcMatrixOld;
+import ImageCompressionLib.Containers.Type.DataOpc;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -15,22 +18,22 @@ public class Encryption { //singleton
 
     static short[] key;
 
-    public static void encode(TripleDataOpcMatrixOld bopc, @NotNull String key){
+    public static void encode(TripleDataOpcMatrix bopc, @NotNull String key){
         ourInstance.key=KeyGen(key);
         Encryption.encode(bopc.getA());
         Encryption.encode(bopc.getB());
         Encryption.encode(bopc.getC());
     }
 
-    private static void encode(DataOpcOld[][] dopcs){
-        for(int i=0;i<dopcs.length;i++){
-            for(int j =0;j<dopcs[0].length;j++){
-                encode(dopcs[i][j]);
+    private static void encode(Matrix<DataOpc> dopcs){
+        for(int i=0;i<dopcs.getWidth();i++){
+            for(int j =0;j<dopcs.getHeight();j++){
+                encode(dopcs.get(i,j));
             }
         }
     }
 
-    private static void encode(DataOpcOld DataOpcOld){
+    private static void encode(DataOpc DataOpcOld){
         DataOpcOld.setBase(encode(DataOpcOld.getBase()));
     }
 
