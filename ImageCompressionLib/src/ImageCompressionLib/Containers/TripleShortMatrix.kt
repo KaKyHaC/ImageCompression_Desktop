@@ -1,26 +1,30 @@
 package ImageCompressionLib.Containers
 
+import ImageCompressionLib.Constants.State
 import ImageCompressionLib.Containers.Matrix.Matrix
 import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import java.util.*
 
 class TripleShortMatrix {
+    var state:State
     var a: Matrix<Short>
     var b: Matrix<Short>
     var c: Matrix<Short>
     val parameters: Parameters
-    constructor(parameters: Parameters){
+    constructor(parameters: Parameters,state:State){
         this.parameters=parameters
+        this.state=state
         a= Matrix(parameters.imageSize){i, j ->  0.toShort()}
         b= Matrix(parameters.imageSize){i, j ->  0.toShort()}
         c= Matrix(parameters.imageSize){i, j ->  0.toShort()}
     }
 
-    constructor(a: Matrix<Short>, b: Matrix<Short>, c: Matrix<Short>, parameters: Parameters) {
+    constructor(a: Matrix<Short>, b: Matrix<Short>, c: Matrix<Short>, parameters: Parameters,state: State) {
         this.a = a
         this.b = b
         this.c = c
         this.parameters=parameters
+        this.state=state
     }
 
 
@@ -57,6 +61,6 @@ class TripleShortMatrix {
         val a1=ShortMatrix.valueOf(a).copy().toMatrix()
         val b1=ShortMatrix.valueOf(b).copy().toMatrix()
         val c1=ShortMatrix.valueOf(c).copy().toMatrix()
-        return TripleShortMatrix(a1,b1,c1,parameters)
+        return TripleShortMatrix(a1,b1,c1,parameters,state)
     }
 }

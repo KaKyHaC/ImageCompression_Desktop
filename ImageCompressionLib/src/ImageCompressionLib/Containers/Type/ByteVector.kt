@@ -197,6 +197,11 @@ class ByteVector:Iterable<Byte> {
             tmp++
         return tmp<size
     }
+    fun concat(vector: ByteVector):ByteVector{
+        vector.forEach { byte: Byte ->this.append(byte)  }
+        return this
+    }
+
     override fun equals(other: Any?): Boolean {
         if(other is ByteVector){
             if(this.size!=other.size)

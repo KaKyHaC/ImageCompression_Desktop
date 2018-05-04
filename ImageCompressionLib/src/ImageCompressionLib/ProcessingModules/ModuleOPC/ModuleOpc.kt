@@ -1,199 +1,86 @@
-//package ImageCompressionLib.ProcessingModules.ModuleOPC
-//
-//import ImageCompressionLib.Containers.DataOpcOld
-//import ImageCompressionLib.Containers.Parameters
-//import ImageCompressionLib.Containers.TripleDataOpcMatrixOld
-//import ImageCompressionLib.Containers.TripleShortMatrixOld
-//import ImageCompressionLib.Utils.Objects.OpcConvertor
-//import java.util.ArrayList
-//import java.util.concurrent.Callable
-//import java.util.concurrent.ExecutionException
-//import java.util.concurrent.Executors
-//import java.util.concurrent.Future
-//
-//class ModuleOpc {
-//    public class ModuleOpcOld : AbsModuleOPC {
-//        private var a: OpcConvertor
-//        private var b:OpcConvertor
-//        private var c:OpcConvertor
-//        var isAsyn: Boolean = false
-//
-//        constructor(tripleShortMatrixOld: TripleShortMatrixOld, parameters: Parameters, isAsyn: Boolean=true): super(tripleShortMatrixOld, parameters.flag){
-//            this.isAsyn = isAsyn
-//
-//            a = OpcConvertor(tripleShortOld.a, parameters)
-//            b = OpcConvertor(tripleShortOld.b, parameters)
-//            c = OpcConvertor(tripleShortOld.c, parameters)
-//        }
-//
-//        constructor(tripleDataOpcOld: TripleDataOpcMatrixOld, parameters: Parameters, isAsyn: Boolean=true):super(tripleDataOpcOld, parameters.flag) {
-//            this.isAsyn=isAsyn
-//
-//            a = OpcConvertor(tripleDataOpcOld.a, parameters)
-//            b = OpcConvertor(tripleDataOpcOld.b, parameters)
-//            c = OpcConvertor(tripleDataOpcOld.c, parameters)
-//        }
-//
-//
-//        fun directOPC() {
-//            if (state === AbsModuleOPC.State.OPC || isReady)
-//                return
-//
-//            appendTimeManager("direct OPC")
-//            tripleDataOpcOld.a = a!!.dataOpcOlds
-//            appendTimeManager("get A")
-//            tripleDataOpcOld.b = b!!.getDataOpcOlds()
-//            appendTimeManager("get B")
-//            tripleDataOpcOld.c = c!!.getDataOpcOlds()
-//            appendTimeManager("get C")
-//
-//            isReady = true
-//        }
-//
-//        fun reverseOPC() {
-//            if (state === AbsModuleOPC.State.Data || isReady)
-//                return
-//
-//            appendTimeManager("start reOPC")
-//            tripleShortOld.a = a!!.dataOrigin
-//            appendTimeManager("get A")
-//            tripleShortOld.b = b!!.getDataOrigin()
-//            appendTimeManager("get B")
-//            tripleShortOld.c = c!!.getDataOrigin()
-//            appendTimeManager("get C")
-//
-//            isReady = true
-//        }
-//
-//        fun directOPCMultiThreads() { //multy thred
-//            if (state === AbsModuleOPC.State.OPC || isReady)
-//                return
-//
-//            val executorService = Executors.newFixedThreadPool(3)
-//            val futures = ArrayList<Future<Array<Array<DataOpcOld>>>>()
-//
-//            appendTimeManager("direct OPC")
-//            futures.add(executorService.submit(Callable { a!!.dataOpcOlds }))
-//            futures.add(executorService.submit(Callable { b!!.getDataOpcOlds() }))
-//            futures.add(executorService.submit(Callable { c!!.getDataOpcOlds() }))
-//
-//            try {
-//                tripleDataOpcOld.b = futures[1].get()
-//                appendTimeManager("get B")
-//                tripleDataOpcOld.c = futures[2].get()
-//                appendTimeManager("get C")
-//                tripleDataOpcOld.a = futures[0].get()
-//                appendTimeManager("get A")
-//            } catch (e: InterruptedException) {
-//                e.printStackTrace()
-//            } catch (e: ExecutionException) {
-//                e.printStackTrace()
-//            }
-//
-//            isReady = true
-//        }
-//
-//        fun reverseOPCMultiThreads() {// create getTripleShortOld()() with corect size of b and c (complite)  //multy thred
-//            if (state === AbsModuleOPC.State.Data || isReady)
-//                return
-//
-//            val executorService = Executors.newFixedThreadPool(3)
-//            val futures = ArrayList<Future<Array<ShortArray>>>()
-//
-//            appendTimeManager("start reOPC")
-//
-//            futures.add(executorService.submit(Callable { a!!.dataOrigin }))
-//            futures.add(executorService.submit(Callable { b!!.getDataOrigin() }))
-//            futures.add(executorService.submit(Callable { c!!.getDataOrigin() }))
-//
-//            try {
-//                tripleShortOld.b = futures[1].get()
-//                appendTimeManager("get B")
-//                tripleShortOld.c = futures[2].get()
-//                appendTimeManager("get C")
-//                tripleShortOld.a = futures[0].get()
-//                appendTimeManager("get A")
-//                //            getTripleShortOld()().setC(futures.get(2).get());
-//            } catch (e: InterruptedException) {
-//                e.printStackTrace()
-//            } catch (e: ExecutionException) {
-//                e.printStackTrace()
-//            }
-//
-//            isReady = true
-//        }
-//
-//        fun directOPCParallel() { //multy thread
-//            if (state === AbsModuleOPC.State.OPC || isReady)
-//                return
-//
-//            //omp parallel
-//            run {
-//                tripleDataOpcOld.a = a!!.dataOpcOlds
-//                tripleDataOpcOld.b = b!!.getDataOpcOlds()
-//                tripleDataOpcOld.c = c!!.getDataOpcOlds()
-//            }
-//            isReady = true
-//        }
-//
-//        fun reverseOPCParallel() {
-//            if (state === AbsModuleOPC.State.Data || isReady)
-//                return
-//
-//            //omp parallel
-//            run {
-//                tripleShortOld.a = a!!.dataOrigin
-//                tripleShortOld.b = b!!.getDataOrigin()
-//                tripleShortOld.c = c!!.getDataOrigin()
-//            }
-//            isReady = true
-//        }
-//
-//        fun directOpcGlobalBase(n: Int, m: Int) {
-//            if (state === AbsModuleOPC.State.OPC || isReady)
-//                return
-//            tripleDataOpcOld.a = a!!.getDataOpcs(n, m) //TODO set a
-//            tripleDataOpcOld.b = b!!.getDataOpcs(n, m) //TODO set a
-//            tripleDataOpcOld.c = c!!.getDataOpcs(n, m) //TODO set a
-//
-//            isReady = true
-//        }
-//
-//
-//        @Deprecated("")
-//        fun getMatrix(isAsync: Boolean): TripleShortMatrixOld {
-//            if (state !== AbsModuleOPC.State.Data && !isReady) {
-//                if (isAsync)
-//                    reverseOPCMultiThreads()
-//                else
-//                    reverseOPC()
-//            }
-//
-//            return tripleShortOld
-//        }
-//
-//        @Deprecated("")
-//        fun getBoxOfOpc(isAsync: Boolean): TripleDataOpcMatrixOld {
-//            if (state !== AbsModuleOPC.State.OPC && !isReady) {
-//                if (isAsync)
-//                    directOPCMultiThreads()
-//                else
-//                    directOPC()
-//            }
-//
-//            return tripleDataOpcOld
-//        }
-//
-//        private fun appendTimeManager(s: String) {
-//            //        TimeManager.getInstance().append(s);
-//        }
-//
-//        override fun direct(shortMatrixOld: TripleShortMatrixOld): TripleDataOpcMatrixOld {
-//            return getBoxOfOpc(isAsyn)
-//        }
-//
-//        override fun reverce(dataOpcMatrixOld: TripleDataOpcMatrixOld): TripleShortMatrixOld {
-//            return getMatrix(isAsyn)
-//        }
-//
-//    }
+package ImageCompressionLib.ProcessingModules.ModuleOPC
+
+import ImageCompressionLib.Containers.*
+import ImageCompressionLib.Containers.Matrix.DataOpcMatrix
+import ImageCompressionLib.Constants.State
+import ImageCompressionLib.Containers.Matrix.Matrix
+import ImageCompressionLib.Containers.Matrix.ShortMatrix
+import ImageCompressionLib.Containers.Type.ByteVector
+import ImageCompressionLib.Containers.Type.DataOpc
+import ImageCompressionLib.Utils.Objects.OpcConvertor
+import java.util.ArrayList
+import java.util.concurrent.Callable
+import java.util.concurrent.ExecutionException
+import java.util.concurrent.Executors
+import java.util.concurrent.Future
+
+class ModuleOpc {
+    private var a: OpcConvertor
+    private var b: OpcConvertor
+    private var c: OpcConvertor
+    val parameters: Parameters
+    var isAsyn: Boolean = false
+
+    constructor(tripleShortMatrix: TripleShortMatrix, parameters: Parameters, isAsyn: Boolean = true) {
+        this.isAsyn = isAsyn
+        this.parameters = parameters
+
+        a = OpcConvertor(ShortMatrix.valueOf(tripleShortMatrix.a), parameters)
+        b = OpcConvertor(ShortMatrix.valueOf(tripleShortMatrix.b), parameters)
+        c = OpcConvertor(ShortMatrix.valueOf(tripleShortMatrix.c), parameters)
+    }
+
+    constructor(tripleDataOpcOld: TripleDataOpcMatrix, parameters: Parameters, isAsyn: Boolean = true) {
+        this.isAsyn = isAsyn
+        this.parameters = parameters
+
+        a = OpcConvertor(DataOpcMatrix.valueOf(tripleDataOpcOld.a), parameters)
+        b = OpcConvertor(DataOpcMatrix.valueOf(tripleDataOpcOld.b), parameters)
+        c = OpcConvertor(DataOpcMatrix.valueOf(tripleDataOpcOld.c), parameters)
+    }
+
+
+    fun directOPCMultiThreads(encryptParameters: EncryptParameters): TripleDataOpcMatrix { //multy thred
+        val executorService = Executors.newFixedThreadPool(3)
+        val futures = ArrayList<Future<Matrix<DataOpc>>>()
+
+        appendTimeManager("direct OPC")
+        futures.add(executorService.submit(Callable { a.getDataOpcs(encryptParameters.stegoPosition, encryptParameters.message) }))
+        futures.add(executorService.submit(Callable { b.getDataOpcs(encryptParameters.stegoPosition, encryptParameters.message) }))
+        futures.add(executorService.submit(Callable { c.getDataOpcs(encryptParameters.stegoPosition, encryptParameters.message) }))
+
+
+        val b = (futures[1].get())
+        appendTimeManager("get B")
+        val c = (futures[2].get())
+        appendTimeManager("get C")
+        val a = (futures[0].get())
+        appendTimeManager("get A")
+
+        val res = TripleDataOpcMatrix(a, b, c, parameters)
+        return res
+
+    }
+
+    fun reverseOPCMultiThreads(encryptParameters: EncryptParameters): Pair<TripleShortMatrix, ByteVector?> {
+        val executorService = Executors.newFixedThreadPool(3)
+        val futures = ArrayList<Future<Pair<Matrix<Short>, ByteVector?>>>()
+
+        appendTimeManager("start reOPC")
+
+        futures.add(executorService.submit(Callable { a.getDataOrigin(encryptParameters.stegoPosition) }))
+        futures.add(executorService.submit(Callable { b.getDataOrigin(encryptParameters.stegoPosition) }))
+        futures.add(executorService.submit(Callable { c.getDataOrigin(encryptParameters.stegoPosition) }))
+
+        val (a1, v1) = futures[0].get()
+        val (b1, v2) = futures[1].get()
+        val (c1, v3) = futures[2].get()
+        val resM = v1?.concat(v2?.concat(v3 ?: ByteVector(0)) ?: ByteVector(0))
+        return Pair(TripleShortMatrix(a1, b1, c1, parameters, State.DCT), resM)
+
+    }
+
+    private fun appendTimeManager(s: String) {}
+}
+
+    

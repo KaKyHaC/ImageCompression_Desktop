@@ -36,9 +36,23 @@ class OpcConvertor {
         val size=calculataDataOpcMatrixSize(parameters)
         dataOpcMatrix= DataOpcMatrix(size.width, size.height, parameters.unitSize)
     }
+    constructor(dataOrigin: ShortMatrix, parameters: Parameters) {
+        this.shortMatrix = dataOrigin
+        this.parameters=parameters
+        state = State.Origin
+        val size=calculataDataOpcMatrixSize(parameters)
+        dataOpcMatrix= DataOpcMatrix(size.width, size.height, parameters.unitSize)
+    }
 
     constructor(dataOpcMatrix: Array<Array<DataOpc>>, parameters: Parameters){
         this.dataOpcMatrix= DataOpcMatrix.valueOf(dataOpcMatrix)
+        this.parameters=parameters
+        state = State.Opc
+        shortMatrix= ShortMatrix(parameters.imageSize.width, parameters.imageSize.height)
+    }
+
+    constructor(dataOpcMatrix: DataOpcMatrix, parameters: Parameters){
+        this.dataOpcMatrix= (dataOpcMatrix)
         this.parameters=parameters
         state = State.Opc
         shortMatrix= ShortMatrix(parameters.imageSize.width, parameters.imageSize.height)
@@ -133,13 +147,14 @@ class OpcConvertor {
     }
 
 
-    fun getDataOrigin(position: Int?=null): Array<Array<Short>> {
+    fun getDataOrigin(position: Int?=null): Pair<Matrix<Short>,ByteVector?> {
+        var m:ByteVector?=null
         if (state == State.Opc && !isReady) {
-            reverceProcess(position)
+            m=reverceProcess(position)
             isReady = true
         }
 
-        return ShortMatrix.valueOf(shortMatrix).toArrayShort()
+        return Pair(shortMatrix,m)
     }
 
     /**
@@ -148,11 +163,11 @@ class OpcConvertor {
      * @param m - horizonlat size of same base
      * @return matrix of DataOpcOld with same base
      */
-    fun getDataOpcs(position: Int?=null,message: ByteVector?=null): Array<Array<DataOpc>> {
+    fun getDataOpcs(position: Int?=null,message: ByteVector?=null): Matrix<DataOpc> {
         if (state == State.Origin && !isReady) {
             directProcess(position, message)
             isReady = true
         }
-        return dataOpcMatrix.toDataOpcArray()
+        return dataOpcMatrix
     }
 }
