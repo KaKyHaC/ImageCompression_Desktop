@@ -5,7 +5,7 @@ import java.util.*
 
 open class Matrix<T:Any> {
     internal val matrix: Array<Array<Any>>
-    protected val size:Size
+    val size:Size
 
     //    constructor(matrix: Array<Array<T>>) {
 //        this.matrix = Array(matrix.size){i->Array(matrix[0].size){j-> matrix[i][j] as Any}}

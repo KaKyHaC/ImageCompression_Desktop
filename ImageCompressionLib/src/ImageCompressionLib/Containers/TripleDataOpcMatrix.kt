@@ -6,6 +6,7 @@ import ImageCompressionLib.Containers.Matrix.Matrix
 import ImageCompressionLib.Containers.Type.ByteVector
 import ImageCompressionLib.Containers.Type.DataOpc
 import ImageCompressionLib.Containers.Type.Flag
+import ImageCompressionLib.Containers.Type.Size
 import java.util.*
 
 class TripleDataOpcMatrix {
@@ -23,15 +24,44 @@ class TripleDataOpcMatrix {
 
     fun toByteVectorContainer():ByteVectorContainer{
         val v1=ByteVector()
+        val v2=if(parameters.flag.isChecked(Flag.Parameter.OneFile))v1 else ByteVector()
         parameters.toByteVector(v1)
+        a.size.toByteVector(v1)
+        b.size.toByteVector(v1)
+        c.size.toByteVector(v1)
 
+        a.writeBaseToByteVector(v2)
+        b.writeBaseToByteVector(v2)
+        c.writeBaseToByteVector(v2)
+
+        a.writeToByteVector(v1)
+        b.writeToByteVector(v1)
+        c.writeToByteVector(v1)
+
+        val v2r=if(parameters.flag.isChecked(Flag.Parameter.OneFile))null else v2
+        return ByteVectorContainer(v1,v2r)
     }
-    fun Matrix<DataOpc>.toByteVectorContainer()
-    //TODO add flag
+    fun Matrix<DataOpc>.writeToByteVector(vector: ByteVector){
+        this.forEach(){i, j, value ->
+            value.toByteVector(vector,parameters)
+            return@forEach null
+        }
+    }
+    fun Matrix<DataOpc>.writeBaseToByteVector(vector: ByteVector){
+        if(parameters.flag.isChecked(Flag.Parameter.GlobalBase)) {
+            val tmp = this.splitBuffer(parameters.sameBaseSize.width, parameters.sameBaseSize.height)
+            tmp.forEach(){i, j, value ->
+                value[0,0].FromBaseToVector(vector,parameters.flag)
+                return@forEach null
+            }
+        }else {
+            this.forEach() { i, j, value ->
+                value.FromBaseToVector(vector, parameters.flag)
+                return@forEach null
+            }
+        }
+    }
 
-
-
-    //TODO global base
 
 
 
@@ -41,7 +71,7 @@ class TripleDataOpcMatrix {
         val a=a.copy()
         val b=b.copy()
         val c=c.copy()
-        return TripleDataOpcMatrix(a,b,c)
+        return TripleDataOpcMatrix(a,b,c,parameters)
     }
     fun Matrix<DataOpc>.copy():Matrix<DataOpc>{
         return DataOpcMatrix.valueOf(this).copy()
@@ -69,8 +99,38 @@ class TripleDataOpcMatrix {
     }
 
     companion object {
-        @JvmStatic fun valueOf(container: ByteVectorContainer){
+        fun Matrix<DataOpc>.readFromByteVector(vector: ByteVector,parameters: Parameters){
+            this.forEach(){i, j, value ->
+                value.setFrom(vector,parameters)
+                return@forEach null
+            }
+        }
+        fun Matrix<DataOpc>.readBaseFromByteVector(vector: ByteVector,parameters: Parameters){
+            this.forEach(){i, j, value ->
+                value.FromVectorToBase(vector,parameters.flag)
+                return@forEach null
+            }
+        }
+        @JvmStatic fun valueOf(container: ByteVectorContainer): TripleDataOpcMatrix {
+            val parameters=Parameters.fromByteVector(container.mainData)
+            val sizeA= Size.valueOf(container.mainData)
+            val sizeB= Size.valueOf(container.mainData)
+            val sizeC= Size.valueOf(container.mainData)
 
+            val a=Matrix<DataOpc>(sizeA){i, j ->  DataOpc(parameters)}
+            val b=Matrix<DataOpc>(sizeB){i, j ->  DataOpc(parameters)}
+            val c=Matrix<DataOpc>(sizeC){i, j ->  DataOpc(parameters)}
+
+            val v2=if(parameters.flag.isChecked(Flag.Parameter.OneFile))container.mainData else container.suportData
+            a.readBaseFromByteVector(v2!!,parameters)
+            b.readBaseFromByteVector(v2!!,parameters)
+            c.readBaseFromByteVector(v2!!,parameters)
+
+            a.readFromByteVector(container.mainData,parameters)
+            b.readFromByteVector(container.mainData,parameters)
+            c.readFromByteVector(container.mainData,parameters)
+
+            return TripleDataOpcMatrix(a,b,c,parameters)
         }
     }
 }
