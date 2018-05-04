@@ -18,7 +18,7 @@ class ByteVectorFile(var file: File) {
         if (!file.exists())
             file.createNewFile()
     }
-    fun write(vector: ByteVector, flag: Flag){
+    fun write(vector: ByteVector, flag: Flag){//TODO remove flag
         if(!file.canWrite())
             throw Exception("cann't write")
 
@@ -30,7 +30,7 @@ class ByteVectorFile(var file: File) {
         os.write(f.toInt() shr 8)
         //ByteAray
         var ba=vector.toByteArray()
-        if(flag.isChecked(Flag.Parameter.CompressionUtils)) {
+        if(flag.isChecked(Flag.Parameter.CompressionUtils)) {//TODO exclude CU to module
             ba = CompressionUtils.compress(ba)
             TimeManager.Instance.append("CompressionUtils")
         }

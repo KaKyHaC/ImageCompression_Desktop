@@ -1,6 +1,7 @@
 package ImageCompressionLib.Utils.Objects
 
 import ImageCompressionLib.Containers.*
+import ImageCompressionLib.Containers.Matrix.DataOpcMatrix
 import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Containers.Type.Size
@@ -44,8 +45,8 @@ class OpcConvertorTest(flag: Flag,imageSize: Size,unitSize: Size,baseSize: Size)
     fun testDefaultAlgorithm(){
         val convertor=OpcConvertor(shortMatrix.toArrayShort(),parameters)
         val d=convertor.getDataOpcs()
-        val convertor1=OpcConvertor(d,parameters)
-        val res=convertor1.getDataOrigin()
+        val convertor1=OpcConvertor(DataOpcMatrix.valueOf(d),parameters)
+        val res=convertor1.getDataOrigin().first
         shortMatrixCpy.assertInRange(ShortMatrix.valueOf(res),0)
     }
 }

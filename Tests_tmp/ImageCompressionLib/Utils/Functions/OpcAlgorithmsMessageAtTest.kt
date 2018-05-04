@@ -3,9 +3,9 @@ package ImageCompressionLib.Utils.Functions
 import ImageCompressionLib.Containers.Type.DataOpc
 import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Type.Size
-import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcDirectWithMessageAt
-import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcReverceWithMessageAt
-import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcReverseDefault
+import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcDirectWithMessageAt
+import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcReverceWithMessageAt
+import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcReverseDefault
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test

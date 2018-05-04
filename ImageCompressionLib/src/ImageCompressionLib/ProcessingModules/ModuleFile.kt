@@ -51,7 +51,7 @@ class ModuleFile{
         }
 
     }
-    fun read():Pair<ByteVectorContainer, Flag>{
+    fun read():ByteVectorContainer{
         val fr=ByteVectorFile(pathToName+ typeMain)
         val p=fr.read()
         val flag=p.second
@@ -69,7 +69,7 @@ class ModuleFile{
             base=bp.first
 //            opcs.readBaseFromVector(base,flag)
         }
-        return Pair(ByteVectorContainer(vmain,base),flag)
+        return ByteVectorContainer(vmain,base)
     }
 
     fun getInfoMainString():String{

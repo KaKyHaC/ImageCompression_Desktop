@@ -1,6 +1,7 @@
 package Utils
 
 import ImageCompressionLib.Containers.ByteVectorContainer
+import ImageCompressionLib.Containers.Parameters
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Containers.Type.MyBufferedImage
 import ImageCompressionLib.Convertor.ConvertorDefault
@@ -11,27 +12,27 @@ import javax.imageio.ImageIO
 abstract class AbsDaoDesktop : ConvertorDefault.IDao {
     abstract fun getFileOriginal(): File
     abstract fun getFileTarget():File
-    abstract fun getFlag(): Flag
+    abstract fun getParameters(): Parameters
 
-    final override fun onResultByteVectorContainer(vector: ByteVectorContainer, flag: Flag) {
+    final override fun onResultByteVectorContainer(vector: ByteVectorContainer) {
         val fileModule=ModuleFile(getFileTarget().absoluteFile)
-        fileModule.write(vector,flag)
+        fileModule.write(vector,getParameters().flag)//TODO remove
     }
 
-    final override fun onResultImage(image: MyBufferedImage, flag: Flag) {
+    final override fun onResultImage(image: MyBufferedImage, parameters: Parameters) {
         val file=File(getPathWithoutType(getFileTarget().absolutePath) + "res.bmp")
         file.createNewFile()
         val bi=BuffImConvertor.instance.convert(image)
         ImageIO.write(bi, "bmp", file)
     }
 
-    final override fun getImage(): Pair<MyBufferedImage, Flag> {
+    final override fun getImage(): Pair<MyBufferedImage,Parameters> {
         val im =ImageIO.read(File(getFileOriginal().absolutePath))
         val mb=BuffImConvertor.instance.convert(im)
-        return Pair(mb,getFlag())
+        return Pair(mb,getParameters())
     }
 
-    final override fun getByteVectorContainer(): Pair<ByteVectorContainer, Flag> {
+    final override fun getByteVectorContainer(): ByteVectorContainer {
         val fileModule= ModuleFile(getFileOriginal())
         return fileModule.read()
     }

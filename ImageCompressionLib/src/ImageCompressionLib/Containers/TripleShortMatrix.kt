@@ -27,6 +27,10 @@ class TripleShortMatrix {
         this.state=state
     }
 
+    val width:Int
+        get() = a.width
+    val height:Int
+        get() = a.height
 
     fun assertMatrixInRange(tripleShortMatrix: TripleShortMatrix, range: Int):Boolean{
         ShortMatrix.valueOf(a).assertInRange(ShortMatrix.valueOf(tripleShortMatrix.a),range)

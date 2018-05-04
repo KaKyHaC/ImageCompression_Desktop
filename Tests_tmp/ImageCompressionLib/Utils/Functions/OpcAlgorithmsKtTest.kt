@@ -3,11 +3,11 @@ package ImageCompressionLib.Utils.Functions
 import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Type.DataOpc
 import ImageCompressionLib.Containers.Type.Size
-import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcDirectDefault
-import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcDirectLongAndBI
-import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcDirectUseOnlyLong
-import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcReverseDefault
-import ImageCompressionLib.Utils.Functions.OpcAlgorithms.Companion.OpcReverseUseOnlyLong
+import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcDirectDefault
+import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcDirectLongAndBI
+import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcDirectUseOnlyLong
+import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcReverseDefault
+import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcReverseUseOnlyLong
 import org.junit.Test
 
 import org.junit.Assert.*

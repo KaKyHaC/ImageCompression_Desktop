@@ -1,7 +1,10 @@
 package ImageCompressionLib.Utils.Objects
 
 
+import ImageCompressionLib.Constants.SIZEOFBLOCK
 import ImageCompressionLib.Constants.TypeQuantization
+import ImageCompressionLib.Containers.Matrix.Matrix
+import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Utils.Functions.DCTMultiThread
 
@@ -10,12 +13,12 @@ import ImageCompressionLib.Utils.Functions.DCTMultiThread
  * use min Size and max Time
  * Created by Димка on 08.08.2016.
  */
-class DctConvertor(private val dataOrigin: Array<ShortArray>, state: State, private val tq: TypeQuantization, private val flag: Flag) {
+class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private val tq: TypeQuantization, private val flag: Flag) {
     //    private boolean isReady=false;
 
     var state: State? = null
         private set
-    private val dataProcessed: Array<ShortArray>
+    private val dataProcessed: Matrix<Short>
 
     private val Width: Int
     private val Height: Int
@@ -28,7 +31,7 @@ class DctConvertor(private val dataOrigin: Array<ShortArray>, state: State, priv
      */
     //        if(!isReady&&state==State.DCT)
     //            dataProcessing();
-    fun getMatrixOrigin(): Array<ShortArray> {
+    fun getMatrixOrigin(): Matrix<Short>{
             if (state == State.DCT)
                 dataProcessing()
 
@@ -41,7 +44,7 @@ class DctConvertor(private val dataOrigin: Array<ShortArray>, state: State, priv
      */
     //        if(!isReady&&state==State.ORIGIN)
     //            dataProcessing();
-    fun getMatrixDct(): Array<ShortArray> {
+    fun getMatrixDct(): Matrix<Short>{
 
             if (state == State.ORIGIN)
                 dataProcessing()
@@ -55,8 +58,8 @@ class DctConvertor(private val dataOrigin: Array<ShortArray>, state: State, priv
 
     init {
         dataProcessed = dataOrigin//= new short[dataOrigin.length][dataOrigin[0].length];// = dataOrigin
-        Width = dataOrigin.size
-        Height = dataOrigin[0].size
+        Width = dataOrigin.width
+        Height = dataOrigin.height
 
         this.state = state
         sizeCalculate()
@@ -82,7 +85,7 @@ class DctConvertor(private val dataOrigin: Array<ShortArray>, state: State, priv
                 val curX = i * DCTMultiThread.SIZEOFBLOCK
                 val curY = j * DCTMultiThread.SIZEOFBLOCK
                 if (i != 0 && j != 0)
-                    dataOrigin[curX][curY] = (dataOrigin[0][0] - dataOrigin[curX][curY]).toShort()
+                    dataOrigin[curX,curY] = (dataOrigin[0,0] - dataOrigin[curX,curY]).toShort()
             }
         }
     }
@@ -92,15 +95,15 @@ class DctConvertor(private val dataOrigin: Array<ShortArray>, state: State, priv
      * @param buffer - target matrix to copy
      * @return buffer
      */
-    private fun fillBufferForDU(i: Int, j: Int, buffer: Array<ShortArray>): Array<ShortArray> {
+    private fun fillBufferForDU(i: Int, j: Int, buffer: Matrix<Short>): Matrix<Short> {
         for (x in 0 until DCTMultiThread.SIZEOFBLOCK) {
             for (y in 0 until DCTMultiThread.SIZEOFBLOCK) {
                 var value: Short = 0
                 val curX = i * DCTMultiThread.SIZEOFBLOCK + x
                 val curY = j * DCTMultiThread.SIZEOFBLOCK + y
                 if (curX < Width && curY < Height)
-                    value = dataOrigin[curX][curY]
-                buffer[x][y] = value
+                    value = dataOrigin[curX,curY]
+                buffer[x,y] = value
                 // DU[i][j].setValue(val,x,y);
             }
         }
@@ -109,10 +112,10 @@ class DctConvertor(private val dataOrigin: Array<ShortArray>, state: State, priv
 
 
     internal interface FIConvertor {
-        fun convert(buf: Array<ShortArray>): Array<ShortArray>
+        fun convert(buf: Matrix<Short>): Matrix<Short>
     }
 
-    private fun directDCT(buf: Array<ShortArray>): Array<ShortArray> {
+    private fun directDCT(buf: Matrix<Short>): Matrix<Short>{
         var buf = buf
         if (flag.isChecked(Flag.Parameter.Alignment))
             minus128(buf)
@@ -124,7 +127,7 @@ class DctConvertor(private val dataOrigin: Array<ShortArray>, state: State, priv
         return buf
     }
 
-    private fun reverceDCT(buf: Array<ShortArray>): Array<ShortArray> {
+    private fun reverceDCT(buf: Matrix<Short>): Matrix<Short>{
         var buf = buf
         if (flag.quantization == Flag.QuantizationState.First)
             DCTMultiThread.reverseQuantization(tq, buf)
@@ -141,14 +144,14 @@ class DctConvertor(private val dataOrigin: Array<ShortArray>, state: State, priv
      * set 8x8 matrix from buffer into dataProcessed started at [i][j]
      * @param buffer - matrix with information
      */
-    private fun fillDateProcessed(i: Int, j: Int, buffer: Array<ShortArray>) {
+    private fun fillDateProcessed(i: Int, j: Int, buffer: Matrix<Short>) {
         for (x in 0 until DCTMultiThread.SIZEOFBLOCK) {
             for (y in 0 until DCTMultiThread.SIZEOFBLOCK) {
 
                 val curX = i * DCTMultiThread.SIZEOFBLOCK + x
                 val curY = j * DCTMultiThread.SIZEOFBLOCK + y
                 if (curX < Width && curY < Height)
-                    dataProcessed[curX][curY] = buffer[x][y]
+                    dataProcessed[curX,curY] = buffer[x,y]
             }
         }
     }
@@ -157,7 +160,7 @@ class DctConvertor(private val dataOrigin: Array<ShortArray>, state: State, priv
      * do transmormation between DCT and Origin states
      */
     private fun dataProcessing() {
-        var buf = Array(DCTMultiThread.SIZEOFBLOCK) { ShortArray(DCTMultiThread.SIZEOFBLOCK) }
+        var buf=ShortMatrix(SIZEOFBLOCK, SIZEOFBLOCK).toMatrix()
         if (state == State.DCT)
             preProsses()
 
@@ -181,18 +184,18 @@ class DctConvertor(private val dataOrigin: Array<ShortArray>, state: State, priv
         //        isReady=true;
     }
 
-    private fun minus128(arr: Array<ShortArray>) {
-        for (i in arr.indices) {
-            for (j in 0 until arr[0].size) {
-                arr[i][j] =(arr[i][j]- 128).toShort()
+    private fun minus128(arr: Matrix<Short>) {
+        for (i in 0 until arr.width) {
+            for (j in 0 until arr.height){
+                arr[i,j] =(arr[i,j]- 128).toShort()
             }
         }
     }
 
-    private fun plus128(arr: Array<ShortArray>) {
-        for (i in arr.indices) {
-            for (j in 0 until arr[0].size) {
-                arr[i][j] =(arr[i][j]+128).toShort()
+    private fun plus128(arr: Matrix<Short>) {
+        for (i in 0 until arr.width) {
+            for (j in 0 until arr.height) {
+                arr[i,j] =(arr[i,j]+128).toShort()
             }
         }
     }

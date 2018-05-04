@@ -1,10 +1,6 @@
 package ImageCompressionLib.Utils;
 
-import ImageCompressionLib.Containers.DataOpcOld;
-import ImageCompressionLib.Containers.TripleDataOpcMatrixOld;
 import ImageCompressionLib.Constants.State;
-import ImageCompressionLib.ProcessingModules.ModuleOPC.ModuleOpcOld;
-import ImageCompressionLib.Containers.TripleShortMatrixOld;
 import ImageCompressionLib.Utils.Functions.Encryption;
 import ImageCompressionLib.Containers.Type.Flag;
 import org.junit.Before;

@@ -1,9 +1,12 @@
 package ImageCompressionLib.Utils.Functions
 
 import ImageCompressionLib.Constants.State
-import ImageCompressionLib.Containers.TripleShortMatrixOld
+import ImageCompressionLib.Containers.Matrix.ShortMatrix
+import ImageCompressionLib.Containers.Parameters
+import ImageCompressionLib.Containers.TripleShortMatrix
 import ImageCompressionLib.ProcessingModules.ModuleImage
 import ImageCompressionLib.Containers.Type.Flag
+import ImageCompressionLib.Containers.Type.Size
 import Utils.BuffImConvertor
 import org.junit.Before
 import org.junit.Test
@@ -39,21 +42,19 @@ class ImageIOTest{
     @Test
     fun MyBufferedImageWriteTest(){
         val m=createMatrix(255,255)
-        val mbi= ModuleImage(m, Flag())
+        val mbi= ModuleImage(m, Parameters.createParametresForTest())
         val mybi = mbi.bufferedImage
         val bi=BuffImConvertor.instance.convert(mybi)
         ImageIO.write(bi,"bmp", File(pathToResBmp2))
     }
     companion object {
-        fun createMatrix(w:Int,h:Int): TripleShortMatrixOld {
-            val m= TripleShortMatrixOld(w,h,State.RGB)
-            for(i in 0..w-1){
-                for(j in 0..h-1){
-                    m.a[i][j]=((i+j)%255).toShort()
-                    m.b[i][j]=((i+j)%255).toShort()
-                    m.c[i][j]=((i+j)%255).toShort()
-                }
-            }
+        fun createMatrix(w:Int,h:Int): TripleShortMatrix {
+            val a=ShortMatrix(w,h){i, j -> (i+j%255).toShort() }
+            val b=ShortMatrix(w,h){i, j -> (i+j%255).toShort() }
+            val c=ShortMatrix(w,h){i, j -> (i+j%255).toShort() }
+
+            val m= TripleShortMatrix(a,b,c, Parameters.createParametresForTest(),State.RGB)
+
             return m
         }
     }

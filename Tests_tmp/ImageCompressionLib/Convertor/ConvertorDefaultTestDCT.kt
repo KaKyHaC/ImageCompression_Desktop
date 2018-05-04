@@ -6,8 +6,6 @@ import ImageCompressionLib.Containers.Type.Size
 import ImageCompressionLib.Containers.TripleShortMatrixOldTest.Companion.getRandomMatrix
 import ImageCompressionLib.ProcessingModules.ModuleDCT
 import ImageCompressionLib.ProcessingModules.ModuleImage
-import ImageCompressionLib.ProcessingModules.ModuleOPC.StegoEncrWithOpcOld
-import ImageCompressionLib.Utils.Functions.ByteVectorParser
 import org.junit.Before
 
 import org.junit.Assert.*

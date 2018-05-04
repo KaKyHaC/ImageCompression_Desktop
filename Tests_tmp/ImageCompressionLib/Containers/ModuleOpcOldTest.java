@@ -2,7 +2,6 @@ package ImageCompressionLib.Containers;
 
 import ImageCompressionLib.Constants.State;
 import ImageCompressionLib.Containers.Type.Flag;
-import ImageCompressionLib.ProcessingModules.ModuleOPC.ModuleOpcOld;
 import org.junit.Before;
 import org.junit.Test;
 

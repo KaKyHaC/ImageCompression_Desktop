@@ -1,3 +1,4 @@
+/*
 package ImageCompressionLib.Containers
 
 import ImageCompressionLib.Constants.State
@@ -36,4 +37,4 @@ class TripleShortMatrixOldTest {
         assertFails { assertEquals(m,m1) }
         m.assertMatrixInRange(m1,1)
     }
-}
+}*/

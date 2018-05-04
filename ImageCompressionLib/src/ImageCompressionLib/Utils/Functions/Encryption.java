@@ -1,10 +1,8 @@
 package ImageCompressionLib.Utils.Functions;
 
 
-import ImageCompressionLib.Containers.DataOpcOld;
 import ImageCompressionLib.Containers.Matrix.Matrix;
 import ImageCompressionLib.Containers.TripleDataOpcMatrix;
-import ImageCompressionLib.Containers.TripleDataOpcMatrixOld;
 import ImageCompressionLib.Containers.Type.DataOpc;
 import org.jetbrains.annotations.NotNull;
 

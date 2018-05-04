@@ -1,3 +1,4 @@
+/*
 package ImageCompressionLib.Utils.Objects
 
 import ImageCompressionLib.Constants.TypeQuantization
@@ -75,4 +76,4 @@ class DctConvertorDesktopTest {
         }
         return true
     }
-}
+}*/

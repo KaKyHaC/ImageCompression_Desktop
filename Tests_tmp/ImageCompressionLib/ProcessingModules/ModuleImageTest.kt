@@ -1,7 +1,6 @@
 package ImageCompressionLib.ProcessingModules
 
 import ImageCompressionLib.Constants.State
-import ImageCompressionLib.Containers.TripleShortMatrixOld
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Utils.Objects.TimeManager
 import Utils.BuffImConvertor

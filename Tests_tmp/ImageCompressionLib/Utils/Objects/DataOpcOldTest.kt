@@ -1,8 +1,8 @@
+/*
 package ImageCompressionLib.Utils.Objects
 
 import ImageCompressionLib.Constants.SIZEOFBLOCK
 import ImageCompressionLib.Containers.Type.ByteVector
-import ImageCompressionLib.Containers.DataOpcOld
 import ImageCompressionLib.Containers.Type.Flag
 
 import org.junit.Assert.*
@@ -235,4 +235,4 @@ class DataOpcOldTest {
             }
         }
     }
-}
+}*/
