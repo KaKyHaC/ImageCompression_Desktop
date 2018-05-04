@@ -7,80 +7,183 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/IteratorMatrix.kt" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/ByteVector.kt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/ByteVectorContainer.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/ByteVectorContainer.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/DataOpc.kt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/DataOpcMatrix.kt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/DataOpcMatrix.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/DataOpcMatrix.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/DataOpcOld.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/DataOpcOld.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Flag.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix.kt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/MyBufferedImage.kt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Parameters.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Parameters.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/ShortMatrix.kt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Size.kt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/TripleDataOpcMatrix.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/TripleDataOpcMatrix.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/Implementations/AbsFactoryDefault.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/Implementations/AbsFactoryDefault.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleByteVector.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleByteVector.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleDCT.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleDCT.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleFile.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleFile.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleImage.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleImage.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOPC/AbsModuleOPC.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOPC/AbsModuleOPC.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleOPC.java" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleOPC.java" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleSafeOPC.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleSafeOPC.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOPC/StegoEncrWithOPC.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOPC/StegoEncrWithOPC.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Steganography/ModuleStego.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Steganography/ModuleStego.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Steganography/StegoModule.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Steganography/StegoModule.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Steganography/Utils/OpcsParser.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Steganography/Utils/OpcsParser.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/ByteVectorParser.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/ByteVectorParser.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/OPCMultiThread.java" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/OPCMultiThread.java" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/OpcAlgorithms.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/OpcAlgorithms.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/OpcProcess.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/OpcProcess.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/OpcUtils.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/OpcUtils.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/ByteVectorFile.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/ByteVectorFile.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/DctConvertor.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/DctConvertor.kt" />
+      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/Matrix.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/Matrix.kt" />
       <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertorOld.java" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertorOld.java" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/ByteVectorTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/ByteVectorTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/DataOpcTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/DataOpcTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/MatrixTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/MatrixTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/ModuleOPCTest.java" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/ModuleOPCTest.java" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/ShortMatrixTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/ShortMatrixTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/TripleDataOpcOldMatrixTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/TripleDataOpcOldMatrixTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/TripleDataOpcOldTripleShortMatrixTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/TripleDataOpcOldTripleShortMatrixTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultTestDCT.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultTestDCT.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleDCTTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleDCTTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleImageTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleImageTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleOPCTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleOPCTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Steganography/Utils/OpcsParserTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Steganography/Utils/OpcsParserTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/EncryptionTest.java" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/EncryptionTest.java" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/ImageIOTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/ImageIOTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/OpcAlgorithmsKtTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/OpcAlgorithmsKtTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/OpcAlgorithmsMessageAtTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/OpcAlgorithmsMessageAtTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/OpcAlgorithmsMessageTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/OpcAlgorithmsMessageTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/OpcProcessKtTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/OpcProcessKtTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/OpcProcessWithMessageTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/OpcProcessWithMessageTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/OPCMultiThreadTest.java" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/OPCMultiThreadTest.java" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/ByteVectorFileTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/ByteVectorFileTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/ByteVectorTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/ByteVectorTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/DataOpcOldTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/DataOpcOldTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/DctConvertorDesktopTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/DctConvertorDesktopTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/Utils/BuffImConvertorTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/Utils/BuffImConvertorTest.kt" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/ShortMatrix$Companion$valueOf$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/ShortMatrix$Companion$valueOf$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/ShortMatrix$Companion.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/ShortMatrix$Companion.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/ShortMatrix.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/ShortMatrix.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/FlagForm.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/FlagForm.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/JpegEncoder/OPC.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/JpegEncoder/OPC.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$2.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$3.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$3.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$4.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$4.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$5.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$5.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$6.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$6.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$7.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm$7.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/MainForm.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/Utils/AbsDaoDesktop.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/Utils/AbsDaoDesktop.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/Utils/BuffImConvertor.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/Utils/BuffImConvertor.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/Utils/ConvertorDesktop$Info.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/Utils/ConvertorDesktop$Info.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/Utils/ConvertorDesktop.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/Utils/ConvertorDesktop.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/ByteVector$copy$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/ByteVector$iterator$MyIterator.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/ByteVector.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/ByteVectorContainer.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/ByteVectorContainer.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/DataOpc$Companion.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/DataOpc.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/DataOpcMatrix$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/DataOpcMatrix$copy$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/DataOpcMatrix.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/DataOpcOld$Companion.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/DataOpcOld$Companion.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/DataOpcOld.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/DataOpcOld.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Flag$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Flag$Encryption.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Flag$Parameter.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Flag$QuantizationState.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Flag.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Matrix$Companion.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Matrix$rect$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Matrix$rectSave$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Matrix$split$res1$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Matrix.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/MyBufferedImage$Companion.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/MyBufferedImage.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Parameters$Companion.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Parameters$Companion.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Parameters.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Parameters.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/ShortMatrix$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/ShortMatrix$Companion$valueOf$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/ShortMatrix$Companion.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/ShortMatrix$copy$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/ShortMatrix.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Size.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/TripleDataOpcMatrix.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/TripleDataOpcMatrix.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Convertor/ConvertorDefault$Computing.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Convertor/ConvertorDefault$Computing.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Convertor/ConvertorDefault$IDao.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Convertor/ConvertorDefault$IDao.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Convertor/ConvertorDefault$IFactory.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Convertor/ConvertorDefault$IFactory.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Convertor/ConvertorDefault.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Convertor/ConvertorDefault.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Convertor/Implementations/AbsFactoryDefault$getModuleOPC$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Convertor/Implementations/AbsFactoryDefault$getModuleOPC$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Convertor/Implementations/AbsFactoryDefault$getModuleOPC$2.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Convertor/Implementations/AbsFactoryDefault$getModuleOPC$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Convertor/Implementations/AbsFactoryDefault.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Convertor/Implementations/AbsFactoryDefault.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleByteVector.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleByteVector.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleDCT.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleDCT.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleFile$Companion.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleFile$Companion.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleFile.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleFile.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleImage$FromIBufferedImageToYCbCr$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleImage$FromIBufferedImageToYCbCr$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleImage$FromIBufferedImageToYCbCrParallelMatrix$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleImage$FromIBufferedImageToYCbCrParallelMatrix$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleImage$FromIBufferedImageToYCbCrParallelMatrix$2.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleImage$FromIBufferedImageToYCbCrParallelMatrix$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleImage$FromIBufferedImageToYCbCrParallelMatrix$3.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleImage$FromIBufferedImageToYCbCrParallelMatrix$3.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleImage$FromIBufferedImageToYCbCrParallelMatrix$4.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleImage$FromIBufferedImageToYCbCrParallelMatrix$4.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleImage$FromYCbCrToIBufferedImage$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleImage$FromYCbCrToIBufferedImage$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleImage.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleImage.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/AbsModuleOPC.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/AbsModuleOPC.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleOPC$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleOPC$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleOPC$2.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleOPC$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleOPC$3.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleOPC$3.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleOPC$4.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleOPC$4.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleOPC$5.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleOPC$5.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleOPC$6.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleOPC$6.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleOPC.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleOPC.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleSafeOPC$dao$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleSafeOPC$dao$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$a$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$a$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$b$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$b$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$c$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$c$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$ca$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$ca$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$cb$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$cb$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$cc$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleSafeOPC$toTripleContainer$cc$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleSafeOPC.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleSafeOPC.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/StegoEncrWithOPC.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOPC/StegoEncrWithOPC.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Steganography/ModuleStego.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Steganography/ModuleStego.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Steganography/StegoModule.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Steganography/StegoModule.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Steganography/Utils/OpcsParser$fromByteVector$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Steganography/Utils/OpcsParser$fromByteVector$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Steganography/Utils/OpcsParser$fromByteVector$2.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Steganography/Utils/OpcsParser$fromByteVector$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Steganography/Utils/OpcsParser$fromByteVector$3.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Steganography/Utils/OpcsParser$fromByteVector$3.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Steganography/Utils/OpcsParser$readFromBV$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Steganography/Utils/OpcsParser$readFromBV$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Steganography/Utils/OpcsParser$writeToBV$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Steganography/Utils/OpcsParser$writeToBV$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Steganography/Utils/OpcsParser.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Steganography/Utils/OpcsParser.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/ByteVectorParser.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/ByteVectorParser.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/OPCMultiThread.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/OPCMultiThread.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/OpcAlgorithms$Companion.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/OpcAlgorithms$Companion.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/OpcAlgorithms.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/OpcAlgorithms.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/OpcProcess$Companion.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/OpcProcess$Companion.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/OpcProcess.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/OpcProcess.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/OpcUtils$Companion.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/OpcUtils$Companion.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/OpcUtils.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/OpcUtils.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/ByteVectorFile.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/ByteVectorFile.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/DctConvertor$State.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/DctConvertor$State.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/DctConvertor$dataProcessing$convertor$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/DctConvertor$dataProcessing$convertor$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/DctConvertor$dataProcessing$convertor$2.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/DctConvertor$dataProcessing$convertor$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/DctConvertor.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/DctConvertor.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$State.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$State.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$afterReverceOpc$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$afterReverceOpc$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$beforDirectOpc$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$beforDirectOpc$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$directOpc$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$directOpc$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$directOpcWithMessageAt$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$directOpcWithMessageAt$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$reverceOPC$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$reverceOPC$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$reverceOPCWithMessageAt$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$reverceOPCWithMessageAt$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$setGlobalBase$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$setGlobalBase$1.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertorOld.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertorOld.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$Companion$AssertArrayArrayInRange$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$Companion$AssertArrayArrayInRange$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$Companion.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$Companion.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$TestFullAlgorithmWithoutFile8$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$TestFullAlgorithmWithoutFile8$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$TestFullAlgorithmWithoutFile8$2.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$TestFullAlgorithmWithoutFile8$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$TestFullAlgorithmWithoutFile8$3.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$TestFullAlgorithmWithoutFile8$3.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$copy$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$copy$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$getRandomMatrix$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$getRandomMatrix$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testDirectReverseConverting$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testDirectReverseConverting$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testDirectReverseConverting$2.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testDirectReverseConverting$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testDirectReverseConverting$3.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testDirectReverseConverting$3.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testModuleDCT$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testModuleDCT$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testModuleDCT$2.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testModuleDCT$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testModuleDCT$3.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest$testModuleDCT$3.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/ByteVectorTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/ByteVectorTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/DataOpcTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/DataOpcTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/MatrixTest$testGet$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/MatrixTest$testGet$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/MatrixTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/MatrixTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/ModuleOPCTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/ModuleOPCTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/ShortMatrixTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/ShortMatrixTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/TripleDataOpcOldMatrixTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/TripleDataOpcOldMatrixTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/TripleDataOpcOldTripleShortMatrixTest$TestCopy$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/TripleDataOpcOldTripleShortMatrixTest$TestCopy$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/TripleDataOpcOldTripleShortMatrixTest$TestEqual$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/TripleDataOpcOldTripleShortMatrixTest$TestEqual$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/TripleDataOpcOldTripleShortMatrixTest$TestVector$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/TripleDataOpcOldTripleShortMatrixTest$TestVector$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/TripleDataOpcOldTripleShortMatrixTest$initDopc$2.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/TripleDataOpcOldTripleShortMatrixTest$initDopc$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/TripleDataOpcOldTripleShortMatrixTest$initDopc$3.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/TripleDataOpcOldTripleShortMatrixTest$initDopc$3.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/TripleDataOpcOldTripleShortMatrixTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Containers/TripleDataOpcOldTripleShortMatrixTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultTestDCT$testDirectReverseConverting$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultTestDCT$testDirectReverseConverting$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultTestDCT$testDirectReverseConverting$2.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultTestDCT$testDirectReverseConverting$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultTestDCT.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultTestDCT.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/ProcessingModules/ModuleDCTTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/ProcessingModules/ModuleDCTTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/ProcessingModules/ModuleImageTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/ProcessingModules/ModuleImageTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/ProcessingModules/ModuleOPCTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/ProcessingModules/ModuleOPCTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Steganography/Utils/OpcsParserTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Steganography/Utils/OpcsParserTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/EncryptionTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/EncryptionTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/ImageIOTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/ImageIOTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcAlgorithmsKtTest$Companion.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcAlgorithmsKtTest$Companion.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcAlgorithmsKtTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcAlgorithmsKtTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcAlgorithmsMessageAtTest$Companion.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcAlgorithmsMessageAtTest$Companion.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcAlgorithmsMessageAtTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcAlgorithmsMessageAtTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcAlgorithmsMessageTest$Companion.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcAlgorithmsMessageTest$Companion.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcAlgorithmsMessageTest$setUp$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcAlgorithmsMessageTest$setUp$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcAlgorithmsMessageTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcAlgorithmsMessageTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcProcessKtTest$Companion.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcProcessKtTest$Companion.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcProcessKtTest$OpcDefaultRandomIntiWithDCTflag$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcProcessKtTest$OpcDefaultRandomIntiWithDCTflag$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcProcessKtTest$setUp$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcProcessKtTest$setUp$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcProcessKtTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcProcessKtTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcProcessWithMessageTest$Companion.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcProcessWithMessageTest$Companion.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcProcessWithMessageTest$setUp$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcProcessWithMessageTest$setUp$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcProcessWithMessageTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Functions/OpcProcessWithMessageTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/OPCMultiThreadTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/OPCMultiThreadTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Objects/ByteVectorFileTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Objects/ByteVectorFileTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Objects/ByteVectorTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Objects/ByteVectorTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Objects/DataOpcOldTest$initDopc$5.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Objects/DataOpcOldTest$initDopc$5.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Objects/DataOpcOldTest$initDopc$6.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Objects/DataOpcOldTest$initDopc$6.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Objects/DataOpcOldTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Objects/DataOpcOldTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Objects/DctConvertorDesktopTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Objects/DctConvertorDesktopTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Objects/OpcConvertorTest$Companion.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Objects/OpcConvertorTest$Companion.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Objects/OpcConvertorTest$setUp$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Objects/OpcConvertorTest$setUp$1.class" />
       <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Objects/OpcConvertorTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Objects/OpcConvertorTest.class" />
-      <change beforePath="$PROJECT_DIR$/src/FlagForm.java" afterPath="$PROJECT_DIR$/src/FlagForm.java" />
-      <change beforePath="$PROJECT_DIR$/src/JpegEncoder/OPC.java" afterPath="$PROJECT_DIR$/src/JpegEncoder/OPC.java" />
-      <change beforePath="$PROJECT_DIR$/src/MainForm.java" afterPath="$PROJECT_DIR$/src/MainForm.java" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/AbsDaoDesktop.kt" afterPath="$PROJECT_DIR$/src/Utils/AbsDaoDesktop.kt" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/BuffImConvertor.kt" afterPath="$PROJECT_DIR$/src/Utils/BuffImConvertor.kt" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/ConvertorDesktop.kt" afterPath="$PROJECT_DIR$/src/Utils/ConvertorDesktop.kt" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/Utils/BuffImConvertorTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/Utils/BuffImConvertorTest.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -123,8 +226,8 @@
       <file leaf-file-name="OpcConvertor.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="129" column="0" lean-forward="false" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
+            <state relative-caret-position="144">
+              <caret line="46" column="51" lean-forward="false" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
               <folding>
                 <element signature="e#43#496#0" expanded="true" />
               </folding>
@@ -136,7 +239,7 @@
         <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="25">
-              <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+              <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -145,18 +248,52 @@
       <file leaf-file-name="Matrix.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/Matrix.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+            <state relative-caret-position="400">
+              <caret line="154" column="10" lean-forward="false" selection-start-line="154" selection-start-column="10" selection-end-line="154" selection-end-column="10" />
               <folding>
                 <element signature="e#47#113#0" expanded="true" />
                 <element signature="n#!!block;n#rectSave#0;n#!!block;n#Matrix#0" expanded="false" />
+                <element signature="n#!!block;n#rectSave#1;n#!!block;n#Matrix#0" expanded="false" />
+                <element signature="n#!!block;n#rectSaveIterator#0;n#!!block;n#Matrix#0" expanded="false" />
                 <element signature="n#!!block;n#split#0;n#!!block;n#Matrix#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Flag.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MatrixTest.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/MatrixTest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="328">
+              <caret line="44" column="23" lean-forward="false" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
+              <folding>
+                <element signature="e#40#164#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Size.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Size.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="2" column="36" lean-forward="false" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IteratorMatrix.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/IteratorMatrix.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="11" column="44" lean-forward="false" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Flag.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
@@ -166,45 +303,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MatrixTest.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/MatrixTest.kt">
+      <file leaf-file-name="TripleShortMatrix.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/TripleShortMatrix.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#40#164#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataOpcMatrix.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/DataOpcMatrix.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding>
-                <element signature="e#47#192#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShortMatrix.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/ShortMatrix.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="30" column="1" lean-forward="true" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShortMatrixTest.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/ShortMatrixTest.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="28" column="1" lean-forward="false" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+            <state relative-caret-position="100">
+              <caret line="5" column="6" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -220,9 +323,9 @@
         <option value="FxmlFile" />
         <option value="Kotlin File" />
         <option value="Class" />
-        <option value="Kotlin Class" />
         <option value="Kotlin Interface" />
         <option value="JUnit4 Test Class" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -304,7 +407,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/MainForm.java" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Steganography/Utils/StegoConvertor.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Steganography/Utils/MessageParser.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOPC/ModuleOPC.java" />
@@ -351,10 +453,11 @@
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/OpcUtils.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/DataOpcMatrix.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt" />
-        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix.kt" />
-        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/Matrix.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java" />
+        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/IteratorMatrix.kt" />
+        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/Matrix.kt" />
+        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.kt" />
       </list>
     </option>
   </component>
@@ -880,12 +983,13 @@
     <history-entry file="OpcConvertorTest - 2018.05.04 at 12h 21m 29s.xml">
       <configuration name="OpcConvertorTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ShortMatrixTest - 2018.05.04 at 12h 02m 06s.xml">
-      <configuration name="ShortMatrixTest" configurationId="JUnit" />
+    <history-entry file="OpcConvertorTest - 2018.05.04 at 12h 42m 03s.xml">
+      <configuration name="OpcConvertorTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -896,11 +1000,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41410694" sideWeight="0.5104167" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992035" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46871445" sideWeight="0.41927084" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46871445" sideWeight="0.41927084" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20677084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20677084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287827" sideWeight="0.49791667" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -913,7 +1018,6 @@
       <window_info id="Kotlin Bytecode" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287827" sideWeight="0.49791667" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1270,21 +1374,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/ModuleOPCTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleDCTTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/TripleDataOpcOldMatrixTest.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1303,13 +1392,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Size.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="36" lean-forward="false" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -1607,16 +1689,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/MatrixTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#40#164#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/ShortMatrixTest.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="625">
@@ -1636,7 +1708,7 @@
     <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/ShortMatrix.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
-          <caret line="30" column="1" lean-forward="true" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
+          <caret line="30" column="1" lean-forward="false" selection-start-line="30" selection-start-column="1" selection-end-line="30" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1644,9 +1716,9 @@
     <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/DataOpcMatrix.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="e#47#192#0" expanded="true" />
+            <element signature="e#47#192#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1654,7 +1726,7 @@
     <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
-          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1683,32 +1755,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/TripleShortMatrix.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="6" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Size.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="36" lean-forward="false" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/Matrix.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="154" column="10" lean-forward="false" selection-start-line="154" selection-start-column="10" selection-end-line="154" selection-end-column="10" />
+          <folding>
+            <element signature="e#47#113#0" expanded="true" />
+            <element signature="n#!!block;n#rectSave#0;n#!!block;n#Matrix#0" expanded="false" />
+            <element signature="n#!!block;n#rectSave#1;n#!!block;n#Matrix#0" expanded="false" />
+            <element signature="n#!!block;n#rectSaveIterator#0;n#!!block;n#Matrix#0" expanded="false" />
+            <element signature="n#!!block;n#split#0;n#!!block;n#Matrix#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/MatrixTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="44" column="23" lean-forward="false" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
+          <folding>
+            <element signature="e#40#164#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="129" column="0" lean-forward="false" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
+        <state relative-caret-position="144">
+          <caret line="46" column="51" lean-forward="false" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
           <folding>
             <element signature="e#43#496#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/Matrix.kt">
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/IteratorMatrix.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding>
-            <element signature="e#47#113#0" expanded="true" />
-            <element signature="n#!!block;n#rectSave#0;n#!!block;n#Matrix#0" expanded="false" />
-            <element signature="n#!!block;n#split#0;n#!!block;n#Matrix#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        <state relative-caret-position="275">
+          <caret line="11" column="44" lean-forward="false" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
           <folding />
         </state>
       </provider>
