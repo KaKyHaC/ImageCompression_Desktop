@@ -19,8 +19,8 @@ class MatrixTest {
 
     @Before
     fun setUp() {
-        matrix= Matrix<Int>(data44)
-        matrix22= Matrix<Int>(data22)
+        matrix= Matrix.valueOf(data44)
+        matrix22=Matrix.valueOf(data22)
     }
     @Test
     fun testGet(){
