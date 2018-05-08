@@ -17,7 +17,7 @@ class ModuleDCTTest{
         val cpy=enl.copy()
         assertEquals(cpy,enl)
 
-        val dctModule = ModuleDCT(enl, Flag())
+        val dctModule = ModuleDCT(enl, Flag.createDefaultFlag())
 
         dctModule.getDCTMatrix(true);
         assertFalse( cpy.assertMatrixInRange(enl,8))
