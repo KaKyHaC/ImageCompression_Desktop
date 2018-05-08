@@ -3,6 +3,7 @@ package ImageCompressionLib.Containers
 import ImageCompressionLib.Constants.State
 import ImageCompressionLib.Containers.Matrix.Matrix
 import ImageCompressionLib.Containers.Matrix.ShortMatrix
+import ImageCompressionLib.Containers.Type.Size
 import java.util.*
 
 class TripleShortMatrix {
@@ -18,7 +19,6 @@ class TripleShortMatrix {
         b= Matrix(parameters.imageSize){i, j ->  0.toShort()}
         c= Matrix(parameters.imageSize){i, j ->  0.toShort()}
     }
-
     constructor(a: Matrix<Short>, b: Matrix<Short>, c: Matrix<Short>, parameters: Parameters,state: State) {
         this.a = a
         this.b = b

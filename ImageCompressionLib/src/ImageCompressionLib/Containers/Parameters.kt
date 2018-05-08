@@ -5,10 +5,10 @@ import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Containers.Type.Size
 
 class Parameters {
-    val flag: Flag
-    val imageSize: Size
-    val unitSize: Size
-    val sameBaseSize: Size
+    var flag: Flag
+    var imageSize: Size
+    var unitSize: Size
+    var sameBaseSize: Size
 
     constructor(flag: Flag, imageSize: Size, unitSize: Size = Size(SIZEOFBLOCK, SIZEOFBLOCK), sameBaseSize: Size = Size(1, 1)) {
         this.flag = flag

@@ -6,12 +6,11 @@ import ImageCompressionLib.Containers.Matrix.Matrix
 import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Parameters
 import ImageCompressionLib.Containers.TripleShortMatrix
-import ImageCompressionLib.Containers.Type.ByteVector
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Utils.Objects.TimeManager
+import java.util.ArrayList
 
 //import java.awt.image.MyBufferedImage;
-import java.util.concurrent.ExecutionException
 import java.util.concurrent.Executors
 import java.util.concurrent.Future
 
@@ -21,71 +20,18 @@ class ModuleImage {
     private var bitmap: MyBufferedImage// = null
     private var flag: Flag//? = null
 
-//    private val byteVectorFromRGB: ByteVector
-//        get() {
-//            if (tripleShortMatrixOld.state != State.RGB)
-//                throw Exception("State not RGB")
-//
-//            val vector = ByteVector(10)
-//            vector.append(tripleShortMatrixOld.Width.toShort())
-//            vector.append(tripleShortMatrixOld.Height.toShort())
-//            vector.append(flag.flag)
-//
-//            for (i in 0 until tripleShortMatrixOld.Width) {
-//                for (j in 0 until tripleShortMatrixOld.Height) {
-//                    val r: Byte
-//                    val g: Byte
-//                    val b: Byte
-//                    assert(tripleShortMatrixOld.a[i,j] < 0xff)
-//                    assert(tripleShortMatrixOld.b[i,j] < 0xff)
-//                    assert(tripleShortMatrixOld.c[i,j] < 0xff)
-//                    r = tripleShortMatrixOld.a[i,j].toByte()
-//                    g = tripleShortMatrixOld.b[i,j].toByte()
-//                    b = tripleShortMatrixOld.c[i,j].toByte()
-//                    vector.append(r)
-//                    vector.append(g)
-//                    vector.append(b)
-//                }
-//            }
-//            return vector
-//        }
-
-    //TODO make Async
-
-//    val byteVector: ByteVector
-//        get() {
-//            when (tripleShortMatrixOld.state) {
-//                State.RGB -> {
-//                }
-//                State.YBR -> FromYBRtoRGB()
-//                State.Yenl -> {
-//                    PixelRestoration()
-//                    FromYBRtoRGB()
-//                }
-//                State.bitmap -> FromIBufferedImageToRGB()
-//                else -> throw Exception("state not correct")
-//            }
-//            return byteVectorFromRGB
-//        }
-
-
     constructor(_b: MyBufferedImage, parameters: Parameters) {
         bitmap = _b
         tripleShortMatrixOld = TripleShortMatrix(parameters, State.bitmap)
         this.flag = parameters.flag
     }
 
-    constructor(tripleShortMatrixOld: TripleShortMatrix, parameters: Parameters) {
-        this.tripleShortMatrixOld = tripleShortMatrixOld
+    constructor(tripleShortMatrix: TripleShortMatrix) {
+        this.tripleShortMatrixOld = tripleShortMatrix
+        val parameters=tripleShortMatrix.parameters
         bitmap = MyBufferedImage(parameters.imageSize.width,parameters.imageSize.height)//, MyBufferedImage.TYPE_3BYTE_BGR);
         this.flag = parameters.flag
     }
-
-//    constructor(vector: ByteVector, flag: Flag) {
-//        this.tripleShortMatrixOld = getMatrixFromByteVector(vector)
-//        bitmap = MyBufferedImage(tripleShortMatrixOld.Width, tripleShortMatrixOld.Height)//, MyBufferedImage.TYPE_3BYTE_BGR);
-//        this.flag = flag
-//    }
 
     //TODO string constructor
     //TODO fix threads
@@ -95,23 +41,16 @@ class ModuleImage {
             val h = bitmap.height
 
             val executorService = Executors.newFixedThreadPool(4)
-            val futures = arrayOfNulls<Future<*>>(4)
+            val futures = ArrayList<Future<*>>(4)
 
             val img = bitmap.getData()//convertTo2DWithoutUsingGetRGB(bitmap);
-            futures[0] = executorService.submit { imageToYbrTask(0, 0, w / 2, h / 2, img) }
-            futures[1] = executorService.submit { imageToYbrTask(w / 2, 0, w, h / 2, img) }
-            futures[2] = executorService.submit { imageToYbrTask(0, h / 2, w / 2, h, img) }
-            futures[3] = executorService.submit { imageToYbrTask(w / 2, h / 2, w, h, img) }
+            futures.add( executorService.submit { imageToYbrTask(0, 0, w / 2, h / 2, img)})
+            futures.add( executorService.submit { imageToYbrTask(w / 2, 0, w, h / 2, img) })
+            futures.add( executorService.submit { imageToYbrTask(0, h / 2, w / 2, h, img) })
+            futures.add( executorService.submit { imageToYbrTask(w / 2, h / 2, w, h, img) })
 
             for (future in futures) {
-                try {
                     future.get()
-                } catch (e: InterruptedException) {
-                    e.printStackTrace()
-                } catch (e: ExecutionException) {
-                    e.printStackTrace()
-                }
-
             }
             tripleShortMatrixOld.state = State.YBR
         }
@@ -153,7 +92,6 @@ class ModuleImage {
         }
 
     }
-
     private fun FromYCbCrToIBufferedImage() {
         if (tripleShortMatrixOld.state == State.YBR) {
             val pixelAlpha = 255 //for argb
@@ -218,7 +156,6 @@ class ModuleImage {
             tripleShortMatrixOld.state = State.RGB
         }
     }
-
     private fun FromRGBtoIBufferedImage() {
         if (tripleShortMatrixOld.state == State.RGB) {
             val Width = bitmap.width
@@ -280,7 +217,6 @@ class ModuleImage {
             tripleShortMatrixOld.state = State.RGB
         }
     }
-
     private fun FromRGBtoYBR() {
 
         if (tripleShortMatrixOld.state == State.RGB) {
@@ -334,7 +270,6 @@ class ModuleImage {
         }
 
     }
-
     private fun PixelRestoration() {
 
         if (tripleShortMatrixOld.state == State.Yenl && flag.isChecked(Flag.Parameter.Enlargement)) {
@@ -370,7 +305,6 @@ class ModuleImage {
             }
         }
     }
-
     private fun plus128(arr: Matrix<Short>) {
         for (i in 0 until arr.width) {
             for (j in 0 until arr.height) {
@@ -384,27 +318,12 @@ class ModuleImage {
         minus128(tripleShortMatrixOld.b)
         minus128(tripleShortMatrixOld.c)
     }
-
     private fun plus128() {
         plus128(tripleShortMatrixOld.a)
         plus128(tripleShortMatrixOld.b)
         plus128(tripleShortMatrixOld.c)
     }
 
-//    private fun getMatrixFromByteVector(vector: ByteVector): TripleShortMatrix {
-//        val w = vector.getNextShort().toInt()
-//        val h = vector.getNextShort().toInt()
-//        val flag = Flag(vector.getNextShort())
-//        val tripleShortMatrix = TripleShortMatrix(w, h, State.RGB)
-//        for (i in 0 until w) {
-//            for (j in 0 until h) {
-//                tripleShortMatrix.a[i][j] = (vector.getNext().toInt() and 0xff).toShort()
-//                tripleShortMatrix.b[i][j] = (vector.getNext().toInt() and 0xff).toShort()
-//                tripleShortMatrix.c[i][j] = (vector.getNext().toInt() and 0xff).toShort()
-//            }
-//        }
-//        return tripleShortMatrix
-//    }
 
     fun getYCbCrMatrix(isAsync: Boolean): TripleShortMatrix {
         when (tripleShortMatrixOld.state) {
@@ -538,11 +457,9 @@ class ModuleImage {
         }
         appendTimeManager("ybr set" + wStart + hStart)
     }
-
     private fun appendTimeManager(s: String) {
         //        TimeManager.getInstance().append(s);
     }
-
     private fun convertTo2DWithoutUsingGetRGB(image: MyBufferedImage): Array<IntArray> {
 
         val pixels = image.getDataBuffer()//((DataBufferByte) image.getRaster().getDataBuffer()).getData();

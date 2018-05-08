@@ -42,8 +42,8 @@ class ImageIOTest{
     @Test
     fun MyBufferedImageWriteTest(){
         val m=createMatrix(255,255)
-        val mbi= ModuleImage(m, Parameters.createParametresForTest())
-        val mybi = mbi.bufferedImage
+        val mbi= ModuleImage(m)
+        val mybi = mbi.getBufferedImage()
         val bi=BuffImConvertor.instance.convert(mybi)
         ImageIO.write(bi,"bmp", File(pathToResBmp2))
     }

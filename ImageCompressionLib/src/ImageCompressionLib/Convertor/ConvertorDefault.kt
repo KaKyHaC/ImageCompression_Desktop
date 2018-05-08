@@ -60,10 +60,10 @@ class ConvertorDefault (val dao: IDao,val guard:IGuard) {
         val bodum1 = ModuleDCT(FFTM,parameters.flag)
         val matrixYBR=bodum1.getYCbCrMatrix(isAsync)
         progressListener?.invoke(70,"YcBcR to BMP");
-        val af = ModuleImage(matrixYBR!!,parameters);
-        val res = af.bufferedImage
+        val af = ModuleImage(matrixYBR);
+        val res = af.getBufferedImage()
         progressListener?.invoke(90,"Write to BMP");
-        dao.onResultImage(res!!,parameters)
+        dao.onResultImage(res,parameters)
         progressListener?.invoke(100,"Ready after");
         onImageReadyListener?.invoke(res)
     }

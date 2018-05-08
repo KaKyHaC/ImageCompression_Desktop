@@ -36,6 +36,8 @@ open class Matrix<T:Any> {
     }
 
     open operator fun set(i: Int, j: Int, value: T) {
+        if(i>=width||j>=height)//TODO remove
+            throw Exception("set[$i][$j] out of range $width x $height")
         matrix[i][j] = value
     }
 

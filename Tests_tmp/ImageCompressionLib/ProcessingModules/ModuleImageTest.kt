@@ -5,6 +5,7 @@ import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Parameters
 import ImageCompressionLib.Containers.TripleShortMatrix
 import ImageCompressionLib.Containers.Type.Flag
+import ImageCompressionLib.Containers.Type.Size
 import ImageCompressionLib.Utils.Objects.TimeManager
 import Utils.BuffImConvertor
 import org.junit.Test
@@ -26,20 +27,22 @@ class ModuleImageTest {
 
     @Test
     fun TestDefault5() {
-        var mybufferedImage= randomBufferedImage(122,124)
-        val bufferedImage=BuffImConvertor.instance.convert(mybufferedImage)
+        var bufferedImage= randomBufferedImage(122,124)
+        param.imageSize= Size(122,124)
+        param.flag.setFalse(Flag.Parameter.Enlargement)
+        val myBufferedImage=BuffImConvertor.instance.convert(bufferedImage)
 
-        var w=bufferedImage.width
-        var h=bufferedImage.height
+        var w=myBufferedImage.width
+        var h=myBufferedImage.height
 
-        val myBufferedImage = ModuleImage(bufferedImage, param)
-        val matrix = myBufferedImage.getYenlMatrix(true)
+        val module = ModuleImage(myBufferedImage, param)
+        val matrix = module.getYenlMatrix(true)
 
-        val myBufferedImage1 = ModuleImage(matrix, param)
-        val bufferedImage1 = myBufferedImage1.bufferedImage
+        val module1 = ModuleImage(matrix)
+        val myBufferedImage1 = module1.getBufferedImage()
 
-        val arr1 = bufferedImage.getIntArray()//?.getRGB(0, 0, w, h, null, 0, w)
-        val arr2 = bufferedImage1.getIntArray()//.getRGB(0, 0, w, h, null, 0, w)
+        val arr1 = myBufferedImage.getIntArray()//?.getRGB(0, 0, w, h, null, 0, w)
+        val arr2 = myBufferedImage1.getIntArray()//.getRGB(0, 0, w, h, null, 0, w)
 
         assertArrayInRange(arr1, arr2, 5)
     }
@@ -48,14 +51,15 @@ class ModuleImageTest {
     fun TestEnlagment4() {
         val grad=getGradientMatrix(124,546)
         param.flag.setChecked(Flag.Parameter.Enlargement,true)
+        param.imageSize= Size(124,546)
 
-        val mi= ModuleImage(grad, param)
-        val bmp=mi.rgbMatrixOld.copy()
+        val mi= ModuleImage(grad)
+        val bmp=mi.getRgbMatrixOld().copy()
         var enl=mi.getYenlMatrix(true)
         assertFails { assertTrue(bmp.assertMatrixInRange(enl,1)) }
 
-        val mi1= ModuleImage(enl, param)
-        val bmp1=mi1.rgbMatrixOld
+        val mi1= ModuleImage(enl)
+        val bmp1=mi1.getRgbMatrixOld()
         kotlin.test.assertTrue { bmp1.assertMatrixInRange(bmp,4) }
 
     }
@@ -79,6 +83,7 @@ class ModuleImageTest {
         val mBI=BuffImConvertor.instance.convert(bufferedImage)
         val w=bufferedImage.width
         val h=bufferedImage.height
+        param.imageSize= Size(w,h)
 
         TimeManager.Instance.startNewTrack("m BmpToYenl ${loop}l ${w}x$h")
         for(i in 0..loop-1) {
