@@ -2,6 +2,7 @@ package ImageCompressionLib.ProcessingModules
 
 import ImageCompressionLib.Constants.State
 import ImageCompressionLib.Containers.Parameters
+import ImageCompressionLib.Containers.Type.Size
 import ImageCompressionLib.Utils.Functions.ImageIOTest
 import ImageCompressionLib.Utils.Objects.TimeManager
 import org.junit.Assert.*
@@ -72,17 +73,20 @@ class ModuleOpcTest {
     fun GlobalTest(w:Int,h:Int,loop:Int){
         val m=ImageIOTest.createMatrix(w,h)
         m.state=State.DCT
-        val opcModule= ModuleOpc(m, Parameters.createParametresForTest())
+        val opcModule= ModuleOpc(m)
         val tm=TimeManager.Instance
 
         val cpy=m.copy()
         assertEquals(m,cpy)
 
-        val tdom=opcModule.getTripleDataOpcMatrix(null)
-        val m2= ModuleOpc(tdom, Parameters.createParametresForTest())
-        val res  = m2.getTripleShortMatrix(null).first
-
-        assertEquals(res,cpy)
+        tm.startNewTrack("ModuleOPC")
+        for(i in 0 until loop) {
+            val tdom = opcModule.getTripleDataOpcMatrix(null)
+            val m2 = ModuleOpc(tdom)
+            val res = m2.getTripleShortMatrix(null).first
+            tm.append("end")
+            assertEquals(res, cpy)
+        }
         println(tm.getInfoInSec())
     }
 }

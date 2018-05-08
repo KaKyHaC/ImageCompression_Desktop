@@ -26,9 +26,9 @@ class ModuleOpc {
     var tripleShortMatrix:TripleShortMatrix?=null
     var tripleDataOpcMatrix:TripleDataOpcMatrix?=null
 
-    constructor(tripleShortMatrix: TripleShortMatrix, parameters: Parameters, isAsyn: Boolean = true) {
+    constructor(tripleShortMatrix: TripleShortMatrix, isAsyn: Boolean = true) {
         this.isAsyn = isAsyn
-        this.parameters = parameters
+        this.parameters = tripleShortMatrix.parameters
         this.tripleShortMatrix=tripleShortMatrix
 
         a = OpcConvertor(ShortMatrix.valueOf(tripleShortMatrix.a), parameters)
@@ -36,9 +36,9 @@ class ModuleOpc {
         c = OpcConvertor(ShortMatrix.valueOf(tripleShortMatrix.c), parameters)
     }
 
-    constructor(tripleDataOpcMatrix: TripleDataOpcMatrix, parameters: Parameters, isAsyn: Boolean = true) {
+    constructor(tripleDataOpcMatrix: TripleDataOpcMatrix, isAsyn: Boolean = true) {
         this.isAsyn = isAsyn
-        this.parameters = parameters
+        this.parameters = tripleDataOpcMatrix.parameters
         this.tripleDataOpcMatrix= tripleDataOpcMatrix
 
         a = OpcConvertor(DataOpcMatrix.valueOf(tripleDataOpcMatrix.a), parameters)

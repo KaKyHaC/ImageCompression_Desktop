@@ -18,17 +18,15 @@ import org.junit.Before
 import kotlin.test.assertFails
 
 class ModuleImageTest {
-    internal var param =Parameters.createParametresForTest()
     @Before
     fun befor(){
-        param =Parameters.createParametresForTest()
 //        param = Flag()
     }
 
     @Test
     fun TestDefault5() {
         var bufferedImage= randomBufferedImage(122,124)
-        param.imageSize= Size(122,124)
+        val param=Parameters.createParametresForTest(Size(122,124))
         param.flag.setFalse(Flag.Parameter.Enlargement)
         val myBufferedImage=BuffImConvertor.instance.convert(bufferedImage)
 
@@ -50,6 +48,7 @@ class ModuleImageTest {
     @Test
     fun TestEnlagment4() {
         val grad=getGradientMatrix(124,546)
+        val param=Parameters.createParametresForTest(Size(124,546))
         param.flag.setChecked(Flag.Parameter.Enlargement,true)
         param.imageSize= Size(124,546)
 
@@ -83,7 +82,7 @@ class ModuleImageTest {
         val mBI=BuffImConvertor.instance.convert(bufferedImage)
         val w=bufferedImage.width
         val h=bufferedImage.height
-        param.imageSize= Size(w,h)
+        val param=Parameters.createParametresForTest(Size(w,h))
 
         TimeManager.Instance.startNewTrack("m BmpToYenl ${loop}l ${w}x$h")
         for(i in 0..loop-1) {
@@ -109,7 +108,7 @@ class ModuleImageTest {
         val a=ShortMatrix(w,h){i, j -> (i*j%255).toShort() }
         val b=ShortMatrix(w,h){i, j -> (i*j%255).toShort() }
         val c=ShortMatrix(w,h){i, j -> (i*j%255).toShort() }
-        return TripleShortMatrix(a,b,c,param,State.RGB)
+        return TripleShortMatrix(a,b,c,Parameters.createParametresForTest(Size(w,h)),State.RGB)
 
     }
     private fun forEach(w: Int, h: Int, `fun`: (x:Int,y:Int)->Unit) {

@@ -53,7 +53,7 @@ class ImageIOTest{
             val b=ShortMatrix(w,h){i, j -> ((i+j)%255).toShort() }
             val c=ShortMatrix(w,h){i, j -> ((i+j)%255).toShort() }
 
-            val m= TripleShortMatrix(a,b,c, Parameters.createParametresForTest(),State.RGB)
+            val m= TripleShortMatrix(a,b,c, Parameters.createParametresForTest(Size(w,h)),State.RGB)
 
             return m
         }

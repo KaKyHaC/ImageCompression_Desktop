@@ -40,12 +40,11 @@ class Parameters {
             return Parameters(flag, imageSize, unitSize,sameBaseSize)
         }
         @Deprecated("only for tests")
-        @JvmStatic fun createParametresForTest():Parameters{
+        @JvmStatic fun createParametresForTest(imageSize: Size):Parameters{
             val flag=Flag.createDefaultFlag()
-            val s=Size(SIZEOFBLOCK, SIZEOFBLOCK)
             val s1=Size(SIZEOFBLOCK, SIZEOFBLOCK)
             val s2=Size(1,1)
-            return Parameters(flag,s,s1,s2)
+            return Parameters(flag,imageSize,s1,s2)
         }
     }
 }

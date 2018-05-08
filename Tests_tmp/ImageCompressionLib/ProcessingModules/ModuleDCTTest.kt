@@ -19,7 +19,7 @@ class ModuleDCTTest{
         val cpy=enl.copy()
         assertEquals(cpy,enl)
 
-        val dctModule = ModuleDCT(enl, Flag.createDefaultFlag())
+        val dctModule = ModuleDCT(enl)
 
         val dct=dctModule.getDCTMatrix(true);
         assertFails {( cpy.assertMatrixInRange(dct,range))}
@@ -72,7 +72,7 @@ class ModuleDCTTest{
         val enl=mi.getYenlMatrix(true)
         val cpy=enl.copy()
 
-        val dctModule=ModuleDCT(enl, Flag.createDefaultFlag())
+        val dctModule=ModuleDCT(enl)
 
         val t1= Date().time
         for (i in 0..loop-1){
@@ -104,7 +104,7 @@ class ModuleDCTTest{
         val cpy=enl.copy()
         assertEquals(cpy,enl)
 
-        val dctModule = ModuleDCT(enl, Flag.createDefaultFlag())
+        val dctModule = ModuleDCT(enl)
 
         TimeManager.Instance.startNewTrack("mDCT ${loop}l,${dif}dif (${w}x$h)")
         for(i in 0..loop-1) {

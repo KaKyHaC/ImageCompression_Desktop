@@ -35,10 +35,10 @@ class ConvertorDefault (val dao: IDao,val guard:IGuard) {
         val mi = ModuleImage(bmp, parameters)
         val matrix = mi.getYenlMatrix(isAsync)
         progressListener?.invoke(30,"direct DCT")
-        val bodum = ModuleDCT(matrix!!,parameters.flag)
+        val bodum = ModuleDCT(matrix)
         val matrixDCT=bodum.getDCTMatrix(isAsync)
         progressListener?.invoke(60,"direct OPC")
-        val moduleOPC= ModuleOpc(matrixDCT!!, parameters)
+        val moduleOPC= ModuleOpc(matrixDCT)
         val box=moduleOPC.getTripleDataOpcMatrix(guard.getEncryptProperty())
         progressListener?.invoke(80,"write to file")
         val bvc=box.toByteVectorContainer()
@@ -53,11 +53,11 @@ class ConvertorDefault (val dao: IDao,val guard:IGuard) {
         val box=TripleDataOpcMatrix.valueOf(bvc)
         val parameters=box.parameters
         progressListener?.invoke(10,"reverse OPC")
-        val mOPC= ModuleOpc(box, parameters)
+        val mOPC= ModuleOpc(box)
         val (FFTM,message) =mOPC.getTripleShortMatrix(guard.getEncryptProperty())
         message?.let { guard.onMessageRead(message)}
         progressListener?.invoke(50,"reverse DCT")
-        val bodum1 = ModuleDCT(FFTM,parameters.flag)
+        val bodum1 = ModuleDCT(FFTM)
         val matrixYBR=bodum1.getYCbCrMatrix(isAsync)
         progressListener?.invoke(70,"YcBcR to BMP");
         val af = ModuleImage(matrixYBR);

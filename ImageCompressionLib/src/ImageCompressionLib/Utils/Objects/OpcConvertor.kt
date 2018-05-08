@@ -126,20 +126,20 @@ class OpcConvertor {
         if(parameters.flag.isChecked(Flag.Parameter.GlobalBase))
             setGlobalBase()
 
-        if(position!=null&&message!=null)
-            if(parameters.flag.isChecked(Flag.Parameter.Steganography))//TODO remove
-                directOpcWithMessageAt(position,message)
-        else
+        if(position!=null&&message!=null) {
+            if (parameters.flag.isChecked(Flag.Parameter.Steganography))//TODO remove
+                directOpcWithMessageAt(position, message)
+        }else
             directOpc()
     }
     private fun reverceProcess(position: Int?): ByteVector?{
         createSplitedMatrix()
 
         var res: ByteVector?=null
-        if(position!=null)
-            if(parameters.flag.isChecked(Flag.Parameter.Steganography))//TODO remove
-            res=reverceOPCWithMessageAt(position)
-        else
+        if(position!=null) {
+            if (parameters.flag.isChecked(Flag.Parameter.Steganography))//TODO remove
+                res = reverceOPCWithMessageAt(position)
+        } else
             reverceOPC()
 
         afterReverceOpc()

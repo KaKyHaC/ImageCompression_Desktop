@@ -16,14 +16,14 @@ import kotlin.reflect.KFunction1
 /**
  * Created by Димка on 19.09.2016.
  */
-class ModuleDCT(private val tripleShortMatrixOld: TripleShortMatrix, //    private TripleShortMatrix resTripleShortMatrix;
-                private val flag: Flag) {
+class ModuleDCT(private val tripleShortMatrixOld: TripleShortMatrix) { //    private TripleShortMatrix resTripleShortMatrix;
+    private val flag: Flag
     private var a: DctConvertor
     private var b: DctConvertor
     private var c: DctConvertor
 
     init {
-
+        flag=tripleShortMatrixOld.parameters.flag
 //        if (tripleShortMatrixOld.state == State.Yenl)
 //        //new code . Does it is needed ?
 //            tripleShortMatrixOld.state = State.YBR
