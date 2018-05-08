@@ -29,17 +29,7 @@ public class Flag {
     public Flag(short val){
         f=val;
     }
-    public static Flag createDefaultFlag(){
-        Flag f=new Flag();
-        f.setTrue(Parameter.OneFile);
-        f.setTrue(Parameter.Enlargement);
-        f.setTrue(Parameter.DC);
-        f.setTrue(Parameter.LongCode);
-        f.setTrue(Parameter.CompressionUtils);
-        f.setTrue(Parameter.Quantization);
-        f.setTrue(Parameter.DCT);
-        return f;
-    }
+
 
     public short getFlag(){return f;}
 
@@ -127,6 +117,27 @@ public class Flag {
     @Override
     public String toString() {
         return Short.toString(f);
+    }
+
+
+    public static Flag createDefaultFlag(){
+        Flag f=new Flag();
+        f.setTrue(Parameter.OneFile);
+        f.setTrue(Parameter.DC);
+        f.setTrue(Parameter.CompressionUtils);
+        f.setTrue(Parameter.DCT);
+        return f;
+    }
+    public static Flag createCompressionFlag(){
+        Flag f=new Flag();
+        f.setTrue(Parameter.OneFile);
+        f.setTrue(Parameter.Enlargement);
+        f.setTrue(Parameter.DC);
+        f.setTrue(Parameter.LongCode);
+        f.setTrue(Parameter.CompressionUtils);
+        f.setTrue(Parameter.Quantization);
+        f.setTrue(Parameter.DCT);
+        return f;
     }
 }
 

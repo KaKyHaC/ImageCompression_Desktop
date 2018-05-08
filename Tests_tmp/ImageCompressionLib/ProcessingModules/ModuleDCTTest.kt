@@ -7,8 +7,10 @@ import ImageCompressionLib.Utils.Objects.TimeManager
 import org.junit.Assert.*
 import org.junit.Test
 import java.util.*
+import kotlin.test.assertFails
 
 class ModuleDCTTest{
+    val range=8
     @Test
     fun DerRevDCTTest() {
         val m = ImageIOTest.createMatrix(1920, 1080)
@@ -19,17 +21,17 @@ class ModuleDCTTest{
 
         val dctModule = ModuleDCT(enl, Flag.createDefaultFlag())
 
-        dctModule.getDCTMatrix(true);
-        assertFalse( cpy.assertMatrixInRange(enl,8))
+        val dct=dctModule.getDCTMatrix(true);
+        assertFails {( cpy.assertMatrixInRange(dct,range))}
 
-        dctModule.getYCbCrMatrix(true)
-        assertTrue(cpy.assertMatrixInRange(enl,8))
+        val ynl=dctModule.getYCbCrMatrix(true)
+        assertTrue(cpy.assertMatrixInRange(ynl,range))
 
-        dctModule.getDCTMatrix(false)
-        assertFalse( cpy.assertMatrixInRange(enl,8))
+        val dct1=dctModule.getDCTMatrix(false)
+        assertFails { ( cpy.assertMatrixInRange(dct1,range*2))}
 
-        dctModule.getYCbCrMatrix(false)
-        assertTrue(cpy.assertMatrixInRange(enl,8))
+        val ybr1=dctModule.getYCbCrMatrix(false)
+        assertTrue(cpy.assertMatrixInRange(ybr1,range*2))
     }
     @Test
     fun TimeTest1(){
@@ -70,7 +72,7 @@ class ModuleDCTTest{
         val enl=mi.getYenlMatrix(true)
         val cpy=enl.copy()
 
-        val dctModule=ModuleDCT(enl, Flag())
+        val dctModule=ModuleDCT(enl, Flag.createDefaultFlag())
 
         val t1= Date().time
         for (i in 0..loop-1){
@@ -102,24 +104,23 @@ class ModuleDCTTest{
         val cpy=enl.copy()
         assertEquals(cpy,enl)
 
-        val dctModule = ModuleDCT(enl, Flag())
+        val dctModule = ModuleDCT(enl, Flag.createDefaultFlag())
 
         TimeManager.Instance.startNewTrack("mDCT ${loop}l,${dif}dif (${w}x$h)")
         for(i in 0..loop-1) {
-            dctModule.getDCTMatrix(true)
-            assertFalse(cpy.assertMatrixInRange(enl, dif))
+            var enl=dctModule.getDCTMatrix(true)
+            assertFails { (cpy.assertMatrixInRange(enl, dif))}
 
-            dctModule.getYCbCrMatrix(true)
+            enl=dctModule.getYCbCrMatrix(true)
             assertTrue(cpy.assertMatrixInRange(enl, dif))
         }
         TimeManager.Instance.append("multiThread DCT")
 
         for (i in 0..loop-1) {
-            dctModule.getDCTMatrix(false)
-            assertFalse(cpy.assertMatrixInRange(enl, dif))
+            var enl=dctModule.getDCTMatrix(false)
+            assertFails { (cpy.assertMatrixInRange(enl, dif))}
 
-
-            dctModule.getYCbCrMatrix(true)
+            enl=dctModule.getYCbCrMatrix(false)
             assertTrue(cpy.assertMatrixInRange(enl, dif))
         }
         TimeManager.Instance.append("one Thread DCT")

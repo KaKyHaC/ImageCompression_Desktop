@@ -49,9 +49,9 @@ class ImageIOTest{
     }
     companion object {
         fun createMatrix(w:Int,h:Int): TripleShortMatrix {
-            val a=ShortMatrix(w,h){i, j -> (i+j%255).toShort() }
-            val b=ShortMatrix(w,h){i, j -> (i+j%255).toShort() }
-            val c=ShortMatrix(w,h){i, j -> (i+j%255).toShort() }
+            val a=ShortMatrix(w,h){i, j -> ((i+j)%255).toShort() }
+            val b=ShortMatrix(w,h){i, j -> ((i+j)%255).toShort() }
+            val c=ShortMatrix(w,h){i, j -> ((i+j)%255).toShort() }
 
             val m= TripleShortMatrix(a,b,c, Parameters.createParametresForTest(),State.RGB)
 
