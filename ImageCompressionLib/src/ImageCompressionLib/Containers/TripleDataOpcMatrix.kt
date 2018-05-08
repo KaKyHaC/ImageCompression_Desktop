@@ -54,7 +54,7 @@ class TripleDataOpcMatrix {
                 value[0,0].FromBaseToVector(vector,parameters.flag)
                 return@forEach null
             }
-        }else {
+        }else if(!parameters.flag.isChecked(Flag.Parameter.OneFile)){
             this.forEach() { i, j, value ->
                 value.FromBaseToVector(vector, parameters.flag)
                 return@forEach null
@@ -100,15 +100,21 @@ class TripleDataOpcMatrix {
 
     companion object {
         fun Matrix<DataOpc>.readFromByteVector(vector: ByteVector,parameters: Parameters){
-            this.forEach(){i, j, value ->
-                value.setFrom(vector,parameters)
-                return@forEach null
-            }
+                this.forEach() { i, j, value ->
+                    value.setFrom(vector, parameters)
+                    return@forEach null
+                }
         }
+
         fun Matrix<DataOpc>.readBaseFromByteVector(vector: ByteVector,parameters: Parameters){
-            this.forEach(){i, j, value ->
-                value.FromVectorToBase(vector,parameters.flag)
-                return@forEach null
+            if(parameters.flag.isChecked(Flag.Parameter.GlobalBase)){
+                throw Exception("not ready")//todo wlwxccc
+            }
+            else if(!parameters.flag.isChecked(Flag.Parameter.OneFile)) {
+                this.forEach() { i, j, value ->
+                    value.FromVectorToBase(vector, parameters.flag)
+                    return@forEach null
+                }
             }
         }
         @JvmStatic fun valueOf(container: ByteVectorContainer): TripleDataOpcMatrix {

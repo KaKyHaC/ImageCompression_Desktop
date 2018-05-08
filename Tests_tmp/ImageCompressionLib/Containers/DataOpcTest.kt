@@ -34,6 +34,7 @@ class DataOpcTest {
         val parameters=Parameters(f, Size(100, 100),size)
         val vector= ByteVector()
 
+//        dataOpc.FromBaseToVector(vector,f)
         dataOpc.toByteVector(vector, parameters)
         val res= DataOpc.valueOf(vector,parameters)
 

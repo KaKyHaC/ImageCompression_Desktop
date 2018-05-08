@@ -123,8 +123,8 @@ class DataOpc :ICopyble{
         if (f.isChecked(Flag.Parameter.DC))
             FromDcToVector(vector)
 
-//        if (!f.isChecked(Flag.Parameter.GlobalBase) && f.isChecked(Flag.Parameter.OneFile))
-//            FromBaseToVector(vector,f)
+        if (!f.isChecked(Flag.Parameter.GlobalBase) && f.isChecked(Flag.Parameter.OneFile))
+            FromBaseToVector(vector,f)
 
         if (f.isChecked(Flag.Parameter.LongCode))
             FromCodeToVector(vector)
@@ -141,8 +141,8 @@ class DataOpc :ICopyble{
         if (f.isChecked(Flag.Parameter.DC))
             FromVectorToDc(vector)
 
-//        if (!f.isChecked(Flag.Parameter.GlobalBase) && f.isChecked(Flag.Parameter.OneFile))
-//            FromVectorToBase(vector,f)
+        if (!f.isChecked(Flag.Parameter.GlobalBase) && f.isChecked(Flag.Parameter.OneFile))
+            FromVectorToBase(vector,f)
 
         if (f.isChecked(Flag.Parameter.LongCode))
             FromVectorToCode(vector)
