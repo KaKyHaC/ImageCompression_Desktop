@@ -34,14 +34,14 @@ class OpcConvertor {
         this.shortMatrix = ShortMatrix.valueOf(dataOrigin)
         this.parameters=parameters
         state = State.Origin
-        val size=calculataDataOpcMatrixSize(parameters)
+        val size=calculataDataOpcMatrixSize(Size(dataOrigin.size,dataOrigin[0].size),parameters.unitSize)
         dataOpcMatrix= DataOpcMatrix(size.width, size.height, parameters.unitSize)
     }
     constructor(dataOrigin: ShortMatrix, parameters: Parameters) {
         this.shortMatrix = dataOrigin
         this.parameters=parameters
         state = State.Origin
-        val size=calculataDataOpcMatrixSize(parameters)
+        val size=calculataDataOpcMatrixSize(dataOrigin.size,parameters.unitSize)
         dataOpcMatrix= DataOpcMatrix(size.width, size.height, parameters.unitSize)
     }
 
@@ -59,13 +59,13 @@ class OpcConvertor {
         shortMatrix= ShortMatrix(parameters.imageSize.width, parameters.imageSize.height)
     }
     private fun createSplitedMatrix(){
-        splitedShortMatrix=shortMatrix.split(parameters.unitSize.width,parameters.unitSize.height)
+        splitedShortMatrix=shortMatrix.splitWithZeroIterator(parameters.unitSize.width,parameters.unitSize.height,0)
     }
-    private fun calculataDataOpcMatrixSize(parameters: Parameters): Size {
-        var w=parameters.imageSize.width/parameters.unitSize.width
-        var h=parameters.imageSize.height/parameters.unitSize.height
-        if(parameters.imageSize.width%parameters.unitSize.width!=0)w++
-        if(parameters.imageSize.height%parameters.unitSize.height!=0)h++
+    private fun calculataDataOpcMatrixSize(imageSize: Size, unitSize:Size): Size {
+        var w= imageSize.width/unitSize.width
+        var h= imageSize.height/unitSize.height
+        if(imageSize.width%unitSize.width!=0)w++
+        if(imageSize.height%unitSize.height!=0)h++
         return Size(w, h)
     }
     private fun beforDirectOpc(){

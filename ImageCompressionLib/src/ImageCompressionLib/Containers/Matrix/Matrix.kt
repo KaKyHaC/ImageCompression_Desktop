@@ -106,8 +106,8 @@ open class Matrix<T:Any> {
         return IteratorMatrix<T>(matrix,wStart,hStart, s)
     }
     fun rectSaveZeroIterator(wStart: Int, hStart: Int,size: Size,defaultVal:T): Matrix<T> {
-        val s=calculataBufferSize(wStart, hStart, size)
-        return IteratorZeroMatrix<T>(matrix,wStart,hStart, s,defaultVal)
+//        val s=calculataBufferSize(wStart, hStart, size)
+        return IteratorZeroMatrix<T>(matrix,wStart,hStart,size,defaultVal)
     }
 
     private fun calculataBufferSize(wStart: Int, hStart: Int, size: Size):Size{
@@ -132,21 +132,21 @@ open class Matrix<T:Any> {
 
     @Deprecated("use split")
     fun splitBuffered(horizontalStep: Int, verticalStep: Int): Matrix<Matrix<T>> {
-        val s=calculateMatrixofMatrixSize(horizontalStep, verticalStep)
+        val s= calculateMatrixOfMatrixSize(horizontalStep, verticalStep)
         val res1 = Matrix<Matrix<T>>(s.width, s.height) { i, j -> rectBufferSave(i * horizontalStep, j * verticalStep, i * horizontalStep + horizontalStep, j * verticalStep + verticalStep) }
         return res1
     }
     fun split(horizontalStep: Int, verticalStep: Int): Matrix<Matrix<T>> {
-        val s=calculateMatrixofMatrixSize(horizontalStep, verticalStep)
+        val s= calculateMatrixOfMatrixSize(horizontalStep, verticalStep)
         val res1 = Matrix<Matrix<T>>(s) { i, j -> rectSaveIterator(i * horizontalStep, j * verticalStep, Size(horizontalStep,verticalStep)) }
         return res1
     }
     fun splitWithZeroIterator(horizontalStep: Int, verticalStep: Int,defaultValue:T): Matrix<Matrix<T>> {
-        val s=calculateMatrixofMatrixSize(horizontalStep, verticalStep)
+        val s= calculateMatrixOfMatrixSize(horizontalStep, verticalStep)
         val res1 = Matrix<Matrix<T>>(s) { i, j -> rectSaveZeroIterator(i * horizontalStep, j * verticalStep, Size(horizontalStep,verticalStep),defaultValue) }
         return res1
     }
-    private fun calculateMatrixofMatrixSize(horizontalStep: Int, verticalStep: Int):Size{
+    private fun calculateMatrixOfMatrixSize(horizontalStep: Int, verticalStep: Int):Size{
         var w = width / horizontalStep
         var h = height / verticalStep
         if (width % horizontalStep != 0) w++
