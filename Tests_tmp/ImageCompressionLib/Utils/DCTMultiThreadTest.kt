@@ -40,6 +40,15 @@ class DCTMultiThreadTest {
         val rev = ShortMatrix.valueOf(DCTMultiThread.reverseDCT(dir))
         cpy.assertInRange(rev,1)
     }
+    @Test
+    @Throws(Exception::class)
+    fun TestDCTinRange3() {
+        val cpy=data.copy()
+        val dir = ShortMatrix.valueOf(DCTMultiThread.directDCT(data))
+        assertFails { cpy.assertInRange( dir, 0)}
+        val rev = ShortMatrix.valueOf(DCTMultiThread.reverseDCT(dir))
+        cpy.assertInRange(rev,3)
+    }
 
 
 }

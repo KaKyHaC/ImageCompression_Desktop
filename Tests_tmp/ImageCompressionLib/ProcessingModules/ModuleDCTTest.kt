@@ -33,37 +33,41 @@ class ModuleDCTTest{
         val ybr1=dctModule.getYCbCrMatrix(false)
         assertTrue(cpy.assertMatrixInRange(ybr1,range*2))
     }
+//    @Test
+//    fun TimeTest1(){
+//        TimeTest(1920,1080,1)
+//    }
+//    @Test
+//    fun TimeTest2(){
+//        TimeTest(360,240,1)
+//    }
+//    @Test
+//    fun TimeTest3(){
+//        TimeTest(1920,1080,3)
+//    }
+//    @Test
+//    fun TimeTest4(){
+//        TimeTest(360,240,3)
+//    }
     @Test
-    fun TimeTest1(){
-        TimeTest(1920,1080,1)
-    }
-    @Test
-    fun TimeTest2(){
-        TimeTest(360,240,1)
-    }
-    @Test
-    fun TimeTest3(){
-        TimeTest(1920,1080,3)
-    }
-    @Test
-    fun TimeTest4(){
-        TimeTest(360,240,3)
-    }
-    @Test
-    fun GlobalTest1(){
+    fun GlobalTest360x240(){
         GlobalTest(360,240,1,8)
     }
     @Test
-    fun GlobalTest2(){
+    fun GlobalTest360x240x3(){
         GlobalTest(360,240,3,24)
     }
     @Test
-    fun GlobalTest3(){
+    fun GlobalTestHD(){
         GlobalTest(1920,1080,1,8)
     }
     @Test
-    fun GlobalTest4(){
+    fun GlobalTestHDx3(){
         GlobalTest(1920,1080,3,24)
+    }
+    @Test
+    fun GlobalTest13x25(){
+        GlobalTest(13,25,1,8)
     }
 
     fun TimeTest(w:Int ,h:Int,loop:Int){

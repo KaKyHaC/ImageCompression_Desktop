@@ -1,12 +1,13 @@
-/*
 package ImageCompressionLib.Utils.Objects
 
 import ImageCompressionLib.Constants.TypeQuantization
+import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Type.Flag
 import org.junit.Test
 
 import org.junit.Assert.*
 import org.junit.Before
+import java.util.*
 import kotlin.test.assertFails
 
 class DctConvertorDesktopTest {
@@ -34,20 +35,24 @@ class DctConvertorDesktopTest {
     fun test4(){
         mainTotal(4,4,5)
     }
+    @Test
+    fun test5(){
+        mainTotal(7,6,5)
+    }
     fun mainTotal(w: Int,h: Int,range: Int) {
-        val data=createData(w,h){i,j->((i+j)%255).toShort()}
+        val data=ShortMatrix(w,h){ i, j->((Math.abs(Random().nextInt(255)))).toShort()}
         val cpy = data.copy()
-        assertTrue(data.inRannge(cpy,0))
+        assertTrue(data.assertInRange(cpy,0))
 
         val convertor=DctConvertor(data,DctConvertor.State.ORIGIN,TypeQuantization.luminosity,flag)
 
         val dct=convertor.getMatrixDct()
-        assertTrue(data.inRannge(dct,0))
-        assertFails { (cpy.inRannge(dct,range))}
+        assertTrue(data.assertInRange(ShortMatrix.valueOf(dct),0))
+        assertFails { (cpy.assertInRange(ShortMatrix.valueOf(dct),range))}
 
         val res=convertor.getMatrixOrigin()
-        assertTrue(data.inRannge(cpy,range))
-        assertTrue(data.inRannge(res,0))
+        assertTrue(data.assertInRange(cpy,range))
+        assertTrue(data.assertInRange(ShortMatrix.valueOf(res),0))
 
     }
 
@@ -76,4 +81,4 @@ class DctConvertorDesktopTest {
         }
         return true
     }
-}*/
+}

@@ -98,8 +98,8 @@ class ConvertorDesktopTest {
 //        assertEquals(m,res)
 //    }
     @Test
-    fun TestModuleDCT5() {
-        val delta = 5
+    fun TestModuleDCT10() {
+        val delta = 10
         testModuleDCT(delta)
     }
 
@@ -111,8 +111,8 @@ class ConvertorDesktopTest {
     }
 
     @Test
-    fun TestFullAlgorithmWithoutFile8() {
-        val delta = 8
+    fun TestFullAlgorithmWithoutFile10() {
+        val delta = 10
         val matrix = getRandomMatrix(21, 12)
         val t1 = Date().time
         val cpy = matrix.copy()
@@ -128,6 +128,11 @@ class ConvertorDesktopTest {
         val mDCT = ModuleDCT(ybr)
         val dct = mDCT.getDCTMatrix(true)
         val dctCpy = dct.copy()
+        //---
+        val mdct1=ModuleDCT(dct)
+        val mdctres=mdct1.getYCbCrMatrix(true)
+        ybrCpy.assertMatrixInRange(mdctres,10)
+        //---
 //        assertFails { AssertMatrixInRange(cpy,dct,1) }
 //        assertFails { AssertMatrixInRange(ybrCpy,dct,1) }
 
