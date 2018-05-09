@@ -54,4 +54,29 @@ class MyBufferedImage (val width:Int,val height:Int){
                 data[i][j]=doThigs(i,j,data[i][j])?:data[i][j]
     }
     //TODO add seters for R,G,B
+
+    fun copy():MyBufferedImage{
+        val res=MyBufferedImage(width, height)
+        res.forEach(){ i, j, value ->  return@forEach data[i][j]}
+        return res
+    }
+    fun assertInRange(other:MyBufferedImage,range:Int){
+        forEach(){i, j, value ->
+            var RinRange=false
+            var GinRange=false
+            var BinRange=false
+            for(r in -range..range){
+                if(getR(i,j)+r==other.getR(i,j))
+                    RinRange=true
+                if(getG(i,j)+r==other.getG(i,j))
+                    GinRange=true
+                if(getB(i,j)+r==other.getB(i,j))
+                    BinRange=true
+            }
+            if(!(RinRange&&BinRange&&GinRange))
+                throw Exception("data[$i][$j]:$value!=${other.getRGB(i,j)}")
+
+            return@forEach null
+        }
+    }
 }

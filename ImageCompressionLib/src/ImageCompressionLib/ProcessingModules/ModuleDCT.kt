@@ -103,7 +103,7 @@ class ModuleDCT(private val tripleShortMatrixOld: TripleShortMatrix) { //    pri
         }
         return if (tripleShortMatrixOld.state == State.YBR || tripleShortMatrixOld.state == State.Yenl) tripleShortMatrixOld else  throw Exception("State not correct")
     }
-    fun getDCTMatrix1(isMultiThreads: Boolean): TripleShortMatrix {
+    private fun getDCTMatrix1(isMultiThreads: Boolean): TripleShortMatrix {
         when (tripleShortMatrixOld.state) {
             State.YBR, State.Yenl -> if (isMultiThreads)
                 dataProcessingInThreads(DctConvertor::getMatrixDct)
