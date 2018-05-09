@@ -37,18 +37,18 @@ class MatrixTest {
     }
     @Test
     fun rect(){
-        val tmp=matrix.rectSave(0,0,2,2)
+        val tmp=matrix.rectBufferSave(0,0,2,2)
         val b=matrix22.equals(tmp)
         assertEquals(matrix22,tmp)
     }
     @Test
     fun split(){
-        val tmp=matrix.split(2,2)
+        val tmp=matrix.splitBuffered(2,2)
         assertEquals(matrix22,tmp[0,0])
     }
     @Test
     fun splitIterator(){
-        val tmp=matrix.splitBuffer(2,2)
+        val tmp=matrix.split(2,2)
         assertEquals(matrix22,tmp[0,0])
         assertEquals(tmp[0,0].width,2)
 

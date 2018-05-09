@@ -83,55 +83,34 @@ open class Matrix<T:Any> {
 
 
     @Deprecated("use Size")
-    fun rect(wStart: Int, hStart: Int, wEnd: Int, hEnd: Int): Matrix<T> {
+    fun rectBuffer(wStart: Int, hStart: Int, wEnd: Int, hEnd: Int): Matrix<T> {
         return Matrix(Size(wEnd - wStart, hEnd - hStart)) { i, j -> matrix[i + wStart][j + hStart] as T }
     }
-    fun rect(wStart: Int, hStart: Int,size: Size): Matrix<T> {
+    fun rectBuffer(wStart: Int, hStart: Int, size: Size): Matrix<T> {
         return Matrix(Size(size.width,size.height)) { i, j -> matrix[i + wStart][j + hStart] as T }
     }
     fun rectIterator(wStart: Int, hStart: Int,size: Size): Matrix<T> {
         return IteratorMatrix<T>(matrix,wStart, hStart, size)
     }
     @Deprecated("use Size")
-    fun rectSave(wStart: Int, hStart: Int, wEnd: Int, hEnd: Int): Matrix<T> {
-        var wEnd = wStart+size.width
-        var hEnd = hStart+size.height
-        var wtmpS = wStart
-        var htmpS = hStart
-        if (wEnd > width)
-            wEnd = width
-        if (hEnd > height)
-            hEnd = height
-
-        if (wStart < 0)
-            wtmpS = 0
-        if (hStart < 0)
-            htmpS = 0
-
-        val w = wEnd - wtmpS
-        val h = hEnd - htmpS
-        return Matrix(w, h) { i, j -> matrix[i + wStart][j + hStart] as T }
+    fun rectBufferSave(wStart: Int, hStart: Int, wEnd: Int, hEnd: Int): Matrix<T> {
+        val s=calculataBufferSize(wStart, hStart, Size(wEnd-wStart,hEnd-hStart))
+        return Matrix(s.width,s.height) { i, j -> matrix[i + wStart][j + hStart] as T }
     }
-    fun rectSave(wStart: Int, hStart: Int,size: Size): Matrix<T> {
-        var wEnd = wStart+size.width
-        var hEnd = hStart+size.height
-        var wtmpS = wStart
-        var htmpS = hStart
-        if (wEnd > width)
-            wEnd = width
-        if (hEnd > height)
-            hEnd = height
-
-        if (wStart < 0)
-            wtmpS = 0
-        if (hStart < 0)
-            htmpS = 0
-
-        val w = wEnd - wtmpS
-        val h = hEnd - htmpS
-        return Matrix(w, h) { i, j -> matrix[i + wStart][j + hStart] as T }
+    fun rectBufferSave(wStart: Int, hStart: Int, size: Size): Matrix<T> {
+        val s=calculataBufferSize(wStart, hStart, size)
+        return Matrix(s.width, s.height) { i, j -> matrix[i + wStart][j + hStart] as T }
     }
     fun rectSaveIterator(wStart: Int, hStart: Int,size: Size): Matrix<T> {
+        val s=calculataBufferSize(wStart, hStart, size)
+        return IteratorMatrix<T>(matrix,wStart,hStart, s)
+    }
+    fun rectSaveZeroIterator(wStart: Int, hStart: Int,size: Size,defaultVal:T): Matrix<T> {
+        val s=calculataBufferSize(wStart, hStart, size)
+        return IteratorZeroMatrix<T>(matrix,wStart,hStart, s,defaultVal)
+    }
+
+    private fun calculataBufferSize(wStart: Int, hStart: Int, size: Size):Size{
         var wEnd = wStart+size.width
         var hEnd = hStart+size.height
         var wtmpS = wStart
@@ -148,25 +127,31 @@ open class Matrix<T:Any> {
 
         val w = wEnd - wtmpS
         val h = hEnd - htmpS
-        return IteratorMatrix<T>(matrix,wStart,hStart, Size(w,h))
+        return Size(w,h)
     }
 
-    @Deprecated("use splitBuffer")
-    fun split(horizontalStep: Int, verticalStep: Int): Matrix<Matrix<T>> {
-        var w = width / horizontalStep
-        var h = height / verticalStep
-        if (width % horizontalStep != 0) w++
-        if (height % verticalStep != 0) h++
-        val res1 = Matrix<Matrix<T>>(w, h) { i, j -> rectSave(i * horizontalStep, j * verticalStep, i * horizontalStep + horizontalStep, j * verticalStep + verticalStep) }
+    @Deprecated("use split")
+    fun splitBuffered(horizontalStep: Int, verticalStep: Int): Matrix<Matrix<T>> {
+        val s=calculateMatrixofMatrixSize(horizontalStep, verticalStep)
+        val res1 = Matrix<Matrix<T>>(s.width, s.height) { i, j -> rectBufferSave(i * horizontalStep, j * verticalStep, i * horizontalStep + horizontalStep, j * verticalStep + verticalStep) }
         return res1
     }
-    fun splitBuffer(horizontalStep: Int, verticalStep: Int): Matrix<Matrix<T>> {
+    fun split(horizontalStep: Int, verticalStep: Int): Matrix<Matrix<T>> {
+        val s=calculateMatrixofMatrixSize(horizontalStep, verticalStep)
+        val res1 = Matrix<Matrix<T>>(s) { i, j -> rectSaveIterator(i * horizontalStep, j * verticalStep, Size(horizontalStep,verticalStep)) }
+        return res1
+    }
+    fun splitWithZeroIterator(horizontalStep: Int, verticalStep: Int,defaultValue:T): Matrix<Matrix<T>> {
+        val s=calculateMatrixofMatrixSize(horizontalStep, verticalStep)
+        val res1 = Matrix<Matrix<T>>(s) { i, j -> rectSaveZeroIterator(i * horizontalStep, j * verticalStep, Size(horizontalStep,verticalStep),defaultValue) }
+        return res1
+    }
+    private fun calculateMatrixofMatrixSize(horizontalStep: Int, verticalStep: Int):Size{
         var w = width / horizontalStep
         var h = height / verticalStep
         if (width % horizontalStep != 0) w++
         if (height % verticalStep != 0) h++
-        val res1 = Matrix<Matrix<T>>(w, h) { i, j -> rectSaveIterator(i * horizontalStep, j * verticalStep, Size(horizontalStep,verticalStep)) }
-        return res1
+        return Size(w,h)
     }
 
     fun assertEquals(other:Matrix<T>):Boolean{
@@ -181,7 +166,6 @@ open class Matrix<T:Any> {
         }
         return true
     }
-
     companion object {
         @JvmStatic fun <T:Any>valueOf(mat:Array<Array<T>>): Matrix<T> {
             return Matrix<T>(mat as Array<Array<Any>>)

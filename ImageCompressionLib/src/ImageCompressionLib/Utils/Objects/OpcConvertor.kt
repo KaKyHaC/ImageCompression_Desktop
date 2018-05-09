@@ -59,7 +59,7 @@ class OpcConvertor {
         shortMatrix= ShortMatrix(parameters.imageSize.width, parameters.imageSize.height)
     }
     private fun createSplitedMatrix(){
-        splitedShortMatrix=shortMatrix.splitBuffer(parameters.unitSize.width,parameters.unitSize.height)
+        splitedShortMatrix=shortMatrix.split(parameters.unitSize.width,parameters.unitSize.height)
     }
     private fun calculataDataOpcMatrixSize(parameters: Parameters): Size {
         var w=parameters.imageSize.width/parameters.unitSize.width
@@ -83,7 +83,7 @@ class OpcConvertor {
     private fun setGlobalBase(){
 //        if(!parameters.flag.isChecked(Flag.Parameter.GlobalBase))
 //            return
-        val splitedDataOpcMatrix=dataOpcMatrix.splitBuffer(parameters.sameBaseSize.width,parameters.sameBaseSize.height)
+        val splitedDataOpcMatrix=dataOpcMatrix.split(parameters.sameBaseSize.width,parameters.sameBaseSize.height)
         splitedDataOpcMatrix.forEach(){i, j, value ->
             OpcUtils.setSameBaseIn(value)
             return@forEach null

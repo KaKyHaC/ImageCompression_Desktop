@@ -1,13 +1,11 @@
 package ImageCompressionLib.Containers
 
-import ImageCompressionLib.Constants.SIZEOFBLOCK
 import ImageCompressionLib.Containers.Matrix.DataOpcMatrix
 import ImageCompressionLib.Containers.Matrix.Matrix
 import ImageCompressionLib.Containers.Type.ByteVector
 import ImageCompressionLib.Containers.Type.DataOpc
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Containers.Type.Size
-import java.util.*
 
 class TripleDataOpcMatrix {
     val a: Matrix<DataOpc>
@@ -49,7 +47,7 @@ class TripleDataOpcMatrix {
     }
     fun Matrix<DataOpc>.writeBaseToByteVector(vector: ByteVector){
         if(parameters.flag.isChecked(Flag.Parameter.GlobalBase)) {
-            val tmp = this.splitBuffer(parameters.sameBaseSize.width, parameters.sameBaseSize.height)
+            val tmp = this.split(parameters.sameBaseSize.width, parameters.sameBaseSize.height)
             tmp.forEach(){i, j, value ->
                 value[0,0].FromBaseToVector(vector,parameters.flag)
                 return@forEach null
