@@ -79,4 +79,13 @@ class MyBufferedImage (val width:Int,val height:Int){
             return@forEach null
         }
     }
+
+    operator fun minus(other: MyBufferedImage):MyBufferedImage{
+        val res=copy()
+        res.forEach(){i, j, value ->
+             return@forEach value-other.getRGB(i,j)
+        }
+        return res
+    }
+
 }

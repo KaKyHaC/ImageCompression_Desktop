@@ -88,6 +88,9 @@ class DataOpc :ICopyble{
         while (i< size.height){
             vector.append(base[i++].toByte())
         }
+        for(i in 0 until size.height)//TODO remove line
+            if(base[i]==0.toShort())
+                throw Exception("base[$i]==0")
     }
     fun FromVectorToBase(vector: ByteVector, flag: Flag) {
         var i=0
@@ -98,6 +101,9 @@ class DataOpc :ICopyble{
         while (i< size.height){
             base[i++]=vector.getNext().toShort() and 0xff
         }
+        for(i in 0 until size.height)//TODO remove line
+            if(base[i]==0.toShort())
+                throw Exception("base[$i]==0")
     }
 
     fun FromDcToVector(vector: ByteVector) {
@@ -254,7 +260,7 @@ class DataOpc :ICopyble{
             var bi = BigInteger("1")
             for (i in 0 until unitSize.width) {
                 for (j in 0 until unitSize.height)
-                    bi = bi.multiply(BigInteger.valueOf(base[i].toLong()))
+                    bi = bi.multiply(BigInteger.valueOf(base[j].toLong()))
             }
             return bi.toByteArray().size
         }

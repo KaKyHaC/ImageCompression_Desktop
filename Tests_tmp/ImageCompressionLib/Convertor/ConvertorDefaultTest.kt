@@ -4,9 +4,11 @@ import ImageCompressionLib.Containers.ByteVectorContainer
 import ImageCompressionLib.Containers.EncryptParameters
 import ImageCompressionLib.Containers.Parameters
 import ImageCompressionLib.Containers.Type.ByteVector
+import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Containers.Type.MyBufferedImage
 import ImageCompressionLib.Containers.Type.Size
 import ImageCompressionLib.Convertor.ConvertorDefault.IDao
+import ImageCompressionLib.Utils.Functions.ImageStandardDeviation
 import ImageCompressionLib.Utils.Objects.TimeManager
 import org.junit.Before
 
@@ -19,10 +21,11 @@ import javax.net.ssl.TrustManager
 
 @RunWith(Parameterized::class)
 class ConvertorDefaultTest(val size:Size,val range:Int) {
+    val parameters=Parameters.createParametresForTest(size)
+    val myBufferedImage= createMyBI(size)
+
     val convertor:ConvertorDefault
     init {
-        val parameters=Parameters.createParametresForTest(size)
-        val myBufferedImage= createMyBI(size)
         val dao= object :IDao{
             var bvc:ByteVectorContainer?=null
             lateinit var cpy:MyBufferedImage
@@ -30,6 +33,7 @@ class ConvertorDefaultTest(val size:Size,val range:Int) {
                 bvc=vector
             }
             override fun onResultImage(image: MyBufferedImage, parameters: Parameters) {
+                println(ImageStandardDeviation.getDeviation(image,cpy))
                 image.assertInRange(cpy,range)
             }
             override fun getImage(): Pair<MyBufferedImage, Parameters> {
@@ -57,8 +61,29 @@ class ConvertorDefaultTest(val size:Size,val range:Int) {
     fun testDirectReverceConvert(){
         TimeManager.Instance.startNewTrack("convert")
         convertor.FromBmpToBar(ConvertorDefault.Computing.MultiThreads)
+        TimeManager.Instance.append("direct")
         convertor.FromBarToBmp(ConvertorDefault.Computing.MultiThreads)
-        TimeManager.Instance.append("end")
+        TimeManager.Instance.append("reverce")
+        println(TimeManager.Instance.getInfoInSec())
+    }
+    @Test
+    fun testDirectReverceConvertUnitSize7x6(){
+        parameters.unitSize= Size(7,6)
+        TimeManager.Instance.startNewTrack("convert")
+        convertor.FromBmpToBar(ConvertorDefault.Computing.MultiThreads)
+        TimeManager.Instance.append("direct")
+        convertor.FromBarToBmp(ConvertorDefault.Computing.MultiThreads)
+        TimeManager.Instance.append("reverce")
+        println(TimeManager.Instance.getInfoInSec())
+    }
+    @Test
+    fun testDirectReverceConvertMaxCompression(){
+        parameters.flag= Flag.createCompressionFlag()
+        TimeManager.Instance.startNewTrack("convert")
+        convertor.FromBmpToBar(ConvertorDefault.Computing.MultiThreads)
+        TimeManager.Instance.append("direct")
+        convertor.FromBarToBmp(ConvertorDefault.Computing.MultiThreads)
+        TimeManager.Instance.append("reverce")
         println(TimeManager.Instance.getInfoInSec())
     }
 
@@ -70,6 +95,7 @@ class ConvertorDefaultTest(val size:Size,val range:Int) {
                     arrayOf(Size(8,8),5)
                     ,arrayOf(Size(41,12),10)
                     ,arrayOf(Size(128,128),15)
+                    ,arrayOf(Size(119,133),15)
                     ,arrayOf(Size(1080,1920),20)
             )
         }

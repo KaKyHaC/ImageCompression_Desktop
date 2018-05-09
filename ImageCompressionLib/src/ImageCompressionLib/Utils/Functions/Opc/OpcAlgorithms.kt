@@ -84,6 +84,8 @@ class OpcAlgorithms {
             var bufbase: Long
             for (i in dataOrigin.width - 1 downTo 0) {
                 for (j in dataOrigin.height - 1 downTo 0) {
+                    if(j>=DataOpc.base.size)
+                        throw Exception("out of range")
                     bufbase = base * DataOpc.base[j]
                     if (bufbase > MAX_LONG) {
                         DataOpc.vectorCode.add(res)

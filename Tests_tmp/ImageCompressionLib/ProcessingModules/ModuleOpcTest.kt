@@ -4,11 +4,15 @@ import ImageCompressionLib.Constants.State
 import ImageCompressionLib.Containers.Parameters
 import ImageCompressionLib.Containers.Type.Size
 import ImageCompressionLib.Utils.Functions.ImageIOTest
+import ImageCompressionLib.Utils.Functions.ImageStandardDeviation
 import ImageCompressionLib.Utils.Objects.TimeManager
 import org.junit.Assert.*
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.junit.runners.Parameterized
 
-class ModuleOpcTest {
+@RunWith(Parameterized::class)
+class ModuleOpcTest(val w: Int,val h: Int,val loop: Int) {
     /*@Test
     fun TestDirectTime(){
         val m=ImageIOTest.createMatrix(1080,1920)
@@ -55,22 +59,7 @@ class ModuleOpcTest {
         assertTrue((t2-t1)>(t4-t3))
     }*/
     @Test
-    fun GlobalTest1(){//477 sec
-        GlobalTest(360,240,1)
-    }
-    @Test
-    fun GlobalTest2(){//1386 sec
-        GlobalTest(360,240,3)
-    }
-    @Test
-    fun GlobalTest3(){//11343 sec
-        GlobalTest(1920,1080,1)
-    }
-    @Test
-    fun GlobalTest4(){//34478 sec
-        GlobalTest(1920,1080,3)
-    }
-    fun GlobalTest(w:Int,h:Int,loop:Int){
+    fun GlobalTest(){
         val m=ImageIOTest.createMatrix(w,h)
         m.state=State.DCT
         val opcModule= ModuleOpc(m)
@@ -81,6 +70,7 @@ class ModuleOpcTest {
 
         tm.startNewTrack("ModuleOPC")
         for(i in 0 until loop) {
+            tm.append("start")
             val tdom = opcModule.getTripleDataOpcMatrix(null)
             val m2 = ModuleOpc(tdom)
             val res = m2.getTripleShortMatrix(null).first
@@ -88,5 +78,33 @@ class ModuleOpcTest {
             assertEquals(res, cpy)
         }
         println(tm.getInfoInSec())
+    }
+    @Test
+    fun GlobalTestUnitSize7x6() {
+        val m = ImageIOTest.createMatrix(w, h)
+        m.parameters.unitSize = Size(7, 6)
+        m.state = State.DCT
+        val cpy = m.copy()
+
+        val opcModule = ModuleOpc(m)
+        val tdom = opcModule.getTripleDataOpcMatrix(null)
+        val m2 = ModuleOpc(tdom)
+        val res = m2.getTripleShortMatrix(null).first
+
+        assertEquals(res, cpy)
+    }
+    companion object {
+        @JvmStatic
+        @Parameterized.Parameters(name = "w:{0},h:{1},loop:{2}")
+        fun data(): Collection<Array<Any>> {
+            return listOf(
+                    arrayOf(36,24,1) as Array<Any>
+                    ,arrayOf(13,25,1) as Array<Any>
+                    ,arrayOf(360,240,1) as Array<Any>//477
+                    ,arrayOf(360,240,3) as Array<Any>//1386
+                    ,arrayOf(1920,1080,1) as Array<Any>//11343
+                    ,arrayOf(1920,1080,3) as Array<Any>//34478
+            )
+        }
     }
 }
