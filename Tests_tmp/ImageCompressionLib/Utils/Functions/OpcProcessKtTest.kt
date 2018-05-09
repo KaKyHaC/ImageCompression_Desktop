@@ -45,7 +45,8 @@ class OpcProcessKtTest(val size: Size, val flag: Flag) {
             flag2.setTrue(Flag.Parameter.DC)
             flag3.setTrue(Flag.Parameter.LongCode)
             return listOf(
-                    arrayOf(size, flag)
+                    arrayOf(Size(7, 6), flag)
+                    ,arrayOf(size, flag)
             ,arrayOf(size, flag1)
             ,arrayOf(size, flag2)
             ,arrayOf(size, flag3)

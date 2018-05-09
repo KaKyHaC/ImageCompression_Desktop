@@ -14,7 +14,7 @@ class DataOpc :ICopyble{
     var vectorCode: Vector<Long>
     private val size:Size
     constructor(parameters: Parameters){
-        base = ShortArray(parameters.unitSize.height)
+        base = ShortArray(parameters.unitSize.height){1.toShort()}
         sign = Array(parameters.unitSize.width) { BooleanArray(parameters.unitSize.height) }
         DC = 0
         N = BigInteger("0")
@@ -22,7 +22,7 @@ class DataOpc :ICopyble{
         size=parameters.unitSize
     }
     constructor(unitSize: Size){
-        base = ShortArray(unitSize.height)
+        base = ShortArray(unitSize.height){1.toShort()}
         sign = Array(unitSize.width) { BooleanArray(unitSize.height) }
         DC = 0
         N = BigInteger("0")
@@ -81,16 +81,20 @@ class DataOpc :ICopyble{
 
     fun FromBaseToVector(vector: ByteVector, flag: Flag) {
         var i=0
-        if(!flag.isChecked(Flag.Parameter.DC)&&flag.isChecked(Flag.Parameter.DCT))
+        if(flag.isChecked(Flag.Parameter.DCT)) {//if (!DC)
             vector.append(base[i++])
+            vector.append(base[i++])//TODO remove line
+        }
         while (i< size.height){
             vector.append(base[i++].toByte())
         }
     }
     fun FromVectorToBase(vector: ByteVector, flag: Flag) {
         var i=0
-        if(!flag.isChecked(Flag.Parameter.DC)&&flag.isChecked(Flag.Parameter.DCT))
+        if(flag.isChecked(Flag.Parameter.DCT)){//!flag.isChecked(Flag.Parameter.DC)&&
             base[i++]=vector.getNextShort()
+            base[i++]=vector.getNextShort()//TODO remove line
+        }
         while (i< size.height){
             base[i++]=vector.getNext().toShort() and 0xff
         }
@@ -156,7 +160,7 @@ class DataOpc :ICopyble{
     }
 
 
-    override fun equals(other: Any?): Boolean {
+    fun assertEquals(other: Any?): Boolean {
         if (this === other)
             return true
         if (other!!.javaClass != DataOpc::class.java)
@@ -186,6 +190,36 @@ class DataOpc :ICopyble{
 
         return true
     }
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        val d=other as DataOpc
+
+        if (d!!.DC != DC)
+            return false
+        for (i in 0 until base.size) {
+            if (d.base[i] != base[i])
+                return false
+            for (j in 0 until sign[0].size) {
+                if (d.sign[i][j] != sign[i][j])
+                    return false
+            }
+        }
+        if (d.vectorCode.size != vectorCode.size)
+            return false
+
+        for (i in vectorCode.indices) {
+            if (d.vectorCode[i] != vectorCode[i])
+                return false
+        }
+        if(N.compareTo(d.N)!=0)
+            throw Exception("BI: $N!=${d.N}")
+
+
+        return true
+    }
+
     override fun hashCode(): Int {
         var result = Arrays.hashCode(base)
         result = 31 * result + Arrays.hashCode(sign)
@@ -211,6 +245,7 @@ class DataOpc :ICopyble{
         toByteVector(vector, parameters)
         return vector.size
     }
+
 
 
     companion object {

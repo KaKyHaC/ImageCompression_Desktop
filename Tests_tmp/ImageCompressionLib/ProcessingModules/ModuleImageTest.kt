@@ -24,7 +24,7 @@ class ModuleImageTest {
     }
 
     @Test
-    fun TestDefault5() {
+    fun TestDefaultRaundomBufIm5() {
         var bufferedImage= randomBufferedImage(122,124)
         val param=Parameters.createParametresForTest(Size(122,124))
         param.flag.setFalse(Flag.Parameter.Enlargement)
@@ -43,6 +43,36 @@ class ModuleImageTest {
         val arr2 = myBufferedImage1.getIntArray()//.getRGB(0, 0, w, h, null, 0, w)
 
         assertArrayInRange(arr1, arr2, 5)
+    }
+    @Test
+    fun TestDefaultGradientMatrix5() {
+        var bufferedImage= getGradientMatrix(122,124)
+        val mbi=ModuleImage(bufferedImage).getBufferedImage()
+
+        val module = ModuleImage(mbi,bufferedImage.parameters)
+        val matrix = module.getYenlMatrix(true)
+
+        val module1 = ModuleImage(matrix)
+        val myBufferedImage1 = module1.getBufferedImage()
+
+        val arr=myBufferedImage1.getIntArray()
+        val arr1=mbi.getIntArray()
+
+        assertArrayInRange(arr1,arr,5)
+    }
+    @Test
+    fun TestDefaultGradientMatrixRGB5() {
+        var bufferedImage= getGradientMatrix(122,124)
+        val cpy=bufferedImage.copy()
+
+        val module = ModuleImage(bufferedImage)
+        val matrix = module.getYenlMatrix(true)
+
+        val module1 = ModuleImage(matrix)
+        val rgbMatrix = module1.getRgbMatrixOld()
+
+        cpy.assertMatrixInRange(rgbMatrix,5)
+
     }
 
     @Test
@@ -105,9 +135,9 @@ class ModuleImageTest {
 
     }
     fun getGradientMatrix(w:Int,h:Int): TripleShortMatrix {
-        val a=ShortMatrix(w,h){i, j -> (i*j%255).toShort() }
-        val b=ShortMatrix(w,h){i, j -> (i*j%255).toShort() }
-        val c=ShortMatrix(w,h){i, j -> (i*j%255).toShort() }
+        val a=ShortMatrix(w,h){i, j -> ((i+j)%255).toShort() }
+        val b=ShortMatrix(w,h){i, j -> ((i+j)%255).toShort() }
+        val c=ShortMatrix(w,h){i, j -> ((i+j)%255).toShort() }
         return TripleShortMatrix(a,b,c,Parameters.createParametresForTest(Size(w,h)),State.RGB)
 
     }

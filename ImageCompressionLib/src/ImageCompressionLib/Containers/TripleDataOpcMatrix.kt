@@ -97,6 +97,12 @@ class TripleDataOpcMatrix {
         result = 31 * result + (c?.let { c.hashCode()} ?: 0)
         return result
     }
+    fun assertEquals(other: TripleDataOpcMatrix): Boolean {
+        a.assertEquals(other.a)
+        b.assertEquals(other.b)
+        c.assertEquals(other.c)
+        return true
+    }
 
     companion object {
         fun Matrix<DataOpc>.readFromByteVector(vector: ByteVector,parameters: Parameters){

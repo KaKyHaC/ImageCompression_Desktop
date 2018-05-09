@@ -12,6 +12,7 @@ import org.junit.Before
 import org.junit.Test
 import java.awt.image.BufferedImage
 import java.io.File
+import java.util.*
 import javax.imageio.ImageIO
 
 class ImageIOTest{
@@ -49,9 +50,10 @@ class ImageIOTest{
     }
     companion object {
         fun createMatrix(w:Int,h:Int): TripleShortMatrix {
-            val a=ShortMatrix(w,h){i, j -> ((i+j)%255).toShort() }
-            val b=ShortMatrix(w,h){i, j -> ((i+j)%255).toShort() }
-            val c=ShortMatrix(w,h){i, j -> ((i+j)%255).toShort() }
+//            val a=ShortMatrix(w,h){i, j -> ((i+j)%255).toShort() }
+            val a=ShortMatrix(w,h){i, j -> (Math.abs(Random().nextInt(255))).toShort() }
+            val b=ShortMatrix(w,h){i, j -> (Math.abs(Random().nextInt(255))).toShort() }
+            val c=ShortMatrix(w,h){i, j -> (Math.abs(Random().nextInt(255))).toShort() }
 
             val m= TripleShortMatrix(a,b,c, Parameters.createParametresForTest(Size(w,h)),State.RGB)
 

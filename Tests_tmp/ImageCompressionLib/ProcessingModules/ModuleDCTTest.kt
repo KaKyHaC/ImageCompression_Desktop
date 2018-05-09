@@ -81,7 +81,7 @@ class ModuleDCTTest{
         }
         val t2= Date().time
 
-        assertTrue("first",enl.assertMatrixInRange(cpy,10*loop))
+        assertTrue("first",enl.assertMatrixInRange(cpy,10+loop))
 
 //        println("start Async")
         val t3= Date().time
@@ -91,7 +91,7 @@ class ModuleDCTTest{
         }
         val t4= Date().time
 
-        assertTrue("second",enl.assertMatrixInRange(cpy,10*loop))
+        assertTrue("second",enl.assertMatrixInRange(cpy,10+loop))
 
 
         System.out.println("dir/rev DCT${loop} ${w}x$h: one=${t2-t1}, multi=${t4-t3}")

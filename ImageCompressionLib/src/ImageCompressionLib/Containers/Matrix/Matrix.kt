@@ -169,6 +169,19 @@ open class Matrix<T:Any> {
         return res1
     }
 
+    fun assertEquals(other:Matrix<T>):Boolean{
+        if(size!=other.size)
+            throw Exception("size: $size!=${other.size}")
+
+        for(i in 0 until width){
+            for(j in 0 until height){
+                if(get(i,j)!=other[i,j])
+                    throw Exception("data[$i][$j]: ${get(i,j)}!=${other[i,j]}")
+            }
+        }
+        return true
+    }
+
     companion object {
         @JvmStatic fun <T:Any>valueOf(mat:Array<Array<T>>): Matrix<T> {
             return Matrix<T>(mat as Array<Array<Any>>)

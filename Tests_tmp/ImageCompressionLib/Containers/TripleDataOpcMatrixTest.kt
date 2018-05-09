@@ -12,7 +12,7 @@ class TripleDataOpcMatrixTest {
     lateinit var tripleDataOpcMatrix: TripleDataOpcMatrix
     @Before
     fun setUp() {
-        val p=Parameters.createParametresForTest(Size(8,8))
+        val p=Parameters.createParametresForTest(Size(256,374))
         val m=Matrix<DataOpc>(p.unitSize){i, j ->  DataOpc(p)}
         tripleDataOpcMatrix= TripleDataOpcMatrix(m,m,m,p)
     }

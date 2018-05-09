@@ -72,11 +72,12 @@ public class DCTMultiThread {//singelton
         int h=dataOriginal.getHeight();
         for(int i=0;i<w;i++) {
             for(int j=0;j<h;j++) {
+                assert dataOriginal.get(i,j)<=0xff:"dataOriginal["+i+"]["+j+"]="+dataOriginal.get(i,j);
+
                 double res= Cosine.getDCTres(i,j);
                 double sum=0.0;
                 for(int x=0;x<w;x++) {
                     for(int y=0;y<h;y++) {
-//                        assert dataOriginal[x][y]<=0xff:"dataOriginal["+x+"]["+y+"]="+dataOriginal[x][y];
                         /*double cos=Cosine.getCos(x,y,i,j);
                         double buf=dataOriginal[x][y];
                         double mul=buf*cos;
