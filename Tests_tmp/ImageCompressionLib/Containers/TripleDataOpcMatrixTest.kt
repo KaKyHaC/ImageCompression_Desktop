@@ -14,8 +14,7 @@ class TripleDataOpcMatrixTest {
     lateinit var tripleDataOpcMatrix: TripleDataOpcMatrix
     @Before
     fun setUp() {
-        val p=Parameters.createParametresForTest(Size(256,374))
-        p.unitSize= Size(7,6)
+        val p=Parameters.createParametresForTest(Size(256,374),Size(7,6))
         val m=Matrix<DataOpc>(p.unitSize){i, j ->  DataOpc(p)}
         m.forEach(){i, j, value ->
             value.DC=(i+j).toShort()
@@ -44,7 +43,7 @@ class TripleDataOpcMatrixTest {
 
     @Test
     fun testByteVectorCompressionFlag() {
-        tripleDataOpcMatrix.parameters.flag= Flag.createCompressionFlag()
+//        tripleDataOpcMatrix.parameters.flag= Flag.createCompressionFlag()
         tripleDataOpcMatrix.parameters.flag.setFalse(Flag.Parameter.LongCode)
         val cpy=tripleDataOpcMatrix.copy()
         val tmp=tripleDataOpcMatrix.toByteVectorContainer()

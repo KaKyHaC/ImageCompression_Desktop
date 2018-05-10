@@ -80,7 +80,7 @@ class ModuleImageTest {
         val grad=getGradientMatrix(124,546)
         val param=Parameters.createParametresForTest(Size(124,546))
         param.flag.setChecked(Flag.Parameter.Enlargement,true)
-        param.imageSize= Size(124,546)
+//        param.imageSize= Size(124,546)
 
         val mi= ModuleImage(grad)
         val bmp=mi.getRgbMatrixOld().copy()

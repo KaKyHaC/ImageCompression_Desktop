@@ -67,39 +67,27 @@ public class DCTMultiThread {//singelton
 
     /*-------main metode---------*/
     private static Matrix<Short> directDCT(Matrix<Short> dataOriginal,Matrix<Short>dataProcessed) {
-       // minus128();//test
-        int w=dataOriginal.getWidth();
-        int h=dataOriginal.getHeight();
+        int w=SIZEOFBLOCK;//dataOriginal.getWidth();
+        int h=SIZEOFBLOCK;//dataOriginal.getHeight();
         for(int i=0;i<w;i++) {
             for(int j=0;j<h;j++) {
-                assert dataOriginal.get(i,j)<=0xff:"dataOriginal["+i+"]["+j+"]="+dataOriginal.get(i,j);
-
+//                assert dataOriginal.get(i,j)<=0xff:"dataOriginal["+i+"]["+j+"]="+dataOriginal.get(i,j);
                 double res= Cosine.getDCTres(i,j);
                 double sum=0.0;
                 for(int x=0;x<w;x++) {
                     for(int y=0;y<h;y++) {
-                        /*double cos=Cosine.getCos(x,y,i,j);
-                        double buf=dataOriginal[x][y];
-                        double mul=buf*cos;
-                        sum+=mul;*/
                         sum += dataOriginal.get(x,y) * Cosine.getCos(x, y, i, j);
-                        // sum+=Cosine.getDirectDCTres(i,j,x,y,dataOriginal[x][y]);
                     }
                 }
                 res*=sum;
                 dataProcessed.set(i,j,(short)res);
-                /*if(i==0&&j==0)
-                    AC=(long)res;
-                else if (res<256&&res>-256)
-                    dataDCT[i][j]=(byte)res;
-                else getAC();*/
             }
         }
         return dataProcessed;
     }
     private static Matrix<Short> reverseDCT(Matrix<Short>dataOriginal,Matrix<Short>dataProcessed) {
-        int w=dataOriginal.getWidth();
-        int h=dataOriginal.getHeight();
+        int w=SIZEOFBLOCK;//dataOriginal.getWidth();
+        int h=SIZEOFBLOCK;//dataOriginal.getHeight();
         for(int x=0;x<w;x++) {
             for(int y=0;y<h;y++) {
                // double res=1.0/4.0;

@@ -96,7 +96,7 @@ class ModuleImage {
         if (tripleShortMatrixOld.state == State.YBR) {
             val pixelAlpha = 255 //for argb
 
-            forEach(tripleShortMatrixOld.width, tripleShortMatrixOld.height, { x, y ->
+            forEach(bitmap.width, bitmap.height, { x, y ->
                 var r: Double
                 var g: Double
                 var b: Double

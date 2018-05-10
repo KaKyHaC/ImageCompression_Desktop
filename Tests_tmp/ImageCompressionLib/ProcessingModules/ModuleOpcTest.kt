@@ -81,8 +81,8 @@ class ModuleOpcTest(val w: Int,val h: Int,val loop: Int) {
     }
     @Test
     fun GlobalTestUnitSize7x6() {
-        val m = ImageIOTest.createMatrix(w, h)
-        m.parameters.unitSize = Size(7, 6)
+        val m = ImageIOTest.createMatrix(w, h,Size(7, 6))
+//        m.parameters.unitSize = Size(7, 6)
         m.state = State.DCT
         val cpy = m.copy()
 

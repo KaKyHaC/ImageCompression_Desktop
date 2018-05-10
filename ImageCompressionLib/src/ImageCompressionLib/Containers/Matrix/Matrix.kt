@@ -65,11 +65,9 @@ open class Matrix<T:Any> {
 
         return true
     }
-
     override fun hashCode(): Int {
         return Arrays.hashCode(matrix)
     }
-
     override fun toString(): String {
         val sb = StringBuilder()
         for (j in 0 until height) {
@@ -166,6 +164,7 @@ open class Matrix<T:Any> {
         }
         return true
     }
+
     companion object {
         @JvmStatic fun <T:Any>valueOf(mat:Array<Array<T>>): Matrix<T> {
             return Matrix<T>(mat as Array<Array<Any>>)

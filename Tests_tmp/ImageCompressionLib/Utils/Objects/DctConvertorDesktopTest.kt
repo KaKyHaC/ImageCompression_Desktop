@@ -20,23 +20,25 @@ class DctConvertorDesktopTest {
         flag.setChecked(Flag.Parameter.OneFile,true)
     }
     @Test
-    fun test1(){
+    fun test16x16(){
         mainTotal(16,16,5)
     }
     @Test
-    fun test2(){
+    fun test32x32(){
         mainTotal(32,32,10)
     }
     @Test
-    fun test3(){
+    fun test800x800(){
         mainTotal(800,800,10)
     }
     @Test
-    fun test4(){
+    fun test4x4(){
+        println("work only for x8 size")
         mainTotal(4,4,5)
     }
     @Test
-    fun test5(){
+    fun test7x6(){
+        println("work only for x8 size")
         mainTotal(7,6,5)
     }
     fun mainTotal(w: Int,h: Int,range: Int) {

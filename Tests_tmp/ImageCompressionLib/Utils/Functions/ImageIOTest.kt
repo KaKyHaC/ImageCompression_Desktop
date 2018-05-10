@@ -49,13 +49,15 @@ class ImageIOTest{
         ImageIO.write(bi,"bmp", File(pathToResBmp2))
     }
     companion object {
-        fun createMatrix(w:Int,h:Int): TripleShortMatrix {
+        fun createMatrix(w:Int,h:Int,unitSize: Size=Size(8,8)): TripleShortMatrix {
+            val m= TripleShortMatrix(Parameters.createParametresForTest(Size(w,h),unitSize),State.RGB)
+            m.a.forEach(){i, j, value ->  Math.abs(Random().nextInt(255)).toShort() }
+            m.b.forEach(){i, j, value ->  Math.abs(Random().nextInt(255)).toShort() }
+            m.c.forEach(){i, j, value ->  Math.abs(Random().nextInt(255)).toShort() }
 //            val a=ShortMatrix(w,h){i, j -> ((i+j)%255).toShort() }
-            val a=ShortMatrix(w,h){i, j -> (Math.abs(Random().nextInt(255))).toShort() }
-            val b=ShortMatrix(w,h){i, j -> (Math.abs(Random().nextInt(255))).toShort() }
-            val c=ShortMatrix(w,h){i, j -> (Math.abs(Random().nextInt(255))).toShort() }
-
-            val m= TripleShortMatrix(a,b,c, Parameters.createParametresForTest(Size(w,h)),State.RGB)
+//            val a=ShortMatrix(w,h){i, j -> (Math.abs(Random().nextInt(255))).toShort() }
+//            val b=ShortMatrix(w,h){i, j -> (Math.abs(Random().nextInt(255))).toShort() }
+//            val c=ShortMatrix(w,h){i, j -> (Math.abs(Random().nextInt(255))).toShort() }
 
             return m
         }

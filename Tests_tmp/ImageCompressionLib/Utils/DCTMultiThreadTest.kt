@@ -10,20 +10,19 @@ import org.junit.Test
 import java.util.Random
 
 import org.junit.Assert.*
+import org.junit.runner.RunWith
+import org.junit.runners.Parameterized
 import kotlin.test.assertFails
 
-class DCTMultiThreadTest {
+@RunWith(Parameterized::class)
+class DCTMultiThreadTest(val size:Size) {
     lateinit var data:ShortMatrix
-//    lateinit var res:ShortMatrix
-    internal var size = Size(SIZEOFBLOCK, SIZEOFBLOCK)
     @Before
-    @Throws(Exception::class)
     fun setUp() {
         data = ShortMatrix(size){i, j -> (Math.abs(Random().nextInt())%255).toShort() }
     }
 
     @Test
-    @Throws(Exception::class)
     fun TestDctNotEquals() {
         var res = ShortMatrix.valueOf(DCTMultiThread.directDCT(data))
         res = ShortMatrix.valueOf(DCTMultiThread.reverseDCT(data))
@@ -32,7 +31,6 @@ class DCTMultiThreadTest {
     }
 
     @Test
-    @Throws(Exception::class)
     fun TestDCTinRange1() {
         val cpy=data.copy()
         val dir = ShortMatrix.valueOf(DCTMultiThread.directDCT(data))
@@ -48,6 +46,17 @@ class DCTMultiThreadTest {
         assertFails { cpy.assertInRange( dir, 0)}
         val rev = ShortMatrix.valueOf(DCTMultiThread.reverseDCT(dir))
         cpy.assertInRange(rev,3)
+    }
+    companion object{
+        @JvmStatic
+        @Parameterized.Parameters(name="{0}")
+        fun data(): Collection<Array<Size>> {
+            return listOf(
+                    arrayOf(Size(8,8))
+//                    ,arrayOf(Size(7,7))
+//                    ,arrayOf(Size(7,9))
+            )
+        }
     }
 
 

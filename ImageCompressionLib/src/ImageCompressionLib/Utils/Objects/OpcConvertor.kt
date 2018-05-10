@@ -49,14 +49,14 @@ class OpcConvertor {
         this.dataOpcMatrix= DataOpcMatrix.valueOf(dataOpcMatrix)
         this.parameters=parameters
         state = State.Opc
-        shortMatrix= ShortMatrix(parameters.imageSize.width, parameters.imageSize.height)
+        shortMatrix= ShortMatrix(parameters.dataSize.width, parameters.dataSize.height)
     }
 
     constructor(dataOpcMatrix: DataOpcMatrix, parameters: Parameters){
         this.dataOpcMatrix= (dataOpcMatrix)
         this.parameters=parameters
         state = State.Opc
-        shortMatrix= ShortMatrix(parameters.imageSize.width, parameters.imageSize.height)
+        shortMatrix= ShortMatrix(parameters.dataSize.width, parameters.dataSize.height)
     }
     private fun createSplitedMatrix(){
         splitedShortMatrix=shortMatrix.splitWithZeroIterator(parameters.unitSize.width,parameters.unitSize.height,0)

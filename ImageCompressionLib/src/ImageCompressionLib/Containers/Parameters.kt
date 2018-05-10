@@ -1,20 +1,35 @@
 package ImageCompressionLib.Containers
 import ImageCompressionLib.Constants.SIZEOFBLOCK
+import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Type.ByteVector
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Containers.Type.Size
 
 class Parameters {
-    var flag: Flag
-    var imageSize: Size
-    var unitSize: Size
-    var sameBaseSize: Size
+    val flag: Flag
+    val imageSize: Size
+    val unitSize: Size
+    val sameBaseSize: Size
+    val dataSize:Size
 
     constructor(flag: Flag, imageSize: Size, unitSize: Size = Size(SIZEOFBLOCK, SIZEOFBLOCK), sameBaseSize: Size = Size(1, 1)) {
         this.flag = flag
         this.imageSize = imageSize
         this.unitSize = unitSize
         this.sameBaseSize = sameBaseSize
+        dataSize=calculateDataSize(imageSize, Size(SIZEOFBLOCK, SIZEOFBLOCK))
+    }
+
+    fun calculateDataSize(imageSize: Size,unitSize: Size): Size {
+        var w=0
+        var h=0
+
+        if(imageSize.width%unitSize.width!=0)
+            w=unitSize.width-imageSize.width%unitSize.width
+        if(imageSize.height%unitSize.height!=0)
+            h=unitSize.height-imageSize.height%unitSize.height
+
+        return Size(imageSize.width+w,imageSize.height+h)
     }
 
     fun toByteVector(vector: ByteVector){
@@ -40,11 +55,9 @@ class Parameters {
             return Parameters(flag, imageSize, unitSize,sameBaseSize)
         }
         @Deprecated("only for tests")
-        @JvmStatic fun createParametresForTest(imageSize: Size):Parameters{
-            val flag=Flag.createDefaultFlag()
-            val s1=Size(SIZEOFBLOCK, SIZEOFBLOCK)
+        @JvmStatic fun createParametresForTest(imageSize: Size,unitSize: Size= Size(SIZEOFBLOCK, SIZEOFBLOCK),flag: Flag= Flag.createDefaultFlag()):Parameters{
             val s2=Size(1,1)
-            return Parameters(flag,imageSize,s1,s2)
+            return Parameters(flag,imageSize,unitSize,s2)
         }
     }
 }

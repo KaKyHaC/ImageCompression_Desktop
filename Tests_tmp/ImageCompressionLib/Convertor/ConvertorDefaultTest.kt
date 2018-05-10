@@ -57,6 +57,7 @@ class ConvertorDefaultTest(val size:Size,val range:Int) {
     }
 
 
+
     @Test
     fun testDirectReverceConvert(){
         TimeManager.Instance.startNewTrack("convert")
@@ -66,27 +67,26 @@ class ConvertorDefaultTest(val size:Size,val range:Int) {
         TimeManager.Instance.append("reverce")
         println(TimeManager.Instance.getInfoInSec())
     }
-    @Test
-    fun testDirectReverceConvertUnitSize7x6(){
-        parameters.unitSize= Size(7,6)
-        TimeManager.Instance.startNewTrack("convert")
-        convertor.FromBmpToBar(ConvertorDefault.Computing.MultiThreads)
-        TimeManager.Instance.append("direct")
-        convertor.FromBarToBmp(ConvertorDefault.Computing.MultiThreads)
-        TimeManager.Instance.append("reverce")
-        println(TimeManager.Instance.getInfoInSec())
-    }
-    @Test
-    fun testDirectReverceConvertMaxCompression(){
-        parameters.flag= Flag.createCompressionFlag()
-        TimeManager.Instance.startNewTrack("convert")
-        convertor.FromBmpToBar(ConvertorDefault.Computing.MultiThreads)
-        TimeManager.Instance.append("direct")
-        convertor.FromBarToBmp(ConvertorDefault.Computing.MultiThreads)
-        TimeManager.Instance.append("reverce")
-        println(TimeManager.Instance.getInfoInSec())
-    }
-
+//    @Test
+//    fun testDirectReverceConvertUnitSize7x6(){
+////        parameters.unitSize= Size(7,6)
+//        TimeManager.Instance.startNewTrack("convert")
+//        convertor.FromBmpToBar(ConvertorDefault.Computing.MultiThreads)
+//        TimeManager.Instance.append("direct")
+//        convertor.FromBarToBmp(ConvertorDefault.Computing.MultiThreads)
+//        TimeManager.Instance.append("reverce")
+//        println(TimeManager.Instance.getInfoInSec())
+//    }
+//    @Test
+//    fun testDirectReverceConvertMaxCompression(){
+////        parameters.flag= Flag.createCompressionFlag()
+//        TimeManager.Instance.startNewTrack("convert")
+//        convertor.FromBmpToBar(ConvertorDefault.Computing.MultiThreads)
+//        TimeManager.Instance.append("direct")
+//        convertor.FromBarToBmp(ConvertorDefault.Computing.MultiThreads)
+//        TimeManager.Instance.append("reverce")
+//        println(TimeManager.Instance.getInfoInSec())
+//    }
     companion object {
         @JvmStatic
         @Parameterized.Parameters(name = "range:{1},{0}")
