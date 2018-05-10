@@ -218,7 +218,6 @@ class ModuleImage {
         }
     }
     private fun FromRGBtoYBR() {
-
         if (tripleShortMatrixOld.state == State.RGB) {
             val Width = bitmap.width
             val Height = bitmap.height
@@ -271,7 +270,6 @@ class ModuleImage {
 
     }
     private fun PixelRestoration() {
-
         if (tripleShortMatrixOld.state == State.Yenl && flag.isChecked(Flag.Parameter.Enlargement)) {
             val cWidth = tripleShortMatrixOld.width / 2
             val cHeight = tripleShortMatrixOld.height / 2

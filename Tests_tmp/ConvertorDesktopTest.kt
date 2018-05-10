@@ -207,7 +207,7 @@ class ConvertorDesktopTest {
         f.setChecked(Flag.Parameter.OneFile, true)
         f.setChecked(Flag.Parameter.Enlargement, true)
         f.setTrue(Flag.Parameter.DCT)
-        testDirectReverseConverting(384, 240, 7,f)
+        testDirectReverseConverting(384, 240, 50,f)
     }
 
     @Test
