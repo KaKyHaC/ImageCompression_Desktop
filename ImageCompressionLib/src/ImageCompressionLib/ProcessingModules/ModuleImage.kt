@@ -427,6 +427,9 @@ class ModuleImage {
                 val vcb = 128.0 - 0.168736 * pixelRed - 0.331264 * pixelGreen + 0.5 * pixelBlue
                 val vcr = 128 + 0.5 * pixelRed - 0.418688 * pixelGreen - 0.081312 * pixelBlue
 
+                assert(pixelRed<256)//TODO remove
+                assert(pixelGreen<256)
+                assert(pixelBlue<256)
                 //15.11
                 //                   if(vy%1>=0.5)
                 //                       vy++;

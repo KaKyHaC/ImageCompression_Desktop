@@ -71,7 +71,7 @@ public class DCTMultiThread {//singelton
         int h=SIZEOFBLOCK;//dataOriginal.getHeight();
         for(int i=0;i<w;i++) {
             for(int j=0;j<h;j++) {
-//                assert dataOriginal.get(i,j)<=0xff:"dataOriginal["+i+"]["+j+"]="+dataOriginal.get(i,j);
+                assert dataOriginal.get(i,j)<=0xff:"dataOriginal["+i+"]["+j+"]="+dataOriginal.get(i,j);
                 double res= Cosine.getDCTres(i,j);
                 double sum=0.0;
                 for(int x=0;x<w;x++) {

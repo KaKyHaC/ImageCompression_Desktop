@@ -115,7 +115,7 @@ class ModuleDCT(private val tripleShortMatrixOld: TripleShortMatrix) { //    pri
     }
     private fun processState(){
         tripleShortMatrixOld.state = if (a.state == DctConvertor.State.DCT) State.DCT else State.YBR
-        if (tripleShortMatrixOld.a.width > tripleShortMatrixOld.b.width&& tripleShortMatrixOld.state == State.YBR)
+        if (flag.isChecked(Flag.Parameter.Enlargement)&& tripleShortMatrixOld.state == State.YBR)
             tripleShortMatrixOld.state = State.Yenl
     }
     private fun setState(state:DctConvertor.State){

@@ -87,5 +87,4 @@ class MyBufferedImage (val width:Int,val height:Int){
         }
         return res
     }
-
-}
+    }
