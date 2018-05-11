@@ -20,7 +20,7 @@ import java.util.*
 import javax.net.ssl.TrustManager
 
 @RunWith(Parameterized::class)
-class ConvertorDefaultTest(val size:Size,val range:Int) {
+class ConvertorDefaultTest(val size:Size,var range:Int) {
     var parameters=Parameters.createParametresForTest(size)
     lateinit var myBufferedImage:MyBufferedImage//= createMyBI(size)
 
@@ -86,6 +86,7 @@ class ConvertorDefaultTest(val size:Size,val range:Int) {
     @Test
     fun testDirectReverceConvertMaxCompression(){
         parameters=Parameters(Flag.createCompressionFlag(),parameters.imageSize)
+        range*=2
         TimeManager.Instance.startNewTrack("convert")
         convertor.FromBmpToBar(ConvertorDefault.Computing.MultiThreads)
         TimeManager.Instance.append("direct")

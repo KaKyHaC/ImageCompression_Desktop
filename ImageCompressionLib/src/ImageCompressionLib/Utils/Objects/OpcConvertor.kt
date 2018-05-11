@@ -54,7 +54,10 @@ class OpcConvertor {
         shortMatrix= ShortMatrix(size.width, size.height)
     }
     private fun createSplitedMatrix(){
-        splitedShortMatrix=shortMatrix.split(parameters.unitSize.width,parameters.unitSize.height)
+        if(!parameters.flag.isChecked(Flag.Parameter.Enlargement))
+            splitedShortMatrix=shortMatrix.split(parameters.unitSize.width,parameters.unitSize.height)
+        else
+            splitedShortMatrix=shortMatrix.splitWithZeroIterator(parameters.unitSize.width,parameters.unitSize.height,0)
     }
     private fun calculataDataOpcMatrixSize(imageSize: Size, unitSize:Size): Size {
         var w= imageSize.width/unitSize.width
