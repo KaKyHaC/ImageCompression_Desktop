@@ -214,6 +214,13 @@ class ByteVector:Iterable<Byte> {
         }else
             return false
     }
+    fun assertEquals(other:ByteVector):Boolean{
+        for(i in 0 until size){
+            if(other.bytes[i]!=bytes[i])
+                throw Exception("this:$this \nother:$other")
+        }
+        return true
+    }
     override fun hashCode(): Int {
         var result = Arrays.hashCode(bytes)
         result = 31 * result + size
@@ -221,4 +228,9 @@ class ByteVector:Iterable<Byte> {
         result = 31 * result + curIndex
         return result
     }
+
+    override fun toString(): String {
+        return Arrays.toString(bytes)
+    }
+
 }
