@@ -45,8 +45,7 @@ class DctUniversalAlgorithm  {
                         sum += data[m,n] * cosinTable[p,q,m,n]
                     }
                 }
-                assert(coeficient[p,q]*sum<0xff)
-                target[p,q]=(coeficient[p,q]*sum).toShort()//todo DoubleToShort()
+                target[p,q]=(coeficient[p,q]*sum).toShort()
             }
         }
         return target
@@ -63,7 +62,7 @@ class DctUniversalAlgorithm  {
                         sum+=coeficient[p,q]*data[p,q]*cosinTable[p,q, m, n]
                     }
                 }
-                target[m,n]=sum.toShort()
+                target[m,n]=sum.toShort() //FromDoubleToShort(sum)//todo DoubleToShort()
             }
         }
         return target
@@ -82,5 +81,16 @@ class DctUniversalAlgorithm  {
     }
     fun copy():DctUniversalAlgorithm{
         return DctUniversalAlgorithm(cosinTable.copy(),coeficient.copy(),quantizationTable.copy(),unitSize)
+    }
+    companion object {
+        @JvmStatic
+        private fun FromDoubleToShort(d: Double): Short {
+            if (d >= 255)
+                return 255.toShort()
+            var res = d.toShort()
+            if (d % 1 > 0.5)
+                res++
+            return res
+        }
     }
 }

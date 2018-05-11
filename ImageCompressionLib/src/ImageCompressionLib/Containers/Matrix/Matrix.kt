@@ -72,7 +72,7 @@ open class Matrix<T:Any> {
         val sb = StringBuilder()
         for (j in 0 until height) {
             for (i in 0 until width) {
-                sb.append("${(matrix[i][j] as T)},")
+                sb.append("${(get(i,j))},")
             }
             sb.append("\n")
         }

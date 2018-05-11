@@ -8,15 +8,12 @@ class OpcUtils {
     companion object {
         @JvmStatic
         fun FindBase(dataOrigin: Matrix<Short>, dataOpc: DataOpc) {
-            for (i in 0 until dataOrigin.height) {
-//                dataOpc.base[i] = dataOrigin[0,i]
-                for (j in 0 until dataOrigin.width) {
-//                    assert(dataOrigin[i,j]<=0xff){ println("data[$i][$j]=${dataOrigin[i,j]}")}
-                    if (dataOpc.base[i] <= dataOrigin[j,i]) {
-                        dataOpc.base[i] = (dataOrigin[j,i]+1).toShort()
+            for (j in 0 until dataOrigin.height) {
+                for (i in 0 until dataOrigin.width) {
+                    if (dataOpc.base[j] <= dataOrigin[i,j]) {
+                        dataOpc.base[j] = (dataOrigin[i,j]+1).toShort()
                     }
                 }
-//                dataOpc.base[i]++
             }
         }
         @JvmStatic

@@ -1,5 +1,6 @@
 package ImageCompressionLib.Containers
 
+import ImageCompressionLib.Constants.DEFAULT_MATRIX_VALUE
 import ImageCompressionLib.Constants.SIZEOFBLOCK
 import ImageCompressionLib.Constants.State
 import ImageCompressionLib.Containers.Matrix.Matrix
@@ -16,9 +17,9 @@ class TripleShortMatrix {
     constructor(parameters: Parameters,state:State){
         this.parameters=parameters
         this.state=state
-        a= Matrix(parameters.dataSize){i, j ->  0.toShort()}
-        b= Matrix(parameters.dataSize){i, j ->  0.toShort()}
-        c= Matrix(parameters.dataSize){i, j ->  0.toShort()}
+        a= Matrix(parameters.dataSize){i, j ->  DEFAULT_MATRIX_VALUE}
+        b= Matrix(parameters.dataSize){i, j ->  DEFAULT_MATRIX_VALUE}
+        c= Matrix(parameters.dataSize){i, j ->  DEFAULT_MATRIX_VALUE}
     }
 
     constructor(a: Matrix<Short>, b: Matrix<Short>, c: Matrix<Short>, parameters: Parameters,state: State) {

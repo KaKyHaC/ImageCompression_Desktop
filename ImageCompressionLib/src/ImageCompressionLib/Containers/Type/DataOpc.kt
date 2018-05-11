@@ -86,8 +86,6 @@ class DataOpc :ICopyble{
             vector.append(base[i++])//TODO remove line
         }
         while (i< size.height){
-            if(base[i]>0xff)
-                throw Exception("base[$i]=${base[i]}")
             vector.append(base[i++].toByte())
         }
     }

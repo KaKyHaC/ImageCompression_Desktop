@@ -16,4 +16,5 @@ open class IteratorMatrix<T:Any>(matrix: Array<Array<Any>>, val wStart:Int, val 
         get() = sizeBuffer.width
     override val height: Int
         get() = sizeBuffer.height
+
 }

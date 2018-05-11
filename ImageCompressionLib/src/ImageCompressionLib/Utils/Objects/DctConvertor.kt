@@ -140,7 +140,6 @@ class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private 
         val h=parameters.unitSize.height
         for (x in 0 until w) {
             for (y in 0 until h) {
-
                 val curX = i * w+ x
                 val curY = j * h+ y
                 if (curX < Width && curY < Height)
