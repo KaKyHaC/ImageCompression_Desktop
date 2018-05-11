@@ -3,9 +3,9 @@ package ImageCompressionLib.Utils.Functions.Dct
 import ImageCompressionLib.Containers.Matrix.Matrix
 import ImageCompressionLib.Containers.Type.Size
 
-class DctCoeficientUtil (val unitSize:Size){
+class DctCoeficientUtil {
     private val  coeficients:Matrix<Double>
-    init {
+    constructor(unitSize: Size){
         val OneDivideMathsqrtW = 1.0 / Math.sqrt(unitSize.width.toDouble())
         val OneDivideMathsqrtH = 1.0 / Math.sqrt(unitSize.height.toDouble())
         val TwoDivideMathsqrtW = Math.sqrt(2.0 / unitSize.width.toDouble())
@@ -17,10 +17,16 @@ class DctCoeficientUtil (val unitSize:Size){
             ap*aq
         }
     }
+    private constructor(coeficientU: Matrix<Double>){
+        coeficients=coeficientU
+    }
 
     operator fun get(p:Int,q:Int):Double{
         var tp=if(p>0) 1 else p
         var tq=if(q>0) 1 else q
         return coeficients[tp,tq]
+    }
+    fun copy(): DctCoeficientUtil {
+        return DctCoeficientUtil(Matrix(coeficients.size){ i, j -> coeficients[i,j] })
     }
 }

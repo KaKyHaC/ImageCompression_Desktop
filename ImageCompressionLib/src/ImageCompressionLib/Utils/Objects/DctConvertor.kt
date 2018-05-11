@@ -5,15 +5,17 @@ import ImageCompressionLib.Constants.SIZEOFBLOCK
 import ImageCompressionLib.Constants.TypeQuantization
 import ImageCompressionLib.Containers.Matrix.Matrix
 import ImageCompressionLib.Containers.Matrix.ShortMatrix
+import ImageCompressionLib.Containers.Parameters
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Utils.Functions.Dct.DctAlgorithm8x8
+import ImageCompressionLib.Utils.Functions.Dct.DctUniversalAlgorithm
 
 /**
  * Class for transformation between DCT and Origin
  * use min Size and max Time
  * Created by Димка on 08.08.2016.
  */
-class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private val tq: TypeQuantization, private val flag: Flag) {
+class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private val tq: TypeQuantization, private val parameters:Parameters,dctUtil:DctUniversalAlgorithm) {
     //    private boolean isReady=false;
 
     var state: State? = null
@@ -29,12 +31,9 @@ class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private 
      * Do main calculation if need
      * @return matrix with original date
      */
-    //        if(!isReady&&state==State.DCT)
-    //            dataProcessing();
     fun getMatrixOrigin(): Matrix<Short>{
             if (state == State.DCT)
                 dataProcessing()
-
             return dataProcessed
         }
 
@@ -42,8 +41,6 @@ class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private 
      * Do main calculation if need
      * @return matrix with DCT date
      */
-    //        if(!isReady&&state==State.ORIGIN)
-    //            dataProcessing();
     fun getMatrixDct(): Matrix<Short>{
 
             if (state == State.ORIGIN)

@@ -1,17 +1,28 @@
 package ImageCompressionLib.Utils.Functions.Dct
 
 import ImageCompressionLib.Constants.Cosine
+import ImageCompressionLib.Constants.MAX_QUANTIZATION_VALUE
 import ImageCompressionLib.Constants.SIZEOFBLOCK
 import ImageCompressionLib.Containers.Matrix.Matrix
 import ImageCompressionLib.Containers.Type.Size
 
-class DctUniversalAlgorithm (val unitSize:Size) {
+class DctUniversalAlgorithm  {
 
     private val cosinTable:DctCosinUtils
     private val coeficient:DctCoeficientUtil
-    init {
+    private val quantizationTable:DctQuantizationUtils
+    private val unitSize:Size
+    constructor(unitSize: Size) {
+        this.unitSize=unitSize
         cosinTable= DctCosinUtils(unitSize)
         coeficient= DctCoeficientUtil(unitSize)
+        quantizationTable= DctQuantizationUtils(unitSize, MAX_QUANTIZATION_VALUE)
+    }
+        constructor(cosinTable: DctCosinUtils, coeficient: DctCoeficientUtil, quantizationTable: DctQuantizationUtils, unitSize: Size) {
+        this.cosinTable = cosinTable
+        this.coeficient = coeficient
+        this.quantizationTable = quantizationTable
+        this.unitSize = unitSize
     }
 
 
@@ -57,5 +68,8 @@ class DctUniversalAlgorithm (val unitSize:Size) {
             }
         }
         return target
+    }
+    fun copy():DctUniversalAlgorithm{
+        return DctUniversalAlgorithm(cosinTable.copy(),coeficient.copy(),quantizationTable.copy(),unitSize)
     }
 }
