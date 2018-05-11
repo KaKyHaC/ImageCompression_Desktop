@@ -6,7 +6,7 @@ import ImageCompressionLib.Constants.TypeQuantization
 import ImageCompressionLib.Containers.Matrix.Matrix
 import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.Utils.Functions.DCTMultiThread
+import ImageCompressionLib.Utils.Functions.DctAlgorithm8x8
 
 /**
  * Class for transformation between DCT and Origin
@@ -66,11 +66,11 @@ class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private 
     }
 
     private fun sizeCalculate() {
-        duWidth = Width / DCTMultiThread.SIZEOFBLOCK
-        duHeight = Height / DCTMultiThread.SIZEOFBLOCK
-        if (Width % DCTMultiThread.SIZEOFBLOCK != 0)
+        duWidth = Width / DctAlgorithm8x8.SIZEOFBLOCK
+        duHeight = Height / DctAlgorithm8x8.SIZEOFBLOCK
+        if (Width % DctAlgorithm8x8.SIZEOFBLOCK != 0)
             duWidth++
-        if (Height % DCTMultiThread.SIZEOFBLOCK != 0)
+        if (Height % DctAlgorithm8x8.SIZEOFBLOCK != 0)
             duHeight++
         //   createMatrix();
     }
@@ -82,8 +82,8 @@ class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private 
         for (i in 0 until duWidth) {
             for (j in 0 until duHeight) {
 
-                val curX = i * DCTMultiThread.SIZEOFBLOCK
-                val curY = j * DCTMultiThread.SIZEOFBLOCK
+                val curX = i * DctAlgorithm8x8.SIZEOFBLOCK
+                val curY = j * DctAlgorithm8x8.SIZEOFBLOCK
                 if (i != 0 && j != 0)
                     dataOrigin[curX,curY] = (dataOrigin[0,0] - dataOrigin[curX,curY]).toShort()
             }
@@ -96,11 +96,11 @@ class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private 
      * @return buffer
      */
     private fun fillBufferForDU(i: Int, j: Int, buffer: Matrix<Short>): Matrix<Short> {
-        for (x in 0 until DCTMultiThread.SIZEOFBLOCK) {
-            for (y in 0 until DCTMultiThread.SIZEOFBLOCK) {
+        for (x in 0 until DctAlgorithm8x8.SIZEOFBLOCK) {
+            for (y in 0 until DctAlgorithm8x8.SIZEOFBLOCK) {
                 var value: Short = 0
-                val curX = i * DCTMultiThread.SIZEOFBLOCK + x
-                val curY = j * DCTMultiThread.SIZEOFBLOCK + y
+                val curX = i * DctAlgorithm8x8.SIZEOFBLOCK + x
+                val curY = j * DctAlgorithm8x8.SIZEOFBLOCK + y
                 if (curX < Width && curY < Height)
                     value = dataOrigin[curX,curY]
                 buffer[x,y] = value
@@ -120,19 +120,19 @@ class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private 
         if (flag.isChecked(Flag.Parameter.Alignment))
             minus128(buf)
 
-        buf = DCTMultiThread.directDCT(buf)
+        buf = DctAlgorithm8x8.directDCT(buf)
 
         if (flag.quantization == Flag.QuantizationState.First)
-            DCTMultiThread.directQuantization(tq, buf)
+            DctAlgorithm8x8.directQuantization(tq, buf)
         return buf
     }
 
     private fun reverceDCT(buf: Matrix<Short>): Matrix<Short>{
         var buf = buf
         if (flag.quantization == Flag.QuantizationState.First)
-            DCTMultiThread.reverseQuantization(tq, buf)
+            DctAlgorithm8x8.reverseQuantization(tq, buf)
 
-        buf = DCTMultiThread.reverseDCT(buf)
+        buf = DctAlgorithm8x8.reverseDCT(buf)
 
         if (flag.isChecked(Flag.Parameter.Alignment))
             plus128(buf)
@@ -145,11 +145,11 @@ class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private 
      * @param buffer - matrix with information
      */
     private fun fillDateProcessed(i: Int, j: Int, buffer: Matrix<Short>) {
-        for (x in 0 until DCTMultiThread.SIZEOFBLOCK) {
-            for (y in 0 until DCTMultiThread.SIZEOFBLOCK) {
+        for (x in 0 until DctAlgorithm8x8.SIZEOFBLOCK) {
+            for (y in 0 until DctAlgorithm8x8.SIZEOFBLOCK) {
 
-                val curX = i * DCTMultiThread.SIZEOFBLOCK + x
-                val curY = j * DCTMultiThread.SIZEOFBLOCK + y
+                val curX = i * DctAlgorithm8x8.SIZEOFBLOCK + x
+                val curY = j * DctAlgorithm8x8.SIZEOFBLOCK + y
                 if (curX < Width && curY < Height)
                     dataProcessed[curX,curY] = buffer[x,y]
             }

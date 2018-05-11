@@ -1,21 +1,19 @@
 package ImageCompressionLib.Utils
 
-import ImageCompressionLib.Constants.SIZEOFBLOCK
 import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Type.Size
-import ImageCompressionLib.Utils.Functions.DCTMultiThread
+import ImageCompressionLib.Utils.Functions.DctAlgorithm8x8
 import org.junit.Before
 import org.junit.Test
 
 import java.util.Random
 
-import org.junit.Assert.*
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import kotlin.test.assertFails
 
 @RunWith(Parameterized::class)
-class DCTMultiThreadTest(val size:Size) {
+class DctAlgorithm8x8Test(val size:Size) {
     lateinit var data:ShortMatrix
     @Before
     fun setUp() {
@@ -24,8 +22,8 @@ class DCTMultiThreadTest(val size:Size) {
 
     @Test
     fun TestDctNotEquals() {
-        var res = ShortMatrix.valueOf(DCTMultiThread.directDCT(data))
-        res = ShortMatrix.valueOf(DCTMultiThread.reverseDCT(data))
+        var res = ShortMatrix.valueOf(DctAlgorithm8x8.directDCT(data))
+        res = ShortMatrix.valueOf(DctAlgorithm8x8.reverseDCT(data))
 
         assertFails { data.assertInRange( res, 0)}
     }
@@ -33,18 +31,18 @@ class DCTMultiThreadTest(val size:Size) {
     @Test
     fun TestDCTinRange1() {
         val cpy=data.copy()
-        val dir = ShortMatrix.valueOf(DCTMultiThread.directDCT(data))
+        val dir = ShortMatrix.valueOf(DctAlgorithm8x8.directDCT(data))
         assertFails { cpy.assertInRange( dir, 0)}
-        val rev = ShortMatrix.valueOf(DCTMultiThread.reverseDCT(dir))
+        val rev = ShortMatrix.valueOf(DctAlgorithm8x8.reverseDCT(dir))
         cpy.assertInRange(rev,1)
     }
     @Test
     @Throws(Exception::class)
     fun TestDCTinRange3() {
         val cpy=data.copy()
-        val dir = ShortMatrix.valueOf(DCTMultiThread.directDCT(data))
+        val dir = ShortMatrix.valueOf(DctAlgorithm8x8.directDCT(data))
         assertFails { cpy.assertInRange( dir, 0)}
-        val rev = ShortMatrix.valueOf(DCTMultiThread.reverseDCT(dir))
+        val rev = ShortMatrix.valueOf(DctAlgorithm8x8.reverseDCT(dir))
         cpy.assertInRange(rev,3)
     }
     companion object{

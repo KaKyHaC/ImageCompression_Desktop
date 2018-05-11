@@ -7,18 +7,12 @@ import ImageCompressionLib.Constants.TypeQuantization;
 import ImageCompressionLib.Containers.Matrix.Matrix;
 import ImageCompressionLib.Containers.Matrix.ShortMatrix;
 
-public class DCTMultiThread {//singelton
-
+public class DctAlgorithm8x8 {//singelton
     public final static int SIZEOFBLOCK = 8;
     private final static double OneDivideMathsqrt2 =1.0/Math.sqrt(2.0);
 
-
     private static TypeQuantization tq;
-    // private long DC;
-
-    private DCTMultiThread() {}
-
-
+    private DctAlgorithm8x8() {}
 
     public static Matrix<Short> directDCT(Matrix<Short> data){
         Matrix<Short> dataProcessed=new ShortMatrix(data.getWidth(),data.getHeight());
@@ -122,9 +116,7 @@ public class DCTMultiThread {//singelton
             }
         return dataProcessed;
     }
-
     // обопщенно позоционное кодирование
-
 
     private static short FromDoubleToShort(double d){
         if(d>=255)

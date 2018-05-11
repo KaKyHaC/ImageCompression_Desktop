@@ -22,7 +22,7 @@ import javax.net.ssl.TrustManager
 @RunWith(Parameterized::class)
 class ConvertorDefaultTest(val size:Size,val range:Int) {
     var parameters=Parameters.createParametresForTest(size)
-    var myBufferedImage= createMyBI(size)
+    lateinit var myBufferedImage:MyBufferedImage//= createMyBI(size)
 
     val convertor:ConvertorDefault
     init {

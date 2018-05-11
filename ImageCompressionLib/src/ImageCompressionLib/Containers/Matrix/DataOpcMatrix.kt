@@ -2,7 +2,7 @@ package ImageCompressionLib.Containers.Matrix
 
 import ImageCompressionLib.Containers.Type.DataOpc
 import ImageCompressionLib.Containers.Type.Size
-import com.sun.org.glassfish.gmbal.Description
+//import com.sun.org.glassfish.gmbal.Description
 
 class DataOpcMatrix : Matrix<DataOpc> {
 
@@ -16,7 +16,7 @@ class DataOpcMatrix : Matrix<DataOpc> {
     }
 
     @Deprecated("Use DataOpcMatrix")
-    @Description("create copy of array")
+//    @Description("create copy of array")
     fun toDataOpcArray():Array<Array<DataOpc>>{
         return  Array(width){i->Array(height){j->matrix[i][j] as DataOpc }}
     }
