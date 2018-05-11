@@ -11,13 +11,15 @@ class Parameters {
     val unitSize: Size
     val sameBaseSize: Size
     val dataSize:Size
+    val matrixOfUnitSize:Size
 
     constructor(flag: Flag, imageSize: Size, unitSize: Size = Size(SIZEOFBLOCK, SIZEOFBLOCK), sameBaseSize: Size = Size(1, 1)) {
         this.flag = flag
         this.imageSize = imageSize
         this.unitSize = unitSize
         this.sameBaseSize = sameBaseSize
-        dataSize=calculateDataSize(imageSize, Size(SIZEOFBLOCK, SIZEOFBLOCK))
+        dataSize=calculateDataSize(imageSize, unitSize)
+        matrixOfUnitSize=calculateMatrixOfUnitSize(dataSize,unitSize)
     }
 
     fun calculateDataSize(imageSize: Size,unitSize: Size): Size {
@@ -30,6 +32,13 @@ class Parameters {
             h=unitSize.height-imageSize.height%unitSize.height
 
         return Size(imageSize.width+w,imageSize.height+h)
+    }
+    fun calculateMatrixOfUnitSize(dataSize:Size,unitSize: Size): Size {
+        var w= dataSize.width/unitSize.width
+        var h= dataSize.height/unitSize.height
+        if(dataSize.width%unitSize.width!=0)w++
+        if(dataSize.height%unitSize.height!=0)h++
+        return Size(w, h)
     }
 
     fun toByteVector(vector: ByteVector){

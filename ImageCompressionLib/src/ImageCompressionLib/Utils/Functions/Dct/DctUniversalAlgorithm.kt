@@ -1,8 +1,6 @@
 package ImageCompressionLib.Utils.Functions.Dct
 
-import ImageCompressionLib.Constants.Cosine
 import ImageCompressionLib.Constants.MAX_QUANTIZATION_VALUE
-import ImageCompressionLib.Constants.SIZEOFBLOCK
 import ImageCompressionLib.Containers.Matrix.Matrix
 import ImageCompressionLib.Containers.Type.Size
 
@@ -18,7 +16,7 @@ class DctUniversalAlgorithm  {
         coeficient= DctCoeficientUtil(unitSize)
         quantizationTable= DctQuantizationUtils(unitSize, MAX_QUANTIZATION_VALUE)
     }
-        constructor(cosinTable: DctCosinUtils, coeficient: DctCoeficientUtil, quantizationTable: DctQuantizationUtils, unitSize: Size) {
+    private constructor(cosinTable: DctCosinUtils, coeficient: DctCoeficientUtil, quantizationTable: DctQuantizationUtils, unitSize: Size) {
         this.cosinTable = cosinTable
         this.coeficient = coeficient
         this.quantizationTable = quantizationTable
@@ -31,9 +29,9 @@ class DctUniversalAlgorithm  {
         return directDct(data,dataRes)
     }
 
-    fun reverceDCT(data: Matrix<Short>): Matrix<Short> {
+    fun reverseDCT(data: Matrix<Short>): Matrix<Short> {
         val dataRes=Matrix<Short>(data.size){i, j ->  0.toShort()}
-        return reverceDct(data,dataRes)
+        return reverseDct(data,dataRes)
     }
 
     private fun directDct(data: Matrix<Short>, target: Matrix<Short>): Matrix<Short> {
@@ -53,7 +51,7 @@ class DctUniversalAlgorithm  {
         return target
     }
 
-    private fun reverceDct(data: Matrix<Short>, target: Matrix<Short>): Matrix<Short> {
+    private fun reverseDct(data: Matrix<Short>, target: Matrix<Short>): Matrix<Short> {
         val w = unitSize.width
         val h = unitSize.height
         for(m in 0 until w){
@@ -68,6 +66,18 @@ class DctUniversalAlgorithm  {
             }
         }
         return target
+    }
+    fun directQuantization(data: Matrix<Short>):Matrix<Short>{
+        data.forEach{ i, j, value ->
+            (value/quantizationTable[i,j]).toShort()
+        }
+        return data
+    }
+    fun reverseQuantization(data: Matrix<Short>):Matrix<Short>{
+        data.forEach{ i, j, value ->
+            (value*quantizationTable[i,j]).toShort()
+        }
+        return data
     }
     fun copy():DctUniversalAlgorithm{
         return DctUniversalAlgorithm(cosinTable.copy(),coeficient.copy(),quantizationTable.copy(),unitSize)

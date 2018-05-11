@@ -5,7 +5,6 @@ import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Type.Size
 import org.junit.Before
 
-import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
@@ -42,7 +41,7 @@ class DctUniversalAlgorithmTest(val size: Size,val range: Int) {
         val cpy=ShortMatrix.valueOf(data).copy()
         val convertor=DctUniversalAlgorithm(data.size)
         val tmp=convertor.directDCT(data)
-        val res=convertor.reverceDCT(tmp)
+        val res=convertor.reverseDCT(tmp)
 
         ShortMatrix.valueOf(res).assertInRange(cpy,2)
     }

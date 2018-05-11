@@ -1,8 +1,12 @@
 package ImageCompressionLib.Utils.Objects
 
+import ImageCompressionLib.Constants.SIZEOFBLOCK
 import ImageCompressionLib.Constants.TypeQuantization
 import ImageCompressionLib.Containers.Matrix.ShortMatrix
+import ImageCompressionLib.Containers.Parameters
 import ImageCompressionLib.Containers.Type.Flag
+import ImageCompressionLib.Containers.Type.Size
+import ImageCompressionLib.Utils.Functions.Dct.DctUniversalAlgorithm
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -21,32 +25,34 @@ class DctConvertorDesktopTest {
     }
     @Test
     fun test16x16(){
-        mainTotal(16,16,5)
+        mainTotal(16,16,5,Size(8,8))
     }
     @Test
     fun test32x32(){
-        mainTotal(32,32,10)
+        mainTotal(32,32,10,Size(8,8))
     }
     @Test
     fun test800x800(){
-        mainTotal(800,800,10)
+        mainTotal(800,800,10,Size(10,10))
     }
     @Test
     fun test4x4(){
         println("work only for x8 size")
-        mainTotal(4,4,5)
+        mainTotal(4,4,5,Size(4,4))
     }
     @Test
     fun test7x6(){
-        println("work only for x8 size")
-        mainTotal(7,6,5)
+        println("work only for square unitSize")
+        mainTotal(7,6,5, Size(7,6))
     }
-    fun mainTotal(w: Int,h: Int,range: Int) {
+    fun mainTotal(w: Int,h: Int,range: Int,unitSize:Size) {
         val data=ShortMatrix(w,h){ i, j->((Math.abs(Random().nextInt(255)))).toShort()}
         val cpy = data.copy()
         assertTrue(data.assertInRange(cpy,0))
 
-        val convertor=DctConvertor(data,DctConvertor.State.ORIGIN,TypeQuantization.luminosity,flag)
+        val convertor=DctConvertor(data,DctConvertor.State.ORIGIN,TypeQuantization.luminosity
+                , Parameters.createParametresForTest(data.size,flag = flag,unitSize = unitSize)
+                , DctUniversalAlgorithm(unitSize))
 
         val dct=convertor.getMatrixDct()
         assertTrue(data.assertInRange(ShortMatrix.valueOf(dct),0))

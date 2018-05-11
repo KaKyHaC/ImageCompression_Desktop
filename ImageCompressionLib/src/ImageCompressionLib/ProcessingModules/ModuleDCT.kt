@@ -6,6 +6,8 @@ import ImageCompressionLib.Containers.TripleShortMatrix
 import ImageCompressionLib.Constants.State
 import ImageCompressionLib.Constants.TypeQuantization
 import ImageCompressionLib.Containers.Matrix.Matrix
+import ImageCompressionLib.Containers.Parameters
+import ImageCompressionLib.Utils.Functions.Dct.DctUniversalAlgorithm
 import ImageCompressionLib.Utils.Objects.DctConvertor
 
 import java.util.concurrent.ExecutionException
@@ -17,22 +19,25 @@ import kotlin.reflect.KFunction1
  * Created by Димка on 19.09.2016.
  */
 class ModuleDCT(private val tripleShortMatrixOld: TripleShortMatrix) { //    private TripleShortMatrix resTripleShortMatrix;
-    private val flag: Flag
+    private val parameter:Parameters
+    private val flag:Flag
     private var a: DctConvertor
     private var b: DctConvertor
     private var c: DctConvertor
 
     init {
-        flag=tripleShortMatrixOld.parameters.flag
+        parameter=tripleShortMatrixOld.parameters
+        flag=parameter.flag
+        val dctUtils=DctUniversalAlgorithm(parameter.unitSize)
 //        if (tripleShortMatrixOld.state == State.Yenl)
 //        //new code . Does it is needed ?
 //            tripleShortMatrixOld.state = State.YBR
 
         val state = if (tripleShortMatrixOld.state == State.DCT) DctConvertor.State.DCT else DctConvertor.State.ORIGIN
 
-        a = DctConvertor(tripleShortMatrixOld.a, state, TypeQuantization.luminosity, flag)
-        b = DctConvertor(tripleShortMatrixOld.b, state, TypeQuantization.Chromaticity, flag)
-        c = DctConvertor(tripleShortMatrixOld.c, state, TypeQuantization.Chromaticity, flag)
+        a = DctConvertor(tripleShortMatrixOld.a, state, TypeQuantization.luminosity,parameter,dctUtils.copy() )
+        b = DctConvertor(tripleShortMatrixOld.b, state, TypeQuantization.Chromaticity, parameter,dctUtils.copy())
+        c = DctConvertor(tripleShortMatrixOld.c, state, TypeQuantization.Chromaticity, parameter,dctUtils)
 
     }//        this.resTripleShortMatrix=tripleShortMatrixOld;
 
@@ -119,9 +124,9 @@ class ModuleDCT(private val tripleShortMatrixOld: TripleShortMatrix) { //    pri
             tripleShortMatrixOld.state = State.Yenl
     }
     private fun setState(state:DctConvertor.State){
-        a = DctConvertor(tripleShortMatrixOld.a, state, TypeQuantization.luminosity, flag)
-        b = DctConvertor(tripleShortMatrixOld.b, state, TypeQuantization.Chromaticity, flag)
-        c = DctConvertor(tripleShortMatrixOld.c, state, TypeQuantization.Chromaticity, flag)
+        a = DctConvertor(tripleShortMatrixOld.a, state, TypeQuantization.luminosity, parameter,a.dctUtil)
+        b = DctConvertor(tripleShortMatrixOld.b, state, TypeQuantization.Chromaticity,parameter,b.dctUtil)
+        c = DctConvertor(tripleShortMatrixOld.c, state, TypeQuantization.Chromaticity, parameter,c.dctUtil)
     }
 
     //    public TripleShortMatrix getMatrix() {
