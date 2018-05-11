@@ -1,4 +1,4 @@
-package ImageCompressionLib.Utils.Functions;
+package ImageCompressionLib.Utils.Functions.Dct;
 
 
 import ImageCompressionLib.Constants.Cosine;
@@ -10,8 +10,6 @@ import ImageCompressionLib.Containers.Matrix.ShortMatrix;
 public class DctAlgorithm8x8 {//singelton
     public final static int SIZEOFBLOCK = 8;
     private final static double OneDivideMathsqrt2 =1.0/Math.sqrt(2.0);
-
-    private static TypeQuantization tq;
     private DctAlgorithm8x8() {}
 
     public static Matrix<Short> directDCT(Matrix<Short> data){

@@ -6,7 +6,7 @@ import ImageCompressionLib.Constants.TypeQuantization
 import ImageCompressionLib.Containers.Matrix.Matrix
 import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.Utils.Functions.DctAlgorithm8x8
+import ImageCompressionLib.Utils.Functions.Dct.DctAlgorithm8x8
 
 /**
  * Class for transformation between DCT and Origin
