@@ -7,20 +7,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag2.kt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/IStegoMessageUtil.kt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/Type/Flag2Test.kt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest.kt" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/EncryptParameters.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/EncryptParameters.kt" />
+      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/ByteVector.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/ByteVector.kt" />
+      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java" />
+      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOpc.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOpc.kt" />
       <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultTest.kt" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/DctConvertor$dataProcessing$convertor$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/DctConvertor$dataProcessing$convertor$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/DctConvertor$dataProcessing$convertor$2.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/DctConvertor$dataProcessing$convertor$2.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/DctConvertor.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/DctConvertor.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$afterReverceOpc$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$afterReverceOpc$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$beforDirectOpc$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$beforDirectOpc$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$directOpc$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$directOpc$1.class" />
+      <change beforePath="$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt" />
+      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/EncryptParameters.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/EncryptParameters.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Type/Flag.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Type/Flag.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOpc$directOPCMultiThreads$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOpc$directOPCMultiThreads$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOpc$directOPCMultiThreads$2.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOpc$directOPCMultiThreads$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOpc$directOPCMultiThreads$3.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOpc$directOPCMultiThreads$3.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOpc$reverseOPCMultiThreads$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOpc$reverseOPCMultiThreads$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOpc$reverseOPCMultiThreads$2.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOpc$reverseOPCMultiThreads$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOpc$reverseOPCMultiThreads$3.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/ProcessingModules/ModuleOpc$reverseOPCMultiThreads$3.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$directOpcWithMessageAt$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$directOpcWithMessageAt$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$reverceOPC$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$reverceOPC$1.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$reverceOPCWithMessageAt$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$reverceOPCWithMessageAt$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$setGlobalBase$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor$setGlobalBase$1.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Objects/OpcConvertor.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ConvertorDesktopTest.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Objects/OpcConvertorTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Utils/Objects/OpcConvertorTest.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,66 +43,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="ConvertorDefaultTest.kt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultTest.kt">
+      <file leaf-file-name="EncryptParameters.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/EncryptParameters.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="88" column="16" lean-forward="false" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OpcConvertor.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="59" column="119" lean-forward="false" selection-start-line="59" selection-start-column="119" selection-end-line="59" selection-end-column="119" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DctConvertor.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/DctConvertor.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="143" column="35" lean-forward="false" selection-start-line="143" selection-start-column="35" selection-end-line="143" selection-end-column="35" />
+            <state relative-caret-position="225">
+              <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
               <folding>
-                <element signature="e#44#372#0" expanded="true" />
+                <element signature="e#40#158#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModuleOpc.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOpc.kt">
+      <file leaf-file-name="OpcConvertorTest.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+            <state relative-caret-position="125">
+              <caret line="14" column="82" lean-forward="true" selection-start-line="14" selection-start-column="82" selection-end-line="14" selection-end-column="82" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataOpc.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/DataOpc.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="96" column="9" lean-forward="true" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DctAlgorithm8x8.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Dct/DctAlgorithm8x8.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="99" column="9" lean-forward="true" selection-start-line="99" selection-start-column="9" selection-end-line="99" selection-end-column="9" />
-              <folding>
-                <element signature="method#reverseQuantization#0;class#DctAlgorithm8x8#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -99,7 +68,7 @@
       <file leaf-file-name="DctUniversalAlgorithm.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Dct/DctUniversalAlgorithm.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-105">
+            <state relative-caret-position="1600">
               <caret line="64" column="41" lean-forward="false" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
               <folding>
                 <element signature="e#49#208#0" expanded="true" />
@@ -108,21 +77,67 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FutureTask.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/java.base/java/util/concurrent/FutureTask.java">
+      <file leaf-file-name="Flag.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
+            <state relative-caret-position="750">
+              <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+              <folding>
+                <element signature="method#getQuantization#0;class#Flag#0" expanded="false" />
+                <element signature="method#setQuantization#0;class#Flag#0" expanded="false" />
+                <element signature="method#getEncryption#0;class#Flag#0" expanded="false" />
+                <element signature="method#setEncryption#0;class#Flag#0" expanded="false" />
+                <element signature="method#setChecked#0;class#Flag#0" expanded="false" />
+                <element signature="method#equals#0;class#Flag#0" expanded="false" />
+                <element signature="method#createDefaultFlag#0;class#Flag#0" expanded="false" />
+                <element signature="method#createCompressionFlag#0;class#Flag#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Flag2.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag2.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="2" column="8" lean-forward="false" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+              <folding>
+                <element signature="n#!!block;n#isChecked#0;n#!!block;n#Flag2#0" expanded="false" />
+                <element signature="n#!!block;n#setChecked#0;n#!!block;n#Flag2#0" expanded="false" />
+                <element signature="n#!!block;n#setTrue#0;n#!!block;n#Flag2#0" expanded="false" />
+                <element signature="n#!!block;n#setFalse#0;n#!!block;n#Flag2#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Flag2Test.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/Type/Flag2Test.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+              <folding>
+                <element signature="e#45#170#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ByteVector.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/ByteVector.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="650">
+              <caret line="222" column="5" lean-forward="true" selection-start-line="222" selection-start-column="5" selection-end-line="222" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OpcUtils.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcUtils.kt">
+      <file leaf-file-name="IStegoMessageUtil.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/IStegoMessageUtil.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="44" column="74" lean-forward="true" selection-start-line="44" selection-start-column="74" selection-end-line="44" selection-end-column="74" />
+            <state relative-caret-position="100">
+              <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -131,8 +146,18 @@
       <file leaf-file-name="ConvertorDefault.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+            <state relative-caret-position="150">
+              <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConvertorDefaultStegonographyTest.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -149,8 +174,8 @@
         <option value="Kotlin File" />
         <option value="Class" />
         <option value="Kotlin Interface" />
-        <option value="JUnit4 Test Class" />
         <option value="Kotlin Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -232,38 +257,27 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/TripleDataOpcOldMatrixTest.kt" />
-        <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/TripleDataOpcOldTripleShortMatrixOldTest.kt" />
-        <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/TripleShortMatrixOldTest.kt" />
-        <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/DataOpcOldTest.kt" />
-        <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt" />
-        <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultTestDCT.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/ModuleOpcOldTest.java" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/EncryptionTest.java" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/OPCMultiThreadTest.java" />
-        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleOpcOldTest.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/DataOpcTest.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/OpcProcessKtTest.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/ImageStandardDeviation.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/TripleDataOpcMatrix.kt" />
-        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOpc.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithms.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/IteratorZeroMatrix.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleDCTTest.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/DCTMultiThreadTest.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/TripleDataOpcMatrixTest.kt" />
-        <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleImageTest.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleOpcTest.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/ImageIOTest.kt" />
-        <option value="$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/MyBufferedImage.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleImage.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/DCTMultiThread.java" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/DataOpcMatrix.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/DctAlgorithm8x8.java" />
-        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/EncryptParameters.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Dct/IDct.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Dct/DctAlgorithm8x8.java" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Dct/DctUniversalAlgorithmTest.kt" />
@@ -281,8 +295,19 @@
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Dct/DctUniversalAlgorithm.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/DataOpc.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/DctConvertor.kt" />
-        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultTest.kt" />
+        <option value="$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt" />
+        <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleImageTest.kt" />
+        <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt" />
+        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/IStegoMessageUtil.kt" />
+        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/EncryptParameters.kt" />
+        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.kt" />
+        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOpc.kt" />
+        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java" />
+        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag2.kt" />
+        <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/Type/Flag2Test.kt" />
+        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/ByteVector.kt" />
+        <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest.kt" />
       </list>
     </option>
   </component>
@@ -339,24 +364,7 @@
               <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="Constants" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
               <item name="Containers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="Containers" type="462c0819:PsiDirectoryNode" />
-              <item name="Matrix" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
@@ -370,119 +378,7 @@
             <path>
               <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
               <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="Convertor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="ProcessingModules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-              <item name="Functions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-              <item name="Functions" type="462c0819:PsiDirectoryNode" />
-              <item name="Dct" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-              <item name="Functions" type="462c0819:PsiDirectoryNode" />
-              <item name="Opc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-              <item name="Objects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
               <item name="Tests_tmp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests_tmp" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests_tmp" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="Containers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests_tmp" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="Convertor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests_tmp" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="ProcessingModules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests_tmp" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests_tmp" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-              <item name="Functions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="Tests_tmp" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
-              <item name="Objects" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
@@ -531,11 +427,11 @@
       <recent name="Utils" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="ImageCompressionLib.Convertor" />
+      <recent name="ImageCompressionLib.Containers.Type" />
       <recent name="ImageCompressionLib.Utils.Functions.Dct" />
       <recent name="ImageCompressionLib.ProcessingModules" />
-      <recent name="ImageCompressionLib.Convertor" />
       <recent name="ImageCompressionLib.Containers" />
-      <recent name="ImageCompressionLib.Utils.Objects" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -571,7 +467,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ConvertorDefaultTest">
+  <component name="RunManager" selected="JUnit.Flag2Test.speedTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module />
       <option name="HTML_USED" value="false" />
@@ -613,18 +509,18 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="ConvertorDefaultTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Flag2Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="ImageCompressionLib.Convertor.*" />
+          <option name="PATTERN" value="ImageCompressionLib.Containers.Type.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="ImageCompressionKotlin" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ImageCompressionLib.Convertor" />
-      <option name="MAIN_CLASS_NAME" value="ImageCompressionLib.Convertor.ConvertorDefaultTest" />
+      <option name="PACKAGE_NAME" value="ImageCompressionLib.Containers.Type" />
+      <option name="MAIN_CLASS_NAME" value="ImageCompressionLib.Containers.Type.Flag2Test" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -638,70 +534,20 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="ConvertorDefaultTest.testDirectReverceConvert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Flag2Test.speedTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="ImageCompressionLib.Convertor.*" />
+          <option name="PATTERN" value="ImageCompressionLib.Containers.Type.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="ImageCompressionKotlin" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ImageCompressionLib.Convertor" />
-      <option name="MAIN_CLASS_NAME" value="ImageCompressionLib.Convertor.ConvertorDefaultTest" />
-      <option name="METHOD_NAME" value="testDirectReverceConvert" />
+      <option name="PACKAGE_NAME" value="ImageCompressionLib.Containers.Type" />
+      <option name="MAIN_CLASS_NAME" value="ImageCompressionLib.Containers.Type.Flag2Test" />
+      <option name="METHOD_NAME" value="speedTest" />
       <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="ConvertorDefaultTest.testDirectReverceConvertUnitSize7x6" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ImageCompressionLib.Convertor.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="ImageCompressionKotlin" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ImageCompressionLib.Convertor" />
-      <option name="MAIN_CLASS_NAME" value="ImageCompressionLib.Convertor.ConvertorDefaultTest" />
-      <option name="METHOD_NAME" value="testDirectReverceConvertUnitSize7x6" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="DctConvertorDesktopTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ImageCompressionLib.Utils.Objects.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="ImageCompressionKotlin" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ImageCompressionLib.Utils.Objects" />
-      <option name="MAIN_CLASS_NAME" value="ImageCompressionLib.Utils.Objects.DctConvertorDesktopTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -725,6 +571,56 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="ImageCompressionLib.ProcessingModules" />
       <option name="MAIN_CLASS_NAME" value="ImageCompressionLib.ProcessingModules.ModuleImageTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="ModuleImageTest.TestEnlagment4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ImageCompressionLib.ProcessingModules.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ImageCompressionKotlin" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="ImageCompressionLib.ProcessingModules" />
+      <option name="MAIN_CLASS_NAME" value="ImageCompressionLib.ProcessingModules.ModuleImageTest" />
+      <option name="METHOD_NAME" value="TestEnlagment4" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="OpcConvertorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ImageCompressionLib.Utils.Objects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ImageCompressionKotlin" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="ImageCompressionLib.Utils.Objects" />
+      <option name="MAIN_CLASS_NAME" value="ImageCompressionLib.Utils.Objects.OpcConvertorTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -799,19 +695,19 @@
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.DctConvertorDesktopTest" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.ModuleImageTest.TestEnlagment4" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.All in ImageCompressionKotlin" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.ConvertorDefaultTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.ConvertorDefaultTest.testDirectReverceConvert" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.ConvertorDefaultTest.testDirectReverceConvertUnitSize7x6" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.OpcConvertorTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.Flag2Test.speedTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.Flag2Test" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.ConvertorDefaultTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.ConvertorDefaultTest.testDirectReverceConvertUnitSize7x6" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ConvertorDefaultTest.testDirectReverceConvert" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.All in ImageCompressionKotlin" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.DctConvertorDesktopTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.Flag2Test.speedTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.Flag2Test" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.All in ImageCompressionKotlin" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.OpcConvertorTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.ModuleImageTest.TestEnlagment4" />
       </list>
     </recent_temporary>
   </component>
@@ -847,35 +743,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ConvertorDefaultTest - 2018.05.11 at 19h 09m 45s.xml">
-      <configuration name="ConvertorDefaultTest" configurationId="JUnit" />
+    <history-entry file="Flag2Test - 2018.05.11 at 21h 12m 26s.xml">
+      <configuration name="Flag2Test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorDefaultTest - 2018.05.11 at 19h 14m 28s.xml">
-      <configuration name="ConvertorDefaultTest" configurationId="JUnit" />
+    <history-entry file="Flag2Test - 2018.05.11 at 21h 12m 53s.xml">
+      <configuration name="Flag2Test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorDefaultTest - 2018.05.11 at 19h 15m 49s.xml">
-      <configuration name="ConvertorDefaultTest" configurationId="JUnit" />
+    <history-entry file="Flag2Test - 2018.05.11 at 21h 13m 01s.xml">
+      <configuration name="Flag2Test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorDefaultTest - 2018.05.11 at 19h 17m 40s.xml">
-      <configuration name="ConvertorDefaultTest" configurationId="JUnit" />
+    <history-entry file="Flag2Test - 2018.05.11 at 21h 13m 15s.xml">
+      <configuration name="Flag2Test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorDefaultTest - 2018.05.11 at 19h 19m 33s.xml">
-      <configuration name="ConvertorDefaultTest" configurationId="JUnit" />
+    <history-entry file="Flag2Test_speedTest - 2018.05.11 at 21h 13m 27s.xml">
+      <configuration name="Flag2Test.speedTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorDefaultTest - 2018.05.11 at 19h 20m 42s.xml">
-      <configuration name="ConvertorDefaultTest" configurationId="JUnit" />
+    <history-entry file="Flag2Test_speedTest - 2018.05.11 at 21h 13m 49s.xml">
+      <configuration name="Flag2Test.speedTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorDefaultTest - 2018.05.11 at 19h 21m 54s.xml">
-      <configuration name="ConvertorDefaultTest" configurationId="JUnit" />
+    <history-entry file="Flag2Test_speedTest - 2018.05.11 at 21h 14m 07s.xml">
+      <configuration name="Flag2Test.speedTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorDefaultTest_testDirectReverceConvertUnitSize7x6 - 2018.05.11 at 19h 03m 30s.xml">
-      <configuration name="ConvertorDefaultTest.testDirectReverceConvertUnitSize7x6" configurationId="JUnit" />
+    <history-entry file="Flag2Test_speedTest - 2018.05.11 at 21h 14m 12s.xml">
+      <configuration name="Flag2Test.speedTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorDefaultTest_testDirectReverceConvertUnitSize7x6 - 2018.05.11 at 19h 05m 53s.xml">
-      <configuration name="ConvertorDefaultTest.testDirectReverceConvertUnitSize7x6" configurationId="JUnit" />
+    <history-entry file="Flag2Test_speedTest - 2018.05.11 at 21h 14m 22s.xml">
+      <configuration name="Flag2Test.speedTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorDefaultTest_testDirectReverceConvertUnitSize7x6 - 2018.05.11 at 19h 07m 54s.xml">
-      <configuration name="ConvertorDefaultTest.testDirectReverceConvertUnitSize7x6" configurationId="JUnit" />
+    <history-entry file="Flag2Test_speedTest - 2018.05.11 at 22h 04m 28s.xml">
+      <configuration name="Flag2Test.speedTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -889,7 +785,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992035" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -899,12 +794,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41410694" sideWeight="0.5104167" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5335609" sideWeight="0.41927084" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5335609" sideWeight="0.41927084" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992035" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20677084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20677084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1351,24 +1246,6 @@
           <option name="timeStamp" value="460" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt</url>
-          <line>311</line>
-          <properties />
-          <option name="timeStamp" value="463" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt</url>
-          <line>307</line>
-          <properties />
-          <option name="timeStamp" value="464" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleImage.kt</url>
-          <line>272</line>
-          <properties />
-          <option name="timeStamp" value="468" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Dct/DctUniversalAlgorithmTest.kt</url>
           <line>45</line>
           <properties />
@@ -1380,8 +1257,20 @@
           <properties />
           <option name="timeStamp" value="487" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt</url>
+          <line>310</line>
+          <properties />
+          <option name="timeStamp" value="488" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt</url>
+          <line>50</line>
+          <properties />
+          <option name="timeStamp" value="489" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="488" />
+      <option name="time" value="490" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1395,113 +1284,12 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/runner/JUnitCore.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/runners/BlockJUnit4ClassRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/runners/ParentRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3650">
-          <caret line="199" column="0" lean-forward="false" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/internal/runners/statements/InvokeMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/reflect/Method.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="497" column="0" lean-forward="false" selection-start-line="497" selection-start-column="0" selection-end-line="497" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/jre/lib/rt.jar!/sun/reflect/DelegatingMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="33" column="33" lean-forward="false" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/DctAlgorithm8x8Test.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="57" column="13" lean-forward="true" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Size.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="15" lean-forward="false" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/TripleDataOpcMatrixTest.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="31" column="61" lean-forward="false" selection-start-line="31" selection-start-column="61" selection-end-line="31" selection-end-column="61" />
           <folding>
             <element signature="e#40#339#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleDCTTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="104" column="30" lean-forward="true" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
-          <folding>
-            <element signature="e#47#349#0" expanded="true" />
-            <element signature="n#!!block;n#TimeTest#0;n#!!block;n#ModuleDCTTest#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleImageTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!block;n#TimeTest1#0;n#!!block;n#ModuleImageTest#0" expanded="false" />
-            <element signature="n#!!block;n#TimeTest2#0;n#!!block;n#ModuleImageTest#0" expanded="false" />
-            <element signature="n#!!block;n#TimeTest3#0;n#!!block;n#ModuleImageTest#0" expanded="false" />
-            <element signature="n#!!block;n#BmpToYenlTimeTest#0;n#!!block;n#ModuleImageTest#0" expanded="false" />
-            <element signature="n#!!block;n#getGradientMatrix#0;n#!!block;n#ModuleImageTest#0" expanded="false" />
-            <element signature="n#!!block;n#forEach#0;n#!!block;n#ModuleImageTest#0" expanded="false" />
-            <element signature="n#!!block;n#Companion#0;n#!!block;n#ModuleImageTest#0" expanded="false" />
-            <element signature="n#!!block;n#randomBufferedImage#0;n#!!block;n#Companion#0;n#!!block;n#ModuleImageTest#0" expanded="false" />
-            <element signature="n#!!block;n#assertArrayInRange#0;n#!!block;n#Companion#0;n#!!block;n#ModuleImageTest#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1537,16 +1325,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="191" column="0" lean-forward="false" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="209" column="47" lean-forward="false" selection-start-line="209" selection-start-column="47" selection-end-line="209" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#585#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1592,14 +1370,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="107">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/EncryptParameters.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -1677,24 +1447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/DctConvertorDesktopTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="44" column="46" lean-forward="false" selection-start-line="44" selection-start-column="46" selection-end-line="44" selection-end-column="46" />
-          <folding>
-            <element signature="e#43#539#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/ShortMatrix.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Dct/DctQuantizationUtils.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
@@ -1713,42 +1465,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/Matrix.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="74" column="38" lean-forward="false" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
-          <folding>
-            <element signature="n#!!block;n#Matrix#1;n#!!block;n#Matrix#0" expanded="false" />
-            <element signature="n#!!block;n#Matrix#2;n#!!block;n#Matrix#0" expanded="false" />
-            <element signature="n#!!block;n#set#0;n#!!block;n#Matrix#0" expanded="false" />
-            <element signature="n#!!block;n#forEach#0;n#!!block;n#Matrix#0" expanded="false" />
-            <element signature="n#!!block;n#hashCode#0;n#!!block;n#Matrix#0" expanded="false" />
-            <element signature="n#!!block;n#rectBuffer#0;n#!!block;n#Matrix#0" expanded="false" />
-            <element signature="n#!!block;n#rectBuffer#1;n#!!block;n#Matrix#0" expanded="false" />
-            <element signature="n#!!block;n#rectIterator#0;n#!!block;n#Matrix#0" expanded="false" />
-            <element signature="n#!!block;n#rectBufferSave#0;n#!!block;n#Matrix#0" expanded="false" />
-            <element signature="n#!!block;n#rectBufferSave#1;n#!!block;n#Matrix#0" expanded="false" />
-            <element signature="n#!!block;n#rectSaveIterator#0;n#!!block;n#Matrix#0" expanded="false" />
-            <element signature="n#!!block;n#rectSaveZeroIterator#0;n#!!block;n#Matrix#0" expanded="false" />
-            <element signature="n#!!block;n#calculataBufferSize#0;n#!!block;n#Matrix#0" expanded="false" />
-            <element signature="n#!!block;n#splitBuffered#0;n#!!block;n#Matrix#0" expanded="false" />
-            <element signature="n#!!block;n#split#0;n#!!block;n#Matrix#0" expanded="false" />
-            <element signature="n#!!block;n#splitWithZeroIterator#0;n#!!block;n#Matrix#0" expanded="false" />
-            <element signature="n#!!block;n#calculateMatrixOfMatrixSize#0;n#!!block;n#Matrix#0" expanded="false" />
-            <element signature="n#!!block;n#assertEquals#0;n#!!block;n#Matrix#0" expanded="false" />
-            <element signature="n#!!block;n#Companion#0;n#!!block;n#Matrix#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/IteratorMatrix.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcProcess.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="98">
@@ -1757,56 +1473,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleImage.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3250">
-          <caret line="279" column="39" lean-forward="true" selection-start-line="279" selection-start-column="39" selection-end-line="279" selection-end-column="39" />
-          <folding>
-            <element signature="n#!!block;n#FromIBufferedImageToYCbCrParallelMatrix#0;n#!!block;n#ModuleImage#0" expanded="false" />
-            <element signature="n#!!block;n#FromIBufferedImageToYCbCr#0;n#!!block;n#ModuleImage#0" expanded="false" />
-            <element signature="n#!!block;n#FromIBufferedImageToRGB#0;n#!!block;n#ModuleImage#0" expanded="false" />
-            <element signature="n#!!block;n#FromRGBtoIBufferedImage#0;n#!!block;n#ModuleImage#0" expanded="false" />
-            <element signature="n#!!block;n#FromYBRtoRGB#0;n#!!block;n#ModuleImage#0" expanded="false" />
-            <element signature="n#!!block;n#minus128#0;n#!!block;n#ModuleImage#0" expanded="false" />
-            <element signature="n#!!block;n#plus128#0;n#!!block;n#ModuleImage#0" expanded="false" />
-            <element signature="n#!!block;n#minus128#1;n#!!block;n#ModuleImage#0" expanded="false" />
-            <element signature="n#!!block;n#plus128#1;n#!!block;n#ModuleImage#0" expanded="false" />
-            <element signature="n#!!block;n#getYCbCrMatrix#0;n#!!block;n#ModuleImage#0" expanded="false" />
-            <element signature="n#!!block;n#appendTimeManager#0;n#!!block;n#ModuleImage#0" expanded="false" />
-            <element signature="n#!!block;n#convertTo2DWithoutUsingGetRGB#0;n#!!block;n#ModuleImage#0" expanded="false" />
-            <element signature="n#!!block;n#forEach#0;n#!!block;n#ModuleImage#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Constants/Constants.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
           <caret line="12" column="38" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/TripleShortMatrix.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="19" column="68" lean-forward="false" selection-start-line="19" selection-start-column="68" selection-end-line="19" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOpc.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1837,16 +1507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Dct/DctUniversalAlgorithm.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-105">
-          <caret line="64" column="41" lean-forward="false" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
-          <folding>
-            <element signature="e#49#208#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/DataOpc.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
@@ -1865,18 +1525,272 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="59" column="119" lean-forward="false" selection-start-line="59" selection-start-column="119" selection-end-line="59" selection-end-column="119" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultTest.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="88" column="16" lean-forward="false" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/TripleDataOpcMatrix.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2075">
+          <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/TripleShortMatrix.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleImage.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="272" column="0" lean-forward="false" selection-start-line="272" selection-start-column="0" selection-end-line="272" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#FromIBufferedImageToYCbCrParallelMatrix#0;n#!!block;n#ModuleImage#0" expanded="false" />
+            <element signature="n#!!block;n#FromIBufferedImageToYCbCr#0;n#!!block;n#ModuleImage#0" expanded="false" />
+            <element signature="n#!!block;n#FromIBufferedImageToRGB#0;n#!!block;n#ModuleImage#0" expanded="false" />
+            <element signature="n#!!block;n#FromRGBtoIBufferedImage#0;n#!!block;n#ModuleImage#0" expanded="false" />
+            <element signature="n#!!block;n#FromYBRtoRGB#0;n#!!block;n#ModuleImage#0" expanded="false" />
+            <element signature="n#!!block;n#minus128#0;n#!!block;n#ModuleImage#0" expanded="false" />
+            <element signature="n#!!block;n#plus128#0;n#!!block;n#ModuleImage#0" expanded="false" />
+            <element signature="n#!!block;n#minus128#1;n#!!block;n#ModuleImage#0" expanded="false" />
+            <element signature="n#!!block;n#plus128#1;n#!!block;n#ModuleImage#0" expanded="false" />
+            <element signature="n#!!block;n#getYCbCrMatrix#0;n#!!block;n#ModuleImage#0" expanded="false" />
+            <element signature="n#!!block;n#appendTimeManager#0;n#!!block;n#ModuleImage#0" expanded="false" />
+            <element signature="n#!!block;n#convertTo2DWithoutUsingGetRGB#0;n#!!block;n#ModuleImage#0" expanded="false" />
+            <element signature="n#!!block;n#forEach#0;n#!!block;n#ModuleImage#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="311" column="0" lean-forward="false" selection-start-line="311" selection-start-column="0" selection-end-line="311" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#585#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleImageTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="91" column="63" lean-forward="false" selection-start-line="91" selection-start-column="63" selection-end-line="91" selection-end-column="63" />
+          <folding>
+            <element signature="n#!!block;n#TestDefaultRaundomBufIm5#0;n#!!block;n#ModuleImageTest#0" expanded="false" />
+            <element signature="n#!!block;n#TestDefaultGradientMatrix5#0;n#!!block;n#ModuleImageTest#0" expanded="false" />
+            <element signature="n#!!block;n#TestDefaultGradientMatrixRGB5#0;n#!!block;n#ModuleImageTest#0" expanded="false" />
+            <element signature="n#!!block;n#TimeTest1#0;n#!!block;n#ModuleImageTest#0" expanded="false" />
+            <element signature="n#!!block;n#TimeTest2#0;n#!!block;n#ModuleImageTest#0" expanded="false" />
+            <element signature="n#!!block;n#TimeTest3#0;n#!!block;n#ModuleImageTest#0" expanded="false" />
+            <element signature="n#!!block;n#BmpToYenlTimeTest#0;n#!!block;n#ModuleImageTest#0" expanded="false" />
+            <element signature="n#!!block;n#getGradientMatrix#0;n#!!block;n#ModuleImageTest#0" expanded="false" />
+            <element signature="n#!!block;n#forEach#0;n#!!block;n#ModuleImageTest#0" expanded="false" />
+            <element signature="n#!!block;n#Companion#0;n#!!block;n#ModuleImageTest#0" expanded="false" />
+            <element signature="n#!!block;n#randomBufferedImage#0;n#!!block;n#Companion#0;n#!!block;n#ModuleImageTest#0" expanded="false" />
+            <element signature="n#!!block;n#assertArrayInRange#0;n#!!block;n#Companion#0;n#!!block;n#ModuleImageTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleDCTTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-680">
+          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding>
+            <element signature="e#47#349#0" expanded="true" />
+            <element signature="n#!!block;n#TimeTest#0;n#!!block;n#ModuleDCTTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/DctConvertorDesktopTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.1/lib/src.zip!/java.base/jdk/internal/reflect/NativeMethodAccessorImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Size.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="15" lean-forward="false" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/IteratorMatrix.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="32" lean-forward="false" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/Matrix.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#Matrix#1;n#!!block;n#Matrix#0" expanded="false" />
+            <element signature="n#!!block;n#set#0;n#!!block;n#Matrix#0" expanded="false" />
+            <element signature="n#!!block;n#forEach#0;n#!!block;n#Matrix#0" expanded="false" />
+            <element signature="n#!!block;n#hashCode#0;n#!!block;n#Matrix#0" expanded="false" />
+            <element signature="n#!!block;n#rectBuffer#0;n#!!block;n#Matrix#0" expanded="false" />
+            <element signature="n#!!block;n#rectBuffer#1;n#!!block;n#Matrix#0" expanded="false" />
+            <element signature="n#!!block;n#rectBufferSave#0;n#!!block;n#Matrix#0" expanded="false" />
+            <element signature="n#!!block;n#rectBufferSave#1;n#!!block;n#Matrix#0" expanded="false" />
+            <element signature="n#!!block;n#rectSaveIterator#0;n#!!block;n#Matrix#0" expanded="false" />
+            <element signature="n#!!block;n#rectSaveZeroIterator#0;n#!!block;n#Matrix#0" expanded="false" />
+            <element signature="n#!!block;n#calculataBufferSize#0;n#!!block;n#Matrix#0" expanded="false" />
+            <element signature="n#!!block;n#splitBuffered#0;n#!!block;n#Matrix#0" expanded="false" />
+            <element signature="n#!!block;n#split#0;n#!!block;n#Matrix#0" expanded="false" />
+            <element signature="n#!!block;n#splitWithZeroIterator#0;n#!!block;n#Matrix#0" expanded="false" />
+            <element signature="n#!!block;n#calculateMatrixOfMatrixSize#0;n#!!block;n#Matrix#0" expanded="false" />
+            <element signature="n#!!block;n#assertEquals#0;n#!!block;n#Matrix#0" expanded="false" />
+            <element signature="n#!!block;n#Companion#0;n#!!block;n#Matrix#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/ShortMatrix.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1310">
+          <caret line="176" column="39" lean-forward="false" selection-start-line="176" selection-start-column="39" selection-end-line="176" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOpc.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="118" column="0" lean-forward="true" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/IStegoMessageUtil.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/EncryptParameters.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+          <folding>
+            <element signature="e#40#158#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Dct/DctUniversalAlgorithm.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1600">
+          <caret line="64" column="41" lean-forward="false" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
+          <folding>
+            <element signature="e#49#208#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+          <folding>
+            <element signature="method#getQuantization#0;class#Flag#0" expanded="false" />
+            <element signature="method#setQuantization#0;class#Flag#0" expanded="false" />
+            <element signature="method#getEncryption#0;class#Flag#0" expanded="false" />
+            <element signature="method#setEncryption#0;class#Flag#0" expanded="false" />
+            <element signature="method#setChecked#0;class#Flag#0" expanded="false" />
+            <element signature="method#equals#0;class#Flag#0" expanded="false" />
+            <element signature="method#createDefaultFlag#0;class#Flag#0" expanded="false" />
+            <element signature="method#createCompressionFlag#0;class#Flag#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag2.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="8" lean-forward="false" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+          <folding>
+            <element signature="n#!!block;n#isChecked#0;n#!!block;n#Flag2#0" expanded="false" />
+            <element signature="n#!!block;n#setChecked#0;n#!!block;n#Flag2#0" expanded="false" />
+            <element signature="n#!!block;n#setTrue#0;n#!!block;n#Flag2#0" expanded="false" />
+            <element signature="n#!!block;n#setFalse#0;n#!!block;n#Flag2#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/Type/Flag2Test.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+          <folding>
+            <element signature="e#45#170#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/ByteVector.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="222" column="5" lean-forward="true" selection-start-line="222" selection-start-column="5" selection-end-line="222" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="14" column="82" lean-forward="true" selection-start-line="14" selection-start-column="82" selection-end-line="14" selection-end-column="82" />
           <folding />
         </state>
       </provider>

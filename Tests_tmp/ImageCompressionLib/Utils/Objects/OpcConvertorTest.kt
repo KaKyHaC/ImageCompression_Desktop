@@ -47,6 +47,7 @@ class OpcConvertorTest(flag: Flag,imageSize: Size,unitSize: Size,baseSize: Size)
         val d=convertor.getDataOpcs()
         val convertor1=OpcConvertor(DataOpcMatrix.valueOf(d),parameters)
         val res=convertor1.getDataOrigin().first
-        shortMatrixCpy.assertInRange(ShortMatrix.valueOf(res),0)
+        val sres=ShortMatrix.valueOf(res.rectBuffer(0,0,shortMatrixCpy.size))
+        shortMatrixCpy.assertInRange(sres,0)
     }
 }

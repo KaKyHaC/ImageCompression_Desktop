@@ -52,9 +52,9 @@ class ModuleOpc {
         val futures = ArrayList<Future<Matrix<DataOpc>>>()
 
         appendTimeManager("direct OPC")
-        futures.add(executorService.submit(Callable { a.getDataOpcs(encryptParameters?.stegoPosition, encryptParameters?.message) }))
-        futures.add(executorService.submit(Callable { b.getDataOpcs(encryptParameters?.stegoPosition, encryptParameters?.message) }))
-        futures.add(executorService.submit(Callable { c.getDataOpcs(encryptParameters?.stegoPosition, encryptParameters?.message) }))
+        futures.add(executorService.submit(Callable { a.getDataOpcs(encryptParameters) }))
+        futures.add(executorService.submit(Callable { b.getDataOpcs(encryptParameters) }))
+        futures.add(executorService.submit(Callable { c.getDataOpcs(encryptParameters) }))
 
 
         val b = (futures[1].get())
@@ -75,9 +75,9 @@ class ModuleOpc {
 
         appendTimeManager("start reOPC")
 
-        futures.add(executorService.submit(Callable { a.getDataOrigin(encryptParameters?.stegoPosition) }))
-        futures.add(executorService.submit(Callable { b.getDataOrigin(encryptParameters?.stegoPosition) }))
-        futures.add(executorService.submit(Callable { c.getDataOrigin(encryptParameters?.stegoPosition) }))
+        futures.add(executorService.submit(Callable { a.getDataOrigin(encryptParameters) }))
+        futures.add(executorService.submit(Callable { b.getDataOrigin(encryptParameters) }))
+        futures.add(executorService.submit(Callable { c.getDataOrigin(encryptParameters) }))
 
         val (a1, v1) = futures[0].get()
         val (b1, v2) = futures[1].get()

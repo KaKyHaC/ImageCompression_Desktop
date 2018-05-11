@@ -166,7 +166,7 @@ class ConvertorDesktopTest {
         f.setChecked(Flag.Parameter.DC, true)
         f.setChecked(Flag.Parameter.OneFile, true)
         f.setTrue(Flag.Parameter.DCT)
-        testDirectReverseConverting(1920, 1080, 8,f)
+        testDirectReverseConverting(1920, 1080, 10,f)
     }
 
     @Test
@@ -176,7 +176,7 @@ class ConvertorDesktopTest {
         f.setChecked(Flag.Parameter.DC, true)
         f.setChecked(Flag.Parameter.OneFile, true)
         f.setTrue(Flag.Parameter.DCT)
-        testDirectReverseConverting(1920, 1080, 8,f)
+        testDirectReverseConverting(1920, 1080, 10,f)
     }
 
     @Test
@@ -186,7 +186,7 @@ class ConvertorDesktopTest {
         f.setChecked(Flag.Parameter.DC, true)
         f.setTrue(Flag.Parameter.DCT)
         f.setChecked(Flag.Parameter.OneFile, true)
-        testDirectReverseConverting(360, 280, 7,f, true)
+        testDirectReverseConverting(360, 280, 10,f, true)
     }
 
     @Test
@@ -196,7 +196,7 @@ class ConvertorDesktopTest {
         f.setChecked(Flag.Parameter.DC, true)
         f.setChecked(Flag.Parameter.OneFile, true)
         f.setTrue(Flag.Parameter.DCT)
-        testDirectReverseConverting(360, 280, 7,f)
+        testDirectReverseConverting(360, 280, 10,f)
     }
 
     @Test
@@ -207,7 +207,7 @@ class ConvertorDesktopTest {
         f.setChecked(Flag.Parameter.OneFile, true)
         f.setChecked(Flag.Parameter.Enlargement, true)
         f.setTrue(Flag.Parameter.DCT)
-        testDirectReverseConverting(384, 240, 50,f)
+        testDirectReverseConverting(384, 240, 10,f)
     }
 
     @Test

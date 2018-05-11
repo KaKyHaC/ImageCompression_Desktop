@@ -72,18 +72,6 @@ public class Flag {
         }
     }
 
-    //Utils
-    private boolean isChecked(int param){
-        return (f&param)!=0;
-    }
-    private void setChecked(boolean state,int param){
-        if(state){
-            f|=param;
-        } else {
-            f&=(~param);
-        }
-    }
-
     public boolean isChecked(Parameter param){
         return (f&param.value)!=0;
     }

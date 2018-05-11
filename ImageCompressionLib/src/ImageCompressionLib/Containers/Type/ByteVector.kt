@@ -221,5 +221,4 @@ class ByteVector:Iterable<Byte> {
         result = 31 * result + curIndex
         return result
     }
-
 }
