@@ -11,7 +11,7 @@ class DctQuantizationUtils{
             var r=Math.exp((i+j)/2.0)
             if(r>maxVal)
                 r=maxVal.toDouble()
-            r
+            r.toShort()
         }
     }
     private constructor(table:Matrix<Short>){

@@ -45,6 +45,7 @@ class DctUniversalAlgorithm  {
                         sum += data[m,n] * cosinTable[p,q,m,n]
                     }
                 }
+                assert(coeficient[p,q]*sum<0xff)
                 target[p,q]=(coeficient[p,q]*sum).toShort()//todo DoubleToShort()
             }
         }
