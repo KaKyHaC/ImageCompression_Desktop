@@ -17,6 +17,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.util.*
+import kotlin.test.assertFails
+
 @RunWith(Parameterized::class)
 class ConvertorDefaultStegonographyTest (val size: Size,val messageLenght:Int, var stegoPos:Int) {
     lateinit var parameters: Parameters
@@ -64,7 +66,7 @@ class ConvertorDefaultStegonographyTest (val size: Size,val messageLenght:Int, v
 
     @Before
     fun setUp() {
-        parameters= Parameters.createParametresForTest(size)
+        parameters= Parameters.createParametresForTest(size,unitSize = Size(1,8))
         parameters.flag.setTrue(Flag.Parameter.Steganography)
         myBufferedImage= createMyBI(size)
         encParam= EncryptParameters()
@@ -74,7 +76,7 @@ class ConvertorDefaultStegonographyTest (val size: Size,val messageLenght:Int, v
 
     @Test
     fun testTrueGeter(){
-        encParam.stegoBlockKey=TrueGeter()
+        encParam.stegoBlockKeygenFactory={TrueGeter() }
         TimeManager.Instance.startNewTrack("convert")
         convertor.FromBmpToBar(ConvertorDefault.Computing.MultiThreads)
         TimeManager.Instance.append("direct")
@@ -84,25 +86,26 @@ class ConvertorDefaultStegonographyTest (val size: Size,val messageLenght:Int, v
     }
     @Test
     fun testBinaryGeter(){
-        encParam.stegoBlockKey=BinaryGeter()
+        encParam.stegoBlockKeygenFactory={BinaryGeter()}
         TimeManager.Instance.startNewTrack("convert")
         convertor.FromBmpToBar(ConvertorDefault.Computing.MultiThreads)
         TimeManager.Instance.append("direct")
 
-        encParam.stegoBlockKey=BinaryGeter()
         convertor.FromBarToBmp(ConvertorDefault.Computing.MultiThreads)
         TimeManager.Instance.append("reverce")
         println(TimeManager.Instance.getInfoInSec())
     }
     @Test
     fun testFailed(){
-        encParam.stegoBlockKey=BinaryGeter()
+        encParam.stegoBlockKeygenFactory={BinaryGeter()}
         TimeManager.Instance.startNewTrack("convert")
         convertor.FromBmpToBar(ConvertorDefault.Computing.MultiThreads)
         TimeManager.Instance.append("direct")
 
-        encParam.stegoBlockKey=TrueGeter()
-        convertor.FromBarToBmp(ConvertorDefault.Computing.MultiThreads)
+        encParam.stegoBlockKeygenFactory={TrueGeter()}
+        assertFails {
+            convertor.FromBarToBmp(ConvertorDefault.Computing.MultiThreads)
+        }
         TimeManager.Instance.append("reverce")
         println(TimeManager.Instance.getInfoInSec())
     }
@@ -116,9 +119,10 @@ class ConvertorDefaultStegonographyTest (val size: Size,val messageLenght:Int, v
 //                    arrayOf(Size(8,8),5)
                     arrayOf(Size(16,16),10,0)
                     ,arrayOf(Size(41,12),10,1)
-                    ,arrayOf(Size(128,128),15,2)
-                    ,arrayOf(Size(119,133),15,3)
-                    ,arrayOf(Size(1080,1920),2000,4)
+                    ,arrayOf(Size(128,128),50,2)
+                    ,arrayOf(Size(119,133),20,3)
+                    ,arrayOf(Size(1080,1920),200,4)
+                    ,arrayOf(Size(1080,1920),200,0)
             )
         }
 

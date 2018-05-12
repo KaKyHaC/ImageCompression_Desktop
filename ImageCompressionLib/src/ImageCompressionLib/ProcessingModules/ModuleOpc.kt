@@ -52,9 +52,16 @@ class ModuleOpc {
         val futures = ArrayList<Future<Matrix<DataOpc>>>()
 
         appendTimeManager("direct OPC")
-        futures.add(executorService.submit(Callable { a.getDataOpcs(encryptParameters) }))
-        futures.add(executorService.submit(Callable { b.getDataOpcs(encryptParameters) }))
-        futures.add(executorService.submit(Callable { c.getDataOpcs(encryptParameters) }))
+        var mes= arrayOfNulls<ByteVector>(3)
+        if(encryptParameters!=null){
+            if(encryptParameters.message!=null) {
+                val tmp = encryptParameters.message!!.div(3)
+                mes=tmp as Array<ByteVector?>
+            }
+        }
+        futures.add(executorService.submit(Callable { a.getDataOpcs(encryptParameters,mes[0]) }))
+        futures.add(executorService.submit(Callable { b.getDataOpcs(encryptParameters,mes[1]) }))
+        futures.add(executorService.submit(Callable { c.getDataOpcs(encryptParameters,mes[2]) }))
 
 
         val b = (futures[1].get())
@@ -82,7 +89,11 @@ class ModuleOpc {
         val (a1, v1) = futures[0].get()
         val (b1, v2) = futures[1].get()
         val (c1, v3) = futures[2].get()
-        val resM = v1?.concat(v2?.concat(v3 ?: ByteVector(0)) ?: ByteVector(0))
+        var resM:ByteVector?=null
+        if(v1!=null&&v2!=null&&v3!=null)
+            resM=v1.trim()+v2.trim()+v3.trim()
+//        val resM1=v1?.concat(v2?:ByteVector())?:ByteVector().concat(v3?:ByteVector())
+//        val resM = v1?.concat(v2?.concat(v3 ?: ByteVector(0)) ?: ByteVector(0))
         return Pair(TripleShortMatrix(a1, b1, c1, parameters, State.DCT), resM)
 
     }

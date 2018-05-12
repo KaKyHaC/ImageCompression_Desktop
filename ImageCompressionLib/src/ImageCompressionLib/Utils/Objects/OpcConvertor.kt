@@ -102,10 +102,10 @@ class OpcConvertor {
             return@forEach null
         }
     }
-    private fun directOpcWithMessageAt(encParameters: EncryptParameters){
-        val message= encParameters.message?:throw Exception("message == null")
+    private fun directOpcWithMessageAt(encParameters: EncryptParameters, message: ByteVector?){
+        val message= message?:throw Exception("message == null")
         val position= encParameters.stegoPosition?:throw Exception("stego bit position not selected")
-        val stegoGeter= encParameters.stegoBlockKey?:throw Exception("stego block key not selected")
+        val stegoGeter= encParameters.stegoBlockKeygenFactory?.invoke()?:throw Exception("stego block key not selected")
         dataOpcMatrix.forEach(){i, j, value ->
             if(message.hasNextBit()&&stegoGeter.isUseNextBlock())
                 OpcProcess.directOpcWithMessageAt(parameters, splitedShortMatrix[i,j] ,value,message.getNextBoolean(),position)
@@ -117,7 +117,7 @@ class OpcConvertor {
     private fun reverceOPCWithMessageAt(encParameters: EncryptParameters): ByteVector {
         val res= ByteVector()
         val position= encParameters.stegoPosition?:throw Exception("stego bit position not selected")
-        val stegoGeter= encParameters.stegoBlockKey?:throw Exception("stego block key not selected")
+        val stegoGeter= encParameters.stegoBlockKeygenFactory?.invoke()?:throw Exception("stego block key not selected")
         dataOpcMatrix.forEach(){i, j, value ->
             val tmp=OpcProcess.reverseOpcWithMessageAt(parameters,value, splitedShortMatrix[i,j] ,position)
             if(stegoGeter.isUseNextBlock())res.append(tmp)
@@ -126,7 +126,7 @@ class OpcConvertor {
         encParameters.message=res
         return res
     }
-    private fun directProcess(encParameters: EncryptParameters?){
+    private fun directProcess(encParameters: EncryptParameters?, message: ByteVector?){
         createSplitedMatrix()
 
         beforDirectOpc()
@@ -134,9 +134,9 @@ class OpcConvertor {
         if(parameters.flag.isChecked(Flag.Parameter.GlobalBase))
             setGlobalBase()
 
-        if(encParameters?.stegoPosition!=null&&encParameters.message!=null) {
+        if(encParameters?.stegoPosition!=null&&message!=null) {
             if (parameters.flag.isChecked(Flag.Parameter.Steganography))//TODO remove
-                directOpcWithMessageAt(encParameters)
+                directOpcWithMessageAt(encParameters,message)
         }else
             directOpc()
     }
@@ -172,9 +172,16 @@ class OpcConvertor {
      * @param m - horizonlat size of same base
      * @return matrix of DataOpcOld with same base
      */
-    fun getDataOpcs(encParameters: EncryptParameters?=null): Matrix<DataOpc> {
+    fun getDataOpcs(): Matrix<DataOpc> {
         if (state == State.Origin && !isReady) {
-            directProcess(encParameters)
+            directProcess(null,null)
+            isReady = true
+        }
+        return dataOpcMatrix
+    }
+    fun getDataOpcs(encParameters: EncryptParameters?,message:ByteVector?): Matrix<DataOpc> {
+        if (state == State.Origin && !isReady) {
+            directProcess(encParameters,message)
             isReady = true
         }
         return dataOpcMatrix

@@ -1,4 +1,4 @@
-package ImageCompressionLib.Utils.Functions
+package ImageCompressionLib.Utils.Functions.Opc
 
 import ImageCompressionLib.Containers.*
 import ImageCompressionLib.Containers.Matrix.ShortMatrix
