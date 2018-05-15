@@ -1,15 +1,19 @@
 package ImageCompressionLib.ProcessingModules
 
 import ImageCompressionLib.Constants.State
+import ImageCompressionLib.Containers.EncryptParameters
 import ImageCompressionLib.Containers.Parameters
+import ImageCompressionLib.Containers.Type.ByteVector
 import ImageCompressionLib.Containers.Type.Size
 import ImageCompressionLib.Utils.Functions.ImageIOTest
 import ImageCompressionLib.Utils.Functions.ImageStandardDeviation
+import ImageCompressionLib.Utils.Functions.Opc.IStegoMessageUtil
 import ImageCompressionLib.Utils.Objects.TimeManager
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
+import java.util.*
 
 @RunWith(Parameterized::class)
 class ModuleOpcTest(val w: Int,val h: Int,val loop: Int) {
@@ -92,6 +96,33 @@ class ModuleOpcTest(val w: Int,val h: Int,val loop: Int) {
         val res = m2.getTripleShortMatrix(null).first
 
         assertEquals(res, cpy)
+    }
+    @Test
+    fun TestSteganographyAtFirst() {
+        val m = ImageIOTest.createMatrix(w, h,Size(8, 1))
+        m.state = State.DCT
+        val cpy = m.copy()
+        val eP=EncryptParameters()
+        eP.stegoPosition=0
+        eP.message= ByteVector(h)
+        for(i in 0 until eP.message!!.maxSize)
+            eP.message!!.append(Random().nextLong().toShort())
+        eP.stegoBlockKeygenFactory={object :IStegoMessageUtil{
+            override fun isUseNextBlock(): Boolean {
+                return true
+            }
+        }}
+
+
+        val opcModule = ModuleOpc(m)
+        val tdom = opcModule.getTripleDataOpcMatrix(eP)
+        val m2 = ModuleOpc(tdom)
+        val res = m2.getTripleShortMatrix(eP)
+        val mess=res.second
+        val mat=res.first
+
+        assertEquals(eP.message!!,mess!!)
+//        cpy.assertMatrixInRange(mat,2)
     }
     companion object {
         @JvmStatic

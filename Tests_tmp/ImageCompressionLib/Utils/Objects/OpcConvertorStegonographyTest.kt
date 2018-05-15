@@ -28,7 +28,7 @@ class OpcConvertorStegonographyTest(val size: Size,val lenght:Int,val pos:Int) {
         val matrix=ShortMatrix(size){i, j -> Math.abs(Random().nextInt(255)).toShort() }
         cpy=matrix.copy()
         val flag=Flag.createDefaultFlag()
-        flag.setTrue(Flag.Parameter.Steganography)
+//        flag.setTrue(Flag.Parameter.Steganography)
         param=Parameters.createParametresForTest(size,flag = flag,unitSize = Size(1,8))
         convertor=OpcConvertor(matrix,param)
         message=createMessage(lenght)

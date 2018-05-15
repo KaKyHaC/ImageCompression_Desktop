@@ -8,19 +8,22 @@
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Constants/QuantizationTable.java" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Constants/QuantizationTable.java" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/EncryptParameters.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/EncryptParameters.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/ByteVector.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/ByteVector.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOpc.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOpc.kt" />
+      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/DataOpc.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/DataOpc.kt" />
+      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java" />
       <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.kt" />
       <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest.kt" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/OpcAlgorithmsKtTest.kt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/OpcAlgorithmsMessageAtTest.kt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/OpcAlgorithmsMessageTest.kt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/OpcProcessKtTest.kt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/OpcProcessWithMessageTest.kt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleOpcTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleOpcTest.kt" />
+      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithmsMessageTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithmsMessageTest.kt" />
       <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorStegonographyTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorStegonographyTest.kt" />
       <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$BinaryGeter.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$BinaryGeter.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$Companion$createMyBI$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$Companion$createMyBI$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$Companion.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$Companion.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$TrueGeter.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$TrueGeter.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$dao$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$dao$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$fac$1.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$fac$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest.class" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest.class" />
+      <change beforePath="$PROJECT_DIR$/src/FlagForm.java" afterPath="$PROJECT_DIR$/src/FlagForm.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,21 +35,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="EncryptParameters.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/EncryptParameters.kt">
+      <file leaf-file-name="OpcConvertor.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="13" column="20" lean-forward="false" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+            <state relative-caret-position="450">
+              <caret line="148" column="60" lean-forward="true" selection-start-line="148" selection-start-column="60" selection-end-line="148" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OpcConvertor.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.kt">
+      <file leaf-file-name="FlagForm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FlagForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="107" column="71" lean-forward="false" selection-start-line="107" selection-start-column="71" selection-end-line="107" selection-end-column="71" />
+            <state relative-caret-position="639">
+              <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -55,8 +58,8 @@
       <file leaf-file-name="OpcConvertorStegonographyTest.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorStegonographyTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-184">
-              <caret line="60" column="9" lean-forward="false" selection-start-line="60" selection-start-column="9" selection-end-line="60" selection-end-column="9" />
+            <state relative-caret-position="211">
+              <caret line="31" column="38" lean-forward="false" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
               <folding>
                 <element signature="e#43#641#0" expanded="true" />
               </folding>
@@ -64,51 +67,63 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Matrix.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/Matrix.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="OpcConvertorTest.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="46" column="36" lean-forward="false" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
+            <state relative-caret-position="226">
+              <caret line="52" column="1" lean-forward="true" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConvertorDefault.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModuleOpc.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ModuleOpc.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOpc.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2825">
-              <caret line="127" column="1" lean-forward="true" selection-start-line="127" selection-start-column="1" selection-end-line="127" selection-end-column="1" />
+            <state relative-caret-position="132">
+              <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QuantizationTable.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Constants/QuantizationTable.java">
+      <file leaf-file-name="ModuleOpcTest.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleOpcTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+            <state relative-caret-position="25">
+              <caret line="105" column="26" lean-forward="false" selection-start-line="105" selection-start-column="26" selection-end-line="105" selection-end-column="26" />
+              <folding>
+                <element signature="e#47#673#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Flag.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OpcAlgorithms.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithms.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="170" column="18" lean-forward="true" selection-start-line="170" selection-start-column="18" selection-end-line="170" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataOpc.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/DataOpc.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="88" column="32" lean-forward="false" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -117,21 +132,11 @@
       <file leaf-file-name="ConvertorDefaultStegonographyTest.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="29" column="9" lean-forward="false" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+            <state relative-caret-position="200">
+              <caret line="70" column="41" lean-forward="true" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
               <folding>
                 <element signature="e#39#788#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Parameters.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Parameters.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="21" column="69" lean-forward="true" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="69" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -230,8 +235,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/OPCMultiThreadTest.java" />
-        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleOpcOldTest.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/DataOpcTest.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/OpcProcessKtTest.kt" />
@@ -242,7 +245,6 @@
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleDCTTest.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/DCTMultiThreadTest.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/TripleDataOpcMatrixTest.kt" />
-        <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleOpcTest.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/ImageIOTest.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/MyBufferedImage.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleImage.kt" />
@@ -264,23 +266,26 @@
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/TripleShortMatrix.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcUtils.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Dct/DctUniversalAlgorithm.kt" />
-        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/DataOpc.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/DctConvertor.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultTest.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleImageTest.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/IStegoMessageUtil.kt" />
-        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag2.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/Type/Flag2Test.kt" />
-        <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/ByteVector.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOpc.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Constants/QuantizationTable.java" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/EncryptParameters.kt" />
+        <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithmsMessageTest.kt" />
+        <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt" />
+        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/DataOpc.kt" />
+        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.kt" />
-        <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorStegonographyTest.kt" />
+        <option value="$PROJECT_DIR$/src/FlagForm.java" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest.kt" />
+        <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorStegonographyTest.kt" />
+        <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleOpcTest.kt" />
       </list>
     </option>
   </component>
@@ -306,7 +311,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -381,6 +386,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
               <item name="Utils" type="462c0819:PsiDirectoryNode" />
+              <item name="Functions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
+              <item name="Utils" type="462c0819:PsiDirectoryNode" />
               <item name="Objects" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -400,6 +414,13 @@
               <item name="Tests_tmp" type="462c0819:PsiDirectoryNode" />
               <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
               <item name="Convertor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="Tests_tmp" type="462c0819:PsiDirectoryNode" />
+              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
+              <item name="ProcessingModules" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
@@ -429,8 +450,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="AndroidView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -494,7 +515,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ConvertorDefaultStegonographyTest">
+  <component name="RunManager" selected="JUnit.ModuleOpcTest.TestSteganographyAtFirst">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module />
       <option name="HTML_USED" value="false" />
@@ -541,7 +562,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="ConvertorDefaultStegonographyTest.testBinaryGeter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ConvertorDefaultTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="ImageCompressionLib.Convertor.*" />
@@ -552,59 +573,9 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="ImageCompressionLib.Convertor" />
-      <option name="MAIN_CLASS_NAME" value="ImageCompressionLib.Convertor.ConvertorDefaultStegonographyTest" />
-      <option name="METHOD_NAME" value="testBinaryGeter" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="ConvertorDefaultStegonographyTest.testTrueGeter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ImageCompressionLib.Convertor.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="ImageCompressionKotlin" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ImageCompressionLib.Convertor" />
-      <option name="MAIN_CLASS_NAME" value="ImageCompressionLib.Convertor.ConvertorDefaultStegonographyTest" />
-      <option name="METHOD_NAME" value="testTrueGeter" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="ImageCompressionLib.Utils.Functions.Opc in ImageCompressionKotlin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ImageCompressionLib.Utils.Functions.Opc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="ImageCompressionKotlin" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ImageCompressionLib.Utils.Functions.Opc" />
-      <option name="MAIN_CLASS_NAME" />
+      <option name="MAIN_CLASS_NAME" value="ImageCompressionLib.Convertor.ConvertorDefaultTest" />
       <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -641,7 +612,57 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="OpcConvertorStegonographyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ModuleOpcTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ImageCompressionLib.ProcessingModules.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ImageCompressionKotlin" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="ImageCompressionLib.ProcessingModules" />
+      <option name="MAIN_CLASS_NAME" value="ImageCompressionLib.ProcessingModules.ModuleOpcTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="ModuleOpcTest.TestSteganographyAtFirst" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ImageCompressionLib.ProcessingModules.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ImageCompressionKotlin" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="ImageCompressionLib.ProcessingModules" />
+      <option name="MAIN_CLASS_NAME" value="ImageCompressionLib.ProcessingModules.ModuleOpcTest" />
+      <option name="METHOD_NAME" value="TestSteganographyAtFirst" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="OpcConvertorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="ImageCompressionLib.Utils.Objects.*" />
@@ -652,7 +673,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="ImageCompressionLib.Utils.Objects" />
-      <option name="MAIN_CLASS_NAME" value="ImageCompressionLib.Utils.Objects.OpcConvertorStegonographyTest" />
+      <option name="MAIN_CLASS_NAME" value="ImageCompressionLib.Utils.Objects.OpcConvertorTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -728,18 +749,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.ConvertorDefaultStegonographyTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.OpcConvertorStegonographyTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.ImageCompressionLib.Utils.Functions.Opc in ImageCompressionKotlin" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.ConvertorDefaultStegonographyTest.testTrueGeter" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.ConvertorDefaultStegonographyTest.testBinaryGeter" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.OpcConvertorTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.ConvertorDefaultTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.ModuleOpcTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.ModuleOpcTest.TestSteganographyAtFirst" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.ConvertorDefaultStegonographyTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.ConvertorDefaultStegonographyTest.testTrueGeter" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ConvertorDefaultStegonographyTest.testBinaryGeter" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.OpcConvertorStegonographyTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.ImageCompressionLib.Utils.Functions.Opc in ImageCompressionKotlin" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ModuleOpcTest.TestSteganographyAtFirst" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ModuleOpcTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ConvertorDefaultTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.ConvertorDefaultStegonographyTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.OpcConvertorTest" />
       </list>
     </recent_temporary>
   </component>
@@ -775,35 +796,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ConvertorDefaultStegonographyTest - 2018.05.12 at 14h 16m 06s.xml">
-      <configuration name="ConvertorDefaultStegonographyTest" configurationId="JUnit" />
+    <history-entry file="ConvertorDefaultTest - 2018.05.15 at 10h 31m 18s.xml">
+      <configuration name="ConvertorDefaultTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorDefaultStegonographyTest - 2018.05.12 at 14h 19m 03s.xml">
-      <configuration name="ConvertorDefaultStegonographyTest" configurationId="JUnit" />
+    <history-entry file="ModuleOpcTest - 2018.05.15 at 10h 34m 18s.xml">
+      <configuration name="ModuleOpcTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorDefaultStegonographyTest - 2018.05.12 at 14h 21m 58s.xml">
-      <configuration name="ConvertorDefaultStegonographyTest" configurationId="JUnit" />
+    <history-entry file="ModuleOpcTest_TestSteganographyAtFirst - 2018.05.15 at 10h 40m 30s.xml">
+      <configuration name="ModuleOpcTest.TestSteganographyAtFirst" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorDefaultStegonographyTest - 2018.05.12 at 14h 34m 12s.xml">
-      <configuration name="ConvertorDefaultStegonographyTest" configurationId="JUnit" />
+    <history-entry file="ModuleOpcTest_TestSteganographyAtFirst - 2018.05.15 at 10h 42m 01s.xml">
+      <configuration name="ModuleOpcTest.TestSteganographyAtFirst" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorDefaultStegonographyTest_testBinaryGeter - 2018.05.12 at 14h 17m 20s.xml">
-      <configuration name="ConvertorDefaultStegonographyTest.testBinaryGeter" configurationId="JUnit" />
+    <history-entry file="ModuleOpcTest_TestSteganographyAtFirst - 2018.05.15 at 10h 44m 35s.xml">
+      <configuration name="ModuleOpcTest.TestSteganographyAtFirst" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorDefaultStegonographyTest_testTrueGeter - 2018.05.12 at 14h 16m 23s.xml">
-      <configuration name="ConvertorDefaultStegonographyTest.testTrueGeter" configurationId="JUnit" />
+    <history-entry file="ModuleOpcTest_TestSteganographyAtFirst - 2018.05.15 at 10h 44m 48s.xml">
+      <configuration name="ModuleOpcTest.TestSteganographyAtFirst" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorDefaultStegonographyTest_testTrueGeter - 2018.05.12 at 14h 23m 02s.xml">
-      <configuration name="ConvertorDefaultStegonographyTest.testTrueGeter" configurationId="JUnit" />
+    <history-entry file="ModuleOpcTest_TestSteganographyAtFirst - 2018.05.15 at 10h 46m 57s.xml">
+      <configuration name="ModuleOpcTest.TestSteganographyAtFirst" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorDefaultStegonographyTest_testTrueGeter - 2018.05.12 at 14h 23m 47s.xml">
-      <configuration name="ConvertorDefaultStegonographyTest.testTrueGeter" configurationId="JUnit" />
+    <history-entry file="ModuleOpcTest_TestSteganographyAtFirst - 2018.05.15 at 10h 48m 59s.xml">
+      <configuration name="ModuleOpcTest.TestSteganographyAtFirst" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ConvertorDefaultStegonographyTest_testTrueGeter - 2018.05.12 at 14h 32m 17s.xml">
-      <configuration name="ConvertorDefaultStegonographyTest.testTrueGeter" configurationId="JUnit" />
+    <history-entry file="ModuleOpcTest_TestSteganographyAtFirst - 2018.05.15 at 10h 49m 36s.xml">
+      <configuration name="ModuleOpcTest.TestSteganographyAtFirst" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OpcConvertorStegonographyTest - 2018.05.12 at 14h 15m 07s.xml">
-      <configuration name="OpcConvertorStegonographyTest" configurationId="JUnit" />
+    <history-entry file="ModuleOpcTest_TestSteganographyAtFirst - 2018.05.15 at 10h 50m 01s.xml">
+      <configuration name="ModuleOpcTest.TestSteganographyAtFirst" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -825,9 +846,9 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41410694" sideWeight="0.5104167" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5335609" sideWeight="0.55104166" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5335609" sideWeight="0.41927084" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5335609" sideWeight="0.44895834" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992035" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1208,7 +1229,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleOpcTest.kt</url>
-          <line>79</line>
+          <line>83</line>
           <properties />
           <option name="timeStamp" value="404" />
         </line-breakpoint>
@@ -1244,7 +1265,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleOpcTest.kt</url>
-          <line>88</line>
+          <line>92</line>
           <properties />
           <option name="timeStamp" value="432" />
         </line-breakpoint>
@@ -1274,7 +1295,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleOpcTest.kt</url>
-          <line>77</line>
+          <line>81</line>
           <properties />
           <option name="timeStamp" value="460" />
         </line-breakpoint>
@@ -1321,15 +1342,19 @@
           <option name="timeStamp" value="505" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOpc.kt</url>
-          <line>61</line>
-          <properties>
-            <option name="lambda-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="511" />
+          <url>file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.kt</url>
+          <line>109</line>
+          <properties />
+          <option name="timeStamp" value="514" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.kt</url>
+          <line>121</line>
+          <properties />
+          <option name="timeStamp" value="515" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="513" />
+      <option name="time" value="516" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1343,37 +1368,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/runners/parameterized/BlockJUnit4ClassRunnerWithParameters.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Dct/IDct.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="53" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Constants/Cosine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="30" column="35" lean-forward="true" selection-start-line="28" selection-start-column="16" selection-end-line="30" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Dct/DctUniversalAlgorithmTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="54" column="1" lean-forward="true" selection-start-line="54" selection-start-column="1" selection-end-line="54" selection-end-column="1" />
-          <folding>
-            <element signature="e#49#342#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Dct/DctCosinUtils.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
@@ -1461,16 +1455,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="311" column="0" lean-forward="false" selection-start-line="311" selection-start-column="0" selection-end-line="311" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#585#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleImageTest.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -1545,13 +1529,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag2.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
@@ -1577,7 +1554,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="700">
           <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1592,7 +1568,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="109">
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1600,15 +1575,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
           <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithmsMessageTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1001">
-          <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1620,27 +1586,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithms.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="201" column="0" lean-forward="false" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcProcess.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="98">
           <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/DataOpc.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1648,7 +1597,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1656,7 +1604,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
           <caret line="202" column="0" lean-forward="false" selection-start-line="202" selection-start-column="0" selection-end-line="202" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1665,7 +1612,7 @@
         <state relative-caret-position="375">
           <caret line="227" column="26" lean-forward="false" selection-start-line="227" selection-start-column="26" selection-end-line="227" selection-end-column="26" />
           <folding>
-            <element signature="e#45#177#0" expanded="true" />
+            <element signature="e#45#177#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1674,7 +1621,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1690,7 +1636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="98">
           <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1710,47 +1655,123 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithmsMessageTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1400">
+          <caret line="67" column="18" lean-forward="false" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Opc/OpcProcessWithMessageTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1150">
+          <caret line="59" column="50" lean-forward="false" selection-start-line="59" selection-start-column="50" selection-end-line="59" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Steganography.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3450">
+          <caret line="138" column="46" lean-forward="false" selection-start-line="138" selection-start-column="46" selection-end-line="138" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7450">
+          <caret line="298" column="0" lean-forward="false" selection-start-line="298" selection-start-column="0" selection-end-line="298" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#585#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/DataOpc.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="88" column="32" lean-forward="false" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOpc.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithms.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="170" column="18" lean-forward="true" selection-start-line="170" selection-start-column="18" selection-end-line="170" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/OpcConvertor.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="107" column="71" lean-forward="false" selection-start-line="107" selection-start-column="71" selection-end-line="107" selection-end-column="71" />
+        <state relative-caret-position="450">
+          <caret line="148" column="60" lean-forward="true" selection-start-line="148" selection-start-column="60" selection-end-line="148" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt">
+    <entry file="file://$PROJECT_DIR$/src/FlagForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="46" column="36" lean-forward="false" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
+        <state relative-caret-position="639">
+          <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorStegonographyTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-184">
-          <caret line="60" column="9" lean-forward="false" selection-start-line="60" selection-start-column="9" selection-end-line="60" selection-end-column="9" />
-          <folding>
-            <element signature="e#43#641#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="29" column="9" lean-forward="false" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+        <state relative-caret-position="200">
+          <caret line="70" column="41" lean-forward="true" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
           <folding>
             <element signature="e#39#788#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOpc.kt">
+    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorStegonographyTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2825">
-          <caret line="127" column="1" lean-forward="true" selection-start-line="127" selection-start-column="1" selection-end-line="127" selection-end-column="1" />
+        <state relative-caret-position="211">
+          <caret line="31" column="38" lean-forward="false" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
+          <folding>
+            <element signature="e#43#641#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="52" column="1" lean-forward="true" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleOpcTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="105" column="26" lean-forward="false" selection-start-line="105" selection-start-column="26" selection-end-line="105" selection-end-column="26" />
+          <folding>
+            <element signature="e#47#673#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

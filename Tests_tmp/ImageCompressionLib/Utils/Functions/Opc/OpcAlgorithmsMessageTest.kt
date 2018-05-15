@@ -56,7 +56,7 @@ class OpcAlgorithmsMessageTest {
         val cpy=matrix.copy()
         val message= true
         OpcDirectWithMessageAtFirst(matrix,dataOpc,message)
-        val res =OpcReverceWithMessageAtFirst(matrixEmpty,dataOpc)
+        val res = OpcReverceWithMessageAtFirst(matrixEmpty,dataOpc)
         assertEquals(message,res)
         cpy.assertInRange(matrixEmpty,range)
     }
@@ -65,7 +65,7 @@ class OpcAlgorithmsMessageTest {
         val cpy=matrix.copy()
         val message= false
         OpcDirectWithMessageAtFirst(matrix,dataOpc,message)
-        val res =OpcReverceWithMessageAtFirst(matrixEmpty,dataOpc)
+        val res = OpcReverceWithMessageAtFirst(matrixEmpty,dataOpc)
         assertEquals(message,res)
         cpy.assertInRange(matrixEmpty,range)
     }

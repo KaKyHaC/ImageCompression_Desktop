@@ -67,7 +67,7 @@ class ConvertorDefaultStegonographyTest (val size: Size,val messageLenght:Int, v
     @Before
     fun setUp() {
         parameters= Parameters.createParametresForTest(size,unitSize = Size(1,8))
-        parameters.flag.setTrue(Flag.Parameter.Steganography)
+//        parameters.flag.setTrue(Flag.Parameter.Steganography)
         myBufferedImage= createMyBI(size)
         encParam= EncryptParameters()
         encParam.message= createMessage(messageLenght)
@@ -116,7 +116,6 @@ class ConvertorDefaultStegonographyTest (val size: Size,val messageLenght:Int, v
         @Parameterized.Parameters(name = "stegoPos:{2},messLen:{1},{0}")
         fun data(): Collection<Array<Any>> {
             return listOf(
-//                    arrayOf(Size(8,8),5)
                     arrayOf(Size(16,16),10,0)
                     ,arrayOf(Size(41,12),10,1)
                     ,arrayOf(Size(128,128),50,2)

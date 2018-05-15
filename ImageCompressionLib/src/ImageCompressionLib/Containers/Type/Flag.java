@@ -9,7 +9,7 @@ public class Flag {
     public enum Parameter{
         // empty value 8
         OneFile(16),Enlargement(32),DC(64),LongCode(128),GlobalBase(256),
-        Password(512),Steganography(1024),Alignment(2048),CompressionUtils(4096),Quantization(1),Encryption(4),DCT(2);
+        Password(512)/*,Steganography(1024)*/,Alignment(2048),CompressionUtils(4096),Quantization(1),Encryption(4),DCT(2);
         final int value;
         Parameter(int i) {
             value=i;

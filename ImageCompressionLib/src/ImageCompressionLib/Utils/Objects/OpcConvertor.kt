@@ -135,7 +135,7 @@ class OpcConvertor {
             setGlobalBase()
 
         if(encParameters?.stegoPosition!=null&&message!=null) {
-            if (parameters.flag.isChecked(Flag.Parameter.Steganography))//TODO remove
+//            if (parameters.flag.isChecked(Flag.Parameter.Steganography))//TODO remove
                 directOpcWithMessageAt(encParameters,message)
         }else
             directOpc()
@@ -145,7 +145,7 @@ class OpcConvertor {
 
         var res: ByteVector?=null
         if(encParameters?.stegoPosition!=null) {
-            if (parameters.flag.isChecked(Flag.Parameter.Steganography))//TODO remove
+//            if (parameters.flag.isChecked(Flag.Parameter.Steganography))//TODO remove
                 res = reverceOPCWithMessageAt(encParameters)
         } else
             reverceOPC()
