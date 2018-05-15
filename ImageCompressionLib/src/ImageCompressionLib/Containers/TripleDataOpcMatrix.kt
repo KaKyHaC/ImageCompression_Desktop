@@ -112,7 +112,18 @@ class TripleDataOpcMatrix {
 
         fun Matrix<DataOpc>.readBaseFromByteVector(vector: ByteVector,parameters: Parameters){
             if(parameters.flag.isChecked(Flag.Parameter.GlobalBase)){
-                throw Exception("not ready")//todo wlwxccc
+                val tmp=this.split(parameters.sameBaseSize.width,parameters.sameBaseSize.height)
+                tmp.forEach { i, j, value ->
+                    value.forEach{ x, y, valueDopc ->
+                        if(x==0&&y==0)
+                            valueDopc.FromVectorToBase(vector,parameters.flag)
+                        else
+                            valueDopc.base=this[0,0].base
+                        return@forEach null
+                    }
+                    return@forEach null
+                }
+                //todo test it ^
             } else if(!parameters.flag.isChecked(Flag.Parameter.OneFile)) {
                 this.forEach() { i, j, value ->
                     value.FromVectorToBase(vector, parameters.flag)

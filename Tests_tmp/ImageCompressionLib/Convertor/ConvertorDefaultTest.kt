@@ -65,7 +65,7 @@ class ConvertorDefaultTest(val size:Size,var range:Int) {
     }
 
     @Test
-    fun testDirectReverceConvert(){
+    fun DirectReverceConvert(){
         TimeManager.Instance.startNewTrack("convert")
         convertor.FromBmpToBar(ConvertorDefault.Computing.MultiThreads)
         TimeManager.Instance.append("direct")
@@ -74,7 +74,7 @@ class ConvertorDefaultTest(val size:Size,var range:Int) {
         println(TimeManager.Instance.getInfoInSec())
     }
     @Test
-    fun testDirectReverceConvertUnitSize7x6(){
+    fun DirectReverceConvertUnitSize7x6(){
         parameters=Parameters(parameters.flag,parameters.imageSize, Size(7,6))
         TimeManager.Instance.startNewTrack("convert")
         convertor.FromBmpToBar(ConvertorDefault.Computing.MultiThreads)
@@ -84,9 +84,20 @@ class ConvertorDefaultTest(val size:Size,var range:Int) {
         println(TimeManager.Instance.getInfoInSec())
     }
     @Test
-    fun testDirectReverceConvertMaxCompression(){
+    fun DirectReverceConvertMaxCompression(){
         parameters=Parameters(Flag.createCompressionFlag(),parameters.imageSize)
         range*=2
+        TimeManager.Instance.startNewTrack("convert")
+        convertor.FromBmpToBar(ConvertorDefault.Computing.MultiThreads)
+        TimeManager.Instance.append("direct")
+        convertor.FromBarToBmp(ConvertorDefault.Computing.MultiThreads)
+        TimeManager.Instance.append("reverce")
+        println(TimeManager.Instance.getInfoInSec())
+    }
+    @Test
+    fun DirectReverceConvertGlobalBase(){
+        parameters=Parameters(Flag.createDefaultFlag(),parameters.imageSize,sameBaseSize = Size(2,2))
+        parameters.flag.setTrue(Flag.Parameter.GlobalBase)
         TimeManager.Instance.startNewTrack("convert")
         convertor.FromBmpToBar(ConvertorDefault.Computing.MultiThreads)
         TimeManager.Instance.append("direct")

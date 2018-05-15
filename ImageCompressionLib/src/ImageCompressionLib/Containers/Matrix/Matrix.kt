@@ -44,7 +44,7 @@ open class Matrix<T:Any> {
     fun forEach(invoke: (i: Int, j: Int, value: T) -> T?) {
         for (i in 0 until width) {
             for (j in 0 until height) {
-                matrix[i][j] = invoke.invoke(i, j, matrix[i][j] as T) ?: matrix[i][j]
+                set(i,j,invoke.invoke(i, j, get(i,j)) ?: get(i,j))
             }
         }
     }
