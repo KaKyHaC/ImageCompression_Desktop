@@ -98,15 +98,23 @@ class ModuleOpcTest(val w: Int,val h: Int,val loop: Int) {
         assertEquals(res, cpy)
     }
     @Test
-    fun TestSteganographyAtFirst() {
-        val m = ImageIOTest.createMatrix(w, h,Size(8, 1))
+    fun StegoAtZero(){
+        TestSteganographyAtPos(0)
+    }
+    @Test
+    fun StegoAtFirst(){
+        TestSteganographyAtPos(1)
+    }
+    fun TestSteganographyAtPos(pos:Int) {
+        val m = ImageIOTest.createMatrix(w, h,Size(1,8))
         m.state = State.DCT
         val cpy = m.copy()
         val eP=EncryptParameters()
-        eP.stegoPosition=0
-        eP.message= ByteVector(h)
+        eP.stegoPosition=pos
+        eP.message= ByteVector(w/2)
         for(i in 0 until eP.message!!.maxSize)
             eP.message!!.append(Random().nextLong().toShort())
+        val messCpy=eP.message!!.copy()
         eP.stegoBlockKeygenFactory={object :IStegoMessageUtil{
             override fun isUseNextBlock(): Boolean {
                 return true
@@ -121,7 +129,7 @@ class ModuleOpcTest(val w: Int,val h: Int,val loop: Int) {
         val mess=res.second
         val mat=res.first
 
-        assertEquals(eP.message!!,mess!!)
+        assertEquals(messCpy,mess!!)
 //        cpy.assertMatrixInRange(mat,2)
     }
     companion object {

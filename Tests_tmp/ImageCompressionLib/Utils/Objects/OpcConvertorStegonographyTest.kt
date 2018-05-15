@@ -40,7 +40,7 @@ class OpcConvertorStegonographyTest(val size: Size,val lenght:Int,val pos:Int) {
         @Parameterized.Parameters(name = "pos:{2},len:{1},{0}")
         fun data(): Collection<Array<Any>> {
             return listOf(
-                    arrayOf(Size(8,8),1,1)
+                    arrayOf(Size(16,8),1,1)
                     ,arrayOf(Size(128,128),11,0)
                     ,arrayOf(Size(128,128),11,1)
             )
