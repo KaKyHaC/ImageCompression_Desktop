@@ -21,8 +21,8 @@ class OpcUtils {
             val baseSize=dataOrigin[0,0].base.size
             val res = ShortArray(baseSize)
             for (b in 0 until baseSize) {
-                for (i in 0 until dataOrigin.height) {
-                    for (j in 0 until dataOrigin.width) {
+                for (i in 0 until dataOrigin.width) {
+                    for (j in 0 until dataOrigin.height) {
                         if (dataOrigin[i,j].base[b] > res[b]) {
                             res[b] = dataOrigin[i,j].base[b]
                         }
@@ -30,8 +30,8 @@ class OpcUtils {
                 }
             }
             for (b in 0 until baseSize) {
-                for (i in 0 until dataOrigin.height) {
-                    for (j in 0 until dataOrigin.width) {
+                for (i in 0 until dataOrigin.width) {
+                    for (j in 0 until dataOrigin.height) {
                         dataOrigin[i,j].base[b] = res[b]
                     }
                 }

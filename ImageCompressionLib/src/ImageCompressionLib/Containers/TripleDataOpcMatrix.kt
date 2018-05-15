@@ -118,7 +118,7 @@ class TripleDataOpcMatrix {
                         if(x==0&&y==0)
                             valueDopc.FromVectorToBase(vector,parameters.flag)
                         else
-                            valueDopc.base=this[0,0].base
+                            valueDopc.base=value[0,0].base
                         return@forEach null
                     }
                     return@forEach null
