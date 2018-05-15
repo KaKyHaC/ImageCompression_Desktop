@@ -36,8 +36,9 @@ class OpcConvertorTest(flag: Flag,imageSize: Size,unitSize: Size,baseSize: Size)
             return listOf(
 //                    arrayOf(flag, Size(128,128),unitSize, sameBaseSize),
 //                    arrayOf(flag, imageSize, unitSize, sameBaseSize) ,
-//                    arrayOf(flagSB, imageSize, unitSize, sameBaseSize) ,
-                    arrayOf(flag, Size(128,128),Size(7,7), sameBaseSize))
+                    arrayOf(flagSB, Size(123,243), unitSize, sameBaseSize) ,
+                    arrayOf(flag, Size(128,128),Size(7,7), sameBaseSize),
+                    arrayOf(flag, Size(128,128),Size(8,8), sameBaseSize))
         }
     }
 

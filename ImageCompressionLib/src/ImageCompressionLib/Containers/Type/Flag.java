@@ -104,7 +104,13 @@ public class Flag {
     }
     @Override
     public String toString() {
-        return Short.toString(f);
+        StringBuilder sb=new StringBuilder("Flag(");
+        for(Parameter p :Parameter.values()){
+            if(isChecked(p))
+                sb.append(p.name()+"=true,");
+        }
+        sb.append(")");
+        return sb.toString();
     }
 
 

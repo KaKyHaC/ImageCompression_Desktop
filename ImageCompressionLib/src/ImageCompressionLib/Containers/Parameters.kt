@@ -52,6 +52,11 @@ class Parameters {
             vector.append(sameBaseSize.height.toShort())
         }
     }
+
+    override fun toString(): String {
+        return "Parameters(flag=$flag, imageSize=$imageSize, unitSize=$unitSize, sameBaseSize=$sameBaseSize)"
+    }
+
     companion object {
         @JvmStatic fun fromByteVector(vector: ByteVector): Parameters {
             val flag= Flag(vector.getNextShort())
