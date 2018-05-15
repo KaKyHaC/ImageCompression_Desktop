@@ -51,8 +51,7 @@ class OpcConvertorStegonographyTest(val size: Size,val lenght:Int,val pos:Int) {
     fun testMessage(){
         val mesCpy=message
         enPar.message=message
-        enPar.stegoPosition=pos
-        enPar.stegoBlockKeygenFactory= {
+        enPar.steganography=EncryptParameters.StegaParameters(pos) {
             object : IStegoMessageUtil {
                 override fun isUseNextBlock(): Boolean {
                     return true

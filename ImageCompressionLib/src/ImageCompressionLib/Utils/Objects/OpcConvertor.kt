@@ -102,10 +102,11 @@ class OpcConvertor {
             return@forEach null
         }
     }
-    private fun directOpcWithMessageAt(encParameters: EncryptParameters, message: ByteVector?){
-        val message= message?:throw Exception("message == null")
-        val position= encParameters.stegoPosition?:throw Exception("stego bit position not selected")
-        val stegoGeter= encParameters.stegoBlockKeygenFactory?.invoke()?:throw Exception("stego block key not selected")
+    private fun directOpcWithMessageAt(encParameters: EncryptParameters, message: ByteVector){
+        if(encParameters.steganography==null)
+            throw Exception("steganography==null")
+        val position= encParameters.steganography!!.stegoPosition
+        val stegoGeter= encParameters.steganography!!.stegoBlockKeygenFactory.invoke()
         dataOpcMatrix.forEach(){i, j, value ->
             if(message.hasNextBit()&&stegoGeter.isUseNextBlock())
                 OpcProcess.directOpcWithMessageAt(parameters, splitedShortMatrix[i,j] ,value,message.getNextBoolean(),position)
@@ -116,8 +117,10 @@ class OpcConvertor {
     }
     private fun reverceOPCWithMessageAt(encParameters: EncryptParameters): ByteVector {
         val res= ByteVector()
-        val position= encParameters.stegoPosition?:throw Exception("stego bit position not selected")
-        val stegoGeter= encParameters.stegoBlockKeygenFactory?.invoke()?:throw Exception("stego block key not selected")
+        if(encParameters.steganography==null)
+            throw Exception("steganography==null")
+        val position= encParameters.steganography!!.stegoPosition
+        val stegoGeter= encParameters.steganography!!.stegoBlockKeygenFactory.invoke()
         dataOpcMatrix.forEach(){i, j, value ->
             val tmp=OpcProcess.reverseOpcWithMessageAt(parameters,value, splitedShortMatrix[i,j] ,position)
             if(stegoGeter.isUseNextBlock())res.append(tmp)
@@ -134,20 +137,18 @@ class OpcConvertor {
         if(parameters.flag.isChecked(Flag.Parameter.GlobalBase))
             setGlobalBase()
 
-        if(encParameters?.stegoPosition!=null&&message!=null) {
-//            if (parameters.flag.isChecked(Flag.Parameter.Steganography))//TODO remove
-                directOpcWithMessageAt(encParameters,message)
-        }else
+        if(encParameters?.steganography!=null&&message!=null)
+            directOpcWithMessageAt(encParameters,message)
+        else
             directOpc()
     }
     private fun reverceProcess(encParameters: EncryptParameters?): ByteVector?{
         createSplitedMatrix()
 
         var res: ByteVector?=null
-        if(encParameters?.stegoPosition!=null) {
-//            if (parameters.flag.isChecked(Flag.Parameter.Steganography))//TODO remove
-                res = reverceOPCWithMessageAt(encParameters)
-        } else
+        if(encParameters?.steganography!=null)
+            res = reverceOPCWithMessageAt(encParameters)
+        else
             reverceOPC()
 
         afterReverceOpc()

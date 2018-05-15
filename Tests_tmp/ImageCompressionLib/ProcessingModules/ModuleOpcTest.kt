@@ -110,12 +110,11 @@ class ModuleOpcTest(val w: Int,val h: Int,val loop: Int) {
         m.state = State.DCT
         val cpy = m.copy()
         val eP=EncryptParameters()
-        eP.stegoPosition=pos
         eP.message= ByteVector(w/2)
         for(i in 0 until eP.message!!.maxSize)
             eP.message!!.append(Random().nextLong().toShort())
         val messCpy=eP.message!!.copy()
-        eP.stegoBlockKeygenFactory={object :IStegoMessageUtil{
+        eP.steganography=EncryptParameters.StegaParameters(pos){object :IStegoMessageUtil{
             override fun isUseNextBlock(): Boolean {
                 return true
             }

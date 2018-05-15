@@ -71,12 +71,11 @@ class ConvertorDefaultStegonographyTest (val size: Size,val messageLenght:Int, v
         myBufferedImage= createMyBI(size)
         encParam= EncryptParameters()
         encParam.message= createMessage(messageLenght)
-        encParam.stegoPosition=stegoPos
     }
 
     @Test
     fun testTrueGeter(){
-        encParam.stegoBlockKeygenFactory={TrueGeter() }
+        encParam.steganography=EncryptParameters.StegaParameters(stegoPos){TrueGeter() }
         TimeManager.Instance.startNewTrack("convert")
         convertor.FromBmpToBar(ConvertorDefault.Computing.MultiThreads)
         TimeManager.Instance.append("direct")
@@ -86,7 +85,7 @@ class ConvertorDefaultStegonographyTest (val size: Size,val messageLenght:Int, v
     }
     @Test
     fun testBinaryGeter(){
-        encParam.stegoBlockKeygenFactory={BinaryGeter()}
+        encParam.steganography= EncryptParameters.StegaParameters(stegoPos){BinaryGeter()}
         TimeManager.Instance.startNewTrack("convert")
         convertor.FromBmpToBar(ConvertorDefault.Computing.MultiThreads)
         TimeManager.Instance.append("direct")
@@ -97,12 +96,12 @@ class ConvertorDefaultStegonographyTest (val size: Size,val messageLenght:Int, v
     }
     @Test
     fun testFailed(){
-        encParam.stegoBlockKeygenFactory={BinaryGeter()}
+        encParam.steganography= EncryptParameters.StegaParameters(stegoPos){BinaryGeter()}
         TimeManager.Instance.startNewTrack("convert")
         convertor.FromBmpToBar(ConvertorDefault.Computing.MultiThreads)
         TimeManager.Instance.append("direct")
 
-        encParam.stegoBlockKeygenFactory={TrueGeter()}
+        encParam.steganography=EncryptParameters.StegaParameters(stegoPos){TrueGeter()}
         assertFails {
             convertor.FromBarToBmp(ConvertorDefault.Computing.MultiThreads)
         }

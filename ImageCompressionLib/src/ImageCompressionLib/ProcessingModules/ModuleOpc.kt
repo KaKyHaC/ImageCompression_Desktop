@@ -55,7 +55,7 @@ class ModuleOpc {
         var mes= arrayOfNulls<ByteVector>(3)
         if(encryptParameters!=null){
             if(encryptParameters.message!=null) {
-                val tmp = encryptParameters.message!!.div(3)
+                val tmp = encryptParameters.message!!/(3)
                 mes=tmp as Array<ByteVector?>
             }
         }
