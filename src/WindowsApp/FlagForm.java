@@ -1,3 +1,5 @@
+package WindowsApp;
+
 import ImageCompressionLib.Containers.Type.Flag;
 
 import javax.swing.*;
@@ -5,26 +7,23 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.Vector;
 
-public class FlagForm extends JFrame{
+public class FlagForm{
     private Flag flag;
-    private final JPanel panel = new JPanel(new GridLayout(10,1));
+    private final JPanel panel = new JPanel(new GridLayout(5,2));
     private Vector<JCheckBox> jCheckBoxArray=new Vector<>();
 
-    public FlagForm()throws HeadlessException {
-        flag=new Flag();
-        Factory();
-    }
-    public FlagForm(Flag flag)throws HeadlessException{
+    public FlagForm(Flag flag,JPanel jPanel)throws HeadlessException{
         this.flag=flag;
-        Factory();
+        Factory(jPanel);
     }
-    private void Factory()throws HeadlessException{
-        getContentPane().add(panel, BorderLayout.CENTER);
-        setVisible(true);
-        setSize(800,800);
-        setLocation(new Point(200,100));
-
+    private void Factory(JPanel jPanel)throws HeadlessException{
         Init();
+
+        jPanel.setLayout(new GridBagLayout());
+        jPanel.add(panel);
+//        jPanel.add(panel, BorderLayout.CENTER);
+        jPanel.setVisible(true);
+//        setLocation(new Point(200,100));
     }
     private void addView(String name,boolean val){
         JCheckBox jCheckBox=new JCheckBox(name,val);
@@ -67,7 +66,7 @@ public class FlagForm extends JFrame{
 
         panel.revalidate();
         panel.repaint();
-        pack();
+//        pack();
     }
 
     public void setOnChengeListener(ActionListener actionListener){
@@ -75,7 +74,7 @@ public class FlagForm extends JFrame{
             cb.addActionListener(actionListener);
         }
     }
-    public static void main(String[] arg){
-        new FlagForm();
-    }
+//    public static void main(String[] arg){
+//        new WindowsApp.FlagForm();
+//    }
 }

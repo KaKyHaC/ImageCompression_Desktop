@@ -181,7 +181,7 @@
 //        bFlag.addActionListener(new ActionListener() {
 //            @Override
 //            public void actionPerformed(ActionEvent e) {
-//                FlagForm flagForm=new FlagForm(flag);
+//                WindowsApp.FlagForm flagForm=new WindowsApp.FlagForm(flag);
 //                flagForm.setOnChengeListener(e1 -> {
 //                    slider1.setValue(1);
 //                    flag=flagForm.getFlag();
