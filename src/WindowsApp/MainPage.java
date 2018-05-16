@@ -48,12 +48,13 @@ public class MainPage extends JFrame {
     private FlagForm flagForm;
     private ConvertorDefault convertorDefault;
     private File toSave,toRead;
+    private BufferedImage imageReaded;
 
 
     public MainPage() throws HeadlessException {
         setContentPane(mainPanel);
         setVisible(true);
-        setSize(750,500);
+        setSize(850,500);
         init();
         setListeners();
         setDefaultValues();
@@ -88,19 +89,13 @@ public class MainPage extends JFrame {
             @NotNull
             @Override
             public Pair<MyBufferedImage, Parameters> getImage() {
-                try {
-                    BufferedImage image=ImageIO.read(toRead);
-                    MyBufferedImage myBufferedImage= BuffImConvertor.getInstance().convert(image);
-                    Flag flag=flagForm.getFlag();
-                    Size unit=new Size((int)spinnerUnitWidth.getValue(),(int)spinnerUnitHeight.getValue());
-                    Size base=new Size((int)spinnerBaseWidth.getValue(),(int)spinnerBaseHeight.getValue());
-                    Size imageSize=new Size(image.getWidth(),image.getHeight());
-                    Parameters parameters=new Parameters(flag,imageSize,unit,base);
-                    return new Pair<>(myBufferedImage,parameters);
-                } catch (IOException e) {
-                    labelInfo.setText(e.toString());
-                }
-                return null;
+                MyBufferedImage myBufferedImage = BuffImConvertor.getInstance().convert(imageReaded);
+                Flag flag = flagForm.getFlag();
+                Size unit = new Size((int) spinnerUnitWidth.getValue(), (int) spinnerUnitHeight.getValue());
+                Size base = new Size((int) spinnerBaseWidth.getValue(), (int) spinnerBaseHeight.getValue());
+                Size imageSize = new Size(imageReaded.getWidth(), imageReaded.getHeight());
+                Parameters parameters = new Parameters(flag, imageSize, unit, base);
+                return new Pair<>(myBufferedImage, parameters);
             }
 
             @NotNull
@@ -173,7 +168,7 @@ public class MainPage extends JFrame {
             @Override
             public Unit invoke(MyBufferedImage myBufferedImage) {
                 BufferedImage im=BuffImConvertor.getInstance().convert(myBufferedImage);
-                setLabelImage(labelImage1,im);
+                setLabelImage(labelImage2,im);
                 return null;
             }
         });
@@ -198,6 +193,14 @@ public class MainPage extends JFrame {
             toSave.createNewFile();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        if(curFileType==FileType.BMP){
+            try {
+                imageReaded=ImageIO.read(toRead);
+                setLabelImage(labelImage1,imageReaded);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
     private void onStartButton(){

@@ -9,7 +9,7 @@ public class Flag {
     public enum Parameter{
         // empty value 8
         OneFile(16),Enlargement(32),DC(64),LongCode(128),GlobalBase(256),
-        Password(512)/*,Steganography(1024)*/,Alignment(2048),CompressionUtils(4096),Quantization(1),Encryption(4),DCT(2);
+        /*Password(512)/*,Steganography(1024),*/Alignment(2048),CompressionUtils(4096),Quantization(1),Encryption(4),DCT(2);
         final int value;
         Parameter(int i) {
             value=i;
@@ -34,7 +34,7 @@ public class Flag {
     public short getFlag(){return f;}
 
     @Deprecated
-    public QuantizationState getQuantization(){
+    private QuantizationState getQuantization(){
         byte q=(byte)(f&3);
         if(q==0)
             return QuantizationState.Without;
@@ -44,7 +44,7 @@ public class Flag {
             return null;
     }
     @Deprecated
-    public void setQuantization(QuantizationState qs){
+    private void setQuantization(QuantizationState qs){
         switch (qs) {
             case Without:f&=(~3);
                 break;
@@ -54,7 +54,7 @@ public class Flag {
     }
 
     @Deprecated
-    public Encryption getEncryption(){
+    private Encryption getEncryption(){
         byte e=(byte)(f&12);
         switch (e){
             case 0:return Encryption.Without;
@@ -63,7 +63,7 @@ public class Flag {
         }
     }
     @Deprecated
-    public void setEncryption(Encryption e){
+    private void setEncryption(Encryption e){
         switch (e) {
             case Without: f&=(~12);
                 break;

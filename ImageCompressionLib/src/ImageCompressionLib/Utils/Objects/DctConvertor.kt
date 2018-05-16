@@ -113,14 +113,14 @@ class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private 
 
         buf = dctUtil.directDCT(buf)
 
-        if (flag.quantization == Flag.QuantizationState.First)
+        if (flag.isChecked(Flag.Parameter.Quantization))
             dctUtil.directQuantization(buf)
         return buf
     }
 
     private fun reverceDCT(buf: Matrix<Short>): Matrix<Short>{
         var buf = buf
-        if (flag.quantization == Flag.QuantizationState.First)
+        if (flag.isChecked(Flag.Parameter.Quantization))
             dctUtil.reverseQuantization( buf)
 
         buf = dctUtil.reverseDCT(buf)
