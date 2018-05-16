@@ -16,6 +16,7 @@ import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
+import java.io.File
 import java.util.*
 import javax.net.ssl.TrustManager
 
@@ -23,14 +24,17 @@ import javax.net.ssl.TrustManager
 class ConvertorDefaultTest(val size:Size,var range:Int) {
     var parameters=Parameters.createParametresForTest(size)
     lateinit var myBufferedImage:MyBufferedImage//= createMyBI(size)
+    val file= File("convertorfile.txt")
 
     val convertor:ConvertorDefault
     init {
+        file.createNewFile()
         val dao= object :IDao{
             var bvc:ByteVectorContainer?=null
             lateinit var cpy:MyBufferedImage
             override fun onResultByteVectorContainer(vector: ByteVectorContainer) {
-                bvc=vector
+//                bvc=vector
+                vector.writeToStream(file.outputStream())
             }
             override fun onResultImage(image: MyBufferedImage, parameters: Parameters) {
                 val dev=ImageStandardDeviation.getDeviation(image,cpy)
@@ -43,7 +47,8 @@ class ConvertorDefaultTest(val size:Size,var range:Int) {
                 return Pair(myBufferedImage,parameters)
             }
             override fun getByteVectorContainer(): ByteVectorContainer {
-                return bvc!!
+//                return bvc!!
+                return ByteVectorContainer.readFromStream(file.inputStream())
             }
         }
         val fac=object :ConvertorDefault.IGuard{
