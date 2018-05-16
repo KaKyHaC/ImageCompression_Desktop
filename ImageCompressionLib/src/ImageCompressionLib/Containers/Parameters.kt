@@ -57,6 +57,30 @@ class Parameters {
         return "Parameters(flag=$flag, imageSize=$imageSize, unitSize=$unitSize, sameBaseSize=$sameBaseSize)"
     }
 
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is Parameters) return false
+
+        if (flag != other.flag) return false
+        if (imageSize != other.imageSize) return false
+        if (unitSize != other.unitSize) return false
+        if (sameBaseSize != other.sameBaseSize) return false
+        if (dataSize != other.dataSize) return false
+        if (matrixOfUnitSize != other.matrixOfUnitSize) return false
+
+        return true
+    }
+    override fun hashCode(): Int {
+        var result = flag.hashCode()
+        result = 31 * result + imageSize.hashCode()
+        result = 31 * result + unitSize.hashCode()
+        result = 31 * result + sameBaseSize.hashCode()
+        result = 31 * result + dataSize.hashCode()
+        result = 31 * result + matrixOfUnitSize.hashCode()
+        return result
+    }
+
+
     companion object {
         @JvmStatic fun fromByteVector(vector: ByteVector): Parameters {
             val flag= Flag(vector.getNextShort())

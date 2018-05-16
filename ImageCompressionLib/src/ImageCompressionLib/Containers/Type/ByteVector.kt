@@ -32,13 +32,13 @@ class ByteVector:Iterable<Byte> {
     private constructor(byteArray: ByteArray) {
         maxSize = byteArray.size
         bytes = Array(maxSize, { x -> byteArray[x] })
-        this.size = byteArray.size-1
+        this.size = byteArray.size
         curIndex = 0
     }
     constructor(byteArray: Array<Byte>){
         bytes=byteArray;
         this.maxSize=byteArray.size
-        this.size=byteArray.size-1
+        this.size=byteArray.size
         curIndex=0
     }
 

@@ -1,9 +1,9 @@
-package ImageCompressionLib.Steganography.Utils
+package Steganography.Utils
 
-import ImageCompressionLib.Steganography.Containers.Container
-import ImageCompressionLib.Steganography.Containers.IContainer
-import ImageCompressionLib.Steganography.Containers.OpcContainer
-import ImageCompressionLib.Steganography.Containers.UnitContainer
+import Steganography.Containers.Container
+import Steganography.Containers.IContainer
+import Steganography.Containers.OpcContainer
+import Steganography.Containers.UnitContainer
 import java.awt.Color
 import java.awt.image.BufferedImage
 import java.util.ArrayList
@@ -16,18 +16,18 @@ class ImageProcessorUtils {
 
     fun imageToUnits(image:BufferedImage,unit_W: Int,unit_H: Int):
             Triple<IContainer<UnitContainer<Short>>> {
-        val r=Container<Short>(image.width,image.height){i,j->Color(image.getRGB(i,j)).red.toShort()}
-        val g=Container<Short>(image.width,image.height){i,j->Color(image.getRGB(i,j)).green.toShort()}
-        val b=Container<Short>(image.width,image.height){i,j->Color(image.getRGB(i,j)).blue.toShort()}
+        val r= Container<Short>(image.width, image.height) { i, j -> Color(image.getRGB(i, j)).red.toShort() }
+        val g= Container<Short>(image.width, image.height) { i, j -> Color(image.getRGB(i, j)).green.toShort() }
+        val b= Container<Short>(image.width, image.height) { i, j -> Color(image.getRGB(i, j)).blue.toShort() }
 
         val units= Triple<IContainer<UnitContainer<Short>>>(null, null, null)
 
         val executorService = Executors.newFixedThreadPool(3)
         val futures = ArrayList<Future<IContainer<UnitContainer<Short>>>>()
 
-        futures.add(executorService.submit<IContainer<UnitContainer<Short>>> {  UnitContainerFactory.getContainers(r, unit_W, unit_H)})
-        futures.add(executorService.submit<IContainer<UnitContainer<Short>>> {  UnitContainerFactory.getContainers(g, unit_W, unit_H)})
-        futures.add(executorService.submit<IContainer<UnitContainer<Short>>> {  UnitContainerFactory.getContainers(b, unit_W, unit_H)})
+        futures.add(executorService.submit<IContainer<UnitContainer<Short>>> { UnitContainerFactory.getContainers(r, unit_W, unit_H) })
+        futures.add(executorService.submit<IContainer<UnitContainer<Short>>> { UnitContainerFactory.getContainers(g, unit_W, unit_H) })
+        futures.add(executorService.submit<IContainer<UnitContainer<Short>>> { UnitContainerFactory.getContainers(b, unit_W, unit_H) })
 
         try {
             units.r= futures[0].get()
@@ -48,13 +48,13 @@ class ImageProcessorUtils {
         val executorService = Executors.newFixedThreadPool(3)
         val futures = ArrayList<Future<IContainer<Short>>>()
 
-        futures.add(executorService.submit<IContainer<Short>> {  UnitContainerFactory.getData(units.r!!,width,height)})
-        futures.add(executorService.submit<IContainer<Short>> {  UnitContainerFactory.getData(units.g!!,width, height)})
-        futures.add(executorService.submit<IContainer<Short>> {  UnitContainerFactory.getData(units.b!!,width, height)})
+        futures.add(executorService.submit<IContainer<Short>> { UnitContainerFactory.getData(units.r!!, width, height) })
+        futures.add(executorService.submit<IContainer<Short>> { UnitContainerFactory.getData(units.g!!, width, height) })
+        futures.add(executorService.submit<IContainer<Short>> { UnitContainerFactory.getData(units.b!!, width, height) })
 
-        var r:IContainer<Short>?=null
-        var g:IContainer<Short>?=null
-        var b:IContainer<Short>?=null
+        var r: IContainer<Short>?=null
+        var g: IContainer<Short>?=null
+        var b: IContainer<Short>?=null
 
         try {
             r= futures[0].get()
@@ -74,7 +74,7 @@ class ImageProcessorUtils {
         return image
     }
 
-    fun directStego(units: Triple<IContainer<UnitContainer<Short>>>,isDivTWO: Boolean):
+    fun directStego(units: Triple<IContainer<UnitContainer<Short>>>, isDivTWO: Boolean):
             Triple<IContainer<OpcContainer<Short>>> {
         val opcs= Triple<IContainer<OpcContainer<Short>>>(null, null, null)
 
@@ -124,7 +124,7 @@ class ImageProcessorUtils {
         return units
     }
     fun reverceStegoOneThread(opcs: Triple<IContainer<OpcContainer<Short>>>,
-                     unit_W: Int, unit_H: Int, isMultiTWO: Boolean):
+                              unit_W: Int, unit_H: Int, isMultiTWO: Boolean):
             Triple<IContainer<UnitContainer<Short>>> {
         val units= Triple<IContainer<UnitContainer<Short>>>(null, null, null)
         units.r=reverceConvert(opcs.r!!,unit_W,unit_H,isMultiTWO)
@@ -158,7 +158,7 @@ class ImageProcessorUtils {
         return message
     }
 
-    fun IContainer<UnitContainer<Short>>.setMesasge(message: BooleanArray,startIndex:Int):Int{
+    fun IContainer<UnitContainer<Short>>.setMesasge(message: BooleanArray, startIndex:Int):Int{
         var index=startIndex
         this.forEach { el ->
             if(index<message.size)
@@ -167,7 +167,7 @@ class ImageProcessorUtils {
         }
         return index
     }
-    fun IContainer<UnitContainer<Short>>.readMessage(message: BooleanArray,startIndex:Int):Int{
+    fun IContainer<UnitContainer<Short>>.readMessage(message: BooleanArray, startIndex:Int):Int{
         var index=startIndex
         this.forEach { el ->
             if(index<message.size)
@@ -177,8 +177,8 @@ class ImageProcessorUtils {
         return index
     }
 
-    private fun directConvert(org:IContainer<UnitContainer<Short>>,isDivTWO:Boolean):IContainer<OpcContainer<Short>>{
-        val res=Container<OpcContainer<Short>>(org.width,org.height)
+    private fun directConvert(org: IContainer<UnitContainer<Short>>, isDivTWO:Boolean): IContainer<OpcContainer<Short>> {
+        val res= Container<OpcContainer<Short>>(org.width, org.height)
         val ins= StegoConvertor.instance
         org.forEach { w, h ->
             res[w,h]=ins.direct(org[w,h]!!,isDivTWO)
@@ -186,10 +186,10 @@ class ImageProcessorUtils {
         }
         return res
     }
-    private fun reverceConvert(org:IContainer<OpcContainer<Short>>,
-                               unit_W: Int,unit_H: Int,isMultiTWO:Boolean):
-            IContainer<UnitContainer<Short>>{
-        val res=Container<UnitContainer<Short>>(org.width,org.height)
+    private fun reverceConvert(org: IContainer<OpcContainer<Short>>,
+                               unit_W: Int, unit_H: Int, isMultiTWO:Boolean):
+            IContainer<UnitContainer<Short>> {
+        val res= Container<UnitContainer<Short>>(org.width, org.height)
         val ins= StegoConvertor.instance
         org.forEach { w, h ->
             res[w,h]=ins.reverce(org[w,h]!!,unit_W,unit_H,isMultiTWO)

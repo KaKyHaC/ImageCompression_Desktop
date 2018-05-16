@@ -1,8 +1,8 @@
-package ImageCompressionLib.Steganography.Utils
+package Steganography.Utils
 
 import ImageCompressionLib.Constants.TWO
-import ImageCompressionLib.Steganography.Containers.OpcContainer
-import ImageCompressionLib.Steganography.Containers.UnitContainer
+import Steganography.Containers.OpcContainer
+import Steganography.Containers.UnitContainer
 import java.math.BigInteger
 
 class StegoConvertor private constructor(){

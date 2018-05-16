@@ -1,4 +1,4 @@
-package ImageCompressionLib.Steganography.Containers
+package Steganography.Containers
 
 interface IContainer<T> {
     var width:Int

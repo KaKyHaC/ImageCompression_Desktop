@@ -1,4 +1,4 @@
-package ImageCompressionLib.Steganography.Utils
+package Steganography.Utils
 
 import java.io.*
 import kotlin.experimental.and

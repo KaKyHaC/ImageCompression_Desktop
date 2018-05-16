@@ -1,8 +1,8 @@
-package ImageCompressionLib.Steganography.Containers
+package Steganography.Containers
 
 import java.util.*
 
-class Container<T>(override var width: Int, override var height: Int) :IContainer<T> {
+class Container<T>(override var width: Int, override var height: Int) : IContainer<T> {
     private val container:Vector<Vector<T?>>
     init {
         container= Vector<Vector<T?>>(width)
@@ -30,7 +30,7 @@ class Container<T>(override var width: Int, override var height: Int) :IContaine
     }
 
 
-    fun inRange(other:IContainer<T>,range:Int):Boolean{
+    fun inRange(other: IContainer<T>, range:Int):Boolean{
         if(width!=other.width||height!=other.height)return false
 
         for(i in 0 until width){

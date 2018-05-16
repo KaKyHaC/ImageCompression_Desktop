@@ -1,14 +1,14 @@
-package ImageCompressionLib.Steganography.Utils
+package Steganography.Utils
 
-import ImageCompressionLib.Steganography.Containers.Container
-import ImageCompressionLib.Steganography.Containers.IContainer
-import ImageCompressionLib.Steganography.Containers.OpcContainer
+import Steganography.Containers.Container
+import Steganography.Containers.IContainer
+import Steganography.Containers.OpcContainer
 import ImageCompressionLib.Containers.Type.ByteVector
 import java.math.BigInteger
 
 class OpcsParser{
     data class Info(val width:Int,val height:Int,val unit_W:Int,val unit_H: Int)
-    fun toByteVector(vector: ByteVector, opcs:ImageProcessorUtils.Triple<IContainer<OpcContainer<Short>>>, info:Info){
+    fun toByteVector(vector: ByteVector, opcs: ImageProcessorUtils.Triple<IContainer<OpcContainer<Short>>>, info: Info){
         infoToVector(info,vector)
         vector.append(opcs.r?.width!!.toShort())
         vector.append(opcs.r?.height!!.toShort())
@@ -17,14 +17,14 @@ class OpcsParser{
         opcs.b?.writeToBV(vector,info)
 
     }
-    fun fromByteVector(vector: ByteVector):Pair<ImageProcessorUtils.Triple<IContainer<OpcContainer<Short>>>,Info>{
+    fun fromByteVector(vector: ByteVector):Pair<ImageProcessorUtils.Triple<IContainer<OpcContainer<Short>>>, Info>{
         val info=infoFromVector(vector)
         val w=vector.getNextShort()
         val h=vector.getNextShort()
-        val res=ImageProcessorUtils.Triple<IContainer<OpcContainer<Short>>>(null,null,null)
-        res.r=Container<OpcContainer<Short>>(w.toInt(),h.toInt()){i,j-> OpcContainer(BigInteger("0"), Array(0){(0).toShort()}) }
-        res.g=Container<OpcContainer<Short>>(w.toInt(),h.toInt()){i,j-> OpcContainer(BigInteger("0"), Array(0){(0).toShort()}) }
-        res.b=Container<OpcContainer<Short>>(w.toInt(),h.toInt()){i,j-> OpcContainer(BigInteger("0"), Array(0){(0).toShort()}) }
+        val res= ImageProcessorUtils.Triple<IContainer<OpcContainer<Short>>>(null, null, null)
+        res.r= Container<OpcContainer<Short>>(w.toInt(), h.toInt()) { i, j -> OpcContainer(BigInteger("0"), Array(0) { (0).toShort() }) }
+        res.g= Container<OpcContainer<Short>>(w.toInt(), h.toInt()) { i, j -> OpcContainer(BigInteger("0"), Array(0) { (0).toShort() }) }
+        res.b= Container<OpcContainer<Short>>(w.toInt(), h.toInt()) { i, j -> OpcContainer(BigInteger("0"), Array(0) { (0).toShort() }) }
 
         res.r!!.readFromBV(vector,info)
         res.g!!.readFromBV(vector,info)
@@ -80,17 +80,17 @@ class OpcsParser{
         }
         return maxBase.toByteArray().size
     }
-    private fun infoToVector(info:Info,byteVector: ByteVector){
+    private fun infoToVector(info: Info, byteVector: ByteVector){
         byteVector.append(info.width.toShort())
         byteVector.append(info.height.toShort())
         byteVector.append(info.unit_W.toShort())
         byteVector.append(info.unit_H.toShort())
     }
-    private fun infoFromVector(byteVector: ByteVector):Info{
+    private fun infoFromVector(byteVector: ByteVector): Info {
         val w=byteVector.getNextShort().toInt()
         val h=byteVector.getNextShort().toInt()
         val uw=byteVector.getNextShort().toInt()
         val uh=byteVector.getNextShort().toInt()
-        return Info(w,h,uw,uh)
+        return Info(w, h, uw, uh)
     }
 }

@@ -1,20 +1,20 @@
-package ImageCompressionLib.Steganography.Utils
+package Steganography.Utils
 
-import ImageCompressionLib.Steganography.Containers.Container
-import ImageCompressionLib.Steganography.Containers.IContainer
-import ImageCompressionLib.Steganography.Containers.UnitContainer
+import Steganography.Containers.Container
+import Steganography.Containers.IContainer
+import Steganography.Containers.UnitContainer
 
 class UnitContainerFactory private constructor(){
 
     companion object {
         @JvmStatic fun getContainers(data: IContainer<Short>, unit_Width:Int, unit_Height:Int)
-                :IContainer<UnitContainer<Short>>{
+                : IContainer<UnitContainer<Short>> {
             val resWidth=data.width/unit_Width+if(data.width%unit_Width!=0)1 else 0
             val resHeight=data.height/unit_Height+if(data.height%unit_Height!=0)1 else 0
-            val res = Container<UnitContainer<Short>>(resWidth,resHeight){i,j->
-                    val mat=Array(unit_Width){ Array(unit_Height){(0).toShort()} }
+            val res = Container<UnitContainer<Short>>(resWidth, resHeight) { i, j ->
+                val mat = Array(unit_Width) { Array(unit_Height) { (0).toShort() } }
                 UnitContainer(mat)
-                }
+            }
 
 
             for(i in 0 until data.width){
@@ -26,12 +26,12 @@ class UnitContainerFactory private constructor(){
             }
             return res
         }
-        @JvmStatic fun  getData(data:IContainer<UnitContainer<Short>>, width:Int, height:Int)
-                :IContainer<Short>{
+        @JvmStatic fun  getData(data: IContainer<UnitContainer<Short>>, width:Int, height:Int)
+                : IContainer<Short> {
 
             val unit_Width=data[0,0]!!.width
             val unit_Height=data[0,0]!!.height
-            val res = Container<Short>(width,height){i,j->(0).toShort()}
+            val res = Container<Short>(width, height) { i, j -> (0).toShort() }
 
             for(i in 0 until width){
                 for(j in 0 until height){

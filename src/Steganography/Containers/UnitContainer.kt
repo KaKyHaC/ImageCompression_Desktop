@@ -1,4 +1,4 @@
-package ImageCompressionLib.Steganography.Containers
+package Steganography.Containers
 
 import java.util.*
 

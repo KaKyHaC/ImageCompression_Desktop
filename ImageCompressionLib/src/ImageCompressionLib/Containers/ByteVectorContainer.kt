@@ -7,6 +7,18 @@ import java.io.OutputStream
 
 data class ByteVectorContainer(val parameters: Parameters,val mainData: ByteVector, val suportData: ByteVector?){
     //TODO !OneFile
+
+    override fun equals(other: Any?): Boolean {
+        if(other==null)
+            return false
+        if(other.javaClass!=this.javaClass)
+            return false
+
+        val o = other as ByteVectorContainer
+        return parameters.equals(o.parameters)&&
+                mainData.equals(o.mainData)
+    }
+
     fun writeToStream(os:OutputStream) {
         val vec=ByteVector();
         val p=parameters.toByteVector(vec)
@@ -18,17 +30,25 @@ data class ByteVectorContainer(val parameters: Parameters,val mainData: ByteVect
         os.write(mainData.toByteArray())
 
         os.write(suportData?.size?:0)
-        os.write(suportData?.toByteArray())
+        if(suportData!=null)
+            os.write(suportData.toByteArray())
     }
     companion object {
         @JvmStatic fun readFromStream(ist:InputStream):ByteVectorContainer{
+//            val tmp=ist.readAllBytes()
             var len=ist.read()
-            val param=Parameters.fromByteVector(ByteVector(ist.readBytes(len).toTypedArray()))
+            var tmp=ByteArray(len)
+            ist.read(tmp)
+            val param=Parameters.fromByteVector(ByteVector(tmp.toTypedArray()))
             len=ist.read()
-            val main=ByteVector(ist.readBytes(len).toTypedArray())
+            tmp= ByteArray(len)
+            ist.read(tmp)
+            val main=ByteVector(tmp.toTypedArray())
             len=ist.read()
+            tmp= ByteArray(len)
+            ist.read(tmp)
             val sup= if(len>0)
-                ByteVector(ist.readBytes(len).toTypedArray())
+                ByteVector(tmp.toTypedArray())
             else
                 null
 
