@@ -14,7 +14,7 @@ class ByteVectorContainerTest {
     val file= File("fileTest.txt")
     @Before
     fun setUp() {
-        val mainD= ByteVector(8)
+        val mainD= ByteVector(8000)
         for(i in 0 until mainD.maxSize)
             mainD.append(Random().nextLong())
 

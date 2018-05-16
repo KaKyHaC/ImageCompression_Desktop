@@ -2,8 +2,11 @@ package ImageCompressionLib.Containers
 
 import ImageCompressionLib.Containers.Type.ByteVector
 import ImageCompressionLib.Containers.Type.Flag
+import java.io.DataInputStream
+import java.io.DataOutputStream
 import java.io.InputStream
 import java.io.OutputStream
+import kotlin.test.assertEquals
 
 data class ByteVectorContainer(val parameters: Parameters,val mainData: ByteVector, val suportData: ByteVector?){
     //TODO !OneFile
@@ -20,33 +23,37 @@ data class ByteVectorContainer(val parameters: Parameters,val mainData: ByteVect
     }
 
     fun writeToStream(os:OutputStream) {
+        val dos=DataOutputStream(os)
         val vec=ByteVector();
-        val p=parameters.toByteVector(vec)
+        parameters.toByteVector(vec)
 
-        os.write(vec.size)
-        os.write(vec.toByteArray())
+        dos.writeInt(vec.size)
+        dos.write(vec.toByteArray())
 
-        os.write(mainData.size)
-        os.write(mainData.toByteArray())
+        dos.writeInt(mainData.size)
+        dos.write(mainData.toByteArray())
 
-        os.write(suportData?.size?:0)
+        dos.writeInt(suportData?.size?:0)
         if(suportData!=null)
             os.write(suportData.toByteArray())
     }
     companion object {
         @JvmStatic fun readFromStream(ist:InputStream):ByteVectorContainer{
 //            val tmp=ist.readAllBytes()
-            var len=ist.read()
+            val dis=DataInputStream(ist)
+            var len=dis.readInt()
             var tmp=ByteArray(len)
-            ist.read(tmp)
+            dis.read(tmp)
             val param=Parameters.fromByteVector(ByteVector(tmp.toTypedArray()))
-            len=ist.read()
+
+            len=dis.readInt()
             tmp= ByteArray(len)
-            ist.read(tmp)
+            dis.read(tmp)
             val main=ByteVector(tmp.toTypedArray())
-            len=ist.read()
+
+            len=dis.readInt()
             tmp= ByteArray(len)
-            ist.read(tmp)
+            dis.read(tmp)
             val sup= if(len>0)
                 ByteVector(tmp.toTypedArray())
             else

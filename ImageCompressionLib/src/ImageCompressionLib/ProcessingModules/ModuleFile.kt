@@ -30,13 +30,13 @@ class ModuleFile{
         return ByteVectorContainer.readFromStream(fr)
     }
 
-    fun getInfoMainString():String{
-        throw Exception("not ready")
-//        return ByteVectorFile(pathToName+ typeMain).infoToString()
+    fun getInfoMainString():String{//TODO implement method
+//        throw Exception("not ready")
+        return File(pathToName+ typeMain).length().toString()
     }
     fun getMainFileLength():Long{
-        throw Exception("not ready")
-//        return ByteVectorFile(pathToName+ typeMain).getFileLength()
+//        throw Exception("not ready")
+        return File(pathToName+ typeMain).length()
     }
     private fun getPathToName(pathToFile: String):String{
         var res=pathToFile
