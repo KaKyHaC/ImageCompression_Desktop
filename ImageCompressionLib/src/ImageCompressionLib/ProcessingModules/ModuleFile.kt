@@ -2,7 +2,6 @@ package ImageCompressionLib.ProcessingModules
 
 import ImageCompressionLib.Containers.Type.ByteVector
 import ImageCompressionLib.Containers.ByteVectorContainer
-import ImageCompressionLib.Utils.Objects.ByteVectorFile
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Utils.Objects.TimeManager
 import java.io.File
@@ -15,68 +14,29 @@ class ModuleFile{
     val pathToName:String
     constructor(pathToFile:String){
         pathToName=getPathToName(pathToFile)
-//        this.globalBaseH=globalBaseH
-//        this.globalBaseW=globalBaseW
     }
     constructor(file: File){
         pathToName=getPathToName(file.absolutePath)
-//        this.globalBaseH=globalBaseH
-//        this.globalBaseW=globalBaseW
     }
-
-//    var globalBaseW:Int
-//    var globalBaseH:Int
-
     fun write(vectorContainer: ByteVectorContainer, flag: Flag) {
-//        val v = ByteVector()
-
-//        tripleDataOpcMatrix.writeToVector(v, flag)
-//        if(flag.isChecked(Flag.Parameter.GlobalBase)){
-//            tripleDataOpcMatrix.writeBaseToVector(v,flag,globalBaseW,globalBaseH)
-//        }
         TimeManager.Instance.append("box to vector")
 
-        val vw = ByteVectorFile(pathToName + typeMain)
-        vw.write(vectorContainer.mainData, flag)
-
-        if (!flag.isChecked(Flag.Parameter.OneFile)) {
-//            val vbase = ByteVector()
-//            tripleDataOpcMatrix.writeBaseToVector(v,flag,globalBaseW,globalBaseH)
-            TimeManager.Instance.append("base to vector")
-            val bw = ByteVectorFile(pathToName + typeSup)
-            if(vectorContainer.suportData==null)
-                throw Exception("vectorContainer.suportData==null")
-
-            bw.write(vectorContainer.suportData, flag)
-        }
+        val vw = File(pathToName + typeMain).outputStream()
+        vectorContainer.writeToStream(vw)
 
     }
     fun read():ByteVectorContainer{
-        val fr=ByteVectorFile(pathToName+ typeMain)
-        val p=fr.read()
-        val flag=p.second
-        val vmain=p.first
-//        val opcs= TripleDataOpcMatrixOld()
-
-//        opcs.readFromVector(vmain,flag)
-//        if(flag.isChecked(Flag.Parameter.GlobalBase)){
-//            opcs.readBaseFromVector(vmain,flag)
-//        }
-        var base: ByteVector?=null
-        if(!flag.isChecked(Flag.Parameter.OneFile)){
-            val br=ByteVectorFile(pathToName+ typeSup)
-            val bp=br.read()
-            base=bp.first
-//            opcs.readBaseFromVector(base,flag)
-        }
-        return ByteVectorContainer(vmain,base)
+        val fr=File(pathToName+ typeMain).inputStream()
+        return ByteVectorContainer.readFromStream(fr)
     }
 
     fun getInfoMainString():String{
-        return ByteVectorFile(pathToName+ typeMain).infoToString()
+        throw Exception("not ready")
+//        return ByteVectorFile(pathToName+ typeMain).infoToString()
     }
     fun getMainFileLength():Long{
-        return ByteVectorFile(pathToName+ typeMain).getFileLength()
+        throw Exception("not ready")
+//        return ByteVectorFile(pathToName+ typeMain).getFileLength()
     }
     private fun getPathToName(pathToFile: String):String{
         var res=pathToFile

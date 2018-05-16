@@ -9,13 +9,13 @@ class ModuleCompression {
     fun compress(container: ByteVectorContainer,flag: Flag):ByteVectorContainer{
         if(!flag.isChecked(Flag.Parameter.CompressionUtils))
             return container
-        
+
         val main= ByteVector(CompressionUtils.compress(container.mainData.toByteArray()).toTypedArray())
         val sup=if(container.suportData!=null)
             ByteVector(CompressionUtils.compress(container.suportData.toByteArray()).toTypedArray())
         else
             null
-        return ByteVectorContainer(main,sup)
+        return ByteVectorContainer(container.parameters,main,sup)
     }
     fun decompress(container: ByteVectorContainer,flag: Flag):ByteVectorContainer{
         if(!flag.isChecked(Flag.Parameter.CompressionUtils))
@@ -26,6 +26,6 @@ class ModuleCompression {
             ByteVector(CompressionUtils.decompress(container.suportData.toByteArray()).toTypedArray())
         else
             null
-        return ByteVectorContainer(main,sup)
+        return ByteVectorContainer(container.parameters,main,sup)
     }
 }

@@ -23,7 +23,7 @@ class TripleDataOpcMatrix {
     fun toByteVectorContainer():ByteVectorContainer{
         val v1=ByteVector()
         val v2=if(parameters.flag.isChecked(Flag.Parameter.OneFile))v1 else ByteVector()
-        parameters.toByteVector(v1)
+//        parameters.toByteVector(v1)
         a.size.toByteVector(v1)
         b.size.toByteVector(v1)
         c.size.toByteVector(v1)
@@ -37,7 +37,7 @@ class TripleDataOpcMatrix {
         c.writeToByteVector(v1)
 
         val v2r=if(parameters.flag.isChecked(Flag.Parameter.OneFile))null else v2
-        return ByteVectorContainer(v1,v2r)
+        return ByteVectorContainer(parameters,v1,v2r)
     }
     fun Matrix<DataOpc>.writeToByteVector(vector: ByteVector){
         this.forEach(){i, j, value ->
@@ -132,7 +132,8 @@ class TripleDataOpcMatrix {
             }
         }
         @JvmStatic fun valueOf(container: ByteVectorContainer): TripleDataOpcMatrix {
-            val parameters=Parameters.fromByteVector(container.mainData)
+//            val parameters=Parameters.fromByteVector(container.mainData)
+            val parameters=container.parameters
             val sizeA= Size.valueOf(container.mainData)
             val sizeB= Size.valueOf(container.mainData)
             val sizeC= Size.valueOf(container.mainData)
