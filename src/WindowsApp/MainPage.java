@@ -12,13 +12,18 @@ import ImageCompressionLib.ProcessingModules.ModuleFile;
 import ImageCompressionLib.Utils.Functions.Opc.IStegoMessageUtil;
 import Utils.BuffImConvertor;
 import kotlin.Pair;
+import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -142,16 +147,74 @@ public class MainPage extends JFrame {
         convertorDefault=new ConvertorDefault(iDao,iGuard);
     }
     private void setListeners(){
-
+        selectFileButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                onSelectButton();
+            }
+        });
+        convertButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                onStartButton();
+            }
+        });
+        convertorDefault.setProgressListener(new Function2<Integer, String, Unit>() {
+            @Override
+            public Unit invoke(Integer integer, String s) {
+                SwingUtilities.invokeLater(()->{
+                    progressBar1.setValue(integer);
+                    progressBar1.setString(s);
+                });
+                return null;
+            }
+        });
+        convertorDefault.setOnImageReadyListener(new Function1<MyBufferedImage, Unit>() {
+            @Override
+            public Unit invoke(MyBufferedImage myBufferedImage) {
+                BufferedImage im=BuffImConvertor.getInstance().convert(myBufferedImage);
+                setLabelImage(labelImage1,im);
+                return null;
+            }
+        });
     }
 
+    private void onSelectButton(){
+        JFileChooser jFileChooser=new JFileChooser(ImageCompressionLib.Parameters.getInstanse().PathAppDir);
+        jFileChooser.showOpenDialog(this);
+        File file=jFileChooser.getSelectedFile();
+        onFileSelected(file);
+    }
+    enum FileType{BMP,BAR}
+    FileType curFileType;
+    private void onFileSelected(File file){
+        System.out.println(file);
+        toRead=file;
+        curFileType =(file.getAbsolutePath().contains("bar"))?FileType.BAR:FileType.BMP;
+        String filePath=toRead.getAbsolutePath();
+        String newFile=filePath.substring(0,filePath.length()-4)+(curFileType==FileType.BMP?".bar":".bmp");
+        toSave=new File(newFile);
+        try {
+            toSave.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void onStartButton(){
+        if(toRead==null)
+            onSelectButton();
+
+        if(curFileType==FileType.BMP)
+            convertorDefault.FromBmpToBar(ConvertorDefault.Computing.MultiThreads);
+        else
+            convertorDefault.FromBarToBmp(ConvertorDefault.Computing.MultiThreads);
+    }
 
     private void setLabelImage(JLabel label, BufferedImage image) {
         ImageIcon imageIcon = new ImageIcon(image);
         labelInfo.setText(labelInfo.getText() + "\n " + imageIcon.getIconWidth() + "x" + imageIcon.getIconHeight());
-        Image image1 = imageIcon.getImage().getScaledInstance(600, 600, Image.SCALE_DEFAULT);
+        Image image1 = imageIcon.getImage().getScaledInstance(label.getWidth(),label.getHeight(), Image.SCALE_DEFAULT);
         label.setIcon(new ImageIcon(image1));
-
     }
     public static void main(String[] a){
         new MainPage();
