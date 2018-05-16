@@ -187,7 +187,7 @@ public class MainPage extends JFrame {
         toRead=file;
         curFileType =(file.getAbsolutePath().contains("bar"))?FileType.BAR:FileType.BMP;
         String filePath=toRead.getAbsolutePath();
-        String newFile=filePath.substring(0,filePath.length()-4)+(curFileType==FileType.BMP?".bar":".bmp");
+        String newFile=filePath.substring(0,filePath.length()-4)+(curFileType==FileType.BMP?".bar":"Res.bmp");
         toSave=new File(newFile);
         try {
             toSave.createNewFile();
@@ -215,7 +215,7 @@ public class MainPage extends JFrame {
 
     private void setLabelImage(JLabel label, BufferedImage image) {
         ImageIcon imageIcon = new ImageIcon(image);
-        labelInfo.setText(labelInfo.getText() + "\n " + imageIcon.getIconWidth() + "x" + imageIcon.getIconHeight());
+        labelInfo.setText(imageIcon.getIconWidth() + "x" + imageIcon.getIconHeight());
         Image image1 = imageIcon.getImage().getScaledInstance(label.getWidth(),label.getHeight(), Image.SCALE_DEFAULT);
         label.setIcon(new ImageIcon(image1));
     }
