@@ -29,7 +29,7 @@ class ByteVector:Iterable<Byte> {
         curIndex = 0
     }
 
-    constructor(byteArray: ByteArray) {
+    private constructor(byteArray: ByteArray) {
         maxSize = byteArray.size
         bytes = Array(maxSize, { x -> byteArray[x] })
         this.size = byteArray.size-1
