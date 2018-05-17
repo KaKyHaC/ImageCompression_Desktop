@@ -3,6 +3,7 @@ package ImageCompressionLib.Convertor
 import ImageCompressionLib.Containers.*
 import ImageCompressionLib.Containers.Type.ByteVector
 import ImageCompressionLib.Containers.Type.MyBufferedImage
+import ImageCompressionLib.ProcessingModules.ModuleCompression
 //import ImageCompressionLib.ProcessingModules.ModuleByteVector
 import ImageCompressionLib.ProcessingModules.ModuleDCT
 import ImageCompressionLib.ProcessingModules.ModuleImage
@@ -40,19 +41,23 @@ class ConvertorDefault (val dao: IDao,val guard:IGuard) {
         progressListener?.invoke(60,"direct OPC")
         val moduleOPC= ModuleOpc(matrixDCT)
         val box=moduleOPC.getTripleDataOpcMatrix(guard.getEncryptProperty())
+        progressListener?.invoke(80,"Compress")
+        val bvc=box.toByteVectorContainer();
+        val bvcComp=ModuleCompression().compress(bvc,parameters.flag);
         progressListener?.invoke(80,"write to file")
-        val bvc=box.toByteVectorContainer()
-        dao.onResultByteVectorContainer(bvc)
+        dao.onResultByteVectorContainer(bvcComp)
         progressListener?.invoke(100,"Ready")
     }
 
     fun FromBarToBmp(computing: Computing = Computing.MultiThreads): Unit {
         val isAsync=(computing== Computing.MultiThreads)
         progressListener?.invoke(10,"read from file")
-        val bvc=dao.getByteVectorContainer()
+        val bvcComp=dao.getByteVectorContainer()
+        val bvc=ModuleCompression().decompress(bvcComp,bvcComp.parameters.flag);
+        progressListener?.invoke(15,"decompress")
         val box=TripleDataOpcMatrix.valueOf(bvc)
         val parameters=box.parameters
-        progressListener?.invoke(10,"reverse OPC")
+        progressListener?.invoke(20,"reverse OPC")
         val mOPC= ModuleOpc(box)
         val (FFTM,message) =mOPC.getTripleShortMatrix(guard.getEncryptProperty())
         message?.let { guard.onMessageRead(message)}

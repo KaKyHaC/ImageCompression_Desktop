@@ -25,8 +25,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 public class MainPage extends JFrame {
     private JProgressBar progressBar1;
@@ -70,8 +69,14 @@ public class MainPage extends JFrame {
         ConvertorDefault.IDao iDao=new ConvertorDefault.IDao() {
             @Override
             public void onResultByteVectorContainer(@NotNull ByteVectorContainer vector) {
-                ModuleFile file=new ModuleFile(toSave);
-                file.write(vector,flagForm.getFlag());
+//                ModuleFile file=new ModuleFile(toSave);
+//                file.write(vector,flagForm.getFlag());
+                try {
+                    vector.writeToStream(new FileOutputStream(toSave));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    labelInfo.setText(e.toString());
+                }
             }
 
             @Override
@@ -101,8 +106,15 @@ public class MainPage extends JFrame {
             @NotNull
             @Override
             public ByteVectorContainer getByteVectorContainer() {
-                ModuleFile moduleFile=new ModuleFile(toRead);
-                return moduleFile.read();
+//                ModuleFile moduleFile=new ModuleFile(toRead);
+//                return moduleFile.read();
+                try{
+                    return ByteVectorContainer.readFromStream(new FileInputStream(toRead));
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                    labelInfo.setText(e.toString());
+                }
+                return null;
             }
         };
         ConvertorDefault.IGuard iGuard=new ConvertorDefault.IGuard(){
