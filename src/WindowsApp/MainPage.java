@@ -43,6 +43,7 @@ public class MainPage extends JFrame {
     private JPasswordField passwordField1;
     private JEditorPane editorPaneMessage;
     private JSpinner spinnerPosition;
+    private JRadioButton steganographyRadioButton;
 
     private FlagForm flagForm;
     private ConvertorDefault convertorDefault;
@@ -54,7 +55,7 @@ public class MainPage extends JFrame {
     public MainPage() throws HeadlessException {
         setContentPane(mainPanel);
         setVisible(true);
-        setSize(850,500);
+        setSize(1050,500);
         init();
         setListeners();
         setDefaultValues();
@@ -126,6 +127,8 @@ public class MainPage extends JFrame {
             @Nullable
             @Override
             public EncryptParameters getEncryptProperty() {
+                if(!steganographyRadioButton.isSelected())
+                    return null;
                 EncryptParameters encryptParameters = new EncryptParameters();
                 encryptParameters.setPassword(passwordField1.getPassword().toString());
 
@@ -209,12 +212,15 @@ public class MainPage extends JFrame {
             e.printStackTrace();
         }
         if(curFileType==FileType.BMP){
+            convertButton.setText("Direct Convert");
             try {
                 imageReaded=ImageIO.read(toRead);
                 setLabelImage(labelImage1,imageReaded);
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }else{
+            convertButton.setText("Reverce Convert");
         }
     }
     private void onStartButton(){
