@@ -48,6 +48,7 @@ public class MainPage extends JFrame {
     private ConvertorDefault convertorDefault;
     private File toSave,toRead;
     private BufferedImage imageReaded;
+    private Size imageIconSize=new Size(300,200);
 
 
     public MainPage() throws HeadlessException {
@@ -172,6 +173,7 @@ public class MainPage extends JFrame {
                 SwingUtilities.invokeLater(()->{
                     progressBar1.setValue(integer);
                     progressBar1.setString(s);
+                    labelInfo.setText(s);
                 });
                 return null;
             }
@@ -179,8 +181,8 @@ public class MainPage extends JFrame {
         convertorDefault.setOnImageReadyListener(new Function1<MyBufferedImage, Unit>() {
             @Override
             public Unit invoke(MyBufferedImage myBufferedImage) {
-                BufferedImage im=BuffImConvertor.getInstance().convert(myBufferedImage);
-                setLabelImage(labelImage2,im);
+//                BufferedImage im=BuffImConvertor.getInstance().convert(myBufferedImage);
+//                setLabelImage(labelImage2,im);
                 return null;
             }
         });
@@ -219,16 +221,18 @@ public class MainPage extends JFrame {
         if(toRead==null)
             onSelectButton();
 
-        if(curFileType==FileType.BMP)
-            convertorDefault.FromBmpToBar(ConvertorDefault.Computing.MultiThreads);
-        else
-            convertorDefault.FromBarToBmp(ConvertorDefault.Computing.MultiThreads);
+        new Thread(()->{
+            if(curFileType==FileType.BMP)
+                convertorDefault.FromBmpToBar(ConvertorDefault.Computing.MultiThreads);
+            else
+                convertorDefault.FromBarToBmp(ConvertorDefault.Computing.MultiThreads);
+        }).start();
     }
 
     private void setLabelImage(JLabel label, BufferedImage image) {
         ImageIcon imageIcon = new ImageIcon(image);
         labelInfo.setText(imageIcon.getIconWidth() + "x" + imageIcon.getIconHeight());
-        Image image1 = imageIcon.getImage().getScaledInstance(label.getWidth(),label.getHeight(), Image.SCALE_DEFAULT);
+        Image image1 = imageIcon.getImage().getScaledInstance(imageIconSize.getWidth(),imageIconSize.getHeight(), Image.SCALE_DEFAULT);
         label.setIcon(new ImageIcon(image1));
     }
     public static void main(String[] a){
