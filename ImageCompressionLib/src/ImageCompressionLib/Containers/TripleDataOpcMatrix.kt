@@ -60,11 +60,6 @@ class TripleDataOpcMatrix {
         }
     }
 
-
-
-
-
-
     fun copy(): TripleDataOpcMatrix {
         val a=a.copy()
         val b=b.copy()
@@ -103,11 +98,34 @@ class TripleDataOpcMatrix {
     }
 
     companion object {
+
+        @JvmStatic fun valueOf(container: ByteVectorContainer): TripleDataOpcMatrix {
+//            val parameters=Parameters.fromByteVector(container.mainData)
+            val parameters=container.parameters
+            val sizeA= Size.valueOf(container.mainData)
+            val sizeB= Size.valueOf(container.mainData)
+            val sizeC= Size.valueOf(container.mainData)
+
+            val a=Matrix<DataOpc>(sizeA){i, j ->  DataOpc(parameters)}
+            val b=Matrix<DataOpc>(sizeB){i, j ->  DataOpc(parameters)}
+            val c=Matrix<DataOpc>(sizeC){i, j ->  DataOpc(parameters)}
+
+            val v2=if(parameters.flag.isChecked(Flag.Parameter.OneFile))container.mainData else container.suportData
+            a.readBaseFromByteVector(v2!!,parameters)
+            b.readBaseFromByteVector(v2,parameters)
+            c.readBaseFromByteVector(v2,parameters)
+
+            a.readFromByteVector(container.mainData,parameters)
+            b.readFromByteVector(container.mainData,parameters)
+            c.readFromByteVector(container.mainData,parameters)
+
+            return TripleDataOpcMatrix(a,b,c,parameters)
+        }
         fun Matrix<DataOpc>.readFromByteVector(vector: ByteVector,parameters: Parameters){
-                this.forEach() { i, j, value ->
-                    value.setFrom(vector, parameters)
-                    return@forEach null
-                }
+            this.forEach() { i, j, value ->
+                value.setFrom(vector, parameters)
+                return@forEach null
+            }
         }
 
         fun Matrix<DataOpc>.readBaseFromByteVector(vector: ByteVector,parameters: Parameters){
@@ -130,28 +148,6 @@ class TripleDataOpcMatrix {
                     return@forEach null
                 }
             }
-        }
-        @JvmStatic fun valueOf(container: ByteVectorContainer): TripleDataOpcMatrix {
-//            val parameters=Parameters.fromByteVector(container.mainData)
-            val parameters=container.parameters
-            val sizeA= Size.valueOf(container.mainData)
-            val sizeB= Size.valueOf(container.mainData)
-            val sizeC= Size.valueOf(container.mainData)
-
-            val a=Matrix<DataOpc>(sizeA){i, j ->  DataOpc(parameters)}
-            val b=Matrix<DataOpc>(sizeB){i, j ->  DataOpc(parameters)}
-            val c=Matrix<DataOpc>(sizeC){i, j ->  DataOpc(parameters)}
-
-            val v2=if(parameters.flag.isChecked(Flag.Parameter.OneFile))container.mainData else container.suportData
-            a.readBaseFromByteVector(v2!!,parameters)
-            b.readBaseFromByteVector(v2!!,parameters)
-            c.readBaseFromByteVector(v2!!,parameters)
-
-            a.readFromByteVector(container.mainData,parameters)
-            b.readFromByteVector(container.mainData,parameters)
-            c.readFromByteVector(container.mainData,parameters)
-
-            return TripleDataOpcMatrix(a,b,c,parameters)
         }
     }
 }

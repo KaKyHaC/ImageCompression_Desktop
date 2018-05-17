@@ -8,23 +8,21 @@
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/CompressionUtils.java" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/CompressionUtils.java" />
+      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/TripleDataOpcMatrix.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/TripleDataOpcMatrix.kt" />
+      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/DataOpc.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/DataOpc.kt" />
+      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java" />
       <change beforePath="$PROJECT_DIR$/convertorfile.txt" afterPath="$PROJECT_DIR$/convertorfile.txt" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2$1$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2$1$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$3.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$3.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$4.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$4.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$5.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$5.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$6.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$6.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$FileType.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$FileType.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Convertor/ConvertorDefault$Computing.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Convertor/ConvertorDefault$Computing.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Convertor/ConvertorDefault.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Convertor/ConvertorDefault.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/CompressionUtils.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/CompressionUtils.class" />
-      <change beforePath="$PROJECT_DIR$/src/WindowsApp/MainPage.java" afterPath="$PROJECT_DIR$/src/WindowsApp/MainPage.java" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/TripleDataOpcMatrix$Companion$readBaseFromByteVector$1$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/TripleDataOpcMatrix$Companion$readBaseFromByteVector$1$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/TripleDataOpcMatrix$Companion$readBaseFromByteVector$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/TripleDataOpcMatrix$Companion$readBaseFromByteVector$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/TripleDataOpcMatrix$Companion$readBaseFromByteVector$2.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/TripleDataOpcMatrix$Companion$readBaseFromByteVector$2.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/TripleDataOpcMatrix$Companion$readFromByteVector$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/TripleDataOpcMatrix$Companion$readFromByteVector$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/TripleDataOpcMatrix$Companion$valueOf$a$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/TripleDataOpcMatrix$Companion$valueOf$a$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/TripleDataOpcMatrix$Companion$valueOf$b$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/TripleDataOpcMatrix$Companion$valueOf$b$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/TripleDataOpcMatrix$Companion$valueOf$c$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/TripleDataOpcMatrix$Companion$valueOf$c$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/TripleDataOpcMatrix$Companion.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/TripleDataOpcMatrix$Companion.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/TripleDataOpcMatrix.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/TripleDataOpcMatrix.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Type/DataOpc$Companion.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Type/DataOpc$Companion.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Type/DataOpc.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Containers/Type/DataOpc.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,30 +50,13 @@
       <file leaf-file-name="TripleDataOpcMatrix.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/TripleDataOpcMatrix.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CompressionUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/CompressionUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Flag.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+            <state relative-caret-position="132">
+              <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
               <folding>
-                <element signature="e#1854#1855#0" expanded="true" />
+                <element signature="n#!!block;n#copy#0;n#!!block;n#TripleDataOpcMatrix#0" expanded="false" />
+                <element signature="n#!!block;n#copy#1;n#!!block;n#TripleDataOpcMatrix#0" expanded="false" />
+                <element signature="n#!!block;n#equals#0;n#!!block;n#TripleDataOpcMatrix#0" expanded="false" />
+                <element signature="n#!!block;n#hashCode#0;n#!!block;n#TripleDataOpcMatrix#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -84,8 +65,8 @@
       <file leaf-file-name="ByteVectorContainer.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/ByteVectorContainer.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+            <state relative-caret-position="385">
+              <caret line="53" column="29" lean-forward="false" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
               <folding>
                 <element signature="e#40#291#0" expanded="true" />
               </folding>
@@ -96,31 +77,40 @@
       <file leaf-file-name="DataOpc.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/DataOpc.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="760">
-              <caret line="100" column="9" lean-forward="false" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
+            <state relative-caret-position="425">
+              <caret line="97" column="9" lean-forward="false" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConvertorDefaultTest.kt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Flag.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConvertorDefaultTest.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
+            <state relative-caret-position="2800">
               <caret line="130" column="48" lean-forward="false" selection-start-line="130" selection-start-column="48" selection-end-line="130" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainPage.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainPage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/WindowsApp/MainPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+            <state relative-caret-position="385">
+              <caret line="107" column="24" lean-forward="true" selection-start-line="107" selection-start-column="24" selection-end-line="107" selection-end-column="24" />
               <folding>
                 <element signature="method#setDefaultValues#0;class#MainPage#0" expanded="false" />
-                <element signature="e#4122#4130#0" expanded="false" />
                 <element signature="class#4701:6133" expanded="false" />
                 <element signature="method#onMessageRead#0;class#4701:6133" expanded="false" />
                 <element signature="method#getEncryptProperty#0;class#4701:6133" expanded="false" />
@@ -136,7 +126,17 @@
         <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="25">
-              <caret line="65" column="50" lean-forward="false" selection-start-line="65" selection-start-column="50" selection-end-line="65" selection-end-column="50" />
+              <caret line="40" column="45" lean-forward="true" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Matrix.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/Matrix.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="161" column="0" lean-forward="false" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -284,9 +284,6 @@
         <option value="$PROJECT_DIR$/src/WindowsApp/MainPage.form" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/DctConvertor.kt" />
         <option value="$PROJECT_DIR$/src/WindowsApp/FlagForm.java" />
-        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java" />
-        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/DataOpc.kt" />
-        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/TripleDataOpcMatrix.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleCompression.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/Steganography/StegoModule.kt" />
         <option value="$PROJECT_DIR$/src/Steganography/StegoModule.kt" />
@@ -297,9 +294,12 @@
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/ByteVectorContainer.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleFile.kt" />
         <option value="$PROJECT_DIR$/src/WindowsApp/MainPage.java" />
-        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/CompressionUtils.java" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultTest.kt" />
+        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/TripleDataOpcMatrix.kt" />
+        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt" />
+        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java" />
+        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/DataOpc.kt" />
       </list>
     </option>
   </component>
@@ -359,6 +359,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
               <item name="Containers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
+              <item name="Containers" type="462c0819:PsiDirectoryNode" />
+              <item name="Type" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
@@ -769,12 +778,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ByteVectorContainerTest_bvcIO - 2018.05.16 at 18h 56m 18s.xml">
-      <configuration name="ByteVectorContainerTest.bvcIO" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ByteVectorContainerTest_bvcIO - 2018.05.16 at 18h 58m 56s.xml">
-      <configuration name="ByteVectorContainerTest.bvcIO" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ConvertorDefaultTest - 2018.05.16 at 19h 07m 01s.xml">
       <configuration name="ConvertorDefaultTest" configurationId="JUnit" />
     </history-entry>
@@ -788,6 +791,12 @@
       <configuration name="ConvertorDefaultTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ConvertorDefaultTest - 2018.05.17 at 18h 32m 30s.xml">
+      <configuration name="ConvertorDefaultTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConvertorDefaultTest - 2018.05.17 at 18h 50m 52s.xml">
+      <configuration name="ConvertorDefaultTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ConvertorDefaultTest - 2018.05.17 at 19h 05m 32s.xml">
       <configuration name="ConvertorDefaultTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ConvertorDesktopTest - 2018.05.16 at 18h 59m 56s.xml">
@@ -811,7 +820,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992035" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -821,7 +829,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5335609" sideWeight="0.55104166" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47098976" sideWeight="0.44895834" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47098976" sideWeight="0.44895834" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992035" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -831,15 +839,35 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4698521" sideWeight="0.48958334" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6473265" sideWeight="0.48958334" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20677084" sideWeight="0.5075269" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5335609" sideWeight="0.55104166" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Kotlin Bytecode" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4698521" sideWeight="0.48958334" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992035" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32309443" sideWeight="0.41614583" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47098976" sideWeight="0.44895834" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992035" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20677084" sideWeight="0.49247313" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287827" sideWeight="0.49791667" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20677084" sideWeight="0.5075269" order="5" side_tool="true" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1303,12 +1331,6 @@
           <option name="timeStamp" value="505" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/TripleDataOpcMatrix.kt</url>
-          <line>116</line>
-          <properties />
-          <option name="timeStamp" value="525" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt</url>
           <line>51</line>
           <properties />
@@ -1352,12 +1374,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/TripleDataOpcMatrix.kt</url>
-          <line>145</line>
+          <line>113</line>
           <properties />
           <option name="timeStamp" value="548" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="549" />
+      <option name="time" value="551" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1375,7 +1397,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1575">
           <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1392,7 +1413,7 @@
         <state relative-caret-position="476">
           <caret line="147" column="1" lean-forward="true" selection-start-line="147" selection-start-column="1" selection-end-line="147" selection-end-column="1" />
           <folding>
-            <element signature="e#47#673#0" expanded="true" />
+            <element signature="e#47#673#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1402,7 +1423,7 @@
         <state relative-caret-position="660">
           <caret line="74" column="1" lean-forward="true" selection-start-line="74" selection-start-column="1" selection-end-line="74" selection-end-column="1" />
           <folding>
-            <element signature="e#43#641#0" expanded="true" />
+            <element signature="e#43#641#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1412,16 +1433,8 @@
         <state relative-caret-position="25">
           <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
           <folding>
-            <element signature="e#39#788#0" expanded="true" />
+            <element signature="e#39#788#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/Matrix.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="44" column="34" lean-forward="true" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1459,7 +1472,7 @@
         <state relative-caret-position="149">
           <caret line="65" column="8" lean-forward="false" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
           <folding>
-            <element signature="e#47#349#0" expanded="true" />
+            <element signature="e#47#349#0" expanded="false" />
             <element signature="n#!!block;n#TimeTest#0;n#!!block;n#ModuleDCTTest#0" expanded="false" />
           </folding>
         </state>
@@ -1592,7 +1605,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="19" column="2" lean-forward="false" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1607,7 +1619,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
           <caret line="42" column="23" lean-forward="false" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1661,7 +1672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="700">
           <caret line="32" column="58" lean-forward="false" selection-start-line="32" selection-start-column="58" selection-end-line="32" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1669,15 +1679,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
           <caret line="20" column="5" lean-forward="false" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="65" column="50" lean-forward="false" selection-start-line="65" selection-start-column="50" selection-end-line="65" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1692,16 +1693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding>
-            <element signature="e#1854#1855#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/ByteVector.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -1710,29 +1701,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/DataOpc.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="100" column="9" lean-forward="false" selection-start-line="100" selection-start-column="9" selection-end-line="100" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/ByteVectorContainer.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        <state relative-caret-position="385">
+          <caret line="53" column="29" lean-forward="false" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
           <folding>
             <element signature="e#40#291#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/TripleDataOpcMatrix.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1744,21 +1719,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="130" column="48" lean-forward="false" selection-start-line="130" selection-start-column="48" selection-end-line="130" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/WindowsApp/MainPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+        <state relative-caret-position="385">
+          <caret line="107" column="24" lean-forward="true" selection-start-line="107" selection-start-column="24" selection-end-line="107" selection-end-column="24" />
           <folding>
             <element signature="method#setDefaultValues#0;class#MainPage#0" expanded="false" />
-            <element signature="e#4122#4130#0" expanded="false" />
             <element signature="class#4701:6133" expanded="false" />
             <element signature="method#onMessageRead#0;class#4701:6133" expanded="false" />
             <element signature="method#getEncryptProperty#0;class#4701:6133" expanded="false" />
@@ -1766,6 +1732,59 @@
             <element signature="method#onSelectButton#0;class#MainPage#0" expanded="false" />
             <element signature="method#onStartButton#0;class#MainPage#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/TripleDataOpcMatrix.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#copy#0;n#!!block;n#TripleDataOpcMatrix#0" expanded="false" />
+            <element signature="n#!!block;n#copy#1;n#!!block;n#TripleDataOpcMatrix#0" expanded="false" />
+            <element signature="n#!!block;n#equals#0;n#!!block;n#TripleDataOpcMatrix#0" expanded="false" />
+            <element signature="n#!!block;n#hashCode#0;n#!!block;n#TripleDataOpcMatrix#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Matrix/Matrix.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="161" column="0" lean-forward="false" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="40" column="45" lean-forward="true" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/DataOpc.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="97" column="9" lean-forward="false" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2800">
+          <caret line="130" column="48" lean-forward="false" selection-start-line="130" selection-start-column="48" selection-end-line="130" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>

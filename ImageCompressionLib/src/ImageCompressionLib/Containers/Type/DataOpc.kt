@@ -80,24 +80,21 @@ class DataOpc :ICopyble{
 
 
     fun FromBaseToVector(vector: ByteVector, flag: Flag) {
-        var i=0
-        if(flag.isChecked(Flag.Parameter.DCT)) {//if (!DC)
-            vector.append(base[i++])
-            vector.append(base[i++])//TODO remove line
-        }
-        while (i< size.height){
-            assert(base[i]<=0xff)
-            vector.append(base[i++].toByte())
+        if(!flag.isChecked(Flag.Parameter.ByteBase)) {//if (!DC)
+            for(i in 0 until size.height)
+                vector.append(base[i])
+        }else{
+            for(i in 0 until size.height)
+                vector.append(base[i].toByte())
         }
     }
     fun FromVectorToBase(vector: ByteVector, flag: Flag) {
-        var i=0
-        if(flag.isChecked(Flag.Parameter.DCT)){//!flag.isChecked(Flag.Parameter.DC)&&
-            base[i++]=vector.getNextShort()
-            base[i++]=vector.getNextShort()//TODO remove line
-        }
-        while (i< size.height){
-            base[i++]=vector.getNext().toShort() and 0xff
+        if(!flag.isChecked(Flag.Parameter.ByteBase)) {//if (!DC)
+            for(i in 0 until size.height)
+                base[i]=vector.getNextShort();
+        }else{
+            for(i in 0 until size.height)
+                base[i]=vector.getNext().toShort() and 0xff;
         }
     }
 
@@ -247,6 +244,9 @@ class DataOpc :ICopyble{
         return vector.size
     }
 
+    override fun toString(): String {
+        return "DataOpc(base=${Arrays.toString(base)}, DC=$DC, N=$N, sign=${Arrays.toString(sign)}, vectorCode=$vectorCode)"
+    }
 
 
     companion object {
