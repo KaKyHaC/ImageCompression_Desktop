@@ -10,7 +10,7 @@ import kotlin.collections.ArrayList
  * Iterator for Array<Byte>
  */
 class ByteVector:Iterable<Byte> {
-    var bytes: Array<Byte>
+    var bytes: ByteArray
     var size: Int
         private set;
     var maxSize: Int
@@ -24,26 +24,26 @@ class ByteVector:Iterable<Byte> {
             maxSize = 10
 
         val zero: Byte = 0
-        bytes = Array(maxSize, { x -> zero })
+        bytes = ByteArray(maxSize);
         this.size = 0
         curIndex = 0
     }
 
-    private constructor(byteArray: ByteArray) {
+    constructor(byteArray: ByteArray) {
         maxSize = byteArray.size
-        bytes = Array(maxSize, { x -> byteArray[x] })
+        bytes=byteArray;
         this.size = byteArray.size
         curIndex = 0
     }
-    constructor(byteArray: Array<Byte>){
-        bytes=byteArray;
+    private constructor(byteArray: Array<Byte>){
+        bytes= ByteArray(byteArray.size){ i->byteArray[i]}
         this.maxSize=byteArray.size
         this.size=byteArray.size
         curIndex=0
     }
 
     fun toByteArray(): ByteArray {
-        return ByteArray(size, { x -> bytes[x] })
+        return ByteArray(size){i->bytes[i]}
     }
 
     fun append(byte: Byte) {
@@ -170,7 +170,7 @@ class ByteVector:Iterable<Byte> {
     }
 
     private fun grow(newSize: Int) {
-        bytes = Array(newSize, { x ->
+        bytes = ByteArray(newSize, { x ->
             if (x < size)
                 bytes[x]
             else
@@ -185,8 +185,8 @@ class ByteVector:Iterable<Byte> {
     }
 
     fun copy(): ByteVector {
-        val res = ByteVector(size)
-        this.forEach(myAction = { byte -> res.append(byte) })
+        val res = ByteVector(size+1)
+        this.forEach{ byte -> res.append(byte) }
         return res
     }
 

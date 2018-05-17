@@ -32,7 +32,7 @@ class DataOpcTest {
         val f= Flag.createDefaultFlag()
         f.setFalse(Flag.Parameter.LongCode)
         val parameters=Parameters(f, Size(100, 100),size)
-        val vector= ByteVector()
+        val vector = ByteVector()
 
 //        dataOpc.FromBaseToVector(vector,f)
         dataOpc.toByteVector(vector, parameters)

@@ -97,9 +97,10 @@ class ByteVectorTest {
         assertEquals(vector,vector2)
 
         val resB=vector2.toByteArray()
+//        assertTrue(bytes.contentEquals(resB))
 //        assertEquals(bytes,resB)
 
-        val sR= String(resB)
+        val sR = String(resB)
         assertEquals(message,sR)
     }
 }

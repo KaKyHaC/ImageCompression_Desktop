@@ -44,18 +44,18 @@ data class ByteVectorContainer(val parameters: Parameters,val mainData: ByteVect
             var len=dis.readInt()
             var tmp=ByteArray(len)
             dis.read(tmp)
-            val param=Parameters.fromByteVector(ByteVector(tmp.toTypedArray()))
+            val param=Parameters.fromByteVector(ByteVector(tmp))
 
             len=dis.readInt()
             tmp= ByteArray(len)
             dis.read(tmp)
-            val main=ByteVector(tmp.toTypedArray())
+            val main=ByteVector(tmp)
 
             len=dis.readInt()
             tmp= ByteArray(len)
             dis.read(tmp)
             val sup= if(len>0)
-                ByteVector(tmp.toTypedArray())
+                ByteVector(tmp)
             else
                 null
 
