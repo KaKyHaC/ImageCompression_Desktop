@@ -9,6 +9,7 @@ import ImageCompressionLib.Containers.Type.MyBufferedImage;
 import ImageCompressionLib.Containers.Type.Size;
 import ImageCompressionLib.Convertor.ConvertorDefault;
 import ImageCompressionLib.ProcessingModules.ModuleFile;
+import ImageCompressionLib.Utils.Functions.ImageStandardDeviation;
 import ImageCompressionLib.Utils.Functions.Opc.IStegoMessageUtil;
 import Utils.BuffImConvertor;
 import kotlin.Pair;
@@ -45,6 +46,8 @@ public class MainPage extends JFrame {
     private JSpinner spinnerPosition;
     private JRadioButton steganographyRadioButton;
     private JPanel panelButton;
+    private JButton differenceButton;
+    private JLabel labelDeviation;
 
     private FlagForm flagForm;
     private ConvertorDefault convertorDefault;
@@ -213,6 +216,7 @@ public class MainPage extends JFrame {
                     convertorDefault.FromBmpToBar(ConvertorDefault.Computing.MultiThreads);
                 else
                     convertorDefault.FromBarToBmp(ConvertorDefault.Computing.MultiThreads);
+                showDifference();
             }catch (Exception e){
                 e.printStackTrace();
                 labelInfo.setText(e.toString());
@@ -221,7 +225,10 @@ public class MainPage extends JFrame {
             }
         }).start();
     }
-
+    private void showDifference(){
+        if(imageOriginal!=null&&imageDestination!=null)
+            labelDeviation.setText(Double.toString(ImageStandardDeviation.getDeviation(imageOriginal,imageDestination)));
+    }
     private void setLabelImage(JLabel label, BufferedImage image) {
         ImageIcon imageIcon = new ImageIcon(image);
         labelInfo.setText(imageIcon.getIconWidth() + "x" + imageIcon.getIconHeight());

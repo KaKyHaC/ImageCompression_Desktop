@@ -12,10 +12,6 @@
       <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2$1$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2$1$1.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2$1.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$5.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$6.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$FileType.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$FileType.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage.class" />
       <change beforePath="$PROJECT_DIR$/src/WindowsApp/MainPage.form" afterPath="$PROJECT_DIR$/src/WindowsApp/MainPage.form" />
@@ -91,29 +87,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainPage.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainPage.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WindowsApp/MainPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="217" column="39" lean-forward="false" selection-start-line="217" selection-start-column="39" selection-end-line="217" selection-end-column="39" />
+            <state relative-caret-position="528">
+              <caret line="227" column="34" lean-forward="false" selection-start-line="227" selection-start-column="34" selection-end-line="227" selection-end-column="34" />
               <folding>
                 <element signature="method#setDefaultValues#0;class#MainPage#0" expanded="false" />
                 <element signature="method#init#0;class#MainPage#0" expanded="false" />
-                <element signature="class#2536:4363" expanded="false" />
-                <element signature="e#4294#4295#0" expanded="true" />
-                <element signature="e#4352#4353#0" expanded="true" />
-                <element signature="class#4408:5932" expanded="false" />
-                <element signature="method#onMessageRead#0;class#4408:5932" expanded="false" />
-                <element signature="method#getEncryptProperty#0;class#4408:5932" expanded="false" />
+                <element signature="class#2676:4503" expanded="false" />
+                <element signature="e#4434#4435#0" expanded="true" />
+                <element signature="e#4492#4493#0" expanded="true" />
+                <element signature="class#4548:6072" expanded="false" />
+                <element signature="method#onMessageRead#0;class#4548:6072" expanded="false" />
+                <element signature="method#getEncryptProperty#0;class#4548:6072" expanded="false" />
                 <element signature="method#onSelectButton#0;class#MainPage#0" expanded="false" />
-                <element signature="e#9172#9173#0" expanded="true" />
-                <element signature="e#9202#9203#0" expanded="true" />
+                <element signature="e#9564#9565#0" expanded="true" />
+                <element signature="e#9594#9595#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainPage.form" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainPage.form" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/WindowsApp/MainPage.form">
           <provider selected="true" editor-type-id="ui-designer">
             <state />
@@ -298,7 +294,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1612" />
@@ -346,31 +342,6 @@
               <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="Containers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="Containers" type="462c0819:PsiDirectoryNode" />
-              <item name="Type" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
-              <item name="ProcessingModules" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
@@ -807,8 +778,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
-    <editor active="true" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992035" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -823,7 +793,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20677084" sideWeight="0.49247313" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20677084" sideWeight="0.49247313" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1755,29 +1725,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WindowsApp/MainPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="217" column="39" lean-forward="false" selection-start-line="217" selection-start-column="39" selection-end-line="217" selection-end-column="39" />
-          <folding>
-            <element signature="method#setDefaultValues#0;class#MainPage#0" expanded="false" />
-            <element signature="method#init#0;class#MainPage#0" expanded="false" />
-            <element signature="class#2536:4363" expanded="false" />
-            <element signature="e#4294#4295#0" expanded="true" />
-            <element signature="e#4352#4353#0" expanded="true" />
-            <element signature="class#4408:5932" expanded="false" />
-            <element signature="method#onMessageRead#0;class#4408:5932" expanded="false" />
-            <element signature="method#getEncryptProperty#0;class#4408:5932" expanded="false" />
-            <element signature="method#onSelectButton#0;class#MainPage#0" expanded="false" />
-            <element signature="e#9172#9173#0" expanded="true" />
-            <element signature="e#9202#9203#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/WindowsApp/MainPage.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WindowsApp/MainPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="227" column="34" lean-forward="false" selection-start-line="227" selection-start-column="34" selection-end-line="227" selection-end-column="34" />
+          <folding>
+            <element signature="method#setDefaultValues#0;class#MainPage#0" expanded="false" />
+            <element signature="method#init#0;class#MainPage#0" expanded="false" />
+            <element signature="class#2676:4503" expanded="false" />
+            <element signature="e#4434#4435#0" expanded="true" />
+            <element signature="e#4492#4493#0" expanded="true" />
+            <element signature="class#4548:6072" expanded="false" />
+            <element signature="method#onMessageRead#0;class#4548:6072" expanded="false" />
+            <element signature="method#getEncryptProperty#0;class#4548:6072" expanded="false" />
+            <element signature="method#onSelectButton#0;class#MainPage#0" expanded="false" />
+            <element signature="e#9564#9565#0" expanded="true" />
+            <element signature="e#9594#9595#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>
