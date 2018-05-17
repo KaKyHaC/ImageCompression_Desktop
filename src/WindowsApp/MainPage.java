@@ -48,6 +48,7 @@ public class MainPage extends JFrame {
     private JPanel panelButton;
     private JButton differenceButton;
     private JLabel labelDeviation;
+    private JButton reverceButton;
 
     private FlagForm flagForm;
     private ConvertorDefault convertorDefault;
@@ -155,7 +156,7 @@ public class MainPage extends JFrame {
     }
     private void setListeners(){
         selectFileButton.addActionListener(e -> onSelectButton());
-        convertButton.addActionListener(e -> onStartButton());
+        convertButton.addActionListener(e -> onStartButton(FileType.BMP));
         convertorDefault.setProgressListener((integer, s) -> {
             SwingUtilities.invokeLater(()->{
                 progressBar1.setValue(integer);
@@ -164,6 +165,8 @@ public class MainPage extends JFrame {
             });
             return null;
         });
+        differenceButton.addActionListener(e->{new DifferenceForm(imageOriginal,imageDestination);});
+        reverceButton.addActionListener(e->onStartButton(FileType.BAR));
     }
 
     private void onSelectButton(){
@@ -173,11 +176,11 @@ public class MainPage extends JFrame {
         onFileSelected(file);
     }
     enum FileType{BMP,BAR}
-    FileType curFileType;
+//    FileType curFileType;
     private void onFileSelected(File file){
         System.out.println(file);
         toRead=file;
-        curFileType =(file.getAbsolutePath().contains("bar"))?FileType.BAR:FileType.BMP;
+        FileType curFileType = (file.getAbsolutePath().contains("bar")) ? FileType.BAR : FileType.BMP;
         String filePath=toRead.getAbsolutePath();
         String newFile=filePath.substring(0,filePath.length()-4)+(curFileType==FileType.BMP?".bar":"Res.bmp");
         toSave=new File(newFile);
@@ -187,7 +190,7 @@ public class MainPage extends JFrame {
             e.printStackTrace();
         }
         if(curFileType==FileType.BMP){
-            convertButton.setText("Direct Convert");
+//            convertButton.setText("Direct Convert");
             try {
                 BufferedImage imageReaded=ImageIO.read(toRead);
                 setLabelImage(labelImage1,imageReaded);
@@ -197,7 +200,7 @@ public class MainPage extends JFrame {
                 labelInfo.setText(e.toString());
             }
         }else{
-            convertButton.setText("Reverce Convert");
+//            convertButton.setText("Reverce Convert");
             try{
                 byteVectorContainer=ByteVectorContainer.readFromStream(new FileInputStream(toRead));
             }catch (Exception e){
@@ -206,9 +209,16 @@ public class MainPage extends JFrame {
             }
         }
     }
-    private void onStartButton(){
-        if(toRead==null)
+    private void onStartButton(FileType curFileType){
+        if(curFileType==FileType.BMP&&imageOriginal==null) {
             onSelectButton();
+            return;
+        }
+        if(curFileType==FileType.BAR&&byteVectorContainer==null) {
+            onSelectButton();
+            return;
+        }
+
         panelButton.setVisible(false);
         new Thread(()->{
             try {
