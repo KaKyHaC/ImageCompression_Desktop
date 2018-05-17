@@ -44,12 +44,14 @@ public class MainPage extends JFrame {
     private JEditorPane editorPaneMessage;
     private JSpinner spinnerPosition;
     private JRadioButton steganographyRadioButton;
+    private JPanel panelButton;
 
     private FlagForm flagForm;
     private ConvertorDefault convertorDefault;
     private File toSave,toRead;
-    private BufferedImage imageReaded;
     private Size imageIconSize=new Size(300,200);
+    private MyBufferedImage imageOriginal,imageDestination;
+    private ByteVectorContainer byteVectorContainer;
 
 
     public MainPage() throws HeadlessException {
@@ -71,8 +73,7 @@ public class MainPage extends JFrame {
         ConvertorDefault.IDao iDao=new ConvertorDefault.IDao() {
             @Override
             public void onResultByteVectorContainer(@NotNull ByteVectorContainer vector) {
-//                ModuleFile file=new ModuleFile(toSave);
-//                file.write(vector,flagForm.getFlag());
+                byteVectorContainer=vector;
                 try {
                     vector.writeToStream(new FileOutputStream(toSave));
                 } catch (Exception e) {
@@ -83,10 +84,11 @@ public class MainPage extends JFrame {
 
             @Override
             public void onResultImage(@NotNull MyBufferedImage image, @NotNull Parameters parameters) {
+                imageDestination=image;
                 BufferedImage bufferedImage=Utils.BuffImConvertor.getInstance().convert(image);
                 setLabelImage(labelImage2,bufferedImage);
                 try {
-                    ImageIO.write(bufferedImage,"PNG",toSave);
+                    ImageIO.write(bufferedImage,"BMP",toSave);
                 } catch (IOException e) {
                     e.printStackTrace();
                     labelInfo.setText(e.toString());
@@ -96,27 +98,18 @@ public class MainPage extends JFrame {
             @NotNull
             @Override
             public Pair<MyBufferedImage, Parameters> getImage() {
-                MyBufferedImage myBufferedImage = BuffImConvertor.getInstance().convert(imageReaded);
                 Flag flag = flagForm.getFlag();
                 Size unit = new Size((int) spinnerUnitWidth.getValue(), (int) spinnerUnitHeight.getValue());
                 Size base = new Size((int) spinnerBaseWidth.getValue(), (int) spinnerBaseHeight.getValue());
-                Size imageSize = new Size(imageReaded.getWidth(), imageReaded.getHeight());
+                Size imageSize = new Size(imageOriginal.getWidth(), imageOriginal.getHeight());
                 Parameters parameters = new Parameters(flag, imageSize, unit, base);
-                return new Pair<>(myBufferedImage, parameters);
+                return new Pair<>(imageOriginal, parameters);
             }
 
             @NotNull
             @Override
             public ByteVectorContainer getByteVectorContainer() {
-//                ModuleFile moduleFile=new ModuleFile(toRead);
-//                return moduleFile.read();
-                try{
-                    return ByteVectorContainer.readFromStream(new FileInputStream(toRead));
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                    labelInfo.setText(e.toString());
-                }
-                return null;
+                return byteVectorContainer;
             }
         };
         ConvertorDefault.IGuard iGuard=new ConvertorDefault.IGuard(){
@@ -158,36 +151,15 @@ public class MainPage extends JFrame {
         convertorDefault=new ConvertorDefault(iDao,iGuard);
     }
     private void setListeners(){
-        selectFileButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onSelectButton();
-            }
-        });
-        convertButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onStartButton();
-            }
-        });
-        convertorDefault.setProgressListener(new Function2<Integer, String, Unit>() {
-            @Override
-            public Unit invoke(Integer integer, String s) {
-                SwingUtilities.invokeLater(()->{
-                    progressBar1.setValue(integer);
-                    progressBar1.setString(s);
-                    labelInfo.setText(s);
-                });
-                return null;
-            }
-        });
-        convertorDefault.setOnImageReadyListener(new Function1<MyBufferedImage, Unit>() {
-            @Override
-            public Unit invoke(MyBufferedImage myBufferedImage) {
-//                BufferedImage im=BuffImConvertor.getInstance().convert(myBufferedImage);
-//                setLabelImage(labelImage2,im);
-                return null;
-            }
+        selectFileButton.addActionListener(e -> onSelectButton());
+        convertButton.addActionListener(e -> onStartButton());
+        convertorDefault.setProgressListener((integer, s) -> {
+            SwingUtilities.invokeLater(()->{
+                progressBar1.setValue(integer);
+                progressBar1.setString(s);
+                labelInfo.setText(s);
+            });
+            return null;
         });
     }
 
@@ -214,24 +186,39 @@ public class MainPage extends JFrame {
         if(curFileType==FileType.BMP){
             convertButton.setText("Direct Convert");
             try {
-                imageReaded=ImageIO.read(toRead);
+                BufferedImage imageReaded=ImageIO.read(toRead);
                 setLabelImage(labelImage1,imageReaded);
+                imageOriginal=BuffImConvertor.getInstance().convert(imageReaded);
             } catch (IOException e) {
                 e.printStackTrace();
+                labelInfo.setText(e.toString());
             }
         }else{
             convertButton.setText("Reverce Convert");
+            try{
+                byteVectorContainer=ByteVectorContainer.readFromStream(new FileInputStream(toRead));
+            }catch (Exception e){
+                labelInfo.setText(e.toString());
+                e.printStackTrace();
+            }
         }
     }
     private void onStartButton(){
         if(toRead==null)
             onSelectButton();
-
+        panelButton.setVisible(false);
         new Thread(()->{
-            if(curFileType==FileType.BMP)
-                convertorDefault.FromBmpToBar(ConvertorDefault.Computing.MultiThreads);
-            else
-                convertorDefault.FromBarToBmp(ConvertorDefault.Computing.MultiThreads);
+            try {
+                if (curFileType == FileType.BMP)
+                    convertorDefault.FromBmpToBar(ConvertorDefault.Computing.MultiThreads);
+                else
+                    convertorDefault.FromBarToBmp(ConvertorDefault.Computing.MultiThreads);
+            }catch (Exception e){
+                e.printStackTrace();
+                labelInfo.setText(e.toString());
+            }finally {
+                panelButton.setVisible(true);
+            }
         }).start();
     }
 
