@@ -279,6 +279,9 @@ public class MainPage extends JFrame {
     }
 
     public static void main(String[] a){
+        try {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+        } catch(Exception ignored){}
         new MainPage();
     }
 }
