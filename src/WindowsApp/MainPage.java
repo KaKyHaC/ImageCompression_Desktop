@@ -11,6 +11,7 @@ import ImageCompressionLib.Convertor.ConvertorDefault;
 import ImageCompressionLib.Utils.Functions.ImageStandardDeviation;
 import ImageCompressionLib.Utils.Functions.Opc.IStegoMessageUtil;
 import Utils.BuffImConvertor;
+import Utils.StegoPassword;
 import kotlin.Pair;
 import kotlin.jvm.functions.Function0;
 import org.jetbrains.annotations.NotNull;
@@ -47,7 +48,7 @@ public class MainPage extends JFrame {
     private JLabel labelInfoAfter;
     private JButton maxCompressionButton;
     private JButton steganographyButton;
-    private JTextField textField1;
+    private JTextField stegoPass;
 
     private FlagForm flagForm;
     private ConvertorDefault convertorDefault;
@@ -140,12 +141,7 @@ public class MainPage extends JFrame {
                 encryptParameters.setSteganography(new EncryptParameters.StegaParameters(pos, new Function0<IStegoMessageUtil>() {
                     @Override
                     public IStegoMessageUtil invoke() {
-                        return new IStegoMessageUtil() {
-                            @Override
-                            public boolean isUseNextBlock() {
-                                return true;
-                            }
-                        };
+                        return new StegoPassword(stegoPass.getText());
                     }
                 }));
 
