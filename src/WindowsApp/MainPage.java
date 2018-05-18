@@ -45,6 +45,8 @@ public class MainPage extends JFrame {
     private JButton reverceButton;
     private JLabel labelInfoBefore;
     private JLabel labelInfoAfter;
+    private JButton maxCompressionButton;
+    private JButton steganographyButton;
 
     private FlagForm flagForm;
     private ConvertorDefault convertorDefault;
@@ -163,6 +165,8 @@ public class MainPage extends JFrame {
         });
         differenceButton.addActionListener(e->{new DifferenceForm(imageOriginal,imageDestination);});
         reverceButton.addActionListener(e->onStartButton(FileType.BAR));
+        maxCompressionButton.addActionListener(e->{setMaxCompressionButton();});
+        steganographyButton.addActionListener(e->{setSteganographyButton();});
     }
 
     private void onSelectButton(){
@@ -244,6 +248,36 @@ public class MainPage extends JFrame {
         Image image1 = imageIcon.getImage().getScaledInstance(imageIconSize.getWidth(),imageIconSize.getHeight(), Image.SCALE_DEFAULT);
         label.setIcon(new ImageIcon(image1));
     }
+    private void setMaxCompressionButton(){
+        Flag flag=new Flag();
+        flag.setTrue(Flag.Parameter.DC);
+        flag.setTrue(Flag.Parameter.DCT);
+        flag.setTrue(Flag.Parameter.Enlargement);
+        flag.setTrue(Flag.Parameter.Quantization);
+        flag.setTrue(Flag.Parameter.CompressionUtils);
+        flag.setTrue(Flag.Parameter.OneFile);
+        flagForm.setFlag(flag);
+        spinnerUnitWidth.setValue(8);
+        spinnerUnitHeight.setValue(8);
+        spinnerBaseHeight.setValue(1);
+        spinnerBaseWidth.setValue(1);
+        steganographyRadioButton.setSelected(false);
+    }
+    private void setSteganographyButton(){
+        Flag flag=new Flag();
+        flag.setTrue(Flag.Parameter.DC);
+        flag.setTrue(Flag.Parameter.CompressionUtils);
+        flag.setTrue(Flag.Parameter.OneFile);
+        flag.setTrue(Flag.Parameter.GlobalBase);
+        flag.setTrue(Flag.Parameter.ByteBase);
+        flagForm.setFlag(flag);
+        spinnerUnitWidth.setValue(1);
+        spinnerUnitHeight.setValue(8);
+        spinnerBaseHeight.setValue(1);
+        spinnerBaseWidth.setValue(8);
+        steganographyRadioButton.setSelected(true);
+    }
+
     public static void main(String[] a){
         new MainPage();
     }

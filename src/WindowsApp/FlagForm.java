@@ -54,6 +54,12 @@ public class FlagForm{
             cb.addActionListener(actionListener);
         }
     }
+    public void setFlag(Flag flag){
+        int i=0;
+        for(Flag.Parameter p : Flag.Parameter.values()){
+            jCheckBoxArray.get(i++).setSelected(flag.isChecked(p));
+        }
+    }
 //    public static void main(String[] arg){
 //        new WindowsApp.FlagForm();
 //    }
