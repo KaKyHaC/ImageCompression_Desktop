@@ -8,11 +8,14 @@
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithms.kt" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithms.kt" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$1.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2$1$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2$1$1.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2$1.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$FileType.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$FileType.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithms$Companion.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithms$Companion.class" />
       <change beforePath="$PROJECT_DIR$/src/WindowsApp/MainPage.java" afterPath="$PROJECT_DIR$/src/WindowsApp/MainPage.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -31,29 +34,19 @@
       <file leaf-file-name="MainPage.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WindowsApp/MainPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="261" column="44" lean-forward="false" selection-start-line="261" selection-start-column="44" selection-end-line="261" selection-end-column="44" />
+            <state relative-caret-position="175">
+              <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
               <folding>
-                <element signature="e#4461#4462#0" expanded="true" />
-                <element signature="e#4519#4520#0" expanded="true" />
-                <element signature="e#5905#5906#0" expanded="true" />
-                <element signature="e#5980#5981#0" expanded="true" />
-                <element signature="e#6406#6648#0" expanded="false" />
+                <element signature="e#4415#4416#0" expanded="true" />
+                <element signature="e#4473#4474#0" expanded="true" />
+                <element signature="e#5859#5860#0" expanded="true" />
+                <element signature="e#5934#5935#0" expanded="true" />
+                <element signature="e#6360#6602#0" expanded="false" />
                 <element signature="method#onFileSelected#0;class#MainPage#0" expanded="false" />
                 <element signature="method#onStartButton#0;class#MainPage#0" expanded="false" />
                 <element signature="method#afterConvert#0;class#MainPage#0" expanded="false" />
                 <element signature="method#setLabelImage#0;class#MainPage#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Encryption.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Encryption.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="23" column="20" lean-forward="false" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -103,8 +96,28 @@
       <file leaf-file-name="OpcProcess.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcProcess.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="71" column="23" lean-forward="true" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
+            <state relative-caret-position="132">
+              <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OpcUtils.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcUtils.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="26" column="22" lean-forward="false" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OpcAlgorithms.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithms.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="199" column="92" lean-forward="false" selection-start-line="199" selection-start-column="92" selection-end-line="199" selection-end-column="92" />
               <folding />
             </state>
           </provider>
@@ -113,8 +126,8 @@
       <file leaf-file-name="ModuleOpc.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOpc.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+            <state relative-caret-position="210">
+              <caret line="111" column="64" lean-forward="true" selection-start-line="111" selection-start-column="64" selection-end-line="111" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -131,16 +144,6 @@
                 <element signature="n#!!block;n#equals#0;n#!!block;n#TripleDataOpcMatrix#0" expanded="false" />
                 <element signature="n#!!block;n#hashCode#0;n#!!block;n#TripleDataOpcMatrix#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OpcAlgorithms.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithms.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -239,7 +242,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Dct/DctCosinUtils.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleDCT.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/DctConvertorDesktopTest.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Dct/DctQuantizationUtils.kt" />
@@ -289,6 +291,7 @@
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Encryption.java" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/EncryptionTest.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/DataOpc.kt" />
+        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithms.kt" />
         <option value="$PROJECT_DIR$/src/WindowsApp/MainPage.java" />
       </list>
     </option>
@@ -1364,12 +1367,24 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOpc.kt</url>
-          <line>103</line>
+          <line>122</line>
           <properties />
-          <option name="timeStamp" value="556" />
+          <option name="timeStamp" value="557" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOpc.kt</url>
+          <line>113</line>
+          <properties />
+          <option name="timeStamp" value="558" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOpc.kt</url>
+          <line>119</line>
+          <properties />
+          <option name="timeStamp" value="559" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="557" />
+      <option name="time" value="560" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1383,14 +1398,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1025">
-          <caret line="50" column="77" lean-forward="false" selection-start-line="50" selection-start-column="77" selection-end-line="50" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainForm.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
@@ -1663,7 +1670,7 @@
         <state relative-caret-position="260">
           <caret line="67" column="50" lean-forward="false" selection-start-line="67" selection-start-column="50" selection-end-line="67" selection-end-column="50" />
           <folding>
-            <element signature="e#39#538#0" expanded="true" />
+            <element signature="e#39#538#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1677,14 +1684,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="760">
           <caret line="64" column="7" lean-forward="false" selection-start-line="64" selection-start-column="7" selection-end-line="64" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithms.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1711,14 +1710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
           <caret line="84" column="25" lean-forward="true" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcProcess.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="71" column="23" lean-forward="true" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1752,24 +1743,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcUtils.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="26" column="22" lean-forward="false" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcProcess.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleOpc.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+        <state relative-caret-position="210">
+          <caret line="111" column="64" lean-forward="true" selection-start-line="111" selection-start-column="64" selection-end-line="111" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithms.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="199" column="92" lean-forward="false" selection-start-line="199" selection-start-column="92" selection-end-line="199" selection-end-column="92" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WindowsApp/MainPage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="261" column="44" lean-forward="false" selection-start-line="261" selection-start-column="44" selection-end-line="261" selection-end-column="44" />
+        <state relative-caret-position="175">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
           <folding>
-            <element signature="e#4461#4462#0" expanded="true" />
-            <element signature="e#4519#4520#0" expanded="true" />
-            <element signature="e#5905#5906#0" expanded="true" />
-            <element signature="e#5980#5981#0" expanded="true" />
-            <element signature="e#6406#6648#0" expanded="false" />
+            <element signature="e#4415#4416#0" expanded="true" />
+            <element signature="e#4473#4474#0" expanded="true" />
+            <element signature="e#5859#5860#0" expanded="true" />
+            <element signature="e#5934#5935#0" expanded="true" />
+            <element signature="e#6360#6602#0" expanded="false" />
             <element signature="method#onFileSelected#0;class#MainPage#0" expanded="false" />
             <element signature="method#onStartButton#0;class#MainPage#0" expanded="false" />
             <element signature="method#afterConvert#0;class#MainPage#0" expanded="false" />

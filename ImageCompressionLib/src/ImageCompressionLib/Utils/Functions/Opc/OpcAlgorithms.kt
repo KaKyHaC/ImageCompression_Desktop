@@ -197,7 +197,7 @@ class OpcAlgorithms {
             var copy = BigInteger.ONE
             var b: BigInteger
             var message = false
-            DataOpc.base[0] = (DataOpc.base[0] / 2).toShort()// is it need ?
+//            DataOpc.base[0] = (DataOpc.base[0] / 2).toShort()// is it need ?//TODO try !=0
             for (i in dataOrigin.width - 1 downTo 0) {
                 for (j in dataOrigin.height - 1 downTo 0) {
                     val a = DataOpc.N.divide(copy)
