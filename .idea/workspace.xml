@@ -7,16 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Utils/StegoPassword.kt" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2$1$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2$1.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2$1.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$2.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$FileType.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage$FileType.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage.class" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/WindowsApp/MainPage.class" />
-      <change beforePath="$PROJECT_DIR$/src/WindowsApp/MainPage.form" afterPath="$PROJECT_DIR$/src/WindowsApp/MainPage.form" />
-      <change beforePath="$PROJECT_DIR$/src/WindowsApp/MainPage.java" afterPath="$PROJECT_DIR$/src/WindowsApp/MainPage.java" />
+      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Encryption.java" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Encryption.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,16 +46,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DctConvertor.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/DctConvertor.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="184" column="5" lean-forward="true" selection-start-line="184" selection-start-column="5" selection-end-line="184" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ConvertorDefault.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt">
           <provider selected="true" editor-type-id="text-editor">
@@ -82,11 +63,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StegoPassword.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StegoPassword.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Utils/StegoPassword.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="20" column="61" lean-forward="false" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
+            <state relative-caret-position="185">
+              <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Encryption.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Encryption.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -280,7 +271,6 @@
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/DataOpcTest.kt" />
         <option value="$PROJECT_DIR$/src/WindowsApp/FlagForm.java" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/EncryptionTest.java" />
-        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Encryption.java" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/EncryptionTest.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/DataOpc.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithms.kt" />
@@ -290,6 +280,7 @@
         <option value="$PROJECT_DIR$/src/WindowsApp/MainPage.form" />
         <option value="$PROJECT_DIR$/src/WindowsApp/MainPage.java" />
         <option value="$PROJECT_DIR$/src/Utils/StegoPassword.kt" />
+        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Encryption.java" />
       </list>
     </option>
   </component>
@@ -763,14 +754,14 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992035" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32309443" sideWeight="0.41614583" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32309443" sideWeight="0.41614583" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5335609" sideWeight="0.55104166" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992035" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47098976" sideWeight="0.44895834" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47098976" sideWeight="0.44895834" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1514,14 +1505,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Encryption.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="23" column="20" lean-forward="false" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/EncryptionTest.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -1697,8 +1680,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Utils/StegoPassword.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="20" column="61" lean-forward="false" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
+        <state relative-caret-position="185">
+          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Encryption.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
           <folding />
         </state>
       </provider>

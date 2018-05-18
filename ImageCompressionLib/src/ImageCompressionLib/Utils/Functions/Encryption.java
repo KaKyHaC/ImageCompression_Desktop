@@ -16,7 +16,7 @@ public class Encryption { //singleton
 
     static short[] key;
 
-    public static TripleDataOpcMatrix encode(TripleDataOpcMatrix bopc, @NotNull String key){
+    public static TripleDataOpcMatrix encode(TripleDataOpcMatrix bopc, @NotNull String key) throws Exception {
         ourInstance.key=KeyGen(key);
         Encryption.encode(bopc.getA());
         Encryption.encode(bopc.getB());
@@ -49,7 +49,9 @@ public class Encryption { //singleton
         return result;
     }
 
-    private static short[] KeyGen(String key){
+    private static short[] KeyGen(String key) throws Exception {
+        if(key.length()==0)
+            throw new Exception("Password length == 0");
         short[] res=new short[key.length()];
         short sK;
         for(int i=0;i<key.length();i++){
