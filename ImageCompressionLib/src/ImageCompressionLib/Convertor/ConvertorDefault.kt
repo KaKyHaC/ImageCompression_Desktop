@@ -64,7 +64,10 @@ class ConvertorDefault (val dao: IDao,val guard:IGuard) {
         onProgress(20,"reverse OPC")
         val mOPC= ModuleOpc(box)
         val (FFTM,message) =mOPC.getTripleShortMatrix(guard.getEncryptProperty())
-        message?.let { guard.onMessageRead(message)}
+        message?.let {
+            onProgress(40,"setMessage")
+            guard.onMessageRead(message)
+        }
         onProgress(50,"reverse DCT")
         val bodum1 = ModuleDCT(FFTM)
         val matrixYBR=bodum1.getYCbCrMatrix(isAsync)

@@ -277,6 +277,7 @@ public class MainPage extends JFrame {
         spinnerUnitHeight.setValue(8);
         spinnerBaseHeight.setValue(1);
         spinnerBaseWidth.setValue(8);
+        spinnerPosition.setValue(1);
         steganographyRadioButton.setSelected(true);
     }
 

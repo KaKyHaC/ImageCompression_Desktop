@@ -11,6 +11,7 @@ import ImageCompressionLib.Containers.Type.DataOpc
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Utils.Functions.Encryption
 import ImageCompressionLib.Utils.Objects.OpcConvertor
+import ImageCompressionLib.Utils.Objects.TimeManager
 import java.util.ArrayList
 import java.util.concurrent.Callable
 import java.util.concurrent.Executors
@@ -102,6 +103,7 @@ class ModuleOpc {
 
     private fun encode(encryptParameters: EncryptParameters){
         if(parameters.flag.isChecked(Flag.Parameter.Encryption)) {
+            TimeManager.Instance.append("Encode")
             Encryption.encode(tripleDataOpcMatrix,encryptParameters.password ?: DEFAULT_PASSWORD)
         }
     }
