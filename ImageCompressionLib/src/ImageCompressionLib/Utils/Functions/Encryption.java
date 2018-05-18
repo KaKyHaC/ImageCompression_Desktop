@@ -16,11 +16,12 @@ public class Encryption { //singleton
 
     static short[] key;
 
-    public static void encode(TripleDataOpcMatrix bopc, @NotNull String key){
+    public static TripleDataOpcMatrix encode(TripleDataOpcMatrix bopc, @NotNull String key){
         ourInstance.key=KeyGen(key);
         Encryption.encode(bopc.getA());
         Encryption.encode(bopc.getB());
         Encryption.encode(bopc.getC());
+        return bopc;
     }
 
     private static void encode(Matrix<DataOpc> dopcs){

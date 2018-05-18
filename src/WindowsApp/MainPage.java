@@ -55,7 +55,9 @@ public class MainPage extends JFrame {
     private MyBufferedImage imageOriginal,imageDestination;
     private ByteVectorContainer byteVectorContainer;
 
-
+    //TODO GlobalBase
+    // TODO Encryption
+    // TODO StegoPass
     public MainPage() throws HeadlessException {
         setContentPane(mainPanel);
         setVisible(true);
@@ -282,3 +284,4 @@ public class MainPage extends JFrame {
         new MainPage();
     }
 }
+

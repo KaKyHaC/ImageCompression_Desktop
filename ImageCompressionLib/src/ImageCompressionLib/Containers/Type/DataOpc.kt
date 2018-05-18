@@ -199,8 +199,8 @@ class DataOpc :ICopyble{
         for (i in 0 until base.size) {
             if (d.base[i] != base[i])
                 return false
-            for (j in 0 until sign[0].size) {
-                if (d.sign[i][j] != sign[i][j])
+            for (j in 0 until sign.size) {
+                if (d.sign[j][i] != sign[j][i])
                     return false
             }
         }
