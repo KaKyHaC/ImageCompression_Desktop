@@ -43,8 +43,9 @@ class ConvertorDefault (val dao: IDao,val guard:IGuard) {
         onProgress(60,"direct OPC")
         val moduleOPC= ModuleOpc(matrixDCT)
         val box=moduleOPC.getTripleDataOpcMatrix(guard.getEncryptProperty())
-        onProgress(80,"Compress")
+        onProgress(70,"toBV")
         val bvc=box.toByteVectorContainer();
+        onProgress(80,"Compress")
         val bvcComp=ModuleCompression().compress(bvc,parameters.flag);
         onProgress(80,"write to file")
         dao.onResultByteVectorContainer(bvcComp)
@@ -55,13 +56,14 @@ class ConvertorDefault (val dao: IDao,val guard:IGuard) {
     fun FromBarToBmp(computing: Computing = Computing.MultiThreads): Unit {
         TimeManager.Instance.startNewTrack("reverce")
         val isAsync=(computing== Computing.MultiThreads)
-        onProgress(10,"read from file")
+        onProgress(10,"read vector from file")
         val bvcComp=dao.getByteVectorContainer()
-        val bvc=ModuleCompression().decompress(bvcComp,bvcComp.parameters.flag);
         onProgress(15,"decompress")
+        val bvc=ModuleCompression().decompress(bvcComp,bvcComp.parameters.flag);
+        onProgress(20,"fromBV")
         val box=TripleDataOpcMatrix.valueOf(bvc)
         val parameters=box.parameters
-        onProgress(20,"reverse OPC")
+        onProgress(30,"reverse OPC")
         val mOPC= ModuleOpc(box)
         val (FFTM,message) =mOPC.getTripleShortMatrix(guard.getEncryptProperty())
         message?.let {

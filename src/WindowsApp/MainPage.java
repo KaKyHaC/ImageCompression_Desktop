@@ -47,6 +47,7 @@ public class MainPage extends JFrame {
     private JLabel labelInfoAfter;
     private JButton maxCompressionButton;
     private JButton steganographyButton;
+    private JTextField textField1;
 
     private FlagForm flagForm;
     private ConvertorDefault convertorDefault;
