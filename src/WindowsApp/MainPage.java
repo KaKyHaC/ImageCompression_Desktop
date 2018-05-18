@@ -8,23 +8,17 @@ import ImageCompressionLib.Containers.Type.Flag;
 import ImageCompressionLib.Containers.Type.MyBufferedImage;
 import ImageCompressionLib.Containers.Type.Size;
 import ImageCompressionLib.Convertor.ConvertorDefault;
-import ImageCompressionLib.ProcessingModules.ModuleFile;
 import ImageCompressionLib.Utils.Functions.ImageStandardDeviation;
 import ImageCompressionLib.Utils.Functions.Opc.IStegoMessageUtil;
 import Utils.BuffImConvertor;
 import kotlin.Pair;
-import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.functions.Function2;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.*;
 
@@ -49,6 +43,8 @@ public class MainPage extends JFrame {
     private JButton differenceButton;
     private JLabel labelDeviation;
     private JButton reverceButton;
+    private JLabel labelInfoBefore;
+    private JLabel labelInfoAfter;
 
     private FlagForm flagForm;
     private ConvertorDefault convertorDefault;
@@ -61,7 +57,7 @@ public class MainPage extends JFrame {
     public MainPage() throws HeadlessException {
         setContentPane(mainPanel);
         setVisible(true);
-        setSize(1050,500);
+        setSize(1050,650);
         init();
         setListeners();
         setDefaultValues();
@@ -179,6 +175,7 @@ public class MainPage extends JFrame {
 //    FileType curFileType;
     private void onFileSelected(File file){
         System.out.println(file);
+        labelInfoBefore.setText("File:"+file.getName()+", Size:"+file.length()/1024+" kb");
         toRead=file;
         FileType curFileType = (file.getAbsolutePath().contains("bar")) ? FileType.BAR : FileType.BMP;
         String filePath=toRead.getAbsolutePath();
@@ -226,7 +223,7 @@ public class MainPage extends JFrame {
                     convertorDefault.FromBmpToBar(ConvertorDefault.Computing.MultiThreads);
                 else
                     convertorDefault.FromBarToBmp(ConvertorDefault.Computing.MultiThreads);
-                showDifference();
+                afterConvert();
             }catch (Exception e){
                 e.printStackTrace();
                 labelInfo.setText(e.toString());
@@ -235,9 +232,11 @@ public class MainPage extends JFrame {
             }
         }).start();
     }
-    private void showDifference(){
+    private void afterConvert(){
         if(imageOriginal!=null&&imageDestination!=null)
             labelDeviation.setText(Double.toString(ImageStandardDeviation.getDeviation(imageOriginal,imageDestination)));
+
+        labelInfoAfter.setText("File:"+toSave.getName()+", Size:"+toSave.length()/1024+" kb");
     }
     private void setLabelImage(JLabel label, BufferedImage image) {
         ImageIcon imageIcon = new ImageIcon(image);
