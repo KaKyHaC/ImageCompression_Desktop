@@ -124,10 +124,11 @@ public class MainPage extends JFrame {
             @Nullable
             @Override
             public EncryptParameters getEncryptProperty() {
-                if(!steganographyRadioButton.isSelected())
-                    return null;
                 EncryptParameters encryptParameters = new EncryptParameters();
-                encryptParameters.setPassword(passwordField1.getPassword().toString());
+                encryptParameters.setPassword(String.valueOf(passwordField1.getPassword()));
+
+                if(!steganographyRadioButton.isSelected())
+                    return encryptParameters;
 
                 String message = editorPaneMessage.getText();
                 byte[] tmp = message.getBytes();
@@ -258,6 +259,7 @@ public class MainPage extends JFrame {
         flag.setTrue(Flag.Parameter.Quantization);
         flag.setTrue(Flag.Parameter.CompressionUtils);
         flag.setTrue(Flag.Parameter.OneFile);
+        flag.setTrue(Flag.Parameter.LongCode);
         flagForm.setFlag(flag);
         spinnerUnitWidth.setValue(8);
         spinnerUnitHeight.setValue(8);
