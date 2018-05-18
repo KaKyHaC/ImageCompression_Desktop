@@ -34,7 +34,7 @@ class TimeManager private constructor(){
         sb.append("Total:${totalTime}ms ")
         for(i in 1..events.size-1){
             if(events[i]-events[i-1]>0)
-                sb.append(""""${events[i].name}"=""" +
+                sb.append(""""${events[i-1].name}"=""" +
                     """${(events[i]-events[i-1])}ms; """)
         }
         return sb.toString()
