@@ -52,10 +52,11 @@ public class MainPage extends JFrame {
 
     private FlagForm flagForm;
     private ConvertorDefault convertorDefault;
-    private File toSave,toRead;
+//    private File toSave,toRead;
     private Size imageIconSize=new Size(300,200);
     private MyBufferedImage imageOriginal,imageDestination;
     private ByteVectorContainer byteVectorContainer;
+    private File fileImage,fileBVC,fileImageRes;
 
     //TODO StegoPass
     public MainPage() throws HeadlessException {
@@ -79,7 +80,7 @@ public class MainPage extends JFrame {
             public void onResultByteVectorContainer(@NotNull ByteVectorContainer vector) {
                 byteVectorContainer=vector;
                 try {
-                    vector.writeToStream(new FileOutputStream(toSave));
+                    vector.writeToStream(new FileOutputStream(fileBVC));
                 } catch (Exception e) {
                     e.printStackTrace();
                     labelInfo.setText(e.toString());
@@ -92,7 +93,7 @@ public class MainPage extends JFrame {
                 BufferedImage bufferedImage=Utils.BuffImConvertor.getInstance().convert(image);
                 setLabelImage(labelImage2,bufferedImage);
                 try {
-                    ImageIO.write(bufferedImage,"BMP",toSave);
+                    ImageIO.write(bufferedImage,"BMP",fileImageRes);
                 } catch (IOException e) {
                     e.printStackTrace();
                     labelInfo.setText(e.toString());
@@ -177,36 +178,7 @@ public class MainPage extends JFrame {
 //    FileType curFileType;
     private void onFileSelected(File file){
         System.out.println(file);
-        labelInfoBefore.setText("File:"+file.getName()+", Size:"+file.length()/1024+" kb");
-        toRead=file;
-        FileType curFileType = (file.getAbsolutePath().contains("bar")) ? FileType.BAR : FileType.BMP;
-        String filePath=toRead.getAbsolutePath();
-        String newFile=filePath.substring(0,filePath.length()-4)+(curFileType==FileType.BMP?".bar":"Res.bmp");
-        toSave=new File(newFile);
-        try {
-            toSave.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if(curFileType==FileType.BMP){
-//            convertButton.setText("Direct Convert");
-            try {
-                BufferedImage imageReaded=ImageIO.read(toRead);
-                setLabelImage(labelImage1,imageReaded);
-                imageOriginal=BuffImConvertor.getInstance().convert(imageReaded);
-            } catch (IOException e) {
-                e.printStackTrace();
-                labelInfo.setText(e.toString());
-            }
-        }else{
-//            convertButton.setText("Reverce Convert");
-            try{
-                byteVectorContainer=ByteVectorContainer.readFromStream(new FileInputStream(toRead));
-            }catch (Exception e){
-                labelInfo.setText(e.toString());
-                e.printStackTrace();
-            }
-        }
+        setFiles(file);
     }
     private void onStartButton(FileType curFileType){
         if(curFileType==FileType.BMP&&imageOriginal==null) {
@@ -238,7 +210,7 @@ public class MainPage extends JFrame {
         if(imageOriginal!=null&&imageDestination!=null)
             labelDeviation.setText(Double.toString(ImageStandardDeviation.getDeviation(imageOriginal,imageDestination)));
 
-        labelInfoAfter.setText("File:"+toSave.getName()+", Size:"+toSave.length()/1024+" kb");
+        labelInfoAfter.setText("File:"+fileBVC.getName()+", Size:"+fileBVC.length()/1024+" kb");
     }
     private void setLabelImage(JLabel label, BufferedImage image) {
         ImageIcon imageIcon = new ImageIcon(image);
@@ -266,7 +238,7 @@ public class MainPage extends JFrame {
     private void setSteganographyButton(){
         Flag flag=new Flag();
         flag.setTrue(Flag.Parameter.DC);
-        flag.setTrue(Flag.Parameter.CompressionUtils);
+//        flag.setTrue(Flag.Parameter.CompressionUtils);
         flag.setTrue(Flag.Parameter.OneFile);
         flag.setTrue(Flag.Parameter.GlobalBase);
         flag.setTrue(Flag.Parameter.ByteBase);
@@ -277,6 +249,54 @@ public class MainPage extends JFrame {
         spinnerBaseWidth.setValue(8);
         spinnerPosition.setValue(1);
         steganographyRadioButton.setSelected(true);
+    }
+
+    private void resetFields(){
+        fileBVC=fileImageRes=fileImage=null;
+        imageOriginal=null;
+        byteVectorContainer=null;
+        labelInfo.setText("");
+        labelInfoAfter.setText("");
+        labelInfoBefore.setText("");
+        labelDeviation.setText("");
+        labelImage1.setIcon(null);
+        labelImage2.setIcon(null);
+    }
+    private void setFiles(File selected){
+        System.out.println(selected);
+        resetFields();
+        FileType curFileType = (selected.getAbsolutePath().contains("bar")) ? FileType.BAR : FileType.BMP;
+        String filePath=selected.getAbsolutePath();
+        String newFile=filePath.substring(0,filePath.length()-4);//+(curFileType==FileType.BMP?".bar":"Res.bmp");
+        if(curFileType==FileType.BMP){
+            fileImage=selected;
+            fileBVC= new File(newFile+".bar");
+            labelInfoBefore.setText("File:"+fileImage.getName()+", Size:"+fileImage.length()/1024+" kb");
+            try{
+                BufferedImage imageReaded=ImageIO.read(fileImage);
+                setLabelImage(labelImage1,imageReaded);
+                imageOriginal=BuffImConvertor.getInstance().convert(imageReaded);
+                fileBVC.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+                labelInfo.setText(e.toString());
+            }
+        }else{
+            fileBVC=selected;
+            try{
+                byteVectorContainer=ByteVectorContainer.readFromStream(new FileInputStream(fileBVC));
+            }catch (Exception e){
+                labelInfo.setText(e.toString());
+                e.printStackTrace();
+            }
+        }
+        fileImageRes=new File(newFile+".Res.bmp");
+        try{
+            fileImageRes.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+            labelInfo.setText(e.toString());
+        }
     }
 
     public static void main(String[] a){

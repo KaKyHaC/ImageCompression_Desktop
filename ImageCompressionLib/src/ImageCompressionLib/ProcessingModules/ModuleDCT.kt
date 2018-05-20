@@ -116,7 +116,7 @@ class ModuleDCT(private val tripleShortMatrixOld: TripleShortMatrix) { //    pri
                 dataProcessing(DctConvertor::getMatrixDct)
         }
 
-        return if (tripleShortMatrixOld.state == State.DCT) tripleShortMatrixOld else throw Exception("state not correct")
+        return if (tripleShortMatrixOld.state == State.DCT) tripleShortMatrixOld else throw Exception("tripleShortMatrixOld.state:${tripleShortMatrixOld.state}!=DCT")
     }
     private fun processState(){
         tripleShortMatrixOld.state = if (a.state == DctConvertor.State.DCT) State.DCT else State.YBR

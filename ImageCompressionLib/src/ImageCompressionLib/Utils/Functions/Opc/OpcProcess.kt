@@ -73,8 +73,7 @@ class OpcProcess {
             if (flag.isChecked(Flag.Parameter.LongCode))
                 throw Exception("can't read message using LongCode")
 
-            val message =
-            if (position == 0)
+            val message = if (position == 0)
                 OpcReverceWithMessageAtFirst(dataOrigin, DataOpc)
             else
                 OpcReverceWithMessageAt(dataOrigin, DataOpc, position)

@@ -70,4 +70,5 @@ class TripleShortMatrix {
         val c1=ShortMatrix.valueOf(c).copy().toMatrix()
         return TripleShortMatrix(a1,b1,c1,parameters,state)
     }
+//    fun getState(): State { return state    }
 }
