@@ -8,7 +8,7 @@ public class Flag {
     //TODO remove steganography
     public enum Parameter{
 
-        OneFile(16),Enlargement(32),DC(64),LongCode(128),GlobalBase(256),
+        OneFile(16),Enlargement(32),DC(64),LongCode(128),GlobalBase(256),ColorConversions(512),
         /*Password(512)/*,Steganography(1024),*/Alignment(2048),CompressionUtils(4096)
         ,Quantization(1),Encryption(4),DCT(2),ByteBase(8);
         final int value;

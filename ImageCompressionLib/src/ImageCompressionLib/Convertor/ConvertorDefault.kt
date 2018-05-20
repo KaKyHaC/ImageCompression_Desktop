@@ -36,7 +36,7 @@ class ConvertorDefault (val dao: IDao,val guard:IGuard) {
         onProgress(10,"RGB to YcBcR")
         onImageReadyListener?.invoke(bmp)
         val mi = ModuleImage(bmp, parameters)
-        val matrix = mi.getYenlMatrix(isAsync)
+        val matrix = mi.getTripleShortMatrix(isAsync)
         onProgress(30,"direct DCT")
         val bodum = ModuleDCT(matrix)
         val matrixDCT=bodum.getDCTMatrix(isAsync)
@@ -75,7 +75,7 @@ class ConvertorDefault (val dao: IDao,val guard:IGuard) {
         val matrixYBR=bodum1.getYCbCrMatrix(isAsync)
         onProgress(70,"YcBcR to BMP");
         val af = ModuleImage(matrixYBR);
-        val res = af.getBufferedImage()
+        val res = af.getBufferedImage(isAsync)
         onProgress(90,"Write to BMP");
         dao.onResultImage(res,parameters)
         TimeManager.Instance.append("Finish")

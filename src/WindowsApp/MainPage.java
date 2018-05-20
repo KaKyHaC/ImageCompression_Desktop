@@ -255,6 +255,7 @@ public class MainPage extends JFrame {
         flag.setTrue(Flag.Parameter.CompressionUtils);
         flag.setTrue(Flag.Parameter.OneFile);
         flag.setTrue(Flag.Parameter.LongCode);
+        flag.setTrue(Flag.Parameter.ColorConversions);
         flagForm.setFlag(flag);
         spinnerUnitWidth.setValue(8);
         spinnerUnitHeight.setValue(8);

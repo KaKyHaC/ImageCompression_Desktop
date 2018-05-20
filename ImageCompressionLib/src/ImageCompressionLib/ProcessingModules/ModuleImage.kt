@@ -323,6 +323,8 @@ class ModuleImage {
     }
 
 
+    //geters functions
+    @Deprecated("use getTripleShortMatrix")
     fun getYCbCrMatrix(isAsync: Boolean): TripleShortMatrix {
         when (tripleShortMatrixOld.state) {
             State.RGB -> FromRGBtoYBR()
@@ -338,7 +340,7 @@ class ModuleImage {
 
         return tripleShortMatrixOld
     }
-
+    @Deprecated("use getTripleShortMatrix")
     fun getYenlMatrix(isAsync: Boolean): TripleShortMatrix {
         TimeManager.Instance.append("start Yenl")
         when (tripleShortMatrixOld.state) {
@@ -363,7 +365,7 @@ class ModuleImage {
         }
         return tripleShortMatrixOld
     }
-
+    @Deprecated("use getBufferedImage")
     fun getBufferedImage(): MyBufferedImage {
         when (tripleShortMatrixOld.state) {
             State.RGB -> FromRGBtoIBufferedImage()
@@ -381,7 +383,7 @@ class ModuleImage {
 
         return bitmap
     }
-
+    @Deprecated("use getTripleShortMatrix")
     fun getRgbMatrixOld(): TripleShortMatrix {
         when (tripleShortMatrixOld.state) {
             State.RGB -> {
@@ -519,5 +521,18 @@ class ModuleImage {
                 `fun`.invoke(i, j)
             }
         }
+    }
+
+    fun getTripleShortMatrix(isAsync: Boolean):TripleShortMatrix{
+        if(flag.isChecked(Flag.Parameter.ColorConversions))
+            return getYenlMatrix(isAsync)
+        else
+            return getRgbMatrixOld()
+    }
+    fun getBufferedImage(isAsync: Boolean):MyBufferedImage{
+        if(!flag.isChecked(Flag.Parameter.ColorConversions))
+            this.tripleShortMatrixOld.state=State.RGB
+
+        return getBufferedImage()
     }
 }
