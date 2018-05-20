@@ -5,6 +5,7 @@ import ImageCompressionLib.Containers.Parameters
 import java.math.BigInteger
 import java.util.*
 import kotlin.experimental.and
+import kotlin.math.E
 
 class DataOpc :ICopyble{
     var base: ShortArray
@@ -84,8 +85,11 @@ class DataOpc :ICopyble{
             for(i in 0 until size.height)
                 vector.append(base[i])
         }else{
-            for(i in 0 until size.height)
+            for(i in 0 until size.height) {
                 vector.append(base[i].toByte())
+//                if(base[i]>=0xff)
+//                    throw Exception("base[$i]=${base[i]}")
+            }
         }
     }
     fun FromVectorToBase(vector: ByteVector, flag: Flag) {
@@ -93,8 +97,11 @@ class DataOpc :ICopyble{
             for(i in 0 until size.height)
                 base[i]=vector.getNextShort();
         }else{
-            for(i in 0 until size.height)
-                base[i]=vector.getNext().toShort() and 0xff;
+            for(i in 0 until size.height) {
+                base[i] = vector.getNext().toShort() and 0xff;
+                if(base[i]<=0)
+                    base[i]=256
+            }
         }
     }
 

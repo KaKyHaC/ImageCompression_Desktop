@@ -290,7 +290,7 @@ public class MainPage extends JFrame {
                 e.printStackTrace();
             }
         }
-        fileImageRes=new File(newFile+".Res.bmp");
+        fileImageRes=new File(newFile+"Res.bmp");
         try{
             fileImageRes.createNewFile();
         } catch (IOException e) {
