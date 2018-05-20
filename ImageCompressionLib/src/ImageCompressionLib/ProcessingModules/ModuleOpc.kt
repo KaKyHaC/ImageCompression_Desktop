@@ -95,7 +95,7 @@ class ModuleOpc {
             resM=v1.trim()+v2.trim()+v3.trim()
 //        val resM1=v1?.concat(v2?:ByteVector())?:ByteVector().concat(v3?:ByteVector())
 //        val resM = v1?.concat(v2?.concat(v3 ?: ByteVector(0)) ?: ByteVector(0))
-        return Pair(TripleShortMatrix(a1, b1, c1, parameters, State.DCT), resM)
+        return Pair(TripleShortMatrix(a1, b1, c1, parameters, State.Dct), resM)
 
     }
 

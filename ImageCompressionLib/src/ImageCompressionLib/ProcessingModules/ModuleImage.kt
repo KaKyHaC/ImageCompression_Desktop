@@ -22,7 +22,7 @@ class ModuleImage {
 
     constructor(_b: MyBufferedImage, parameters: Parameters) {
         bitmap = _b
-        tripleShortMatrixOld = TripleShortMatrix(parameters, State.bitmap)
+        tripleShortMatrixOld = TripleShortMatrix(parameters, State.Origin)
         this.flag = parameters.flag
     }
 
@@ -36,7 +36,7 @@ class ModuleImage {
     //TODO string constructor
     //TODO fix threads
     private fun FromIBufferedImageToYCbCrParallelMatrix() {
-        if (tripleShortMatrixOld.state == State.bitmap) {
+//        if (tripleShortMatrixOld.state == State.bitmap) {
             val w = bitmap.width
             val h = bitmap.height
 
@@ -52,14 +52,14 @@ class ModuleImage {
             for (future in futures) {
                     future.get()
             }
-            tripleShortMatrixOld.state = State.YBR
-        }
+//            tripleShortMatrixOld.state = State.YBR
+//        }
 
     }
 
     private fun FromIBufferedImageToYCbCr() {
 
-        if (tripleShortMatrixOld.state == State.bitmap) {
+//        if (tripleShortMatrixOld.state == State.bitmap) {
             val img = bitmap.getData()//convertTo2DWithoutUsingGetRGB(bitmap);
             forEach(bitmap.width, bitmap.height, { x, y ->
                 //                int pixelColor=bitmap.getRGB(x,y);
@@ -88,12 +88,12 @@ class ModuleImage {
 
             })
 
-            tripleShortMatrixOld.state = State.YBR
-        }
+//            tripleShortMatrixOld.state = State.YBR
+//        }
 
     }
     private fun FromYCbCrToIBufferedImage() {
-        if (tripleShortMatrixOld.state == State.YBR) {
+//        if (tripleShortMatrixOld.state == State.YBR) {
             val pixelAlpha = 255 //for argb
 
             forEach(bitmap.width, bitmap.height, { x, y ->
@@ -132,13 +132,13 @@ class ModuleImage {
                 // полученный результат вернём в MyBufferedImage
                 bitmap.setRGB(x, y, `val`)
             })
-            tripleShortMatrixOld.state = State.bitmap
-        }
+//            tripleShortMatrixOld.state = State.bitmap
+//        }
     }
 
     private fun FromIBufferedImageToRGB() {
 
-        if (tripleShortMatrixOld.state == State.bitmap) {
+//        if (tripleShortMatrixOld.state == State.bitmap) {
             val Width = bitmap.width
             val Height = bitmap.height
 
@@ -153,11 +153,11 @@ class ModuleImage {
 
                 }
             }
-            tripleShortMatrixOld.state = State.RGB
-        }
+//            tripleShortMatrixOld.state = State.RGB
+//        }
     }
     private fun FromRGBtoIBufferedImage() {
-        if (tripleShortMatrixOld.state == State.RGB) {
+//        if (tripleShortMatrixOld.state == State.RGB) {
             val Width = bitmap.width
             val Height = bitmap.height
 
@@ -175,13 +175,13 @@ class ModuleImage {
                     bitmap.setRGB(i, j, `val`)
                 }
             }
-            tripleShortMatrixOld.state = State.bitmap
-        }
+//            tripleShortMatrixOld.state = State.bitmap
+//        }
     }
 
     private fun FromYBRtoRGB() {
 
-        if (tripleShortMatrixOld.state == State.YBR) {
+//        if (tripleShortMatrixOld.state == State.YBR) {
             val Width = bitmap.width
             val Height = bitmap.height
 
@@ -214,11 +214,11 @@ class ModuleImage {
                     tripleShortMatrixOld.c[i,j] = b.toShort()
                 }
             }
-            tripleShortMatrixOld.state = State.RGB
-        }
+//            tripleShortMatrixOld.state = State.RGB
+//        }
     }
     private fun FromRGBtoYBR() {
-        if (tripleShortMatrixOld.state == State.RGB) {
+//        if (tripleShortMatrixOld.state == State.RGB) {
             val Width = bitmap.width
             val Height = bitmap.height
 
@@ -245,12 +245,12 @@ class ModuleImage {
                     tripleShortMatrixOld.c[i,j] = vcr.toShort()
                 }
             }
-            tripleShortMatrixOld.state = State.YBR
-        }
+//            tripleShortMatrixOld.state = State.YBR
+//        }
     }
 
     private fun PixelEnlargement() {
-        if (tripleShortMatrixOld.state == State.YBR && flag.isChecked(Flag.Parameter.Enlargement)) {
+        if ( flag.isChecked(Flag.Parameter.Enlargement)) {
             val cWidth = tripleShortMatrixOld.width / 2
             val cHeight = tripleShortMatrixOld.height / 2
             val enlCb = Array(cWidth) { ShortArray(cHeight) }
@@ -265,12 +265,12 @@ class ModuleImage {
             }
             tripleShortMatrixOld.b = ShortMatrix.valueOf(enlCb)
             tripleShortMatrixOld.c = ShortMatrix.valueOf(enlCr)
-            tripleShortMatrixOld.state = State.Yenl
+//            tripleShortMatrixOld.state = State.Yenl
         }
 
     }
     private fun PixelRestoration() {
-        if (tripleShortMatrixOld.state == State.Yenl && flag.isChecked(Flag.Parameter.Enlargement)) {
+        if (flag.isChecked(Flag.Parameter.Enlargement)) {
             val cWidth = tripleShortMatrixOld.width / 2
             val cHeight = tripleShortMatrixOld.height / 2
             val Width = tripleShortMatrixOld.width
@@ -292,7 +292,7 @@ class ModuleImage {
             tripleShortMatrixOld.b = ShortMatrix.valueOf(Cb)
             tripleShortMatrixOld.c = ShortMatrix.valueOf(Cr)
 
-            tripleShortMatrixOld.state = State.YBR
+//            tripleShortMatrixOld.state = State.YBR
         }
     }
 
@@ -320,84 +320,6 @@ class ModuleImage {
         plus128(tripleShortMatrixOld.a)
         plus128(tripleShortMatrixOld.b)
         plus128(tripleShortMatrixOld.c)
-    }
-
-
-    //geters functions
-    @Deprecated("use getTripleShortMatrix")
-    fun getYCbCrMatrix(isAsync: Boolean): TripleShortMatrix {
-        when (tripleShortMatrixOld.state) {
-            State.RGB -> FromRGBtoYBR()
-            State.YBR -> {
-            }
-            State.Yenl -> PixelRestoration()
-            State.bitmap -> if (isAsync)
-                FromIBufferedImageToYCbCrParallelMatrix()
-            else
-                FromIBufferedImageToYCbCr()
-            else -> throw Exception("State not correct")
-        }
-
-        return tripleShortMatrixOld
-    }
-    @Deprecated("use getTripleShortMatrix")
-    fun getYenlMatrix(isAsync: Boolean): TripleShortMatrix {
-        TimeManager.Instance.append("start Yenl")
-        when (tripleShortMatrixOld.state) {
-            State.RGB -> {
-                FromRGBtoYBR()
-                PixelEnlargement()
-            }
-            State.YBR -> PixelEnlargement()
-            State.Yenl -> {
-            }
-            State.bitmap -> {
-                if (isAsync)
-                    FromIBufferedImageToYCbCrParallelMatrix()
-                else
-                    FromIBufferedImageToYCbCr()
-
-                TimeManager.Instance.append("im to ybr")
-                PixelEnlargement()
-                TimeManager.Instance.append("enl")
-            }
-            else -> throw Exception("State not correct")
-        }
-        return tripleShortMatrixOld
-    }
-    @Deprecated("use getBufferedImage")
-    fun getBufferedImage(): MyBufferedImage {
-        when (tripleShortMatrixOld.state) {
-            State.RGB -> FromRGBtoIBufferedImage()
-            State.YBR -> FromYCbCrToIBufferedImage()
-            State.Yenl -> {
-                PixelRestoration()
-                TimeManager.Instance.append("Restor")
-                FromYCbCrToIBufferedImage()
-                TimeManager.Instance.append("ybr to im")
-            }
-            State.bitmap -> {
-            }
-            else -> throw Exception("Sate not correct")
-        }
-
-        return bitmap
-    }
-    @Deprecated("use getTripleShortMatrix")
-    fun getRgbMatrixOld(): TripleShortMatrix {
-        when (tripleShortMatrixOld.state) {
-            State.RGB -> {
-            }
-            State.YBR -> FromYBRtoRGB()
-            State.Yenl -> {
-                PixelRestoration()
-                FromYBRtoRGB()
-            }
-            State.bitmap -> FromIBufferedImageToRGB()
-            else -> throw Exception("state not correct")
-        }
-
-        return tripleShortMatrixOld
     }
 
 
@@ -524,15 +446,26 @@ class ModuleImage {
     }
 
     fun getTripleShortMatrix(isAsync: Boolean):TripleShortMatrix{
-        if(flag.isChecked(Flag.Parameter.ColorConversions))
-            return getYenlMatrix(isAsync)
+        if(!flag.isChecked(Flag.Parameter.ColorConversions))
+            FromIBufferedImageToRGB()
         else
-            return getRgbMatrixOld()
+            FromIBufferedImageToYCbCrParallelMatrix()
+
+        if(flag.isChecked(Flag.Parameter.Enlargement))
+            PixelEnlargement()
+
+
+        return tripleShortMatrixOld
     }
     fun getBufferedImage(isAsync: Boolean):MyBufferedImage{
-        if(!flag.isChecked(Flag.Parameter.ColorConversions))
-            this.tripleShortMatrixOld.state=State.RGB
+        if(flag.isChecked(Flag.Parameter.ColorConversions))
+            PixelRestoration()
 
-        return getBufferedImage()
+        if(flag.isChecked(Flag.Parameter.ColorConversions))
+            FromYCbCrToIBufferedImage()
+        else
+            FromRGBtoIBufferedImage()
+
+        return bitmap
     }
 }

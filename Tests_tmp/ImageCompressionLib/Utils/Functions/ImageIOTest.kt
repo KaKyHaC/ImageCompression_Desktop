@@ -44,13 +44,13 @@ class ImageIOTest{
     fun MyBufferedImageWriteTest(){
         val m=createMatrix(255,255)
         val mbi= ModuleImage(m)
-        val mybi = mbi.getBufferedImage()
+        val mybi = mbi.getBufferedImage(true)
         val bi=BuffImConvertor.instance.convert(mybi)
         ImageIO.write(bi,"bmp", File(pathToResBmp2))
     }
     companion object {
         fun createMatrix(w:Int,h:Int,unitSize: Size=Size(8,8)): TripleShortMatrix {
-            val m= TripleShortMatrix(Parameters.createParametresForTest(Size(w,h),unitSize),State.RGB)
+            val m= TripleShortMatrix(Parameters.createParametresForTest(Size(w,h),unitSize),State.Origin)
             m.a.forEach(){i, j, value ->  Math.abs(Random().nextInt(255)).toShort() }
             m.b.forEach(){i, j, value ->  Math.abs(Random().nextInt(255)).toShort() }
             m.c.forEach(){i, j, value ->  Math.abs(Random().nextInt(255)).toShort() }

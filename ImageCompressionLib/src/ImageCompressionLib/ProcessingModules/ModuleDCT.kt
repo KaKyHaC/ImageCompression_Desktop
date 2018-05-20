@@ -24,6 +24,7 @@ class ModuleDCT(private val tripleShortMatrixOld: TripleShortMatrix) { //    pri
     private var a: DctConvertor
     private var b: DctConvertor
     private var c: DctConvertor
+    private var state:DctConvertor.State
 
     init {
         parameter=tripleShortMatrixOld.parameters
@@ -33,7 +34,7 @@ class ModuleDCT(private val tripleShortMatrixOld: TripleShortMatrix) { //    pri
 //        //new code . Does it is needed ?
 //            tripleShortMatrixOld.state = State.YBR
 
-        val state = if (tripleShortMatrixOld.state == State.DCT) DctConvertor.State.DCT else DctConvertor.State.ORIGIN
+        state = if (tripleShortMatrixOld.state == State.Dct) DctConvertor.State.DCT else DctConvertor.State.ORIGIN
 
         a = DctConvertor(tripleShortMatrixOld.a, state, TypeQuantization.luminosity,parameter,dctUtils.copy() )
         b = DctConvertor(tripleShortMatrixOld.b, state, TypeQuantization.Chromaticity, parameter,dctUtils.copy())
@@ -84,8 +85,8 @@ class ModuleDCT(private val tripleShortMatrixOld: TripleShortMatrix) { //    pri
         if(flag.isChecked(Flag.Parameter.DCT))
             return getYCbCrMatrix1(isMultiThreads)
         else {
-            setState(DctConvertor.State.ORIGIN)
-            processState()
+//            setState(DctConvertor.State.ORIGIN)
+//            processState()
             return tripleShortMatrixOld
         }
     }
@@ -93,40 +94,35 @@ class ModuleDCT(private val tripleShortMatrixOld: TripleShortMatrix) { //    pri
         if(flag.isChecked(Flag.Parameter.DCT))
             return getDCTMatrix1(isMultiThreads)
         else {
-            setState(DctConvertor.State.DCT)
-            processState()
+//            setState(DctConvertor.State.DCT)
+//            processState()
             return tripleShortMatrixOld
         }
     }
 
     private fun getYCbCrMatrix1(isMultiThreads: Boolean): TripleShortMatrix {
-        when (tripleShortMatrixOld.state) {
-            State.DCT -> if (isMultiThreads)
+        when (state) {
+            DctConvertor.State.DCT -> if (isMultiThreads)
                 dataProcessingInThreads(DctConvertor::getMatrixOrigin)
             else
                 dataProcessing(DctConvertor::getMatrixOrigin)
         }
-        return if (tripleShortMatrixOld.state == State.YBR || tripleShortMatrixOld.state == State.Yenl) tripleShortMatrixOld else  throw Exception("State not correct")
+        return tripleShortMatrixOld
+//        return if (tripleShortMatrixOld.state == State.YBR || tripleShortMatrixOld.state == State.Yenl) tripleShortMatrixOld else  throw Exception("State not correct")
     }
     private fun getDCTMatrix1(isMultiThreads: Boolean): TripleShortMatrix {
-        when (tripleShortMatrixOld.state) {
-            State.YBR, State.Yenl -> if (isMultiThreads)
+        when (state) {
+            DctConvertor.State.ORIGIN-> if (isMultiThreads)
                 dataProcessingInThreads(DctConvertor::getMatrixDct)
             else
                 dataProcessing(DctConvertor::getMatrixDct)
         }
 
-        return if (tripleShortMatrixOld.state == State.DCT) tripleShortMatrixOld else throw Exception("tripleShortMatrixOld.state:${tripleShortMatrixOld.state}!=DCT")
+        return tripleShortMatrixOld
+//        return if (tripleShortMatrixOld.state == State.DCT) tripleShortMatrixOld else throw Exception("tripleShortMatrixOld.state:${tripleShortMatrixOld.state}!=DCT")
     }
     private fun processState(){
-        tripleShortMatrixOld.state = if (a.state == DctConvertor.State.DCT) State.DCT else State.YBR
-        if (flag.isChecked(Flag.Parameter.Enlargement)&& tripleShortMatrixOld.state == State.YBR)
-            tripleShortMatrixOld.state = State.Yenl
-    }
-    private fun setState(state:DctConvertor.State){
-        a = DctConvertor(tripleShortMatrixOld.a, state, TypeQuantization.luminosity, parameter,a.dctUtil)
-        b = DctConvertor(tripleShortMatrixOld.b, state, TypeQuantization.Chromaticity,parameter,b.dctUtil)
-        c = DctConvertor(tripleShortMatrixOld.c, state, TypeQuantization.Chromaticity, parameter,c.dctUtil)
+        tripleShortMatrixOld.state = if (a.state == DctConvertor.State.DCT) State.Dct else State.Origin
     }
 
     //    public TripleShortMatrix getMatrix() {

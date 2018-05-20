@@ -17,6 +17,10 @@ class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private 
                    , private val parameters:Parameters,val dctUtil:DctUniversalAlgorithm) {
     //    private boolean isReady=false;
 
+    enum class State {
+        DCT, ORIGIN
+    }
+
     var state: State? = null
         private set
     private val dataProcessed: Matrix<Short>
@@ -48,10 +52,6 @@ class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private 
 
             return dataProcessed
         }
-
-    enum class State {
-        DCT, ORIGIN
-    }
 
     init {
         dataProcessed = dataOrigin//= new short[dataOrigin.length][dataOrigin[0].length];// = dataOrigin

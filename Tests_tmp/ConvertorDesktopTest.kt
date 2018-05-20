@@ -33,27 +33,27 @@ class ConvertorDesktopTest {
     fun TestMyBufferedImageMatrix5() {
         var matrix = getRandomMatrix(w, h)
         val mi = ModuleImage(matrix)
-        val bi = mi.getBufferedImage()
+        val bi = mi.getBufferedImage(true)
         val mi1 = ModuleImage(bi, matrix.parameters)
 
 
-        var matrix1 = mi1.getRgbMatrixOld()
-        matrix = mi.getRgbMatrixOld()
+//        var matrix1 = mi1.getRgbMatrixOld()
+//        matrix = mi.getRgbMatrixOld()
+//        matrix.assertMatrixInRange(matrix1, 0)
+
+        matrix = mi.getTripleShortMatrix(true)
+        var matrix1 = mi1.getTripleShortMatrix(true)
         matrix.assertMatrixInRange(matrix1, 0)
 
-        matrix = mi.getYenlMatrix(true)
-        matrix1 = mi1.getYenlMatrix(true)
-        matrix.assertMatrixInRange(matrix1, 0)
-
-        matrix1 = mi1.getRgbMatrixOld()
-        matrix = mi.getYenlMatrix(true)
-        assertFails { matrix.assertMatrixInRange(matrix1, 0) }
+//        matrix1 = mi1.getRgbMatrixOld()
+//        matrix = mi.getYenlMatrix(true)
+//        assertFails { matrix.assertMatrixInRange(matrix1, 0) }
     }
 
     @Test
     fun TestBoxOfDUM5() {
         var matrix = getRandomMatrix(w, h)
-        matrix = ModuleImage(matrix).getYenlMatrix(true)
+        matrix = ModuleImage(matrix).getTripleShortMatrix(true)
         matrix.parameters.flag.setTrue(Flag.Parameter.DCT)
         val cpy = matrix.copy()
         val bo = ModuleDCT(matrix)
@@ -69,7 +69,7 @@ class ConvertorDesktopTest {
     fun TestTimeBoxofDum() {
 //        param.setTrue(Flag.Parameter.DCT)
         var matrix = getRandomMatrix(w, h)
-        matrix = ModuleImage(matrix).getYenlMatrix(true)
+        matrix = ModuleImage(matrix).getTripleShortMatrix(true)
         val bo = ModuleDCT(matrix)
 
         var t1: Date = Date()
@@ -118,7 +118,7 @@ class ConvertorDesktopTest {
 
         val myImage = ModuleImage(matrix)
 //        myImage.getBufferedImage()
-        val ybr = myImage.getYenlMatrix(true)
+        val ybr = myImage.getTripleShortMatrix(true)
         val ybrCpy = ybr.copy()
         assertFails { cpy.assertMatrixInRange(ybr, 3) }
 //        AssertMatrixInRange(ybrCpy,ybr,0)
@@ -151,9 +151,9 @@ class ConvertorDesktopTest {
         val ynlres = mDCT2.getYCbCrMatrix(true)
         ynlres.assertMatrixInRange(ybrCpy, delta)
 
-        val myIm2 = ModuleImage(ynlres)
-        val rgb = myIm2.getRgbMatrixOld()
-        rgb.assertMatrixInRange(cpy, delta)
+//        val myIm2 = ModuleImage(ynlres)
+//        val rgb = myIm2.getRgbMatrixOld()
+//        rgb.assertMatrixInRange(cpy, delta)
         val t2 = Date().time
 
         System.out.println("Time direct/reverse FullMode = ${t2 - t1}")
@@ -230,7 +230,7 @@ class ConvertorDesktopTest {
         cpy.assertMatrixInRange(matrix, 0)
 
         val myImage = ModuleImage(matrix)
-        val ybr = myImage.getYenlMatrix(true)
+        val ybr = myImage.getTripleShortMatrix(true)
         val ybrCpy = ybr.copy()
 //        assertFails { AssertMatrixInRange(cpy,ybr,1) }
         ybrCpy.assertMatrixInRange(ybr, 0)
@@ -254,9 +254,9 @@ class ConvertorDesktopTest {
         val ynlres = mDCT2.getYCbCrMatrix(true)
         ynlres.assertMatrixInRange(ybrCpy, delta)
 
-        val myIm2 = ModuleImage(ynlres)
-        val rgb = myIm2.getRgbMatrixOld()
-        rgb.assertMatrixInRange(cpy, delta)
+//        val myIm2 = ModuleImage(ynlres)
+//        val rgb = myIm2.getRgbMatrixOld()
+//        rgb.assertMatrixInRange(cpy, delta)
     }
 
     fun testDirectReverseConverting(w: Int, h: Int, delta: Int,flag: Flag, compareCompression: Boolean = false, sameBase: Size = Size(1, 1)) {
@@ -269,7 +269,7 @@ class ConvertorDesktopTest {
         //
 
         //
-        val ybr = myImage.getYenlMatrix(true)
+        val ybr = myImage.getTripleShortMatrix(true)
         val ybrCpy = ybr.copy()
 //        assertFails { AssertMatrixInRange(cpy,ybr,0) }
         ybrCpy.assertMatrixInRange(ybr, 0)
@@ -307,9 +307,9 @@ class ConvertorDesktopTest {
         val ynlres = mDCT2.getYCbCrMatrix(true)
         ynlres.assertMatrixInRange(ybrCpy, delta)
 
-        val myIm2 = ModuleImage(ynlres)
-        val rgb = myIm2.getRgbMatrixOld()
-        rgb.assertMatrixInRange(cpy, delta)
+//        val myIm2 = ModuleImage(ynlres)
+//        val rgb = myIm2.getRgbMatrixOld()
+//        rgb.assertMatrixInRange(cpy, delta)
 //        assertEquals("${param.param}!=${f.param}",param.param,f.param)
         val t2 = Date().time
 
@@ -318,7 +318,7 @@ class ConvertorDesktopTest {
     }
 
     fun getRandomMatrix(w: Int, h: Int, flag: Flag = Flag.createDefaultFlag()): TripleShortMatrix {
-        val m = TripleShortMatrix(Parameters.createParametresForTest(Size(w, h),flag = flag), State.RGB)
+        val m = TripleShortMatrix(Parameters.createParametresForTest(Size(w, h),flag = flag), State.Origin)
         val rand = Random()
         forEach(w, h, { x, y ->
 //            m.a[x, y] = ((x + y) % 255).toShort()

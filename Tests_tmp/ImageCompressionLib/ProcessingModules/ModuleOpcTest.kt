@@ -65,7 +65,7 @@ class ModuleOpcTest(val w: Int,val h: Int,val loop: Int) {
     @Test
     fun GlobalTest(){
         val m=ImageIOTest.createMatrix(w,h)
-        m.state=State.DCT
+        m.state=State.Dct
         val opcModule= ModuleOpc(m)
         val tm=TimeManager.Instance
 
@@ -87,7 +87,7 @@ class ModuleOpcTest(val w: Int,val h: Int,val loop: Int) {
     fun GlobalTestUnitSize7x6() {
         val m = ImageIOTest.createMatrix(w, h,Size(7, 6))
 //        m.parameters.unitSize = Size(7, 6)
-        m.state = State.DCT
+        m.state = State.Dct
         val cpy = m.copy()
 
         val opcModule = ModuleOpc(m)
@@ -107,7 +107,7 @@ class ModuleOpcTest(val w: Int,val h: Int,val loop: Int) {
     }
     fun TestSteganographyAtPos(pos:Int) {
         val m = ImageIOTest.createMatrix(w, h,Size(1,8))
-        m.state = State.DCT
+        m.state = State.Dct
         val cpy = m.copy()
         val eP=EncryptParameters()
         eP.message= ByteVector(w/2)
