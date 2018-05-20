@@ -114,6 +114,7 @@ public class MainPage extends JFrame {
             @NotNull
             @Override
             public ByteVectorContainer getByteVectorContainer() {
+                byteVectorContainer.getMainData().refreshIterator();
                 return byteVectorContainer;
             }
         };

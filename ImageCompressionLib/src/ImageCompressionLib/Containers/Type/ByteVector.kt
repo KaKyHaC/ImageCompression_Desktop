@@ -299,5 +299,4 @@ class ByteVector:Iterable<Byte> {
     override fun toString(): String {
         return Arrays.toString(bytes)
     }
-
 }

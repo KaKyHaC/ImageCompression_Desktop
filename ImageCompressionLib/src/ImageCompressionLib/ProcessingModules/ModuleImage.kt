@@ -458,7 +458,7 @@ class ModuleImage {
         return tripleShortMatrixOld
     }
     fun getBufferedImage(isAsync: Boolean):MyBufferedImage{
-        if(flag.isChecked(Flag.Parameter.ColorConversions))
+        if(flag.isChecked(Flag.Parameter.Enlargement))
             PixelRestoration()
 
         if(flag.isChecked(Flag.Parameter.ColorConversions))
