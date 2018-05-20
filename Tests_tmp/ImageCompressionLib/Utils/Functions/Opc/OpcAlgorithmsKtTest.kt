@@ -14,6 +14,8 @@ import org.junit.Assert.*
 import org.junit.Before
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
+import java.math.BigInteger
+import java.util.*
 
 @RunWith(value = Parameterized::class)
 class OpcAlgorithmsKtTest {
@@ -29,10 +31,10 @@ class OpcAlgorithmsKtTest {
     }
     companion object {
         @JvmStatic
-        @Parameterized.Parameters
+        @Parameterized.Parameters(name = "{0}")
         fun data(): Collection<Array<Any>> {
             val res = listOf(arrayOf(Size(1, 1), 255)
-                    , arrayOf(Size(1, 1), 255)
+                    , arrayOf(Size(2, 2), 20)
                     , arrayOf(Size(8, 1), 255)
                     , arrayOf(Size(1, 8), 255)
                     , arrayOf(Size(8, 8), 255)
@@ -48,10 +50,8 @@ class OpcAlgorithmsKtTest {
     @Before
     fun setUp(){
         dataOpc= DataOpc(size)
-        for(i in 0 until size.height){
-            dataOpc.base[i]=(max+1).toShort()
-        }
-        matrix= ShortMatrix(size.width, size.height) { i, j -> (i * j % max).toShort() }
+        matrix= ShortMatrix(size.width, size.height) { i, j -> (Math.abs(Random().nextInt(max))).toShort() }
+        OpcUtils.FindBase(matrix,dataOpc)
         matrixEmpty= ShortMatrix(size.width, size.height)
     }
 
@@ -80,6 +80,20 @@ class OpcAlgorithmsKtTest {
         OpcDirectUseOnlyLong(matrix,dataOpc)
         OpcReverseUseOnlyLong(matrixEmpty,dataOpc)
         assertEquals(matrixEmpty,cpy)
+    }
+
+    @Test
+    fun testOPCDefaultMulti2() {
+        println("not work")
+        val cpy=matrix.copy()
+        OpcDirectDefault(matrix,dataOpc)
+        dataOpc.N/= BigInteger.TWO
+        OpcReverseDefault(matrixEmpty,dataOpc)
+
+        println(matrixEmpty)
+        println(cpy)
+        assertEquals(matrixEmpty,cpy)
+
     }
 
 }
