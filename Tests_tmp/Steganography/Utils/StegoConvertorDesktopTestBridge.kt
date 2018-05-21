@@ -32,6 +32,13 @@ class StegoConvertorDesktopTestBridge {
         }
     }
     @Test
+    fun test1x4Rand() {
+        for(i in 0..100){
+            stegoBridge(1, 4, true, { it -> Random().nextInt(255).toShort() })
+            stegoBridge(1, 4, false, { it -> Random().nextInt(255).toShort() })
+        }
+    }
+    @Test
     fun test1Rand() {
         for(i in 0..100){
             stegoBridge(1, 1, true, { it -> Random().nextInt(255).toShort() })

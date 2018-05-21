@@ -238,7 +238,7 @@ public class MainPage extends JFrame {
     }
     private void setSteganographyButton(){
         Flag flag=new Flag();
-        flag.setTrue(Flag.Parameter.DC);
+//        flag.setTrue(Flag.Parameter.DC);
 //        flag.setTrue(Flag.Parameter.CompressionUtils);
         flag.setTrue(Flag.Parameter.OneFile);
         flag.setTrue(Flag.Parameter.GlobalBase);

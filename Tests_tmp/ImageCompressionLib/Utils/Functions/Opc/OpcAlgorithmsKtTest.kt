@@ -90,10 +90,27 @@ class OpcAlgorithmsKtTest {
         dataOpc.N/= BigInteger.TWO
         OpcReverseDefault(matrixEmpty,dataOpc)
 
-        println(matrixEmpty)
         println(cpy)
+        println(matrixEmpty)
         assertEquals(matrixEmpty,cpy)
-
     }
 
+    @Test
+    fun testForSpesialArrayWhenNDiv2() {
+        println("not work")
+        matrix= ShortMatrix(1,3){ i, j -> testArray[j].toShort() }
+        matrixEmpty= ShortMatrix(1,3)
+        val cpy=matrix.copy()
+        dataOpc= DataOpc(Size(1,3))
+        OpcUtils.FindBase(matrix,dataOpc)
+        OpcDirectDefault(matrix,dataOpc)
+        dataOpc.N/= BigInteger.TWO
+        OpcReverseDefault(matrixEmpty,dataOpc)
+
+        println(cpy)
+        println(matrixEmpty)
+        assertEquals(cpy,matrixEmpty)
+    }
+    val testArray= arrayOf<Int>(122,70,124,178,210,188,48,19)
+    val testArrayWork= arrayOf<Int>(75,53,127,196,71,110,192,93)
 }
