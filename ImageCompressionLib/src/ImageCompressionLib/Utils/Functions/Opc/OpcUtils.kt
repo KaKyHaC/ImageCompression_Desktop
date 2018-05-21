@@ -69,6 +69,21 @@ class OpcUtils {
         fun DCplus(dataOrigin: Matrix<Short>, DataOpc: DataOpc) {
             dataOrigin[0,0] = DataOpc.DC
         }
+        @JvmStatic
+        fun MakeBaseEven(dataOpc: DataOpc){
+            for(i  in 0 until dataOpc.base.size)
+                if(dataOpc.base[i]%2!=0)
+                    dataOpc.base[i]++
+        }
+        @JvmStatic
+        fun MakeDataOdd(dataOrigin: Matrix<Short>){
+            dataOrigin.forEach{i, j, value ->
+                var tmp=value
+                if(value%2==0)
+                    tmp++
+                tmp
+            }
+        }
     }
 }
 
