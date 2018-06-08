@@ -7,25 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c90ba8ab-ccf4-40f6-aded-d1d19c7faf94" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithmsArrayAndBase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcUtils.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/Steganography/Containers/UnitContainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImageCompressionKotlin/Steganography/Containers/UnitContainer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/Opc/OpcUtils$Companion$MakeDataOdd$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/Opc/OpcUtils$Companion$MakeDataOdd$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/Opc/OpcUtils$Companion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImageCompressionLib/ImageCompressionLib/Utils/Functions/Opc/OpcUtils$Companion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$BinaryGeter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$BinaryGeter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$Companion$createMyBI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$Companion$createMyBI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$Companion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$Companion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$TrueGeter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$TrueGeter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$dao$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$dao$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$fac$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$fac$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$testBinaryGeter$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$testBinaryGeter$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$testFailed$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$testFailed$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$testFailed$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$testFailed$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$testFailed$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$testFailed$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$testTrueGeter$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest$testTrueGeter$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImageCompressionKotlin/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Constants/Constants.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Constants/Constants.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcProcess.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcProcess.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WindowsApp/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WindowsApp/MainPage.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="OpcUtils.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OpcUtils.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcUtils.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
+            <state>
+              <caret lean-forward="true" />
             </state>
           </provider>
         </entry>
@@ -52,8 +36,26 @@
       <file leaf-file-name="OpcProcess.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcProcess.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="37" column="50" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
+            <state relative-caret-position="248">
+              <caret line="73" column="41" lean-forward="true" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainPage.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/WindowsApp/MainPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="245" column="38" lean-forward="true" selection-start-line="245" selection-start-column="38" selection-end-line="245" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Constants.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Constants/Constants.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -76,22 +78,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OpcUtilsOddAndEvenTest.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Opc/OpcUtilsOddAndEvenTest.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
-              <folding>
-                <element signature="e#49#395#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="OpcAlgorithmsMessageTest.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithmsMessageTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="357">
               <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
             </state>
           </provider>
@@ -100,34 +90,8 @@
       <file leaf-file-name="OpcAlgorithms.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithms.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3315">
-              <caret line="199" column="79" selection-start-line="199" selection-start-column="79" selection-end-line="199" selection-end-column="79" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OpcAlgirithmsCodeDiv2.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Opc/OpcAlgirithmsCodeDiv2.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1292">
-              <caret line="84" selection-start-line="84" selection-end-line="84" />
-              <folding>
-                <element signature="e#49#368#0" expanded="true" />
-                <marker date="1526935923659" expanded="false" signature="2888:3501" ph="{...}" />
-                <marker date="1526935923659" expanded="false" signature="3544:4129" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OpcAlgorithmsArrayAndBase.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithmsArrayAndBase.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
-              <folding>
-                <element signature="e#49#373#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="17">
+              <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
             </state>
           </provider>
         </entry>
@@ -230,7 +194,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ImageCompressionLib/src/Steganography/StegoModule.kt" />
         <option value="$PROJECT_DIR$/src/Steganography/StegoModule.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/ByteVectorFileTest.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Parameters.kt" />
@@ -258,7 +221,6 @@
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Opc/Experimental/OpcAlgorithmsExperimentelTestDefault.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/Flag.java" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt" />
-        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcProcess.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Objects/DctConvertor.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/TripleShortMatrix.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Constants/State.java" />
@@ -272,7 +234,6 @@
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/DataOpc.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/ByteVector.kt" />
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/ProcessingModules/ModuleImage.kt" />
-        <option value="$PROJECT_DIR$/src/WindowsApp/MainPage.java" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorStegonographyTest.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/Steganography/Utils/StegoConvertorDesktopTestBridge.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithmsKtTest.kt" />
@@ -281,6 +242,9 @@
         <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcUtils.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithmsArrayAndBase.kt" />
         <option value="$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest.kt" />
+        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcProcess.kt" />
+        <option value="$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Constants/Constants.kt" />
+        <option value="$PROJECT_DIR$/src/WindowsApp/MainPage.java" />
       </list>
     </option>
   </component>
@@ -305,9 +269,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -332,6 +293,14 @@
               <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ImageCompressionLib" type="462c0819:PsiDirectoryNode" />
+              <item name="Constants" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
@@ -388,6 +357,13 @@
             <path>
               <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
               <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="WindowsApp" type="462c0819:PsiDirectoryNode" />
+              <item name="MainPage" type="e9f4de52:FormNode" />
+            </path>
+            <path>
+              <item name="ImageCompressionKotlin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ImageCompressionKotlin" type="462c0819:PsiDirectoryNode" />
               <item name="Tests_tmp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -407,6 +383,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -676,6 +655,7 @@
       <workItem from="1527584551169" duration="23000" />
       <workItem from="1527875141675" duration="414000" />
       <workItem from="1528449997424" duration="98000" />
+      <workItem from="1528457299601" duration="790000" />
     </task>
     <task id="LOCAL-00001" summary="from AndroidIC">
       <created>1510585449154</created>
@@ -727,7 +707,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="699000" />
+    <option name="totallyTimeSpent" value="1489000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -740,17 +720,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32992035" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.41614583" weight="0.32142857" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.55104166" side_tool="true" weight="0.5323129" />
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.3282313" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.44895834" weight="0.7064846" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3282313" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.44895834" visible="true" weight="0.7057823" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -764,7 +746,6 @@
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.48958334" weight="0.4698521" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.41614583" weight="0.32309443" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Kotlin Bytecode" order="8" weight="0.3296875" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -797,211 +778,211 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests/ImageCompression/ProcessingModules/ImageTest.java</url>
           <line>57</line>
           <properties />
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests/ImageCompression/Containers/ModuleOPCTest.java</url>
           <line>61</line>
           <properties />
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests/ImageCompression/Utils/OPCMultiThreadTest.java</url>
           <line>67</line>
           <properties />
           <option name="timeStamp" value="129" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/ImageCompressionLib/ProcessingModules/ModuleDCT.java</url>
           <line>86</line>
           <properties />
           <option name="timeStamp" value="183" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/JpegEncoder/OPC.java</url>
           <line>164</line>
           <properties />
           <option name="timeStamp" value="204" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/JpegEncoder/OPC.java</url>
           <line>166</line>
           <properties />
           <option name="timeStamp" value="205" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/ImageCompressionLib/Steganography/StegonagraphyUI.java</url>
           <line>121</line>
           <properties />
           <option name="timeStamp" value="250" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/ImageCompressionLib/Steganography/StegonagraphyUI.java</url>
           <line>227</line>
           <properties />
           <option name="timeStamp" value="257" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/ImageCompressionLib/Steganography/StegonagraphyUI.java</url>
           <line>174</line>
           <properties />
           <option name="timeStamp" value="259" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/ModuleOpcOldTest.java</url>
           <line>33</line>
           <properties />
           <option name="timeStamp" value="280" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/ModuleOpcOldTest.java</url>
           <line>31</line>
           <properties />
           <option name="timeStamp" value="281" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/OPCMultiThreadTest.java</url>
           <line>26</line>
           <properties />
           <option name="timeStamp" value="284" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url />
+          <url>file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Dct/DctAlgorithm8x8.java</url>
           <line>77</line>
           <properties />
           <option name="timeStamp" value="471" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/ImageCompressionLib/Utils/Functions/ImageStandardDeviation.kt</url>
           <line>39</line>
           <properties />
           <option name="timeStamp" value="206" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests/ImageCompression/Steganography/StegoConvertorDesktopTest.kt</url>
           <line>61</line>
           <properties />
           <option name="timeStamp" value="220" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests/ImageCompression/Steganography/StegoConvertorDesktopTest.kt</url>
           <line>58</line>
           <properties />
           <option name="timeStamp" value="221" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests/ImageCompression/Steganography/StegoConvertorDesktopTest.kt</url>
           <line>38</line>
           <properties />
           <option name="timeStamp" value="225" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests/ImageCompression/Steganography/UnitContainerFactoryTest.kt</url>
           <line>43</line>
           <properties />
           <option name="timeStamp" value="230" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/ImageCompressionLib/Steganography/Utils/UnitContainerFactory.kt</url>
           <line>21</line>
           <properties />
           <option name="timeStamp" value="232" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests/ImageCompression/Steganography/UnitContainerFactoryTest.kt</url>
           <line>35</line>
           <properties />
           <option name="timeStamp" value="233" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests/ImageCompression/Steganography/UnitContainerFactoryTest.kt</url>
           <line>41</line>
           <properties />
           <option name="timeStamp" value="234" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests/ImageCompression/Steganography/Utils/ImageProcessorUtilsTest.kt</url>
           <line>79</line>
           <properties />
           <option name="timeStamp" value="236" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests/ImageCompression/Steganography/Utils/MessageParserTest.kt</url>
           <line>18</line>
           <properties />
           <option name="timeStamp" value="239" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/ImageCompressionLib/Steganography/Utils/ImageProcessorUtils.kt</url>
           <line>142</line>
           <properties />
           <option name="timeStamp" value="261" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests/ImageCompression/Steganography/Utils/StegoConvertorDesktopTestBridge.kt</url>
           <line>109</line>
           <properties />
           <option name="timeStamp" value="263" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests/ImageCompression/ProcessingModules/ModuleDCTTest.kt</url>
           <line>110</line>
           <properties />
           <option name="timeStamp" value="264" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests/ImageCompression/Utils/Objects/DctConvertorDesktopTest.kt</url>
           <line>48</line>
           <properties />
           <option name="timeStamp" value="266" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests/ImageCompression/Utils/Objects/DctConvertorDesktopTest.kt</url>
           <line>44</line>
           <properties />
           <option name="timeStamp" value="267" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/ImageCompressionLib/ProcessingModules/ModuleOPC/StegoEncrWithOPC.kt</url>
           <line>143</line>
           <properties />
           <option name="timeStamp" value="272" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/ImageCompressionLib/ProcessingModules/ModuleOPC/StegoEncrWithOPC.kt</url>
           <line>150</line>
           <properties />
           <option name="timeStamp" value="273" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/ImageCompressionLib/ProcessingModules/ModuleOPC/StegoEncrWithOPC.kt</url>
           <line>108</line>
           <properties />
           <option name="timeStamp" value="274" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests/ImageCompression/Containers/TripleDataOpcMatrixTest.kt</url>
           <line>66</line>
           <properties />
           <option name="timeStamp" value="275" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests/ImageCompression/Containers/TripleDataOpcMatrixTest.kt</url>
           <line>59</line>
           <properties />
           <option name="timeStamp" value="277" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/Utils/BuffImConvertor.kt</url>
           <line>17</line>
           <properties />
           <option name="timeStamp" value="279" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/Steganography/Utils/ImageProcessorUtils.kt</url>
           <line>108</line>
           <properties>
             <option name="lambda-ordinal" value="0" />
@@ -1009,259 +990,259 @@
           <option name="timeStamp" value="295" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/Steganography/Utils/ImageProcessorUtils.kt</url>
           <line>106</line>
           <properties />
           <option name="timeStamp" value="299" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/Steganography/Utils/StegoConvertor.kt</url>
           <line>43</line>
           <properties />
           <option name="timeStamp" value="300" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/src/Steganography/Utils/ImageProcessorUtils.kt</url>
           <line>193</line>
           <properties />
           <option name="timeStamp" value="302" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultTestDCT.kt</url>
           <line>76</line>
           <properties />
           <option name="timeStamp" value="307" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/ByteArrayConvertor.kt</url>
           <line>23</line>
           <properties />
           <option name="timeStamp" value="312" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithms.kt</url>
           <line>183</line>
           <properties />
           <option name="timeStamp" value="330" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/ByteVectorTest.kt</url>
           <line>103</line>
           <properties />
           <option name="timeStamp" value="334" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/MatrixTest.kt</url>
           <line>35</line>
           <properties />
           <option name="timeStamp" value="341" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/MatrixTest.kt</url>
           <line>40</line>
           <properties />
           <option name="timeStamp" value="342" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/MatrixTest.kt</url>
           <line>51</line>
           <properties />
           <option name="timeStamp" value="351" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/MatrixTest.kt</url>
           <line>61</line>
           <properties />
           <option name="timeStamp" value="353" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleImageTest.kt</url>
           <line>44</line>
           <properties />
           <option name="timeStamp" value="382" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/DctAlgorithm8x8Test.kt</url>
           <line>36</line>
           <properties />
           <option name="timeStamp" value="383" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleDCTTest.kt</url>
           <line>27</line>
           <properties />
           <option name="timeStamp" value="395" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleDCTTest.kt</url>
           <line>114</line>
           <properties />
           <option name="timeStamp" value="397" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleOpcTest.kt</url>
           <line>83</line>
           <properties />
           <option name="timeStamp" value="404" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleImageTest.kt</url>
           <line>39</line>
           <properties />
           <option name="timeStamp" value="413" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleImageTest.kt</url>
           <line>36</line>
           <properties />
           <option name="timeStamp" value="424" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Opc/OpcProcessKtTest.kt</url>
           <line>67</line>
           <properties />
           <option name="timeStamp" value="429" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Opc/OpcProcessKtTest.kt</url>
           <line>64</line>
           <properties />
           <option name="timeStamp" value="430" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt</url>
           <line>151</line>
           <properties />
           <option name="timeStamp" value="431" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleOpcTest.kt</url>
           <line>92</line>
           <properties />
           <option name="timeStamp" value="432" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/TripleDataOpcMatrixTest.kt</url>
           <line>50</line>
           <properties />
           <option name="timeStamp" value="438" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/TripleDataOpcMatrixTest.kt</url>
           <line>48</line>
           <properties />
           <option name="timeStamp" value="439" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithms.kt</url>
           <line>87</line>
           <properties />
           <option name="timeStamp" value="440" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt</url>
           <line>147</line>
           <properties />
           <option name="timeStamp" value="459" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/ProcessingModules/ModuleOpcTest.kt</url>
           <line>81</line>
           <properties />
           <option name="timeStamp" value="460" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Dct/DctUniversalAlgorithmTest.kt</url>
           <line>45</line>
           <properties />
           <option name="timeStamp" value="474" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt</url>
           <line>310</line>
           <properties />
           <option name="timeStamp" value="488" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Convertor/ConvertorDefaultStegonographyTest.kt</url>
           <line>57</line>
           <properties />
           <option name="timeStamp" value="490" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorStegonographyTest.kt</url>
           <line>63</line>
           <properties />
           <option name="timeStamp" value="497" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Objects/OpcConvertorTest.kt</url>
           <line>51</line>
           <properties />
           <option name="timeStamp" value="526" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/TripleDataOpcMatrixTest.kt</url>
           <line>40</line>
           <properties />
           <option name="timeStamp" value="530" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/ByteVectorContainerTest.kt</url>
           <line>28</line>
           <properties />
           <option name="timeStamp" value="535" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ConvertorDesktopTest.kt</url>
           <line>296</line>
           <properties />
           <option name="timeStamp" value="540" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/ByteVectorTest.kt</url>
           <line>100</line>
           <properties />
           <option name="timeStamp" value="552" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Containers/DataOpcTest.kt</url>
           <line>30</line>
           <properties />
           <option name="timeStamp" value="553" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/Tests_tmp/Steganography/Utils/StegoConvertorDesktopTestBridge.kt</url>
           <line>113</line>
           <properties />
           <option name="timeStamp" value="562" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt</url>
           <line>43</line>
           <properties />
           <option name="timeStamp" value="572" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Convertor/ConvertorDefault.kt</url>
           <line>73</line>
           <properties />
           <option name="timeStamp" value="574" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcUtils.kt</url>
           <line>64</line>
           <properties />
           <option name="timeStamp" value="580" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcProcess.kt</url>
           <line>65</line>
           <properties />
           <option name="timeStamp" value="582" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url />
+          <url>file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcProcess.kt</url>
           <line>55</line>
           <properties />
           <option name="timeStamp" value="583" />
@@ -1280,20 +1261,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithmsMessageTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="35" column="34" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/Assert.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
@@ -1517,13 +1484,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/WindowsApp/MainPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="213" column="96" lean-forward="true" selection-start-line="213" selection-start-column="96" selection-end-line="213" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Containers/Type/ByteVector.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1585,13 +1545,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithms.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3315">
-          <caret line="199" column="79" selection-start-line="199" selection-start-column="79" selection-end-line="199" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Opc/OpcUtilsOddAndEvenTest.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1609,13 +1562,6 @@
           <folding>
             <element signature="e#49#373#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcProcess.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="37" column="50" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -1642,15 +1588,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tests_tmp/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithmsMessageTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="357">
           <caret line="32" column="48" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcUtils.kt">
       <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcAlgorithms.kt">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
+          <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Constants/Constants.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#12407#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImageCompressionLib/src/ImageCompressionLib/Utils/Functions/Opc/OpcProcess.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="73" column="41" lean-forward="true" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WindowsApp/MainPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="245" column="38" lean-forward="true" selection-start-line="245" selection-start-column="38" selection-end-line="245" selection-end-column="38" />
         </state>
       </provider>
     </entry>

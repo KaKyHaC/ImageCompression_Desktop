@@ -1,5 +1,6 @@
 package WindowsApp;
 
+import ImageCompressionLib.Constants.ConstantsKt;
 import ImageCompressionLib.Containers.ByteVectorContainer;
 import ImageCompressionLib.Containers.EncryptParameters;
 import ImageCompressionLib.Containers.Parameters;
@@ -72,6 +73,8 @@ public class MainPage extends JFrame {
         spinnerUnitWidth.setValue(8);
         spinnerBaseWidth.setValue(1);
         spinnerBaseHeight.setValue(1);
+        editorPaneMessage.setText(ConstantsKt.getDEFAULT_MESSAGE());
+
     }
     private void init(){
         flagForm=new FlagForm(Flag.createDefaultFlag(),panelFlag);
@@ -238,8 +241,8 @@ public class MainPage extends JFrame {
     }
     private void setSteganographyButton(){
         Flag flag=new Flag();
-//        flag.setTrue(Flag.Parameter.DC);
-//        flag.setTrue(Flag.Parameter.CompressionUtils);
+        flag.setTrue(Flag.Parameter.DC);//TODO fix without DC
+        flag.setTrue(Flag.Parameter.CompressionUtils);
         flag.setTrue(Flag.Parameter.OneFile);
         flag.setTrue(Flag.Parameter.GlobalBase);
         flag.setTrue(Flag.Parameter.ByteBase);

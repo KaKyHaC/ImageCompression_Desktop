@@ -62,10 +62,10 @@ class OpcProcess {
             if (flag.isChecked(Flag.Parameter.LongCode))
                 throw Exception("can't write message using LongCode")
 
-            if (position == 0)
-                OpcDirectWithMessageAtFirst(dataOrigin, DataOpc, message)
-            else
-                OpcDirectWithMessageAt(dataOrigin, DataOpc, message, position)
+//            if (position == 0)
+//                OpcDirectWithMessageAtFirst(dataOrigin, DataOpc, message)
+//            else
+            OpcDirectWithMessageAt(dataOrigin, DataOpc, message, position)
         }
         @JvmStatic
         fun reverseOpcWithMessageAt(parameters: Parameters, DataOpc: DataOpc, dataOrigin: Matrix<Short>, position: Int): Boolean {
@@ -73,12 +73,12 @@ class OpcProcess {
             if (flag.isChecked(Flag.Parameter.LongCode))
                 throw Exception("can't read message using LongCode")
 
-            val message = if (position == 0)
-                OpcReverceWithMessageAtFirst(dataOrigin, DataOpc)
-            else
-                OpcReverceWithMessageAt(dataOrigin, DataOpc, position)
+//            val message = if (position == 0)
+//                OpcReverceWithMessageAtFirst(dataOrigin, DataOpc)
+//            else
+            return OpcReverceWithMessageAt(dataOrigin, DataOpc, position)
 
-            return message
+//            return message
         }
     }
 }
