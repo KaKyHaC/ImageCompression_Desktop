@@ -67,6 +67,8 @@ class ConvertorDefaultStegonographyTest (val size: Size,val messageLenght:Int, v
     @Before
     fun setUp() {
         parameters= Parameters.createParametresForTest(size,unitSize = Size(1,8))
+//        parameters.flag.setFalse(Flag.Parameter.DC)
+//        parameters.flag.setFalse(Flag.Parameter.DCT)
 //        parameters.flag.setTrue(Flag.Parameter.Steganography)
         myBufferedImage= createMyBI(size)
         encParam= EncryptParameters()

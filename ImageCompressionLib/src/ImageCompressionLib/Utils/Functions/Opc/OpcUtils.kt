@@ -79,8 +79,12 @@ class OpcUtils {
         fun MakeDataOdd(dataOrigin: Matrix<Short>){
             dataOrigin.forEach{i, j, value ->
                 var tmp=value
-                if(value%2==0)
-                    tmp++
+                if(j==0) {
+                    if (value % 2 == 0)
+                        tmp++
+                }else
+                    if(value%2!=0)
+                        tmp++
                 tmp
             }
         }
