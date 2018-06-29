@@ -121,7 +121,12 @@ public class MainPage extends JFrame {
         ConvertorDefault.IGuard iGuard=new ConvertorDefault.IGuard(){
             @Override
             public void onMessageRead(@NotNull ByteVector vector) {
-                editorPaneMessage.setText(new String(vector.toByteArray()));
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        editorPaneMessage.setText(new String(vector.toByteArray()));
+                    }
+                }).start();
             }
             @Nullable
             @Override
@@ -238,8 +243,8 @@ public class MainPage extends JFrame {
     }
     private void setSteganographyButton(){
         Flag flag=new Flag();
-//        flag.setTrue(Flag.Parameter.DC);
-//        flag.setTrue(Flag.Parameter.CompressionUtils);
+        flag.setTrue(Flag.Parameter.DC);
+        flag.setTrue(Flag.Parameter.CompressionUtils);
         flag.setTrue(Flag.Parameter.OneFile);
         flag.setTrue(Flag.Parameter.GlobalBase);
         flag.setTrue(Flag.Parameter.ByteBase);
