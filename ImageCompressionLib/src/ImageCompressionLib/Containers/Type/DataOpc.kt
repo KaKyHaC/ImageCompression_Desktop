@@ -48,7 +48,7 @@ class DataOpc :ICopyble{
         if(len==code.size)
             println("len==code")
         else if(len<code.size)
-            println("len < code")
+            throw Exception("len < code")
         else
             println("count ${count++}")
         while (len-- > code.size)
@@ -266,7 +266,7 @@ class DataOpc :ICopyble{
         @JvmStatic var count = 0
 
         //support utils
-        private fun getLengthOfCode(base: ShortArray,unitSize: Size): Int {//TODO optimize this fun
+        fun getLengthOfCode(base: ShortArray,unitSize: Size): Int {//TODO optimize this fun
             var bi = BigInteger("1")
             for (i in 0 until unitSize.width) {
                 for (j in 0 until unitSize.height)

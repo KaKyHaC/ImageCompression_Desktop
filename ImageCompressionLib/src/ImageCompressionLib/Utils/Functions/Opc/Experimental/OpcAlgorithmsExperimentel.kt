@@ -60,5 +60,25 @@ class OpcAlgorithmsExperimentel {
                 }
             }
         }
+
+        @JvmStatic
+        fun OpcDirectStegoAt(dataOrigin: Matrix<Short>, dataOpc: DataOpc, message: Boolean, message_position: Int) {
+            var base = BigInteger.ONE
+            for (i in dataOrigin.width - 1 downTo 0) {
+                for (j in dataOrigin.height - 1 downTo 0) {
+                    if (dataOrigin[i,j].toInt() != 0) {
+                        dataOpc.N = dataOpc.N.add(base.multiply(BigInteger.valueOf(dataOrigin[i,j].toLong())));
+                    }
+                    base = base.multiply(BigInteger.valueOf(dataOpc.base[j].toLong()));
+
+                    if (i * dataOrigin.width + j == message_position) {
+                        if (message)
+                            dataOpc.N += base
+
+                        base *= TWO
+                    }
+                }
+            }
+        }
     }
 }

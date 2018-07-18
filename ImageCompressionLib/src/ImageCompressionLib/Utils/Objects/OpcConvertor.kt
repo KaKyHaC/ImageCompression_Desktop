@@ -121,7 +121,7 @@ class OpcConvertor {
             throw Exception("steganography==null")
         val position= encParameters.steganography!!.stegoPosition
         val stegoGeter= encParameters.steganography!!.stegoBlockKeygenFactory.invoke()
-        dataOpcMatrix.forEach(){i, j, value ->
+        dataOpcMatrix.forEach{i, j, value ->
             val tmp=OpcProcess.reverseOpcWithMessageAt(parameters,value, splitedShortMatrix[i,j] ,position)
             if(stegoGeter.isUseNextBlock())res.append(tmp)
             return@forEach null

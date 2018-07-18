@@ -4,10 +4,9 @@ import ImageCompressionLib.Containers.Type.DataOpc
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Containers.Parameters
 import ImageCompressionLib.Containers.Matrix.Matrix
+import ImageCompressionLib.Utils.Functions.Opc.Experimental.OpcAlgorithmsExperimentel
 import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcDirectLongAndBI
 import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcDirectUseOnlyLong
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcDirectWithMessageAt
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcDirectWithMessageAtFirst
 import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcReverceWithMessageAt
 import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcReverceWithMessageAtFirst
 import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcReverseDefault
@@ -56,16 +55,19 @@ class OpcProcess {
                 OpcReverseDefault(dataOrigin, DataOpc)
         }
         @JvmStatic
-        fun directOpcWithMessageAt(parameters: Parameters, dataOrigin: Matrix<Short>, DataOpc: DataOpc, message: Boolean, position: Int) {
+        fun directOpcWithMessageAt(parameters: Parameters, dataOrigin: Matrix<Short>, dataOpc: DataOpc, message: Boolean, position: Int) {
             val flag = parameters.flag
 
             if (flag.isChecked(Flag.Parameter.LongCode))
                 throw Exception("can't write message using LongCode")
 
-            if (position == 0)
-                OpcDirectWithMessageAtFirst(dataOrigin, DataOpc, message)
-            else
-                OpcDirectWithMessageAt(dataOrigin, DataOpc, message, position)
+            OpcAlgorithmsExperimentel.OpcDirectStegoAt(dataOrigin,dataOpc,message,position)
+            val maxLen=DataOpc.getLengthOfCode(dataOpc.base,dataOrigin.size)
+            val len = dataOpc.N.toByteArray().size
+            if(len>maxLen) {
+                println("len $len>max $maxLen")
+                OpcAlgorithms.OpcDirectDefault(dataOrigin,dataOpc)
+            }
         }
         @JvmStatic
         fun reverseOpcWithMessageAt(parameters: Parameters, DataOpc: DataOpc, dataOrigin: Matrix<Short>, position: Int): Boolean {
