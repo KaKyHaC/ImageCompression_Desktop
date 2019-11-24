@@ -2,7 +2,7 @@ package ImageCompressionLib.Utils
 
 import ImageCompressionLib.Data.Matrix.ShortMatrix
 import ImageCompressionLib.Data.Primitives.Size
-import ImageCompressionLib.Utils.Functions.Dct.DctAlgorithm8x8
+import ImageCompressionLib.Utils.Dct.DctAlgorithm8x8
 import org.junit.Before
 import org.junit.Test
 

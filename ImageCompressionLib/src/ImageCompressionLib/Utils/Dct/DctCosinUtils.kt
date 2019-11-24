@@ -1,11 +1,9 @@
-package ImageCompressionLib.Utils.Functions.Dct
+package ImageCompressionLib.Utils.Dct
 
 import ImageCompressionLib.Data.Matrix.Matrix
 import ImageCompressionLib.Data.Primitives.Size
 
 class DctCosinUtils{
-//    private val cosinTableW: Matrix<Double>
-//    private val cosinTableH: Matrix<Double>
     private val cosinTableMultiply:Matrix<Matrix<Double>>
 
     constructor(unitSize: Size) {

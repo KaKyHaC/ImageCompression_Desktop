@@ -1,4 +1,4 @@
-package ImageCompressionLib.Utils.Functions.Dct
+package ImageCompressionLib.Utils.Dct
 
 
 import ImageCompressionLib.Constants.Cosine

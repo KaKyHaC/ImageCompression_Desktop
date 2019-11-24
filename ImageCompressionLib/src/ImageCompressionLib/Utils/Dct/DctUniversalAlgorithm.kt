@@ -1,4 +1,4 @@
-package ImageCompressionLib.Utils.Functions.Dct
+package ImageCompressionLib.Utils.Dct
 
 import ImageCompressionLib.Constants.MAX_QUANTIZATION_VALUE
 import ImageCompressionLib.Data.Matrix.Matrix
@@ -7,16 +7,16 @@ import ImageCompressionLib.Data.Primitives.Size
 class DctUniversalAlgorithm  {
 
     private val cosinTable:DctCosinUtils
-    private val coeficient:DctCoeficientUtil
+    private val coeficient:DctCoefficients
     private val quantizationTable:DctQuantizationUtils
     private val unitSize: Size
     constructor(unitSize: Size) {
         this.unitSize=unitSize
         cosinTable= DctCosinUtils(unitSize)
-        coeficient= DctCoeficientUtil(unitSize)
+        coeficient= DctCoefficients(unitSize)
         quantizationTable= DctQuantizationUtils(unitSize, MAX_QUANTIZATION_VALUE)
     }
-    private constructor(cosinTable: DctCosinUtils, coeficient: DctCoeficientUtil, quantizationTable: DctQuantizationUtils, unitSize: Size) {
+    private constructor(cosinTable: DctCosinUtils, coeficient: DctCoefficients, quantizationTable: DctQuantizationUtils, unitSize: Size) {
         this.cosinTable = cosinTable
         this.coeficient = coeficient
         this.quantizationTable = quantizationTable

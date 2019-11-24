@@ -6,7 +6,7 @@ import ImageCompressionLib.Data.Matrix.Matrix
 import ImageCompressionLib.Data.Matrix.ShortMatrix
 import ImageCompressionLib.Data.Parameters
 import ImageCompressionLib.Data.Type.Flag
-import ImageCompressionLib.Utils.Functions.Dct.DctUniversalAlgorithm
+import ImageCompressionLib.Utils.Dct.DctUniversalAlgorithm
 
 /**
  * Class for transformation between DCT and Origin

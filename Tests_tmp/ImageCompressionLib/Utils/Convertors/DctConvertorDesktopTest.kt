@@ -6,7 +6,7 @@ import ImageCompressionLib.Data.Matrix.ShortMatrix
 import ImageCompressionLib.Data.Parameters
 import ImageCompressionLib.Data.Type.Flag
 import ImageCompressionLib.Data.Primitives.Size
-import ImageCompressionLib.Utils.Functions.Dct.DctUniversalAlgorithm
+import ImageCompressionLib.Utils.Dct.DctUniversalAlgorithm
 import org.junit.Test
 
 import org.junit.Assert.*
