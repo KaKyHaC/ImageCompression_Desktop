@@ -10,4 +10,6 @@ data class Triple<T>(
         mapper(1, second),
         mapper(2, third)
     )
+
+    fun values() = arrayListOf(first, second, third)
 }
