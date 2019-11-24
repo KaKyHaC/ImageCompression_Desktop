@@ -4,7 +4,7 @@ package ImageCompressionLib.Data
 import ImageCompressionLib.Constants.SIZEOFBLOCK
 import ImageCompressionLib.Data.Type.ByteVector
 import ImageCompressionLib.Data.Type.Flag
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import org.junit.Test
 
 import org.junit.Assert.*

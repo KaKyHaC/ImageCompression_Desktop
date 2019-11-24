@@ -2,7 +2,7 @@ package ImageCompressionLib.Utils.Functions.Opc
 
 import ImageCompressionLib.Data.Matrix.ShortMatrix
 import ImageCompressionLib.Data.Type.DataOpc
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcDirectDefault
 import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcDirectLongAndBI
 import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcDirectUseOnlyLong

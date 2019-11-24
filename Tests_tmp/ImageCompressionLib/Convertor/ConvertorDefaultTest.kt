@@ -6,7 +6,7 @@ import ImageCompressionLib.Data.Parameters
 import ImageCompressionLib.Data.Type.ByteVector
 import ImageCompressionLib.Data.Type.Flag
 import ImageCompressionLib.Data.Type.MyBufferedImage
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import ImageCompressionLib.Convertor.ConvertorDefault.IDao
 import ImageCompressionLib.Utils.Functions.ImageStandardDeviation
 import ImageCompressionLib.Utils.Convertors.TimeManager
@@ -18,7 +18,7 @@ import org.junit.runners.Parameterized
 import java.io.File
 
 @RunWith(Parameterized::class)
-class ConvertorDefaultTest(val size:Size,var range:Int) {
+class ConvertorDefaultTest(val size: Size, var range:Int) {
     var parameters=Parameters.createParametresForTest(size)
     lateinit var myBufferedImage:MyBufferedImage//= createMyBI(size)
     val file= File("convertorfile.txt")
@@ -77,7 +77,7 @@ class ConvertorDefaultTest(val size:Size,var range:Int) {
     }
     @Test
     fun DirectReverceConvertUnitSize7x6(){
-        parameters=Parameters(parameters.flag,parameters.imageSize, Size(7,6))
+        parameters=Parameters(parameters.flag,parameters.imageSize, Size(7, 6))
         TimeManager.Instance.startNewTrack("convert")
         convertor.FromBmpToBar(ConvertorDefault.Computing.MultiThreads)
         TimeManager.Instance.append("direct")
@@ -98,7 +98,11 @@ class ConvertorDefaultTest(val size:Size,var range:Int) {
     }
     @Test
     fun DirectReverceConvertGlobalBase(){
-        parameters=Parameters(Flag.createDefaultFlag(),parameters.imageSize,sameBaseSize = Size(2,2))
+        parameters=Parameters(Flag.createDefaultFlag(),parameters.imageSize,sameBaseSize = Size(
+            2,
+            2
+        )
+        )
         parameters.flag.setTrue(Flag.Parameter.GlobalBase)
         TimeManager.Instance.startNewTrack("convert")
         convertor.FromBmpToBar(ConvertorDefault.Computing.MultiThreads)
@@ -113,11 +117,11 @@ class ConvertorDefaultTest(val size:Size,var range:Int) {
         fun data(): Collection<Array<Any>> {
             return listOf(
 //                    arrayOf(Size(8,8),5)
-                    arrayOf(Size(16,16),10)
-                    ,arrayOf(Size(41,12),10)
-                    ,arrayOf(Size(128,128),15)
-                    ,arrayOf(Size(119,133),15)
-                    ,arrayOf(Size(1080,1920),20)
+                    arrayOf(Size(16, 16),10)
+                    ,arrayOf(Size(41, 12),10)
+                    ,arrayOf(Size(128, 128),15)
+                    ,arrayOf(Size(119, 133),15)
+                    ,arrayOf(Size(1080, 1920),20)
             )
         }
 

@@ -1,8 +1,8 @@
 package ImageCompressionLib.Data.Matrix
 
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 
-class IteratorZeroMatrix<T:Any>(matrix: Array<Array<Any>>, wStart: Int, hStart: Int, sizeBuffer: Size,val defaultValue:T) : IteratorMatrix<T>(matrix, wStart, hStart, sizeBuffer) {
+class IteratorZeroMatrix<T:Any>(matrix: Array<Array<Any>>, wStart: Int, hStart: Int, sizeBuffer: Size, val defaultValue:T) : IteratorMatrix<T>(matrix, wStart, hStart, sizeBuffer) {
     override fun get(i: Int, j: Int): T {
         if(i+wStart>=size.width||j+hStart>=size.height)
             return defaultValue

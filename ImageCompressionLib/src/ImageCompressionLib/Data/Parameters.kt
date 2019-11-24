@@ -2,17 +2,21 @@ package ImageCompressionLib.Data
 import ImageCompressionLib.Constants.SIZEOFBLOCK
 import ImageCompressionLib.Data.Type.ByteVector
 import ImageCompressionLib.Data.Type.Flag
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 
 class Parameters {
     val flag: Flag
     val imageSize: Size
     val unitSize: Size
     val sameBaseSize: Size
-    val dataSize:Size
-    val matrixOfUnitSize:Size
+    val dataSize: Size
+    val matrixOfUnitSize: Size
 
-    constructor(flag: Flag, imageSize: Size, unitSize: Size = Size(SIZEOFBLOCK, SIZEOFBLOCK), sameBaseSize: Size = Size(1, 1)) {
+    constructor(flag: Flag, imageSize: Size, unitSize: Size = Size(
+        SIZEOFBLOCK,
+        SIZEOFBLOCK
+    ), sameBaseSize: Size = Size(1, 1)
+    ) {
         this.flag = flag
         this.imageSize = imageSize
         this.unitSize = unitSize
@@ -21,7 +25,7 @@ class Parameters {
         matrixOfUnitSize=calculateMatrixOfUnitSize(dataSize,unitSize)
     }
 
-    fun calculateDataSize(imageSize: Size,unitSize: Size): Size {
+    fun calculateDataSize(imageSize: Size, unitSize: Size): Size {
         var w=0
         var h=0
 
@@ -30,9 +34,9 @@ class Parameters {
         if(imageSize.height%unitSize.height!=0)
             h=unitSize.height-imageSize.height%unitSize.height
 
-        return Size(imageSize.width+w,imageSize.height+h)
+        return Size(imageSize.width + w, imageSize.height + h)
     }
-    fun calculateMatrixOfUnitSize(dataSize:Size,unitSize: Size): Size {
+    fun calculateMatrixOfUnitSize(dataSize: Size, unitSize: Size): Size {
         var w= dataSize.width/unitSize.width
         var h= dataSize.height/unitSize.height
         if(dataSize.width%unitSize.width!=0)w++
@@ -83,17 +87,25 @@ class Parameters {
     companion object {
         @JvmStatic fun fromByteVector(vector: ByteVector): Parameters {
             val flag= Flag(vector.getNextShort())
-            val imageSize= Size(vector.getNextShort().toInt(), vector.getNextShort().toInt())
-            val unitSize= Size(vector.getNextShort().toInt(), vector.getNextShort().toInt())
+            val imageSize=
+                Size(vector.getNextShort().toInt(), vector.getNextShort().toInt())
+            val unitSize=
+                Size(vector.getNextShort().toInt(), vector.getNextShort().toInt())
             var sameBaseSize= Size(1, 1)
             if(flag.isChecked(Flag.Parameter.GlobalBase)){
-                sameBaseSize= Size(vector.getNextShort().toInt(), vector.getNextShort().toInt())
+                sameBaseSize= Size(
+                    vector.getNextShort().toInt(),
+                    vector.getNextShort().toInt()
+                )
             }
             return Parameters(flag, imageSize, unitSize,sameBaseSize)
         }
         @Deprecated("only for tests")
-        @JvmStatic fun createParametresForTest(imageSize: Size,unitSize: Size= Size(SIZEOFBLOCK, SIZEOFBLOCK),flag: Flag= Flag.createDefaultFlag()):Parameters{
-            val s2=Size(1,1)
+        @JvmStatic fun createParametresForTest(imageSize: Size, unitSize: Size = Size(
+            SIZEOFBLOCK,
+            SIZEOFBLOCK
+        ), flag: Flag= Flag.createDefaultFlag()):Parameters{
+            val s2= Size(1, 1)
             return Parameters(flag,imageSize,unitSize,s2)
         }
     }

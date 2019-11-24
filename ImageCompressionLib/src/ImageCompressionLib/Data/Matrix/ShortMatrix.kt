@@ -1,6 +1,6 @@
 package ImageCompressionLib.Data.Matrix
 
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 
 class ShortMatrix: Matrix<Short> {
 //    constructor(matrix: Array<Array<Short>>):super(matrix as Array<Array<Any>>) { }

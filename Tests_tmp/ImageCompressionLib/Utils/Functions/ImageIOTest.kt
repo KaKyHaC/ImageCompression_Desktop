@@ -4,7 +4,7 @@ import ImageCompressionLib.Data.Enumerations.State
 import ImageCompressionLib.Data.Parameters
 import ImageCompressionLib.Data.TripleShortMatrix
 import ImageCompressionLib.ProcessingModules.ModuleImage
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import Utils.BuffImConvertor
 import org.junit.Before
 import org.junit.Test
@@ -47,8 +47,12 @@ class ImageIOTest{
         ImageIO.write(bi,"bmp", File(pathToResBmp2))
     }
     companion object {
-        fun createMatrix(w:Int,h:Int,unitSize: Size=Size(8,8)): TripleShortMatrix {
-            val m= TripleShortMatrix(Parameters.createParametresForTest(Size(w,h),unitSize),
+        fun createMatrix(w:Int,h:Int,unitSize: Size = Size(
+            8,
+            8
+        )
+        ): TripleShortMatrix {
+            val m= TripleShortMatrix(Parameters.createParametresForTest(Size(w, h),unitSize),
                 State.Origin)
             m.a.forEach(){i, j, value ->  Math.abs(Random().nextInt(255)).toShort() }
             m.b.forEach(){i, j, value ->  Math.abs(Random().nextInt(255)).toShort() }

@@ -5,7 +5,7 @@ import ImageCompressionLib.Data.EncryptParameters
 import ImageCompressionLib.Data.Parameters
 import ImageCompressionLib.Data.Type.ByteVector
 import ImageCompressionLib.Data.Type.MyBufferedImage
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import ImageCompressionLib.Utils.Functions.ImageStandardDeviation
 import ImageCompressionLib.Utils.Functions.Opc.IStegoMessageUtil
 import ImageCompressionLib.Utils.Convertors.TimeManager
@@ -18,7 +18,7 @@ import java.util.*
 import kotlin.test.assertFails
 
 @RunWith(Parameterized::class)
-class ConvertorDefaultStegonographyTest (val size: Size,val messageLenght:Int, var stegoPos:Int) {
+class ConvertorDefaultStegonographyTest (val size: Size, val messageLenght:Int, var stegoPos:Int) {
     lateinit var parameters: Parameters
     lateinit var myBufferedImage: MyBufferedImage//= createMyBI(size)
     lateinit var encParam:EncryptParameters
@@ -64,7 +64,7 @@ class ConvertorDefaultStegonographyTest (val size: Size,val messageLenght:Int, v
 
     @Before
     fun setUp() {
-        parameters= Parameters.createParametresForTest(size,unitSize = Size(1,8))
+        parameters= Parameters.createParametresForTest(size,unitSize = Size(1, 8))
 //        parameters.flag.setTrue(Flag.Parameter.Steganography)
         myBufferedImage= createMyBI(size)
         encParam= EncryptParameters()
@@ -113,12 +113,12 @@ class ConvertorDefaultStegonographyTest (val size: Size,val messageLenght:Int, v
         @Parameterized.Parameters(name = "stegoPos:{2},messLen:{1},{0}")
         fun data(): Collection<Array<Any>> {
             return listOf(
-                    arrayOf(Size(16,16),10,0)
-                    ,arrayOf(Size(41,12),10,1)
-                    ,arrayOf(Size(128,128),50,2)
-                    ,arrayOf(Size(119,133),20,3)
-                    ,arrayOf(Size(1080,1920),200,4)
-                    ,arrayOf(Size(1080,1920),200,0)
+                    arrayOf(Size(16, 16),10,0)
+                    ,arrayOf(Size(41, 12),10,1)
+                    ,arrayOf(Size(128, 128),50,2)
+                    ,arrayOf(Size(119, 133),20,3)
+                    ,arrayOf(Size(1080, 1920),200,4)
+                    ,arrayOf(Size(1080, 1920),200,0)
             )
         }
 

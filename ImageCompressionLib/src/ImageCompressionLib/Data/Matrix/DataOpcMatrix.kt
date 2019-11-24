@@ -1,7 +1,7 @@
 package ImageCompressionLib.Data.Matrix
 
 import ImageCompressionLib.Data.Type.DataOpc
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 //import com.sun.org.glassfish.gmbal.Description
 
 class DataOpcMatrix : Matrix<DataOpc> {

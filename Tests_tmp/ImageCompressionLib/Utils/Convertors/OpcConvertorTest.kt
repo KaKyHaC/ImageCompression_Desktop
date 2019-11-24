@@ -4,7 +4,7 @@ import ImageCompressionLib.Data.*
 import ImageCompressionLib.Data.Matrix.DataOpcMatrix
 import ImageCompressionLib.Data.Matrix.ShortMatrix
 import ImageCompressionLib.Data.Type.Flag
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import org.junit.Before
 
 import org.junit.Test
@@ -12,7 +12,7 @@ import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 
 @RunWith(value = Parameterized::class)
-class OpcConvertorTest(flag: Flag,imageSize: Size,unitSize: Size,baseSize: Size) {
+class OpcConvertorTest(flag: Flag, imageSize: Size, unitSize: Size, baseSize: Size) {
     val parameters: Parameters= Parameters(flag, imageSize, unitSize,baseSize)
     lateinit var shortMatrix: ShortMatrix
     lateinit var shortMatrixCpy: ShortMatrix
@@ -36,9 +36,13 @@ class OpcConvertorTest(flag: Flag,imageSize: Size,unitSize: Size,baseSize: Size)
             return listOf(
 //                    arrayOf(flag, Size(128,128),unitSize, sameBaseSize),
 //                    arrayOf(flag, imageSize, unitSize, sameBaseSize) ,
-                    arrayOf(flagSB, Size(123,243), unitSize, sameBaseSize) ,
-                    arrayOf(flag, Size(128,128),Size(7,7), sameBaseSize),
-                    arrayOf(flag, Size(128,128),Size(8,8), sameBaseSize))
+                    arrayOf(flagSB, Size(123, 243), unitSize, sameBaseSize) ,
+                    arrayOf(flag,
+                        Size(128, 128),
+                        Size(7, 7), sameBaseSize),
+                    arrayOf(flag,
+                        Size(128, 128),
+                        Size(8, 8), sameBaseSize))
         }
     }
 

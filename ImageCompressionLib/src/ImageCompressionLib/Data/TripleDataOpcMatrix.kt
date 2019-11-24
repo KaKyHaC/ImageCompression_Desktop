@@ -5,7 +5,7 @@ import ImageCompressionLib.Data.Matrix.Matrix
 import ImageCompressionLib.Data.Type.ByteVector
 import ImageCompressionLib.Data.Type.DataOpc
 import ImageCompressionLib.Data.Type.Flag
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 
 class TripleDataOpcMatrix {
     val a: Matrix<DataOpc>

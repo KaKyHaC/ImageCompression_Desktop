@@ -4,7 +4,7 @@ import ImageCompressionLib.Data.*
 import ImageCompressionLib.Data.Matrix.ShortMatrix
 import ImageCompressionLib.Data.Type.DataOpc
 import ImageCompressionLib.Data.Type.Flag
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.afterReverceOpcProcess
 import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.directOpcWithMessageAt
 import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.preDirectOpcProcess

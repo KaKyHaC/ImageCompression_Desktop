@@ -7,7 +7,7 @@ import ImageCompressionLib.Data.Matrix.ShortMatrix
 import ImageCompressionLib.Data.Type.ByteVector
 import ImageCompressionLib.Data.Type.DataOpc
 import ImageCompressionLib.Data.Type.Flag
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import ImageCompressionLib.Utils.Functions.Opc.OpcProcess
 import ImageCompressionLib.Utils.Functions.Opc.OpcUtils
 
@@ -34,7 +34,11 @@ class OpcConvertor {
         this.shortMatrix = ShortMatrix.valueOf(dataOrigin)
         this.parameters=parameters
         state = State.Origin
-        val size=calculataDataOpcMatrixSize(Size(dataOrigin.size,dataOrigin[0].size),parameters.unitSize)
+        val size=calculataDataOpcMatrixSize(
+            Size(
+                dataOrigin.size,
+                dataOrigin[0].size
+            ),parameters.unitSize)
         dataOpcMatrix= DataOpcMatrix(size.width, size.height, parameters.unitSize)
     }
     constructor(dataOrigin: ShortMatrix, parameters: Parameters) {
@@ -59,15 +63,18 @@ class OpcConvertor {
         else
             splitedShortMatrix=shortMatrix.splitWithZeroIterator(parameters.unitSize.width,parameters.unitSize.height,0)
     }
-    private fun calculataDataOpcMatrixSize(imageSize: Size, unitSize:Size): Size {
+    private fun calculataDataOpcMatrixSize(imageSize: Size, unitSize: Size): Size {
         var w= imageSize.width/unitSize.width
         var h= imageSize.height/unitSize.height
         if(imageSize.width%unitSize.width!=0)w++
         if(imageSize.height%unitSize.height!=0)h++
         return Size(w, h)
     }
-    private fun calculateShortMatrixSize(dataOpcMatrixSize:Size,unitSze:Size): Size {
-        return Size(dataOpcMatrixSize.width*unitSze.width,dataOpcMatrixSize.height*unitSze.height)
+    private fun calculateShortMatrixSize(dataOpcMatrixSize: Size, unitSze: Size): Size {
+        return Size(
+            dataOpcMatrixSize.width * unitSze.width,
+            dataOpcMatrixSize.height * unitSze.height
+        )
     }
     private fun beforDirectOpc(){
         dataOpcMatrix.forEach() { i, j, value ->

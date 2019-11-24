@@ -6,7 +6,7 @@ import ImageCompressionLib.Data.Parameters;
 import ImageCompressionLib.Data.Type.ByteVector;
 import ImageCompressionLib.Data.Type.Flag;
 import ImageCompressionLib.Data.Type.MyBufferedImage;
-import ImageCompressionLib.Data.Type.Size;
+import ImageCompressionLib.Data.Primitives.Size;
 import ImageCompressionLib.Convertor.ConvertorDefault;
 import ImageCompressionLib.Utils.Functions.ImageStandardDeviation;
 import ImageCompressionLib.Utils.Functions.Opc.IStegoMessageUtil;

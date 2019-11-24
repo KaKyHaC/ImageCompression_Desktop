@@ -1,7 +1,7 @@
 //import ImageCompressionLib.Constants.Cosine;
 //import ImageCompressionLib.Data.*;
 //import ImageCompressionLib.Data.Type.Flag;
-//import ImageCompressionLib.Data.Type.Size;
+//import ImageCompressionLib.Data.Primitives.Size;
 //import ImageCompressionLib.Convertor.ConvertorDefault;
 ////import ImageCompressionLib.ProcessingModules.ModuleByteVector;
 //import Utils.AbsDaoDesktop;

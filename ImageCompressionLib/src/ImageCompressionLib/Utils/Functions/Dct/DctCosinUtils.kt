@@ -1,7 +1,7 @@
 package ImageCompressionLib.Utils.Functions.Dct
 
 import ImageCompressionLib.Data.Matrix.Matrix
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 
 class DctCosinUtils{
 //    private val cosinTableW: Matrix<Double>

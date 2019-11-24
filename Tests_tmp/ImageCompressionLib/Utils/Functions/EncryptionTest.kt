@@ -3,7 +3,7 @@ package ImageCompressionLib.Utils.Functions
 import ImageCompressionLib.Data.Matrix.DataOpcMatrix
 import ImageCompressionLib.Data.Parameters
 import ImageCompressionLib.Data.TripleDataOpcMatrix
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -13,7 +13,7 @@ import org.junit.runners.Parameterized
 import java.util.*
 
 @RunWith(Parameterized::class)
-class EncryptionTest(val imageSize:Size,val unitSize: Size,val key:String) {
+class EncryptionTest(val imageSize: Size, val unitSize: Size, val key:String) {
 
     lateinit var dopcs:TripleDataOpcMatrix
     @Before
@@ -44,9 +44,15 @@ class EncryptionTest(val imageSize:Size,val unitSize: Size,val key:String) {
         @Parameterized.Parameters
         fun data(): Collection<Array<Any>> {
             return listOf(
-                    arrayOf(Size(8,8),Size(8,8),"abc"),
-                    arrayOf(Size(128,128),Size(8,8),"abc"),
-                    arrayOf(Size(538,721),Size(7,9),"a32mfbc")
+                    arrayOf(
+                        Size(8, 8),
+                        Size(8, 8),"abc"),
+                    arrayOf(
+                        Size(128, 128),
+                        Size(8, 8),"abc"),
+                    arrayOf(
+                        Size(538, 721),
+                        Size(7, 9),"a32mfbc")
             )
 
         }

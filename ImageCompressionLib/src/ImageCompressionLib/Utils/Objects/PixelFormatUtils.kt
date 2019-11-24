@@ -1,6 +1,6 @@
 package ImageCompressionLib.Utils.Objects
 
-import ImageCompressionLib.Data.Type.Pixel
+import ImageCompressionLib.Data.Primitives.Pixel
 
 object PixelFormatUtils : IUtils<Pixel.RGB, Pixel.YCbCr> {
 

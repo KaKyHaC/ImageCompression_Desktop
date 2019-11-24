@@ -3,7 +3,7 @@ package ImageCompressionLib.ProcessingModules
 import ImageCompressionLib.Data.Enumerations.State
 import ImageCompressionLib.Data.EncryptParameters
 import ImageCompressionLib.Data.Type.ByteVector
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import ImageCompressionLib.Utils.Functions.ImageIOTest
 import ImageCompressionLib.Utils.Functions.Opc.IStegoMessageUtil
 import ImageCompressionLib.Utils.Convertors.TimeManager
@@ -83,7 +83,7 @@ class ModuleOpcTest(val w: Int,val h: Int,val loop: Int) {
     }
     @Test
     fun GlobalTestUnitSize7x6() {
-        val m = ImageIOTest.createMatrix(w, h,Size(7, 6))
+        val m = ImageIOTest.createMatrix(w, h, Size(7, 6))
 //        m.parameters.unitSize = Size(7, 6)
         m.state = State.Dct
         val cpy = m.copy()
@@ -104,7 +104,7 @@ class ModuleOpcTest(val w: Int,val h: Int,val loop: Int) {
         TestSteganographyAtPos(1)
     }
     fun TestSteganographyAtPos(pos:Int) {
-        val m = ImageIOTest.createMatrix(w, h,Size(1,8))
+        val m = ImageIOTest.createMatrix(w, h, Size(1, 8))
         m.state = State.Dct
         val cpy = m.copy()
         val eP=EncryptParameters()

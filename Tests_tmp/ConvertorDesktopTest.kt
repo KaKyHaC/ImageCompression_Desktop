@@ -3,7 +3,7 @@ import ImageCompressionLib.Data.Parameters
 import ImageCompressionLib.Data.TripleDataOpcMatrix
 import ImageCompressionLib.Data.TripleShortMatrix
 import ImageCompressionLib.Data.Type.Flag
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import ImageCompressionLib.ProcessingModules.*
 //import ImageCompressionLib.Utils.Functions.Steganography
 
@@ -259,7 +259,11 @@ class ConvertorDesktopTest {
 //        rgb.assertMatrixInRange(cpy, delta)
     }
 
-    fun testDirectReverseConverting(w: Int, h: Int, delta: Int,flag: Flag, compareCompression: Boolean = false, sameBase: Size = Size(1, 1)) {
+    fun testDirectReverseConverting(w: Int, h: Int, delta: Int,flag: Flag, compareCompression: Boolean = false, sameBase: Size = Size(
+        1,
+        1
+    )
+    ) {
         var matrix = getRandomMatrix(w, h,flag)
         val t1 = Date().time
         val cpy = matrix.copy()

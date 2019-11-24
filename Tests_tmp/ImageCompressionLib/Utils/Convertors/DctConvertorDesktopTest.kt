@@ -5,7 +5,7 @@ import ImageCompressionLib.Data.Enumerations.TypeQuantization
 import ImageCompressionLib.Data.Matrix.ShortMatrix
 import ImageCompressionLib.Data.Parameters
 import ImageCompressionLib.Data.Type.Flag
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import ImageCompressionLib.Utils.Functions.Dct.DctUniversalAlgorithm
 import org.junit.Test
 
@@ -25,27 +25,27 @@ class DctConvertorDesktopTest {
     }
     @Test
     fun test16x16(){
-        mainTotal(16,16,5,Size(8,8))
+        mainTotal(16,16,5, Size(8, 8))
     }
     @Test
     fun test32x32(){
-        mainTotal(32,32,10,Size(8,8))
+        mainTotal(32,32,10, Size(8, 8))
     }
     @Test
     fun test800x800(){
-        mainTotal(800,800,10,Size(10,10))
+        mainTotal(800,800,10, Size(10, 10))
     }
     @Test
     fun test4x4(){
         println("work only for x8 size")
-        mainTotal(4,4,5,Size(4,4))
+        mainTotal(4,4,5, Size(4, 4))
     }
     @Test
     fun test7x6(){
         println("work only for square unitSize")
-        mainTotal(7,6,5, Size(7,6))
+        mainTotal(7,6,5, Size(7, 6))
     }
-    fun mainTotal(w: Int,h: Int,range: Int,unitSize:Size) {
+    fun mainTotal(w: Int,h: Int,range: Int,unitSize: Size) {
         val data=ShortMatrix(w,h){ i, j->((Math.abs(Random().nextInt(255)))).toShort()}
         val cpy = data.copy()
         assertTrue(data.assertInRange(cpy,0))

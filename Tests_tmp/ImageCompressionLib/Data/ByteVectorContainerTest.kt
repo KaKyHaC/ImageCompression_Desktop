@@ -1,7 +1,7 @@
 package ImageCompressionLib.Data
 
 import ImageCompressionLib.Data.Type.ByteVector
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import org.junit.Before
 
 import org.junit.Assert.*
@@ -18,7 +18,7 @@ class ByteVectorContainerTest {
         for(i in 0 until mainD.maxSize)
             mainD.append(Random().nextLong())
 
-        bvc= ByteVectorContainer(Parameters.createParametresForTest(Size(100,100)),mainD,mainD)
+        bvc= ByteVectorContainer(Parameters.createParametresForTest(Size(100, 100)),mainD,mainD)
         file.createNewFile()
     }
 

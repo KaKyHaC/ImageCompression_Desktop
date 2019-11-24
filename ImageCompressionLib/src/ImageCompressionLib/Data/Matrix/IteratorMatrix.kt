@@ -1,6 +1,6 @@
 package ImageCompressionLib.Data.Matrix
 
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 
 open class IteratorMatrix<T:Any>(matrix: Array<Array<Any>>, val wStart:Int, val hStart:Int, val sizeBuffer: Size) : Matrix<T>(matrix) {
 

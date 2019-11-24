@@ -2,7 +2,7 @@
 //
 //import ConvertorDesktopTest.Companion.AssertMatrixInRange
 //import ImageCompressionLib.Data.Type.Flag
-//import ImageCompressionLib.Data.Type.Size
+//import ImageCompressionLib.Data.Primitives.Size
 //import ImageCompressionLib.Data.TripleShortMatrixOldTest.Companion.getRandomMatrix
 //import ImageCompressionLib.ProcessingModules.ModuleDCT
 //import ImageCompressionLib.ProcessingModules.ModuleImage

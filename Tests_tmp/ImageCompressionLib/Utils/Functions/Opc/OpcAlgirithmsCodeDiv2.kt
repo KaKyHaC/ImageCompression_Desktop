@@ -2,7 +2,7 @@ package ImageCompressionLib.Utils.Functions.Opc
 
 import ImageCompressionLib.Data.Matrix.ShortMatrix
 import ImageCompressionLib.Data.Type.DataOpc
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -18,7 +18,7 @@ class OpcAlgirithmsCodeDiv2(val array:Array<Int>) {
         val matrix= ShortMatrix(1,8){ i, j -> array[j].toShort() }
         val matrixEmpty= ShortMatrix(1,8)
         val cpy=matrix.copy()
-        val dataOpc= DataOpc(Size(1,8))
+        val dataOpc= DataOpc(Size(1, 8))
         OpcUtils.FindBase(matrix,dataOpc)
         OpcAlgorithms.OpcDirectDefault(matrix, dataOpc)
         dataOpc.N/= BigInteger.TWO
@@ -34,7 +34,7 @@ class OpcAlgirithmsCodeDiv2(val array:Array<Int>) {
         val matrix= ShortMatrix(1,8){ i, j -> array[j].toShort() }
         val matrixEmpty= ShortMatrix(1,8)
         val cpy=matrix.copy()
-        val dataOpc= DataOpc(Size(1,8))
+        val dataOpc= DataOpc(Size(1, 8))
         OpcUtils.FindBase(matrix,dataOpc)
         OpcUtils.MakeBaseEven(dataOpc)
         OpcAlgorithms.OpcDirectDefault(matrix, dataOpc)
@@ -52,7 +52,7 @@ class OpcAlgirithmsCodeDiv2(val array:Array<Int>) {
         OpcUtils.MakeDataOdd(matrix)
         val matrixEmpty= ShortMatrix(1,8)
         val cpy=matrix.copy()
-        val dataOpc= DataOpc(Size(1,8))
+        val dataOpc= DataOpc(Size(1, 8))
         OpcUtils.FindBase(matrix,dataOpc)
         OpcAlgorithms.OpcDirectDefault(matrix, dataOpc)
         dataOpc.N/= BigInteger.TWO
@@ -69,7 +69,7 @@ class OpcAlgirithmsCodeDiv2(val array:Array<Int>) {
         OpcUtils.MakeDataOdd(matrix)
         val matrixEmpty= ShortMatrix(1,8)
         val cpy=matrix.copy()
-        val dataOpc= DataOpc(Size(1,8))
+        val dataOpc= DataOpc(Size(1, 8))
         OpcUtils.FindBase(matrix,dataOpc)
         for(i in 0 until 8){
             dataOpc.base[i]=(dataOpc.base[i]+i).toShort()

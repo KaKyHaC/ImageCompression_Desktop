@@ -1,7 +1,7 @@
 package ImageCompressionLib.Data
 
 import ImageCompressionLib.Data.Matrix.Matrix
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -58,7 +58,7 @@ class MatrixTest {
     }
     @Test
     fun rectIterator(){
-        val tmp=matrix.rectIterator(0,0, Size(2,2))
+        val tmp=matrix.rectIterator(0,0, Size(2, 2))
         assertEquals(matrix22,tmp)
         assertEquals(tmp.width,2)
 

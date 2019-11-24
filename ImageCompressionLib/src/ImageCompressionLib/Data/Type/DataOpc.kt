@@ -2,6 +2,7 @@ package ImageCompressionLib.Data.Type
 
 import ImageCompressionLib.Data.Interfaces.ICopyble
 import ImageCompressionLib.Data.Parameters
+import ImageCompressionLib.Data.Primitives.Size
 import java.math.BigInteger
 import java.util.*
 import kotlin.experimental.and
@@ -12,7 +13,7 @@ class DataOpc : ICopyble {
     var DC: Short
     var N: BigInteger
     var vectorCode: Vector<Long>
-    private val size:Size
+    private val size: Size
     constructor(parameters: Parameters){
         base = ShortArray(parameters.unitSize.height){1.toShort()}
         sign = Array(parameters.unitSize.width) { BooleanArray(parameters.unitSize.height) }
@@ -35,7 +36,7 @@ class DataOpc : ICopyble {
         this.DC = DC
         this.N = N
         this.vectorCode = vectorCode
-        size=Size(sign.size,sign[0].size)
+        size= Size(sign.size, sign[0].size)
     }
 
 

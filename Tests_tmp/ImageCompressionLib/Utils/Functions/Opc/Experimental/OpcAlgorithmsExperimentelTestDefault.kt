@@ -2,7 +2,7 @@ package ImageCompressionLib.Utils.Functions.Opc.Experimental
 
 import ImageCompressionLib.Data.Matrix.ShortMatrix
 import ImageCompressionLib.Data.Type.DataOpc
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import ImageCompressionLib.Utils.Functions.Opc.OpcUtils
 import org.junit.Before
 
@@ -14,7 +14,7 @@ import java.math.BigInteger
 import java.util.*
 
 @RunWith(Parameterized::class)
-class OpcAlgorithmsExperimentelTestDefault(val size:Size,val data:MessageAndPositionArray,val coef:Int) {
+class OpcAlgorithmsExperimentelTestDefault(val size: Size, val data:MessageAndPositionArray, val coef:Int) {
     lateinit var dataOriginal:ShortMatrix
     lateinit var dataOpc:DataOpc
     lateinit var BiCoef:BigInteger
@@ -71,14 +71,14 @@ class OpcAlgorithmsExperimentelTestDefault(val size:Size,val data:MessageAndPosi
             val data3=data.copy()
             data3.addMessageAndPosition(true,2)
             return listOf(
-                    arrayOf(Size(8,8),data,1),
+                    arrayOf(Size(8, 8),data,1),
 //                    arrayOf(Size(8,8),data,4),
-                    arrayOf(Size(8,8),data,2),
-                    arrayOf(Size(8,8),data2,1),
-                    arrayOf(Size(8,8),data2,2),
-                    arrayOf(Size(8,8),data3,1),
-                    arrayOf(Size(8,8),data3,2),
-                    arrayOf(Size(8,8),data3,4)
+                    arrayOf(Size(8, 8),data,2),
+                    arrayOf(Size(8, 8),data2,1),
+                    arrayOf(Size(8, 8),data2,2),
+                    arrayOf(Size(8, 8),data3,1),
+                    arrayOf(Size(8, 8),data3,2),
+                    arrayOf(Size(8, 8),data3,4)
             )
         }
     }

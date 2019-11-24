@@ -2,7 +2,7 @@ package ImageCompressionLib.Utils.Functions.Dct
 
 import ImageCompressionLib.Data.Matrix.Matrix
 import ImageCompressionLib.Data.Matrix.ShortMatrix
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import org.junit.Before
 
 import org.junit.Test
@@ -11,7 +11,7 @@ import org.junit.runners.Parameterized
 import java.util.*
 
 @RunWith(Parameterized::class)
-class DctUniversalAlgorithmTest(val size: Size,val range: Int) {
+class DctUniversalAlgorithmTest(val size: Size, val range: Int) {
     lateinit var data:Matrix<Short>
     @Before
     fun setUp() {
@@ -22,16 +22,16 @@ class DctUniversalAlgorithmTest(val size: Size,val range: Int) {
         @Parameterized.Parameters(name = "{0},range:{1}")
         fun data(): Collection<Array<Any>> {
             return listOf(
-                    arrayOf(Size(1,2),255)
-                    ,arrayOf(Size(2,1),255)
-                    ,arrayOf(Size(8,8),255)
-                    ,arrayOf(Size(4,4),255)
-                    ,arrayOf(Size(20,20),255)
-                    ,arrayOf(Size(7,9),255)
-                    ,arrayOf(Size(3,8),255)
-                    ,arrayOf(Size(8,3),255)
-                    ,arrayOf(Size(1,5),255)
-                    ,arrayOf(Size(5,1),255)
+                    arrayOf(Size(1, 2),255)
+                    ,arrayOf(Size(2, 1),255)
+                    ,arrayOf(Size(8, 8),255)
+                    ,arrayOf(Size(4, 4),255)
+                    ,arrayOf(Size(20, 20),255)
+                    ,arrayOf(Size(7, 9),255)
+                    ,arrayOf(Size(3, 8),255)
+                    ,arrayOf(Size(8, 3),255)
+                    ,arrayOf(Size(1, 5),255)
+                    ,arrayOf(Size(5, 1),255)
             )
         }
     }

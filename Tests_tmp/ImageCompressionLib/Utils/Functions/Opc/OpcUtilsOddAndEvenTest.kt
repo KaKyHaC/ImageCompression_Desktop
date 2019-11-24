@@ -2,7 +2,7 @@ package ImageCompressionLib.Utils.Functions.Opc
 
 import ImageCompressionLib.Data.Matrix.ShortMatrix
 import ImageCompressionLib.Data.Type.DataOpc
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import org.junit.Before
 
 import org.junit.Assert.*
@@ -70,7 +70,7 @@ class OpcUtilsOddAndEvenTest(val size: Size) {
         @Parameterized.Parameters
         fun data(): Collection<Array<Size>> {
             return listOf(
-                    arrayOf(Size(1,8))
+                    arrayOf(Size(1, 8))
             )
         }
     }

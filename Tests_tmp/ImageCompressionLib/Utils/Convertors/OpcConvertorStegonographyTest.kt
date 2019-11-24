@@ -6,7 +6,7 @@ import ImageCompressionLib.Data.Matrix.ShortMatrix
 import ImageCompressionLib.Data.Parameters
 import ImageCompressionLib.Data.Type.ByteVector
 import ImageCompressionLib.Data.Type.Flag
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import ImageCompressionLib.Utils.Functions.Opc.IStegoMessageUtil
 import org.junit.Before
 
@@ -17,7 +17,7 @@ import org.junit.runners.Parameterized
 import java.util.*
 
 @RunWith(Parameterized::class)
-class OpcConvertorStegonographyTest(val size: Size,val lenght:Int,val pos:Int) {
+class OpcConvertorStegonographyTest(val size: Size, val lenght:Int, val pos:Int) {
     lateinit var convertor:OpcConvertor
     lateinit var param:Parameters
     lateinit var cpy:ShortMatrix
@@ -29,7 +29,11 @@ class OpcConvertorStegonographyTest(val size: Size,val lenght:Int,val pos:Int) {
         cpy=matrix.copy()
         val flag=Flag.createDefaultFlag()
 //        flag.setTrue(Flag.Parameter.Steganography)
-        param=Parameters.createParametresForTest(size,flag = flag,unitSize = Size(1,8))
+        param=Parameters.createParametresForTest(size,flag = flag,unitSize = Size(
+            1,
+            8
+        )
+        )
         param.flag.setFalse(Flag.Parameter.DC)
         convertor=OpcConvertor(matrix,param)
         message=createMessage(lenght)
@@ -41,11 +45,11 @@ class OpcConvertorStegonographyTest(val size: Size,val lenght:Int,val pos:Int) {
         @Parameterized.Parameters(name = "pos:{2},len:{1},{0}")
         fun data(): Collection<Array<Any>> {
             return listOf(
-                    arrayOf(Size(8,8),8,0),
-                    arrayOf(Size(8,32),16,0),
-                    arrayOf(Size(16,8),1,1),
-                    arrayOf(Size(128,128),11,0),
-                    arrayOf(Size(128,128),11,1)
+                    arrayOf(Size(8, 8),8,0),
+                    arrayOf(Size(8, 32),16,0),
+                    arrayOf(Size(16, 8),1,1),
+                    arrayOf(Size(128, 128),11,0),
+                    arrayOf(Size(128, 128),11,1)
             )
         }
     }

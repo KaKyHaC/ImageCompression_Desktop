@@ -1,4 +1,6 @@
-package ImageCompressionLib.Data.Type
+package ImageCompressionLib.Data.Primitives
+
+import ImageCompressionLib.Data.Type.ByteVector
 
 class Flag2 constructor() {
     val data = mutableMapOf<Parameter, Boolean>()

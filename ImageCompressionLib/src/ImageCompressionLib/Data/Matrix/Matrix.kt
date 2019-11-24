@@ -1,6 +1,6 @@
 package ImageCompressionLib.Data.Matrix
 
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import java.util.*
 
 open class Matrix<T : Any> {
@@ -96,7 +96,9 @@ open class Matrix<T : Any> {
 
     @Deprecated("use Size")
     fun rectBufferSave(wStart: Int, hStart: Int, wEnd: Int, hEnd: Int): Matrix<T> {
-        val s = calculataBufferSize(wStart, hStart, Size(wEnd - wStart, hEnd - hStart))
+        val s = calculataBufferSize(wStart, hStart,
+            Size(wEnd - wStart, hEnd - hStart)
+        )
         return Matrix(s.width, s.height) { i, j -> matrix[i + wStart][j + hStart] as T }
     }
 

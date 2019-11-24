@@ -5,7 +5,7 @@ import ImageCompressionLib.Data.Matrix.ShortMatrix
 import ImageCompressionLib.Data.Parameters
 import ImageCompressionLib.Data.TripleShortMatrix
 import ImageCompressionLib.Data.Type.Flag
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import ImageCompressionLib.Utils.Convertors.TimeManager
 import Utils.BuffImConvertor
 import org.junit.Test
@@ -25,7 +25,7 @@ class ModuleImageTest {
     @Test
     fun TestDefaultRaundomBufIm5() {
         var bufferedImage= randomBufferedImage(122,124)
-        val param=Parameters.createParametresForTest(Size(122,124))
+        val param=Parameters.createParametresForTest(Size(122, 124))
         param.flag.setFalse(Flag.Parameter.Enlargement)
         val myBufferedImage=BuffImConvertor.instance.convert(bufferedImage)
 
@@ -113,7 +113,7 @@ class ModuleImageTest {
         val mBI=BuffImConvertor.instance.convert(bufferedImage)
         val w=bufferedImage.width
         val h=bufferedImage.height
-        val param=Parameters.createParametresForTest(Size(w,h))
+        val param=Parameters.createParametresForTest(Size(w, h))
 
         TimeManager.Instance.startNewTrack("m BmpToYenl ${loop}l ${w}x$h")
         for(i in 0..loop-1) {
@@ -139,7 +139,12 @@ class ModuleImageTest {
         val a=ShortMatrix(w,h){i, j -> ((i+j)%255).toShort() }
         val b=ShortMatrix(w,h){i, j -> ((i+j)%255).toShort() }
         val c=ShortMatrix(w,h){i, j -> ((i+j)%255).toShort() }
-        return TripleShortMatrix(a,b,c,Parameters.createParametresForTest(Size(w,h)),
+        return TripleShortMatrix(a,b,c,Parameters.createParametresForTest(
+            Size(
+                w,
+                h
+            )
+        ),
             State.Origin)
 
     }

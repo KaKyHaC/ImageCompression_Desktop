@@ -1,4 +1,4 @@
-package ImageCompressionLib.Data.Type
+package ImageCompressionLib.Data.Primitives
 
 abstract class Pixel {
     data class RGB(

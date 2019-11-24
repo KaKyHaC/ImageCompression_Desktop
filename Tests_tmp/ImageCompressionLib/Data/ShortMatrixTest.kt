@@ -1,7 +1,7 @@
 package ImageCompressionLib.Data
 
 import ImageCompressionLib.Data.Matrix.ShortMatrix
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import org.junit.Before
 import org.junit.Test
 

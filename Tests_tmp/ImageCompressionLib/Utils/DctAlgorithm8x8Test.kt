@@ -1,7 +1,7 @@
 package ImageCompressionLib.Utils
 
 import ImageCompressionLib.Data.Matrix.ShortMatrix
-import ImageCompressionLib.Data.Type.Size
+import ImageCompressionLib.Data.Primitives.Size
 import ImageCompressionLib.Utils.Functions.Dct.DctAlgorithm8x8
 import org.junit.Before
 import org.junit.Test
@@ -13,7 +13,7 @@ import org.junit.runners.Parameterized
 import kotlin.test.assertFails
 
 @RunWith(Parameterized::class)
-class DctAlgorithm8x8Test(val size:Size) {
+class DctAlgorithm8x8Test(val size: Size) {
     lateinit var data:ShortMatrix
     @Before
     fun setUp() {
@@ -50,7 +50,7 @@ class DctAlgorithm8x8Test(val size:Size) {
         @Parameterized.Parameters(name="{0}")
         fun data(): Collection<Array<Size>> {
             return listOf(
-                    arrayOf(Size(8,8))
+                    arrayOf(Size(8, 8))
 //                    ,arrayOf(Size(7,7))
 //                    ,arrayOf(Size(7,9))
             )

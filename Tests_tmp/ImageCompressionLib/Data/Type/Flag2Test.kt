@@ -1,5 +1,6 @@
 package ImageCompressionLib.Data.Type
 
+import ImageCompressionLib.Data.Primitives.Flag2
 import ImageCompressionLib.Utils.Convertors.TimeManager
 import org.junit.Before
 
@@ -15,7 +16,7 @@ class Flag2Test {
     fun speedTest(){
         val t=TimeManager.Instance
         val f=Flag()
-        val f2=Flag2()
+        val f2= Flag2()
         val loop=1000000
         t.startNewTrack("speed test")
         for(i in 0 until loop)
