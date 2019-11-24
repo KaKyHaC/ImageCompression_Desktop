@@ -4,8 +4,8 @@ package ImageCompressionLib.Utils.Functions.Dct;
 import ImageCompressionLib.Constants.Cosine;
 import ImageCompressionLib.Constants.QuantizationTable;
 import ImageCompressionLib.Constants.TypeQuantization;
-import ImageCompressionLib.Containers.Matrix.Matrix;
-import ImageCompressionLib.Containers.Matrix.ShortMatrix;
+import ImageCompressionLib.Data.Matrix.Matrix;
+import ImageCompressionLib.Data.Matrix.ShortMatrix;
 
 public class DctAlgorithm8x8 {//singelton
     public final static int SIZEOFBLOCK = 8;

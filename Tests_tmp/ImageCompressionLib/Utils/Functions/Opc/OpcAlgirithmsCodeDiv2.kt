@@ -1,14 +1,13 @@
 package ImageCompressionLib.Utils.Functions.Opc
 
-import ImageCompressionLib.Containers.Matrix.ShortMatrix
-import ImageCompressionLib.Containers.Type.DataOpc
-import ImageCompressionLib.Containers.Type.Size
+import ImageCompressionLib.Data.Matrix.ShortMatrix
+import ImageCompressionLib.Data.Type.DataOpc
+import ImageCompressionLib.Data.Type.Size
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.math.BigInteger
-import java.util.*
 
 @RunWith(Parameterized::class)
 class OpcAlgirithmsCodeDiv2(val array:Array<Int>) {

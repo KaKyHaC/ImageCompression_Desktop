@@ -1,12 +1,12 @@
 package WindowsApp;
 
-import ImageCompressionLib.Containers.ByteVectorContainer;
-import ImageCompressionLib.Containers.EncryptParameters;
-import ImageCompressionLib.Containers.Parameters;
-import ImageCompressionLib.Containers.Type.ByteVector;
-import ImageCompressionLib.Containers.Type.Flag;
-import ImageCompressionLib.Containers.Type.MyBufferedImage;
-import ImageCompressionLib.Containers.Type.Size;
+import ImageCompressionLib.Data.ByteVectorContainer;
+import ImageCompressionLib.Data.EncryptParameters;
+import ImageCompressionLib.Data.Parameters;
+import ImageCompressionLib.Data.Type.ByteVector;
+import ImageCompressionLib.Data.Type.Flag;
+import ImageCompressionLib.Data.Type.MyBufferedImage;
+import ImageCompressionLib.Data.Type.Size;
 import ImageCompressionLib.Convertor.ConvertorDefault;
 import ImageCompressionLib.Utils.Functions.ImageStandardDeviation;
 import ImageCompressionLib.Utils.Functions.Opc.IStegoMessageUtil;

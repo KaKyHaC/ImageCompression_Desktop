@@ -1,6 +1,6 @@
 package Utils
 
-import ImageCompressionLib.Containers.Type.MyBufferedImage
+import ImageCompressionLib.Data.Type.MyBufferedImage
 import org.junit.Test
 
 import org.junit.Assert.*

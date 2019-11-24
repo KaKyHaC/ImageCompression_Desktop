@@ -1,12 +1,10 @@
 package ImageCompressionLib.Utils.Functions
 
 import ImageCompressionLib.Constants.State
-import ImageCompressionLib.Containers.Matrix.ShortMatrix
-import ImageCompressionLib.Containers.Parameters
-import ImageCompressionLib.Containers.TripleShortMatrix
+import ImageCompressionLib.Data.Parameters
+import ImageCompressionLib.Data.TripleShortMatrix
 import ImageCompressionLib.ProcessingModules.ModuleImage
-import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.Containers.Type.Size
+import ImageCompressionLib.Data.Type.Size
 import Utils.BuffImConvertor
 import org.junit.Before
 import org.junit.Test

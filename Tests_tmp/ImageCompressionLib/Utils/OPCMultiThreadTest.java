@@ -1,6 +1,6 @@
 //package ImageCompressionLib.Utils;
 //
-//import ImageCompressionLib.Containers.Type.Flag;
+//import ImageCompressionLib.Data.Type.Flag;
 //import org.junit.Before;
 //import org.junit.Test;
 //

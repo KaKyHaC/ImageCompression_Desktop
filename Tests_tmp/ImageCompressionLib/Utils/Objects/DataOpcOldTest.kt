@@ -2,8 +2,8 @@
 package ImageCompressionLib.Utils.Objects
 
 import ImageCompressionLib.Constants.SIZEOFBLOCK
-import ImageCompressionLib.Containers.Type.ByteVector
-import ImageCompressionLib.Containers.Type.Flag
+import ImageCompressionLib.Data.Type.ByteVector
+import ImageCompressionLib.Data.Type.Flag
 
 import org.junit.Assert.*
 import org.junit.Test

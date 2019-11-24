@@ -1,8 +1,8 @@
 package ImageCompressionLib.ProcessingModules
 
-import ImageCompressionLib.Containers.ByteVectorContainer
-import ImageCompressionLib.Containers.Type.ByteVector
-import ImageCompressionLib.Containers.Type.Flag
+import ImageCompressionLib.Data.ByteVectorContainer
+import ImageCompressionLib.Data.Type.ByteVector
+import ImageCompressionLib.Data.Type.Flag
 import ImageCompressionLib.Utils.Functions.CompressionUtils
 
 class ModuleCompression {

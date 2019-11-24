@@ -2,10 +2,10 @@ package ImageCompressionLib.Utils.Objects
 
 import ImageCompressionLib.Constants.SIZEOFBLOCK
 import ImageCompressionLib.Constants.TypeQuantization
-import ImageCompressionLib.Containers.Matrix.ShortMatrix
-import ImageCompressionLib.Containers.Parameters
-import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.Containers.Type.Size
+import ImageCompressionLib.Data.Matrix.ShortMatrix
+import ImageCompressionLib.Data.Parameters
+import ImageCompressionLib.Data.Type.Flag
+import ImageCompressionLib.Data.Type.Size
 import ImageCompressionLib.Utils.Functions.Dct.DctUniversalAlgorithm
 import org.junit.Test
 

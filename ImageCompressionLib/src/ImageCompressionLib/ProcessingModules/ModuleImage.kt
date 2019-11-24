@@ -1,13 +1,12 @@
 package ImageCompressionLib.ProcessingModules
 
-import ImageCompressionLib.Containers.Type.MyBufferedImage
+import ImageCompressionLib.Data.Type.MyBufferedImage
 import ImageCompressionLib.Constants.State
-import ImageCompressionLib.Containers.Matrix.Matrix
-import ImageCompressionLib.Containers.Matrix.ShortMatrix
-import ImageCompressionLib.Containers.Parameters
-import ImageCompressionLib.Containers.TripleShortMatrix
-import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.Utils.Objects.TimeManager
+import ImageCompressionLib.Data.Matrix.Matrix
+import ImageCompressionLib.Data.Matrix.ShortMatrix
+import ImageCompressionLib.Data.Parameters
+import ImageCompressionLib.Data.TripleShortMatrix
+import ImageCompressionLib.Data.Type.Flag
 import java.util.ArrayList
 
 //import java.awt.image.MyBufferedImage;

@@ -1,12 +1,12 @@
 package ImageCompressionLib.Utils.Objects
 
-import ImageCompressionLib.Containers.EncryptParameters
-import ImageCompressionLib.Containers.Matrix.DataOpcMatrix
-import ImageCompressionLib.Containers.Matrix.ShortMatrix
-import ImageCompressionLib.Containers.Parameters
-import ImageCompressionLib.Containers.Type.ByteVector
-import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.Containers.Type.Size
+import ImageCompressionLib.Data.EncryptParameters
+import ImageCompressionLib.Data.Matrix.DataOpcMatrix
+import ImageCompressionLib.Data.Matrix.ShortMatrix
+import ImageCompressionLib.Data.Parameters
+import ImageCompressionLib.Data.Type.ByteVector
+import ImageCompressionLib.Data.Type.Flag
+import ImageCompressionLib.Data.Type.Size
 import ImageCompressionLib.Utils.Functions.Opc.IStegoMessageUtil
 import org.junit.Before
 

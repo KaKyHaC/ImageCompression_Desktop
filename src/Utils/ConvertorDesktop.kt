@@ -1,7 +1,7 @@
 //package Utils
 //
 //import ImageCompressionLib.ProcessingModules.*
-//import ImageCompressionLib.Containers.Type.Flag
+//import ImageCompressionLib.Data.Type.Flag
 //import ImageCompressionLib.Utils.Objects.TimeManager
 //import java.awt.image.BufferedImage
 //import java.io.File

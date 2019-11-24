@@ -1,8 +1,8 @@
 package ImageCompressionLib.Utils.Functions.Dct
 
 import ImageCompressionLib.Constants.MAX_QUANTIZATION_VALUE
-import ImageCompressionLib.Containers.Matrix.Matrix
-import ImageCompressionLib.Containers.Type.Size
+import ImageCompressionLib.Data.Matrix.Matrix
+import ImageCompressionLib.Data.Type.Size
 
 class DctUniversalAlgorithm  {
 

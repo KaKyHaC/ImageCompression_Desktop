@@ -1,10 +1,10 @@
 package ImageCompressionLib.Utils.Objects
 
-import ImageCompressionLib.Containers.*
-import ImageCompressionLib.Containers.Matrix.DataOpcMatrix
-import ImageCompressionLib.Containers.Matrix.ShortMatrix
-import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.Containers.Type.Size
+import ImageCompressionLib.Data.*
+import ImageCompressionLib.Data.Matrix.DataOpcMatrix
+import ImageCompressionLib.Data.Matrix.ShortMatrix
+import ImageCompressionLib.Data.Type.Flag
+import ImageCompressionLib.Data.Type.Size
 import org.junit.Before
 
 import org.junit.Test

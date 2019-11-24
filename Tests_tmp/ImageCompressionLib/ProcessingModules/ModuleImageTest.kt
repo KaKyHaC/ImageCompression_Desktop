@@ -1,11 +1,11 @@
 package ImageCompressionLib.ProcessingModules
 
 import ImageCompressionLib.Constants.State
-import ImageCompressionLib.Containers.Matrix.ShortMatrix
-import ImageCompressionLib.Containers.Parameters
-import ImageCompressionLib.Containers.TripleShortMatrix
-import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.Containers.Type.Size
+import ImageCompressionLib.Data.Matrix.ShortMatrix
+import ImageCompressionLib.Data.Parameters
+import ImageCompressionLib.Data.TripleShortMatrix
+import ImageCompressionLib.Data.Type.Flag
+import ImageCompressionLib.Data.Type.Size
 import ImageCompressionLib.Utils.Objects.TimeManager
 import Utils.BuffImConvertor
 import org.junit.Test
@@ -15,7 +15,6 @@ import java.util.Random
 
 import org.junit.Assert.*
 import org.junit.Before
-import kotlin.test.assertFails
 
 class ModuleImageTest {
     @Before

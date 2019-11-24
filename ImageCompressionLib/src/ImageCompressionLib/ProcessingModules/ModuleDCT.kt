@@ -1,12 +1,12 @@
 package ImageCompressionLib.ProcessingModules
 
 
-import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.Containers.TripleShortMatrix
+import ImageCompressionLib.Data.Type.Flag
+import ImageCompressionLib.Data.TripleShortMatrix
 import ImageCompressionLib.Constants.State
 import ImageCompressionLib.Constants.TypeQuantization
-import ImageCompressionLib.Containers.Matrix.Matrix
-import ImageCompressionLib.Containers.Parameters
+import ImageCompressionLib.Data.Matrix.Matrix
+import ImageCompressionLib.Data.Parameters
 import ImageCompressionLib.Utils.Functions.Dct.DctUniversalAlgorithm
 import ImageCompressionLib.Utils.Objects.DctConvertor
 

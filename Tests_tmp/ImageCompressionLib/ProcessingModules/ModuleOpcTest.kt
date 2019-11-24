@@ -1,12 +1,10 @@
 package ImageCompressionLib.ProcessingModules
 
 import ImageCompressionLib.Constants.State
-import ImageCompressionLib.Containers.EncryptParameters
-import ImageCompressionLib.Containers.Parameters
-import ImageCompressionLib.Containers.Type.ByteVector
-import ImageCompressionLib.Containers.Type.Size
+import ImageCompressionLib.Data.EncryptParameters
+import ImageCompressionLib.Data.Type.ByteVector
+import ImageCompressionLib.Data.Type.Size
 import ImageCompressionLib.Utils.Functions.ImageIOTest
-import ImageCompressionLib.Utils.Functions.ImageStandardDeviation
 import ImageCompressionLib.Utils.Functions.Opc.IStegoMessageUtil
 import ImageCompressionLib.Utils.Objects.TimeManager
 import org.junit.Assert.*

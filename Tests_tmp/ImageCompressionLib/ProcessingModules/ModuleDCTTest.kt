@@ -1,7 +1,5 @@
 package ImageCompressionLib.ProcessingModules
 
-import ImageCompressionLib.Containers.Parameters
-import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Utils.Functions.ImageIOTest
 import ImageCompressionLib.Utils.Objects.TimeManager
 import org.junit.Assert.*

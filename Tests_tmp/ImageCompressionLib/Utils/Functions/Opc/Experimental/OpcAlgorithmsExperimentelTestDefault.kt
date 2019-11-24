@@ -1,9 +1,8 @@
 package ImageCompressionLib.Utils.Functions.Opc.Experimental
 
-import ImageCompressionLib.Containers.Matrix.ShortMatrix
-import ImageCompressionLib.Containers.Type.DataOpc
-import ImageCompressionLib.Containers.Type.Size
-import ImageCompressionLib.Utils.Functions.ImageIOTest
+import ImageCompressionLib.Data.Matrix.ShortMatrix
+import ImageCompressionLib.Data.Type.DataOpc
+import ImageCompressionLib.Data.Type.Size
 import ImageCompressionLib.Utils.Functions.Opc.OpcUtils
 import org.junit.Before
 

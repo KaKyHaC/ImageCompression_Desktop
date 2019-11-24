@@ -1,9 +1,9 @@
 import ImageCompressionLib.Constants.State
-import ImageCompressionLib.Containers.Parameters
-import ImageCompressionLib.Containers.TripleDataOpcMatrix
-import ImageCompressionLib.Containers.TripleShortMatrix
-import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.Containers.Type.Size
+import ImageCompressionLib.Data.Parameters
+import ImageCompressionLib.Data.TripleDataOpcMatrix
+import ImageCompressionLib.Data.TripleShortMatrix
+import ImageCompressionLib.Data.Type.Flag
+import ImageCompressionLib.Data.Type.Size
 import ImageCompressionLib.ProcessingModules.*
 //import ImageCompressionLib.Utils.Functions.Steganography
 

@@ -1,24 +1,21 @@
 package ImageCompressionLib.Convertor
 
-import ImageCompressionLib.Containers.ByteVectorContainer
-import ImageCompressionLib.Containers.EncryptParameters
-import ImageCompressionLib.Containers.Parameters
-import ImageCompressionLib.Containers.Type.ByteVector
-import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.Containers.Type.MyBufferedImage
-import ImageCompressionLib.Containers.Type.Size
+import ImageCompressionLib.Data.ByteVectorContainer
+import ImageCompressionLib.Data.EncryptParameters
+import ImageCompressionLib.Data.Parameters
+import ImageCompressionLib.Data.Type.ByteVector
+import ImageCompressionLib.Data.Type.Flag
+import ImageCompressionLib.Data.Type.MyBufferedImage
+import ImageCompressionLib.Data.Type.Size
 import ImageCompressionLib.Convertor.ConvertorDefault.IDao
 import ImageCompressionLib.Utils.Functions.ImageStandardDeviation
 import ImageCompressionLib.Utils.Objects.TimeManager
 import org.junit.Before
 
-import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.io.File
-import java.util.*
-import javax.net.ssl.TrustManager
 
 @RunWith(Parameterized::class)
 class ConvertorDefaultTest(val size:Size,var range:Int) {

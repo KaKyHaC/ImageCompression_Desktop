@@ -1,6 +1,6 @@
 package ImageCompressionLib.Utils.Functions.Dct
 
-import ImageCompressionLib.Containers.Matrix.Matrix
+import ImageCompressionLib.Data.Matrix.Matrix
 
 interface IDct {
     fun directDCT(data: Matrix<Short>): Matrix<Short>

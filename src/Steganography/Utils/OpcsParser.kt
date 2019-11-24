@@ -3,7 +3,7 @@ package Steganography.Utils
 import Steganography.Containers.Container
 import Steganography.Containers.IContainer
 import Steganography.Containers.OpcContainer
-import ImageCompressionLib.Containers.Type.ByteVector
+import ImageCompressionLib.Data.Type.ByteVector
 import java.math.BigInteger
 
 class OpcsParser{

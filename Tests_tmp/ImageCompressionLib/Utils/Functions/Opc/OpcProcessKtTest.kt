@@ -1,10 +1,10 @@
 package ImageCompressionLib.Utils.Functions.Opc
 
-import ImageCompressionLib.Containers.*
-import ImageCompressionLib.Containers.Matrix.ShortMatrix
-import ImageCompressionLib.Containers.Type.DataOpc
-import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.Containers.Type.Size
+import ImageCompressionLib.Data.*
+import ImageCompressionLib.Data.Matrix.ShortMatrix
+import ImageCompressionLib.Data.Type.DataOpc
+import ImageCompressionLib.Data.Type.Flag
+import ImageCompressionLib.Data.Type.Size
 import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.afterReverceOpcProcess
 import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.directOPC
 import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.preDirectOpcProcess

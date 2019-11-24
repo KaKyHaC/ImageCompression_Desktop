@@ -2,7 +2,7 @@
 //
 //import ImageCompressionLib.Constants.State;
 //import ImageCompressionLib.Utils.Functions.Encryption;
-//import ImageCompressionLib.Containers.Type.Flag;
+//import ImageCompressionLib.Data.Type.Flag;
 //import org.junit.Before;
 //import org.junit.Test;
 //

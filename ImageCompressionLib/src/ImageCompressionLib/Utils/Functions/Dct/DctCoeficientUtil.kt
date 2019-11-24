@@ -1,7 +1,7 @@
 package ImageCompressionLib.Utils.Functions.Dct
 
-import ImageCompressionLib.Containers.Matrix.Matrix
-import ImageCompressionLib.Containers.Type.Size
+import ImageCompressionLib.Data.Matrix.Matrix
+import ImageCompressionLib.Data.Type.Size
 
 class DctCoeficientUtil {
     private val  coeficients:Matrix<Double>

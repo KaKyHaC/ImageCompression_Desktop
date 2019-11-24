@@ -1,10 +1,6 @@
 package ImageCompressionLib.Utils.Functions
 
-import ImageCompressionLib.Containers.Type.MyBufferedImage
-import java.awt.Image
-import java.awt.image.BufferedImage
-import java.io.File
-import javax.imageio.ImageIO
+import ImageCompressionLib.Data.Type.MyBufferedImage
 
 class ImageStandardDeviation private constructor () {
     companion object {

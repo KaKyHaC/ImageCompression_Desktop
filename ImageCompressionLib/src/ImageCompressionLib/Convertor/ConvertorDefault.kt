@@ -1,8 +1,8 @@
 package ImageCompressionLib.Convertor
 
-import ImageCompressionLib.Containers.*
-import ImageCompressionLib.Containers.Type.ByteVector
-import ImageCompressionLib.Containers.Type.MyBufferedImage
+import ImageCompressionLib.Data.*
+import ImageCompressionLib.Data.Type.ByteVector
+import ImageCompressionLib.Data.Type.MyBufferedImage
 import ImageCompressionLib.ProcessingModules.ModuleCompression
 //import ImageCompressionLib.ProcessingModules.ModuleByteVector
 import ImageCompressionLib.ProcessingModules.ModuleDCT

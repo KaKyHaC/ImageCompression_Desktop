@@ -2,8 +2,8 @@
 //
 //import Steganography.Utils.ImageProcessorUtils
 //import Steganography.Utils.OpcsParser
-//import ImageCompressionLib.Containers.Type.ByteVector
-//import ImageCompressionLib.Containers.Type.Flag
+//import ImageCompressionLib.Data.Type.ByteVector
+//import ImageCompressionLib.Data.Type.Flag
 //import java.awt.image.BufferedImage
 //import java.io.File
 //import javax.imageio.ImageIO

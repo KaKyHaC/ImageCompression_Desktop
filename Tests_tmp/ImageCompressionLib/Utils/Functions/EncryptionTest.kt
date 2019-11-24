@@ -1,9 +1,9 @@
 package ImageCompressionLib.Utils.Functions
 
-import ImageCompressionLib.Containers.Matrix.DataOpcMatrix
-import ImageCompressionLib.Containers.Parameters
-import ImageCompressionLib.Containers.TripleDataOpcMatrix
-import ImageCompressionLib.Containers.Type.Size
+import ImageCompressionLib.Data.Matrix.DataOpcMatrix
+import ImageCompressionLib.Data.Parameters
+import ImageCompressionLib.Data.TripleDataOpcMatrix
+import ImageCompressionLib.Data.Type.Size
 import org.junit.Test
 
 import org.junit.Assert.*

@@ -1,9 +1,9 @@
 package ImageCompressionLib.Utils.Functions;
 
 
-import ImageCompressionLib.Containers.Matrix.Matrix;
-import ImageCompressionLib.Containers.TripleDataOpcMatrix;
-import ImageCompressionLib.Containers.Type.DataOpc;
+import ImageCompressionLib.Data.Matrix.Matrix;
+import ImageCompressionLib.Data.TripleDataOpcMatrix;
+import ImageCompressionLib.Data.Type.DataOpc;
 
 /**
  * Created by Димка on 30.10.2016.

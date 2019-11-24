@@ -1,9 +1,9 @@
 //package ImageCompressionLib.Convertor
 //
 //import ConvertorDesktopTest.Companion.AssertMatrixInRange
-//import ImageCompressionLib.Containers.Type.Flag
-//import ImageCompressionLib.Containers.Type.Size
-//import ImageCompressionLib.Containers.TripleShortMatrixOldTest.Companion.getRandomMatrix
+//import ImageCompressionLib.Data.Type.Flag
+//import ImageCompressionLib.Data.Type.Size
+//import ImageCompressionLib.Data.TripleShortMatrixOldTest.Companion.getRandomMatrix
 //import ImageCompressionLib.ProcessingModules.ModuleDCT
 //import ImageCompressionLib.ProcessingModules.ModuleImage
 //import org.junit.Before

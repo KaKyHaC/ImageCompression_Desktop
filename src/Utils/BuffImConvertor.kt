@@ -1,6 +1,6 @@
 package Utils
 
-import ImageCompressionLib.Containers.Type.MyBufferedImage
+import ImageCompressionLib.Data.Type.MyBufferedImage
 import java.awt.image.BufferedImage
 
 class BuffImConvertor private constructor(){

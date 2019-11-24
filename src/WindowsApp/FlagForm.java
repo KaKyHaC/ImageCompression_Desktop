@@ -1,6 +1,6 @@
 package WindowsApp;
 
-import ImageCompressionLib.Containers.Type.Flag;
+import ImageCompressionLib.Data.Type.Flag;
 
 import javax.swing.*;
 import java.awt.*;

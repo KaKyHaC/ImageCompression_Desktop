@@ -1,8 +1,7 @@
 package ImageCompressionLib.ProcessingModules
 
-import ImageCompressionLib.Containers.Type.ByteVector
-import ImageCompressionLib.Containers.ByteVectorContainer
-import ImageCompressionLib.Containers.Type.Flag
+import ImageCompressionLib.Data.ByteVectorContainer
+import ImageCompressionLib.Data.Type.Flag
 import ImageCompressionLib.Utils.Objects.TimeManager
 import java.io.File
 

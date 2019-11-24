@@ -1,6 +1,6 @@
 package WindowsApp;
 
-import ImageCompressionLib.Containers.Type.MyBufferedImage;
+import ImageCompressionLib.Data.Type.MyBufferedImage;
 import Utils.BuffImConvertor;
 
 import javax.swing.*;

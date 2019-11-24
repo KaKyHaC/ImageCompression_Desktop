@@ -1,9 +1,8 @@
 package Utils
 
-import ImageCompressionLib.Containers.ByteVectorContainer
-import ImageCompressionLib.Containers.Parameters
-import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.Containers.Type.MyBufferedImage
+import ImageCompressionLib.Data.ByteVectorContainer
+import ImageCompressionLib.Data.Parameters
+import ImageCompressionLib.Data.Type.MyBufferedImage
 import ImageCompressionLib.Convertor.ConvertorDefault
 import ImageCompressionLib.ProcessingModules.ModuleFile
 import java.io.File

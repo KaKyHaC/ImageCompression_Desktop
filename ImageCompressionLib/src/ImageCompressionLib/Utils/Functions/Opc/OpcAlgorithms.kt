@@ -2,8 +2,8 @@ package ImageCompressionLib.Utils.Functions.Opc
 
 import ImageCompressionLib.Constants.MAX_LONG
 import ImageCompressionLib.Constants.TWO
-import ImageCompressionLib.Containers.Type.DataOpc
-import ImageCompressionLib.Containers.Matrix.Matrix
+import ImageCompressionLib.Data.Type.DataOpc
+import ImageCompressionLib.Data.Matrix.Matrix
 import java.math.BigInteger
 
 class OpcAlgorithms {
