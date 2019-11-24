@@ -12,13 +12,18 @@ data class DataOpc(
     val signMatrix: Array<BooleanArray>
 ) : ICopyable, ISavable {
 
-    override fun copy(): ICopyable {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun copy() = builder().build()
 
     override fun appendByteVector(vector: IByteVector) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
+    fun builder() = Builder(
+        base = base,
+        signMatrix = signMatrix,
+        DC = DC,
+        N = N
+    )
 
     data class Builder(
         var base: ShortArray? = null,
