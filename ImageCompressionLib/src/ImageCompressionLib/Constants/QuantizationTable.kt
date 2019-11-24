@@ -28,32 +28,26 @@ object QuantizationTable {
     )
 
 
-    private val SIZEOFTABLE = 8
     private var smart: Array<ShortArray>? = null
-    private var smartval: Int = 0
+    private var smartValue: Int = 0
 
-    private fun createSmart(`val`: Int) {
-        smartval = `val`
-        smart = Array(SIZEOFTABLE) { ShortArray(SIZEOFTABLE) }
-        for (i in 0 until SIZEOFTABLE) {
-            for (j in 0 until SIZEOFTABLE) {
-                smart!![i][j] = (1 + `val` * (i + j)).toShort()
+    private fun initSmart(value: Int) {
+        smartValue = value
+        smart = Array(Constants.SIZE_OF_BLOCK) { i ->
+            ShortArray(Constants.SIZE_OF_BLOCK) { j ->
+                (1 + value * (i + j)).toShort()
             }
         }
     }
 
 
-    fun getLuminosity(x: Int, y: Int): Short {
-        return luminosity[x][y]
-    }
+    fun getLuminosity(i: Int, j: Int) = luminosity[i][j]
 
-    fun getChromaticity(x: Int, y: Int): Short {
-        return chromaticity[x][y]
-    }
+    fun getChromaticity(i: Int, j: Int) = chromaticity[i][j]
 
-    fun getSmart(`val`: Int, i: Int, j: Int): Short {
-        if (smart == null || `val` != smartval)
-            createSmart(`val`)
+    fun getSmart(value: Int, i: Int, j: Int): Short {
+        if (smart == null || value != smartValue)
+            initSmart(value)
         return smart!![i][j]
     }
 }
