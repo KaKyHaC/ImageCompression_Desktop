@@ -26,13 +26,13 @@ public class DctAlgorithm8x8 {//singelton
             for (int i = 0; i < SIZEOFBLOCK; i++)
                 for (int j = 0; j < SIZEOFBLOCK; j++) {
                     //dataProcessed[i][j]/=QuantizationTable.getSmart(1,i,j);
-                    data.set(i,j,(short)(data.get(i,j)/ QuantizationTable.getLuminosity(i, j)));
+                    data.set(i,j,(short)(data.get(i,j)/ QuantizationTable.Companion.getLuminosity(i, j)));
                 }
         else if (_tq == TypeQuantization.Chromaticity)
             for (int i = 0; i < SIZEOFBLOCK; i++)
                 for (int j = 0; j < SIZEOFBLOCK; j++) {
                     // dataProcessed[i][j]/=QuantizationTable.getSmart(3,i,j);
-                    data.set(i,j,(short)(data.get(i,j)/ QuantizationTable.getChromaticity(i, j)));
+                    data.set(i,j,(short)(data.get(i,j)/ QuantizationTable.Companion.getChromaticity(i, j)));
 //                    data[i][j] /= QuantizationTable.getChromaticity(i, j);
                 }
         return data;
@@ -43,14 +43,14 @@ public class DctAlgorithm8x8 {//singelton
             for (int i = 0; i < SIZEOFBLOCK; i++)
                 for (int j = 0; j < SIZEOFBLOCK; j++) {
                     // dataProcessed[i][j]*=QuantizationTable.getSmart(1,i,j);
-                    data.set(i,j,(short)(data.get(i,j)* QuantizationTable.getLuminosity(i, j)));
+                    data.set(i,j,(short)(data.get(i,j)* QuantizationTable.Companion.getLuminosity(i, j)));
 //                    data[i][j] *= QuantizationTable.getLuminosity(i, j);
                 }
         else if (_tq == TypeQuantization.Chromaticity)
             for (int i = 0; i < SIZEOFBLOCK; i++)
                 for (int j = 0; j < SIZEOFBLOCK; j++) {
                     // dataProcessed[i][j]*=QuantizationTable.getSmart(3,i,j);
-                    data.set(i,j,(short)(data.get(i,j)* QuantizationTable.getChromaticity(i, j)));
+                    data.set(i,j,(short)(data.get(i,j)* QuantizationTable.Companion.getChromaticity(i, j)));
 //                    data[i][j] *= QuantizationTable.getChromaticity(i, j);
                 }
         return data;
