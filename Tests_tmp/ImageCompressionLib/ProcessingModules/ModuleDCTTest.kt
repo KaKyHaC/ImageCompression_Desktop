@@ -1,7 +1,7 @@
 package ImageCompressionLib.ProcessingModules
 
 import ImageCompressionLib.Utils.Functions.ImageIOTest
-import ImageCompressionLib.Utils.Objects.TimeManager
+import ImageCompressionLib.Utils.Convertors.TimeManager
 import org.junit.Assert.*
 import org.junit.Test
 import java.util.*

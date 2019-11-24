@@ -6,7 +6,7 @@ import ImageCompressionLib.Data.Parameters
 import ImageCompressionLib.Data.TripleShortMatrix
 import ImageCompressionLib.Data.Type.Flag
 import ImageCompressionLib.Data.Type.Size
-import ImageCompressionLib.Utils.Objects.TimeManager
+import ImageCompressionLib.Utils.Convertors.TimeManager
 import Utils.BuffImConvertor
 import org.junit.Test
 

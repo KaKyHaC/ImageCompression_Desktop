@@ -8,7 +8,7 @@ import ImageCompressionLib.Data.Type.MyBufferedImage
 import ImageCompressionLib.Data.Type.Size
 import ImageCompressionLib.Utils.Functions.ImageStandardDeviation
 import ImageCompressionLib.Utils.Functions.Opc.IStegoMessageUtil
-import ImageCompressionLib.Utils.Objects.TimeManager
+import ImageCompressionLib.Utils.Convertors.TimeManager
 import org.junit.Before
 
 import org.junit.Test

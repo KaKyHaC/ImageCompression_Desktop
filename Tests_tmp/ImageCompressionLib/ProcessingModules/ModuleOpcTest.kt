@@ -6,7 +6,7 @@ import ImageCompressionLib.Data.Type.ByteVector
 import ImageCompressionLib.Data.Type.Size
 import ImageCompressionLib.Utils.Functions.ImageIOTest
 import ImageCompressionLib.Utils.Functions.Opc.IStegoMessageUtil
-import ImageCompressionLib.Utils.Objects.TimeManager
+import ImageCompressionLib.Utils.Convertors.TimeManager
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith

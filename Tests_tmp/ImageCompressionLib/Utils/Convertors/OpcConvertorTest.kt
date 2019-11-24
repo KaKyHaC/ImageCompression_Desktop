@@ -1,4 +1,4 @@
-package ImageCompressionLib.Utils.Objects
+package ImageCompressionLib.Utils.Convertors
 
 import ImageCompressionLib.Data.*
 import ImageCompressionLib.Data.Matrix.DataOpcMatrix

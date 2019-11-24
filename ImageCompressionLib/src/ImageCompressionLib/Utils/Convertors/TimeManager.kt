@@ -1,4 +1,4 @@
-package ImageCompressionLib.Utils.Objects
+package ImageCompressionLib.Utils.Convertors
 
 //import scala.collection.mutable.ListMap
 import java.util.*

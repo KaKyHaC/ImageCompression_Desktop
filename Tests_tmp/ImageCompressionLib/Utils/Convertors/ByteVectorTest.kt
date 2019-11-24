@@ -1,4 +1,4 @@
-package ImageCompressionLib.Utils.Objects
+package ImageCompressionLib.Utils.Convertors
 
 import ImageCompressionLib.Constants.BITS_PER_BYTE
 import ImageCompressionLib.Data.Type.ByteVector

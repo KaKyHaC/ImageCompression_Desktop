@@ -1,4 +1,4 @@
-package ImageCompressionLib.Utils.Objects
+package ImageCompressionLib.Utils.Convertors
 
 import ImageCompressionLib.Constants.SIZEOFBLOCK
 import ImageCompressionLib.Data.Enumerations.TypeQuantization

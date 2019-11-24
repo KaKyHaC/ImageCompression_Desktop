@@ -2,7 +2,7 @@
 //
 //import ImageCompressionLib.ProcessingModules.*
 //import ImageCompressionLib.Data.Type.Flag
-//import ImageCompressionLib.Utils.Objects.TimeManager
+//import ImageCompressionLib.Utils.Convertors.TimeManager
 //import java.awt.image.BufferedImage
 //import java.io.File
 //import javax.imageio.ImageIO

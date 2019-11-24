@@ -8,7 +8,7 @@ import ImageCompressionLib.Data.Enumerations.TypeQuantization
 import ImageCompressionLib.Data.Matrix.Matrix
 import ImageCompressionLib.Data.Parameters
 import ImageCompressionLib.Utils.Functions.Dct.DctUniversalAlgorithm
-import ImageCompressionLib.Utils.Objects.DctConvertor
+import ImageCompressionLib.Utils.Convertors.DctConvertor
 
 import java.util.concurrent.ExecutionException
 import java.util.concurrent.Executors

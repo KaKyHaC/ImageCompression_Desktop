@@ -1,6 +1,6 @@
 package ImageCompressionLib.Data.Type
 
-import ImageCompressionLib.Utils.Objects.TimeManager
+import ImageCompressionLib.Utils.Convertors.TimeManager
 import org.junit.Before
 
 import org.junit.Test

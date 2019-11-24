@@ -2,7 +2,7 @@ package ImageCompressionLib.ProcessingModules
 
 import ImageCompressionLib.Data.ByteVectorContainer
 import ImageCompressionLib.Data.Type.Flag
-import ImageCompressionLib.Utils.Objects.TimeManager
+import ImageCompressionLib.Utils.Convertors.TimeManager
 import java.io.File
 
 class ModuleFile{

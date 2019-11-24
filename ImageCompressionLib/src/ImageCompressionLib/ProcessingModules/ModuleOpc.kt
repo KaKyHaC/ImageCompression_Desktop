@@ -10,8 +10,8 @@ import ImageCompressionLib.Data.Type.ByteVector
 import ImageCompressionLib.Data.Type.DataOpc
 import ImageCompressionLib.Data.Type.Flag
 import ImageCompressionLib.Utils.Functions.Encryption
-import ImageCompressionLib.Utils.Objects.OpcConvertor
-import ImageCompressionLib.Utils.Objects.TimeManager
+import ImageCompressionLib.Utils.Convertors.OpcConvertor
+import ImageCompressionLib.Utils.Convertors.TimeManager
 import java.util.ArrayList
 import java.util.concurrent.Callable
 import java.util.concurrent.Executors

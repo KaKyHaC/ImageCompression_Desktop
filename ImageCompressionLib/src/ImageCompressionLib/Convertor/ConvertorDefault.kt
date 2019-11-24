@@ -8,7 +8,7 @@ import ImageCompressionLib.ProcessingModules.ModuleCompression
 import ImageCompressionLib.ProcessingModules.ModuleDCT
 import ImageCompressionLib.ProcessingModules.ModuleImage
 import ImageCompressionLib.ProcessingModules.ModuleOpc
-import ImageCompressionLib.Utils.Objects.TimeManager
+import ImageCompressionLib.Utils.Convertors.TimeManager
 
 //import java.awt.image.MyBufferedImage
 
