@@ -1,5 +1,6 @@
 package ImageCompressionLib.Data.Type
 
+import ImageCompressionLib.Constants.Constants.BYTES_PER_LONG
 import ImageCompressionLib.Data.Interfaces.IByteVector
 import java.nio.ByteBuffer
 import kotlin.experimental.or
@@ -10,7 +11,7 @@ import kotlin.experimental.or
  */
 class ByteVector : IByteVector{
 
-    private val byteBuffer = ByteBuffer.allocate(64)
+    private val byteBuffer = ByteBuffer.allocate(BYTES_PER_LONG)
 
     private val data = mutableListOf<Byte>()
 
