@@ -1,4 +1,4 @@
-package ImageCompressionLib.Constants
+package ImageCompressionLib.Data.Enumerations
 
 /**
  * Created by Димка on 07.08.2016.

@@ -1,6 +1,6 @@
 //package ImageCompressionLib.Utils;
 //
-//import ImageCompressionLib.Constants.State;
+//import ImageCompressionLib.Data.Enumerations.State;
 //import ImageCompressionLib.Utils.Functions.Encryption;
 //import ImageCompressionLib.Data.Type.Flag;
 //import org.junit.Before;

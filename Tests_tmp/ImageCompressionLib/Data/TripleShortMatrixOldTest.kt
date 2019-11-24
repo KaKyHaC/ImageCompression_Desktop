@@ -1,7 +1,7 @@
 /*
 package ImageCompressionLib.Data
 
-import ImageCompressionLib.Constants.State
+import ImageCompressionLib.Data.Enumerations.State
 import org.junit.Assert.*
 import org.junit.Test
 import java.util.*

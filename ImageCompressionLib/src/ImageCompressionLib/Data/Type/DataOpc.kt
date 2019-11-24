@@ -1,12 +1,12 @@
 package ImageCompressionLib.Data.Type
 
-import ImageCompressionLib.Constants.ICopyble
+import ImageCompressionLib.Data.Interfaces.ICopyble
 import ImageCompressionLib.Data.Parameters
 import java.math.BigInteger
 import java.util.*
 import kotlin.experimental.and
 
-class DataOpc :ICopyble{
+class DataOpc : ICopyble {
     var base: ShortArray
     var sign: Array<BooleanArray>
     var DC: Short

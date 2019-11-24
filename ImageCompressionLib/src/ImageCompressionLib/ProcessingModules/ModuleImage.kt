@@ -1,7 +1,7 @@
 package ImageCompressionLib.ProcessingModules
 
 import ImageCompressionLib.Data.Type.MyBufferedImage
-import ImageCompressionLib.Constants.State
+import ImageCompressionLib.Data.Enumerations.State
 import ImageCompressionLib.Data.Matrix.Matrix
 import ImageCompressionLib.Data.Matrix.ShortMatrix
 import ImageCompressionLib.Data.Parameters

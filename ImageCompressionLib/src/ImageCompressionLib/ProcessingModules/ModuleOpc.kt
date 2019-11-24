@@ -3,7 +3,7 @@ package ImageCompressionLib.ProcessingModules
 import ImageCompressionLib.Constants.DEFAULT_PASSWORD
 import ImageCompressionLib.Data.*
 import ImageCompressionLib.Data.Matrix.DataOpcMatrix
-import ImageCompressionLib.Constants.State
+import ImageCompressionLib.Data.Enumerations.State
 import ImageCompressionLib.Data.Matrix.Matrix
 import ImageCompressionLib.Data.Matrix.ShortMatrix
 import ImageCompressionLib.Data.Type.ByteVector

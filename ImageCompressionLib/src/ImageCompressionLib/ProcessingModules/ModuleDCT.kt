@@ -3,8 +3,8 @@ package ImageCompressionLib.ProcessingModules
 
 import ImageCompressionLib.Data.Type.Flag
 import ImageCompressionLib.Data.TripleShortMatrix
-import ImageCompressionLib.Constants.State
-import ImageCompressionLib.Constants.TypeQuantization
+import ImageCompressionLib.Data.Enumerations.State
+import ImageCompressionLib.Data.Enumerations.TypeQuantization
 import ImageCompressionLib.Data.Matrix.Matrix
 import ImageCompressionLib.Data.Parameters
 import ImageCompressionLib.Utils.Functions.Dct.DctUniversalAlgorithm

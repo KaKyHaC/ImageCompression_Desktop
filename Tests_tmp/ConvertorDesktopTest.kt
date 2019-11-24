@@ -1,4 +1,4 @@
-import ImageCompressionLib.Constants.State
+import ImageCompressionLib.Data.Enumerations.State
 import ImageCompressionLib.Data.Parameters
 import ImageCompressionLib.Data.TripleDataOpcMatrix
 import ImageCompressionLib.Data.TripleShortMatrix

@@ -1,7 +1,7 @@
 package ImageCompressionLib.Utils.Objects
 
 
-import ImageCompressionLib.Constants.TypeQuantization
+import ImageCompressionLib.Data.Enumerations.TypeQuantization
 import ImageCompressionLib.Data.Matrix.Matrix
 import ImageCompressionLib.Data.Matrix.ShortMatrix
 import ImageCompressionLib.Data.Parameters

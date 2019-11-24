@@ -1,6 +1,6 @@
 package ImageCompressionLib.ProcessingModules
 
-import ImageCompressionLib.Constants.State
+import ImageCompressionLib.Data.Enumerations.State
 import ImageCompressionLib.Data.Matrix.ShortMatrix
 import ImageCompressionLib.Data.Parameters
 import ImageCompressionLib.Data.TripleShortMatrix
@@ -139,7 +139,8 @@ class ModuleImageTest {
         val a=ShortMatrix(w,h){i, j -> ((i+j)%255).toShort() }
         val b=ShortMatrix(w,h){i, j -> ((i+j)%255).toShort() }
         val c=ShortMatrix(w,h){i, j -> ((i+j)%255).toShort() }
-        return TripleShortMatrix(a,b,c,Parameters.createParametresForTest(Size(w,h)),State.Origin)
+        return TripleShortMatrix(a,b,c,Parameters.createParametresForTest(Size(w,h)),
+            State.Origin)
 
     }
     private fun forEach(w: Int, h: Int, `fun`: (x:Int,y:Int)->Unit) {

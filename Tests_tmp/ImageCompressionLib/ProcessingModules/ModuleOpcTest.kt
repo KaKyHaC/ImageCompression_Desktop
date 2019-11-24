@@ -1,6 +1,6 @@
 package ImageCompressionLib.ProcessingModules
 
-import ImageCompressionLib.Constants.State
+import ImageCompressionLib.Data.Enumerations.State
 import ImageCompressionLib.Data.EncryptParameters
 import ImageCompressionLib.Data.Type.ByteVector
 import ImageCompressionLib.Data.Type.Size
@@ -63,7 +63,7 @@ class ModuleOpcTest(val w: Int,val h: Int,val loop: Int) {
     @Test
     fun GlobalTest(){
         val m=ImageIOTest.createMatrix(w,h)
-        m.state=State.Dct
+        m.state= State.Dct
         val opcModule= ModuleOpc(m)
         val tm=TimeManager.Instance
 

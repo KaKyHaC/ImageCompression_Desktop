@@ -1,6 +1,6 @@
 package ImageCompressionLib.Utils.Functions
 
-import ImageCompressionLib.Constants.State
+import ImageCompressionLib.Data.Enumerations.State
 import ImageCompressionLib.Data.Parameters
 import ImageCompressionLib.Data.TripleShortMatrix
 import ImageCompressionLib.ProcessingModules.ModuleImage
@@ -48,7 +48,8 @@ class ImageIOTest{
     }
     companion object {
         fun createMatrix(w:Int,h:Int,unitSize: Size=Size(8,8)): TripleShortMatrix {
-            val m= TripleShortMatrix(Parameters.createParametresForTest(Size(w,h),unitSize),State.Origin)
+            val m= TripleShortMatrix(Parameters.createParametresForTest(Size(w,h),unitSize),
+                State.Origin)
             m.a.forEach(){i, j, value ->  Math.abs(Random().nextInt(255)).toShort() }
             m.b.forEach(){i, j, value ->  Math.abs(Random().nextInt(255)).toShort() }
             m.c.forEach(){i, j, value ->  Math.abs(Random().nextInt(255)).toShort() }

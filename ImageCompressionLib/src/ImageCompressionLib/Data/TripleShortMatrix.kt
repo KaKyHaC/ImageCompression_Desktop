@@ -2,17 +2,17 @@ package ImageCompressionLib.Data
 
 import ImageCompressionLib.Constants.DEFAULT_MATRIX_VALUE
 import ImageCompressionLib.Constants.SIZEOFBLOCK
-import ImageCompressionLib.Constants.State
+import ImageCompressionLib.Data.Enumerations.State
 import ImageCompressionLib.Data.Matrix.Matrix
 import ImageCompressionLib.Data.Matrix.ShortMatrix
 
 class TripleShortMatrix {
-    var state:State
+    var state: State
     var a: Matrix<Short>
     var b: Matrix<Short>
     var c: Matrix<Short>
     val parameters: Parameters
-    constructor(parameters: Parameters,state:State){
+    constructor(parameters: Parameters,state: State){
         this.parameters=parameters
         this.state=state
         a= Matrix(parameters.dataSize){i, j ->  DEFAULT_MATRIX_VALUE}
