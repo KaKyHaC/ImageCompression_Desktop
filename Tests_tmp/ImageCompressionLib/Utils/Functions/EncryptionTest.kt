@@ -4,6 +4,7 @@ import ImageCompressionLib.Data.Matrix.DataOpcMatrix
 import ImageCompressionLib.Data.Parameters
 import ImageCompressionLib.Data.TripleDataOpcMatrix
 import ImageCompressionLib.Data.Primitives.Size
+import ImageCompressionLib.Utils.Objects.EncryptionUtils
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -32,10 +33,10 @@ class EncryptionTest(val imageSize: Size, val unitSize: Size, val key:String) {
     fun encode() {
         val cpy=dopcs.copy()
 
-        val tmp=Encryption.encode(dopcs,key)
+        val tmp= EncryptionUtils.encode(dopcs,key)
         assertNotEquals(cpy,tmp)
 
-        val res=Encryption.encode(tmp,key)
+        val res= EncryptionUtils.encode(tmp,key)
         assertEquals(res,cpy)
     }
 

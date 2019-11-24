@@ -1,7 +1,7 @@
 //package ImageCompressionLib.Utils;
 //
 //import ImageCompressionLib.Data.Enumerations.State;
-//import ImageCompressionLib.Utils.Functions.Encryption;
+//import ImageCompressionLib.Utils.Objects.EncryptionUtils;
 //import ImageCompressionLib.Data.Type.Flag;
 //import org.junit.Before;
 //import org.junit.Test;
@@ -27,8 +27,8 @@
 //
 //    @Test
 //    public void encode() throws Exception {
-//        Encryption.encode(moduleOpcOld.getBoxOfOpc(true),key);
-//        Encryption.encode(moduleOpcOld.getBoxOfOpc(true),key);
+//        EncryptionUtils.encode(moduleOpcOld.getBoxOfOpc(true),key);
+//        EncryptionUtils.encode(moduleOpcOld.getBoxOfOpc(true),key);
 //        AssertBoxEquals(moduleOpcOld.getBoxOfOpc(true), _moduleOpcOld.getBoxOfOpc(true));
 //    }
 //    private void AssertBoxEquals(TripleDataOpcMatrixOld a, TripleDataOpcMatrixOld b){
