@@ -1,8 +1,7 @@
 package ImageCompressionLib.Utils.Functions.Opc
 
-import ImageCompressionLib.Data.*
 import ImageCompressionLib.Data.Matrix.ShortMatrix
-import ImageCompressionLib.Data.Type.DataOpc
+import ImageCompressionLib.Data.Primitives.DataOpc
 import ImageCompressionLib.Data.Type.Flag
 import ImageCompressionLib.Data.Primitives.Size
 import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.afterReverceOpcProcess

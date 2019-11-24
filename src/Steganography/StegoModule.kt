@@ -2,7 +2,7 @@
 //
 //import Steganography.Utils.ImageProcessorUtils
 //import Steganography.Utils.OpcsParser
-//import ImageCompressionLib.Data.Type.ByteVector
+//import ImageCompressionLib.Data.Primitives.ByteVector
 //import ImageCompressionLib.Data.Type.Flag
 //import java.awt.image.BufferedImage
 //import java.io.File

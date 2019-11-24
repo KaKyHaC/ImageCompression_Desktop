@@ -1,9 +1,9 @@
 package ImageCompressionLib.Utils.Objects
 
 
-import ImageCompressionLib.Data.Containers.Triple
+import ImageCompressionLib.Data.Generics.Triple
 import ImageCompressionLib.Data.Interfaces.IMatrix
-import ImageCompressionLib.Data.Type.DataOpc
+import ImageCompressionLib.Data.Primitives.DataOpc
 import kotlin.experimental.xor
 
 /**

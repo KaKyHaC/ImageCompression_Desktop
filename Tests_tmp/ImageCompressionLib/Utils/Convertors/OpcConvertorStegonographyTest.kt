@@ -4,7 +4,7 @@ import ImageCompressionLib.Data.EncryptParameters
 import ImageCompressionLib.Data.Matrix.DataOpcMatrix
 import ImageCompressionLib.Data.Matrix.ShortMatrix
 import ImageCompressionLib.Data.Parameters
-import ImageCompressionLib.Data.Type.ByteVector
+import ImageCompressionLib.Data.Primitives.ByteVector
 import ImageCompressionLib.Data.Type.Flag
 import ImageCompressionLib.Data.Primitives.Size
 import ImageCompressionLib.Utils.Functions.Opc.IStegoMessageUtil
@@ -21,7 +21,7 @@ class OpcConvertorStegonographyTest(val size: Size, val lenght:Int, val pos:Int)
     lateinit var convertor:OpcConvertor
     lateinit var param:Parameters
     lateinit var cpy:ShortMatrix
-    lateinit var message:ByteVector
+    lateinit var message: ByteVector
     lateinit var enPar:EncryptParameters
     @Before
     fun setUp() {
@@ -93,7 +93,7 @@ class OpcConvertorStegonographyTest(val size: Size, val lenght:Int, val pos:Int)
     }
 
     fun createMessage(len:Int): ByteVector {
-        val res=ByteVector()
+        val res= ByteVector()
         res.append(true)
         for(i in 0 until len-1)
             res.append(Random().nextBoolean())

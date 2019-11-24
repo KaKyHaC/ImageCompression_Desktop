@@ -6,8 +6,8 @@ import ImageCompressionLib.Data.Matrix.DataOpcMatrix
 import ImageCompressionLib.Data.Enumerations.State
 import ImageCompressionLib.Data.Matrix.Matrix
 import ImageCompressionLib.Data.Matrix.ShortMatrix
-import ImageCompressionLib.Data.Type.ByteVector
-import ImageCompressionLib.Data.Type.DataOpc
+import ImageCompressionLib.Data.Primitives.ByteVector
+import ImageCompressionLib.Data.Primitives.DataOpc
 import ImageCompressionLib.Data.Type.Flag
 import ImageCompressionLib.Utils.Objects.EncryptionUtils
 import ImageCompressionLib.Utils.Convertors.OpcConvertor
@@ -90,7 +90,7 @@ class ModuleOpc {
         val (a1, v1) = futures[0].get()
         val (b1, v2) = futures[1].get()
         val (c1, v3) = futures[2].get()
-        var resM:ByteVector?=null
+        var resM: ByteVector?=null
         if(v1!=null&&v2!=null&&v3!=null)
             resM=v1.trim()+v2.trim()+v3.trim()
 //        val resM1=v1?.concat(v2?:ByteVector())?:ByteVector().concat(v3?:ByteVector())
@@ -116,7 +116,7 @@ class ModuleOpc {
         return tripleDataOpcMatrix!!
     }
 
-    var m:ByteVector?=null
+    var m: ByteVector?=null
         private set
     fun getTripleShortMatrix(encryptParameters: EncryptParameters?): Pair<TripleShortMatrix, ByteVector?> {
         if(tripleShortMatrix==null) {

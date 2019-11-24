@@ -1,5 +1,5 @@
 package ImageCompressionLib.Data.Interfaces
 
-interface ICopyable {
-    fun copy(): ICopyable
+interface ICopyable<T> {
+    fun copy(): T
 }

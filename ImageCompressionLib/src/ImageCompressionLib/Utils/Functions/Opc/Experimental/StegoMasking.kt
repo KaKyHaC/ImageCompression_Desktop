@@ -1,6 +1,6 @@
 package ImageCompressionLib.Utils.Functions.Opc.Experimental
 
-import ImageCompressionLib.Data.Type.DataOpc
+import ImageCompressionLib.Data.Primitives.DataOpc
 import java.math.BigInteger
 
 class StegoMasking {

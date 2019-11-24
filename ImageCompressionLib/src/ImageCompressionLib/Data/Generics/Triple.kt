@@ -1,4 +1,4 @@
-package ImageCompressionLib.Data.Containers
+package ImageCompressionLib.Data.Generics
 
 data class Triple<T>(
     val first: T,

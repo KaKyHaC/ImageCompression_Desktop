@@ -4,8 +4,8 @@ import ImageCompressionLib.Data.*
 import ImageCompressionLib.Data.Matrix.DataOpcMatrix
 import ImageCompressionLib.Data.Matrix.Matrix
 import ImageCompressionLib.Data.Matrix.ShortMatrix
-import ImageCompressionLib.Data.Type.ByteVector
-import ImageCompressionLib.Data.Type.DataOpc
+import ImageCompressionLib.Data.Primitives.ByteVector
+import ImageCompressionLib.Data.Primitives.DataOpc
 import ImageCompressionLib.Data.Type.Flag
 import ImageCompressionLib.Data.Primitives.Size
 import ImageCompressionLib.Utils.Functions.Opc.OpcProcess
@@ -164,8 +164,8 @@ class OpcConvertor {
     }
 
 
-    fun getDataOrigin(encParameters: EncryptParameters?=null): Pair<Matrix<Short>,ByteVector?> {
-        var m:ByteVector?=null
+    fun getDataOrigin(encParameters: EncryptParameters?=null): Pair<Matrix<Short>, ByteVector?> {
+        var m: ByteVector?=null
         if (state == State.Opc && !isReady) {
             m=reverceProcess(encParameters)
             isReady = true
@@ -187,7 +187,7 @@ class OpcConvertor {
         }
         return dataOpcMatrix
     }
-    fun getDataOpcs(encParameters: EncryptParameters?,message:ByteVector?): Matrix<DataOpc> {
+    fun getDataOpcs(encParameters: EncryptParameters?,message: ByteVector?): Matrix<DataOpc> {
         if (state == State.Origin && !isReady) {
             directProcess(encParameters,message)
             isReady = true

@@ -1,6 +1,6 @@
 package ImageCompressionLib.Data
 
-import ImageCompressionLib.Data.Type.ByteVector
+import ImageCompressionLib.Data.Primitives.ByteVector
 import ImageCompressionLib.Utils.Functions.Opc.IStegoMessageUtil
 
 

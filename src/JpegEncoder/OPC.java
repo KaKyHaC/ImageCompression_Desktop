@@ -14,7 +14,7 @@
 //// Jpeg Group's Jpeg 6a library, Copyright Thomas G. Lane.
 //// See license.txt for details.
 //
-//import ImageCompressionLib.Data.Type.ByteVector;
+//import ImageCompressionLib.Data.Primitives.ByteVector;
 //import ImageCompressionLib.Data.Type.Flag;
 //
 //import java.io.BufferedOutputStream;

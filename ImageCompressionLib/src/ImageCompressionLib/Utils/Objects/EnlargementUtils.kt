@@ -1,6 +1,6 @@
 package ImageCompressionLib.Utils.Objects
 
-import ImageCompressionLib.Data.Containers.Quartet
+import ImageCompressionLib.Data.Generics.Quartet
 
 object EnlargementUtils : IUtils<Quartet<Short>, Short> {
 

@@ -1,6 +1,6 @@
 package ImageCompressionLib.Utils.Functions.Opc
 
-import ImageCompressionLib.Data.Type.DataOpc
+import ImageCompressionLib.Data.Primitives.DataOpc
 import ImageCompressionLib.Data.Type.Flag
 import ImageCompressionLib.Data.Parameters
 import ImageCompressionLib.Data.Matrix.Matrix
@@ -62,7 +62,7 @@ class OpcProcess {
                 throw Exception("can't write message using LongCode")
 
             OpcAlgorithmsExperimentel.OpcDirectStegoAt(dataOrigin,dataOpc,message,position)
-            val maxLen=DataOpc.getLengthOfCode(dataOpc.base,dataOrigin.size)
+            val maxLen= DataOpc.getLengthOfCode(dataOpc.base,dataOrigin.size)
             val len = dataOpc.N.toByteArray().size
             if(len>maxLen) {
                 println("len $len>max $maxLen")

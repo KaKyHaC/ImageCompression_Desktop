@@ -1,7 +1,7 @@
 package ImageCompressionLib.Utils.Convertors
 
 import ImageCompressionLib.Constants.BITS_PER_BYTE
-import ImageCompressionLib.Data.Type.ByteVector
+import ImageCompressionLib.Data.Primitives.ByteVector
 import org.junit.Before
 
 import org.junit.Assert.*

@@ -1,7 +1,7 @@
 package ImageCompressionLib.Data
 
 import ImageCompressionLib.Data.Matrix.Matrix
-import ImageCompressionLib.Data.Type.DataOpc
+import ImageCompressionLib.Data.Primitives.DataOpc
 import ImageCompressionLib.Data.Type.Flag
 import ImageCompressionLib.Data.Primitives.Size
 import org.junit.Before
@@ -18,7 +18,11 @@ class TripleDataOpcMatrixTest {
             Size(256, 374),
             Size(7, 6)
         )
-        val m=Matrix<DataOpc>(p.unitSize){i, j ->  DataOpc(p)}
+        val m=Matrix<DataOpc>(p.unitSize){ i, j ->
+            DataOpc(
+                p
+            )
+        }
         m.forEach(){i, j, value ->
             value.DC=(i+j).toShort()
             value.N= BigInteger.valueOf((i*j).toLong())

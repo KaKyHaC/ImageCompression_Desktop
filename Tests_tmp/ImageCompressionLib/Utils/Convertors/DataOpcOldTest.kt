@@ -2,7 +2,7 @@
 package ImageCompressionLib.Utils.Convertors
 
 import ImageCompressionLib.Constants.SIZEOFBLOCK
-import ImageCompressionLib.Data.Type.ByteVector
+import ImageCompressionLib.Data.Primitives.ByteVector
 import ImageCompressionLib.Data.Type.Flag
 
 import org.junit.Assert.*

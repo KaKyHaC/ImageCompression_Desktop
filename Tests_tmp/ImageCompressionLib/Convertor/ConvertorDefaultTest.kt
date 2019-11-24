@@ -3,7 +3,7 @@ package ImageCompressionLib.Convertor
 import ImageCompressionLib.Data.ByteVectorContainer
 import ImageCompressionLib.Data.EncryptParameters
 import ImageCompressionLib.Data.Parameters
-import ImageCompressionLib.Data.Type.ByteVector
+import ImageCompressionLib.Data.Primitives.ByteVector
 import ImageCompressionLib.Data.Type.Flag
 import ImageCompressionLib.Data.Type.MyBufferedImage
 import ImageCompressionLib.Data.Primitives.Size

@@ -1,7 +1,7 @@
 package ImageCompressionLib.Utils.Functions.Opc
 
 import ImageCompressionLib.Data.Matrix.ShortMatrix
-import ImageCompressionLib.Data.Type.DataOpc
+import ImageCompressionLib.Data.Primitives.DataOpc
 import ImageCompressionLib.Data.Primitives.Size
 import org.junit.Before
 
@@ -15,8 +15,8 @@ import java.util.*
 @RunWith(Parameterized::class)
 class OpcUtilsOddAndEvenTest(val size: Size) {
     lateinit var matrix:ShortMatrix
-    lateinit var dataOpc:DataOpc
-    val cpyOpc:DataOpc
+    lateinit var dataOpc: DataOpc
+    val cpyOpc: DataOpc
     val cpyData:ShortMatrix
 
     init {

@@ -2,7 +2,7 @@ package ImageCompressionLib.Utils.Functions.Opc.Experimental
 
 import ImageCompressionLib.Constants.TWO
 import ImageCompressionLib.Data.Matrix.Matrix
-import ImageCompressionLib.Data.Type.DataOpc
+import ImageCompressionLib.Data.Primitives.DataOpc
 import java.math.BigInteger
 
 class OpcAlgorithmsExperimentel {

@@ -1,7 +1,7 @@
 package ImageCompressionLib.Utils.Functions.Opc.Experimental
 
 import ImageCompressionLib.Data.Matrix.ShortMatrix
-import ImageCompressionLib.Data.Type.DataOpc
+import ImageCompressionLib.Data.Primitives.DataOpc
 import ImageCompressionLib.Data.Primitives.Size
 import ImageCompressionLib.Utils.Functions.Opc.OpcUtils
 import org.junit.Before
@@ -16,7 +16,7 @@ import java.util.*
 @RunWith(Parameterized::class)
 class OpcAlgorithmsExperimentelTestDefault(val size: Size, val data:MessageAndPositionArray, val coef:Int) {
     lateinit var dataOriginal:ShortMatrix
-    lateinit var dataOpc:DataOpc
+    lateinit var dataOpc: DataOpc
     lateinit var BiCoef:BigInteger
     @Before
     fun setUp() {

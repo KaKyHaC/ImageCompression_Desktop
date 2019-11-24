@@ -1,6 +1,6 @@
 package ImageCompressionLib.Data
 
-import ImageCompressionLib.Data.Type.ByteVector
+import ImageCompressionLib.Data.Primitives.ByteVector
 import ImageCompressionLib.Data.Primitives.Size
 import org.junit.Before
 

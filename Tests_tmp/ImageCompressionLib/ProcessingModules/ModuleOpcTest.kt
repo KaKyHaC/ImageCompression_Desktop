@@ -2,7 +2,7 @@ package ImageCompressionLib.ProcessingModules
 
 import ImageCompressionLib.Data.Enumerations.State
 import ImageCompressionLib.Data.EncryptParameters
-import ImageCompressionLib.Data.Type.ByteVector
+import ImageCompressionLib.Data.Primitives.ByteVector
 import ImageCompressionLib.Data.Primitives.Size
 import ImageCompressionLib.Utils.Functions.ImageIOTest
 import ImageCompressionLib.Utils.Functions.Opc.IStegoMessageUtil
@@ -108,7 +108,7 @@ class ModuleOpcTest(val w: Int,val h: Int,val loop: Int) {
         m.state = State.Dct
         val cpy = m.copy()
         val eP=EncryptParameters()
-        eP.message= ByteVector(w/2)
+        eP.message= ByteVector(w / 2)
         for(i in 0 until eP.message!!.maxSize)
             eP.message!!.append(Random().nextLong().toShort())
         val messCpy=eP.message!!.copy()

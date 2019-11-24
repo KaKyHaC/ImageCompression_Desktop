@@ -3,7 +3,7 @@ package ImageCompressionLib.Convertor
 import ImageCompressionLib.Data.ByteVectorContainer
 import ImageCompressionLib.Data.EncryptParameters
 import ImageCompressionLib.Data.Parameters
-import ImageCompressionLib.Data.Type.ByteVector
+import ImageCompressionLib.Data.Primitives.ByteVector
 import ImageCompressionLib.Data.Type.MyBufferedImage
 import ImageCompressionLib.Data.Primitives.Size
 import ImageCompressionLib.Utils.Objects.ImageDeviationUtils
@@ -46,7 +46,7 @@ class ConvertorDefaultStegonographyTest (val size: Size, val messageLenght:Int, 
             }
         }
         val fac=object :ConvertorDefault.IGuard{
-            lateinit var messCpy:ByteVector
+            lateinit var messCpy: ByteVector
 
             override fun getEncryptProperty(): EncryptParameters? {
                 messCpy=encParam.message!!.copy()
@@ -131,8 +131,8 @@ class ConvertorDefaultStegonographyTest (val size: Size, val messageLenght:Int, 
             return res
         }
 
-        fun createMessage(length:Int):ByteVector{
-            val res=ByteVector()
+        fun createMessage(length:Int): ByteVector {
+            val res= ByteVector()
             for( i in 0 until length)
                 res.append(Random().nextBoolean())
             return res

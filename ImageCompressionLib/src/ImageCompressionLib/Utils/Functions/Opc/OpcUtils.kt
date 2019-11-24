@@ -1,7 +1,7 @@
 package ImageCompressionLib.Utils.Functions.Opc
 
 import ImageCompressionLib.Data.Matrix.Matrix
-import ImageCompressionLib.Data.Type.DataOpc
+import ImageCompressionLib.Data.Primitives.DataOpc
 
 class OpcUtils {
     companion object {

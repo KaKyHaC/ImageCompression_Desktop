@@ -1,4 +1,4 @@
-package ImageCompressionLib.Data.Type
+package ImageCompressionLib.Data.Primitives
 
 import ImageCompressionLib.Constants.Constants.BYTES_PER_LONG
 import ImageCompressionLib.Data.Interfaces.IByteVector

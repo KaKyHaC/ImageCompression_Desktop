@@ -1,6 +1,6 @@
 //package ImageCompressionLib.Utils.Convertors
 //
-//import ImageCompressionLib.Data.Type.ByteVector
+//import ImageCompressionLib.Data.Primitives.ByteVector
 //import ImageCompressionLib.Data.Type.Flag
 //import org.junit.Assert.*
 //import org.junit.Test

@@ -1,4 +1,4 @@
-package ImageCompressionLib.Data.Type
+package ImageCompressionLib.Data.Primitives
 
 import ImageCompressionLib.Data.Interfaces.IByteVector
 import ImageCompressionLib.Data.Interfaces.ICopyable

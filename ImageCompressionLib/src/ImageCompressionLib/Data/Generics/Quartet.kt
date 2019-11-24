@@ -1,4 +1,4 @@
-package ImageCompressionLib.Data.Containers
+package ImageCompressionLib.Data.Generics
 
 data class Quartet<T>(
     val first: T,

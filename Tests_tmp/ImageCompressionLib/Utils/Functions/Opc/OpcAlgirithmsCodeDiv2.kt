@@ -1,7 +1,7 @@
 package ImageCompressionLib.Utils.Functions.Opc
 
 import ImageCompressionLib.Data.Matrix.ShortMatrix
-import ImageCompressionLib.Data.Type.DataOpc
+import ImageCompressionLib.Data.Primitives.DataOpc
 import ImageCompressionLib.Data.Primitives.Size
 import org.junit.Assert
 import org.junit.Test
