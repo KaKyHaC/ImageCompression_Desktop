@@ -1,5 +1,6 @@
 package ImageCompressionLib.Utils.Functions
 
+import ImageCompressionLib.Utils.Objects.CompressionUtils
 import org.junit.Assert.*
 import org.junit.Test
 import java.util.*
@@ -21,10 +22,10 @@ class CompressionUtilsTest{
 
     fun testCompressionUtils(size: Int,bound: Int){
         val ba=createByteArray(size,bound)
-        val cba=CompressionUtils.compress(ba)
+        val cba= CompressionUtils.compress(ba)
         assertTrue(cba.size<ba.size)
 
-        val rba=CompressionUtils.decompress(cba)
+        val rba= CompressionUtils.decompress(cba)
         assertArrayEquals(rba,ba)
     }
     fun createByteArray(size:Int,bound:Int=10000):ByteArray{

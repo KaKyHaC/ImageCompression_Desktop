@@ -3,7 +3,7 @@ package ImageCompressionLib.ProcessingModules
 import ImageCompressionLib.Data.ByteVectorContainer
 import ImageCompressionLib.Data.Type.ByteVector
 import ImageCompressionLib.Data.Type.Flag
-import ImageCompressionLib.Utils.Functions.CompressionUtils
+import ImageCompressionLib.Utils.Objects.CompressionUtils
 
 class ModuleCompression {
     fun compress(container: ByteVectorContainer,flag: Flag):ByteVectorContainer{
