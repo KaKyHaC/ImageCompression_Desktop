@@ -8,7 +8,7 @@ import ImageCompressionLib.Data.Type.Flag
 import ImageCompressionLib.Data.Type.MyBufferedImage
 import ImageCompressionLib.Data.Primitives.Size
 import ImageCompressionLib.Convertor.ConvertorDefault.IDao
-import ImageCompressionLib.Utils.Functions.ImageStandardDeviation
+import ImageCompressionLib.Utils.Objects.ImageDeviationUtils
 import ImageCompressionLib.Utils.Convertors.TimeManager
 import org.junit.Before
 
@@ -34,7 +34,7 @@ class ConvertorDefaultTest(val size: Size, var range:Int) {
                 vector.writeToStream(file.outputStream())
             }
             override fun onResultImage(image: MyBufferedImage, parameters: Parameters) {
-                val dev=ImageStandardDeviation.getDeviation(image,cpy)
+                val dev= ImageDeviationUtils.getDeviation(image,cpy)
                 println(dev)
 //                image.assertInRange(cpy,range)
                 assert(dev<range)

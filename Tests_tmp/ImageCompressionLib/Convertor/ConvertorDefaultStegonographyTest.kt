@@ -6,7 +6,7 @@ import ImageCompressionLib.Data.Parameters
 import ImageCompressionLib.Data.Type.ByteVector
 import ImageCompressionLib.Data.Type.MyBufferedImage
 import ImageCompressionLib.Data.Primitives.Size
-import ImageCompressionLib.Utils.Functions.ImageStandardDeviation
+import ImageCompressionLib.Utils.Objects.ImageDeviationUtils
 import ImageCompressionLib.Utils.Functions.Opc.IStegoMessageUtil
 import ImageCompressionLib.Utils.Convertors.TimeManager
 import org.junit.Before
@@ -33,7 +33,7 @@ class ConvertorDefaultStegonographyTest (val size: Size, val messageLenght:Int, 
                 bvc=vector
             }
             override fun onResultImage(image: MyBufferedImage, parameters: Parameters) {
-                val dev= ImageStandardDeviation.getDeviation(image,cpy)
+                val dev= ImageDeviationUtils.getDeviation(image,cpy)
                 println(dev)
 //                assert(dev<range)
             }

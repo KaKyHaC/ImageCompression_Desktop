@@ -8,7 +8,7 @@ import ImageCompressionLib.Data.Type.Flag;
 import ImageCompressionLib.Data.Type.MyBufferedImage;
 import ImageCompressionLib.Data.Primitives.Size;
 import ImageCompressionLib.Convertor.ConvertorDefault;
-import ImageCompressionLib.Utils.Functions.ImageStandardDeviation;
+import ImageCompressionLib.Utils.Objects.ImageDeviationUtils;
 import ImageCompressionLib.Utils.Functions.Opc.IStegoMessageUtil;
 import Utils.BuffImConvertor;
 import Utils.StegoPassword;
@@ -214,7 +214,7 @@ public class MainPage extends JFrame {
     }
     private void afterConvert(){
         if(imageOriginal!=null&&imageDestination!=null)
-            labelDeviation.setText(Double.toString(ImageStandardDeviation.getDeviation(imageOriginal,imageDestination)));
+            labelDeviation.setText(Double.toString(ImageDeviationUtils.getDeviation(imageOriginal,imageDestination)));
 
         labelInfoAfter.setText("File:"+fileBVC.getName()+", Size:"+fileBVC.length()/1024+" kb");
     }
