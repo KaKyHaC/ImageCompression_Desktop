@@ -1,9 +1,9 @@
 package ImageCompressionLib.Data.Primitives
 
 import ImageCompressionLib.Data.Interfaces.IByteVector
-import ImageCompressionLib.Data.Interfaces.ISaveable
+import ImageCompressionLib.Data.Interfaces.ISavable
 
-class Flag2 constructor() : ISaveable {
+class Flag2 constructor() : ISavable {
     private val data = mutableMapOf<Parameter, Boolean>()
 
     constructor(vector: IByteVector) : this() {

@@ -1,5 +1,5 @@
 package ImageCompressionLib.Data.Interfaces
 
-interface ISaveable {
+interface ISavable {
     fun appendByteVector(vector: IByteVector)
 }

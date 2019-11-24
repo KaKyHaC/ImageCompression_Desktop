@@ -1,9 +1,9 @@
 package ImageCompressionLib.Data.Primitives
 
 import ImageCompressionLib.Data.Interfaces.IByteVector
-import ImageCompressionLib.Data.Interfaces.ISaveable
+import ImageCompressionLib.Data.Interfaces.ISavable
 
-data class Size(val width: Int, val height: Int) : ISaveable{
+data class Size(val width: Int, val height: Int) : ISavable{
 
     constructor(vector: IByteVector) : this(
         vector.getNextShort()?.toInt() ?: 0,
