@@ -1,5 +1,6 @@
 package ImageCompressionLib.Utils.Functions
 
+import ImageCompressionLib.Containers.Type.MyBufferedImage
 import java.awt.Image
 import java.awt.image.BufferedImage
 import java.io.File
@@ -8,7 +9,7 @@ import javax.imageio.ImageIO
 class ImageStandardDeviation private constructor () {
     companion object {
         @JvmStatic
-        fun getDeviation(original: BufferedImage, destination: BufferedImage): Double {
+        fun getDeviation(original: MyBufferedImage, destination: MyBufferedImage): Double {
             if(!validate(original,destination)) throw Exception("not valid")
 
             val r= getDeviation(original, destination,16)
@@ -18,7 +19,7 @@ class ImageStandardDeviation private constructor () {
             println("deviation r=$r, g=$g, b=$b")
             return (r+g+b)/3.0
         }
-        private fun getDeviation(original: BufferedImage, destination: BufferedImage,shift:Int): Double {
+        private fun getDeviation(original: MyBufferedImage, destination: MyBufferedImage,shift:Int): Double {
             if(!validate(original,destination)) throw Exception("not valid")
 
             var sum=0.0;
@@ -35,21 +36,9 @@ class ImageStandardDeviation private constructor () {
             return sum
         }
         @JvmStatic
-        fun validate(original: BufferedImage, destination: BufferedImage):Boolean{
+        fun validate(original: MyBufferedImage, destination: MyBufferedImage):Boolean{
             return original.width==destination.width&&original.height==destination.height
         }
     }
 
-}
-fun main(arg:Array<String>){
-    val i1:BufferedImage=ImageIO.read(File("D:\\files\\desk.bmp"))
-//    val i2:BufferedImage=ImageIO.read(File("D:\\files\\deskres.bmp"))
-//    val i2:BufferedImage=ImageIO.read(File("D:\\files\\desk.bmp"))
-    println("jpeg")
-    val i2:BufferedImage=ImageIO.read(File("D:\\Dima\\IDEA Projects\\ImageCompressionKotlin\\jpegEncoder.jpeg"))
-    ImageStandardDeviation.getDeviation(i1,i2)
-
-    println("br")
-    val i3:BufferedImage=ImageIO.read(File("D:\\files\\deskres.bmp"))
-    ImageStandardDeviation.getDeviation(i1,i3)
 }

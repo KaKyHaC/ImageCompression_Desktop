@@ -1,6 +1,6 @@
 package Utils
 
-import ImageCompressionLib.Containers.MyBufferedImage
+import ImageCompressionLib.Containers.Type.MyBufferedImage
 import java.awt.image.BufferedImage
 
 class BuffImConvertor private constructor(){
@@ -8,7 +8,7 @@ class BuffImConvertor private constructor(){
     companion object {
         @JvmStatic val instance = BuffImConvertor()
     }
-    fun convert(im:MyBufferedImage):BufferedImage{
+    fun convert(im: MyBufferedImage):BufferedImage{
         val res=BufferedImage(im.width,im.height,BufferedImage.TYPE_3BYTE_BGR)
         for(i in 0 until im.width)
             for(j in 0 until im.height){
@@ -19,8 +19,8 @@ class BuffImConvertor private constructor(){
             }
         return res
     }
-    fun convert(im:BufferedImage):MyBufferedImage{
-        val res=MyBufferedImage(im.width,im.height)
+    fun convert(im:BufferedImage): MyBufferedImage {
+        val res= MyBufferedImage(im.width, im.height)
         for(i in 0 until im.width)
             for(j in 0 until im.height){
                 val v =im.getRGB(i,j) and (alfa.inv())

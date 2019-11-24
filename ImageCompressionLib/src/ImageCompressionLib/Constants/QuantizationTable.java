@@ -1,5 +1,7 @@
 package ImageCompressionLib.Constants;
 
+import ImageCompressionLib.Containers.Type.ByteVector;
+
 /**
  * Created by Димка on 08.08.2016.
  */
@@ -12,7 +14,6 @@ public class QuantizationTable {//singelton
 
     private QuantizationTable()
     {
-
         luminosity = new short[][]{
                 {1, 2, 3, 4, 5, 6, 7, 8},
                 {2, 2, 3, 4, 5, 8, 10, 15},
