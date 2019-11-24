@@ -14,8 +14,8 @@ import Utils.BuffImConvertor;
 import Utils.StegoPassword;
 import kotlin.Pair;
 import kotlin.jvm.functions.Function0;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.antlr.v4.runtime.misc.NotNull;
+import org.antlr.v4.runtime.misc.Nullable;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
