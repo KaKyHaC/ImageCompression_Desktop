@@ -50,7 +50,7 @@ class DctConvertorDesktopTest {
         val cpy = data.copy()
         assertTrue(data.assertInRange(cpy,0))
 
-        val convertor=DctConvertor(data,DctConvertor.State.ORIGIN,TypeQuantization.luminosity
+        val convertor=DctConvertor(data,DctConvertor.State.ORIGIN,TypeQuantization.Luminosity
                 , Parameters.createParametresForTest(data.size,flag = flag,unitSize = unitSize)
                 , DctUniversalAlgorithm(unitSize))
 

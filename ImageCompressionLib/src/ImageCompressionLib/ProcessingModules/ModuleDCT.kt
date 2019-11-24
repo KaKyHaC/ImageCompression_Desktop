@@ -36,7 +36,7 @@ class ModuleDCT(private val tripleShortMatrixOld: TripleShortMatrix) { //    pri
 
         state = if (tripleShortMatrixOld.state == State.Dct) DctConvertor.State.DCT else DctConvertor.State.ORIGIN
 
-        a = DctConvertor(tripleShortMatrixOld.a, state, TypeQuantization.luminosity,parameter,dctUtils.copy() )
+        a = DctConvertor(tripleShortMatrixOld.a, state, TypeQuantization.Luminosity,parameter,dctUtils.copy() )
         b = DctConvertor(tripleShortMatrixOld.b, state, TypeQuantization.Chromaticity, parameter,dctUtils.copy())
         c = DctConvertor(tripleShortMatrixOld.c, state, TypeQuantization.Chromaticity, parameter,dctUtils)
 
