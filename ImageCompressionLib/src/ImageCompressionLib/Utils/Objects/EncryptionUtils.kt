@@ -1,8 +1,8 @@
 package ImageCompressionLib.Utils.Objects
 
 
+import ImageCompressionLib.Data.Containers.Triple
 import ImageCompressionLib.Data.Interfaces.IMatrix
-import ImageCompressionLib.Data.Interfaces.ITriple
 import ImageCompressionLib.Data.Type.DataOpc
 import kotlin.experimental.xor
 
@@ -11,7 +11,7 @@ import kotlin.experimental.xor
  */
 object EncryptionUtils {
 
-    fun encode(tripleOpcMatrix: ITriple<IMatrix<DataOpc>>, key: String): ITriple<IMatrix<DataOpc>> {
+    fun encode(tripleOpcMatrix: Triple<IMatrix<DataOpc>>, key: String): Triple<IMatrix<DataOpc>> {
         val key = keyToArray(key)
         return tripleOpcMatrix.mapIndexed { i, value -> EncryptionUtils.encode(value, key) }
     }
