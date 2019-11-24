@@ -1,27 +1,28 @@
 package ImageCompressionLib.Data.Primitives
 
-import ImageCompressionLib.Data.Type.ByteVector
+import ImageCompressionLib.Data.Interfaces.IByteVector
+import ImageCompressionLib.Data.Interfaces.ISaveable
 
-class Flag2 constructor() {
-    val data = mutableMapOf<Parameter, Boolean>()
+class Flag2 constructor() : ISaveable {
+    private val data = mutableMapOf<Parameter, Boolean>()
 
-    constructor(vector: ByteVector) : this() {
-        for (p in Parameter.values())
-            data.put(p, vector.getNextBoolean())
-    }
-
-    fun toByteVector(vector: ByteVector) {
-        for (p in Parameter.values())
-            vector.append(data.get(p)!!)
+    constructor(vector: IByteVector) : this() {
+        Parameter.values().forEach {
+            setChecked(it, vector.getNextBoolean() ?: false)
+        }
     }
 
     fun isChecked(param: Parameter) = data.get(param) ?: false
 
-    fun setChecked(parameter: Parameter, state: Boolean) = data.set(parameter, state)
+    fun setChecked(parameter: Parameter, state: Boolean) = data.put(parameter, state)
 
     fun setTrue(parameter: Parameter) = setChecked(parameter, true)
 
     fun setFalse(parameter: Parameter) = setChecked(parameter, false)
+
+    override fun appendByteVector(vector: IByteVector) {
+        Parameter.values().forEach { vector.append(isChecked(it)) }
+    }
 
     enum class Parameter {
         OneFile, Enlargement, DC, LongCode, GlobalBase, Password, Steganography, Alignment, CompressionUtils, Quantization, Encryption, DCT;

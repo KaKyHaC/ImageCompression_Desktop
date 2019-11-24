@@ -1,6 +1,6 @@
 package ImageCompressionLib.Data.Interfaces
 
-interface IByteVector : Iterable<Byte>{
+interface IByteVector : Iterable<Byte> {
     val bytes: ByteArray
     val size get() = bytes.size
 
@@ -10,9 +10,9 @@ interface IByteVector : Iterable<Byte>{
     fun append(value: Int)
     fun append(value: Long)
 
-    fun getNextBoolean(index: Int?): Boolean?
-    fun getNextByte(index: Int?): Byte?
-    fun getNextShort(index: Int?): Short?
-    fun getNextInt(index: Int?): Int?
-    fun getNextLong(index: Int?): Long?
+    fun getNextBoolean(index: Int? = null): Boolean?
+    fun getNextByte(index: Int? = null): Byte?
+    fun getNextShort(index: Int? = null): Short?
+    fun getNextInt(index: Int? = null): Int?
+    fun getNextLong(index: Int? = null): Long?
 }
