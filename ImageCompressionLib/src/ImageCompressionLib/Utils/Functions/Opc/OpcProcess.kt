@@ -1,9 +1,9 @@
 package ImageCompressionLib.Utils.Functions.Opc
 
+import ImageCompressionLib.Containers.Matrix.Matrix
+import ImageCompressionLib.Containers.Parameters
 import ImageCompressionLib.Containers.Type.DataOpc
 import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.Containers.Parameters
-import ImageCompressionLib.Containers.Matrix.Matrix
 import ImageCompressionLib.Utils.Functions.Opc.Experimental.OpcAlgorithmsExperimentel
 import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcDirectLongAndBI
 import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcDirectUseOnlyLong
@@ -20,7 +20,11 @@ import ImageCompressionLib.Utils.Functions.Opc.OpcUtils.Companion.MakeUnSigned
 class OpcProcess {
     companion object {
         @JvmStatic
-        fun preDirectOpcProcess(parameters: Parameters, dataOrigin: Matrix<Short>, DataOpc: DataOpc) {
+        fun preDirectOpcProcess(
+            parameters: Parameters,
+            dataOrigin: Matrix<Short>,
+            DataOpc: DataOpc
+        ) {
             val flag = parameters.flag
 
             if (flag.isChecked(Flag.Parameter.DCT))
@@ -30,8 +34,13 @@ class OpcProcess {
 
             FindBase(dataOrigin, DataOpc)
         }
+
         @JvmStatic
-        fun afterReverceOpcProcess(parameters: Parameters, DataOpc: DataOpc, dataOrigin: Matrix<Short>) {
+        fun afterReverceOpcProcess(
+            parameters: Parameters,
+            DataOpc: DataOpc,
+            dataOrigin: Matrix<Short>
+        ) {
             val flag = parameters.flag
 
             if (flag.isChecked(Flag.Parameter.DC))
@@ -39,6 +48,7 @@ class OpcProcess {
             if (flag.isChecked(Flag.Parameter.DCT))
                 MakeSigned(dataOrigin, DataOpc)
         }
+
         @JvmStatic
         fun directOPC(parameters: Parameters, dataOrigin: Matrix<Short>, DataOpc: DataOpc) {
             if (parameters.flag.isChecked(Flag.Parameter.LongCode))
@@ -46,6 +56,7 @@ class OpcProcess {
             else
                 OpcDirectLongAndBI(dataOrigin, DataOpc)
         }
+
         @JvmStatic
         fun reverseOPC(parameters: Parameters, DataOpc: DataOpc, dataOrigin: Matrix<Short>) {
             val flag = parameters.flag
@@ -54,23 +65,36 @@ class OpcProcess {
             else
                 OpcReverseDefault(dataOrigin, DataOpc)
         }
+
         @JvmStatic
-        fun directOpcWithMessageAt(parameters: Parameters, dataOrigin: Matrix<Short>, dataOpc: DataOpc, message: Boolean, position: Int) {
+        fun directOpcWithMessageAt(
+            parameters: Parameters,
+            dataOrigin: Matrix<Short>,
+            dataOpc: DataOpc,
+            message: Boolean,
+            position: Int
+        ) {
             val flag = parameters.flag
 
             if (flag.isChecked(Flag.Parameter.LongCode))
                 throw Exception("can't write message using LongCode")
 
-            OpcAlgorithmsExperimentel.OpcDirectStegoAt(dataOrigin,dataOpc,message,position)
-            val maxLen=DataOpc.getLengthOfCode(dataOpc.base,dataOrigin.size)
+            OpcAlgorithmsExperimentel.OpcDirectStegoAt(dataOrigin, dataOpc, message, position)
+            val maxLen = DataOpc.getLengthOfCode(dataOpc.base, dataOrigin.size)
             val len = dataOpc.N.toByteArray().size
-            if(len>maxLen) {
+            if (len > maxLen) {
                 println("len $len>max $maxLen")
-                OpcAlgorithms.OpcDirectDefault(dataOrigin,dataOpc)
+                OpcAlgorithms.OpcDirectDefault(dataOrigin, dataOpc)
             }
         }
+
         @JvmStatic
-        fun reverseOpcWithMessageAt(parameters: Parameters, DataOpc: DataOpc, dataOrigin: Matrix<Short>, position: Int): Boolean {
+        fun reverseOpcWithMessageAt(
+            parameters: Parameters,
+            DataOpc: DataOpc,
+            dataOrigin: Matrix<Short>,
+            position: Int
+        ): Boolean {
             val flag = parameters.flag
             if (flag.isChecked(Flag.Parameter.LongCode))
                 throw Exception("can't read message using LongCode")

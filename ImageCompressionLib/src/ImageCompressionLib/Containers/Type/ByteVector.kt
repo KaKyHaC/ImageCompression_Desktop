@@ -1,7 +1,6 @@
 package ImageCompressionLib.Containers.Type
 
 import ImageCompressionLib.Constants.BITS_PER_BYTE
-import jdk.jfr.Description
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -9,7 +8,7 @@ import kotlin.collections.ArrayList
  * Non save class
  * Iterator for Array<Byte>
  */
-class ByteVector:Iterable<Byte> {
+class ByteVector : Iterable<Byte> {
     var bytes: ByteArray
     var size: Int
         private set;
@@ -31,19 +30,20 @@ class ByteVector:Iterable<Byte> {
 
     constructor(byteArray: ByteArray) {
         maxSize = byteArray.size
-        bytes=byteArray;
+        bytes = byteArray;
         this.size = byteArray.size
         curIndex = 0
     }
-    private constructor(byteArray: Array<Byte>){
-        bytes= ByteArray(byteArray.size){ i->byteArray[i]}
-        this.maxSize=byteArray.size
-        this.size=byteArray.size
-        curIndex=0
+
+    private constructor(byteArray: Array<Byte>) {
+        bytes = ByteArray(byteArray.size) { i -> byteArray[i] }
+        this.maxSize = byteArray.size
+        this.size = byteArray.size
+        curIndex = 0
     }
 
     fun toByteArray(): ByteArray {
-        return ByteArray(size){i->bytes[i]}
+        return ByteArray(size) { i -> bytes[i] }
     }
 
     fun append(byte: Byte) {
@@ -185,8 +185,8 @@ class ByteVector:Iterable<Byte> {
     }
 
     fun copy(): ByteVector {
-        val res = ByteVector(size+1)
-        this.forEach{ byte -> res.append(byte) }
+        val res = ByteVector(size + 1)
+        this.forEach { byte -> res.append(byte) }
         return res
     }
 
@@ -220,7 +220,7 @@ class ByteVector:Iterable<Byte> {
     }
 
     operator fun plus(vector: ByteVector): ByteVector {
-        val res=ByteVector(size+vector.size+1)
+        val res = ByteVector(size + vector.size + 1)
         for (i in 0 until size)
             res.append(bytes[i])
         for (i in 0 until vector.size)
@@ -233,8 +233,8 @@ class ByteVector:Iterable<Byte> {
      * remove last zero elements
      * @return this object
      */
-    fun trim():ByteVector{
-        for(i in size-1 downTo 0) {
+    fun trim(): ByteVector {
+        for (i in size - 1 downTo 0) {
             if (bytes[i].toInt() == 0)
                 size--
             else
@@ -242,10 +242,11 @@ class ByteVector:Iterable<Byte> {
         }
         return this
     }
-    fun split(len:Int):List<ByteVector>{
-        val res=ArrayList<ByteVector>()
-        val i=0
-        while(i<size) {
+
+    fun split(len: Int): List<ByteVector> {
+        val res = ArrayList<ByteVector>()
+        val i = 0
+        while (i < size) {
             val tmp = ByteVector()
             for (j in 0 until len)
                 tmp.append(bytes[i])
@@ -253,15 +254,16 @@ class ByteVector:Iterable<Byte> {
         }
         return res
     }
-    operator fun div(times:Int):Array<ByteVector>{
-        val res=Array<ByteVector>(times){ ByteVector() }
-        val tmpLen=size/times+if(size%times!=0)1 else 0
-        var i=0
-        for(count in 0 until times){
-            val tmp=ByteVector()
-            for(j in 0 until tmpLen)
-                tmp.append(if(i<size)bytes[i++] else 0b0)
-            res[count]=tmp
+
+    operator fun div(times: Int): Array<ByteVector> {
+        val res = Array<ByteVector>(times) { ByteVector() }
+        val tmpLen = size / times + if (size % times != 0) 1 else 0
+        var i = 0
+        for (count in 0 until times) {
+            val tmp = ByteVector()
+            for (j in 0 until tmpLen)
+                tmp.append(if (i < size) bytes[i++] else 0b0)
+            res[count] = tmp
         }
         return res
     }

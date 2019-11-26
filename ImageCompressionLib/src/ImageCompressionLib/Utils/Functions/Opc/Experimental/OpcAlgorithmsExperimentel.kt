@@ -8,17 +8,20 @@ import java.math.BigInteger
 class OpcAlgorithmsExperimentel {
     companion object {
         @JvmStatic
-        fun OpcDirectWithMessageAt(dataOrigin: Matrix<Short>, dataOpc: DataOpc,
-                                   data:MessageAndPositionArray, CodeCoefisient:BigInteger) {
+        fun OpcDirectWithMessageAt(
+            dataOrigin: Matrix<Short>, dataOpc: DataOpc,
+            data: MessageAndPositionArray, CodeCoefisient: BigInteger
+        ) {
             var base = BigInteger.ONE
             for (i in dataOrigin.width - 1 downTo 0) {
                 for (j in dataOrigin.height - 1 downTo 0) {
-                    if (dataOrigin[i,j].toInt() != 0) {
-                        dataOpc.N = dataOpc.N.add(base.multiply(BigInteger.valueOf(dataOrigin[i,j].toLong())));
+                    if (dataOrigin[i, j].toInt() != 0) {
+                        dataOpc.N =
+                            dataOpc.N.add(base.multiply(BigInteger.valueOf(dataOrigin[i, j].toLong())));
                     }
                     base = base.multiply(BigInteger.valueOf(dataOpc.base[j].toLong()));
 
-                    val pos=i * dataOrigin.width + j
+                    val pos = i * dataOrigin.width + j
                     if (data.isHadMessage(pos)) {
                         if (data.getMessageAt(pos))
                             dataOpc.N += base
@@ -31,16 +34,18 @@ class OpcAlgorithmsExperimentel {
                     }
                 }
             }
-            dataOpc.N/=CodeCoefisient
+            dataOpc.N /= CodeCoefisient
         }
 
         @JvmStatic
-        fun OpcReverceWithMessageAt(dataOrigin: Matrix<Short>, DataOpc: DataOpc,
-                                    data:MessageAndPositionArray, CodeCoefisient:BigInteger){// method copy from C++ Project MAH
+        fun OpcReverceWithMessageAt(
+            dataOrigin: Matrix<Short>, DataOpc: DataOpc,
+            data: MessageAndPositionArray, CodeCoefisient: BigInteger
+        ) {// method copy from C++ Project MAH
             var copy = BigInteger.ONE
             var b: BigInteger
             var message = false
-            DataOpc.N*=CodeCoefisient
+            DataOpc.N *= CodeCoefisient
 //            DataOpc.base[0] = (DataOpc.base[0] / 2).toShort()// is it need ?//TODO try !=0
             for (i in dataOrigin.width - 1 downTo 0) {
                 for (j in dataOrigin.height - 1 downTo 0) {
@@ -49,12 +54,12 @@ class OpcAlgorithmsExperimentel {
                     copy = copy.multiply(BigInteger.valueOf(baseL))
 
                     b = DataOpc.N.divide(copy).multiply(BigInteger.valueOf(baseL))
-                    dataOrigin[i,j] = a.subtract(b).toShort()
+                    dataOrigin[i, j] = a.subtract(b).toShort()
 
-                    val pos=i * dataOrigin.width + j
+                    val pos = i * dataOrigin.width + j
                     if (data.isHadMessage(pos)) {
                         val tmp = (DataOpc.N / copy) - (DataOpc.N / (copy * TWO) * TWO)
-                        data.setMessageAt(pos,tmp.compareTo(BigInteger.ONE) == 0)
+                        data.setMessageAt(pos, tmp.compareTo(BigInteger.ONE) == 0)
                         copy *= TWO
                     }
                 }
@@ -62,12 +67,18 @@ class OpcAlgorithmsExperimentel {
         }
 
         @JvmStatic
-        fun OpcDirectStegoAt(dataOrigin: Matrix<Short>, dataOpc: DataOpc, message: Boolean, message_position: Int) {
+        fun OpcDirectStegoAt(
+            dataOrigin: Matrix<Short>,
+            dataOpc: DataOpc,
+            message: Boolean,
+            message_position: Int
+        ) {
             var base = BigInteger.ONE
             for (i in dataOrigin.width - 1 downTo 0) {
                 for (j in dataOrigin.height - 1 downTo 0) {
-                    if (dataOrigin[i,j].toInt() != 0) {
-                        dataOpc.N = dataOpc.N.add(base.multiply(BigInteger.valueOf(dataOrigin[i,j].toLong())));
+                    if (dataOrigin[i, j].toInt() != 0) {
+                        dataOpc.N =
+                            dataOpc.N.add(base.multiply(BigInteger.valueOf(dataOrigin[i, j].toLong())));
                     }
                     base = base.multiply(BigInteger.valueOf(dataOpc.base[j].toLong()));
 

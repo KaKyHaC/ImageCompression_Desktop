@@ -18,17 +18,17 @@ import kotlin.reflect.KFunction1
  * Created by Димка on 19.09.2016.
  */
 class ModuleDCT(private val tripleShortMatrixOld: TripleShortMatrix) { //    private TripleShortMatrix resTripleShortMatrix;
-    private val parameter:Parameters
-    private val flag:Flag
+    private val parameter: Parameters
+    private val flag: Flag
     private var a: DctConvertor
     private var b: DctConvertor
     private var c: DctConvertor
-    private var state:DctConvertor.State
+    private var state: DctConvertor.State
 
     init {
-        parameter=tripleShortMatrixOld.parameters
-        flag=parameter.flag
-        val dctUtils=DctUniversalAlgorithm(parameter.unitSize)
+        parameter = tripleShortMatrixOld.parameters
+        flag = parameter.flag
+        val dctUtils = DctUniversalAlgorithm(parameter.unitSize)
 //        if (tripleShortMatrixOld.state == State.Yenl)
 //        //new code . Does it is needed ?
 //            tripleShortMatrixOld.state = State.YBR
@@ -40,7 +40,6 @@ class ModuleDCT(private val tripleShortMatrixOld: TripleShortMatrix) { //    pri
         c = DctConvertor(tripleShortMatrixOld.c, state, TypeQuantization.Chromaticity, parameter,dctUtils)
 
     }//        this.resTripleShortMatrix=tripleShortMatrixOld;
-
 
 
     fun dataProcessing(forEach: KFunction1<DctConvertor, Matrix<Short>>) {
@@ -80,8 +79,9 @@ class ModuleDCT(private val tripleShortMatrixOld: TripleShortMatrix) { //    pri
 
         processState()
     }
+
     fun getYCbCrMatrix(isMultiThreads: Boolean): TripleShortMatrix {
-        if(flag.isChecked(Flag.Parameter.DCT))
+        if (flag.isChecked(Flag.Parameter.DCT))
             return getYCbCrMatrix1(isMultiThreads)
         else {
 //            setState(DctConvertor.State.ORIGIN)
@@ -89,8 +89,9 @@ class ModuleDCT(private val tripleShortMatrixOld: TripleShortMatrix) { //    pri
             return tripleShortMatrixOld
         }
     }
+
     fun getDCTMatrix(isMultiThreads: Boolean): TripleShortMatrix {
-        if(flag.isChecked(Flag.Parameter.DCT))
+        if (flag.isChecked(Flag.Parameter.DCT))
             return getDCTMatrix1(isMultiThreads)
         else {
 //            setState(DctConvertor.State.DCT)
@@ -109,9 +110,10 @@ class ModuleDCT(private val tripleShortMatrixOld: TripleShortMatrix) { //    pri
         return tripleShortMatrixOld
 //        return if (tripleShortMatrixOld.state == State.YBR || tripleShortMatrixOld.state == State.Yenl) tripleShortMatrixOld else  throw Exception("State not correct")
     }
+
     private fun getDCTMatrix1(isMultiThreads: Boolean): TripleShortMatrix {
         when (state) {
-            DctConvertor.State.ORIGIN-> if (isMultiThreads)
+            DctConvertor.State.ORIGIN -> if (isMultiThreads)
                 dataProcessingInThreads(DctConvertor::getMatrixDct)
             else
                 dataProcessing(DctConvertor::getMatrixDct)
@@ -120,8 +122,10 @@ class ModuleDCT(private val tripleShortMatrixOld: TripleShortMatrix) { //    pri
         return tripleShortMatrixOld
 //        return if (tripleShortMatrixOld.state == State.DCT) tripleShortMatrixOld else throw Exception("tripleShortMatrixOld.state:${tripleShortMatrixOld.state}!=DCT")
     }
-    private fun processState(){
-        tripleShortMatrixOld.state = if (a.state == DctConvertor.State.DCT) State.Dct else State.Origin
+
+    private fun processState() {
+        tripleShortMatrixOld.state =
+            if (a.state == DctConvertor.State.DCT) State.Dct else State.Origin
     }
 
     //    public TripleShortMatrix getMatrix() {

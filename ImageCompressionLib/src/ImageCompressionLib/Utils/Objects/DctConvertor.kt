@@ -13,8 +13,10 @@ import ImageCompressionLib.Utils.Functions.Dct.DctUniversalAlgorithm
  * use min Size and max Time
  * Created by Димка on 08.08.2016.
  */
-class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private val tq: TypeQuantization
-                   , private val parameters:Parameters,val dctUtil:DctUniversalAlgorithm) {
+class DctConvertor(
+    private val dataOrigin: Matrix<Short>, state: State, private val tq: TypeQuantization
+    , private val parameters: Parameters, val dctUtil: DctUniversalAlgorithm
+) {
     //    private boolean isReady=false;
 
     enum class State {
@@ -29,41 +31,42 @@ class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private 
     private val Height: Int
     private var duWidth: Int = 0
     private var duHeight: Int = 0
-    private val flag=parameters.flag
+    private val flag = parameters.flag
 
     /**
      * Do main calculation if need
      * @return matrix with original date
      */
-    fun getMatrixOrigin(): Matrix<Short>{
-            if (state == State.DCT)
-                dataProcessing()
-            return dataProcessed
-        }
+    fun getMatrixOrigin(): Matrix<Short> {
+        if (state == State.DCT)
+            dataProcessing()
+        return dataProcessed
+    }
 
     /**
      * Do main calculation if need
      * @return matrix with DCT date
      */
-    fun getMatrixDct(): Matrix<Short>{
+    fun getMatrixDct(): Matrix<Short> {
 
-            if (state == State.ORIGIN)
-                dataProcessing()
+        if (state == State.ORIGIN)
+            dataProcessing()
 
-            return dataProcessed
-        }
+        return dataProcessed
+    }
 
     init {
-        dataProcessed = dataOrigin//= new short[dataOrigin.length][dataOrigin[0].length];// = dataOrigin
+        dataProcessed =
+            dataOrigin//= new short[dataOrigin.length][dataOrigin[0].length];// = dataOrigin
         Width = dataOrigin.width
         Height = dataOrigin.height
 
         this.state = state
-        val duS=parameters.calculateMatrixOfUnitSize(dataOrigin.size,parameters.unitSize)
-        duWidth=duS.width
-        duHeight=duS.height
+        val duS = parameters.calculateMatrixOfUnitSize(dataOrigin.size, parameters.unitSize)
+        duWidth = duS.width
+        duHeight = duS.height
     }
-    
+
 
     /**
      * subtract the [0][0] element from each [%8][%8]
@@ -75,7 +78,7 @@ class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private 
                 val curX = i * parameters.unitSize.width
                 val curY = j * parameters.unitSize.height
                 if (i != 0 && j != 0)
-                    dataOrigin[curX,curY] = (dataOrigin[0,0] - dataOrigin[curX,curY]).toShort()
+                    dataOrigin[curX, curY] = (dataOrigin[0, 0] - dataOrigin[curX, curY]).toShort()
             }
         }
     }
@@ -86,16 +89,16 @@ class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private 
      * @return buffer
      */
     private fun fillBufferForDU(i: Int, j: Int, buffer: Matrix<Short>): Matrix<Short> {
-        val w=parameters.unitSize.width
-        val h=parameters.unitSize.height
+        val w = parameters.unitSize.width
+        val h = parameters.unitSize.height
         for (x in 0 until parameters.unitSize.width) {
             for (y in 0 until parameters.unitSize.height) {
                 var value: Short = 0
                 val curX = i * w + x
                 val curY = j * h + y
                 if (curX < Width && curY < Height)
-                    value = dataOrigin[curX,curY]
-                buffer[x,y] = value
+                    value = dataOrigin[curX, curY]
+                buffer[x, y] = value
             }
         }
         return buffer
@@ -106,7 +109,7 @@ class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private 
         fun convert(buf: Matrix<Short>): Matrix<Short>
     }
 
-    private fun directDCT(buf: Matrix<Short>): Matrix<Short>{
+    private fun directDCT(buf: Matrix<Short>): Matrix<Short> {
         var buf = buf
         if (flag.isChecked(Flag.Parameter.Alignment))
             minus128(buf)
@@ -118,10 +121,10 @@ class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private 
         return buf
     }
 
-    private fun reverceDCT(buf: Matrix<Short>): Matrix<Short>{
+    private fun reverceDCT(buf: Matrix<Short>): Matrix<Short> {
         var buf = buf
         if (flag.isChecked(Flag.Parameter.Quantization))
-            dctUtil.reverseQuantization( buf)
+            dctUtil.reverseQuantization(buf)
 
         buf = dctUtil.reverseDCT(buf)
 
@@ -136,14 +139,14 @@ class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private 
      * @param buffer - matrix with information
      */
     private fun fillDateProcessed(i: Int, j: Int, buffer: Matrix<Short>) {
-        val w=parameters.unitSize.width
-        val h=parameters.unitSize.height
+        val w = parameters.unitSize.width
+        val h = parameters.unitSize.height
         for (x in 0 until w) {
             for (y in 0 until h) {
-                val curX = i * w+ x
-                val curY = j * h+ y
+                val curX = i * w + x
+                val curY = j * h + y
                 if (curX < Width && curY < Height)
-                    dataProcessed[curX,curY] = buffer[x,y]
+                    dataProcessed[curX, curY] = buffer[x, y]
             }
         }
     }
@@ -152,11 +155,11 @@ class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private 
      * do transmormation between DCT and Origin states
      */
     private fun dataProcessing() {
-        var buf=ShortMatrix(parameters.unitSize.width,parameters.unitSize.height).toMatrix()
+        var buf = ShortMatrix(parameters.unitSize.width, parameters.unitSize.height).toMatrix()
         if (state == State.DCT)
             preProsses()
 
-        val convertor = if (state == State.ORIGIN) this::directDCT  else this::reverceDCT
+        val convertor = if (state == State.ORIGIN) this::directDCT else this::reverceDCT
 
         for (i in 0 until duWidth) {
             for (j in 0 until duHeight) {
@@ -178,8 +181,8 @@ class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private 
 
     private fun minus128(arr: Matrix<Short>) {
         for (i in 0 until arr.width) {
-            for (j in 0 until arr.height){
-                arr[i,j] =(arr[i,j]- 128).toShort()
+            for (j in 0 until arr.height) {
+                arr[i, j] = (arr[i, j] - 128).toShort()
             }
         }
     }
@@ -187,7 +190,7 @@ class DctConvertor(private val dataOrigin: Matrix<Short>, state: State, private 
     private fun plus128(arr: Matrix<Short>) {
         for (i in 0 until arr.width) {
             for (j in 0 until arr.height) {
-                arr[i,j] =(arr[i,j]+128).toShort()
+                arr[i, j] = (arr[i, j] + 128).toShort()
             }
         }
     }

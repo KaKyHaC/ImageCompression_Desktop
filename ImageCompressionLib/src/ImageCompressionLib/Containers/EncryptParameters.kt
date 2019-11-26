@@ -5,14 +5,13 @@ import ImageCompressionLib.Utils.Functions.Opc.IStegoMessageUtil
 
 
 class EncryptParameters {
-    class StegaParameters{
-        @FunctionalInterface
-        interface IFactory{
-            fun getStegoBlockKey():IStegoMessageUtil
+    class StegaParameters {
+        interface IFactory {
+            fun getStegoBlockKey(): IStegoMessageUtil
         }
 
-        val stegoPosition:Int
-        val stegoBlockKeygenFactory:(()->IStegoMessageUtil)
+        val stegoPosition: Int
+        val stegoBlockKeygenFactory: (() -> IStegoMessageUtil)
 
 
         constructor(stegoPosition: Int, stegoBlockKeygenFactory: () -> IStegoMessageUtil) {
@@ -21,8 +20,9 @@ class EncryptParameters {
         }
 
     }
-    var password:String?=null
-    var steganography:StegaParameters?=null
-    var message: ByteVector?=null
+
+    var password: String? = null
+    var steganography: StegaParameters? = null
+    var message: ByteVector? = null
 
 }

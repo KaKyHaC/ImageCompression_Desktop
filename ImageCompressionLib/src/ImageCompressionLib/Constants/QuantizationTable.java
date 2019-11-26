@@ -1,19 +1,16 @@
 package ImageCompressionLib.Constants;
 
-import ImageCompressionLib.Containers.Type.ByteVector;
-
 /**
  * Created by Димка on 08.08.2016.
  */
 public class QuantizationTable {//singelton
 
     private static final int SIZEOFTABLE = 8;
-    private static QuantizationTable instance=new QuantizationTable();
-    private static short[][] luminosity ,chromaticity,smart;
+    private static QuantizationTable instance = new QuantizationTable();
+    private static short[][] luminosity, chromaticity, smart;
     private static int smartval;
 
-    private QuantizationTable()
-    {
+    private QuantizationTable() {
         luminosity = new short[][]{
                 {1, 2, 3, 4, 5, 6, 7, 8},
                 {2, 2, 3, 4, 5, 8, 10, 15},
@@ -34,36 +31,41 @@ public class QuantizationTable {//singelton
                 {49,64,78,87,99,99,99,99},
                 {72,92,95,98,99,90,99,99}};*/
 
-        chromaticity=new short[][]{
+        chromaticity = new short[][]{
                 {1, 1, 2, 4, 9, 99, 99, 99},
                 {1, 2, 2, 6, 99, 99, 99, 99},
                 {2, 2, 56, 99, 99, 99, 99, 99},
                 {4, 66, 99, 99, 99, 99, 99, 99},
-                {99,99,99,99,99,99,99,99},
-                {99,99,99,99,99,99,99,99},
-                {99,99,99,99,99,99,99,99},
-                {99,99,99,99,99,99,99,99}
+                {99, 99, 99, 99, 99, 99, 99, 99},
+                {99, 99, 99, 99, 99, 99, 99, 99},
+                {99, 99, 99, 99, 99, 99, 99, 99},
+                {99, 99, 99, 99, 99, 99, 99, 99}
         };
 
 
     }
-    private static void CreateSmart(int val){
-        smartval=val;
-        smart=new short[SIZEOFTABLE][SIZEOFTABLE];
-        for(int i=0;i<SIZEOFTABLE;i++)
-        {
-            for(int j=0;j<SIZEOFTABLE;j++)
-            {
-                smart[i][j]=(short)(1+(val)*(i+j));
+
+    private static void CreateSmart(int val) {
+        smartval = val;
+        smart = new short[SIZEOFTABLE][SIZEOFTABLE];
+        for (int i = 0; i < SIZEOFTABLE; i++) {
+            for (int j = 0; j < SIZEOFTABLE; j++) {
+                smart[i][j] = (short) (1 + (val) * (i + j));
             }
         }
     }
 
 
-    public static short getLuminosity(int x,int y){return luminosity[x][y];}
-    public static short getChromaticity(int x,int y){return chromaticity[x][y];}
-    public static short getSmart(int val,int i,int j){
-        if(smart==null||val!=smartval)
+    public static short getLuminosity(int x, int y) {
+        return luminosity[x][y];
+    }
+
+    public static short getChromaticity(int x, int y) {
+        return chromaticity[x][y];
+    }
+
+    public static short getSmart(int val, int i, int j) {
+        if (smart == null || val != smartval)
             CreateSmart(val);
         return smart[i][j];
     }

@@ -1,33 +1,38 @@
 package ImageCompressionLib.Utils.Functions.Opc.Experimental
 
 class MessageAndPositionArray {
-    data class MandP(var message: Boolean,val position: Int)
-    val data:MutableSet<MandP> = HashSet(0)
+    data class MandP(var message: Boolean, val position: Int)
 
-    fun isHadMessage(pos:Int):Boolean{
-        for( a in data)
-            if(a.position==pos)
+    val data: MutableSet<MandP> = HashSet(0)
+
+    fun isHadMessage(pos: Int): Boolean {
+        for (a in data)
+            if (a.position == pos)
                 return true
         return false
     }
-    fun getMessageAt(pos:Int):Boolean{
+
+    fun getMessageAt(pos: Int): Boolean {
         for (a in data)
-            if(a.position==pos)
+            if (a.position == pos)
                 return a.message
         return false
     }
-    fun setMessageAt(pos:Int,message: Boolean){
+
+    fun setMessageAt(pos: Int, message: Boolean) {
         for (a in data)
-            if(a.position==pos)
-                a.message=message
+            if (a.position == pos)
+                a.message = message
     }
-    fun addMessageAndPosition(message: Boolean,pos: Int){
-        data.add(MandP(message,pos))
+
+    fun addMessageAndPosition(message: Boolean, pos: Int) {
+        data.add(MandP(message, pos))
     }
-    fun copy():MessageAndPositionArray{
-        val res=MessageAndPositionArray()
-        for( a in data){
-            res.addMessageAndPosition(a.message,a.position)
+
+    fun copy(): MessageAndPositionArray {
+        val res = MessageAndPositionArray()
+        for (a in data) {
+            res.addMessageAndPosition(a.message, a.position)
         }
         return res
     }
@@ -52,10 +57,10 @@ class MessageAndPositionArray {
 
     companion object {
         @JvmStatic
-        fun createRandom(size:Int): MessageAndPositionArray {
-            val res= MessageAndPositionArray()
-            for(i in 0 until size)
-                res.addMessageAndPosition(true,i)
+        fun createRandom(size: Int): MessageAndPositionArray {
+            val res = MessageAndPositionArray()
+            for (i in 0 until size)
+                res.addMessageAndPosition(true, i)
             return res
         }
     }

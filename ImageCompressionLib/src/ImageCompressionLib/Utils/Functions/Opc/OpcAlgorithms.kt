@@ -2,19 +2,23 @@ package ImageCompressionLib.Utils.Functions.Opc
 
 import ImageCompressionLib.Constants.MAX_LONG
 import ImageCompressionLib.Constants.TWO
-import ImageCompressionLib.Containers.Type.DataOpc
 import ImageCompressionLib.Containers.Matrix.Matrix
+import ImageCompressionLib.Containers.Type.DataOpc
 import java.math.BigInteger
 
 class OpcAlgorithms {
     companion object {
         @JvmStatic
-        fun OpcDirectDefault(dataOrigin: Matrix<Short>, DataOpc: DataOpc) {//TODO diagonal for optimization
+        fun OpcDirectDefault(
+            dataOrigin: Matrix<Short>,
+            DataOpc: DataOpc
+        ) {//TODO diagonal for optimization
             var base = BigInteger.ONE
             for (i in dataOrigin.width - 1 downTo 0) {
                 for (j in dataOrigin.height - 1 downTo 0) {
-                    if (dataOrigin[i,j].toInt() != 0) {
-                        DataOpc.N = DataOpc.N.add(base.multiply(BigInteger.valueOf(dataOrigin[i,j].toLong())));
+                    if (dataOrigin[i, j].toInt() != 0) {
+                        DataOpc.N =
+                            DataOpc.N.add(base.multiply(BigInteger.valueOf(dataOrigin[i, j].toLong())));
                     }
                     base = base.multiply(BigInteger.valueOf(DataOpc.base[j].toLong()));
                 }
@@ -22,7 +26,10 @@ class OpcAlgorithms {
         }
 
         @JvmStatic
-        fun OpcReverseDefault(dataOrigin: Matrix<Short>, DataOpc: DataOpc) {// method copy from C++ Project MAH
+        fun OpcReverseDefault(
+            dataOrigin: Matrix<Short>,
+            DataOpc: DataOpc
+        ) {// method copy from C++ Project MAH
             var copy = BigInteger.ONE
             var b: BigInteger
             for (i in dataOrigin.width - 1 downTo 0) {
@@ -31,7 +38,7 @@ class OpcAlgorithms {
                     val baseL = DataOpc.base[j].toLong()
                     copy = copy.multiply(BigInteger.valueOf(baseL))
                     b = DataOpc.N.divide(copy).multiply(BigInteger.valueOf(baseL))
-                    dataOrigin[i,j] = a.subtract(b).toShort()
+                    dataOrigin[i, j] = a.subtract(b).toShort()
                 }
             }
         }
@@ -48,8 +55,8 @@ class OpcAlgorithms {
                         OpcDirectBIfromLong(res, base, i, j, dataOrigin, DataOpc)
                         return
                     }
-                    if (dataOrigin[i,j].toInt() != 0) {
-                        res += base * dataOrigin[i,j]
+                    if (dataOrigin[i, j].toInt() != 0) {
+                        res += base * dataOrigin[i, j]
                     }
                     base = bufbase
                 }
@@ -57,7 +64,14 @@ class OpcAlgorithms {
             DataOpc.N = BigInteger.valueOf(res)
         }
 
-        private fun OpcDirectBIfromLong(res: Long, baseval: Long, i1: Int, j1: Int, dataOrigin: Matrix<Short>, DataOpc: DataOpc) {
+        private fun OpcDirectBIfromLong(
+            res: Long,
+            baseval: Long,
+            i1: Int,
+            j1: Int,
+            dataOrigin: Matrix<Short>,
+            DataOpc: DataOpc
+        ) {
             var `val` = BigInteger.valueOf(res)
             var base = BigInteger.valueOf(baseval)
 
@@ -65,8 +79,9 @@ class OpcAlgorithms {
             var j = j1
             while (i >= 0) {
                 while (j >= 0) {
-                    if (dataOrigin[i,j].toInt() != 0) {
-                        `val` = `val`.add(base.multiply(BigInteger.valueOf(dataOrigin[i,j].toLong())))
+                    if (dataOrigin[i, j].toInt() != 0) {
+                        `val` =
+                            `val`.add(base.multiply(BigInteger.valueOf(dataOrigin[i, j].toLong())))
                     }
                     base = base.multiply(BigInteger.valueOf(DataOpc.base[j].toLong()))
                     j--
@@ -84,7 +99,7 @@ class OpcAlgorithms {
             var bufbase: Long
             for (i in dataOrigin.width - 1 downTo 0) {
                 for (j in dataOrigin.height - 1 downTo 0) {
-                    if(dataOrigin.height!=DataOpc.base.size)
+                    if (dataOrigin.height != DataOpc.base.size)
                         throw Exception("out of range")
                     bufbase = base * DataOpc.base[j]
                     if (bufbase > MAX_LONG) {
@@ -93,8 +108,8 @@ class OpcAlgorithms {
                         res = 0
                         bufbase = base * DataOpc.base[j]
                     }
-                    if (dataOrigin[i,j].toInt() != 0) {
-                        res += base * dataOrigin[i,j]
+                    if (dataOrigin[i, j].toInt() != 0) {
+                        res += base * dataOrigin[i, j]
                     }
                     base = bufbase
                 }
@@ -128,18 +143,23 @@ class OpcAlgorithms {
 
                     b = curN / copy
                     b = b * DataOpc.base[j]
-                    dataOrigin[i,j] = (a - b).toShort()
+                    dataOrigin[i, j] = (a - b).toShort()
                 }
             }
         }
 
         @JvmStatic
-        fun OpcDirectWithMessageAtFirst(dataOrigin: Matrix<Short>, dataOpc: DataOpc, message: Boolean) {
+        fun OpcDirectWithMessageAtFirst(
+            dataOrigin: Matrix<Short>,
+            dataOpc: DataOpc,
+            message: Boolean
+        ) {
             var base = BigInteger.ONE
             for (i in dataOrigin.width - 1 downTo 0) {
                 for (j in dataOrigin.height - 1 downTo 0) {
-                    if (dataOrigin[i,j].toInt() != 0) {
-                        dataOpc.N = dataOpc.N.add(base.multiply(BigInteger.valueOf(dataOrigin[i,j].toLong())));
+                    if (dataOrigin[i, j].toInt() != 0) {
+                        dataOpc.N =
+                            dataOpc.N.add(base.multiply(BigInteger.valueOf(dataOrigin[i, j].toLong())));
                     }
                     base = base.multiply(BigInteger.valueOf(dataOpc.base[j].toLong()));
                 }
@@ -161,7 +181,7 @@ class OpcAlgorithms {
                     val a = dataOpc.N.divide(copy)
                     copy = copy.multiply(BigInteger.valueOf(baseL))
                     b = dataOpc.N.divide(copy).multiply(BigInteger.valueOf(baseL))
-                    dataOrigin[i,j] = a.subtract(b).toShort()
+                    dataOrigin[i, j] = a.subtract(b).toShort()
                 }
             }
             val message = (((dataOpc.N / copy) - (dataOpc.N / (copy * TWO)) * TWO).toInt() == 1)
@@ -169,12 +189,18 @@ class OpcAlgorithms {
         }
 
         @JvmStatic
-        fun OpcDirectWithMessageAt(dataOrigin: Matrix<Short>, dataOpc: DataOpc, message: Boolean, message_position: Int) {
+        fun OpcDirectWithMessageAt(
+            dataOrigin: Matrix<Short>,
+            dataOpc: DataOpc,
+            message: Boolean,
+            message_position: Int
+        ) {
             var base = BigInteger.ONE
             for (i in dataOrigin.width - 1 downTo 0) {
                 for (j in dataOrigin.height - 1 downTo 0) {
-                    if (dataOrigin[i,j].toInt() != 0) {
-                        dataOpc.N = dataOpc.N.add(base.multiply(BigInteger.valueOf(dataOrigin[i,j].toLong())));
+                    if (dataOrigin[i, j].toInt() != 0) {
+                        dataOpc.N =
+                            dataOpc.N.add(base.multiply(BigInteger.valueOf(dataOrigin[i, j].toLong())));
                     }
                     base = base.multiply(BigInteger.valueOf(dataOpc.base[j].toLong()));
 
@@ -193,7 +219,11 @@ class OpcAlgorithms {
         }
 
         @JvmStatic
-        fun OpcReverceWithMessageAt(dataOrigin: Matrix<Short>, DataOpc: DataOpc, message_position: Int): Boolean {// method copy from C++ Project MAH
+        fun OpcReverceWithMessageAt(
+            dataOrigin: Matrix<Short>,
+            DataOpc: DataOpc,
+            message_position: Int
+        ): Boolean {// method copy from C++ Project MAH
             var copy = BigInteger.ONE
             var b: BigInteger
             var message = false
@@ -205,7 +235,7 @@ class OpcAlgorithms {
                     copy = copy.multiply(BigInteger.valueOf(baseL))
 
                     b = DataOpc.N.divide(copy).multiply(BigInteger.valueOf(baseL))
-                    dataOrigin[i,j] = a.subtract(b).toShort()
+                    dataOrigin[i, j] = a.subtract(b).toShort()
 
                     if (i * dataOrigin.width + j == message_position) {
                         val tmp = (DataOpc.N / copy) - (DataOpc.N / (copy * TWO) * TWO)
