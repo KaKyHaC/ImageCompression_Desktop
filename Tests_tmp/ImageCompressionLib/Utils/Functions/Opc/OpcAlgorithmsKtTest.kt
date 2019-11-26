@@ -3,11 +3,11 @@ package ImageCompressionLib.Utils.Functions.Opc
 import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Type.DataOpc
 import ImageCompressionLib.Containers.Type.Size
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcDirectDefault
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcDirectLongAndBI
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcDirectUseOnlyLong
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcReverseDefault
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcReverseUseOnlyLong
+import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.opcDirectDefault
+import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.opcDirectLongAndBI
+import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.opcDirectUseOnlyLong
+import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.opcReverseDefault
+import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.opcReverseUseOnlyLong
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -58,8 +58,8 @@ class OpcAlgorithmsKtTest {
     @Test
     fun testOPCDefault() {
         val cpy=matrix.copy()
-        OpcDirectDefault(matrix,dataOpc)
-        OpcReverseDefault(matrixEmpty,dataOpc)
+        opcDirectDefault(matrix,dataOpc)
+        opcReverseDefault(matrixEmpty,dataOpc)
 
         assertEquals(matrixEmpty,cpy)
 
@@ -68,8 +68,8 @@ class OpcAlgorithmsKtTest {
     @Test
     fun testOPCLongAndBI() {
         val cpy=matrix.copy()
-        OpcDirectLongAndBI(matrix,dataOpc)
-        OpcReverseDefault(matrixEmpty,dataOpc)
+        opcDirectLongAndBI(matrix,dataOpc)
+        opcReverseDefault(matrixEmpty,dataOpc)
         assertEquals(matrixEmpty,cpy)
     }
 
@@ -77,8 +77,8 @@ class OpcAlgorithmsKtTest {
     @Test
     fun testOPCOnlyLong() {
         val cpy=matrix.copy()
-        OpcDirectUseOnlyLong(matrix,dataOpc)
-        OpcReverseUseOnlyLong(matrixEmpty,dataOpc)
+        opcDirectUseOnlyLong(matrix,dataOpc)
+        opcReverseUseOnlyLong(matrixEmpty,dataOpc)
         assertEquals(matrixEmpty,cpy)
     }
 
@@ -86,9 +86,9 @@ class OpcAlgorithmsKtTest {
     fun testOPCDefaultMulti2() {
         println("not work")
         val cpy=matrix.copy()
-        OpcDirectDefault(matrix,dataOpc)
+        opcDirectDefault(matrix,dataOpc)
         dataOpc.N/= BigInteger.TWO
-        OpcReverseDefault(matrixEmpty,dataOpc)
+        opcReverseDefault(matrixEmpty,dataOpc)
 
         println(cpy)
         println(matrixEmpty)
@@ -103,9 +103,9 @@ class OpcAlgorithmsKtTest {
         val cpy=matrix.copy()
         dataOpc= DataOpc(Size(1,3))
         OpcUtils.FindBase(matrix,dataOpc)
-        OpcDirectDefault(matrix,dataOpc)
+        opcDirectDefault(matrix,dataOpc)
         dataOpc.N/= BigInteger.TWO
-        OpcReverseDefault(matrixEmpty,dataOpc)
+        opcReverseDefault(matrixEmpty,dataOpc)
 
         println(cpy)
         println(matrixEmpty)

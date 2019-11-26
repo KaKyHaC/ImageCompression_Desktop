@@ -1,7 +1,7 @@
 /*
 package ImageCompressionLib.Utils.Objects
 
-import ImageCompressionLib.Constants.SIZEOFBLOCK
+import ImageCompressionLib.Constants.SIZE_OF_BLOCK
 import ImageCompressionLib.Containers.Type.ByteVector
 import ImageCompressionLib.Containers.Type.Flag
 
@@ -37,9 +37,9 @@ class DataOpcOldTest {
         val base=dopc.FromBaseToArray()
         val sing=dopc.FromSignToArray()
 
-        dopc.FromArrayToBigInt(kotlin.ByteArray(SIZEOFBLOCK,{x->0}))
-        dopc.FromArrayToBase(kotlin.ShortArray(SIZEOFBLOCK,{x->0}))
-        dopc.FromArrayToSing(kotlin.ByteArray(SIZEOFBLOCK,{x->0}))
+        dopc.FromArrayToBigInt(kotlin.ByteArray(SIZE_OF_BLOCK,{x->0}))
+        dopc.FromArrayToBase(kotlin.ShortArray(SIZE_OF_BLOCK,{x->0}))
+        dopc.FromArrayToSing(kotlin.ByteArray(SIZE_OF_BLOCK,{x->0}))
         assertFails { AssertDataOpcEqual(dopc,dopc1) }
 
         dopc.FromArrayToBigInt(bs)
@@ -173,9 +173,9 @@ class DataOpcOldTest {
         var res= DataOpcOld()
         res.N= BigInteger(N.toByteArray())
         res.DC=DC
-        for(i in 0..SIZEOFBLOCK-1) {
+        for(i in 0..SIZE_OF_BLOCK-1) {
             res.base[i]=base[i]
-            for(j in 0..SIZEOFBLOCK-1)
+            for(j in 0..SIZE_OF_BLOCK-1)
                 res.sign[i][j]=sign[i][j]
         }
         for (i in 0..vectorCode.size-1)
@@ -190,7 +190,7 @@ class DataOpcOldTest {
 
         assertEquals("DC ${a.DC}!=${b.DC}",a.DC,b.DC)
 
-        forEach(SIZEOFBLOCK, SIZEOFBLOCK,
+        forEach(SIZE_OF_BLOCK, SIZE_OF_BLOCK,
                 {x, y -> assertEquals("sign at[$x][$y] ${a.sign[x][y]}!=${b.sign[x][y]} "
                 ,a.sign[x][y],b.sign[x][y]) })
 
@@ -207,8 +207,8 @@ class DataOpcOldTest {
         DataOpcOld.DC=rand.nextInt().toShort()
         DataOpcOld.N= BigInteger(kotlin.ByteArray(size,{ x->x.toByte()}))
         DataOpcOld.N= BigInteger("342352522332214")
-        forEach(SIZEOFBLOCK,SIZEOFBLOCK,{x, y -> DataOpcOld.base[x]=rand.nextInt(0xff).toShort() })
-        forEach(SIZEOFBLOCK,SIZEOFBLOCK,{x, y -> DataOpcOld.sign[x][y]=rand.nextBoolean() })
+        forEach(SIZE_OF_BLOCK,SIZE_OF_BLOCK,{x, y -> DataOpcOld.base[x]=rand.nextInt(0xff).toShort() })
+        forEach(SIZE_OF_BLOCK,SIZE_OF_BLOCK,{x, y -> DataOpcOld.sign[x][y]=rand.nextBoolean() })
 
     }
     fun initDopc(DataOpcOld: DataOpcOld, flag: Flag){
@@ -223,9 +223,9 @@ class DataOpcOldTest {
             DataOpcOld.DC=rand.nextInt().toShort()
 
         if(flag.isChecked(Flag.Parameter.OneFile)&&!flag.isChecked(Flag.Parameter.GlobalBase))
-            forEach(SIZEOFBLOCK,SIZEOFBLOCK,{x, y -> DataOpcOld.base[x]=rand.nextInt(0xff).toShort() })
+            forEach(SIZE_OF_BLOCK,SIZE_OF_BLOCK,{x, y -> DataOpcOld.base[x]=rand.nextInt(0xff).toShort() })
 
-        forEach(SIZEOFBLOCK,SIZEOFBLOCK,{x, y -> DataOpcOld.sign[x][y]=rand.nextBoolean() })
+        forEach(SIZE_OF_BLOCK,SIZE_OF_BLOCK,{x, y -> DataOpcOld.sign[x][y]=rand.nextBoolean() })
 
     }
     fun forEach(w:Int,h:Int,let:(x:Int,y:Int)->Unit){

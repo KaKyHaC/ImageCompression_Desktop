@@ -3,9 +3,9 @@ package ImageCompressionLib.Utils.Functions.Opc
 import ImageCompressionLib.Containers.Type.DataOpc
 import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Type.Size
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcDirectWithMessageAt
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcReverceWithMessageAt
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcReverseDefault
+import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.opcDirectWithMessageAt
+import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.opcReverseWithMessageAt
+import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.opcReverseDefault
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
@@ -74,8 +74,8 @@ class OpcAlgorithmsMessageAtTest{
     fun TrueMessageAuth(){
         val cpy=matrix.copy()
         val message= true
-        OpcDirectWithMessageAt(matrix,dataOpc,message,position)
-        val res = OpcReverceWithMessageAt(matrixEmpty,dataOpc,position)
+        opcDirectWithMessageAt(matrix,dataOpc,message,position)
+        val res = opcReverseWithMessageAt(matrixEmpty,dataOpc,position)
         assertEquals(message,res)
         cpy.assertInRange(matrixEmpty,range)
     }
@@ -83,8 +83,8 @@ class OpcAlgorithmsMessageAtTest{
     fun FlaseMessageAuth(){
         val cpy=matrix.copy()
         val message= false
-        OpcDirectWithMessageAt(matrix,dataOpc,message,position)
-        val res = OpcReverceWithMessageAt(matrixEmpty,dataOpc,position)
+        opcDirectWithMessageAt(matrix,dataOpc,message,position)
+        val res = opcReverseWithMessageAt(matrixEmpty,dataOpc,position)
         assertEquals(message,res)
         cpy.assertInRange(matrixEmpty,range)
     }
@@ -93,8 +93,8 @@ class OpcAlgorithmsMessageAtTest{
 //        println("Not work")
         val cpy=matrix.copy()
         val message= true
-        OpcDirectWithMessageAt(matrix,dataOpc,message,position)
-        OpcReverseDefault(matrixEmpty,dataOpc)
+        opcDirectWithMessageAt(matrix,dataOpc,message,position)
+        opcReverseDefault(matrixEmpty,dataOpc)
         cpy.assertInRange(matrixEmpty,range)
     }
     @Test
@@ -102,8 +102,8 @@ class OpcAlgorithmsMessageAtTest{
 //        println("Not work")
         val cpy=matrix.copy()
         val message= false
-        OpcDirectWithMessageAt(matrix,dataOpc,message,position)
-        OpcReverseDefault(matrixEmpty,dataOpc)
+        opcDirectWithMessageAt(matrix,dataOpc,message,position)
+        opcReverseDefault(matrixEmpty,dataOpc)
         cpy.assertInRange(matrixEmpty,range)
     }
 

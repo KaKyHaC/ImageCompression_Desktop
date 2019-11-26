@@ -3,11 +3,9 @@ package ImageCompressionLib.Utils.Functions.Opc.Experimental
 import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Type.DataOpc
 import ImageCompressionLib.Containers.Type.Size
-import ImageCompressionLib.Utils.Functions.ImageIOTest
 import ImageCompressionLib.Utils.Functions.Opc.OpcUtils
+import org.junit.Assert.assertEquals
 import org.junit.Before
-
-import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
@@ -30,8 +28,8 @@ class OpcAlgorithmsExperimentelTestDefault(val size:Size,val data:MessageAndPosi
     fun testExperementalOpcAlgorithmsLogined(){
         val cpy=dataOriginal.copy()
         val mesCpy=data.copy()
-        OpcAlgorithmsExperimentel.OpcDirectWithMessageAt(dataOriginal,dataOpc,data,BiCoef)
-        OpcAlgorithmsExperimentel.OpcReverceWithMessageAt(dataOriginal,dataOpc,data,BiCoef)
+        OpcAlgorithmsExperimental.opcDirectWithMessageAt(dataOriginal,dataOpc,data,BiCoef)
+        OpcAlgorithmsExperimental.opcReverseWithMessageAt(dataOriginal,dataOpc,data,BiCoef)
 
         println(cpy)
         println(dataOriginal)
@@ -47,8 +45,8 @@ class OpcAlgorithmsExperimentelTestDefault(val size:Size,val data:MessageAndPosi
     fun testExperementalOpcAlgorithmsNotLogined(){
         val cpy=dataOriginal.copy()
         val mesCpy=data.copy()
-        OpcAlgorithmsExperimentel.OpcDirectWithMessageAt(dataOriginal,dataOpc,data,BiCoef)
-        OpcAlgorithmsExperimentel.OpcReverceWithMessageAt(dataOriginal,dataOpc,data, BigInteger.ONE)
+        OpcAlgorithmsExperimental.opcDirectWithMessageAt(dataOriginal,dataOpc,data,BiCoef)
+        OpcAlgorithmsExperimental.opcReverseWithMessageAt(dataOriginal,dataOpc,data, BigInteger.ONE)
 
         println(cpy)
         println(dataOriginal)

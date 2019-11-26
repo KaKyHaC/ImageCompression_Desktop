@@ -8,7 +8,7 @@
 //
 //public class OPCMultiThreadTest {
 //    short[][] data,res;
-//    int size= OPCMultiThread.SIZEOFBLOCK;
+//    int size= OPCMultiThread.SIZE_OF_BLOCK;
 //    Flag flag;
 //    @Before
 //    public void setUp() throws Exception {

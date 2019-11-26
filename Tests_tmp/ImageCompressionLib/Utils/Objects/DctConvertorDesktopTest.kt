@@ -1,6 +1,5 @@
 package ImageCompressionLib.Utils.Objects
 
-import ImageCompressionLib.Constants.SIZEOFBLOCK
 import ImageCompressionLib.Constants.TypeQuantization
 import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Parameters
@@ -50,7 +49,7 @@ class DctConvertorDesktopTest {
         val cpy = data.copy()
         assertTrue(data.assertInRange(cpy,0))
 
-        val convertor=DctConvertor(data,DctConvertor.State.ORIGIN,TypeQuantization.luminosity
+        val convertor=DctConvertor(data,DctConvertor.State.ORIGIN,TypeQuantization.Luminosity
                 , Parameters.createParametresForTest(data.size,flag = flag,unitSize = unitSize)
                 , DctUniversalAlgorithm(unitSize))
 

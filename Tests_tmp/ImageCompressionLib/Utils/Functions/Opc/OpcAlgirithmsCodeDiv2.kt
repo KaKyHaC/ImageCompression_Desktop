@@ -8,7 +8,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.math.BigInteger
-import java.util.*
 
 @RunWith(Parameterized::class)
 class OpcAlgirithmsCodeDiv2(val array:Array<Int>) {
@@ -21,9 +20,9 @@ class OpcAlgirithmsCodeDiv2(val array:Array<Int>) {
         val cpy=matrix.copy()
         val dataOpc= DataOpc(Size(1,8))
         OpcUtils.FindBase(matrix,dataOpc)
-        OpcAlgorithms.OpcDirectDefault(matrix, dataOpc)
+        OpcAlgorithms.opcDirectDefault(matrix, dataOpc)
         dataOpc.N/= BigInteger.TWO
-        OpcAlgorithms.OpcReverseDefault(matrixEmpty, dataOpc)
+        OpcAlgorithms.opcReverseDefault(matrixEmpty, dataOpc)
 
         println(cpy)
         println(matrixEmpty)
@@ -38,9 +37,9 @@ class OpcAlgirithmsCodeDiv2(val array:Array<Int>) {
         val dataOpc= DataOpc(Size(1,8))
         OpcUtils.FindBase(matrix,dataOpc)
         OpcUtils.MakeBaseEven(dataOpc)
-        OpcAlgorithms.OpcDirectDefault(matrix, dataOpc)
+        OpcAlgorithms.opcDirectDefault(matrix, dataOpc)
         dataOpc.N/= BigInteger.TWO
-        OpcAlgorithms.OpcReverseDefault(matrixEmpty, dataOpc)
+        OpcAlgorithms.opcReverseDefault(matrixEmpty, dataOpc)
 
         println(cpy)
         println(matrixEmpty)
@@ -55,9 +54,9 @@ class OpcAlgirithmsCodeDiv2(val array:Array<Int>) {
         val cpy=matrix.copy()
         val dataOpc= DataOpc(Size(1,8))
         OpcUtils.FindBase(matrix,dataOpc)
-        OpcAlgorithms.OpcDirectDefault(matrix, dataOpc)
+        OpcAlgorithms.opcDirectDefault(matrix, dataOpc)
         dataOpc.N/= BigInteger.TWO
-        OpcAlgorithms.OpcReverseDefault(matrixEmpty, dataOpc)
+        OpcAlgorithms.opcReverseDefault(matrixEmpty, dataOpc)
 
         println(cpy)
         println(matrixEmpty)
@@ -75,9 +74,9 @@ class OpcAlgirithmsCodeDiv2(val array:Array<Int>) {
         for(i in 0 until 8){
             dataOpc.base[i]=(dataOpc.base[i]+i).toShort()
         }
-        OpcAlgorithms.OpcDirectDefault(matrix, dataOpc)
+        OpcAlgorithms.opcDirectDefault(matrix, dataOpc)
         dataOpc.N/= BigInteger.TWO
-        OpcAlgorithms.OpcReverseDefault(matrixEmpty, dataOpc)
+        OpcAlgorithms.opcReverseDefault(matrixEmpty, dataOpc)
 
         println(cpy)
         println(matrixEmpty)
@@ -93,9 +92,9 @@ class OpcAlgirithmsCodeDiv2(val array:Array<Int>) {
         val matrixEmpty= ShortMatrix(1,8)
         val cpy=matrix.copy()
         OpcUtils.FindBase(matrix,dataOpc)
-        OpcAlgorithms.OpcDirectDefault(matrix, dataOpc)
+        OpcAlgorithms.opcDirectDefault(matrix, dataOpc)
         dataOpc.N/= BigInteger.TWO
-        OpcAlgorithms.OpcReverseDefault(matrixEmpty, dataOpc)
+        OpcAlgorithms.opcReverseDefault(matrixEmpty, dataOpc)
 
         println(cpy)
         println(matrixEmpty)
@@ -111,9 +110,9 @@ class OpcAlgirithmsCodeDiv2(val array:Array<Int>) {
         val matrixEmpty= ShortMatrix(1,8)
         val cpy=matrix.copy()
         OpcUtils.FindBase(matrix,dataOpc)
-        OpcAlgorithms.OpcDirectDefault(matrix, dataOpc)
+        OpcAlgorithms.opcDirectDefault(matrix, dataOpc)
         dataOpc.N/= BigInteger.TWO
-        OpcAlgorithms.OpcReverseDefault(matrixEmpty, dataOpc)
+        OpcAlgorithms.opcReverseDefault(matrixEmpty, dataOpc)
 
         println(cpy)
         println(matrixEmpty)

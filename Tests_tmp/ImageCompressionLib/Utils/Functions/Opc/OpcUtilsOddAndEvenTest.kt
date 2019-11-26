@@ -35,9 +35,9 @@ class OpcUtilsOddAndEvenTest(val size: Size) {
     fun TestEvenBaseRandData(){
         OpcUtils.MakeBaseEven(dataOpc)
         println(matrix)
-        OpcAlgorithms.OpcDirectDefault(matrix,dataOpc)
+        OpcAlgorithms.opcDirectDefault(matrix,dataOpc)
         dataOpc.N/= BigInteger.TWO
-        OpcAlgorithms.OpcReverseDefault(matrix,dataOpc)
+        OpcAlgorithms.opcReverseDefault(matrix,dataOpc)
         println(dataOpc)
         println(matrix)
         assertEquals(cpyData,matrix)
@@ -46,9 +46,9 @@ class OpcUtilsOddAndEvenTest(val size: Size) {
     fun TestRandBaseOddData(){
         OpcUtils.MakeDataOdd(matrix)
         println(matrix)
-        OpcAlgorithms.OpcDirectDefault(matrix,dataOpc)
+        OpcAlgorithms.opcDirectDefault(matrix,dataOpc)
         dataOpc.N/= BigInteger.TWO
-        OpcAlgorithms.OpcReverseDefault(matrix,dataOpc)
+        OpcAlgorithms.opcReverseDefault(matrix,dataOpc)
         println(dataOpc)
         println(matrix)
         assertEquals(cpyData,matrix)
@@ -58,9 +58,9 @@ class OpcUtilsOddAndEvenTest(val size: Size) {
         OpcUtils.MakeBaseEven(dataOpc)
         OpcUtils.MakeDataOdd(matrix)
         println(matrix)
-        OpcAlgorithms.OpcDirectDefault(matrix,dataOpc)
+        OpcAlgorithms.opcDirectDefault(matrix,dataOpc)
         dataOpc.N/= BigInteger.TWO
-        OpcAlgorithms.OpcReverseDefault(matrix,dataOpc)
+        OpcAlgorithms.opcReverseDefault(matrix,dataOpc)
         println(dataOpc)
         println(matrix)
         assertEquals(cpyData,matrix)

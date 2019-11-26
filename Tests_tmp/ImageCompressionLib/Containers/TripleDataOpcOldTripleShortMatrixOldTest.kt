@@ -1,7 +1,7 @@
 /*
 package ImageCompressionLib.Containers
 
-import ImageCompressionLib.Constants.SIZEOFBLOCK
+import ImageCompressionLib.Constants.SIZE_OF_BLOCK
 import ImageCompressionLib.Containers.Type.ByteVector
 import ImageCompressionLib.Containers.Type.Flag
 import org.junit.Assert.*
@@ -69,9 +69,9 @@ class TripleDataOpcOldTripleShortMatrixOldTest {
             DataOpcOld.DC=rand.nextInt().toShort()
 
         if(flag.isChecked(Flag.Parameter.OneFile)&&!flag.isChecked(Flag.Parameter.GlobalBase))
-            forEach(SIZEOFBLOCK, SIZEOFBLOCK,{ x, y -> DataOpcOld.base[x]=rand.nextInt(0xff).toShort() })
+            forEach(SIZE_OF_BLOCK, SIZE_OF_BLOCK,{ x, y -> DataOpcOld.base[x]=rand.nextInt(0xff).toShort() })
 
-        forEach(SIZEOFBLOCK, SIZEOFBLOCK,{ x, y -> DataOpcOld.sign[x][y]=rand.nextBoolean() })
+        forEach(SIZE_OF_BLOCK, SIZE_OF_BLOCK,{ x, y -> DataOpcOld.sign[x][y]=rand.nextBoolean() })
 
         return DataOpcOld
     }

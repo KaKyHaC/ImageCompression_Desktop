@@ -1,7 +1,7 @@
 /*
 package ImageCompressionLib.Containers
 
-import ImageCompressionLib.Constants.SIZEOFBLOCK
+import ImageCompressionLib.Constants.SIZE_OF_BLOCK
 import ImageCompressionLib.Containers.Type.ByteVector
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Containers.Type.Size
@@ -18,8 +18,8 @@ class TripleDataOpcOldMatrixTest {
     fun init(){
 //        dopc.DC=200
         dopc.N= BigInteger.valueOf(12312312412412124)
-        dopc.base= ShortArray(SIZEOFBLOCK){n->255 }
-        dopc.FromArrayToSing(ByteArray(SIZEOFBLOCK){n->n.toByte()})
+        dopc.base= ShortArray(SIZE_OF_BLOCK){n->255 }
+        dopc.FromArrayToSing(ByteArray(SIZE_OF_BLOCK){n->n.toByte()})
 
         flag.setChecked(Flag.Parameter.GlobalBase,true)
         flag.setChecked(Flag.Parameter.OneFile,true)
