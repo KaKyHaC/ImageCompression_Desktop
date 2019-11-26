@@ -1,7 +1,7 @@
 package ImageCompressionLib.Data
 
 import ImageCompressionLib.Data.Primitives.ByteVector
-import ImageCompressionLib.Utils.Functions.Opc.IStegoMessageUtil
+import ImageCompressionLib.Utils.Opc.IStegoMessageUtil
 
 
 class EncryptParameters {

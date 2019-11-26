@@ -1,4 +1,4 @@
-package ImageCompressionLib.Utils.Functions.Opc
+package ImageCompressionLib.Utils.Opc
 
 interface IStegoMessageUtil {
     fun isUseNextBlock():Boolean

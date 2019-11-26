@@ -1,4 +1,4 @@
-package ImageCompressionLib.Utils.Functions
+package ImageCompressionLib.Utils.Objects
 
 
 //import sun.rmi.runtime.Log;

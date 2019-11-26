@@ -1,4 +1,4 @@
-package ImageCompressionLib.Utils.Functions.Opc.Experimental
+package ImageCompressionLib.Utils.Opc.Experimental
 
 import ImageCompressionLib.Constants.TWO
 import ImageCompressionLib.Data.Matrix.Matrix

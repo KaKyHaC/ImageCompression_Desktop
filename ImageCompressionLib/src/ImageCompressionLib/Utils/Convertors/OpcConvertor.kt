@@ -8,8 +8,8 @@ import ImageCompressionLib.Data.Primitives.ByteVector
 import ImageCompressionLib.Data.Primitives.DataOpc
 import ImageCompressionLib.Data.Type.Flag
 import ImageCompressionLib.Data.Primitives.Size
-import ImageCompressionLib.Utils.Functions.Opc.OpcProcess
-import ImageCompressionLib.Utils.Functions.Opc.OpcUtils
+import ImageCompressionLib.Utils.Opc.OpcProcess
+import ImageCompressionLib.Utils.Opc.OpcUtils
 
 class OpcConvertor {
     enum class State {

@@ -1,4 +1,4 @@
-package ImageCompressionLib.Utils.Functions.Opc
+package ImageCompressionLib.Utils.Opc
 
 import ImageCompressionLib.Constants.MAX_LONG
 import ImageCompressionLib.Constants.TWO

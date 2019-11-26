@@ -1,4 +1,4 @@
-package ImageCompressionLib.Utils.Functions.Opc.Experimental
+package ImageCompressionLib.Utils.Opc.Experimental
 
 class MessageAndPositionArray {
     data class MandP(var message: Boolean,val position: Int)

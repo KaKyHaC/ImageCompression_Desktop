@@ -1,21 +1,21 @@
-package ImageCompressionLib.Utils.Functions.Opc
+package ImageCompressionLib.Utils.Opc
 
 import ImageCompressionLib.Data.Primitives.DataOpc
 import ImageCompressionLib.Data.Type.Flag
 import ImageCompressionLib.Data.Parameters
 import ImageCompressionLib.Data.Matrix.Matrix
-import ImageCompressionLib.Utils.Functions.Opc.Experimental.OpcAlgorithmsExperimentel
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcDirectLongAndBI
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcDirectUseOnlyLong
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcReverceWithMessageAt
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcReverceWithMessageAtFirst
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcReverseDefault
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.OpcReverseUseOnlyLong
-import ImageCompressionLib.Utils.Functions.Opc.OpcUtils.Companion.DCminus
-import ImageCompressionLib.Utils.Functions.Opc.OpcUtils.Companion.DCplus
-import ImageCompressionLib.Utils.Functions.Opc.OpcUtils.Companion.FindBase
-import ImageCompressionLib.Utils.Functions.Opc.OpcUtils.Companion.MakeSigned
-import ImageCompressionLib.Utils.Functions.Opc.OpcUtils.Companion.MakeUnSigned
+import ImageCompressionLib.Utils.Opc.Experimental.OpcAlgorithmsExperimentel
+import ImageCompressionLib.Utils.Opc.OpcAlgorithms.Companion.OpcDirectLongAndBI
+import ImageCompressionLib.Utils.Opc.OpcAlgorithms.Companion.OpcDirectUseOnlyLong
+import ImageCompressionLib.Utils.Opc.OpcAlgorithms.Companion.OpcReverceWithMessageAt
+import ImageCompressionLib.Utils.Opc.OpcAlgorithms.Companion.OpcReverceWithMessageAtFirst
+import ImageCompressionLib.Utils.Opc.OpcAlgorithms.Companion.OpcReverseDefault
+import ImageCompressionLib.Utils.Opc.OpcAlgorithms.Companion.OpcReverseUseOnlyLong
+import ImageCompressionLib.Utils.Opc.OpcUtils.Companion.DCminus
+import ImageCompressionLib.Utils.Opc.OpcUtils.Companion.DCplus
+import ImageCompressionLib.Utils.Opc.OpcUtils.Companion.FindBase
+import ImageCompressionLib.Utils.Opc.OpcUtils.Companion.MakeSigned
+import ImageCompressionLib.Utils.Opc.OpcUtils.Companion.MakeUnSigned
 
 class OpcProcess {
     companion object {
