@@ -5,7 +5,7 @@ import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Type.DataOpc
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Containers.Type.Size
-import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.afterReverceOpcProcess
+import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.afterReverseOpcProcess
 import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.directOPC
 import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.preDirectOpcProcess
 import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.reverseOPC
@@ -66,7 +66,7 @@ class OpcProcessKtTest(val size: Size, val flag: Flag) {
         directOPC(parameters,shortMatrix,dataOpc)
 
         reverseOPC(parameters,dataOpc,emptyMatrix)
-        afterReverceOpcProcess(parameters,dataOpc,emptyMatrix)
+        afterReverseOpcProcess(parameters,dataOpc,emptyMatrix)
         assertEquals(cpy,emptyMatrix)
     }
     @Test
@@ -80,7 +80,7 @@ class OpcProcessKtTest(val size: Size, val flag: Flag) {
         directOPC(parameters,shortMatrix,dataOpc)
 
         reverseOPC(parameters,dataOpc,emptyMatrix)
-        afterReverceOpcProcess(parameters,dataOpc,emptyMatrix)
+        afterReverseOpcProcess(parameters,dataOpc,emptyMatrix)
         assertEquals(cpy,emptyMatrix)
     }
 }

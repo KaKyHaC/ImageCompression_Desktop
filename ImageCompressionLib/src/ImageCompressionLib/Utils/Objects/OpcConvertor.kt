@@ -95,7 +95,7 @@ class OpcConvertor {
 
     private fun afterReverceOpc() {
         dataOpcMatrix.forEach() { i, j, value ->
-            OpcProcess.afterReverceOpcProcess(parameters, value, splitedShortMatrix[i, j])
+            OpcProcess.afterReverseOpcProcess(parameters, value, splitedShortMatrix[i, j])
             return@forEach null
         }
     }

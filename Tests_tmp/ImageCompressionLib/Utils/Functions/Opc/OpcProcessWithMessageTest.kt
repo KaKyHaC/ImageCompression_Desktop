@@ -5,7 +5,7 @@ import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Type.DataOpc
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Containers.Type.Size
-import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.afterReverceOpcProcess
+import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.afterReverseOpcProcess
 import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.directOpcWithMessageAt
 import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.preDirectOpcProcess
 import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.reverseOpcWithMessageAt
@@ -55,7 +55,7 @@ class OpcProcessWithMessageTest(val size: Size, val position: Int, val message:B
         directOpcWithMessageAt(parameters, shortMatrix, dataOpc, message, position)
 
         val res = reverseOpcWithMessageAt(parameters, dataOpc, emptyMatrix, position)
-        afterReverceOpcProcess(parameters, dataOpc, emptyMatrix)
+        afterReverseOpcProcess(parameters, dataOpc, emptyMatrix)
         assertEquals(message, res)
         kotlin.test.assertEquals(cpy, emptyMatrix)
     }
