@@ -85,5 +85,6 @@ object OpcAlgorithmsExperimental2 {
                 }
             }
         }
+        dataOpc.base[0] = (dataOpc.base[0] * 2).toShort()
     }
 }
