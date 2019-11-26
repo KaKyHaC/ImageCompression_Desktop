@@ -1,15 +1,14 @@
 package ImageCompressionLib.ProcessingModules
 
 
-import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.Containers.TripleShortMatrix
 import ImageCompressionLib.Constants.State
 import ImageCompressionLib.Constants.TypeQuantization
 import ImageCompressionLib.Containers.Matrix.Matrix
 import ImageCompressionLib.Containers.Parameters
+import ImageCompressionLib.Containers.TripleShortMatrix
+import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Utils.Functions.Dct.DctUniversalAlgorithm
 import ImageCompressionLib.Utils.Objects.DctConvertor
-
 import java.util.concurrent.ExecutionException
 import java.util.concurrent.Executors
 import java.util.concurrent.Future
@@ -36,7 +35,7 @@ class ModuleDCT(private val tripleShortMatrixOld: TripleShortMatrix) { //    pri
 
         state = if (tripleShortMatrixOld.state == State.Dct) DctConvertor.State.DCT else DctConvertor.State.ORIGIN
 
-        a = DctConvertor(tripleShortMatrixOld.a, state, TypeQuantization.luminosity,parameter,dctUtils.copy() )
+        a = DctConvertor(tripleShortMatrixOld.a, state, TypeQuantization.Luminosity,parameter,dctUtils.copy() )
         b = DctConvertor(tripleShortMatrixOld.b, state, TypeQuantization.Chromaticity, parameter,dctUtils.copy())
         c = DctConvertor(tripleShortMatrixOld.c, state, TypeQuantization.Chromaticity, parameter,dctUtils)
 

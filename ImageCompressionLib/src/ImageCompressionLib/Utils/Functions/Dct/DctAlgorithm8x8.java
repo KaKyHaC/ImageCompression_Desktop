@@ -22,7 +22,7 @@ public class DctAlgorithm8x8 {//singelton
     }
 
     public static Matrix<Short> directQuantization(TypeQuantization _tq,Matrix<Short>data) {
-        if (_tq == TypeQuantization.luminosity)
+        if (_tq == TypeQuantization.Luminosity)
             for (int i = 0; i < SIZEOFBLOCK; i++)
                 for (int j = 0; j < SIZEOFBLOCK; j++) {
                     //dataProcessed[i][j]/=QuantizationTable.getSmart(1,i,j);
@@ -39,7 +39,7 @@ public class DctAlgorithm8x8 {//singelton
     }
 
     public static Matrix<Short> reverseQuantization(TypeQuantization _tq,Matrix<Short>data) {
-        if (_tq == TypeQuantization.luminosity)
+        if (_tq == TypeQuantization.Luminosity)
             for (int i = 0; i < SIZEOFBLOCK; i++)
                 for (int j = 0; j < SIZEOFBLOCK; j++) {
                     // dataProcessed[i][j]*=QuantizationTable.getSmart(1,i,j);

@@ -24,7 +24,7 @@ public class QuantizationTable {//singelton
                 {9, 44, 47, 48, 49, 59, 69, 79},
                 {12, 49, 55, 68, 79, 80, 99, 99}};
 
-/*        luminosity = new short[][]{
+/*        Luminosity = new short[][]{
                 {1,1,1,2,3,40,51,61},
                 {1,1,2,19,26,58,60,55},
                 {1,2,16,24,40,57,69,56},
