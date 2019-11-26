@@ -5,10 +5,10 @@ import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Type.DataOpc
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Containers.Type.Size
-import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.afterReverseOpcProcess
-import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.directOpcWithMessageAt
-import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.preDirectOpcProcess
-import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.reverseOpcWithMessageAt
+import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.afterReverseOpcProcess
+import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.directOpcWithMessageAt
+import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.preDirectOpcProcess
+import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.reverseOpcWithMessageAt
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test

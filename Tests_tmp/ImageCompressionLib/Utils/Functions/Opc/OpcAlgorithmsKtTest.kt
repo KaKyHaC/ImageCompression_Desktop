@@ -3,15 +3,14 @@ package ImageCompressionLib.Utils.Functions.Opc
 import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Type.DataOpc
 import ImageCompressionLib.Containers.Type.Size
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.opcDirectDefault
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.opcDirectLongAndBI
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.opcDirectUseOnlyLong
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.opcReverseDefault
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.Companion.opcReverseUseOnlyLong
-import org.junit.Test
-
-import org.junit.Assert.*
+import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.opcDirectDefault
+import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.opcDirectLongAndBI
+import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.opcDirectUseOnlyLong
+import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.opcReverseDefault
+import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.opcReverseUseOnlyLong
+import org.junit.Assert.assertEquals
 import org.junit.Before
+import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.math.BigInteger
