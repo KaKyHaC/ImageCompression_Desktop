@@ -1,6 +1,5 @@
 package ImageCompressionLib.Containers
-import ImageCompressionLib.Constants.SIZEOFBLOCK
-import ImageCompressionLib.Containers.Matrix.ShortMatrix
+import ImageCompressionLib.Constants.SIZE_OF_BLOCK
 import ImageCompressionLib.Containers.Type.ByteVector
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Containers.Type.Size
@@ -13,7 +12,7 @@ class Parameters {
     val dataSize:Size
     val matrixOfUnitSize:Size
 
-    constructor(flag: Flag, imageSize: Size, unitSize: Size = Size(SIZEOFBLOCK, SIZEOFBLOCK), sameBaseSize: Size = Size(1, 1)) {
+    constructor(flag: Flag, imageSize: Size, unitSize: Size = Size(SIZE_OF_BLOCK, SIZE_OF_BLOCK), sameBaseSize: Size = Size(1, 1)) {
         this.flag = flag
         this.imageSize = imageSize
         this.unitSize = unitSize
@@ -93,7 +92,7 @@ class Parameters {
             return Parameters(flag, imageSize, unitSize,sameBaseSize)
         }
         @Deprecated("only for tests")
-        @JvmStatic fun createParametresForTest(imageSize: Size,unitSize: Size= Size(SIZEOFBLOCK, SIZEOFBLOCK),flag: Flag= Flag.createDefaultFlag()):Parameters{
+        @JvmStatic fun createParametresForTest(imageSize: Size, unitSize: Size= Size(SIZE_OF_BLOCK, SIZE_OF_BLOCK), flag: Flag= Flag.createDefaultFlag()):Parameters{
             val s2=Size(1,1)
             return Parameters(flag,imageSize,unitSize,s2)
         }

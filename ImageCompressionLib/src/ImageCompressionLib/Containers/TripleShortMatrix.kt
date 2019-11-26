@@ -1,12 +1,9 @@
 package ImageCompressionLib.Containers
 
 import ImageCompressionLib.Constants.DEFAULT_MATRIX_VALUE
-import ImageCompressionLib.Constants.SIZEOFBLOCK
 import ImageCompressionLib.Constants.State
 import ImageCompressionLib.Containers.Matrix.Matrix
 import ImageCompressionLib.Containers.Matrix.ShortMatrix
-import ImageCompressionLib.Containers.Type.Size
-import java.util.*
 
 class TripleShortMatrix {
     var state:State

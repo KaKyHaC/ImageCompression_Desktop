@@ -1,21 +1,17 @@
 package ImageCompressionLib.ProcessingModules
 
-import ImageCompressionLib.Containers.Type.MyBufferedImage
 import ImageCompressionLib.Constants.State
 import ImageCompressionLib.Containers.Matrix.Matrix
 import ImageCompressionLib.Containers.Matrix.ShortMatrix
 import ImageCompressionLib.Containers.Parameters
 import ImageCompressionLib.Containers.TripleShortMatrix
 import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.Utils.Objects.TimeManager
-import java.util.ArrayList
-
-//import java.awt.image.MyBufferedImage;
+import ImageCompressionLib.Containers.Type.MyBufferedImage
 import java.util.concurrent.Executors
 import java.util.concurrent.Future
 
 class ModuleImage {
-    //    private static final int SIZEOFBLOCK = 8;
+    //    private static final int SIZE_OF_BLOCK = 8;
     private var tripleShortMatrixOld: TripleShortMatrix// = null
     private var bitmap: MyBufferedImage// = null
     private var flag: Flag//? = null
