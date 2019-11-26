@@ -1,17 +1,16 @@
 package ImageCompressionLib.Utils.Functions.Opc
 
-import ImageCompressionLib.Containers.*
 import ImageCompressionLib.Containers.Matrix.ShortMatrix
+import ImageCompressionLib.Containers.Parameters
 import ImageCompressionLib.Containers.Type.DataOpc
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Containers.Type.Size
-import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.afterReverseOpcProcess
-import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.directOPC
-import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.preDirectOpcProcess
-import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.Companion.reverseOPC
-import org.junit.Test
-
+import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.afterReverseOpcProcess
+import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.directOPC
+import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.preDirectOpcProcess
+import ImageCompressionLib.Utils.Functions.Opc.OpcProcess.reverseOPC
 import org.junit.Before
+import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.util.*
