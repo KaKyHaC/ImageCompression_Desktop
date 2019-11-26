@@ -4,13 +4,10 @@ import ImageCompressionLib.Containers.Matrix.Matrix
 import ImageCompressionLib.Containers.Parameters
 import ImageCompressionLib.Containers.Type.DataOpc
 import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.Utils.Functions.Opc.Experimental.OpcAlgorithmsExperimental
 import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.opcDirectLongAndBI
 import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.opcDirectUseOnlyLong
 import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.opcReverseDefault
 import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.opcReverseUseOnlyLong
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.opcReverseWithMessageAt
-import ImageCompressionLib.Utils.Functions.Opc.OpcAlgorithms.opcReverseWithMessageAtFirst
 import ImageCompressionLib.Utils.Functions.Opc.OpcUtils.Companion.DCminus
 import ImageCompressionLib.Utils.Functions.Opc.OpcUtils.Companion.DCplus
 import ImageCompressionLib.Utils.Functions.Opc.OpcUtils.Companion.FindBase
@@ -79,7 +76,7 @@ class OpcProcess {
             if (flag.isChecked(Flag.Parameter.LongCode))
                 throw Exception("can't write message using LongCode")
 
-            OpcAlgorithmsExperimental.opcDirectStegoAt(dataOrigin, dataOpc, message, position)
+            OpcAlgorithms.opcDirectWithMessageAt(dataOrigin, dataOpc, message, position)
             val maxLen = DataOpc.getLengthOfCode(dataOpc.base, dataOrigin.size)
             val len = dataOpc.N.toByteArray().size
             if (len > maxLen) {
@@ -100,9 +97,9 @@ class OpcProcess {
                 throw Exception("can't read message using LongCode")
 
             val message = if (position == 0)
-                opcReverseWithMessageAtFirst(dataOrigin, DataOpc)
+                OpcAlgorithms.opcReverseWithMessageAtFirst(dataOrigin, DataOpc)
             else
-                opcReverseWithMessageAt(dataOrigin, DataOpc, position)
+                OpcAlgorithms.opcReverseWithMessageAt(dataOrigin, DataOpc, position)
 
             return message
         }
