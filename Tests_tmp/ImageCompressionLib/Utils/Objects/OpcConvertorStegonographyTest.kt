@@ -18,7 +18,7 @@ import java.util.*
 
 @RunWith(Parameterized::class)
 class OpcConvertorStegonographyTest(val size: Size,val lenght:Int,val pos:Int) {
-    lateinit var convertor:OpcConvertor
+    lateinit var converter:OpcConverter
     lateinit var param:Parameters
     lateinit var cpy:ShortMatrix
     lateinit var message:ByteVector
@@ -31,7 +31,7 @@ class OpcConvertorStegonographyTest(val size: Size,val lenght:Int,val pos:Int) {
 //        flag.setTrue(Flag.Parameter.Steganography)
         param=Parameters.createParametresForTest(size,flag = flag,unitSize = Size(1,8))
         param.flag.setFalse(Flag.Parameter.DC)
-        convertor=OpcConvertor(matrix,param)
+        converter=OpcConverter(matrix,param)
         message=createMessage(lenght)
         enPar=EncryptParameters()
 
@@ -61,8 +61,8 @@ class OpcConvertorStegonographyTest(val size: Size,val lenght:Int,val pos:Int) {
                 }
             }
         }
-        val opcs=convertor.getDataOpcs(enPar,message)
-        val con1=OpcConvertor(DataOpcMatrix.valueOf(opcs),param)
+        val opcs=converter.getDataOpcs(enPar,message)
+        val con1=OpcConverter(DataOpcMatrix.valueOf(opcs),param)
         val res=con1.getDataOrigin(enPar)
 //        cpy.assertInRange(ShortMatrix.valueOf(res.first),2)
         res.second!!.assertEquals(mesCpy)
@@ -78,9 +78,9 @@ class OpcConvertorStegonographyTest(val size: Size,val lenght:Int,val pos:Int) {
                 }
             }
         }
-        val cpy=ShortMatrix.valueOf(convertor.getDataOrigin(null).first).copy()
-        val opcs=convertor.getDataOpcs(enPar,enPar.message)
-        val con1=OpcConvertor(DataOpcMatrix.valueOf(opcs),param)
+        val cpy=ShortMatrix.valueOf(converter.getDataOrigin(null).first).copy()
+        val opcs=converter.getDataOpcs(enPar,enPar.message)
+        val con1=OpcConverter(DataOpcMatrix.valueOf(opcs),param)
         val (res,mess)=con1.getDataOrigin(null)
         println(cpy)
         println(res)

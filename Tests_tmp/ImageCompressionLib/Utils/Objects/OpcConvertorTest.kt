@@ -44,9 +44,9 @@ class OpcConvertorTest(flag: Flag,imageSize: Size,unitSize: Size,baseSize: Size)
 
     @Test
     fun testDefaultAlgorithm(){
-        val convertor=OpcConvertor(shortMatrix.toArrayShort(),parameters)
+        val convertor=OpcConverter(shortMatrix.toArrayShort(),parameters)
         val d=convertor.getDataOpcs(null,null)
-        val convertor1=OpcConvertor(DataOpcMatrix.valueOf(d),parameters)
+        val convertor1=OpcConverter(DataOpcMatrix.valueOf(d),parameters)
         val res=convertor1.getDataOrigin().first
         val sres=ShortMatrix.valueOf(res.rectBuffer(0,0,shortMatrixCpy.size))
         shortMatrixCpy.assertInRange(sres,0)

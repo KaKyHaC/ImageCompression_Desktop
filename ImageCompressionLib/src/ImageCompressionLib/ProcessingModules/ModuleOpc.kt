@@ -13,7 +13,7 @@ import ImageCompressionLib.Containers.Type.ByteVector
 import ImageCompressionLib.Containers.Type.DataOpc
 import ImageCompressionLib.Containers.Type.Flag
 import ImageCompressionLib.Utils.Functions.Encryption
-import ImageCompressionLib.Utils.Objects.OpcConvertor
+import ImageCompressionLib.Utils.Objects.OpcConverter
 import ImageCompressionLib.Utils.Objects.TimeManager
 import java.util.*
 import java.util.concurrent.Callable
@@ -21,9 +21,9 @@ import java.util.concurrent.Executors
 import java.util.concurrent.Future
 
 class ModuleOpc {
-    private var a: OpcConvertor
-    private var b: OpcConvertor
-    private var c: OpcConvertor
+    private var a: OpcConverter
+    private var b: OpcConverter
+    private var c: OpcConverter
     val parameters: Parameters
     var isAsyn: Boolean = false
 
@@ -35,9 +35,9 @@ class ModuleOpc {
         this.parameters = tripleShortMatrix.parameters
         this.tripleShortMatrix = tripleShortMatrix
 
-        a = OpcConvertor(ShortMatrix.valueOf(tripleShortMatrix.a), parameters)
-        b = OpcConvertor(ShortMatrix.valueOf(tripleShortMatrix.b), parameters)
-        c = OpcConvertor(ShortMatrix.valueOf(tripleShortMatrix.c), parameters)
+        a = OpcConverter(ShortMatrix.valueOf(tripleShortMatrix.a), parameters)
+        b = OpcConverter(ShortMatrix.valueOf(tripleShortMatrix.b), parameters)
+        c = OpcConverter(ShortMatrix.valueOf(tripleShortMatrix.c), parameters)
     }
 
     constructor(tripleDataOpcMatrix: TripleDataOpcMatrix, isAsyn: Boolean = true) {
@@ -45,9 +45,9 @@ class ModuleOpc {
         this.parameters = tripleDataOpcMatrix.parameters
         this.tripleDataOpcMatrix = tripleDataOpcMatrix
 
-        a = OpcConvertor(DataOpcMatrix.valueOf(tripleDataOpcMatrix.a), parameters)
-        b = OpcConvertor(DataOpcMatrix.valueOf(tripleDataOpcMatrix.b), parameters)
-        c = OpcConvertor(DataOpcMatrix.valueOf(tripleDataOpcMatrix.c), parameters)
+        a = OpcConverter(DataOpcMatrix.valueOf(tripleDataOpcMatrix.a), parameters)
+        b = OpcConverter(DataOpcMatrix.valueOf(tripleDataOpcMatrix.b), parameters)
+        c = OpcConverter(DataOpcMatrix.valueOf(tripleDataOpcMatrix.c), parameters)
     }
 
 

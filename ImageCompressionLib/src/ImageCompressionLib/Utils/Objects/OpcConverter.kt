@@ -12,7 +12,7 @@ import ImageCompressionLib.Containers.Type.Size
 import ImageCompressionLib.Utils.Functions.Opc.OpcProcess
 import ImageCompressionLib.Utils.Functions.Opc.OpcUtils
 
-class OpcConvertor {
+class OpcConverter {
     enum class State {
         Opc, Origin
     }
@@ -35,7 +35,7 @@ class OpcConvertor {
         this.shortMatrix = ShortMatrix.valueOf(dataOrigin)
         this.parameters = parameters
         state = State.Origin
-        val size = calculataDataOpcMatrixSize(
+        val size = calculateDataOpcMatrixSize(
             Size(dataOrigin.size, dataOrigin[0].size),
             parameters.unitSize
         )
@@ -46,7 +46,7 @@ class OpcConvertor {
         this.shortMatrix = dataOrigin
         this.parameters = parameters
         state = State.Origin
-        val size = calculataDataOpcMatrixSize(dataOrigin.size, parameters.unitSize)
+        val size = calculateDataOpcMatrixSize(dataOrigin.size, parameters.unitSize)
         dataOpcMatrix = DataOpcMatrix(size.width, size.height, parameters.unitSize)
     }
 
@@ -71,7 +71,7 @@ class OpcConvertor {
             )
     }
 
-    private fun calculataDataOpcMatrixSize(imageSize: Size, unitSize: Size): Size {
+    private fun calculateDataOpcMatrixSize(imageSize: Size, unitSize: Size): Size {
         var w = imageSize.width / unitSize.width
         var h = imageSize.height / unitSize.height
         if (imageSize.width % unitSize.width != 0) w++
@@ -86,15 +86,15 @@ class OpcConvertor {
         )
     }
 
-    private fun beforDirectOpc() {
+    private fun beforeDirectOpc() {
         dataOpcMatrix.forEach() { i, j, value ->
             OpcProcess.preDirectOpcProcess(parameters, splitedShortMatrix[i, j], value)
             return@forEach null
         }
     }
 
-    private fun afterReverceOpc() {
-        dataOpcMatrix.forEach() { i, j, value ->
+    private fun afterReverseOpc() {
+        dataOpcMatrix.forEach { i, j, value ->
             OpcProcess.afterReverseOpcProcess(parameters, value, splitedShortMatrix[i, j])
             return@forEach null
         }
@@ -103,23 +103,23 @@ class OpcConvertor {
     private fun setGlobalBase() {
 //        if(!parameters.flag.isChecked(Flag.Parameter.GlobalBase))
 //            return
-        val splitedDataOpcMatrix =
+        val splittedDataOpcMatrix =
             dataOpcMatrix.split(parameters.sameBaseSize.width, parameters.sameBaseSize.height)
-        splitedDataOpcMatrix.forEach() { i, j, value ->
+        splittedDataOpcMatrix.forEach { i, j, value ->
             OpcUtils.setSameBaseIn(value)
             return@forEach null
         }
     }
 
     private fun directOpc() {
-        dataOpcMatrix.forEach() { i, j, value ->
+        dataOpcMatrix.forEach { i, j, value ->
             OpcProcess.directOPC(parameters, splitedShortMatrix[i, j], value)
             return@forEach null
         }
     }
 
-    private fun reverceOPC() {
-        dataOpcMatrix.forEach() { i, j, value ->
+    private fun reverseOPC() {
+        dataOpcMatrix.forEach { i, j, value ->
             OpcProcess.reverseOPC(parameters, value, splitedShortMatrix[i, j])
             return@forEach null
         }
@@ -151,7 +151,7 @@ class OpcConvertor {
         }
     }
 
-    private fun reverceOPCWithMessageAt(encParameters: EncryptParameters): ByteVector {
+    private fun reverseOPCWithMessageAt(encParameters: EncryptParameters): ByteVector {
         val res = ByteVector()
         if (encParameters.steganography == null)
             throw Exception("steganography==null")
@@ -174,7 +174,7 @@ class OpcConvertor {
     private fun directProcess(encParameters: EncryptParameters?, message: ByteVector?) {
         createSplitedMatrix()
 
-        beforDirectOpc()
+        beforeDirectOpc()
 
         if (parameters.flag.isChecked(Flag.Parameter.GlobalBase))
             setGlobalBase()
@@ -185,16 +185,16 @@ class OpcConvertor {
             directOpc()
     }
 
-    private fun reverceProcess(encParameters: EncryptParameters?): ByteVector? {
+    private fun reverseProcess(encParameters: EncryptParameters?): ByteVector? {
         createSplitedMatrix()
 
         var res: ByteVector? = null
         if (encParameters?.steganography != null)
-            res = reverceOPCWithMessageAt(encParameters)
+            res = reverseOPCWithMessageAt(encParameters)
         else
-            reverceOPC()
+            reverseOPC()
 
-        afterReverceOpc()
+        afterReverseOpc()
 
         return res
     }
@@ -203,7 +203,7 @@ class OpcConvertor {
     fun getDataOrigin(encParameters: EncryptParameters? = null): Pair<Matrix<Short>, ByteVector?> {
         var m: ByteVector? = null
         if (state == State.Opc && !isReady) {
-            m = reverceProcess(encParameters)
+            m = reverseProcess(encParameters)
             isReady = true
         }
 
