@@ -1,4 +1,4 @@
-package data_model.containers.types
+package data_model.types
 
 import java.math.BigInteger
 import java.util.*

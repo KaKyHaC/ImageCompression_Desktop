@@ -1,4 +1,4 @@
-package data_model.containers.types
+package data_model.types
 
 import java.util.*
 import kotlin.collections.ArrayList

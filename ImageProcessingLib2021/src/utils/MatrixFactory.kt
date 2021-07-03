@@ -1,8 +1,8 @@
 package utils
 
 import data_model.containers.matrix.Matrix
-import data_model.containers.types.DataOpc
-import data_model.containers.types.Size
+import data_model.types.DataOpc
+import data_model.types.Size
 
 object MatrixFactory {
 

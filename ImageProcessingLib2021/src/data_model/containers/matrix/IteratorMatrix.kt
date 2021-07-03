@@ -1,6 +1,6 @@
 package data_model.containers.matrix
 
-import data_model.containers.types.Size
+import data_model.types.Size
 
 open class IteratorMatrix<T>(
         source: Matrix<T>,

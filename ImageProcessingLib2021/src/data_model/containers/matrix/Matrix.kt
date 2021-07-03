@@ -1,6 +1,6 @@
 package data_model.containers.matrix
 
-import data_model.containers.types.Size
+import data_model.types.Size
 import java.util.*
 
 open class Matrix<T>(
