@@ -1,9 +1,9 @@
 package ImageCompressionLib.Utils.Functions;
 
 
-import ImageCompressionLib.Containers.DataOpc;
+import ImageCompressionLib.Containers.Matrix.Matrix;
 import ImageCompressionLib.Containers.TripleDataOpcMatrix;
-import org.jetbrains.annotations.NotNull;
+import ImageCompressionLib.Containers.Type.DataOpc;
 
 /**
  * Created by Димка on 30.10.2016.
@@ -15,23 +15,24 @@ public class Encryption { //singleton
 
     static short[] key;
 
-    public static void encode(TripleDataOpcMatrix bopc,@NotNull String key){
+    public static TripleDataOpcMatrix encode(TripleDataOpcMatrix bopc, String key) throws Exception {
         ourInstance.key=KeyGen(key);
         Encryption.encode(bopc.getA());
         Encryption.encode(bopc.getB());
         Encryption.encode(bopc.getC());
+        return bopc;
     }
 
-    private static void encode(DataOpc[][] dopcs){
-        for(int i=0;i<dopcs.length;i++){
-            for(int j =0;j<dopcs[0].length;j++){
-                encode(dopcs[i][j]);
+    private static void encode(Matrix<DataOpc> dopcs){
+        for(int i=0;i<dopcs.getWidth();i++){
+            for(int j =0;j<dopcs.getHeight();j++){
+                encode(dopcs.get(i,j));
             }
         }
     }
 
-    private static void encode(DataOpc DataOpc){
-        DataOpc.setBase(encode(DataOpc.getBase()));
+    private static void encode(DataOpc DataOpcOld){
+        DataOpcOld.setBase(encode(DataOpcOld.getBase()));
     }
 
     // метод для шифровки текста с помощью XOR
@@ -47,7 +48,9 @@ public class Encryption { //singleton
         return result;
     }
 
-    private static short[] KeyGen(String key){
+    private static short[] KeyGen(String key) throws Exception {
+        if(key.length()==0)
+            throw new Exception("Password length == 0");
         short[] res=new short[key.length()];
         short sK;
         for(int i=0;i<key.length();i++){

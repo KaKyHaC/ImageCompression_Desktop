@@ -1,6 +1,6 @@
 package Utils
 
-import ImageCompressionLib.Containers.MyBufferedImage
+import ImageCompressionLib.Containers.Type.MyBufferedImage
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -18,7 +18,7 @@ class BuffImConvertorTest {
         tetsDirRev(200,2400){i, j ->  i+j}
     }
     fun tetsDirRev(w:Int,h:Int,init:(i:Int,j:Int)->Int){
-        val mbi=MyBufferedImage(w,h)
+        val mbi= MyBufferedImage(w, h)
         mbi.forEach{ i, j, value -> init(i,j)}
 
         val bi=BuffImConvertor.instance.convert(mbi)

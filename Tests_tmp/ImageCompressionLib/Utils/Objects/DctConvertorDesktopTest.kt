@@ -1,15 +1,21 @@
 package ImageCompressionLib.Utils.Objects
 
+import ImageCompressionLib.Constants.SIZEOFBLOCK
 import ImageCompressionLib.Constants.TypeQuantization
-import ImageCompressionLib.Containers.Flag
+import ImageCompressionLib.Containers.Matrix.ShortMatrix
+import ImageCompressionLib.Containers.Parameters
+import ImageCompressionLib.Containers.Type.Flag
+import ImageCompressionLib.Containers.Type.Size
+import ImageCompressionLib.Utils.Functions.Dct.DctUniversalAlgorithm
 import org.junit.Test
 
 import org.junit.Assert.*
 import org.junit.Before
+import java.util.*
 import kotlin.test.assertFails
 
 class DctConvertorDesktopTest {
-    val flag=Flag()
+    val flag= Flag()
 
     @Before
     fun init(){
@@ -18,35 +24,43 @@ class DctConvertorDesktopTest {
         flag.setChecked(Flag.Parameter.OneFile,true)
     }
     @Test
-    fun test1(){
-        mainTotal(16,16,5)
+    fun test16x16(){
+        mainTotal(16,16,5,Size(8,8))
     }
     @Test
-    fun test2(){
-        mainTotal(32,32,10)
+    fun test32x32(){
+        mainTotal(32,32,10,Size(8,8))
     }
     @Test
-    fun test3(){
-        mainTotal(800,800,10)
+    fun test800x800(){
+        mainTotal(800,800,10,Size(10,10))
     }
     @Test
-    fun test4(){
-        mainTotal(4,4,5)
+    fun test4x4(){
+        println("work only for x8 size")
+        mainTotal(4,4,5,Size(4,4))
     }
-    fun mainTotal(w: Int,h: Int,range: Int) {
-        val data=createData(w,h){i,j->((i+j)%255).toShort()}
+    @Test
+    fun test7x6(){
+        println("work only for square unitSize")
+        mainTotal(7,6,5, Size(7,6))
+    }
+    fun mainTotal(w: Int,h: Int,range: Int,unitSize:Size) {
+        val data=ShortMatrix(w,h){ i, j->((Math.abs(Random().nextInt(255)))).toShort()}
         val cpy = data.copy()
-        assertTrue(data.inRannge(cpy,0))
+        assertTrue(data.assertInRange(cpy,0))
 
-        val convertor=DctConvertor(data,DctConvertor.State.ORIGIN,TypeQuantization.luminosity,flag)
+        val convertor=DctConvertor(data,DctConvertor.State.ORIGIN,TypeQuantization.luminosity
+                , Parameters.createParametresForTest(data.size,flag = flag,unitSize = unitSize)
+                , DctUniversalAlgorithm(unitSize))
 
         val dct=convertor.getMatrixDct()
-        assertTrue(data.inRannge(dct,0))
-        assertFails { (cpy.inRannge(dct,range))}
+        assertTrue(data.assertInRange(ShortMatrix.valueOf(dct),0))
+        assertFails { (cpy.assertInRange(ShortMatrix.valueOf(dct),range))}
 
         val res=convertor.getMatrixOrigin()
-        assertTrue(data.inRannge(cpy,range))
-        assertTrue(data.inRannge(res,0))
+        assertTrue(data.assertInRange(cpy,range))
+        assertTrue(data.assertInRange(ShortMatrix.valueOf(res),0))
 
     }
 

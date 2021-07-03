@@ -1,69 +1,53 @@
 package ImageCompressionLib.Containers
 
-import ImageCompressionLib.Constants.SIZEOFBLOCK
-import org.junit.Test
+import ImageCompressionLib.Containers.Matrix.Matrix
+import ImageCompressionLib.Containers.Type.DataOpc
+import ImageCompressionLib.Containers.Type.Flag
+import ImageCompressionLib.Containers.Type.Size
+import org.junit.Before
 
 import org.junit.Assert.*
-import org.junit.Before
+import org.junit.Test
 import java.math.BigInteger
 
 class TripleDataOpcMatrixTest {
-    val dopc=DataOpc()
-    val flag=Flag()
+    lateinit var tripleDataOpcMatrix: TripleDataOpcMatrix
     @Before
-    fun init(){
-//        dopc.DC=200
-        dopc.N= BigInteger.valueOf(12312312412412124)
-        dopc.base= ShortArray(SIZEOFBLOCK){n->255 }
-        dopc.FromArrayToSing(ByteArray(SIZEOFBLOCK){n->n.toByte()})
-
-        flag.setChecked(Flag.Parameter.GlobalBase,true)
-        flag.setChecked(Flag.Parameter.OneFile,true)
+    fun setUp() {
+        val p=Parameters.createParametresForTest(Size(256,374),Size(7,6))
+        val m=Matrix<DataOpc>(p.unitSize){i, j ->  DataOpc(p)}
+        m.forEach(){i, j, value ->
+            value.DC=(i+j).toShort()
+            value.N= BigInteger.valueOf((i*j).toLong())
+            for (r in 0 until value.base.size){
+                value.base[r]=255
+            }
+            return@forEach value
+        }
+        tripleDataOpcMatrix= TripleDataOpcMatrix(m,m,m,p)
     }
-
 
     @Test
-    fun testEquals(){
-        val size=9
-        val arr=Array(size){Array(size){dopc}}
-        val trip1=TripleDataOpcMatrix(arr,arr,arr)
-        val trip2=TripleDataOpcMatrix(arr,arr,arr)
+    fun testEquals() {
+        assertEquals(tripleDataOpcMatrix,tripleDataOpcMatrix)
+        assertEquals(tripleDataOpcMatrix,tripleDataOpcMatrix.copy())
+    }
 
-        assertEquals(trip1,trip1)
-        assertEquals(trip1,trip2)
-    }
     @Test
-    fun testGlobalBase1(){
-        IOGloalBase(Size(1,1), Size(1,1))
+    fun testByteVector() {
+        val cpy=tripleDataOpcMatrix.copy()
+        val tmp=tripleDataOpcMatrix.toByteVectorContainer()
+        val res=TripleDataOpcMatrix.valueOf(tmp)
+        assertEquals(cpy,res)
     }
-    @Test
-    fun testGlobalBase4_1(){
-        IOGloalBase(Size(4,4),Size(1,1))
-    }
-    @Test
-    fun testGlobalBase4_2(){
-        IOGloalBase(Size(4,4),Size(2,2))
-    }
-    @Test
-    fun testGlobalBase400_20(){
-        IOGloalBase(Size(400,400),Size(20,20))
-    }
-    @Test
-    fun testGlobalBase4_3(){
-        IOGloalBase(Size(4,4),Size(3,3))
-    }
-    fun IOGloalBase(size: Size,globalBase:Size) {
-        val arr=Array(size.width){Array(size.height){dopc}}
-        val trip1=TripleDataOpcMatrix(arr,arr,arr)
 
-        val vec=ByteVector()
-        trip1.writeBaseToVector(vec,flag,globalBase.width,globalBase.height)
-        trip1.writeToVector(vec,flag)
-
-        val trip2=TripleDataOpcMatrix()
-        trip2.readBaseFromVector(vec,flag)
-        trip2.readFromVector(vec,flag)
-
-        assertEquals(trip1,trip2)
+    @Test
+    fun testByteVectorCompressionFlag() {
+//        tripleDataOpcMatrix.parameters.flag= Flag.createCompressionFlag()
+        tripleDataOpcMatrix.parameters.flag.setFalse(Flag.Parameter.LongCode)
+        val cpy=tripleDataOpcMatrix.copy()
+        val tmp=tripleDataOpcMatrix.toByteVectorContainer()
+        val res=TripleDataOpcMatrix.valueOf(tmp)
+        assertEquals(cpy,res)
     }
 }

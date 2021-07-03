@@ -1,54 +1,48 @@
 package ImageCompressionLib.Containers
 
+import ImageCompressionLib.Constants.DEFAULT_MATRIX_VALUE
+import ImageCompressionLib.Constants.SIZEOFBLOCK
 import ImageCompressionLib.Constants.State
+import ImageCompressionLib.Containers.Matrix.Matrix
+import ImageCompressionLib.Containers.Matrix.ShortMatrix
+import ImageCompressionLib.Containers.Type.Size
 import java.util.*
 
-class TripleShortMatrix(val Width: Int, val Height: Int, var state: State) {
-    var a: Array<ShortArray>
-    var b: Array<ShortArray>
-    var c: Array<ShortArray>
-//    var f: Flag//TODO remove flag
-
-    init {
-//        f= Flag(flag.flag)
-        a = Array(Width) { ShortArray(Height) }
-        b = Array(Width) { ShortArray(Height) }
-        c = Array(Width) { ShortArray(Height) }
+class TripleShortMatrix {
+    var state:State
+    var a: Matrix<Short>
+    var b: Matrix<Short>
+    var c: Matrix<Short>
+    val parameters: Parameters
+    constructor(parameters: Parameters,state:State){
+        this.parameters=parameters
+        this.state=state
+        a= Matrix(parameters.dataSize){i, j ->  DEFAULT_MATRIX_VALUE}
+        b= Matrix(parameters.dataSize){i, j ->  DEFAULT_MATRIX_VALUE}
+        c= Matrix(parameters.dataSize){i, j ->  DEFAULT_MATRIX_VALUE}
     }
+
+    constructor(a: Matrix<Short>, b: Matrix<Short>, c: Matrix<Short>, parameters: Parameters,state: State) {
+        this.a = a
+        this.b = b
+        this.c = c
+        this.parameters=parameters
+        this.state=state
+    }
+
+    val width:Int
+        get() = a.width
+    val height:Int
+        get() = a.height
 
     fun assertMatrixInRange(tripleShortMatrix: TripleShortMatrix, range: Int):Boolean{
-        if (Width != tripleShortMatrix.Width) return false
-        if (Height != tripleShortMatrix.Height) return false
-//        if (f != tripleShortMatrix.f) return false
-        if (state != tripleShortMatrix.state) return false
-
-        if(!a.inRannge(tripleShortMatrix.a,range))return false
-        if(!b.inRannge(tripleShortMatrix.b,range))return false
-        if(!c.inRannge(tripleShortMatrix.c,range))return false
+        ShortMatrix.valueOf(a).assertInRange(ShortMatrix.valueOf(tripleShortMatrix.a),range)
+        ShortMatrix.valueOf(b).assertInRange(ShortMatrix.valueOf(tripleShortMatrix.b),range)
+        ShortMatrix.valueOf(c).assertInRange(ShortMatrix.valueOf(tripleShortMatrix.c),range)
 
         return true
     }
-    fun Array<ShortArray>.inRannge(a:Array<ShortArray>,range:Int):Boolean{
-        if(size!=a.size)return false
-        if(this[0].size!=a[0].size)return false
 
-        for(i in 0..size-1){
-            for(j in 0..this[0].size-1){
-                var isEqual=false
-                for(d in -range..range)
-                    if(this[i][j]==(a[i][j]+d).toShort())
-                        isEqual=true
-                if(!isEqual) {
-                    throw Exception("d[$i][$j](${this[i][j]})!=other[$i][$j](${a[i][j]}) in range=$range")
-//                    return false
-                }
-            }
-        }
-        return true
-    }
-    fun Array<ShortArray>.copy():Array<ShortArray>{
-        return Array<ShortArray>(size,{x->kotlin.ShortArray(this[0].size,{y->this[x][y]})})
-    }
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -56,33 +50,25 @@ class TripleShortMatrix(val Width: Int, val Height: Int, var state: State) {
 
         other as TripleShortMatrix
 
-        if (Width != other.Width) return false
-        if (Height != other.Height) return false
-//        if (f != other.f) return false
-        if (state != other.state) return false
-
-        if(!a.inRannge(other.a,0))return false
-        if(!b.inRannge(other.b,0))return false
-        if(!c.inRannge(other.c,0))return false
+        if(!a.equals(other.a))return false
+        if(!b.equals(other.b))return false
+        if(!c.equals(other.c))return false
 
         return true
     }
     override fun hashCode(): Int {
-        var result = Width
-        result = 31 * result + Height
-//        result = 31 * result + f.hashCode()
-        result = 31 * result + state.hashCode()
-        result = 31 * result + Arrays.hashCode(a)
-        result = 31 * result + Arrays.hashCode(b)
-        result = 31 * result + Arrays.hashCode(c)
+        var result = parameters.hashCode()
+        result = 31 * result + a.hashCode()
+        result = 31 * result + b.hashCode()
+        result = 31 * result + c.hashCode()
         return result
     }
 
     fun copy(): TripleShortMatrix {
-        var res= TripleShortMatrix(Width,Height,state)
-        res.a=a.copy()
-        res.b=b.copy()
-        res.c=c.copy()
-        return res
+        val a1=ShortMatrix.valueOf(a).copy().toMatrix()
+        val b1=ShortMatrix.valueOf(b).copy().toMatrix()
+        val c1=ShortMatrix.valueOf(c).copy().toMatrix()
+        return TripleShortMatrix(a1,b1,c1,parameters,state)
     }
+//    fun getState(): State { return state    }
 }

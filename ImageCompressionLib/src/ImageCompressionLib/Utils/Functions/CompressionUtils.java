@@ -54,8 +54,8 @@ public class CompressionUtils {
 
         inflater.end();
 
-        System.out.println("Original: " + data.length);
-        System.out.println("Uncompressed: " + output.length);
+        System.out.println("Original: " + data.length / 1024 + " Kb");
+        System.out.println("Compressed: " + output.length / 1024 + " Kb");
         return output;
     }
 }
