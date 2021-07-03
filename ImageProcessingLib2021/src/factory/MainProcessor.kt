@@ -4,26 +4,17 @@ import data_model.processing_data.ProcessingData
 
 object MainProcessor {
 
-    fun runDirect(input: Input): Output {
-        val modules = input.moduleParams.map { ProcessorModuleFactory.getModule(it) }
-        var data = input.data
+    fun run(params: Params, mode: Mode = Mode.DIRECT): Params {
+        var modules = params.moduleParams.map { ProcessorModuleFactory.getModule(it) }
+        if (mode == Mode.REVERSE) modules = modules.reversed()
+        var data = params.data
         modules.forEach { data = it.processDirect(data) }
-        return Output(data, input.moduleParams)
+        return Params(data, params.moduleParams)
     }
 
-    fun runReverse(input: Output): Input {
-        val modules = input.moduleParams.map { ProcessorModuleFactory.getModule(it) }.reversed()
-        var data = input.data
-        modules.forEach { data = it.processDirect(data) }
-        return Input(data, input.moduleParams)
-    }
+    enum class Mode { DIRECT, REVERSE }
 
-    data class Input(
-            val data: ProcessingData,
-            val moduleParams: List<ProcessorModuleFactory.ModuleParams>
-    )
-
-    data class Output(
+    data class Params(
             val data: ProcessingData,
             val moduleParams: List<ProcessorModuleFactory.ModuleParams>
     )
