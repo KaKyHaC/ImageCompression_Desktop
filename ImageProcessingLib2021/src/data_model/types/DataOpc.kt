@@ -1,7 +1,6 @@
 package data_model.types
 
 import java.math.BigInteger
-import java.util.*
 
 sealed class DataOpc(
         val base: ShortArray,
@@ -18,7 +17,7 @@ sealed class DataOpc(
     ) : DataOpc(base, sign, DC, size)
 
     class Long(
-            val vectorCode: Vector<Long>,
+            val vectorCode: List<kotlin.Long>,
             base: ShortArray,
             sign: Array<BooleanArray>,
             DC: Short,
@@ -33,6 +32,6 @@ sealed class DataOpc(
     ) {
         fun build(N: BigInteger) = BI(N, base, sign, DC, size)
 
-        fun build(vectorCode: Vector<Long>) = Long(vectorCode, base, sign, DC, size)
+        fun build(vectorCode: List<kotlin.Long>) = Long(vectorCode, base, sign, DC, size)
     }
 }
