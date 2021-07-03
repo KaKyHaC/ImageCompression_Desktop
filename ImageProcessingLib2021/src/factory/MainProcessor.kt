@@ -5,10 +5,12 @@ import data_model.processing_data.ProcessingData
 object MainProcessor {
 
     fun run(params: Params, mode: Mode = Mode.DIRECT): Params {
-        var modules = params.moduleParams.map { ProcessorModuleFactory.getModule(it) }
-        if (mode == Mode.REVERSE) modules = modules.reversed()
+        val modules = params.moduleParams.map { ProcessorModuleFactory.getModule(it) }
         var data = params.data
-        modules.forEach { data = it.processDirect(data) }
+        when (mode) {
+            Mode.DIRECT -> modules.forEach { data = it.processDirect(data) }
+            Mode.REVERSE -> modules.reversed().forEach { data = it.processReverse(data) }
+        }
         return Params(data, params.moduleParams)
     }
 
