@@ -10,18 +10,29 @@ sealed class DataOpc(
         val size: Size
 ) {
     class BI(
+            val N: BigInteger,
             base: ShortArray,
             sign: Array<BooleanArray>,
             DC: Short,
-            val N: BigInteger,
             size: Size
     ) : DataOpc(base, sign, DC, size)
 
     class Long(
+            val vectorCode: Vector<Long>,
             base: ShortArray,
             sign: Array<BooleanArray>,
             DC: Short,
-            val vectorCode: Vector<Long>,
             size: Size
     ) : DataOpc(base, sign, DC, size)
+
+    data class Builder(
+            var base: ShortArray,
+            var sign: Array<BooleanArray>,
+            var DC: Short,
+            var size: Size
+    ) {
+        fun build(N: BigInteger) = BI(N, base, sign, DC, size)
+
+        fun build(vectorCode: Vector<Long>) = Long(vectorCode, base, sign, DC, size)
+    }
 }
