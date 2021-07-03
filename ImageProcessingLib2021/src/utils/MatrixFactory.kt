@@ -8,9 +8,9 @@ object MatrixFactory {
 
     fun createShortMatrix(
             size: Size, init: (Int, Int) -> Short = { _, _ -> 0 }
-    ) = Matrix(Array(size.width) { i -> Array(size.height) { j -> init(i, j) } })
+    ) = Matrix(Array(size.width) { i -> Array(size.height) { j -> init(i, j) } }, Short::class.java)
 
     fun createDataOpcMatrix(
             size: Size, init: (Int, Int) -> DataOpc
-    ) = Matrix(Array(size.width) { i -> Array(size.height) { j -> init(i, j) } })
+    ) = Matrix(Array(size.width) { i -> Array(size.height) { j -> init(i, j) } }, DataOpc::class.java)
 }

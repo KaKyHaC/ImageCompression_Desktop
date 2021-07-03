@@ -4,7 +4,8 @@ import data_model.containers.types.Size
 import java.util.*
 
 open class Matrix<T>(
-        val matrix: Array<Array<T>>
+        val matrix: Array<Array<T>>,
+        val type: Class<T>
 ) : IMatrix<T> {
     override val width = matrix.size
 

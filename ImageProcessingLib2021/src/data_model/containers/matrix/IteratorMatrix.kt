@@ -7,7 +7,7 @@ open class IteratorMatrix<T>(
         val widthOffset: Int,
         val heightOffset: Int,
         val iteratorSize: Size
-) : Matrix<T>(source.matrix) {
+) : Matrix<T>(source.matrix, source.type) {
 
     override fun get(i: Int, j: Int): T {
         return super.get(i + widthOffset, j + heightOffset)
