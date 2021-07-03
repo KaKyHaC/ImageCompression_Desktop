@@ -1,4 +1,4 @@
-package data_model.containers.matrix
+package data_model.generics.matrix
 
 interface IMatrix<T> {
     operator fun get(i: Int, j: Int): T

@@ -1,7 +1,7 @@
 package data_model.processing_data
 
-import data_model.containers.Triple
-import data_model.containers.matrix.Matrix
+import data_model.generics.Triple
+import data_model.generics.matrix.Matrix
 import data_model.types.ByteVector
 import data_model.types.DataOpc
 

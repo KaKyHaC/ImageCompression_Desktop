@@ -1,4 +1,4 @@
-package data_model.containers
+package data_model.generics
 
 data class Triple<T>(
         val first: T,

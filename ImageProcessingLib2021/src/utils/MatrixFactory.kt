@@ -1,6 +1,6 @@
 package utils
 
-import data_model.containers.matrix.Matrix
+import data_model.generics.matrix.Matrix
 import data_model.types.DataOpc
 import data_model.types.Size
 

@@ -1,4 +1,4 @@
-package data_model.containers.matrix
+package data_model.generics.matrix
 
 import data_model.types.Size
 import java.util.*
