@@ -6,6 +6,7 @@ import data_model.types.DataOpc
 
 sealed class ProcessingData {
 
+    data class File(val file: File)
     data class Image(val triple: Triple<Matrix<Short>>)
     data class OPC(val triple: Triple<Matrix<DataOpc>>)
 }
