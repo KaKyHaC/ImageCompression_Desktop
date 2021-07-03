@@ -1,7 +1,7 @@
 package features
 
-import data_model.processing_data.IProcessingData
+import data_model.processing_data.ProcessingData
 
 interface IDataProcessor {
-    fun process(data: IProcessingData): IProcessingData
+    fun process(data: ProcessingData): ProcessingData
 }

@@ -1,6 +1,6 @@
 package factory
 
-import data_model.processing_data.IProcessingData
+import data_model.processing_data.ProcessingData
 
 object MainProcessor {
 
@@ -13,11 +13,11 @@ object MainProcessor {
 
     data class Params(
             val id: String = "",
-            val initData: IProcessingData,
+            val initData: ProcessingData,
             val moduleParams: List<ProcessorModuleFactory.ModuleParams>
     )
 
     data class Result(
-            val resultData: IProcessingData
+            val resultData: ProcessingData
     )
 }
