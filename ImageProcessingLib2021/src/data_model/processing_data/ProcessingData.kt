@@ -7,7 +7,7 @@ import data_model.types.DataOpc
 
 sealed class ProcessingData {
 
-    data class File(val file: File) : ProcessingData()
+    data class File(val file: java.io.File) : ProcessingData()
 
     sealed class Image(val triple: Triple<Matrix<Short>>) : ProcessingData() {
         class Jpeg(triple: Triple<Matrix<Short>>) : Image(triple)
