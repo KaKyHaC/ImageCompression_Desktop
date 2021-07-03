@@ -7,7 +7,7 @@ object MainProcessor {
     fun run(params: Params): Result {
         val modules = params.moduleParams.map { ProcessorModuleFactory.getModule(it) }
         var data = params.initData
-        modules.forEach { data = it.process(data) }
+        modules.forEach { data = it.processDirect(data) }
         return Result(data)
     }
 
