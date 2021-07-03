@@ -3,7 +3,7 @@ package features.opc
 import data_model.processing_data.ProcessingData
 import features.AbsDataProcessor
 
-class OpcModule : AbsDataProcessor<ProcessingData.Image, ProcessingData.OPC>(
+class ModuleOpc : AbsDataProcessor<ProcessingData.Image, ProcessingData.OPC>(
         ProcessingData.Image::class, ProcessingData.OPC::class
 ) {
 
