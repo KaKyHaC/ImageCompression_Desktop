@@ -9,12 +9,9 @@ sealed class ProcessingData {
 
     data class File(val file: java.io.File) : ProcessingData()
 
-    sealed class Image(val triple: Triple<Matrix<Short>>) : ProcessingData() {
-        class Rgb(triple: Triple<Matrix<Short>>) : Image(triple)
-        class YCbCr(triple: Triple<Matrix<Short>>) : Image(triple)
-    }
+    data class Image(val triple: Triple<Matrix<Short>>) : ProcessingData()
 
     data class OPC(val triple: Triple<Matrix<DataOpc>>) : ProcessingData()
 
-    data class Bytes(val byteVector: ByteVector): ProcessingData()
+    data class Bytes(val byteVector: ByteVector) : ProcessingData()
 }
