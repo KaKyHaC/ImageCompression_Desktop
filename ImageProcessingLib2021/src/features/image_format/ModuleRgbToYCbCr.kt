@@ -3,7 +3,7 @@ package features.image_format
 import data_model.processing_data.ProcessingData
 import features.AbsDataProcessor
 
-class ModuleJpegToYCbCr() : AbsDataProcessor<ProcessingData.Image, ProcessingData.Image>(
+class ModuleRgbToYCbCr() : AbsDataProcessor<ProcessingData.Image, ProcessingData.Image>(
         ProcessingData.Image::class, ProcessingData.Image::class
 ) {
 
