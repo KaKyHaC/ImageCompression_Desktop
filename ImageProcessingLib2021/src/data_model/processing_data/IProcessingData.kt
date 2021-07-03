@@ -1,0 +1,3 @@
+package data_model.processing_data
+
+sealed class IProcessingData
