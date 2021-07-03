@@ -3,7 +3,7 @@ package data_model.containers.matrix
 import data_model.containers.types.Size
 
 open class IteratorMatrix<T>(
-        private val source: Matrix<T>,
+        source: Matrix<T>,
         val widthOffset: Int,
         val heightOffset: Int,
         val iteratorSize: Size
