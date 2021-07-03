@@ -10,7 +10,7 @@ sealed class ProcessingData {
     data class File(val file: java.io.File) : ProcessingData()
 
     sealed class Image(val triple: Triple<Matrix<Short>>) : ProcessingData() {
-        class Jpeg(triple: Triple<Matrix<Short>>) : Image(triple)
+        class Rgb(triple: Triple<Matrix<Short>>) : Image(triple)
         class YCbCr(triple: Triple<Matrix<Short>>) : Image(triple)
     }
 
