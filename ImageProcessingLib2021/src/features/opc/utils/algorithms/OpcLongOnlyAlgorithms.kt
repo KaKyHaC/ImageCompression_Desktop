@@ -1,4 +1,4 @@
-package features.opc.utils
+package features.opc.utils.algorithms
 
 import data_model.generics.matrix.Matrix
 import data_model.types.DataOpc

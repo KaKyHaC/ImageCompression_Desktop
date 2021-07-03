@@ -1,4 +1,4 @@
-package features.opc.utils
+package features.opc.utils.algorithms
 
 object OpcAlgorithmsWithMessage {
 
