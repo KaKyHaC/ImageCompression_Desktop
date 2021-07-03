@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ImageCompressionKotlin.iml" filepath="$PROJECT_DIR$/ImageCompressionKotlin.iml" />
       <module fileurl="file://$PROJECT_DIR$/ImageCompressionLib/ImageCompressionLib.iml" filepath="$PROJECT_DIR$/ImageCompressionLib/ImageCompressionLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ImageCompressionLib2/ImageCompressionLib2.iml" filepath="$PROJECT_DIR$/ImageCompressionLib2/ImageCompressionLib2.iml" />
     </modules>
   </component>
 </project>
