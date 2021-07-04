@@ -34,6 +34,12 @@ sealed class DataOpc(
                 0
         )
 
+        constructor(dataOpc: DataOpc) : this(
+                dataOpc.base,
+                dataOpc.sign,
+                dataOpc.AC
+        )
+
         fun build(N: BigInteger) = BI(N, base, sign, AC)
 
         fun build(vectorCode: List<kotlin.Long>) = Long(vectorCode, base, sign, AC)
