@@ -29,6 +29,10 @@ open class Matrix<T : Any>(
         }
     }
 
+    inline fun <reified R : Any> map(mapper: (i: Int, j: Int, value: T) -> R): Matrix<R> {
+        return Matrix.create(size) { i, j -> mapper(i, j, get(i, j)) }
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
