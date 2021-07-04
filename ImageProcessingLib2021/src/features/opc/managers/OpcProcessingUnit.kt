@@ -14,9 +14,7 @@ class OpcProcessingUnit(
     fun direct(image: Matrix<Short>): Matrix<out DataOpc> {
         val splitIterator = MatrixUtils.splitIterator(image, childSize, 0)
         return splitIterator.map { i, j, value ->
-            val builder = DataOpc.Builder(childSize)
-            OpcProcess.preDirectOpcProcess(OpcProcess.PreOpcParams(), value, builder)
-            OpcProcess.directOPC(OpcProcess.OpcParams(), value, builder)
+            OpcProcess.directProcess(OpcProcess.PreOpcParams(), OpcProcess.OpcParams(), value)
         }
     }
 
@@ -24,9 +22,7 @@ class OpcProcessingUnit(
         val image = DataOpcUtils.Data.createImageMatrix(dataOpcMatrix.size, childSize)
         val splitIterator = MatrixUtils.splitIterator(image, childSize, 0)
         splitIterator.applyEach { i, j, value ->
-            val dataOpc = dataOpcMatrix[i, j]
-            OpcProcess.reverseOPC(dataOpc, value)
-            OpcProcess.afterReverseOpcProcess(OpcProcess.PreOpcParams(), dataOpc, value)
+          OpcProcess.reverseApplyProcess(OpcProcess.PreOpcParams(), dataOpcMatrix[i,j], value)
             null
         }
         return image
