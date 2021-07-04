@@ -3,9 +3,10 @@ package data_model.types
 import utils.isTrue
 import java.util.*
 
-data class Flag(
-        private val data: MutableMap<Parameter, Boolean> = EnumMap(Parameter::class.java)
+sealed class Flag(
+        protected val data: MutableMap<Parameter, Boolean> = EnumMap(Parameter::class.java)
 ) {
+    val dataMap = data as Map<Parameter, Boolean>
 
     enum class Parameter {
         OneFile,
@@ -20,16 +21,17 @@ data class Flag(
         return data[param].isTrue()
     }
 
-    fun setChecked(parameter: Parameter, state: Boolean) {
-        data[parameter] = state
-    }
+    class Builder() : Flag() {
+        fun setChecked(parameter: Parameter, state: Boolean) {
+            data[parameter] = state
+        }
 
-    fun setTrue(parameter: Parameter) {
-        setChecked(parameter, true)
-    }
+        fun setTrue(parameter: Parameter) {
+            setChecked(parameter, true)
+        }
 
-    fun setFalse(parameter: Parameter) {
-        setChecked(parameter, false)
+        fun setFalse(parameter: Parameter) {
+            setChecked(parameter, false)
+        }
     }
-
 }
