@@ -2,12 +2,12 @@ package features.opc.utils.algorithms
 
 import data_model.generics.matrix.Matrix
 import data_model.types.DataOpc
-import utils.MatrixUtils
+import data_model.types.Size
 import java.util.*
 
 object OpcLongOnlyAlgorithms {
 
-    val MAX_LONG= Math.pow(2.0, 54.0).toLong()
+    val MAX_LONG = Math.pow(2.0, 54.0).toLong()
 
     @JvmStatic
     fun direct(dataOrigin: Matrix<Short>, dataOpc: DataOpc.Builder): DataOpc.Long {
@@ -37,8 +37,7 @@ object OpcLongOnlyAlgorithms {
     }
 
     @JvmStatic
-    fun reverse(dataOpc: DataOpc.Long): Matrix<Short> {
-        val dataOrigin: Matrix<Short> = MatrixUtils.createShortMatrix(dataOpc.size)
+    fun applyReverse(dataOrigin: Matrix<Short>, dataOpc: DataOpc.Long): Matrix<Short> {
         var copy: Long = 1
         var index = 0
         var curN = dataOpc.vectorCode.elementAt(index)
@@ -65,5 +64,11 @@ object OpcLongOnlyAlgorithms {
             }
         }
         return dataOrigin
+    }
+
+    @JvmStatic
+    fun reverse(size: Size, dataOpc: DataOpc.Long): Matrix<Short> {
+        val dataOrigin = Matrix.create(size) { _, _ -> 0.toShort() }
+        return applyReverse(dataOrigin, dataOpc)
     }
 }

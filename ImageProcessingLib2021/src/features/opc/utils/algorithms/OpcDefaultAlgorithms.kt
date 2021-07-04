@@ -2,7 +2,7 @@ package features.opc.utils.algorithms
 
 import data_model.generics.matrix.Matrix
 import data_model.types.DataOpc
-import utils.MatrixUtils
+import data_model.types.Size
 import java.math.BigInteger
 
 object OpcDefaultAlgorithms {
@@ -21,11 +21,9 @@ object OpcDefaultAlgorithms {
         return dataOpc.build(N)
     }
 
-    @JvmStatic
-    fun reverse(dataOpc: DataOpc.BI): Matrix<Short> {// method copy from C++ Project MAH
+    fun applyReverse(dataOrigin: Matrix<Short>, dataOpc: DataOpc.BI): Matrix<Short> {// method copy from C++ Project MAH
         var copy = BigInteger.ONE
         var b: BigInteger
-        val dataOrigin: Matrix<Short> = MatrixUtils.createShortMatrix(dataOpc.size)
         for (i in dataOrigin.width - 1 downTo 0) {
             for (j in dataOrigin.height - 1 downTo 0) {
                 val a = dataOpc.N.divide(copy)
@@ -36,5 +34,11 @@ object OpcDefaultAlgorithms {
             }
         }
         return dataOrigin
+    }
+
+    @JvmStatic
+    fun reverse(size: Size, dataOpc: DataOpc.BI): Matrix<Short> {
+        val dataOrigin = Matrix.create(size) { _, _ -> 0.toShort() }
+        return applyReverse(dataOrigin, dataOpc)
     }
 }
