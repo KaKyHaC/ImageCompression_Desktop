@@ -1,35 +1,36 @@
 package data_model.types
 
+import data_model.generics.matrix.Matrix
 import java.math.BigInteger
 
 sealed class DataOpc(
         val base: ShortArray,
-        val sign: Array<BooleanArray>,
+        val sign: Matrix<Boolean>,
         val AC: Short
 ) {
     class BI(
             val N: BigInteger,
             base: ShortArray,
-            sign: Array<BooleanArray>,
+            sign: Matrix<Boolean>,
             AC: Short
     ) : DataOpc(base, sign, AC)
 
     class Long(
             val vectorCode: List<kotlin.Long>,
             base: ShortArray,
-            sign: Array<BooleanArray>,
+            sign: Matrix<Boolean>,
             AC: Short
     ) : DataOpc(base, sign, AC)
 
     data class Builder(
-            val base: ShortArray,
-            val sign: Array<BooleanArray>,
-            val AC: Short
+            var base: ShortArray,
+            var sign: Matrix<Boolean>,
+            var AC: Short
     ) {
 
         constructor(size: Size) : this(
                 ShortArray(size.height) { 1 },
-                Array(size.width) { BooleanArray(size.height) },
+                Matrix.create(size) { _, _ -> false },
                 0
         )
 
