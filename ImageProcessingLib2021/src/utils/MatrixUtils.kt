@@ -39,4 +39,20 @@ object MatrixUtils {
                 ?: IteratorMatrix(matrix, wStart, hStart, size)
     }
 
+    private fun <T : Any> calculateMatrixOfMatrixSize(matrix: Matrix<T>, horizontalStep: Int, verticalStep: Int): Size {
+        var w = matrix.width / horizontalStep
+        var h = matrix.height / verticalStep
+        if (matrix.width % horizontalStep != 0) w++
+        if (matrix.height % verticalStep != 0) h++
+        return Size(w, h)
+    }
+
+    fun <T : Any> splitIterator(matrix: Matrix<T>, childSize: Size, defaultValue: T? = null): Matrix<Matrix<T>> {
+        val parentSize= calculateMatrixOfMatrixSize(matrix, childSize.width, childSize.width)
+        return Matrix.create(parentSize) { i, j ->
+            val wStart = i * childSize.width
+            val hStart = j * childSize.height
+            rectIterator(matrix, wStart, hStart, childSize, defaultValue)
+        }
+    }
 }
