@@ -2,11 +2,13 @@ package data_model.generics.matrix
 
 import data_model.types.Size
 import java.util.*
+import kotlin.reflect.KClass
 
-open class Matrix<T>(
+open class Matrix<T : Any>(
         val matrix: Array<Array<T>>,
-        val type: Class<T>
+        val type: KClass<T>
 ) : IMatrix<T> {
+
     override val width = matrix.size
 
     override val height = matrix.firstOrNull()?.size ?: 0
@@ -54,5 +56,11 @@ open class Matrix<T>(
             sb.append("\n")
         }
         return sb.toString()
+    }
+
+    companion object {
+        inline fun <reified T : Any> create(
+                size: Size, init: (Int, Int) -> T
+        ) = Matrix(Array(size.width) { i -> Array(size.height) { j -> init(i, j) } }, T::class)
     }
 }

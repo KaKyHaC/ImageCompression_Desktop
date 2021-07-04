@@ -2,7 +2,7 @@ package data_model.generics.matrix
 
 import data_model.types.Size
 
-class IteratorDefaultMatrix<T>(
+class IteratorDefaultMatrix<T : Any>(
         source: Matrix<T>,
         widthOffset: Int,
         heightOffset: Int,

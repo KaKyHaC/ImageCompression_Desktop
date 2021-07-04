@@ -2,7 +2,7 @@ package data_model.generics.matrix
 
 import data_model.types.Size
 
-open class IteratorMatrix<T>(
+open class IteratorMatrix<T : Any>(
         source: Matrix<T>,
         val widthOffset: Int,
         val heightOffset: Int,
