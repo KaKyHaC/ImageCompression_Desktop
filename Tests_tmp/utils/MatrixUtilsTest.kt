@@ -1,5 +1,6 @@
 package utils
 
+import data_model.generics.matrix.IteratorDefaultMatrix
 import data_model.generics.matrix.Matrix
 import data_model.types.Size
 import org.junit.Before
@@ -50,15 +51,21 @@ internal class MatrixUtilsTest {
     }
 
     fun splitIterator(childSize: Size) {
-        matrix?.let {
-            val splitIterator = MatrixUtils.splitIterator(it, childSize, 0)
-            splitIterator.applyEach { i, j, child ->
-                child.applyEach { x, y, value ->
-                    assertEquals(value, it[x + i * childSize.width, y + j * childSize.height], "i=$i, j=$j, x=$x, y=$y")
-                    null
+        matrix
+                ?.let { IteratorDefaultMatrix(it, 0, 0, it.size, 0) }
+                ?.let {
+                    it.applyEach{i, j, value ->
+                        assertEquals(matrix!![i,j], value)
+                        null
+                    }
+                    val splitIterator = MatrixUtils.splitIterator(it, childSize, 0)
+                    splitIterator.applyEach { i, j, child ->
+                        child.applyEach { x, y, value ->
+                            assertEquals(value, it[x + i * childSize.width, y + j * childSize.height], "i=$i, j=$j, x=$x, y=$y")
+                            null
+                        }
+                        null
+                    }
                 }
-                null
-            }
-        }
     }
 }
