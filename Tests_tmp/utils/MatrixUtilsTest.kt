@@ -38,6 +38,27 @@ internal class MatrixUtilsTest {
     }
 
     @Test
-    fun splitIterator() {
+    fun splitIterator1() {
+        splitIterator(Size(4, 3))
+        splitIterator(Size(2, 3))
+    }
+
+    @Test
+    fun splitIterator2() {
+        splitIterator(Size(2, 2))
+        splitIterator(Size(5, 5))
+    }
+
+    fun splitIterator(childSize: Size) {
+        matrix?.let {
+            val splitIterator = MatrixUtils.splitIterator(it, childSize, 0)
+            splitIterator.applyEach { i, j, child ->
+                child.applyEach { x, y, value ->
+                    assertEquals(value, it[x + i * childSize.width, y + j * childSize.height], "i=$i, j=$j, x=$x, y=$y")
+                    null
+                }
+                null
+            }
+        }
     }
 }
