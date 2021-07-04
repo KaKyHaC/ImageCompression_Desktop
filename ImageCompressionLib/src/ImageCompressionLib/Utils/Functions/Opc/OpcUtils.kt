@@ -2,7 +2,6 @@ package ImageCompressionLib.Utils.Functions.Opc
 
 import ImageCompressionLib.Containers.Matrix.Matrix
 import ImageCompressionLib.Containers.Type.DataOpc
-import kotlin.test.assert
 
 class OpcUtils {
     companion object {
