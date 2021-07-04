@@ -24,7 +24,7 @@ open class Matrix<T : Any>(
     fun applyEach(invoke: (i: Int, j: Int, value: T) -> T?) {
         for (i in 0 until width) {
             for (j in 0 until height) {
-                set(i, j, invoke.invoke(i, j, get(i, j)) ?: get(i, j))
+                invoke.invoke(i, j, get(i, j))?.let { set(i, j, it) }
             }
         }
     }
