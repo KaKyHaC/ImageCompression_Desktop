@@ -68,5 +68,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module" module-name="ImageProcessingLib2021" />
   </component>
 </module>
