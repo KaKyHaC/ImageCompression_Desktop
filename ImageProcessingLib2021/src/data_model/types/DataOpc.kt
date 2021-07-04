@@ -5,33 +5,36 @@ import java.math.BigInteger
 sealed class DataOpc(
         val base: ShortArray,
         val sign: Array<BooleanArray>,
-        val DC: Short,
-        val size: Size
+        val AC: Short
 ) {
     class BI(
             val N: BigInteger,
             base: ShortArray,
             sign: Array<BooleanArray>,
-            DC: Short,
-            size: Size
-    ) : DataOpc(base, sign, DC, size)
+            AC: Short
+    ) : DataOpc(base, sign, AC)
 
     class Long(
             val vectorCode: List<kotlin.Long>,
             base: ShortArray,
             sign: Array<BooleanArray>,
-            DC: Short,
-            size: Size
-    ) : DataOpc(base, sign, DC, size)
+            AC: Short
+    ) : DataOpc(base, sign, AC)
 
     data class Builder(
-            var base: ShortArray,
-            var sign: Array<BooleanArray>,
-            var DC: Short,
-            var size: Size
+            val base: ShortArray,
+            val sign: Array<BooleanArray>,
+            val AC: Short
     ) {
-        fun build(N: BigInteger) = BI(N, base, sign, DC, size)
 
-        fun build(vectorCode: List<kotlin.Long>) = Long(vectorCode, base, sign, DC, size)
+        constructor(size: Size) : this(
+                ShortArray(size.height) { 1 },
+                Array(size.width) { BooleanArray(size.height) },
+                0
+        )
+
+        fun build(N: BigInteger) = BI(N, base, sign, AC)
+
+        fun build(vectorCode: List<kotlin.Long>) = Long(vectorCode, base, sign, AC)
     }
 }
