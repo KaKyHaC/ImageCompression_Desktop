@@ -10,7 +10,7 @@ import features.opc.algorithms.OpcLongOnlyAlgorithms
 object OpcProcessUtils {
 
     data class PreOpcParams(
-            val makeUnsigned: Boolean = false, // flag.isChecked(Flag.Parameter.DCT)
+            val makeUnsigned: Boolean = true, // flag.isChecked(Flag.Parameter.DCT)
             val removeAC: Boolean = true // flag.isChecked(Flag.Parameter.DC)
     )
 
