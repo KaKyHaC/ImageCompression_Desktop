@@ -2,7 +2,7 @@ package features.opc.utils.algorithms
 
 import data_model.generics.matrix.Matrix
 import data_model.types.DataOpc
-import utils.MatrixFactory
+import utils.MatrixUtils
 import java.util.*
 
 object OpcLongOnlyAlgorithms {
@@ -38,7 +38,7 @@ object OpcLongOnlyAlgorithms {
 
     @JvmStatic
     fun reverse(dataOpc: DataOpc.Long): Matrix<Short> {
-        val dataOrigin: Matrix<Short> = MatrixFactory.createShortMatrix(dataOpc.size)
+        val dataOrigin: Matrix<Short> = MatrixUtils.createShortMatrix(dataOpc.size)
         var copy: Long = 1
         var index = 0
         var curN = dataOpc.vectorCode.elementAt(index)
