@@ -1,7 +1,9 @@
-package features.opc.utils.algorithms
+package features.opc.utils
 
 import data_model.generics.matrix.Matrix
 import data_model.types.DataOpc
+import features.opc.algorithms.OpcDefaultAlgorithms
+import features.opc.algorithms.OpcLongOnlyAlgorithms
 
 
 object OpcProcess {

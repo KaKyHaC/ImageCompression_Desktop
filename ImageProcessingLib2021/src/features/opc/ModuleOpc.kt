@@ -3,7 +3,7 @@ package features.opc
 import data_model.generics.Triple
 import data_model.processing_data.ProcessingData
 import features.AbsDataProcessor
-import features.opc.utils.OpcProcessingUnit
+import features.opc.managers.OpcProcessingUnit
 
 class ModuleOpc : AbsDataProcessor<ProcessingData.Image, ProcessingData.OPC>(
         ProcessingData.Image::class, ProcessingData.OPC::class
