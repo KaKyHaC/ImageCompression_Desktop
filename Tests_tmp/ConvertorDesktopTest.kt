@@ -1,10 +1,10 @@
-import ImageCompressionLib.Constants.State
-import ImageCompressionLib.Containers.Parameters
-import ImageCompressionLib.Containers.TripleDataOpcMatrix
-import ImageCompressionLib.Containers.TripleShortMatrix
-import ImageCompressionLib.Containers.Type.Flag
-import ImageCompressionLib.Containers.Type.Size
-import ImageCompressionLib.ProcessingModules.*
+import ImageCompressionLib.constants.State
+import ImageCompressionLib.containers.Parameters
+import ImageCompressionLib.containers.TripleDataOpcMatrix
+import ImageCompressionLib.containers.TripleShortMatrix
+import ImageCompressionLib.containers.type.Flag
+import ImageCompressionLib.containers.type.Size
+import ImageCompressionLib.processing_modules.*
 //import ImageCompressionLib.Utils.Functions.Steganography
 
 import org.junit.Assert.*

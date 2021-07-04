@@ -5,7 +5,7 @@
 //import ImageCompressionLib.Convertor.ConvertorDefault;
 ////import ImageCompressionLib.ProcessingModules.ModuleByteVector;
 //import Utils.AbsDaoDesktop;
-//import ImageCompressionLib.Parameters;
+//import windows_app.Parameters;
 //import Utils.BuffImConvertor;
 //import kotlin.Unit;
 //import org.jetbrains.annotations.NotNull;
