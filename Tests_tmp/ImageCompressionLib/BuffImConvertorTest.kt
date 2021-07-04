@@ -1,9 +1,9 @@
-package utils
+package ImageCompressionLib
 
 import ImageCompressionLib.containers.type.MyBufferedImage
+import org.junit.Assert.assertArrayEquals
 import org.junit.Test
-
-import org.junit.Assert.*
+import utils.BuffImConvertor
 
 class BuffImConvertorTest {
 
@@ -21,8 +21,8 @@ class BuffImConvertorTest {
         val mbi= MyBufferedImage(w, h)
         mbi.forEach{ i, j, value -> init(i,j)}
 
-        val bi=BuffImConvertor.instance.convert(mbi)
-        val res=BuffImConvertor.instance.convert(bi)
+        val bi= BuffImConvertor.instance.convert(mbi)
+        val res= BuffImConvertor.instance.convert(bi)
 
         assertArrayEquals(res.getIntArray(),mbi.getIntArray())
     }

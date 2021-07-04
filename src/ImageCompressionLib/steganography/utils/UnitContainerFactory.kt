@@ -1,8 +1,8 @@
-package steganography.utils
+package ImageCompressionLib.steganography.utils
 
-import steganography.containers.Container
-import steganography.containers.IContainer
-import steganography.containers.UnitContainer
+import ImageCompressionLib.steganography.containers.Container
+import ImageCompressionLib.steganography.containers.IContainer
+import ImageCompressionLib.steganography.containers.UnitContainer
 
 class UnitContainerFactory private constructor(){
 

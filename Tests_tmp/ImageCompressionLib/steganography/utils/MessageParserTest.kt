@@ -1,4 +1,4 @@
-package steganography.utils
+package ImageCompressionLib.steganography.utils
 
 import org.junit.Test
 

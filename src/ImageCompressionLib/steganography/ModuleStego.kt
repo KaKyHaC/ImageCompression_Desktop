@@ -1,9 +1,9 @@
-package steganography
+package ImageCompressionLib.steganography
 
-import steganography.containers.IContainer
-import steganography.containers.OpcContainer
-import steganography.containers.UnitContainer
-import steganography.utils.ImageProcessorUtils
+import ImageCompressionLib.steganography.containers.IContainer
+import ImageCompressionLib.steganography.containers.OpcContainer
+import ImageCompressionLib.steganography.containers.UnitContainer
+import ImageCompressionLib.steganography.utils.ImageProcessorUtils
 
 class ModuleStego(val dao: IDao) {
     interface IDao{

@@ -1,3 +1,5 @@
+package desktop
+
 import ImageCompressionLib.constants.State
 import ImageCompressionLib.containers.Parameters
 import ImageCompressionLib.containers.TripleDataOpcMatrix

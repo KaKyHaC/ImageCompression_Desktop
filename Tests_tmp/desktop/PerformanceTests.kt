@@ -1,4 +1,5 @@
-import junit.*
+package desktop
+
 import org.junit.Test
 import java.util.*
 import kotlin.test.assertTrue

@@ -104,7 +104,7 @@ class OpcConvertor {
     }
     private fun directOpcWithMessageAt(encParameters: EncryptParameters, message: ByteVector){
         if(encParameters.steganography==null)
-            throw Exception("steganography==null")
+            throw Exception("ImageCompressionLib.steganography==null")
         val position= encParameters.steganography!!.stegoPosition
         val stegoGeter= encParameters.steganography!!.stegoBlockKeygenFactory.invoke()
         dataOpcMatrix.forEach(){i, j, value ->
@@ -118,7 +118,7 @@ class OpcConvertor {
     private fun reverceOPCWithMessageAt(encParameters: EncryptParameters): ByteVector {
         val res= ByteVector()
         if(encParameters.steganography==null)
-            throw Exception("steganography==null")
+            throw Exception("ImageCompressionLib.steganography==null")
         val position= encParameters.steganography!!.stegoPosition
         val stegoGeter= encParameters.steganography!!.stegoBlockKeygenFactory.invoke()
         dataOpcMatrix.forEach{i, j, value ->

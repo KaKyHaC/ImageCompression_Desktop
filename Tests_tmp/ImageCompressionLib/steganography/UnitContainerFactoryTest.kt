@@ -1,7 +1,7 @@
-package steganography
+package ImageCompressionLib.steganography
 
-import steganography.containers.Container
-import steganography.utils.UnitContainerFactory
+import ImageCompressionLib.steganography.containers.Container
+import ImageCompressionLib.steganography.utils.UnitContainerFactory
 import org.junit.Test
 
 import org.junit.Assert.*

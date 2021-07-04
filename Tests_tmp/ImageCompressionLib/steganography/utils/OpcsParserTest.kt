@@ -1,8 +1,8 @@
-package steganography.utils
+package ImageCompressionLib.steganography.utils
 
-import steganography.containers.Container
-import steganography.containers.IContainer
-import steganography.containers.OpcContainer
+import ImageCompressionLib.steganography.containers.Container
+import ImageCompressionLib.steganography.containers.IContainer
+import ImageCompressionLib.steganography.containers.OpcContainer
 import ImageCompressionLib.containers.type.ByteVector
 import org.junit.Assert.*
 import org.junit.Test

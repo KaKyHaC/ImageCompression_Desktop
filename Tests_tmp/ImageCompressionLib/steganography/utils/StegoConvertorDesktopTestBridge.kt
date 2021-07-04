@@ -1,6 +1,6 @@
-package steganography.utils
+package ImageCompressionLib.steganography.utils
 
-import steganography.containers.UnitContainer
+import ImageCompressionLib.steganography.containers.UnitContainer
 import org.junit.Assert.*
 import org.junit.Test
 import java.util.*
