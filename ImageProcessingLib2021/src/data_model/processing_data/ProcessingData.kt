@@ -11,7 +11,7 @@ sealed class ProcessingData {
 
     data class Image(val triple: Triple<Matrix<Short>>) : ProcessingData()
 
-    data class OPC(val triple: Triple<Matrix<DataOpc>>) : ProcessingData()
+    data class OPC(val triple: Triple<Matrix<out DataOpc>>) : ProcessingData()
 
     data class Bytes(val byteVector: ByteVector) : ProcessingData()
 }
