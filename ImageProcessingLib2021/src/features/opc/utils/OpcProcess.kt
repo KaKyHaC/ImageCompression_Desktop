@@ -28,7 +28,7 @@ object OpcProcess {
     }
 
     @JvmStatic
-    fun afterReverseOpcProcess(preOpcParams: PreOpcParams, dataOpc: DataOpc.Builder, dataOrigin: Matrix<Short>) {
+    fun afterReverseOpcProcess(preOpcParams: PreOpcParams, dataOpc: DataOpc, dataOrigin: Matrix<Short>) {
         if (preOpcParams.removeAC)
             DataOpcUtils.AC.plus(dataOrigin, dataOpc)
         if (preOpcParams.makeUnsigned)

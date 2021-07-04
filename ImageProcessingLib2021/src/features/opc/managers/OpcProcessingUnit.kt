@@ -3,6 +3,7 @@ package features.opc.managers
 import data_model.generics.matrix.Matrix
 import data_model.types.DataOpc
 import data_model.types.Size
+import features.opc.utils.DataOpcUtils
 import features.opc.utils.OpcProcess
 import utils.MatrixUtils
 
@@ -20,6 +21,14 @@ class OpcProcessingUnit(
     }
 
     fun reverse(dataOpcMatrix: Matrix<out DataOpc>): Matrix<Short> {
-        TODO()
+        val image = DataOpcUtils.Data.createImageMatrix(dataOpcMatrix.size, childSize)
+        val splitIterator = MatrixUtils.splitIterator(image, childSize, 0)
+        splitIterator.applyEach { i, j, value ->
+            val dataOpc = dataOpcMatrix[i, j]
+            OpcProcess.reverseOPC(dataOpc, value)
+            OpcProcess.afterReverseOpcProcess(OpcProcess.PreOpcParams(), dataOpc, value)
+            null
+        }
+        return image
     }
 }
