@@ -7,9 +7,10 @@ class CosineExperimentalTable(
     /**
      * "Генерирование матрицы ДКП."
      */
+    val dct = Array(bsf) { FloatArray(bsf) }
+    val dctT = Array(bsf) { FloatArray(bsf) }
+
     fun buildMatDCT() {
-        val dct = Array(bsf) { FloatArray(bsf) }
-        val dctT = Array(bsf) { FloatArray(bsf) }
         for (x in 0 until bsf) {
             for (y in 0 until bsf) {
                 val cc = Math.sqrt((2 / bsf).toDouble()) * Math.cos((2 * x + 1) * y * Math.PI / (2 * bsf))
