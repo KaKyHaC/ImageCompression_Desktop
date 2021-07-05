@@ -1,7 +1,7 @@
 package ImageCompressionLib.containers.type
 
 class Flag2 {
-    //TODO remove steganography
+    //TODO remove ImageCompressionLib.steganography
     enum class Parameter  constructor(internal val value: Int) {
         // empty value 8
         OneFile(16),

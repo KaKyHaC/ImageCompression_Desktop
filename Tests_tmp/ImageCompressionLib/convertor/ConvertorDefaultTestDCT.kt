@@ -1,6 +1,6 @@
 //package ImageCompressionLib.Convertor
 //
-//import ConvertorDesktopTest.Companion.AssertMatrixInRange
+//import desktop.ConvertorDesktopTest.Companion.AssertMatrixInRange
 //import ImageCompressionLib.Containers.Type.Flag
 //import ImageCompressionLib.Containers.Type.Size
 //import ImageCompressionLib.Containers.TripleShortMatrixOldTest.Companion.getRandomMatrix
