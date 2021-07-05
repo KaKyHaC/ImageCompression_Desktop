@@ -18,13 +18,13 @@ class OpcProcessingUnit(
         }
     }
 
-    fun reverse(dataOpcMatrix: Matrix<out DataOpc>): Matrix<Short> {
+    fun reverse(dataOpcMatrix: Matrix<out DataOpc>, imageSize: Size? = null): Matrix<Short> {
         val image = DataOpcUtils.Data.createImageMatrix(dataOpcMatrix.size, childSize)
         val splitIterator = MatrixUtils.splitIterator(image, childSize, 0)
         splitIterator.applyEach { i, j, value ->
-          OpcProcessUtils.reverseApplyProcess(OpcProcessUtils.PreOpcParams(), dataOpcMatrix[i,j], value)
+            OpcProcessUtils.reverseApplyProcess(OpcProcessUtils.PreOpcParams(), dataOpcMatrix[i, j], value)
             null
         }
-        return image
+        return imageSize?.let { MatrixUtils.cropMatrix(image, it) } ?: image
     }
 }

@@ -44,11 +44,10 @@ internal class OpcProcessingUnitTest {
         println("dataOrigin = $dataOrigin")
         val dataOpc = opcProcessingUnit.direct(dataOrigin)
         println("dataOpc = $dataOpc")
-        val reverseProcess = opcProcessingUnit.reverse(dataOpc)
-        val croppedResult = Matrix.create(size) { i, j -> reverseProcess[i,j] }
+        val reverseProcess = opcProcessingUnit.reverse(dataOpc, size)
         println("reverseProcess = $reverseProcess")
-        assertEquals(croppedResult, dataCopy)
+        assertEquals(reverseProcess, dataCopy)
         dataCopy[0, 0]++
-        assertNotEquals(croppedResult, dataCopy)
+        assertNotEquals(reverseProcess, dataCopy)
     }
 }
