@@ -37,6 +37,8 @@ open class Matrix<T : Any>(
         if (this === other) return true
 
         (other as? Matrix<T>)?.let {
+            if (size != it.size) return false
+
             for (i in 0 until width)
                 for (j in 0 until height)
                     if (matrix[i][j] != other[i, j])
