@@ -1,4 +1,4 @@
-package features.enlargement.manager
+package features.enlargement.utils
 
 import data_model.generics.matrix.Matrix
 import data_model.types.Size
@@ -8,7 +8,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
 
 
-internal class EnlargementUnitTest {
+internal class EnlargementUtilsTest {
 
     val random = Random()
 
@@ -25,10 +25,9 @@ internal class EnlargementUnitTest {
     }
 
     fun testInt(size: Size, value:Int = 5) {
-        val enlargementUnit = EnlargementUnit()
         val origin = Matrix.create(size) { i, j -> value }
-        val direct = enlargementUnit.direct(origin)
-        val reverse = enlargementUnit.reverse(direct)
+        val direct = EnlargementUtils.direct(origin)
+        val reverse = EnlargementUtils.reverse(direct)
         assertEquals(origin, reverse)
         assertNotEquals(origin, direct)
     }

@@ -1,10 +1,10 @@
-package features.enlargement.manager
+package features.enlargement.utils
 
 import data_model.generics.matrix.Matrix
 import data_model.types.Size
 import kotlin.reflect.full.cast
 
-class EnlargementUnit {
+object EnlargementUtils {
 
     inline fun <reified T : Number> direct(origin: Matrix<T>): Matrix<T> {
         val newSize = Size(origin.width / 2, origin.height / 2)
