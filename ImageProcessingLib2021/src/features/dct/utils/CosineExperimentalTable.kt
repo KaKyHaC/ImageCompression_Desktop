@@ -13,7 +13,7 @@ class CosineExperimentalTable(
     fun buildMatDCT() {
         for (x in 0 until bsf) {
             for (y in 0 until bsf) {
-                val cc = Math.sqrt((2 / bsf).toDouble()) * Math.cos((2 * x + 1) * y * Math.PI / (2 * bsf))
+                val cc = Math.sqrt((2.0 / bsf)) * Math.cos((2.0 * x + 1) * y * Math.PI / (2 * bsf))
                 dct[y][x] = cc.toFloat()
             }
         }
