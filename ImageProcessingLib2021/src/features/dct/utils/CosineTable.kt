@@ -6,7 +6,7 @@ import data_model.types.Size
 /**
  * Created by Димка on 07.08.2016.
  */
-class CosineTableUtils(
+class CosineTable(
         val SIZEOFBLOCK: Int = 8
 ) {
 
