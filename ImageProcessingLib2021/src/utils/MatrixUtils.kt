@@ -60,4 +60,7 @@ object MatrixUtils {
             rectIterator(matrix, wStart, hStart, childSize, tmpDefValue)
         }
     }
+
+    fun <T : Any> cropMatrix(origin: Matrix<T>, target: Size) =
+            IteratorMatrix(origin, 0, 0, target)
 }
