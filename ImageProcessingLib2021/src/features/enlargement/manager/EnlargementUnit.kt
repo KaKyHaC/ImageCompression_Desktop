@@ -16,4 +16,11 @@ class EnlargementUnit {
             T::class.cast(newValue)
         }
     }
+
+    inline fun <reified T : Number> reverse(enlarged: Matrix<T>): Matrix<T> {
+        val newSize = Size(enlarged.width * 2, enlarged.height * 2)
+        return Matrix.create(newSize) { i, j ->
+            enlarged[i / 2 + i % 2, j / 2 + j % 2]
+        }
+    }
 }
