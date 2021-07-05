@@ -29,6 +29,36 @@ object RgbToYbrUtils {
     }
 
     fun reverse(yCbCr: YCbCr): RGB {
-        TODO()
+        val map = yCbCr.pixelMatrix.map { x, y, value ->
+            var r = value.Y + 1.402 * (value.Cr - 128)
+            var g = value.Y.toDouble() - 0.34414 * (value.Cb - 128) - 0.71414 * (value.Cr - 128)
+            var b = value.Y + 1.772 * (value.Cb - 128)
+
+            //todo
+            if (g < 0) g = 0.0//new
+            if (r < 0) r = 0.0
+            if (b < 0) b = 0.0
+
+            //todo
+            if (r > 255) r = 255.0
+            if (g > 255) g = 255.0
+            if (b > 255) b = 255.0
+
+            val pixelRed = (r.toInt() and 0xFF).toShort()
+            val pixelGreen = (g.toInt() and 0xFF).toShort()
+            val pixelBlue = (b.toInt() and 0xFF).toShort()
+
+            //add
+            //                if(r%1>=0.5)
+            //                    pixelRed++;
+            //                if(g%1>=0.5)
+            //                    pixelGreen++;
+            //                if(b%1>=0.5)
+            //                    pixelBlue++;
+            //
+
+            RGB.Pixel(pixelRed, pixelGreen, pixelBlue)
+        }
+        return RGB(map)
     }
 }
