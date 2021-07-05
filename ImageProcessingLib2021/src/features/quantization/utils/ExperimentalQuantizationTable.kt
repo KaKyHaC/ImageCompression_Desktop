@@ -4,7 +4,7 @@ package features.quantization.utils
  * by Valera
  */
 @UseExperimental
-class QuantizationTableUtils(
+class ExperimentalQuantizationTable(
         val bsf: Int = 8,
         val stdQK: Float = 8f
 ) {

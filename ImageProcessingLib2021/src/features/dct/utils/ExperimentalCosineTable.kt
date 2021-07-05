@@ -1,7 +1,7 @@
 package features.dct.utils
 
 @UseExperimental
-class CosineExperimentalTable(
+class ExperimentalCosineTable(
         val bsf: Int = 8
 ) {
 
