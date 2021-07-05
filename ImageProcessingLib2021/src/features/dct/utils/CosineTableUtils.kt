@@ -6,9 +6,10 @@ import data_model.types.Size
 /**
  * Created by Димка on 07.08.2016.
  */
-object CosineTableUtils {
+class CosineTableUtils(
+        val SIZEOFBLOCK: Int = 8
+) {
 
-    private const val SIZEOFBLOCK = 8
 
     private val cosine by lazy {
         Matrix.create(Size(SIZEOFBLOCK, SIZEOFBLOCK)) { i, j ->
