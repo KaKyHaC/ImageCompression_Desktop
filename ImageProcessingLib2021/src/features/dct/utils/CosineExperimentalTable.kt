@@ -4,12 +4,15 @@ package features.dct.utils
 class CosineExperimentalTable(
         val bsf: Int = 8
 ) {
-    /**
-     * "Генерирование матрицы ДКП."
-     */
+
     val dct = Array(bsf) { FloatArray(bsf) }
     val dctT = Array(bsf) { FloatArray(bsf) }
 
+    init { buildMatDCT() }
+
+    /**
+     * "Генерирование матрицы ДКП."
+     */
     fun buildMatDCT() {
         for (x in 0 until bsf) {
             for (y in 0 until bsf) {
