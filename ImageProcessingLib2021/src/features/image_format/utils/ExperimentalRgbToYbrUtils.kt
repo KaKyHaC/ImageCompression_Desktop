@@ -51,4 +51,22 @@ object ExperimentalRgbToYbrUtils {
             }
         }
     }
+
+    /**
+     * Переход к RGB.
+     */
+    fun YCCtoRGB(fxs: Int, fys: Int, mas0Y: Array<ShortArray>, mas0Cb: Array<ShortArray>, mas0Cr: Array<ShortArray>) {
+        val mas0R = Array(fxs) { FloatArray(fys) }
+        val mas0G = Array(fxs) { FloatArray(fys) }
+        val mas0B = Array(fxs) { FloatArray(fys) }
+        for (x in 0 until fxs) {
+            for (y in 0 until fys) {
+                //try{/*
+                mas0R[x][y] = mas0Y[x][y] * ktoRGB[0][0] + (mas0Cb[x][y] - 128) * ktoRGB[0][1] + (mas0Cr[x][y] - 128) * ktoRGB[0][2]
+                mas0G[x][y] = mas0Y[x][y] * ktoRGB[1][0] + (mas0Cb[x][y] - 128) * ktoRGB[1][1] + (mas0Cr[x][y] - 128) * ktoRGB[1][2]
+                mas0B[x][y] = mas0Y[x][y] * ktoRGB[2][0] + (mas0Cb[x][y] - 128) * ktoRGB[2][1] + (mas0Cr[x][y] - 128) * ktoRGB[2][2]
+                //}catch(Exception e){}
+            }
+        }
+    }
 }
