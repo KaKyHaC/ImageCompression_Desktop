@@ -6,7 +6,7 @@ import features.AbsDataProcessor
 import features.enlargement.utils.EnlargementUtils
 
 class ModuleEnlargement(
-        val parameters: Parameters
+        val parameters: Parameters = Parameters()
 ) : AbsDataProcessor<ProcessingData.Image, ProcessingData.Image>(
         ProcessingData.Image::class, ProcessingData.Image::class
 ) {
