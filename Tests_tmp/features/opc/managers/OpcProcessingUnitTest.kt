@@ -20,7 +20,7 @@ internal class OpcProcessingUnitTest {
 
     @Test
     fun directProcess8x8() {
-        directProcess(opcProcessingUnit.childSize)
+        directProcess(opcProcessingUnit.parameters.childSize)
     }
 
     @Test
