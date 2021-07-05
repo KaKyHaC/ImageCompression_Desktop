@@ -6,19 +6,23 @@ import features.AbsDataProcessor
 import features.enlargement.utils.EnlargementUtils
 
 class ModuleEnlargement(
-        val processFirst: Boolean = false,
-        val processSecond: Boolean = true,
-        val processThird: Boolean = true
+        val parameters: Parameters
 ) : AbsDataProcessor<ProcessingData.Image, ProcessingData.Image>(
         ProcessingData.Image::class, ProcessingData.Image::class
 ) {
 
+    data class Parameters(
+            val processFirst: Boolean = false,
+            val processSecond: Boolean = true,
+            val processThird: Boolean = true
+    )
+
     override fun processDirectTyped(data: ProcessingData.Image): ProcessingData.Image {
         return ProcessingData.Image(
                 Triple(
-                        if (processFirst) EnlargementUtils.direct(data.triple.first) else data.triple.first,
-                        if (processSecond) EnlargementUtils.direct(data.triple.second) else data.triple.second,
-                        if (processThird) EnlargementUtils.direct(data.triple.third) else data.triple.third
+                        if (parameters.processFirst) EnlargementUtils.direct(data.triple.first) else data.triple.first,
+                        if (parameters.processSecond) EnlargementUtils.direct(data.triple.second) else data.triple.second,
+                        if (parameters.processThird) EnlargementUtils.direct(data.triple.third) else data.triple.third
                 )
         )
     }
@@ -26,9 +30,9 @@ class ModuleEnlargement(
     override fun processReverseTyped(data: ProcessingData.Image): ProcessingData.Image {
         return ProcessingData.Image(
                 Triple(
-                        if (processFirst) EnlargementUtils.reverse(data.triple.first) else data.triple.first,
-                        if (processSecond) EnlargementUtils.reverse(data.triple.second) else data.triple.second,
-                        if (processThird) EnlargementUtils.reverse(data.triple.third) else data.triple.third
+                        if (parameters.processFirst) EnlargementUtils.reverse(data.triple.first) else data.triple.first,
+                        if (parameters.processSecond) EnlargementUtils.reverse(data.triple.second) else data.triple.second,
+                        if (parameters.processThird) EnlargementUtils.reverse(data.triple.third) else data.triple.third
                 )
         )
     }
