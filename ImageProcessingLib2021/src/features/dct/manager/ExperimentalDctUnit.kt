@@ -8,7 +8,7 @@ class ExperimentalDctUnit(
         val bsf: Int = 8,
         val dct: Array<FloatArray>,
         val dctT: Array<FloatArray>,
-        val mas0Y: Array<FloatArray>
+        var mas0Y: Array<FloatArray>
 ) {
     val xs = imageSize.width
     val ys = imageSize.height
@@ -29,6 +29,23 @@ class ExperimentalDctUnit(
         for (x in 0 until fxs / bsf) {
             for (y in 0 until fys / bsf) {
                 mas1Y[x][y] = DCTtoF(mas[x][y])
+            }
+        }
+    }
+
+    /**
+     * "Обратное ДКП."
+     */
+    fun DCTtoY(mas1Y: Array<Array<Array<FloatArray>>>) {
+        mas0Y = Array(fxs) { FloatArray(fys) }
+        for (x in 0 until fxs / bsf) {
+            for (y in 0 until fys / bsf) {
+                val masPrt: Array<FloatArray> = DCTtoS(mas1Y.get(x).get(y))
+                for (xx in 0 until bsf) {
+                    for (yy in 0 until bsf) {
+                        mas0Y[x * bsf + xx][y * bsf + yy] = masPrt[xx][yy]
+                    }
+                }
             }
         }
     }
@@ -69,6 +86,19 @@ class ExperimentalDctUnit(
         val in_dct: Array<FloatArray> = mulMat(dct, `in`)
         val in_dct_dctT: Array<FloatArray> = mulMat(in_dct, dctT)
         ret = in_dct_dctT
+        return ret
+    }
+
+    fun DCTtoS(`in`: Array<FloatArray>): Array<FloatArray> {
+        var ret = Array(`in`.size) { FloatArray(`in`[0].size) }
+        val in_dctT = mulMat(dctT, `in`)
+        val in_dctT_dct = mulMat(in_dctT, dct)
+        ret = in_dctT_dct
+        for (x in `in`.indices) {
+            for (y in 0 until `in`[x].size) {
+                ret[x][y] = ret[x][y] + 128
+            }
+        }
         return ret
     }
 
