@@ -12,7 +12,7 @@ class DctUnit(val parameters: Parameters) {
     data class Parameters(
             val childSize: Size = Size(8, 8),
             val useExperimental: Boolean = true,
-            val needPreProcess: Boolean = true,
+            val subtractFirstElements: Boolean = true,
             val remove128: Boolean = true
     )
 
@@ -24,7 +24,7 @@ class DctUnit(val parameters: Parameters) {
     fun direct(origin: Matrix<Short>): Matrix<Short> {
         val minus128 = if (parameters.remove128)  DctUtils.minus128(origin) else origin
         val splitIterator = MatrixUtils.splitIterator(minus128, parameters.childSize, 0)
-        if (parameters.needPreProcess) DctUtils.preProcess(splitIterator)
+        if (parameters.subtractFirstElements) DctUtils.subtractFirstElements(splitIterator)
         splitIterator.applyEach { i, j, value ->
             if (parameters.useExperimental)
                 algorithmExperimental.direct(value, Short::class)
