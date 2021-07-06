@@ -35,6 +35,15 @@ class DctUnit(val parameters: Parameters) {
     }
 
     fun reverse(matrix: Matrix<Short>): Matrix<Short> {
-        TODO()
+        val splitIterator = MatrixUtils.splitIterator(matrix, parameters.childSize, 0)
+        splitIterator.applyEach { i, j, value ->
+            if (parameters.useExperimental)
+                algorithmExperimental.reverse(value, Short::class)
+            else
+                TODO()
+        }
+        val gatherMatrix = MatrixUtils.gatherMatrix(splitIterator)
+        val res = if (parameters.remove128)  DctUtils.plus128(gatherMatrix) else gatherMatrix
+        return res
     }
 }
