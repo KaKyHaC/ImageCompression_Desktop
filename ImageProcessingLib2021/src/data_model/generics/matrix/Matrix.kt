@@ -21,12 +21,13 @@ open class Matrix<T : Any>(
         matrix[i][j] = value
     }
 
-    fun applyEach(invoke: (i: Int, j: Int, value: T) -> T?) {
+    fun applyEach(invoke: (i: Int, j: Int, value: T) -> T?): Matrix<T> {
         for (i in 0 until width) {
             for (j in 0 until height) {
                 invoke.invoke(i, j, get(i, j))?.let { set(i, j, it) }
             }
         }
+        return this
     }
 
     inline fun <reified R : Any> map(mapper: (i: Int, j: Int, value: T) -> R): Matrix<R> {
