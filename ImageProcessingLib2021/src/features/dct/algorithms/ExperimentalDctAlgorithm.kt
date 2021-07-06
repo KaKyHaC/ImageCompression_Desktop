@@ -3,6 +3,7 @@ package features.dct.algorithms
 import data_model.generics.matrix.Matrix
 import data_model.types.Size
 import utils.MatrixUtils
+import kotlin.reflect.KClass
 
 class ExperimentalDctAlgorithm(
         val dct: Matrix<Float>,
@@ -12,6 +13,12 @@ class ExperimentalDctAlgorithm(
     fun direct(origin: Matrix<Float>): Matrix<Float> {
         val in_dct = MatrixUtils.mulMat(dct, origin)
         val in_dct_dctT = MatrixUtils.mulMat(in_dct, dctT)
+        return in_dct_dctT
+    }
+
+    inline fun <reified OUT: Number>direct(origin: Matrix<Short>, outClass: KClass<OUT>): Matrix<OUT> {
+        val in_dct = MatrixUtils.mulMat(dct, origin, Double::class)
+        val in_dct_dctT = MatrixUtils.mulMat(in_dct, dctT, outClass)
         return in_dct_dctT
     }
 

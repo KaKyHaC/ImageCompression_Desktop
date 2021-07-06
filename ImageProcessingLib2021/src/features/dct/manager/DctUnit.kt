@@ -2,18 +2,38 @@ package features.dct.manager
 
 import data_model.generics.matrix.Matrix
 import data_model.types.Size
+import features.dct.algorithms.ExperimentalDctAlgorithm
+import features.dct.utils.CosineTableFactory
+import features.dct.utils.DctUtils
+import utils.MatrixUtils
 
 class DctUnit(val parameters: Parameters) {
 
     data class Parameters(
-            val childSize: Size = Size(8, 8)
+            val childSize: Size = Size(8, 8),
+            val useExperimental: Boolean = true,
+            val needPreProcess: Boolean = true
     )
 
+    val experimentalTable = CosineTableFactory.getExperimentalTable(parameters.childSize.width)
+//    val table = CosineTableFactory.getTable(parameters.childSize.width)
+
+    val algorithmExperimental = ExperimentalDctAlgorithm(experimentalTable.dct, experimentalTable.dctT)
+
     fun direct(origin: Matrix<Short>): Matrix<Short> {
-        TODO()
+        val minus128 = DctUtils.minus128(origin)
+        val splitIterator = MatrixUtils.splitIterator(minus128, parameters.childSize, 0)
+        if (parameters.needPreProcess) DctUtils.preProcess(splitIterator)
+        splitIterator.applyEach { i, j, value ->
+            if (parameters.useExperimental)
+                algorithmExperimental.direct(value, Short::class)
+            else
+                TODO()
+        }
+        return MatrixUtils.gatherMatrix(splitIterator)
     }
 
-    fun reverse(matrix: Matrix<Short>):Matrix<Short> {
+    fun reverse(matrix: Matrix<Short>): Matrix<Short> {
         TODO()
     }
 }
