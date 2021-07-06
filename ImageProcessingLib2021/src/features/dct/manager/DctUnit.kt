@@ -12,7 +12,8 @@ class DctUnit(val parameters: Parameters) {
     data class Parameters(
             val childSize: Size = Size(8, 8),
             val useExperimental: Boolean = true,
-            val needPreProcess: Boolean = true
+            val needPreProcess: Boolean = true,
+            val remove128: Boolean = true
     )
 
     val experimentalTable = CosineTableFactory.getExperimentalTable(parameters.childSize.width)
@@ -21,7 +22,7 @@ class DctUnit(val parameters: Parameters) {
     val algorithmExperimental = ExperimentalDctAlgorithm(experimentalTable.dct, experimentalTable.dctT)
 
     fun direct(origin: Matrix<Short>): Matrix<Short> {
-        val minus128 = DctUtils.minus128(origin)
+        val minus128 = if (parameters.remove128)  DctUtils.minus128(origin) else origin
         val splitIterator = MatrixUtils.splitIterator(minus128, parameters.childSize, 0)
         if (parameters.needPreProcess) DctUtils.preProcess(splitIterator)
         splitIterator.applyEach { i, j, value ->
