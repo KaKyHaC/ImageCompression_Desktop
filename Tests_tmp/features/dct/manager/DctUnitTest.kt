@@ -5,6 +5,7 @@ import data_model.types.Size
 import org.junit.Test
 import utils.MatrixUtilsTest
 import java.util.*
+import kotlin.math.absoluteValue
 
 
 internal class DctUnitTest {
@@ -26,7 +27,7 @@ internal class DctUnitTest {
     }
 
     fun test(parameters: DctUnit.Parameters, imageSize: Size, range: IntRange) {
-        val origin = Matrix.create(imageSize) { i, j -> rand.nextInt(255).toShort() }
+        val origin = Matrix.create(imageSize) { i, j -> rand.nextInt(255).absoluteValue.toShort() }
         val dctUnit = DctUnit(parameters)
         val direct = dctUnit.direct(origin)
         val reverse = dctUnit.reverse(direct)
