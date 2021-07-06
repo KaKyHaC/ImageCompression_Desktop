@@ -86,7 +86,7 @@ object MatrixUtils {
         val ret = Array(mat0.width) { Array(mat1.width) { 0.0 } }
         for (i in 0 until mat0.width) {
             for (j in 0 until mat1.height) {
-                for (k in 0 until mat1.height) {
+                for (k in 0 until mat1.width) {
                     ret[i][j] += mat0[i, k].toDouble() * mat1[k, j].toDouble()
                 }
             }
