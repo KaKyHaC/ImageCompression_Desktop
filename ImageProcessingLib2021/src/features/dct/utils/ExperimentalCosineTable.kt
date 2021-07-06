@@ -1,46 +1,26 @@
 package features.dct.utils
 
+import data_model.generics.matrix.Matrix
+import data_model.types.Size
+import utils.MatrixUtils
+
 @UseExperimental
 class ExperimentalCosineTable(
         val bsf: Int = 8
 ) {
 
-    val dct = Array(bsf) { FloatArray(bsf) }
-    val dctT = Array(bsf) { FloatArray(bsf) }
-
-    init { buildMatDCT() }
-
-    /**
-     * "Генерирование матрицы ДКП."
-     */
-    fun buildMatDCT() {
-        for (x in 0 until bsf) {
-            for (y in 0 until bsf) {
-                val cc = Math.sqrt((2.0 / bsf)) * Math.cos((2.0 * x + 1) * y * Math.PI / (2 * bsf))
-                dct[y][x] = cc.toFloat()
-            }
+    val dct by lazy {
+        val tmp = Matrix.create(Size(bsf, bsf)) { x, y ->
+            val d = Math.sqrt((2.0 / bsf)) * Math.cos((2.0 * x + 1) * y * Math.PI / (2 * bsf))
+            d.toFloat()
         }
         for (y in 0 until bsf) {
             val cc = 1 / Math.sqrt(bsf.toDouble())
-            dct[0][y] = cc.toFloat()
+            tmp[0, y] = cc.toFloat()
         }
-        val dctTC = trans(dct)
-        for (x in 0 until bsf) {
-            for (y in 0 until bsf) {
-                dctT[x][y] = dctTC[x][y]
-            }
-        }
+        tmp
     }
-
-    fun trans(a: Array<FloatArray>): Array<FloatArray> {
-        val ret = Array(a.size) { FloatArray(a[0].size) }
-        for (i in a.indices) {
-            for (j in i until a[i].size) {
-                val temp = a[i][j]
-                ret[i][j] = a[j][i]
-                ret[j][i] = temp
-            }
-        }
-        return ret
+    val dctT by lazy {
+        val tmp = MatrixUtils.trans(dct)
     }
 }
