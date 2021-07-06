@@ -58,14 +58,12 @@ object DataOpcUtils2 {
                     dataOpc.base[i]++
         }
 
-        fun increaseBase(dataOpc: DataOpc.Builder) {
-            for (i in dataOpc.base.indices)
-                dataOpc.base[i]++
+        fun increaseBase(dataOpc: DataOpc2.Builder) {
+            dataOpc.baseMax?.let { for (i in it.indices) it[i]++ }
         }
 
-        fun decreaseBase(dataOpc: DataOpc.Builder) {
-            for (i in dataOpc.base.indices)
-                dataOpc.base[i]--
+        fun decreaseBase(dataOpc: DataOpc2.Builder) {
+            dataOpc.baseMax?.let { for (i in it.indices) it[i]-- }
         }
     }
 
