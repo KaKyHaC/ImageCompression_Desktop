@@ -5,6 +5,8 @@ import data_model.generics.matrix.IteratorMatrix
 import data_model.generics.matrix.Matrix
 import data_model.types.DataOpc
 import data_model.types.Size
+import kotlin.reflect.KClass
+import kotlin.reflect.full.cast
 
 object MatrixUtils {
 
@@ -74,6 +76,22 @@ object MatrixUtils {
             }
         }
         return Matrix(ret, Float::class)
+    }
+
+    inline fun <reified A : Number, reified B : Number, reified OUT : Number> mulMat(
+            mat0: Matrix<A>,
+            mat1: Matrix<B>,
+            outType: KClass<OUT>
+    ): Matrix<OUT> {
+        val ret = Array(mat0.width) { Array(mat1.width) { 0.0 } }
+        for (i in 0 until mat0.width) {
+            for (j in 0 until mat1.height) {
+                for (k in 0 until mat1.height) {
+                    ret[i][j] += mat0[i, k].toDouble() * mat1[k, j].toDouble()
+                }
+            }
+        }
+        return Matrix(ret, Double::class).map { i, j, value -> outType.cast(value) }
     }
 
     inline fun <reified T : Any> trans(a: Matrix<T>): Matrix<T> {
