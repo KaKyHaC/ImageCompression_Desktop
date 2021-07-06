@@ -6,8 +6,10 @@ import data_model.types.Size
 import org.junit.Before
 import org.junit.Test
 import java.util.*
+import kotlin.math.absoluteValue
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
+import kotlin.test.assertTrue
 
 
 internal class MatrixUtilsTest {
@@ -92,5 +94,16 @@ internal class MatrixUtilsTest {
         assertNotEquals(origin, splitIterator[0, 0])
         origin[0, 0] += 2
         assertNotEquals(origin, gatherMatrix)
+    }
+
+    companion object {
+        fun <T : Number> assertMatrixInRange(a: Matrix<T>, b: Matrix<T>, range: IntRange) {
+            assertEquals(a.size, b.size)
+            a.applyEach { i, j, value ->
+                val dif = value.toInt() - b[i, j].toInt()
+                assertTrue("at [$i,$j]  $value != ${b[i, j]}") { dif.absoluteValue in range }
+                null
+            }
+        }
     }
 }
