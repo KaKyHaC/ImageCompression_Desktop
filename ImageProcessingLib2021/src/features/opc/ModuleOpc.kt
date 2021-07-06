@@ -3,7 +3,7 @@ package features.opc
 import data_model.generics.Triple
 import data_model.processing_data.ProcessingData
 import features.AbsDataProcessor
-import features.opc.managers.OpcProcessingUnit
+import features.opc.managers.OpcProcessingManager
 
 class ModuleOpc(
         val parameters: Parameters = Parameters()
@@ -11,14 +11,14 @@ class ModuleOpc(
         ProcessingData.Image::class, ProcessingData.OPC::class
 ) {
     data class Parameters(
-            val first: OpcProcessingUnit.Parameters = OpcProcessingUnit.Parameters(),
-            val second: OpcProcessingUnit.Parameters = OpcProcessingUnit.Parameters(),
-            val third: OpcProcessingUnit.Parameters = OpcProcessingUnit.Parameters()
+            val first: OpcProcessingManager.Parameters = OpcProcessingManager.Parameters(),
+            val second: OpcProcessingManager.Parameters = OpcProcessingManager.Parameters(),
+            val third: OpcProcessingManager.Parameters = OpcProcessingManager.Parameters()
     )
 
-    private val opcProcessingUnit1 = OpcProcessingUnit(parameters.first)
-    private val opcProcessingUnit2 = OpcProcessingUnit(parameters.second)
-    private val opcProcessingUnit3 = OpcProcessingUnit(parameters.third)
+    private val opcProcessingUnit1 = OpcProcessingManager(parameters.first)
+    private val opcProcessingUnit2 = OpcProcessingManager(parameters.second)
+    private val opcProcessingUnit3 = OpcProcessingManager(parameters.third)
 
     override fun processDirectTyped(data: ProcessingData.Image): ProcessingData.OPC {
         val direct1 = opcProcessingUnit1.direct(data.triple.first)

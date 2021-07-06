@@ -7,7 +7,7 @@ import features.opc.utils.DataOpcUtils
 import features.opc.utils.OpcProcessUtils
 import utils.MatrixUtils
 
-class OpcProcessingUnit(
+class OpcProcessingManager(
         val parameters: Parameters = Parameters()
 ) {
     data class Parameters(
