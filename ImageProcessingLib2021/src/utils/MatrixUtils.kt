@@ -81,7 +81,7 @@ object MatrixUtils {
     inline fun <reified A : Number, reified B : Number, reified OUT : Number> mulMat(
             mat0: Matrix<A>,
             mat1: Matrix<B>,
-            outType: KClass<OUT>
+            outMap: (Double) -> OUT
     ): Matrix<OUT> {
         val ret = Array(mat0.width) { Array(mat1.width) { 0.0 } }
         for (i in 0 until mat0.width) {
@@ -91,7 +91,7 @@ object MatrixUtils {
                 }
             }
         }
-        return Matrix(ret, Double::class).map { i, j, value -> outType.cast(value) }
+        return Matrix(ret, Double::class).map { i, j, value -> outMap(value) }
     }
 
     inline fun <reified T : Any> trans(a: Matrix<T>): Matrix<T> {

@@ -16,9 +16,9 @@ class ExperimentalDctAlgorithm(
         return in_dct_dctT
     }
 
-    inline fun <reified T : Number, reified OUT : Number> direct(origin: Matrix<T>, outClass: KClass<OUT>): Matrix<OUT> {
-        val in_dct = MatrixUtils.mulMat(dct, origin, Double::class)
-        val in_dct_dctT = MatrixUtils.mulMat(in_dct, dctT, outClass)
+    inline fun <reified T : Number, reified OUT : Number> direct(origin: Matrix<T>, mapper: (Double) -> OUT): Matrix<OUT> {
+        val in_dct = MatrixUtils.mulMat(dct, origin, { it })
+        val in_dct_dctT = MatrixUtils.mulMat(in_dct, dctT, mapper)
         return in_dct_dctT
     }
 
@@ -28,9 +28,9 @@ class ExperimentalDctAlgorithm(
         return in_dctT_dct
     }
 
-    inline fun <reified T : Number, reified OUT : Number> reverse(dctMatrix: Matrix<T>, outClass: KClass<OUT>): Matrix<OUT> {
-        val in_dctT = MatrixUtils.mulMat(dctT, dctMatrix, Double::class)
-        val in_dctT_dct = MatrixUtils.mulMat(in_dctT, dct, outClass)
+    inline fun <reified T : Number, reified OUT : Number> reverse(dctMatrix: Matrix<T>, mapper: (Double) -> OUT): Matrix<OUT> {
+        val in_dctT = MatrixUtils.mulMat(dctT, dctMatrix, { it })
+        val in_dctT_dct = MatrixUtils.mulMat(in_dctT, dct, mapper)
         return in_dctT_dct
     }
 

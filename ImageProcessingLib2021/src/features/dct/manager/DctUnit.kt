@@ -27,7 +27,7 @@ class DctUnit(val parameters: Parameters) {
         if (parameters.subtractFirstElements) DctUtils.subtractFirstElements(splitIterator)
         splitIterator.applyEach { i, j, value ->
             if (parameters.useExperimental)
-                algorithmExperimental.direct(value, Short::class)
+                algorithmExperimental.direct(value, Double::toShort)
             else
                 TODO()
         }
@@ -38,7 +38,7 @@ class DctUnit(val parameters: Parameters) {
         val splitIterator = MatrixUtils.splitIterator(matrix, parameters.childSize, 0)
         splitIterator.applyEach { i, j, value ->
             if (parameters.useExperimental)
-                algorithmExperimental.reverse(value, Short::class)
+                algorithmExperimental.reverse(value, Double::toShort)
             else
                 TODO()
         }
