@@ -63,4 +63,16 @@ object MatrixUtils {
 
     fun <T : Any> cropMatrix(origin: Matrix<T>, target: Size) =
             IteratorMatrix(origin, 0, 0, target)
+
+    fun mulMat(mat0: Matrix<Float>, mat1: Matrix<Float>): Matrix<Float> {
+        val ret = Array(mat0.width) { Array(mat1.width) { 0f } }
+        for (i in 0 until mat0.width) {
+            for (j in 0 until mat1.height) {
+                for (k in 0 until mat1.height) {
+                    ret[i][j] += mat0[i, k] * mat1[k, j]
+                }
+            }
+        }
+        return Matrix(ret, Float::class)
+    }
 }
