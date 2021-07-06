@@ -36,6 +36,7 @@ class DctUnit(val parameters: Parameters) {
 
     fun reverse(matrix: Matrix<Short>): Matrix<Short> {
         val splitIterator = MatrixUtils.splitIterator(matrix, parameters.childSize, 0)
+        if (parameters.subtractFirstElements) DctUtils.subtractFirstElements(splitIterator)
         splitIterator.applyEach { i, j, value ->
             if (parameters.useExperimental)
                 algorithmExperimental.reverse(value, Double::toShort)

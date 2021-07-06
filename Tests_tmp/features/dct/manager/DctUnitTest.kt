@@ -26,6 +26,11 @@ internal class DctUnitTest {
         test(DctUnit.Parameters(), Size(1920,1080), 0..5)
     }
 
+    @Test
+    fun test8R5() {
+        test(DctUnit.Parameters(remove128 = false, subtractFirstElements = false), Size(8,8), 0..5)
+    }
+
     fun test(parameters: DctUnit.Parameters, imageSize: Size, range: IntRange) {
         val origin = Matrix.create(imageSize) { i, j -> rand.nextInt(255).absoluteValue.toShort() }
         val dctUnit = DctUnit(parameters)
