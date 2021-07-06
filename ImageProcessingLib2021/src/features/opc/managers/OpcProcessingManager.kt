@@ -12,24 +12,18 @@ class OpcProcessingManager(
 ) {
     data class Parameters(
             val childSize: Size = Size(8, 8),
-            val preOpcParams: OpcProcessUtils.PreOpcParams = OpcProcessUtils.PreOpcParams(),
-            val opcParams: OpcProcessUtils.OpcParams = OpcProcessUtils.OpcParams()
+            val params: OpcProcessUnit.Parameters = OpcProcessUnit.Parameters()
     )
+
+    val unit = OpcProcessUnit(parameters.params)
 
     fun direct(image: Matrix<Short>): Matrix<out DataOpc> {
         val splitIterator = MatrixUtils.splitIterator(image, parameters.childSize, 0)
-        return splitIterator.map { i, j, value ->
-            OpcProcessUtils.directProcess(parameters.preOpcParams, parameters.opcParams, value)
-        }
+        return splitIterator.map { i, j, value -> unit.direct(value) }
     }
 
     fun reverse(dataOpcMatrix: Matrix<out DataOpc>, imageSize: Size? = null): Matrix<Short> {
-        val image = DataOpcUtils.Data.createImageMatrix(dataOpcMatrix.size, parameters.childSize)
-        val splitIterator = MatrixUtils.splitIterator(image, parameters.childSize, 0)
-        splitIterator.applyEach { i, j, value ->
-            OpcProcessUtils.reverseApplyProcess(parameters.preOpcParams, dataOpcMatrix[i, j], value)
-            null
-        }
-        return imageSize?.let { MatrixUtils.cropMatrix(image, it) } ?: image
+        val map = dataOpcMatrix.map { i, j, dataOpc -> unit.reverse(dataOpc, parameters.childSize) }
+        return MatrixUtils.gatherMatrix(map, imageSize)
     }
 }
