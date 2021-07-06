@@ -3,7 +3,7 @@ package data_model.types
 import data_model.generics.matrix.Matrix
 import java.math.BigInteger
 
-class DataOpc2(
+data class DataOpc2(
         val base: Base,
         val sign: Matrix<Boolean>?,
         val AC: Short?,
