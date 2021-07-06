@@ -2,19 +2,34 @@ package features.opc2.utils
 
 import data_model.generics.matrix.Matrix
 import data_model.types.DataOpc
+import data_model.types.DataOpc2
 import data_model.types.Size
 
 object DataOpcUtils2 {
 
     object Base {
         @JvmStatic
-        fun findBase(dataOrigin: Matrix<Short>, dataOpc: DataOpc.Builder) {
+        fun findMaxBase(dataOrigin: Matrix<Short>, dataOpc: DataOpc2.Builder) {
+            val base = ShortArray(dataOrigin.height)
             dataOrigin.applyEach { i, j, value ->
-                if (dataOpc.base[j] <= value) {
-                    dataOpc.base[j] = (value + 1).toShort()
+                if (base[j] <= value) {
+                    base[j] = (value + 1).toShort()
                 }
                 null
             }
+            dataOpc.baseMax = base
+        }
+
+
+        fun findMinBase(dataOrigin: Matrix<Short>, dataOpc: DataOpc2.Builder) {
+            val base = ShortArray(dataOrigin.height) { 256 }
+            dataOrigin.applyEach { i, j, value ->
+                if (base[j] >= value) {
+                    base[j] = value
+                }
+                null
+            }
+            dataOpc.baseMin = base
         }
 
         @JvmStatic
@@ -98,7 +113,7 @@ object DataOpcUtils2 {
             }
         }
 
-        fun createImageMatrix(dataOpcMatrixSize: Size, childSize: Size) : Matrix<Short> {
+        fun createImageMatrix(dataOpcMatrixSize: Size, childSize: Size): Matrix<Short> {
             val width = dataOpcMatrixSize.width * childSize.width
             val height = dataOpcMatrixSize.height * childSize.height
             val imageSize = Size(width, height)
