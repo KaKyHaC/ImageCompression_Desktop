@@ -101,4 +101,12 @@ object MatrixUtils {
 //                temp[j, i] = a[i, j]
         return temp
     }
+
+    inline fun <reified T : Any> gatherMatrix(splitted: Matrix<Matrix<T>>, originSize: Size? = null): Matrix<T> {
+        val childSize = splitted[0, 0].size
+        val newSize = originSize ?: Size(splitted.width * splitted[0, 0].width, splitted.height * splitted[0, 0].height)
+        return Matrix.create(newSize) { i, j ->
+            splitted[i / childSize.width, j / childSize.height][i % childSize.width, j % childSize.height]
+        }
+    }
 }
