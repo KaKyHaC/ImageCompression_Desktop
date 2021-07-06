@@ -16,13 +16,16 @@ class OpcProcessUnit(
     data class Parameters(
             val makeUnsigned: Boolean = true, // flag.isChecked(Flag.Parameter.DCT)
             val removeAC: Boolean = true, // flag.isChecked(Flag.Parameter.DC)
-            val useLongCode: Boolean = false // flag.isChecked(Flag.Parameter.LongCode)
+            val useLongCode: Boolean = false, // flag.isChecked(Flag.Parameter.LongCode)
+            val decreaseBase: Boolean = true
     )
 
     fun direct(dataOrigin: Matrix<Short>): DataOpc {
         val builder = DataOpc.Builder(dataOrigin.size)
         preDirectOpcProcess(dataOrigin, builder)
-        return directOPC(dataOrigin, builder).build() ?: throw Exception("")
+        val directOPC = directOPC(dataOrigin, builder)
+        afterDirectOpcProcess(directOPC)
+        return directOPC.build() ?: throw Exception("")
     }
 
     fun reverse(dataOpc: DataOpc, originSize: Size): Matrix<Short> {
@@ -32,8 +35,12 @@ class OpcProcessUnit(
     }
 
     fun reverseApplyProcess(dataOpc: DataOpc, dataOrigin: Matrix<Short>) {
-        reverseOPC(dataOpc, dataOrigin)
-        afterReverseOpcProcess(dataOpc, dataOrigin)
+        val dataOpcBuilder = DataOpc.Builder(dataOpc)
+        preReverseOpcProcess(dataOpcBuilder)
+        dataOpcBuilder.build()?.let {
+            reverseOPC(it, dataOrigin)
+            afterReverseOpcProcess(it, dataOrigin)
+        }
     }
 
     fun preDirectOpcProcess(dataOrigin: Matrix<Short>, dataOpc: DataOpc.Builder) {
@@ -65,6 +72,17 @@ class OpcProcessUnit(
             is DataOpc.Long -> OpcLongOnlyAlgorithms.applyReverse(dataOrigin, dataOpc)
         }
     }
+
+    fun afterDirectOpcProcess(dataOpc: DataOpc.Builder) {
+        if (parameters.decreaseBase)
+            DataOpcUtils.Base.decreaseBase(dataOpc)
+    }
+
+    fun preReverseOpcProcess(dataOpc: DataOpc.Builder) {
+        if (parameters.decreaseBase)
+            DataOpcUtils.Base.increaseBase(dataOpc)
+    }
+
 
 //    @JvmStatic
 //    fun directOpcWithMessageAt(parameters: Parameters, dataOrigin: Matrix<Short>, dataOpc: DataOpc, message: Boolean, position: Int) {

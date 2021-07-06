@@ -39,7 +39,9 @@ sealed class DataOpc(
         constructor(dataOpc: DataOpc) : this(
                 dataOpc.base,
                 dataOpc.sign,
-                dataOpc.AC
+                dataOpc.AC,
+                (dataOpc as? BI)?.N,
+                (dataOpc as? Long)?.vectorCode
         )
 
         fun build() = N?.let { BI(it, base, sign, AC) } ?: vectorCode?.let { Long(it, base, sign, AC) }
