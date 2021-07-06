@@ -32,6 +32,18 @@ object DataOpcUtils2 {
             dataOpc.baseMin = base
         }
 
+        fun removeMinBase(dataOrigin: Matrix<Short>, dataOpc: DataOpc2.Builder) {
+            dataOrigin.applyEach { i, j, value ->
+                dataOpc.baseMin?.get(j)?.let { (value - it).toShort() } ?: value
+            }
+        }
+
+        fun addMinBase(dataOrigin: Matrix<Short>, dataOpc: DataOpc2.Builder) {
+            dataOrigin.applyEach { i, j, value ->
+                dataOpc.baseMin?.get(j)?.let { (value + it).toShort() } ?: value
+            }
+        }
+
         @JvmStatic
         fun setSameBaseIn(dataOrigin: Matrix<DataOpc.Builder>) {
             val baseSize = dataOrigin[0, 0].base.size
