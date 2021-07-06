@@ -69,22 +69,25 @@ object DataOpcUtils2 {
 
     object Sign {
         @JvmStatic
-        fun makeUnSigned(dataOrigin: Matrix<Short>, dataOpc: DataOpc.Builder) {
+        fun makeUnSigned(dataOrigin: Matrix<Short>, dataOpc: DataOpc2.Builder) {
+            val sign = Matrix.create(dataOrigin.size) { i, j -> false }
             dataOrigin.applyEach { i, j, value ->
                 if (value < 0) {
-                    dataOpc.sign[i, j] = false
+                    sign[i, j] = false
                     (value * -1).toShort()
                 } else {
-                    dataOpc.sign[i, j] = true
+                    sign[i, j] = true
                     null
                 }
             }
+            dataOpc.sign = sign
         }
 
         @JvmStatic
-        fun makeSigned(dataOrigin: Matrix<Short>, dataOpc: DataOpc) {
-            dataOrigin.applyEach { i, j, value ->
-                if (dataOpc.sign[i, j].not()) (value * -1).toShort() else null
+        fun makeSigned(dataOrigin: Matrix<Short>, dataOpc: DataOpc2.Builder) {
+            dataOpc.sign?.applyEach{i, j, value ->
+                if (value.not()) dataOrigin[i,j] = (dataOrigin[i,j] * -1).toShort()
+                null
             }
         }
     }
