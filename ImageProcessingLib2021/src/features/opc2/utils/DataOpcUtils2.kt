@@ -85,8 +85,8 @@ object DataOpcUtils2 {
 
         @JvmStatic
         fun makeSigned(dataOrigin: Matrix<Short>, dataOpc: DataOpc2.Builder) {
-            dataOpc.sign?.applyEach{i, j, value ->
-                if (value.not()) dataOrigin[i,j] = (dataOrigin[i,j] * -1).toShort()
+            dataOpc.sign?.applyEach { i, j, value ->
+                if (value.not()) dataOrigin[i, j] = (dataOrigin[i, j] * -1).toShort()
                 null
             }
         }
@@ -94,14 +94,14 @@ object DataOpcUtils2 {
 
     object AC {
         @JvmStatic
-        fun minus(dataOrigin: Matrix<Short>, dataOpc: DataOpc.Builder) {
+        fun minus(dataOrigin: Matrix<Short>, dataOpc: DataOpc2.Builder) {
             dataOpc.AC = dataOrigin[0, 0]
             dataOrigin[0, 0] = 0
         }
 
         @JvmStatic
-        fun plus(dataOrigin: Matrix<Short>, dataOpc: DataOpc) {
-            dataOrigin[0, 0] = dataOpc.AC
+        fun plus(dataOrigin: Matrix<Short>, dataOpc: DataOpc2.Builder) {
+            dataOpc.AC?.let { dataOrigin[0, 0] = it }
         }
     }
 
@@ -112,13 +112,6 @@ object DataOpcUtils2 {
             dataOrigin.applyEach { i, j, value ->
                 if (value % 2 == 0) (value + 1).toShort() else null
             }
-        }
-
-        fun createImageMatrix(dataOpcMatrixSize: Size, childSize: Size): Matrix<Short> {
-            val width = dataOpcMatrixSize.width * childSize.width
-            val height = dataOpcMatrixSize.height * childSize.height
-            val imageSize = Size(width, height)
-            return Matrix.create(imageSize) { _, _ -> 0.toShort() }
         }
     }
 }
