@@ -18,7 +18,8 @@ class OpcProcessUnit2(
             val makeUnsigned: Boolean = true, // flag.isChecked(Flag.Parameter.DCT)
             val removeAC: Boolean = true, // flag.isChecked(Flag.Parameter.DC)
             val useLongCode: Boolean = false, // flag.isChecked(Flag.Parameter.LongCode)
-            val decreaseBase: Boolean = true
+            val decreaseBase: Boolean = true,
+            val useMinBase: Boolean = true
     )
 
     fun direct(dataOrigin: Matrix<Short>): DataOpc2 {
@@ -47,11 +48,17 @@ class OpcProcessUnit2(
             DataOpcUtils2.Sign.makeUnSigned(dataOrigin, dataOpc)
         if (parameters.removeAC)
             DataOpcUtils2.AC.minus(dataOrigin, dataOpc)
+        if (parameters.useMinBase) {
+            DataOpcUtils2.Base.findMinBase(dataOrigin, dataOpc)
+            DataOpcUtils2.Base.removeMinBase(dataOrigin, dataOpc)
+        }
 
         DataOpcUtils2.Base.findMaxBase(dataOrigin, dataOpc)
     }
 
     fun afterReverseOpcProcess(dataOpc: DataOpc2.Builder, dataOrigin: Matrix<Short>) {
+        if (parameters.useMinBase)
+            DataOpcUtils2.Base.addMinBase(dataOrigin, dataOpc)
         if (parameters.removeAC)
             DataOpcUtils2.AC.plus(dataOrigin, dataOpc)
         if (parameters.makeUnsigned)
