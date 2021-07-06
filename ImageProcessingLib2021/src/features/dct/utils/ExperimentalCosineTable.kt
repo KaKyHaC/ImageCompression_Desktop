@@ -20,7 +20,6 @@ class ExperimentalCosineTable(
         }
         tmp
     }
-    val dctT by lazy {
-        val tmp = MatrixUtils.trans(dct)
-    }
+
+    val dctT by lazy { MatrixUtils.trans(dct) }
 }
