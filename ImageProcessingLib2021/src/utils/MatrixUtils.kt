@@ -75,4 +75,12 @@ object MatrixUtils {
         }
         return Matrix(ret, Float::class)
     }
+
+    inline fun <reified T : Any> trans(a: Matrix<T>): Matrix<T> {
+        val temp = Matrix.create(Size(a.height, a.width)) { i, j -> a[j, i] }
+//        for (i in 0 until a.width)
+//            for (j in 0 until a.height)
+//                temp[j, i] = a[i, j]
+        return temp
+    }
 }
