@@ -8,9 +8,7 @@ import kotlin.collections.ArrayList
  * Non save class
  * Iterator for Array<Byte>
  */
-class ByteVector {
-
-    private val vector = Vector<Byte>()
+data class ByteVector(private val vector: Vector<Byte> = Vector()) {
 
     fun putByte(byte: Byte) {
         vector.add(byte)
@@ -37,8 +35,6 @@ class ByteVector {
     fun getReader() = Read(vector.toByteArray())
 
     fun getBytes() = vector.toByteArray()
-
-    override fun toString() = vector.toString()
 
     class Read(byteArray: ByteArray) {
         private val buffer = ByteBuffer.wrap(byteArray)
