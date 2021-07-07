@@ -13,29 +13,22 @@ import utils.MatrixUtils
 class QuantizationManager(val parameters: Parameters) {
 
     data class Parameters(
-            val childSize: Size = Size(8, 8),
-            val tableType: TableType = TableType.EXPERIMENTAL
-    )
-
-    enum class TableType { EXPERIMENTAL, EXPONENTIAL, SMART, CHROMATICITY, LUMINOSITY }
-
-    private val table = when(parameters.tableType) {
-        TableType.EXPERIMENTAL -> TODO()
-        TableType.EXPONENTIAL -> QuantizationExpTable(parameters.childSize).table
-        TableType.SMART -> QuantizationSmartTable().table
-        TableType.CHROMATICITY -> Quantization8x8Table.getChromaticityMatrix()
-        TableType.LUMINOSITY -> Quantization8x8Table.getLuminosityMatrix()
+            val parameters: QuantizationUnit.Parameters = QuantizationUnit.Parameters()
+    ) {
+        val childSize = parameters.childSize
     }
+
+    private val unit = QuantizationUnit(parameters.parameters)
 
     fun direct(origin: Matrix<Short>): Matrix<Short> {
         val splitIterator = MatrixUtils.splitIterator(origin, parameters.childSize, 0)
-//        splitIterator.applyEach { i, j, value -> }
+        splitIterator.applyEach { i, j, value -> unit.direct(value) }
         return MatrixUtils.gatherMatrix(splitIterator)
     }
 
     fun reverse(matrix: Matrix<Short>): Matrix<Short> {
         val splitIterator = MatrixUtils.splitIterator(matrix, parameters.childSize, 0)
-//        splitIterator.applyEach { i, j, value -> }
+        splitIterator.applyEach { i, j, value -> unit.reverse(value) }
         return MatrixUtils.gatherMatrix(splitIterator)
     }
 }
