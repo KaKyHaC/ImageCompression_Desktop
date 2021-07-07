@@ -56,6 +56,16 @@ internal class MatrixUtilsTest {
         gatherMatrix(Size(100, 200), Size(5, 5))
     }
 
+    @Test
+    fun trans() {
+        matrix?.let {
+            val trans = MatrixUtils.trans(it)
+            val res = MatrixUtils.trans(trans)
+            assertNotEquals(it, trans)
+            assertEquals(it, res)
+        }
+    }
+
     fun rectIterator(w: Int, h: Int, size: Size, default: Int?) {
         matrix?.let {
             val rectIterator = MatrixUtils.rectIterator(it, w, h, size, default)
