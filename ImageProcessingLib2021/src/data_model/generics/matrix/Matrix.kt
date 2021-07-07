@@ -55,9 +55,10 @@ open class Matrix<T : Any>(
 
     override fun toString(): String {
         val sb = StringBuilder()
+        sb.append("size = $size\n")
         for (j in 0 until height) {
             for (i in 0 until width) {
-                sb.append("${(get(i, j))},")
+                sb.append("${get(i, j)},")
             }
             sb.append("\n")
         }
