@@ -25,7 +25,9 @@ sealed class DataOpc(
     data class Builder(
             var base: ShortArray,
             var sign: Matrix<Boolean>,
-            var AC: Short
+            var AC: Short,
+            var N: BigInteger? = null,
+            var vectorCode: List<kotlin.Long>? = null
     ) {
 
         constructor(size: Size) : this(
@@ -37,11 +39,11 @@ sealed class DataOpc(
         constructor(dataOpc: DataOpc) : this(
                 dataOpc.base,
                 dataOpc.sign,
-                dataOpc.AC
+                dataOpc.AC,
+                (dataOpc as? BI)?.N,
+                (dataOpc as? Long)?.vectorCode
         )
 
-        fun build(N: BigInteger) = BI(N, base, sign, AC)
-
-        fun build(vectorCode: List<kotlin.Long>) = Long(vectorCode, base, sign, AC)
+        fun build() = N?.let { BI(it, base, sign, AC) } ?: vectorCode?.let { Long(it, base, sign, AC) }
     }
 }

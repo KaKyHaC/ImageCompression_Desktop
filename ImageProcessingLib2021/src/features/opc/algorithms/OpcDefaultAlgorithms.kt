@@ -7,7 +7,7 @@ import java.math.BigInteger
 
 object OpcDefaultAlgorithms {
     @JvmStatic
-    fun direct(dataOrigin: Matrix<Short>, dataOpc: DataOpc.Builder): DataOpc.BI {//TODO diagonal for optimization
+    fun direct(dataOrigin: Matrix<Short>, dataOpc: DataOpc.Builder): DataOpc.Builder {//TODO diagonal for optimization
         var base = BigInteger.ONE
         var N = BigInteger.ZERO
         for (i in dataOrigin.width - 1 downTo 0) {
@@ -18,7 +18,8 @@ object OpcDefaultAlgorithms {
                 base = base.multiply(BigInteger.valueOf(dataOpc.base[j].toLong()));
             }
         }
-        return dataOpc.build(N)
+        dataOpc.N = N
+        return dataOpc
     }
 
     fun applyReverse(dataOrigin: Matrix<Short>, dataOpc: DataOpc.BI): Matrix<Short> {// method copy from C++ Project MAH

@@ -42,6 +42,16 @@ object DataOpcUtils {
                 if (dataOpc.base[i] % 2 != 0)
                     dataOpc.base[i]++
         }
+
+        fun increaseBase(dataOpc: DataOpc.Builder) {
+            for (i in dataOpc.base.indices)
+                dataOpc.base[i]++
+        }
+
+        fun decreaseBase(dataOpc: DataOpc.Builder) {
+            for (i in dataOpc.base.indices)
+                dataOpc.base[i]--
+        }
     }
 
     object Sign {

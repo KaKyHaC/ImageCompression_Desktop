@@ -10,7 +10,7 @@ object OpcLongOnlyAlgorithms {
     val MAX_LONG = Math.pow(2.0, 54.0).toLong()
 
     @JvmStatic
-    fun direct(dataOrigin: Matrix<Short>, dataOpc: DataOpc.Builder): DataOpc.Long {
+    fun direct(dataOrigin: Matrix<Short>, dataOpc: DataOpc.Builder): DataOpc.Builder {
         var base: Long = 1
         var res: Long = 0
         var bufBase: Long
@@ -33,7 +33,8 @@ object OpcLongOnlyAlgorithms {
             }
         }
         vectorCode.add(res)
-        return dataOpc.build(vectorCode)
+        dataOpc.vectorCode = vectorCode
+        return dataOpc
     }
 
     @JvmStatic

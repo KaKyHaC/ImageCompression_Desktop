@@ -5,6 +5,7 @@ import data_model.types.DataOpc
 import data_model.types.Size
 import features.opc.algorithms.OpcDefaultAlgorithms
 import features.opc.algorithms.OpcLongOnlyAlgorithms
+import java.lang.Exception
 
 
 object OpcProcessUtils {
@@ -21,7 +22,7 @@ object OpcProcessUtils {
     fun directProcess(preOpcParams: PreOpcParams, opcParams: OpcParams, dataOrigin: Matrix<Short>): DataOpc {
         val builder = DataOpc.Builder(dataOrigin.size)
         preDirectOpcProcess(preOpcParams, dataOrigin, builder)
-        return directOPC(opcParams, dataOrigin, builder)
+        return directOPC(opcParams, dataOrigin, builder).build() ?: throw Exception("")
     }
 
     fun reverseProcess(preOpcParams: PreOpcParams, dataOpc: DataOpc, originSize: Size): Matrix<Short> {
@@ -54,7 +55,7 @@ object OpcProcessUtils {
     }
 
     @JvmStatic
-    fun directOPC(opcParams: OpcParams, dataOrigin: Matrix<Short>, dataOpc: DataOpc.Builder): DataOpc {
+    fun directOPC(opcParams: OpcParams, dataOrigin: Matrix<Short>, dataOpc: DataOpc.Builder): DataOpc.Builder {
         return if (opcParams.useLongCode)
             OpcLongOnlyAlgorithms.direct(dataOrigin, dataOpc)
         else

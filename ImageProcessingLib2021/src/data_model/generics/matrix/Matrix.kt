@@ -21,12 +21,13 @@ open class Matrix<T : Any>(
         matrix[i][j] = value
     }
 
-    fun applyEach(invoke: (i: Int, j: Int, value: T) -> T?) {
+    fun applyEach(invoke: (i: Int, j: Int, value: T) -> T?): Matrix<T> {
         for (i in 0 until width) {
             for (j in 0 until height) {
                 invoke.invoke(i, j, get(i, j))?.let { set(i, j, it) }
             }
         }
+        return this
     }
 
     inline fun <reified R : Any> map(mapper: (i: Int, j: Int, value: T) -> R): Matrix<R> {
@@ -37,6 +38,8 @@ open class Matrix<T : Any>(
         if (this === other) return true
 
         (other as? Matrix<T>)?.let {
+            if (size != it.size) return false
+
             for (i in 0 until width)
                 for (j in 0 until height)
                     if (matrix[i][j] != other[i, j])
@@ -52,9 +55,10 @@ open class Matrix<T : Any>(
 
     override fun toString(): String {
         val sb = StringBuilder()
+        sb.append("size = $size\n")
         for (j in 0 until height) {
             for (i in 0 until width) {
-                sb.append("${(get(i, j))},")
+                sb.append("${get(i, j)},")
             }
             sb.append("\n")
         }

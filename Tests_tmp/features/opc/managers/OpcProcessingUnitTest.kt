@@ -9,7 +9,7 @@ import kotlin.test.assertNotEquals
 
 internal class OpcProcessingUnitTest {
     val random = Random()
-    val opcProcessingUnit = OpcProcessingUnit()
+    val opcProcessingUnit = OpcProcessingManager()
 
     @Test
     fun directProcess4to16() {
@@ -20,7 +20,7 @@ internal class OpcProcessingUnitTest {
 
     @Test
     fun directProcess8x8() {
-        directProcess(opcProcessingUnit.childSize)
+        directProcess(opcProcessingUnit.parameters.childSize)
     }
 
     @Test

@@ -30,6 +30,8 @@ class DctUniversalAlgorithmTest(val size: Size,val range: Int) {
                     ,arrayOf(Size(7,9),255)
                     ,arrayOf(Size(3,8),255)
                     ,arrayOf(Size(8,3),255)
+                    ,arrayOf(Size(16,16),255)
+                    ,arrayOf(Size(32,32),255)
                     ,arrayOf(Size(1,5),255)
                     ,arrayOf(Size(5,1),255)
             )
