@@ -17,21 +17,21 @@ class ByteVector {
     }
 
     fun putShort(value: Short) {
-        shortBuffer.reset()
         shortBuffer.putShort(value)
         shortBuffer.array().forEach { vector.add(it) }
+        shortBuffer.position(0)
     }
 
     fun putInt(value: Int) {
-        intBuffer.reset()
         intBuffer.putInt(value)
         intBuffer.array().forEach { vector.add(it) }
+        intBuffer.position(0)
     }
 
     fun putLong(value: Int) {
-        longBuffer.reset()
         longBuffer.putInt(value)
         longBuffer.array().forEach { vector.add(it) }
+        longBuffer.position(0)
     }
 
     fun getReader() = Read(vector.toByteArray())
