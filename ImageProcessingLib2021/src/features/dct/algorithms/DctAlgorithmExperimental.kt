@@ -5,7 +5,7 @@ import data_model.types.Size
 import utils.MatrixUtils
 import kotlin.reflect.KClass
 
-class ExperimentalDctAlgorithm(
+class DctAlgorithmExperimental(
         val dct: Matrix<Float>,
         val dctT: Matrix<Float>
 ) {

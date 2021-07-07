@@ -2,10 +2,8 @@ package features.dct.manager
 
 import data_model.generics.matrix.Matrix
 import data_model.types.Size
-import features.dct.algorithms.ExperimentalDctAlgorithm
+import features.dct.algorithms.DctAlgorithmExperimental
 import features.dct.utils.CosineTableFactory
-import features.dct.utils.DctUtils
-import utils.MatrixUtils
 
 class DctUnit(val parameters: Parameters) {
 
@@ -14,7 +12,7 @@ class DctUnit(val parameters: Parameters) {
     )
 
     val experimentalTable = CosineTableFactory.getExperimentalTable(parameters.childSize.width)
-    val algorithmExperimental = ExperimentalDctAlgorithm(experimentalTable.dct, experimentalTable.dctT)
+    val algorithmExperimental = DctAlgorithmExperimental(experimentalTable.dct, experimentalTable.dctT)
 
     fun direct(origin: Matrix<Short>): Matrix<Short> {
         return algorithmExperimental.direct(origin, Double::toShort)
