@@ -15,7 +15,7 @@ internal class DctUnitSampleTest {
 
     @Test
     fun test8R5() {
-        test(DctUnit.Parameters(remove128 = false, subtractFirstElements = false), Size(8, 8), 0..5)
+        test(DctUnit.Parameters(), Size(8, 8), 0..5)
     }
 
     fun test(parameters: DctUnit.Parameters, imageSize: Size, range: IntRange) {
