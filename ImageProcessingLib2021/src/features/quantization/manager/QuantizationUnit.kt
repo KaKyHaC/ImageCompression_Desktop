@@ -2,13 +2,9 @@ package features.quantization.manager
 
 import data_model.generics.matrix.Matrix
 import data_model.types.Size
-import features.dct.algorithms.ExperimentalDctAlgorithm
-import features.dct.utils.CosineTableFactory
-import features.dct.utils.DctUtils
-import features.quantization.utils.Quantization8x8Table
-import features.quantization.utils.QuantizationExpTable
-import features.quantization.utils.QuantizationSmartTable
-import utils.MatrixUtils
+import features.quantization.utils.QuantizationTable8x8
+import features.quantization.utils.QuantizationTableExp
+import features.quantization.utils.QuantizationTableSmart
 
 class QuantizationUnit(val parameters: Parameters) {
 
@@ -27,10 +23,10 @@ class QuantizationUnit(val parameters: Parameters) {
 
     private val table = when (parameters.tableType) {
         is TableType.EXPERIMENTAL -> TODO()
-        is TableType.EXPONENTIAL -> QuantizationExpTable(parameters.childSize, parameters.tableType.maxValue).table
-        is TableType.SMART -> QuantizationSmartTable(parameters.tableType.coefficient, parameters.childSize).table
-        is TableType.CHROMATICITY -> Quantization8x8Table.getChromaticityMatrix()
-        is TableType.LUMINOSITY -> Quantization8x8Table.getLuminosityMatrix()
+        is TableType.EXPONENTIAL -> QuantizationTableExp(parameters.childSize, parameters.tableType.maxValue).table
+        is TableType.SMART -> QuantizationTableSmart(parameters.tableType.coefficient, parameters.childSize).table
+        is TableType.CHROMATICITY -> QuantizationTable8x8.getChromaticityMatrix()
+        is TableType.LUMINOSITY -> QuantizationTable8x8.getLuminosityMatrix()
     }
 
     fun direct(origin: Matrix<Short>) = origin.applyEach { i, j, value ->

@@ -1,13 +1,11 @@
 package features.quantization.utils
 
 import data_model.generics.matrix.Matrix
-import data_model.types.Size
-import features.quantization.utils.Quantization8x8Table
 
 /**
  * Created by Димка on 08.08.2016.
  */
-object Quantization8x8Table {
+object QuantizationTable8x8 {
     private val luminosity = Matrix(arrayOf(
             shortArrayOf(1, 2, 3, 4, 5, 6, 7, 8).toTypedArray(),
             shortArrayOf(2, 2, 3, 4, 5, 8, 10, 15).toTypedArray(),

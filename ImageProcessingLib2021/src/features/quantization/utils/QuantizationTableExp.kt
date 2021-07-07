@@ -4,7 +4,7 @@ import data_model.generics.matrix.Matrix
 import data_model.types.Size
 
 
-class QuantizationExpTable(
+class QuantizationTableExp(
         val size: Size = Size(8,8),
         val maxValue: Double = 100.0
 ) {
