@@ -2,7 +2,7 @@ package features.dct.manager
 
 import data_model.generics.matrix.Matrix
 import data_model.types.Size
-import features.dct.utils.CosineTableSample
+import features.dct.table.CosineTableSample
 import org.junit.Test
 import utils.MatrixUtilsTest
 import java.util.*

@@ -1,4 +1,4 @@
-package features.dct.utils
+package features.dct.table
 
 @Deprecated("use experimental")
 class CosineTableSample(

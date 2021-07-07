@@ -1,4 +1,4 @@
-package features.dct.utils
+package features.dct.table
 
 import data_model.generics.matrix.Matrix
 import data_model.types.Size

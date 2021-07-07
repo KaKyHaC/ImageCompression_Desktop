@@ -1,6 +1,8 @@
 package features.dct.utils
 
 import data_model.generics.matrix.Matrix
+import features.dct.table.CosineTableSample
+import features.dct.table.CosineTableExperimental
 import org.junit.Test
 import utils.MatrixUtilsTest
 
@@ -18,7 +20,7 @@ internal class ExperimentalCosineTableTest {
     }
 
     fun test(size: Int) {
-        val experimentalCosineTable = ExperimentalCosineTable(size)
+        val experimentalCosineTable = CosineTableExperimental(size)
         val sample = CosineTableSample(size)
         val dct = Matrix.create(experimentalCosineTable.dct.size) { i, j -> sample.dct[i][j] }
         val dctT = Matrix.create(experimentalCosineTable.dctT.size) { i, j -> sample.dctT[i][j] }

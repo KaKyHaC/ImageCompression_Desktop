@@ -1,11 +1,11 @@
-package features.dct.utils
+package features.dct.table
 
 import data_model.generics.matrix.Matrix
 import data_model.types.Size
 import utils.MatrixUtils
 
 @UseExperimental
-class ExperimentalCosineTable(
+class CosineTableExperimental(
         val bsf: Int = 8
 ) {
 
