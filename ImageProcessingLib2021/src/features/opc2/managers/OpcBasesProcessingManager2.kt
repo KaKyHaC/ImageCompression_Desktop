@@ -29,7 +29,20 @@ class OpcBasesProcessingManager2(
         return manager.direct(baseShortMatrix)
     }
 
-    fun reverse(basesOpc: Matrix<DataOpc2>): Matrix<DataOpc2.Base> {
-        TODO()
+    fun reverse(basesOpc: Matrix<DataOpc2>, baseSize: Size = Size(8, 1)): Matrix<DataOpc2.Base> {
+        val reverse = manager.reverse(basesOpc)
+        val splitIterator = MatrixUtils.splitIterator(reverse, baseSize)
+        return splitIterator.map { i, j, value ->
+            when (parameters.type) {
+                BaseProcessType.MAX_ONLY -> DataOpc2.Base.Max(ShortArray(value.width) { value[it, 0] })
+                BaseProcessType.MAX_AND_MIN -> TODO()
+                BaseProcessType.MIN_ONLY -> TODO()
+            }
+        }
     }
+
+    private fun calculateBaseShortMatrixSize(
+            baseOpcMatrixSize: Size,
+            baseSize: Size = Size(8, 1)
+    ) = Size(baseOpcMatrixSize.width * baseSize.width, baseOpcMatrixSize.height * baseSize.height)
 }
