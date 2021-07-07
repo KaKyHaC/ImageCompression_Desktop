@@ -9,17 +9,13 @@ class OpcBasesProcessingManager2(
         val parameters: Parameters = Parameters()
 ) {
     data class Parameters(
-            val childSize: Size = Size(8, 8),
             val type: BaseProcessType = BaseProcessType.MAX_ONLY,
-            val params: OpcProcessUnit2.Parameters = OpcProcessUnit2.Parameters()
+            val params: OpcProcessingManager2.Parameters = OpcProcessingManager2.Parameters()
     )
 
     enum class BaseProcessType { MAX_ONLY, MAX_AND_MIN, MIN_ONLY }
 
-    val manager = OpcProcessingManager2(OpcProcessingManager2.Parameters(
-            childSize = parameters.childSize,
-            params = parameters.params
-    ))
+    val manager = OpcProcessingManager2(parameters.params)
 
     fun direct(baseMatrix: Matrix<DataOpc2.Base>): Matrix<out DataOpc2> {
         val baseSize = Size(baseMatrix[0, 0].baseMax.size, 1)
