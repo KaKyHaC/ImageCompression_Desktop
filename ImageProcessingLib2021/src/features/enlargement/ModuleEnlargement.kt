@@ -20,9 +20,9 @@ class ModuleEnlargement(
     override fun processDirectTyped(data: ProcessingData.Image): ProcessingData.Image {
         return ProcessingData.Image(
                 Triple(
-                        if (parameters.processFirst) EnlargementUtils.direct(data.triple.first) else data.triple.first,
-                        if (parameters.processSecond) EnlargementUtils.direct(data.triple.second) else data.triple.second,
-                        if (parameters.processThird) EnlargementUtils.direct(data.triple.third) else data.triple.third
+                        if (parameters.processFirst) EnlargementUtils.direct(data.triple.first, Int::toShort) else data.triple.first,
+                        if (parameters.processSecond) EnlargementUtils.direct(data.triple.second, Int::toShort) else data.triple.second,
+                        if (parameters.processThird) EnlargementUtils.direct(data.triple.third, Int::toShort) else data.triple.third
                 )
         )
     }
