@@ -67,14 +67,14 @@ class OpcProcessUnit2(
 
     fun directOPC(dataOrigin: Matrix<Short>, dataOpc: DataOpc2.Builder): DataOpc2.Builder {
         return if (parameters.useLongCode)
-            TODO()
+            OpcLongOnlyAlgorithms2.direct(dataOrigin, dataOpc)
         else
             OpcDefaultAlgorithms2.direct(dataOrigin, dataOpc)
     }
 
     fun reverseOPC(dataOpc: DataOpc2.Builder, dataOrigin: Matrix<Short>) {
         if (parameters.useLongCode)
-            TODO()
+            OpcLongOnlyAlgorithms2.applyReverse(dataOrigin, dataOpc)
         else
             OpcDefaultAlgorithms2.applyReverse(dataOrigin, dataOpc)
     }

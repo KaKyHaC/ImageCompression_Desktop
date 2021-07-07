@@ -2,6 +2,7 @@ package features.opc2.algorithms
 
 import data_model.generics.matrix.Matrix
 import data_model.types.DataOpc
+import data_model.types.DataOpc2
 import data_model.types.Size
 import java.util.*
 
@@ -10,21 +11,21 @@ object OpcLongOnlyAlgorithms2 {
     val MAX_LONG = Math.pow(2.0, 54.0).toLong()
 
     @JvmStatic
-    fun direct(dataOrigin: Matrix<Short>, dataOpc: DataOpc.Builder): DataOpc.Builder {
+    fun direct(dataOrigin: Matrix<Short>, dataOpc: DataOpc2.Builder): DataOpc2.Builder {
         var base: Long = 1
         var res: Long = 0
         var bufBase: Long
         val vectorCode = Vector<Long>()
         for (i in dataOrigin.width - 1 downTo 0) {
             for (j in dataOrigin.height - 1 downTo 0) {
-                if (dataOrigin.height != dataOpc.base.size)
+                if (dataOrigin.height != dataOpc.baseMax!!.size)
                     throw Exception("out of range")
-                bufBase = base * dataOpc.base[j]
+                bufBase = base * dataOpc.baseMax!![j]
                 if (bufBase > MAX_LONG) {
                     vectorCode.add(res)
                     base = 1
                     res = 0
-                    bufBase = base * dataOpc.base[j]
+                    bufBase = base * dataOpc.baseMax!![j]
                 }
                 if (dataOrigin[i, j].toInt() != 0) {
                     res += base * dataOrigin[i, j]
@@ -38,20 +39,20 @@ object OpcLongOnlyAlgorithms2 {
     }
 
     @JvmStatic
-    fun applyReverse(dataOrigin: Matrix<Short>, dataOpc: DataOpc.Long): Matrix<Short> {
+    fun applyReverse(dataOrigin: Matrix<Short>, dataOpc: DataOpc2.Builder): Matrix<Short> {
         var copy: Long = 1
         var index = 0
-        var curN = dataOpc.vectorCode.elementAt(index)
+        var curN = dataOpc.vectorCode!!.elementAt(index)
         var nextcopy: Long
         for (i in dataOrigin.width - 1 downTo 0) {
             for (j in dataOrigin.height - 1 downTo 0) {
-                nextcopy = copy * dataOpc.base[j]
+                nextcopy = copy * dataOpc.baseMax!![j]
                 if (nextcopy > MAX_LONG || nextcopy < 0) {
                     copy = 1
                     index++
-                    nextcopy = copy * dataOpc.base[j]
-                    if (index < dataOpc.vectorCode.size)
-                        curN = dataOpc.vectorCode.elementAt(index)
+                    nextcopy = copy * dataOpc.baseMax!![j]
+                    if (index < dataOpc.vectorCode!!.size)
+                        curN = dataOpc.vectorCode!!.elementAt(index)
                 }
                 val a: Long
                 var b: Long
@@ -60,7 +61,7 @@ object OpcLongOnlyAlgorithms2 {
                 copy = nextcopy
 
                 b = curN / copy
-                b = b * dataOpc.base[j]
+                b = b * dataOpc.baseMax!![j]
                 dataOrigin[i, j] = (a - b).toShort()
             }
         }
@@ -68,7 +69,7 @@ object OpcLongOnlyAlgorithms2 {
     }
 
     @JvmStatic
-    fun reverse(size: Size, dataOpc: DataOpc.Long): Matrix<Short> {
+    fun reverse(size: Size, dataOpc: DataOpc2.Builder): Matrix<Short> {
         val dataOrigin = Matrix.create(size) { _, _ -> 0.toShort() }
         return applyReverse(dataOrigin, dataOpc)
     }
