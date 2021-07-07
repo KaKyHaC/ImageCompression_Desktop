@@ -32,7 +32,12 @@ internal class OpcBasesProcessingManager2Test {
 
     @Test
     fun test4() {
-        testMaxBase(Size(37,33), 9)
+        testMaxBase(Size(16,11), 9)
+    }
+
+    @Test
+    fun test5() {
+        testMaxBase(Size(97,31), 7)
     }
 
     fun testMaxBase(matrixSize: Size, baseSize: Int) {
