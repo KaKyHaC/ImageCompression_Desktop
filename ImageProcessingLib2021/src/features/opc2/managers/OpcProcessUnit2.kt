@@ -36,14 +36,14 @@ class OpcProcessUnit2(
         return dataOrigin
     }
 
-    fun reverseApplyProcess(dataOpc: DataOpc2, dataOrigin: Matrix<Short>) {
+    private fun reverseApplyProcess(dataOpc: DataOpc2, dataOrigin: Matrix<Short>) {
         val dataOpcBuilder = DataOpc2.Builder(dataOpc)
         preReverseOpcProcess(dataOpcBuilder)
         reverseOPC(dataOpcBuilder, dataOrigin)
         afterReverseOpcProcess(dataOpcBuilder, dataOrigin)
     }
 
-    fun preDirectOpcProcess(dataOrigin: Matrix<Short>, dataOpc: DataOpc2.Builder) {
+    private fun preDirectOpcProcess(dataOrigin: Matrix<Short>, dataOpc: DataOpc2.Builder) {
         if (parameters.makeUnsigned)
             DataOpcUtils2.Sign.makeUnSigned(dataOrigin, dataOpc)
         if (parameters.removeAC)
@@ -56,7 +56,7 @@ class OpcProcessUnit2(
         DataOpcUtils2.Base.findMaxBase(dataOrigin, dataOpc)
     }
 
-    fun afterReverseOpcProcess(dataOpc: DataOpc2.Builder, dataOrigin: Matrix<Short>) {
+    private fun afterReverseOpcProcess(dataOpc: DataOpc2.Builder, dataOrigin: Matrix<Short>) {
         if (parameters.useMinBase)
             DataOpcUtils2.Base.addMinBase(dataOrigin, dataOpc)
         if (parameters.removeAC)
@@ -65,26 +65,26 @@ class OpcProcessUnit2(
             DataOpcUtils2.Sign.makeSigned(dataOrigin, dataOpc)
     }
 
-    fun directOPC(dataOrigin: Matrix<Short>, dataOpc: DataOpc2.Builder): DataOpc2.Builder {
+    private fun directOPC(dataOrigin: Matrix<Short>, dataOpc: DataOpc2.Builder): DataOpc2.Builder {
         return if (parameters.useLongCode)
             OpcLongOnlyAlgorithms2.direct(dataOrigin, dataOpc)
         else
             OpcDefaultAlgorithms2.direct(dataOrigin, dataOpc)
     }
 
-    fun reverseOPC(dataOpc: DataOpc2.Builder, dataOrigin: Matrix<Short>) {
+    private fun reverseOPC(dataOpc: DataOpc2.Builder, dataOrigin: Matrix<Short>) {
         if (parameters.useLongCode)
             OpcLongOnlyAlgorithms2.applyReverse(dataOrigin, dataOpc)
         else
             OpcDefaultAlgorithms2.applyReverse(dataOrigin, dataOpc)
     }
 
-    fun afterDirectOpcProcess(dataOpc: DataOpc2.Builder) {
+    private fun afterDirectOpcProcess(dataOpc: DataOpc2.Builder) {
         if (parameters.decreaseBase)
             DataOpcUtils2.Base.decreaseBase(dataOpc)
     }
 
-    fun preReverseOpcProcess(dataOpc: DataOpc2.Builder) {
+    private fun preReverseOpcProcess(dataOpc: DataOpc2.Builder) {
         if (parameters.decreaseBase)
             DataOpcUtils2.Base.increaseBase(dataOpc)
     }
