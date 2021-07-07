@@ -9,12 +9,12 @@ class DctManager(val parameters: Parameters) {
 
     data class Parameters(
             val childSize: Size = Size(8, 8),
-            val useExperimental: Boolean = true,
+            val params: DctUnit.Parameters = DctUnit.Parameters(),
             val subtractFirstElements: Boolean = true,
             val remove128: Boolean = true
     )
 
-    val unit = DctUnit(DctUnit.Parameters())
+    val unit = DctUnit(parameters.params)
 
     fun direct(origin: Matrix<Short>): Matrix<Short> {
         val minus128 = if (parameters.remove128)  DctUtils.minus128(origin) else origin
