@@ -36,6 +36,10 @@ class ByteVector {
 
     fun getReader() = Read(vector.toByteArray())
 
+    fun getBytes() = vector.toByteArray()
+
+    override fun toString() = vector.toString()
+
     class Read(byteArray: ByteArray) {
         private val buffer = ByteBuffer.wrap(byteArray)
 
