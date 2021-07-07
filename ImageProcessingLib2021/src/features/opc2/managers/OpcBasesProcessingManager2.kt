@@ -10,6 +10,7 @@ class OpcBasesProcessingManager2(
 ) {
     data class Parameters(
             val type: BaseProcessType = BaseProcessType.MAX_ONLY,
+            val needTrans: Boolean = false,
             val params: OpcProcessingManager2.Parameters = OpcProcessingManager2.Parameters()
     )
 
@@ -26,12 +27,14 @@ class OpcBasesProcessingManager2(
             BaseProcessType.MAX_AND_MIN -> TODO()
             BaseProcessType.MIN_ONLY -> TODO()
         }
-        return manager.direct(baseShortMatrix)
+        val tmp = if (parameters.needTrans) MatrixUtils.trans(baseShortMatrix) else baseShortMatrix
+        return manager.direct(tmp)
     }
 
     fun reverse(basesOpc: Matrix<DataOpc2>, baseSize: Size = Size(8, 1)): Matrix<DataOpc2.Base> {
         val reverse = manager.reverse(basesOpc)
-        val splitIterator = MatrixUtils.splitIterator(reverse, baseSize)
+        val tmp = if (parameters.needTrans) MatrixUtils.trans(reverse) else reverse
+        val splitIterator = MatrixUtils.splitIterator(tmp, baseSize)
         return splitIterator.map { i, j, value ->
             when (parameters.type) {
                 BaseProcessType.MAX_ONLY -> DataOpc2.Base.Max(ShortArray(value.width) { value[it, 0] })
