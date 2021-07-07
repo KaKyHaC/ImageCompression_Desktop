@@ -5,8 +5,8 @@ import data_model.types.Size
 
 
 class QuantizationExpTable(
-        val size: Size,
-        val maxValue: Double
+        val size: Size = Size(8,8),
+        val maxValue: Double = 100.0
 ) {
     val table = Matrix.create(size) { i, j ->
         val r = Math.exp((i + j) / 2.0)
