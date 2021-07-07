@@ -21,7 +21,6 @@ class ModuleBasesOpc2(
     private val opcProcessingUnit2 = OpcBasesProcessingManager2(parameters.second)
     private val opcProcessingUnit3 = OpcBasesProcessingManager2(parameters.third)
 
-
     override fun processDirectTyped(data: ProcessingData.OPC2.Bases): ProcessingData.OPC2 {
         val res1 = opcProcessingUnit1.direct(data.triple.first)
         val res2 = opcProcessingUnit2.direct(data.triple.second)
