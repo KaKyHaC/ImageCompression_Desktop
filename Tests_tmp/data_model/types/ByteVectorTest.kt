@@ -2,7 +2,6 @@ package data_model.types
 
 import data_model.generics.matrix.Matrix
 import org.junit.Test
-import java.nio.ByteBuffer
 import java.util.*
 import kotlin.test.assertEquals
 
@@ -20,10 +19,10 @@ internal class ByteVectorTest {
         byteVector.putShort(342)
         print(byteVector)
         val reader = byteVector.getReader()
-        assertEquals(reader.getInt(), 4)
-        assertEquals(reader.getByte(),32)
-        assertEquals(reader.getLong(), 212)
-        assertEquals(reader.getShort(), 342)
+        assertEquals(reader.nextInt(), 4)
+        assertEquals(reader.nextByte(),32)
+        assertEquals(reader.nextLong(), 212)
+        assertEquals(reader.nextShort(), 342)
     }
 
     @Test
@@ -33,8 +32,8 @@ internal class ByteVectorTest {
         byteVector.putInt(123)
         print(byteVector)
         val reader = byteVector.getReader()
-        assertEquals(reader.getInt(), 4)
-        assertEquals(reader.getInt(), 123)
+        assertEquals(reader.nextInt(), 4)
+        assertEquals(reader.nextInt(), 123)
     }
 
     @Test
@@ -47,7 +46,7 @@ internal class ByteVectorTest {
         val byteVector = ByteVector()
         create.applyEach{i, j, value -> byteVector.putInt(value); null }
         val wrap = byteVector.getReader()
-        val create1 = Matrix.create(size) { i, j -> wrap.getInt() }
+        val create1 = Matrix.create(size) { i, j -> wrap.nextInt() }
         assertEquals(create,create1)
     }
 }

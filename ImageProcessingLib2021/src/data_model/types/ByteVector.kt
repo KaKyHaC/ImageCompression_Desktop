@@ -10,7 +10,7 @@ import kotlin.collections.ArrayList
  */
 class ByteVector {
 
-    val vector = Vector<Byte>()
+    private val vector = Vector<Byte>()
 
     fun putByte(byte: Byte) {
         vector.add(byte)
@@ -43,13 +43,13 @@ class ByteVector {
     class Read(byteArray: ByteArray) {
         private val buffer = ByteBuffer.wrap(byteArray)
 
-        fun getByte() = buffer.get()
+        fun nextByte() = buffer.get()
 
-        fun getShort() = buffer.short
+        fun nextShort() = buffer.short
 
-        fun getInt() = buffer.int
+        fun nextInt() = buffer.int
 
-        fun getLong() = buffer.long
+        fun nextLong() = buffer.long
     }
 
     companion object {
