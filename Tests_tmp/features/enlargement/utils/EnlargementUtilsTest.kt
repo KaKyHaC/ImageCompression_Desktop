@@ -24,10 +24,24 @@ internal class EnlargementUtilsTest {
         testInt(Size(17, 33))
     }
 
+    @Test
+    fun testShort() {
+        testShort(Size(14, 16))
+        testShort(Size(18, 32))
+    }
+
     fun testInt(size: Size, value:Int = 5) {
         val origin = Matrix.create(size) { i, j -> value }
         val direct = EnlargementUtils.direct(origin)
         val reverse = EnlargementUtils.reverse(direct)
+        assertEquals(origin, reverse)
+        assertNotEquals(origin, direct)
+    }
+
+    fun testShort(size: Size, value:Int = 5) {
+        val origin = Matrix.create(size) { i, j -> value.toShort() }
+        val direct = EnlargementUtils.directShort(origin)
+        val reverse = EnlargementUtils.reverseShort(direct)
         assertEquals(origin, reverse)
         assertNotEquals(origin, direct)
     }

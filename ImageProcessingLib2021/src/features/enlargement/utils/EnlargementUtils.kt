@@ -23,4 +23,20 @@ object EnlargementUtils {
             enlarged[i / 2, j / 2]
         }
     }
+
+    fun directShort(origin: Matrix<Short>): Matrix<Short> {
+        val newSize = Size(origin.width / 2, origin.height / 2)
+        return Matrix.create(newSize) { i, j ->
+            val newValue = (origin[i * 2, j * 2] +
+                    origin[i * 2, j * 2 + 1] +
+                    origin[i * 2 + 1, j * 2] +
+                    origin[i * 2 + 1, j * 2 + 1]) / 4
+            newValue.toShort()
+        }
+    }
+
+    fun reverseShort(enlarged: Matrix<Short>): Matrix<Short> {
+        val newSize = Size(enlarged.width * 2, enlarged.height * 2)
+        return Matrix.create(newSize) { i, j -> enlarged[i / 2, j / 2] }
+    }
 }
