@@ -7,8 +7,8 @@ import features.opc.managers.OpcProcessingManager
 
 class ModuleOpc(
         val parameters: Parameters = Parameters()
-) : AbsDataProcessor<ProcessingData.Image, ProcessingData.OPC>(
-        ProcessingData.Image::class, ProcessingData.OPC::class
+) : AbsDataProcessor<ProcessingData.Image, ProcessingData.Opc>(
+        ProcessingData.Image::class, ProcessingData.Opc::class
 ) {
     data class Parameters(
             val first: OpcProcessingManager.Parameters = OpcProcessingManager.Parameters(),
@@ -20,14 +20,14 @@ class ModuleOpc(
     private val opcProcessingUnit2 = OpcProcessingManager(parameters.second)
     private val opcProcessingUnit3 = OpcProcessingManager(parameters.third)
 
-    override fun processDirectTyped(data: ProcessingData.Image): ProcessingData.OPC {
+    override fun processDirectTyped(data: ProcessingData.Image): ProcessingData.Opc {
         val direct1 = opcProcessingUnit1.direct(data.triple.first)
         val direct2 = opcProcessingUnit2.direct(data.triple.second)
         val direct3 = opcProcessingUnit3.direct(data.triple.third)
-        return ProcessingData.OPC(Triple(direct1, direct2, direct3))
+        return ProcessingData.Opc(Triple(direct1, direct2, direct3))
     }
 
-    override fun processReverseTyped(data: ProcessingData.OPC): ProcessingData.Image {
+    override fun processReverseTyped(data: ProcessingData.Opc): ProcessingData.Image {
         val direct1 = opcProcessingUnit1.reverse(data.triple.first)
         val direct2 = opcProcessingUnit2.reverse(data.triple.second)
         val direct3 = opcProcessingUnit3.reverse(data.triple.third)

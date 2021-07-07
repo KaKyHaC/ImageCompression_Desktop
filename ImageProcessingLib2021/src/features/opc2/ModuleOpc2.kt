@@ -7,8 +7,8 @@ import features.opc2.managers.OpcProcessingManager2
 
 class ModuleOpc2(
         val parameters: Parameters = Parameters()
-) : AbsDataProcessor<ProcessingData.Image, ProcessingData.OPC2>(
-        ProcessingData.Image::class, ProcessingData.OPC2::class
+) : AbsDataProcessor<ProcessingData.Image, ProcessingData.Opc2>(
+        ProcessingData.Image::class, ProcessingData.Opc2::class
 ) {
     data class Parameters(
             val first: OpcProcessingManager2.Parameters = OpcProcessingManager2.Parameters(),
@@ -20,14 +20,14 @@ class ModuleOpc2(
     private val opcProcessingUnit2 = OpcProcessingManager2(parameters.second)
     private val opcProcessingUnit3 = OpcProcessingManager2(parameters.third)
 
-    override fun processDirectTyped(data: ProcessingData.Image): ProcessingData.OPC2 {
+    override fun processDirectTyped(data: ProcessingData.Image): ProcessingData.Opc2 {
         val direct1 = opcProcessingUnit1.direct(data.triple.first)
         val direct2 = opcProcessingUnit2.direct(data.triple.second)
         val direct3 = opcProcessingUnit3.direct(data.triple.third)
-        return ProcessingData.OPC2(Triple(direct1, direct2, direct3))
+        return ProcessingData.Opc2(Triple(direct1, direct2, direct3))
     }
 
-    override fun processReverseTyped(data: ProcessingData.OPC2): ProcessingData.Image {
+    override fun processReverseTyped(data: ProcessingData.Opc2): ProcessingData.Image {
         val direct1 = opcProcessingUnit1.reverse(data.triple.first)
         val direct2 = opcProcessingUnit2.reverse(data.triple.second)
         val direct3 = opcProcessingUnit3.reverse(data.triple.third)
