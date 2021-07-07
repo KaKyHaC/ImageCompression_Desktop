@@ -19,16 +19,6 @@ object Quantization8x8Table {
             shortArrayOf(12, 49, 55, 68, 79, 80, 99, 99).toTypedArray()
     ), Short::class)
 
-    /*        luminosity = new short[][]{
-                    {1,1,1,2,3,40,51,61},
-                    {1,1,2,19,26,58,60,55},
-                    {1,2,16,24,40,57,69,56},
-                    {2,17,22,29,51,87,80,62},
-                    {18,22,37,56,68,99,99,77},
-                    {24,35,55,64,81,99,99,92},
-                    {49,64,78,87,99,99,99,99},
-                    {72,92,95,98,99,90,99,99}};*/
-
     private val chromaticity = Matrix(arrayOf(
             shortArrayOf(1, 1, 2, 4, 9, 99, 99, 99).toTypedArray(),
             shortArrayOf(1, 2, 2, 6, 99, 99, 99, 99).toTypedArray(),
@@ -39,6 +29,21 @@ object Quantization8x8Table {
             shortArrayOf(99, 99, 99, 99, 99, 99, 99, 99).toTypedArray(),
             shortArrayOf(99, 99, 99, 99, 99, 99, 99, 99).toTypedArray()
     ), Short::class)
+
+    fun getLuminosityMatrix() = luminosity.map { i, j, value -> value.toDouble() }
+
+    fun getChromaticityMatrix() = chromaticity.map { i, j, value -> value.toDouble() }
+
+    /*        luminosity = new short[][]{
+                    {1,1,1,2,3,40,51,61},
+                    {1,1,2,19,26,58,60,55},
+                    {1,2,16,24,40,57,69,56},
+                    {2,17,22,29,51,87,80,62},
+                    {18,22,37,56,68,99,99,77},
+                    {24,35,55,64,81,99,99,92},
+                    {49,64,78,87,99,99,99,99},
+                    {72,92,95,98,99,90,99,99}};*/
+
 
     fun getLuminosity(x: Int, y: Int) = luminosity[x,y]
 
