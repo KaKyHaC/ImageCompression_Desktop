@@ -14,17 +14,23 @@ class QuantizationUnit(val parameters: Parameters) {
 
     data class Parameters(
             val childSize: Size = Size(8, 8),
-            val tableType: TableType = TableType.EXPERIMENTAL
+            val tableType: TableType = TableType.EXPONENTIAL(255.0)
     )
 
-    enum class TableType { EXPERIMENTAL, EXPONENTIAL, SMART, CHROMATICITY, LUMINOSITY }
+    sealed class TableType {
+        object EXPERIMENTAL : TableType()
+        class EXPONENTIAL(val maxValue:Double): TableType()
+        class SMART(val coefficient: Double): TableType()
+        object CHROMATICITY : TableType()
+        object LUMINOSITY : TableType()
+    }
 
     private val table = when (parameters.tableType) {
-        TableType.EXPERIMENTAL -> TODO()
-        TableType.EXPONENTIAL -> QuantizationExpTable(parameters.childSize).table
-        TableType.SMART -> QuantizationSmartTable().table
-        TableType.CHROMATICITY -> Quantization8x8Table.getChromaticityMatrix()
-        TableType.LUMINOSITY -> Quantization8x8Table.getLuminosityMatrix()
+        is TableType.EXPERIMENTAL -> TODO()
+        is TableType.EXPONENTIAL -> QuantizationExpTable(parameters.childSize, parameters.tableType.maxValue).table
+        is TableType.SMART -> QuantizationSmartTable(parameters.tableType.coefficient, parameters.childSize).table
+        is TableType.CHROMATICITY -> Quantization8x8Table.getChromaticityMatrix()
+        is TableType.LUMINOSITY -> Quantization8x8Table.getLuminosityMatrix()
     }
 
     fun direct(origin: Matrix<Short>) = origin.applyEach { i, j, value ->
