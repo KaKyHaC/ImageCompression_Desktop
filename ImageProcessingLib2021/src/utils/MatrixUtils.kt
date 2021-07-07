@@ -54,7 +54,7 @@ object MatrixUtils {
                     originSize.height % childSize.height == 0
 
     fun <T : Any> splitIterator(matrix: Matrix<T>, childSize: Size, defaultValue: T? = null): Matrix<Matrix<T>> {
-        val parentSize = calculateMatrixOfMatrixSize(matrix, childSize.width, childSize.width)
+        val parentSize = calculateMatrixOfMatrixSize(matrix, childSize.width, childSize.height)
         val tmpDefValue = if (isMatrixOfMatrixSafe(matrix.size, childSize)) null else defaultValue
         return Matrix.create(parentSize) { i, j ->
             val wStart = i * childSize.width
