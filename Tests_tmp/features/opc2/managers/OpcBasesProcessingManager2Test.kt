@@ -25,6 +25,16 @@ internal class OpcBasesProcessingManager2Test {
         testMaxBase(Size(16,33), 8)
     }
 
+    @Test
+    fun test3() {
+        testMaxBase(Size(37,33), 8)
+    }
+
+    @Test
+    fun test4() {
+        testMaxBase(Size(37,33), 9)
+    }
+
     fun testMaxBase(matrixSize: Size, baseSize: Int) {
         val matrix = Matrix.create(matrixSize) { i, j ->
             DataOpc2.Base.Max(
@@ -32,7 +42,7 @@ internal class OpcBasesProcessingManager2Test {
             ) as DataOpc2.Base
         }
         val direct = manager.direct(matrix)
-        val reverse = manager.reverse(direct, Size(baseSize, 1))
+        val reverse = manager.reverse(direct, matrixSize, Size(baseSize, 1))
 
         assertEquals(matrix, reverse)
         matrix[0,0].baseMax[0]++
