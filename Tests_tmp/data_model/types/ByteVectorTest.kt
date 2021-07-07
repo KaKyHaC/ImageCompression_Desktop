@@ -19,4 +19,14 @@ internal class ByteVectorTest {
         assertEquals(reader.getLong(), 212)
         assertEquals(reader.getShort(), 342)
     }
+
+    @Test
+    fun intTest() {
+        val byteVector = ByteVector()
+        byteVector.putInt(4)
+        byteVector.putInt(123)
+        val reader = byteVector.getReader()
+        assertEquals(reader.getInt(), 4)
+        assertEquals(reader.getInt(), 123)
+    }
 }

@@ -28,8 +28,8 @@ class ByteVector {
         intBuffer.position(0)
     }
 
-    fun putLong(value: Int) {
-        longBuffer.putInt(value)
+    fun putLong(value: Long) {
+        longBuffer.putLong(value)
         longBuffer.array().forEach { vector.add(it) }
         longBuffer.position(0)
     }
