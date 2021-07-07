@@ -69,7 +69,8 @@ internal class OpcProcessingManager2Test(parameters: OpcProcessingManager2.Param
                     OpcProcessingManager2.Parameters(params = OpcProcessUnit2.Parameters(false, true, false, true, true)),
                     OpcProcessingManager2.Parameters(params = OpcProcessUnit2.Parameters(true, false, true, true, true)),
                     OpcProcessingManager2.Parameters(params = OpcProcessUnit2.Parameters(true, true, false, false, true)),
-                    OpcProcessingManager2.Parameters(params = OpcProcessUnit2.Parameters(true, true, false, true, false))
+                    OpcProcessingManager2.Parameters(params = OpcProcessUnit2.Parameters(true, true, false, true, false)),
+                    OpcProcessingManager2.Parameters(params = OpcProcessUnit2.Parameters(false, false, false, true, true))
             )
             return res
         }
