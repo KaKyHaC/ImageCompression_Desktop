@@ -3,6 +3,7 @@ package features.opc_format.utils
 import data_model.types.ByteVector
 import data_model.types.DataOpc2
 import data_model.types.Size
+import java.math.BigInteger
 import kotlin.experimental.and
 
 object ByteVectorUtils {
@@ -39,5 +40,22 @@ object ByteVectorUtils {
                 reader.nextShort().toInt(),
                 reader.nextShort().toInt()
         )
+    }
+
+    object Code {
+        fun direct(byteVector: ByteVector, code: DataOpc2.Code.BI, bases: DataOpc2.Base, unitSize: data_model.types.Size) {
+            val lengthOfCode = bases.getLengthOfCode(unitSize)
+            val toByteArray = code.N.toByteArray()
+            val offset = lengthOfCode - toByteArray.size
+            val list = List(lengthOfCode) { if (it >= offset) toByteArray[it + offset] else 0b0 }
+            byteVector.putArray(list)
+        }
+
+        fun reverse(reader: ByteVector.Read, bases: DataOpc2.Base, unitSize: data_model.types.Size): DataOpc2.Code.BI {
+            val lengthOfCode = bases.getLengthOfCode(unitSize)
+            val nextBytes = reader.nextBytes(lengthOfCode)
+            val bigInteger = BigInteger(nextBytes)
+            return DataOpc2.Code.BI(bigInteger)
+        }
     }
 }
