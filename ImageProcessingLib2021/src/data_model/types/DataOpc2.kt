@@ -7,7 +7,8 @@ data class DataOpc2(
         val base: Base,
         val sign: Matrix<Boolean>?,
         val AC: Short?,
-        val code: Code
+        val code: Code,
+        val originSize: Size
 ) {
     sealed class Base(val baseMax: ShortArray) {
         class Max(baseMax: ShortArray) : Base(baseMax)
@@ -43,7 +44,8 @@ data class DataOpc2(
             var sign: Matrix<Boolean>? = null,
             var AC: Short? = null,
             var N: BigInteger? = null,
-            var vectorCode: List<Long>? = null
+            var vectorCode: List<Long>? = null,
+            var originSize: Size? = null
     ) {
 
         constructor(dataOpc: DataOpc2) : this(
@@ -52,14 +54,16 @@ data class DataOpc2(
                 sign = dataOpc.sign,
                 AC = dataOpc.AC,
                 N = (dataOpc.code as? Code.BI)?.N,
-                vectorCode = (dataOpc.code as? Code.L)?.vectorCode
+                vectorCode = (dataOpc.code as? Code.L)?.vectorCode,
+                originSize = dataOpc.originSize
         )
 
         fun build() = DataOpc2(
                 base = baseMin?.let { Base.MaxMin(baseMax!!, it) } ?: Base.Max(baseMax!!),
                 AC = AC,
                 sign = sign,
-                code = N?.let { Code.BI(it) } ?: vectorCode?.let { Code.L(it) }!!
+                code = N?.let { Code.BI(it) } ?: vectorCode?.let { Code.L(it) }!!,
+                originSize = originSize!!
         )
     }
 }

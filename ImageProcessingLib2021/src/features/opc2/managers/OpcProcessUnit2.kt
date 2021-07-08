@@ -23,7 +23,7 @@ class OpcProcessUnit2(
     )
 
     fun direct(dataOrigin: Matrix<Short>): DataOpc2 {
-        val builder = DataOpc2.Builder()
+        val builder = DataOpc2.Builder(originSize = dataOrigin.size)
         preDirectOpcProcess(dataOrigin, builder)
         val directOPC = directOPC(dataOrigin, builder)
         afterDirectOpcProcess(directOPC)
