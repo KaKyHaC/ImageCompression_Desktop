@@ -9,6 +9,7 @@ import org.junit.Test
 import java.util.*
 import kotlin.math.absoluteValue
 import kotlin.test.assertEquals
+import kotlin.test.assertNotEquals
 
 
 internal class OpcBasesToBytesManagerTest {
@@ -33,5 +34,7 @@ internal class OpcBasesToBytesManagerTest {
         val reverse = opcBasesToBytesManager.reverse(byteVector.getReader())
 
         assertEquals(triple, reverse)
+        triple.first[0,0].baseMax[0]++
+        assertNotEquals(triple, reverse)
     }
 }
