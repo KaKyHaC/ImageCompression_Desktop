@@ -23,11 +23,13 @@ data class DataOpc2(
             return true
         }
 
-        fun getLengthOfCode(unitSize: Size): Int {//TODO optimize this fun
+        fun getLengthOfCode(unitSize: Size, addOne: Boolean = true): Int {//TODO optimize this fun
             var bi = BigInteger("1")
             for (i in 0 until unitSize.width) {
-                for (j in 0 until unitSize.height)
-                    bi = bi.multiply(BigInteger.valueOf(baseMax[j].toLong()))
+                for (j in 0 until unitSize.height) {
+                    val base = if (addOne) baseMax[j].toLong() + 1 else baseMax[j].toLong()
+                    bi = bi.multiply(BigInteger.valueOf(base))
+                }
             }
             return bi.toByteArray().size
         }
