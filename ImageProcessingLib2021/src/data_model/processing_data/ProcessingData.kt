@@ -14,7 +14,7 @@ sealed class ProcessingData {
 
     data class Opc(val triple: Triple<Matrix<out DataOpc>>) : ProcessingData()
 
-    open class Opc2(val triple: Triple<Matrix<DataOpc2>>) : ProcessingData() {
+    data class Opc2(val triple: Triple<Matrix<DataOpc2>>) : ProcessingData() {
         data class Bases(val triple: Triple<Matrix<DataOpc2.Base>>) : ProcessingData() {
             constructor(opc2: Opc2) : this(
                     opc2.triple.map { it.map { i, j, dataOpc2 -> dataOpc2.base } }

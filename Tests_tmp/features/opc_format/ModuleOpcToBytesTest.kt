@@ -40,11 +40,6 @@ internal class ModuleOpcToBytesTest {
         val moduleOpcToBytes = ModuleOpcToBytes()
         val processDirect = moduleOpcToBytes.processDirect(direct)
         val processReverse = moduleOpcToBytes.processReverse(processDirect) as ProcessingData.Opc2
-        direct.triple.forEachIndexed { index, matrix ->
-            val matrix1 = processReverse.triple[index]
-            assertEquals(matrix, matrix1, "index $index: $matrix != $matrix1")
-            matrix[0, 0].base.baseMax[0]++
-            assertNotEquals(matrix, matrix1, "index $index: $matrix != $matrix1")
-        }
+        assertEquals(direct.triple, processReverse.triple)
     }
 }
