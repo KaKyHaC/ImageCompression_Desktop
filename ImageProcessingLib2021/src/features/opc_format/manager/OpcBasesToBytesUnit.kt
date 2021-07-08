@@ -5,8 +5,6 @@ import data_model.types.ByteVector
 import data_model.types.DataOpc2
 import data_model.types.Size
 import features.opc_format.utils.ByteVectorUtils
-import features.opc_format.utils.OpcBasesToBytesUtils
-import kotlin.experimental.and
 
 class OpcBasesToBytesUnit(
         val parameters: Parameters = Parameters()
