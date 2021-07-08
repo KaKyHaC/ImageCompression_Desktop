@@ -2,6 +2,7 @@ package features.opc_format.manager
 
 import data_model.types.ByteVector
 import data_model.types.DataOpc2
+import kotlin.experimental.and
 
 class OpcBasesToBytesUnit(
         val type: Type = Type.MAX
@@ -16,9 +17,9 @@ class OpcBasesToBytesUnit(
 
 
     fun reverse(reader: ByteVector.Read, baseSize: Int): DataOpc2.Base {
-        val max = ShortArray(baseSize) { reader.nextByte().toShort() }
+        val max = ShortArray(baseSize) { reader.nextByte().toShort() and 0xff }
         return if (type == Type.MIN_AND_MAX) {
-            val min = ShortArray(baseSize) { reader.nextByte().toShort() }
+            val min = ShortArray(baseSize) { reader.nextByte().toShort() and 0xff }
             DataOpc2.Base.MaxMin(max, min)
         } else {
             DataOpc2.Base.Max(max)
