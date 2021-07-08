@@ -21,6 +21,15 @@ data class DataOpc2(
             } ?: return false
             return true
         }
+
+        fun getLengthOfCode(unitSize: Size): Int {//TODO optimize this fun
+            var bi = BigInteger("1")
+            for (i in 0 until unitSize.width) {
+                for (j in 0 until unitSize.height)
+                    bi = bi.multiply(BigInteger.valueOf(baseMax[j].toLong()))
+            }
+            return bi.toByteArray().size
+        }
     }
 
     sealed class Code {
