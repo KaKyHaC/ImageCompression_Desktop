@@ -70,7 +70,7 @@ object ByteVectorUtils {
         }
 
         fun reverse(reader: ByteVector.Read, size: data_model.types.Size): Matrix<Boolean> {
-            val len = size.width * size.height
+            val len = size.width * size.height / 8
             val nextBytes = reader.nextBytes(len)
             val valueOf = BitSet.valueOf(nextBytes)
             var counter = 0
