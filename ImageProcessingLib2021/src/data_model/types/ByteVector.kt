@@ -32,6 +32,10 @@ data class ByteVector(private val vector: Vector<Byte> = Vector()) {
         longBuffer.position(0)
     }
 
+    fun putArray(bytes: Collection<Byte>) {
+        vector.addAll(bytes)
+    }
+
     fun getReader() = Read(vector.toByteArray())
 
     fun getBytes() = vector.toByteArray()
@@ -46,6 +50,8 @@ data class ByteVector(private val vector: Vector<Byte> = Vector()) {
         fun nextInt() = buffer.int
 
         fun nextLong() = buffer.long
+
+        fun nextBytes(len: Int) = ByteArray(len).also { buffer.get(it) }
     }
 
     companion object {
