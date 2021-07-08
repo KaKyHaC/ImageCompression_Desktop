@@ -22,6 +22,11 @@ internal class ModuleOpcToBytesTest {
         test(Size(16))
     }
 
+    @Test
+    fun test1128() {
+        test(Size(128))
+    }
+
     fun test(matrixSize: Size) {
         val matrix = Matrix.create(matrixSize) { i, j -> rand.nextInt(255).absoluteValue.toShort() }
         val moduleOpc2 = ModuleOpc2()
@@ -33,7 +38,7 @@ internal class ModuleOpcToBytesTest {
         direct.triple.forEachIndexed { index, matrix ->
             val matrix1 = processReverse.triple[index]
             assertEquals(matrix, matrix1, "index $index: $matrix != $matrix1")
-            matrix[0,0].base.baseMax[0]++
+            matrix[0, 0].base.baseMax[0]++
             assertNotEquals(matrix, matrix1, "index $index: $matrix != $matrix1")
         }
     }
