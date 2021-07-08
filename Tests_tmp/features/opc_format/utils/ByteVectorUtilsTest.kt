@@ -27,6 +27,19 @@ internal class ByteVectorUtilsTest {
         testCode(Size(16))
     }
 
+    @Test
+    fun testBI() {
+        val bi = BigInteger.valueOf(4543)
+        val toByteArray = bi.toByteArray()
+        val toMutableList = toByteArray.toMutableList()
+        toMutableList.add(0, 0)
+        toMutableList.add(0, 0)
+        val toByteArray1 = toMutableList.toByteArray()
+        val bi2 = BigInteger(toByteArray1)
+        assertEquals(bi, bi2)
+
+    }
+
     fun testCode(size: Size) {
         val matrix = Matrix.create(size) { i, j -> rand.nextInt(2).absoluteValue.toShort() }
         val opcProcessUnit2 = OpcProcessUnit2(OpcProcessUnit2.Parameters())
