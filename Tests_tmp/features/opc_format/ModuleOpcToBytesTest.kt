@@ -10,6 +10,7 @@ import org.junit.Test
 import java.util.*
 import kotlin.math.absoluteValue
 import kotlin.test.assertEquals
+import kotlin.test.assertNotEquals
 
 
 internal class ModuleOpcToBytesTest {
@@ -25,10 +26,15 @@ internal class ModuleOpcToBytesTest {
         val matrix = Matrix.create(matrixSize) { i, j -> rand.nextInt(255).absoluteValue.toShort() }
         val moduleOpc2 = ModuleOpc2()
         val data = ProcessingData.Image(Triple(matrix, matrix, matrix))
-        val direct = moduleOpc2.processDirect(data)
+        val direct = moduleOpc2.processDirect(data) as ProcessingData.Opc2
         val moduleOpcToBytes = ModuleOpcToBytes()
         val processDirect = moduleOpcToBytes.processDirect(direct)
-        val processReverse = moduleOpcToBytes.processReverse(processDirect)
-        assertEquals(direct, processReverse)
+        val processReverse = moduleOpcToBytes.processReverse(processDirect) as ProcessingData.Opc2
+        direct.triple.forEachIndexed { index, matrix ->
+            val matrix1 = processReverse.triple[index]
+            assertEquals(matrix, matrix1, "index $index: $matrix != $matrix1")
+            matrix[0,0].base.baseMax[0]++
+            assertNotEquals(matrix, matrix1, "index $index: $matrix != $matrix1")
+        }
     }
 }
