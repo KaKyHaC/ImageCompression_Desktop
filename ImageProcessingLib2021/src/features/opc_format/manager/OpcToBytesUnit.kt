@@ -11,7 +11,9 @@ class OpcToBytesUnit(
 ) {
 
     data class Parameters(
-            val type: ByteVectorUtils.Bases.Type = ByteVectorUtils.Bases.Type.MAX
+            val writeAC: Boolean = true,
+            val writeSign: Boolean = true,
+            val unitSize: Size = Size(8)
     )
 
     fun direct(
@@ -19,14 +21,20 @@ class OpcToBytesUnit(
             basesMatrix: Matrix<DataOpc2>
     ) {
         basesMatrix.applyEach { i, j, value ->
-            TODO()
+            if (parameters.writeAC) byteVector.putShort(value.AC!!)
+            if (parameters.writeSign) ByteVectorUtils.Bits.direct(byteVector, value.sign!!)
+            ByteVectorUtils.Code.direct(byteVector, value.code as DataOpc2.Code.BI, value.base, parameters.unitSize)
             null
         }
     }
 
     fun reverse(reader: ByteVector.Read, basesMatrix: Matrix<DataOpc2.Base>): Matrix<DataOpc2> {
         return basesMatrix.map { i, j, value ->
-            TODO()
+            val builder = DataOpc2.Builder(originSize = parameters.unitSize)
+            builder.AC = if (parameters.writeAC) reader.nextShort() else null
+            builder.sign = if (parameters.writeSign) ByteVectorUtils.Bits.reverse(reader, parameters.unitSize) else null
+            builder.N = ByteVectorUtils.Code.reverse(reader, value, parameters.unitSize).N
+            builder.build()
         }
     }
 }
