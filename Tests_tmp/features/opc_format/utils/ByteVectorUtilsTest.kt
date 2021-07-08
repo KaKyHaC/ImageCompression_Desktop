@@ -35,6 +35,18 @@ internal class ByteVectorUtilsTest {
     }
 
     @Test
+    fun testBits() {
+        testBits(Size(16))
+        testBits(Size(8))
+    }
+
+    @Test
+    fun testBits1() {
+        testBits(Size(16, 3))
+        testBits(Size(8,9))
+    }
+
+    @Test
     fun testBI() {
         val bi = BigInteger.valueOf(4543)
         val toByteArray = bi.toByteArray()
@@ -59,5 +71,18 @@ internal class ByteVectorUtilsTest {
         val expected = (opc.code as DataOpc2.Code.BI).N
         val actual = reverse.N
         assertTrue { actual.equals(expected) }
+    }
+
+    fun testBits(size: Size) {
+        val matrix = Matrix.create(size) { i, j -> rand.nextBoolean() }
+        val vector = ByteVector()
+        ByteVectorUtils.Bits.direct(vector, matrix)
+
+        val reader = vector.getReader()
+        val reverse = ByteVectorUtils.Bits.reverse(reader, size)
+
+        assertEquals(matrix, reverse)
+        matrix[0, 0] = matrix[0, 0].not()
+        assertNotEquals(matrix, reverse)
     }
 }
