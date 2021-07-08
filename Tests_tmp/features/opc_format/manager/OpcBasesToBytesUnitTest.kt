@@ -13,21 +13,47 @@ internal class OpcBasesToBytesUnitTest {
     val rand = Random()
 
     @Test
-    fun test8() {
+    fun unit1() {
+        val opcBasesToBytesUnit = OpcBasesToBytesUnit(OpcBasesToBytesUnit.Type.MIN_AND_MAX)
         for (i in 0..100000)
-            customTest(8)
+            customTestUnit(opcBasesToBytesUnit, 8)
     }
 
+
     @Test
-    fun test8Utils() {
+    fun utils1() {
         for (i in 0..100000)
             customTestUtils(8)
     }
 
+
     @Test
-    fun test8Unit() {
+    fun unit2() {
+        val opcBasesToBytesUnit = OpcBasesToBytesUnit(OpcBasesToBytesUnit.Type.MIN_AND_MAX)
         for (i in 0..100000)
-            customTest(8)
+            customTestUnit(opcBasesToBytesUnit, 8)
+    }
+
+
+    @Test
+    fun utils2() {
+        for (i in 0..100000)
+            customTestUtils(8)
+    }
+
+
+    @Test
+    fun unit3() {
+        val opcBasesToBytesUnit = OpcBasesToBytesUnit(OpcBasesToBytesUnit.Type.MIN_AND_MAX)
+        for (i in 0..100000)
+            customTestUnit(opcBasesToBytesUnit, 8)
+    }
+
+
+    @Test
+    fun utils3() {
+        for (i in 0..100000)
+            customTestUtils(8)
     }
 
     fun customTestUtils(size: Int) {
@@ -43,14 +69,13 @@ internal class OpcBasesToBytesUnitTest {
     }
 
 
-    fun customTest(size: Int) {
-        val opcBasesToBytesUnit = OpcBasesToBytesUnit(OpcBasesToBytesUnit.Type.MIN_AND_MAX)
+    fun customTestUnit(unit: OpcBasesToBytesUnit, size: Int) {
         val min = ShortArray(size) { rand.nextInt(255).absoluteValue.toShort() }
         val max = ShortArray(size) { rand.nextInt(255).absoluteValue.toShort() }
         val base = DataOpc2.Base.MaxMin(max, min)
         val vector = ByteVector()
-        opcBasesToBytesUnit.direct(vector, base)
-        val reverse = opcBasesToBytesUnit.reverse(vector.getReader(), size)
+        unit.direct(vector, base)
+        val reverse = unit.reverse(vector.getReader(), size)
         assertEquals(base.baseMin.toList(), (reverse as DataOpc2.Base.MaxMin).baseMin.toList())
         assertEquals(base.baseMax.toList(), reverse.baseMax.toList())
     }
