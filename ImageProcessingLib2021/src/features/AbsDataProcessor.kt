@@ -20,7 +20,7 @@ abstract class AbsDataProcessor<IN : ProcessingData, OUT : ProcessingData>(
         else throw Exception("${this.javaClass} can't processReverse this data = $data")
     }
 
-    protected abstract fun processDirectTyped(data: IN): OUT
+    abstract fun processDirectTyped(data: IN): OUT
 
-    protected abstract fun processReverseTyped(data: OUT): IN
+    abstract fun processReverseTyped(data: OUT): IN
 }
