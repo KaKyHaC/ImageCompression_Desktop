@@ -21,6 +21,16 @@ internal class OpcToBytesUnitTest {
         test(Size(16))
     }
 
+    @Test
+    fun test12() {
+        test(Size(128))
+    }
+
+    @Test
+    fun test3() {
+        test(Size(123, 13))
+    }
+
     fun test(matrixSize: Size) {
         val matrix = Matrix.create(matrixSize) { i, j -> rand.nextInt(255).absoluteValue.toShort() }
         val opcProcessingManager2 = OpcProcessingManager2()
