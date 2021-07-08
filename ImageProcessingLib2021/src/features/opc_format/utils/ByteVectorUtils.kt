@@ -1,9 +1,11 @@
 package features.opc_format.utils
 
+import data_model.generics.matrix.Matrix
 import data_model.types.ByteVector
 import data_model.types.DataOpc2
 import data_model.types.Size
 import java.math.BigInteger
+import java.util.*
 import kotlin.experimental.and
 
 object ByteVectorUtils {
@@ -56,6 +58,23 @@ object ByteVectorUtils {
             val nextBytes = reader.nextBytes(lengthOfCode)
             val bigInteger = BigInteger(nextBytes)
             return DataOpc2.Code.BI(bigInteger)
+        }
+    }
+
+    object Bits {
+        fun direct(byteVector: ByteVector, bits: Matrix<Boolean>) {
+            val bitSet = BitSet(bits.width * bits.height)
+            var counter = 0
+            bits.applyEach { i, j, value -> bitSet.set(counter++, value); null }
+            byteVector.putArray(bitSet.toByteArray().toList())
+        }
+
+        fun reverse(reader: ByteVector.Read, size: data_model.types.Size): Matrix<Boolean> {
+            val len = size.width * size.height
+            val nextBytes = reader.nextBytes(len)
+            val valueOf = BitSet.valueOf(nextBytes)
+            var counter = 0
+            return Matrix.create(size) { i, j -> valueOf.get(counter++) }
         }
     }
 }
