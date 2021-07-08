@@ -47,7 +47,7 @@ object ByteVectorUtils {
             val lengthOfCode = bases.getLengthOfCode(unitSize)
             val toByteArray = code.N.toByteArray()
             val offset = lengthOfCode - toByteArray.size
-            val list = List(lengthOfCode) { if (it >= offset) toByteArray[it + offset] else 0b0 }
+            val list = List(lengthOfCode) { if (it >= offset) toByteArray[it - offset] else 0b0 }
             byteVector.putArray(list)
         }
 
