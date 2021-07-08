@@ -34,6 +34,8 @@ class OpcToBytesUnit(
             builder.AC = if (parameters.writeAC) reader.nextShort() else null
             builder.sign = if (parameters.writeSign) ByteVectorUtils.Bits.reverse(reader, parameters.unitSize) else null
             builder.N = ByteVectorUtils.Code.reverse(reader, value, parameters.unitSize).N
+            builder.baseMax = value.baseMax
+            builder.baseMin = (value as? DataOpc2.Base.MaxMin)?.baseMin
             builder.build()
         }
     }
