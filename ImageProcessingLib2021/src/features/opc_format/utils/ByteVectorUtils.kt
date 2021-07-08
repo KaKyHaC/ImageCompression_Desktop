@@ -12,7 +12,7 @@ object ByteVectorUtils {
 
     object Bases {
 
-        enum class Type { MAX, MIN_AND_MAX }
+        enum class Type { MAX, MIN_AND_MAX } //todo add min
 
         fun direct(byteVector: ByteVector, bases: DataOpc2.Base, type: Type = Type.MAX) {
             bases.baseMax.forEach { byteVector.putByte(it.toByte()) }
