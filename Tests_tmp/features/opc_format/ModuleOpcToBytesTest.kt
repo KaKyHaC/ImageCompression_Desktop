@@ -27,6 +27,11 @@ internal class ModuleOpcToBytesTest {
         test(Size(128))
     }
 
+    @Test
+    fun test128() {
+        test(Size(128))
+    }
+
     fun test(matrixSize: Size) {
         val matrix = Matrix.create(matrixSize) { i, j -> rand.nextInt(255).absoluteValue.toShort() }
         val moduleOpc2 = ModuleOpc2()
