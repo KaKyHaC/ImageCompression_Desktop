@@ -12,7 +12,16 @@ data class DataOpc2(
 ) {
     sealed class Base(val baseMax: ShortArray) {
         class Max(baseMax: ShortArray) : Base(baseMax)
-        class MaxMin(baseMax: ShortArray, val baseMin: ShortArray) : Base(baseMax)
+        class MaxMin(baseMax: ShortArray, val baseMin: ShortArray) : Base(baseMax) {
+            override fun equals(other: Any?): Boolean {
+                (other as? MaxMin)?.let {
+                    if (it.baseMin.size != baseMin.size) return false
+                    for (i in baseMin.indices)
+                        if (it.baseMin[i] != baseMin[i]) return false
+                } ?: return false
+                return super.equals(other)
+            }
+        }
 
         override fun equals(other: Any?): Boolean {
             (other as? Base)?.let {
