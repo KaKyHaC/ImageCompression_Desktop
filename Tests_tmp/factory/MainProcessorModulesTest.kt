@@ -12,6 +12,7 @@ import features.write_bytes.ModuleWriteBytes
 import features.write_bytes.ModuleWriteBytesTest
 import org.junit.Test
 import java.io.File
+import kotlin.test.assertEquals
 
 
 internal class MainProcessorModulesTest {
@@ -37,7 +38,7 @@ internal class MainProcessorModulesTest {
         val opc = moduleOpc2.processDirectTyped(qnt)
         val bytes = moduleOpcToBytes.processDirectTyped(opc)
         val outFile = moduleWriteBytes.processDirectTyped(bytes)
-
+        println("startReverse")
         val rBytes = moduleWriteBytes.processReverseTyped(outFile)
         val rOpc = moduleOpcToBytes.processReverseTyped(rBytes)
         val rQnt = moduleOpc2.processReverseTyped(rOpc)
@@ -46,5 +47,10 @@ internal class MainProcessorModulesTest {
         val rYbr = moduleEnlargement.processReverseTyped(rEnl)
         val rRgb = moduleRgbToYCbCr.processReverseTyped(rYbr)
         moduleReadImage.processReverseTyped(rRgb)
+        println("start equals")
+
+        assertEquals(bytes, rBytes)
+        assertEquals(opc, rOpc)
+        assertEquals(qnt, rQnt)
     }
 }
