@@ -34,9 +34,9 @@ internal class ModuleOpc2Test {
     fun test(matrixSize: Size) {
         val moduleOpc2 = ModuleOpc2()
         val data = ProcessingData.Image(Triple(
-                Matrix.create(matrixSize) { i, j -> rand.nextInt(255).absoluteValue.toShort() },
-                Matrix.create(matrixSize) { i, j -> rand.nextInt(255).absoluteValue.toShort() },
-                Matrix.create(matrixSize) { i, j -> rand.nextInt(255).absoluteValue.toShort() }
+                Matrix.create(matrixSize) { i, j -> (-100 + rand.nextInt(255)).toShort() },
+                Matrix.create(matrixSize) { i, j -> (-100 + rand.nextInt(255)).toShort() },
+                Matrix.create(matrixSize) { i, j -> (-100 + rand.nextInt(255)).toShort() }
         ))
         val copy = ProcessingData.Image(Triple(
                 MatrixUtils.copy(data.triple.first),
