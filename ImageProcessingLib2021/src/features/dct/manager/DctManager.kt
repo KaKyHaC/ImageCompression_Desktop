@@ -10,7 +10,7 @@ class DctManager(val parameters: Parameters = Parameters()) {
     data class Parameters(
             val childSize: Size = Size(8, 8),
             val params: DctUnit.Parameters = DctUnit.Parameters(childSize),
-            val subtractFirstElements: Boolean = true,
+            val subtractFirstElements: Boolean = false, //fixme
             val remove128: Boolean = true
     )
 
