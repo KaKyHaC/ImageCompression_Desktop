@@ -33,6 +33,12 @@ internal class ImageOpcBytesTest {
         test(Size(128))
     }
 
+
+    @Test
+    fun testHd() {
+        test(Size(1920,1080))
+    }
+
     fun test(matrixSize: Size) {
         val moduleOpc2 = ModuleOpc2()
         val moduleOpcToBytes = ModuleOpcToBytes()
