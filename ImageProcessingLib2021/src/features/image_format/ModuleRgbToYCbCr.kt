@@ -7,9 +7,11 @@ import features.image_format.data.RGB
 import features.image_format.data.YCbCr
 import features.image_format.utils.RgbToYbrUtils
 
-class ModuleRgbToYCbCr() : AbsDataProcessor<ProcessingData.Image, ProcessingData.Image>(
+class ModuleRgbToYCbCr(val parameters: Parameters = Parameters()) : AbsDataProcessor<ProcessingData.Image, ProcessingData.Image>(
         ProcessingData.Image::class, ProcessingData.Image::class
 ) {
+
+    class Parameters
 
     override fun processDirectTyped(data: ProcessingData.Image): ProcessingData.Image {
         val rgb = RGB(data.triple.first, data.triple.second, data.triple.third)

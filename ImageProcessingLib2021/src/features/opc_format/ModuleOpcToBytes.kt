@@ -6,10 +6,12 @@ import features.AbsDataProcessor
 import features.opc_format.manager.OpcBasesToBytesManager
 import features.opc_format.manager.OpcToBytesManager
 
-class ModuleOpcToBytes : AbsDataProcessor<ProcessingData.Opc2, ProcessingData.Bytes>(
+class ModuleOpcToBytes(
+        val parameters: Parameters = Parameters()
+) : AbsDataProcessor<ProcessingData.Opc2, ProcessingData.Bytes>(
         ProcessingData.Opc2::class, ProcessingData.Bytes::class
 ) {
-    //todo add parameters
+    class Parameters
 
     private val baseManager = OpcBasesToBytesManager()
     private val opcManager = OpcToBytesManager()
