@@ -12,8 +12,8 @@ class OpcBasesToBytesManager(
 ) {
 
     data class Parameters(
-            val sameBaseLength: Boolean = true,
-            val sameMatrixSize: Boolean = true,
+            val sameBaseLength: Boolean = false,
+            val sameMatrixSize: Boolean = false,
             val firth: OpcBasesToBytesUnit.Parameters = OpcBasesToBytesUnit.Parameters(),
             val second: OpcBasesToBytesUnit.Parameters = OpcBasesToBytesUnit.Parameters(),
             val third: OpcBasesToBytesUnit.Parameters = OpcBasesToBytesUnit.Parameters()
