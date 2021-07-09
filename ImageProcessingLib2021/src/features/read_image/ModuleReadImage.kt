@@ -14,11 +14,12 @@ class ModuleReadImage(
 ) {
 
     data class Parameters(
-            val fileName: String = "image.bmp"
+            val fileName: String = "image.bmp",
+            val useDataFile: Boolean = true
     )
 
     override fun processDirectTyped(data: ProcessingData.File): ProcessingData.Image {
-        val file = File(parameters.fileName)
+        val file = if (parameters.useDataFile) data.file else File(parameters.fileName)
         val bufferedImage = ImageIO.read(file)
         val map = ReadBmpUtils.map(bufferedImage)
         return ProcessingData.Image(map)

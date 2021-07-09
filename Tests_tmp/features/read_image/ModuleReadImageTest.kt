@@ -9,9 +9,8 @@ internal class ModuleReadImageTest {
 
     @Test
     fun testIO(){
-        val readModule = ModuleReadImage(ModuleReadImage.Parameters("jpegEncoder.jpeg"))
-        val writeModule = ModuleReadImage(ModuleReadImage.Parameters("outTest.bmp"))
-        val processDirectTyped = readModule.processDirectTyped(ProcessingData.File(File("")))
-        writeModule.processReverseTyped(processDirectTyped)
+        val module = ModuleReadImage(ModuleReadImage.Parameters("outTest.bmp"))
+        val processDirectTyped = module.processDirectTyped(ProcessingData.File(File("jpegEncoder.jpeg")))
+        module.processReverseTyped(processDirectTyped)
     }
 }
