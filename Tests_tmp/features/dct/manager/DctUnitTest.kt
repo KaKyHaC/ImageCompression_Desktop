@@ -13,22 +13,22 @@ internal class DctUnitTest {
 
     @Test
     fun test32R5() {
-        test(DctUnit.Parameters(), Size(32,32), 0..5)
+        test(Size(32, 32), 0..5)
     }
 
     @Test
     fun test16R5() {
-        test(DctUnit.Parameters(), Size(16), 0..5)
+        test(Size(16), 0..5)
     }
 
     @Test
     fun test8R5() {
-        test(DctUnit.Parameters(), Size(8), 0..5)
+        test(Size(8), 0..5)
     }
 
-    fun test(parameters: DctUnit.Parameters, imageSize: Size, range: IntRange) {
+    fun test(imageSize: Size, range: IntRange) {
         val origin = Matrix.create(imageSize) { i, j -> rand.nextInt(255).absoluteValue.toShort() }
-        val dctUnit = DctUnit(parameters)
+        val dctUnit = DctUnit(DctUnit.Parameters(imageSize))
         val direct = dctUnit.direct(origin)
         val reverse = dctUnit.reverse(direct)
         MatrixUtilsTest.assertMatrixInRange(origin, reverse, range)
