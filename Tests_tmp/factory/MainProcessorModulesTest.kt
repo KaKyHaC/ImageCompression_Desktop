@@ -47,10 +47,13 @@ internal class MainProcessorModulesTest {
         val rYbr = moduleEnlargement.processReverseTyped(rEnl)
         val rRgb = moduleRgbToYCbCr.processReverseTyped(rYbr)
         moduleReadImage.processReverseTyped(rRgb)
-        println("start equals")
 
+        println("start equals")
+        println("start bytes")
         assertEquals(bytes, rBytes)
+        println("start opc")
         assertEquals(opc, rOpc)
+        println("start qnt")
         assertEquals(qnt, rQnt)
     }
 }
