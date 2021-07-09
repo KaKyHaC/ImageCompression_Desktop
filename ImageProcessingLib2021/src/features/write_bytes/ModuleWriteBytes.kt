@@ -13,7 +13,8 @@ class ModuleWriteBytes(
 ) {
 
     data class Parameters(
-            val fileName: String = "image.bar"
+            val fileName: String = "image.bar",
+            val useDataFile: Boolean = true
     )
 
     override fun processDirectTyped(data: ProcessingData.Bytes): ProcessingData.File {
@@ -25,7 +26,7 @@ class ModuleWriteBytes(
     }
 
     override fun processReverseTyped(data: ProcessingData.File): ProcessingData.Bytes {
-        val file = File(parameters.fileName)
+        val file = if (parameters.useDataFile) data.file else File(parameters.fileName)
         val readBytes = file.readBytes()
         val byteVector = ByteVector()
         readBytes.forEach { byteVector.putByte(it) }
