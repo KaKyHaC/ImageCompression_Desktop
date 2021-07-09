@@ -28,7 +28,7 @@ internal class MainProcessorModulesTest {
 
     @Test
     fun testDefault() {
-        val readData = ProcessingData.File(File("outTest.bmp"))
+        val readData = ProcessingData.File(File("download.jpg"))
 
         val imageOrigin = moduleReadImage.processDirectTyped(readData)
         val ybr = moduleRgbToYCbCr.processDirectTyped(imageOrigin)
