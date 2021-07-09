@@ -81,6 +81,15 @@ internal class MainProcessorTest {
     }
 
     @Test
+    fun testRgbOpc() {
+        val list = listOf(
+                ProcessorModuleFactory.ModuleParams.ReadImage(ModuleReadImage.Parameters("testRgbOpc.bmp")),
+                ProcessorModuleFactory.ModuleParams.Opc()
+        )
+        test(list)
+    }
+
+    @Test
     fun testOpcToBytes() {
         val list = listOf(
                 ProcessorModuleFactory.ModuleParams.ReadImage(ModuleReadImage.Parameters("testOpcToBytes.bmp")),
