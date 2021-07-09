@@ -11,7 +11,7 @@ class OpcBasesToBytesUnit(
 ) {
 
     data class Parameters(
-            val type: ByteVectorUtils.Bases.Type = ByteVectorUtils.Bases.Type.MAX
+            val type: ByteVectorUtils.Bases.Type = ByteVectorUtils.Bases.Type.MIN_AND_MAX
     )
 
     fun direct(
@@ -25,6 +25,6 @@ class OpcBasesToBytesUnit(
     }
 
     fun reverse(reader: ByteVector.Read, baseSize: Int, matrixSize: Size): Matrix<DataOpc2.Base> {
-        return Matrix.create(matrixSize) { i, j -> ByteVectorUtils.Bases.reverse(reader, baseSize) }
+        return Matrix.create(matrixSize) { i, j -> ByteVectorUtils.Bases.reverse(reader, baseSize, parameters.type) }
     }
 }
