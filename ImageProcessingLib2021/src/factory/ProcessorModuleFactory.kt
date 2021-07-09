@@ -12,8 +12,19 @@ import features.read_image.ModuleReadImage
 import features.write_bytes.ModuleWriteBytes
 
 object ProcessorModuleFactory {
+
     fun getModule(params: ModuleParams): IDataProcessor {
-        TODO()
+        return when(params) {
+            is ModuleParams.Dct -> ModuleDct(params.params)
+            is ModuleParams.Enlargement -> ModuleEnlargement(params.params)
+            is ModuleParams.Opc -> ModuleOpc2(params.params)
+            is ModuleParams.OpcBases -> ModuleBasesOpc2(params.params)
+            is ModuleParams.OpcToBytes -> ModuleOpcToBytes(params.params)
+            is ModuleParams.Quantization -> ModuleQuantization(params.params)
+            is ModuleParams.ReadImage -> ModuleReadImage(params.params)
+            is ModuleParams.RgbToYbr -> ModuleRgbToYCbCr(params.params)
+            is ModuleParams.WriteBytes -> ModuleWriteBytes(params.params)
+        }
     }
 
     sealed class ModuleParams {
