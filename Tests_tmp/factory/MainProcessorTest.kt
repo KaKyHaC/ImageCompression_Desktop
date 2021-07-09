@@ -66,6 +66,34 @@ internal class MainProcessorTest {
         test(list)
     }
 
+
+    @Test
+    fun testOpc() {
+        val list = listOf(
+                ProcessorModuleFactory.ModuleParams.ReadImage(ModuleReadImage.Parameters("testOpc.bmp")),
+                ProcessorModuleFactory.ModuleParams.RgbToYbr(),
+                ProcessorModuleFactory.ModuleParams.Enlargement(),
+                ProcessorModuleFactory.ModuleParams.Dct(),
+                ProcessorModuleFactory.ModuleParams.Quantization(),
+                ProcessorModuleFactory.ModuleParams.Opc()
+        )
+        test(list)
+    }
+
+    @Test
+    fun testOpcToBytes() {
+        val list = listOf(
+                ProcessorModuleFactory.ModuleParams.ReadImage(ModuleReadImage.Parameters("testOpcToBytes.bmp")),
+                ProcessorModuleFactory.ModuleParams.RgbToYbr(),
+                ProcessorModuleFactory.ModuleParams.Enlargement(),
+                ProcessorModuleFactory.ModuleParams.Dct(),
+                ProcessorModuleFactory.ModuleParams.Quantization(),
+                ProcessorModuleFactory.ModuleParams.Opc(),
+                ProcessorModuleFactory.ModuleParams.OpcToBytes()
+        )
+        test(list)
+    }
+
     fun test(list: List<ProcessorModuleFactory.ModuleParams>) {
         val mainProcessor = MainProcessor(MainProcessor.Params(list))
         val run = mainProcessor.run(ProcessingData.File(File("outTest.bmp")))
