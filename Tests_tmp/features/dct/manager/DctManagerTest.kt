@@ -3,6 +3,7 @@ package features.dct.manager
 import data_model.generics.matrix.Matrix
 import data_model.types.Size
 import org.junit.Test
+import utils.MatrixUtils
 import utils.MatrixUtilsTest
 import java.util.*
 import kotlin.math.absoluteValue
@@ -17,8 +18,8 @@ internal class DctManagerTest {
     }
 
     @Test
-    fun testHdR2() {
-        test(Size(1920, 1080), 0..2)
+    fun testHdR10() {
+        test(Size(1920, 1080), 0..10)
     }
 
     @Test
@@ -33,9 +34,10 @@ internal class DctManagerTest {
 
     fun test(imageSize: Size, range: IntRange) {
         val origin = Matrix.create(imageSize) { i, j -> rand.nextInt(255).absoluteValue.toShort() }
+        val copy = MatrixUtils.copy(origin)
         val dctUnit = DctManager()
         val direct = dctUnit.direct(origin)
         val reverse = dctUnit.reverse(direct)
-        MatrixUtilsTest.assertMatrixInRange(origin, reverse, range)
+        MatrixUtilsTest.assertMatrixInRange(copy, reverse, range)
     }
 }
