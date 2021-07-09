@@ -40,9 +40,9 @@ internal class ModuleOpcToBytesTest {
                 Matrix.create(matrixSize) { i, j -> rand.nextInt(255).absoluteValue.toShort() })
         )
 
-        val opcData = moduleOpc2.processDirect(imageData)
-        val bytesData = moduleOpcToBytes.processDirect(opcData)
-        val reverseOpc = moduleOpcToBytes.processReverse(bytesData)
+        val opcData = moduleOpc2.processDirectTyped(imageData)
+        val bytesData = moduleOpcToBytes.processDirectTyped(opcData)
+        val reverseOpc = moduleOpcToBytes.processReverseTyped(bytesData)
         assertEquals(opcData, reverseOpc)
     }
 }
