@@ -8,11 +8,19 @@ import org.junit.Test
 import java.util.*
 import kotlin.math.absoluteValue
 import kotlin.test.assertEquals
+import kotlin.test.assertNotEquals
 
 
 internal class ReadBmpUtilsTest {
 
     val rand = Random()
+
+    @Test
+    fun testShl() {
+        val a = 4
+        val b = a shl 3
+        assertNotEquals(a, b)
+    }
 
     @Test
     fun testHd() {

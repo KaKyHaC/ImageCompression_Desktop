@@ -37,7 +37,7 @@ object ReadBmpUtils {
                 val r = bmp.first[i, j].toInt() shl ROLL_RED
                 val g = bmp.second[i, j].toInt() shl ROLL_GREEN
                 val b = bmp.third[i, j].toInt() shl ROLL_BLUE
-                bufferedImage.setRGB(i, j, r and g and b)
+                bufferedImage.setRGB(i, j, r or g or b)
             }
         }
         return bufferedImage
