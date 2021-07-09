@@ -2,22 +2,20 @@ package factory
 
 import data_model.processing_data.ProcessingData
 
-object MainProcessor {
+class MainProcessor(val params: Params) {
 
-    fun run(params: Params, mode: Mode = Mode.DIRECT): Params {
-        val modules = params.moduleParams.map { ProcessorModuleFactory.getModule(it) }
-        var data = params.data
+    private val modules = params.moduleParams.map { ProcessorModuleFactory.getModule(it) }
+
+    fun run(data: ProcessingData, mode: Mode = Mode.DIRECT): ProcessingData {
+        var tmp = data
         when (mode) {
-            Mode.DIRECT -> modules.forEach { data = it.processDirect(data) }
-            Mode.REVERSE -> modules.reversed().forEach { data = it.processReverse(data) }
+            Mode.DIRECT -> modules.forEach { tmp = it.processDirect(tmp) }
+            Mode.REVERSE -> modules.reversed().forEach { tmp = it.processReverse(tmp) }
         }
-        return Params(data, params.moduleParams)
+        return tmp
     }
 
     enum class Mode { DIRECT, REVERSE }
 
-    data class Params(
-            val data: ProcessingData,
-            val moduleParams: List<ProcessorModuleFactory.ModuleParams>
-    )
+    data class Params(val moduleParams: List<ProcessorModuleFactory.ModuleParams>)
 }
