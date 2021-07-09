@@ -27,4 +27,19 @@ object ReadBmpUtils {
         }
         return Triple(r, g, b)
     }
+
+
+    fun map(bmp: Triple<Matrix<Short>>): BufferedImage {
+        val size = bmp.first.size
+        val bufferedImage = BufferedImage(size.width, size.height, BufferedImage.TYPE_3BYTE_BGR)
+        for (i in 0..size.width) {
+            for (j in 0..size.height) {
+                val r = bmp.first[i, j].toInt() shl ROLL_RED
+                val g = bmp.second[i, j].toInt() shl ROLL_GREEN
+                val b = bmp.second[i, j].toInt() shl ROLL_BLUE
+                bufferedImage.setRGB(i, j, r and g and b)
+            }
+        }
+        return bufferedImage
+    }
 }
