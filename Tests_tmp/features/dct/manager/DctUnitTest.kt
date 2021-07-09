@@ -12,23 +12,18 @@ internal class DctUnitTest {
     val rand = Random()
 
     @Test
-    fun testHdR0() {
-        test(DctUnit.Parameters(), Size(1920,1080), 0..0)
+    fun test32R5() {
+        test(DctUnit.Parameters(), Size(32,32), 0..5)
     }
 
     @Test
-    fun testHdR2() {
-        test(DctUnit.Parameters(), Size(1920,1080), 0..2)
-    }
-
-    @Test
-    fun testHdR5() {
-        test(DctUnit.Parameters(), Size(1920,1080), 0..5)
+    fun test16R5() {
+        test(DctUnit.Parameters(), Size(16), 0..5)
     }
 
     @Test
     fun test8R5() {
-        test(DctUnit.Parameters(), Size(8,8), 0..5)
+        test(DctUnit.Parameters(), Size(8), 0..5)
     }
 
     fun test(parameters: DctUnit.Parameters, imageSize: Size, range: IntRange) {
