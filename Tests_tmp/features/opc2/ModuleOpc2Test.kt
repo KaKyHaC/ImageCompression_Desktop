@@ -9,6 +9,7 @@ import utils.MatrixUtils
 import java.util.*
 import kotlin.math.absoluteValue
 import kotlin.test.assertEquals
+import kotlin.test.assertNotEquals
 
 
 internal class ModuleOpc2Test {
@@ -45,6 +46,8 @@ internal class ModuleOpc2Test {
         val direct = moduleOpc2.processDirectTyped(data)
         val processReverseTyped = moduleOpc2.processReverseTyped(direct)
         assertEquals(copy, processReverseTyped)
+        copy.triple.first[0,0]++
+        assertNotEquals(copy, processReverseTyped)
     }
 
 }
