@@ -12,4 +12,11 @@ object ProcessorModuleFactorySamples {
             ProcessorModuleFactory.ModuleParams.OpcToBytes(),
             ProcessorModuleFactory.ModuleParams.WriteBytes()
     )
+
+    val opcOnlyList = listOf(
+            ProcessorModuleFactory.ModuleParams.ReadImage(),
+            ProcessorModuleFactory.ModuleParams.Opc(),
+            ProcessorModuleFactory.ModuleParams.OpcToBytes(),
+            ProcessorModuleFactory.ModuleParams.WriteBytes()
+    )
 }
