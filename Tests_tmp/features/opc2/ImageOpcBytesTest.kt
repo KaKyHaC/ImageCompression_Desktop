@@ -44,9 +44,9 @@ internal class ImageOpcBytesTest {
         val moduleOpcToBytes = ModuleOpcToBytes()
 
         val imageData = ProcessingData.Image(Triple(
-                Matrix.create(matrixSize) { i, j -> (-100 + rand.nextInt(255)).toShort() },
-                Matrix.create(Size(8, 8)) { i, j -> (-100 + rand.nextInt(255)).toShort() },
-                Matrix.create(Size(16, 16)) { i, j -> (-100 + rand.nextInt(255)).toShort() })
+                Matrix.create(matrixSize) { i, j -> (-100 + rand.nextInt(2505)).toShort() },
+                Matrix.create(Size(8, 8)) { i, j -> (-100 + rand.nextInt(2505)).toShort() },
+                Matrix.create(Size(16, 16)) { i, j -> (-100 + rand.nextInt(2055)).toShort() })
         )
 
         val copy = ProcessingData.Image(Triple(
