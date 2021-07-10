@@ -30,6 +30,22 @@ object ByteVectorUtils {
             }
         }
 
+        fun directShort(byteVector: ByteVector, bases: DataOpc2.Base, type: Type = Type.MAX) {
+            bases.baseMax.forEach { byteVector.putShort(it) }
+            if (type == Type.MIN_AND_MAX)
+                (bases as DataOpc2.Base.MaxMin).baseMin.forEach { byteVector.putShort(it) }
+        }
+
+        fun reverseShort(reader: ByteVector.Read, baseSize: Int, type: Type = Type.MAX): DataOpc2.Base {
+            val max = ShortArray(baseSize) { reader.nextShort() }
+            return if (type == Type.MIN_AND_MAX) {
+                val min = ShortArray(baseSize) { reader.nextShort() }
+                DataOpc2.Base.MaxMin(max, min)
+            } else {
+                DataOpc2.Base.Max(max)
+            }
+        }
+
     }
 
     object Size {
