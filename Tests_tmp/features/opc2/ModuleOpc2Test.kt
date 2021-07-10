@@ -16,6 +16,17 @@ internal class ModuleOpc2Test {
 
     val rand = Random()
 
+    val customMatrix = Matrix(arrayOf(
+            arrayOf(-970, -10, 0, 0, 0, 0, 0, 0),
+            arrayOf(-10, 0, 0, 0, 0, 0, 0, 0),
+            arrayOf(0, 0, 0, 0, 0, 0, 0, 0),
+            arrayOf(0, 0, 0, 0, 0, 0, 0, 0),
+            arrayOf(0, 0, 0, 0, 0, 0, 0, 0),
+            arrayOf(0, 0, 0, 0, 0, 0, 0, 0),
+            arrayOf(0, 0, 0, 0, 0, 0, 0, 0),
+            arrayOf(0, 0, 0, 0, 0, 0, 0, 0)), Int::class
+    ).map { i, j, value -> value.toShort() }
+
     @Test
     fun test8() {
         test(Size(8))
@@ -33,7 +44,7 @@ internal class ModuleOpc2Test {
 
     @Test
     fun testHd() {
-        test(Size(1920,1080))
+        test(Size(1920, 1080))
     }
 
     fun test(matrixSize: Size) {
@@ -51,7 +62,7 @@ internal class ModuleOpc2Test {
         val direct = moduleOpc2.processDirectTyped(data)
         val processReverseTyped = moduleOpc2.processReverseTyped(direct)
         assertEquals(copy, processReverseTyped)
-        copy.triple.first[0,0]++
+        copy.triple.first[0, 0]++
         assertNotEquals(copy, processReverseTyped)
     }
 
