@@ -21,6 +21,14 @@ data class DataOpc2(
                 } ?: return false
                 return super.equals(other)
             }
+
+            override fun toString(): String {
+                return "max = ${baseMax.toList()}, min = ${baseMin.toList()}"
+            }
+        }
+
+        override fun toString(): String {
+            return baseMax.toList().toString()
         }
 
         override fun equals(other: Any?): Boolean {
