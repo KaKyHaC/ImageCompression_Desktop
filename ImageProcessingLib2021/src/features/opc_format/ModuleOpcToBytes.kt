@@ -22,7 +22,10 @@ class ModuleOpcToBytes(
     override fun processDirectTyped(data: ProcessingData.Opc2): ProcessingData.Bytes {
         val byteVector = ByteVector()
         baseManager?.direct(byteVector, data.triple.map { it.map { i, j, dataOpc -> dataOpc.base } }) //todo remove map
+        val len1 = byteVector.getBytes().size
         opcManager?.direct(byteVector, data.triple)
+        val len2 = byteVector.getBytes().size - len1
+        println("len1 = ${len1}, len2 = $len2")
         return ProcessingData.Bytes(byteVector)
     }
 
