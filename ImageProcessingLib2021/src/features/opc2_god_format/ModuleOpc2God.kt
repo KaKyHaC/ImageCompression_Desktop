@@ -35,6 +35,11 @@ class ModuleOpc2God(
     }
 
     override fun processReverseTyped(data: ProcessingData.Bytes): ProcessingData.Opc2 {
-        TODO("Not yet implemented")
+        val reader = data.byteVector.getReader()
+        val basesOpcBase = baseManager.reverse(reader)
+        val basesOpc = opcManager.reverse(reader, basesOpcBase)
+        val basesData = moduleBasesOpc2.processReverseTyped(ProcessingData.Opc2(basesOpc))
+        val reverse = opcManager.reverse(reader, basesData.triple)
+        return ProcessingData.Opc2(reverse)
     }
 }
