@@ -16,12 +16,12 @@ class OpcProcessingManager2(
 
     val unit = OpcProcessUnit2(parameters.params)
 
-    fun direct(image: Matrix<Short>): Matrix<out DataOpc2> {
+    fun direct(image: Matrix<Short>): Matrix<DataOpc2> {
         val splitIterator = MatrixUtils.splitIterator(image, parameters.childSize, 0)
         return splitIterator.map { i, j, value -> unit.direct(value) }
     }
 
-    fun reverse(dataOpcMatrix: Matrix<out DataOpc2>, imageSize: Size? = null): Matrix<Short> {
+    fun reverse(dataOpcMatrix: Matrix<DataOpc2>, imageSize: Size? = null): Matrix<Short> {
         val map = dataOpcMatrix.map { i, j, dataOpc -> unit.reverse(dataOpc, parameters.childSize) }
         return MatrixUtils.gatherMatrix(map, imageSize)
     }

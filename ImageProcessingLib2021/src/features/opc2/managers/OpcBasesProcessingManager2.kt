@@ -18,7 +18,7 @@ class OpcBasesProcessingManager2(
 
     val manager = OpcProcessingManager2(parameters.params)
 
-    fun direct(baseMatrix: Matrix<out DataOpc2.Base>): Matrix<out DataOpc2> {
+    fun direct(baseMatrix: Matrix<out DataOpc2.Base>): Matrix<DataOpc2> {
         val baseSize = Size(baseMatrix[0, 0].baseMax.size, 1)
         val baseShortMatrix = when (parameters.type) {
             BaseProcessType.MAX_ONLY -> Matrix.create(Size(baseMatrix.width * baseSize.width, baseMatrix.height * baseSize.height)) { i, j ->
@@ -31,7 +31,7 @@ class OpcBasesProcessingManager2(
         return manager.direct(tmp)
     }
 
-    fun reverse(basesOpc: Matrix<out DataOpc2>, baseMatrixSize: Size? = null, baseSize: Size = Size(8, 1)): Matrix<DataOpc2.Base> {
+    fun reverse(basesOpc: Matrix<DataOpc2>, baseMatrixSize: Size? = null, baseSize: Size = Size(8, 1)): Matrix<DataOpc2.Base> {
         val reverse = manager.reverse(basesOpc)
         val tmp = if (parameters.needTrans) MatrixUtils.trans(reverse) else reverse
         val splitIterator = MatrixUtils.splitIterator(tmp, baseSize, 0)

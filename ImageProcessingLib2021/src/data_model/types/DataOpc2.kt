@@ -8,10 +8,28 @@ data class DataOpc2(
         val sign: Matrix<Boolean>?,
         val AC: Short?,
         val code: Code
+//        val originSize: Size
 ) {
     sealed class Base(val baseMax: ShortArray) {
         class Max(baseMax: ShortArray) : Base(baseMax)
-        class MaxMin(baseMax: ShortArray, val baseMin: ShortArray) : Base(baseMax)
+        class MaxMin(baseMax: ShortArray, val baseMin: ShortArray) : Base(baseMax) {
+            override fun equals(other: Any?): Boolean {
+                (other as? MaxMin)?.let {
+                    if (it.baseMin.size != baseMin.size) return false
+                    for (i in baseMin.indices)
+                        if (it.baseMin[i] != baseMin[i]) return false
+                } ?: return false
+                return super.equals(other)
+            }
+
+            override fun toString(): String {
+                return "max = ${baseMax.toList()}, min = ${baseMin.toList()}"
+            }
+        }
+
+        override fun toString(): String {
+            return baseMax.toList().toString()
+        }
 
         override fun equals(other: Any?): Boolean {
             (other as? Base)?.let {
@@ -20,6 +38,17 @@ data class DataOpc2(
                     if (it.baseMax[i] != baseMax[i]) return false
             } ?: return false
             return true
+        }
+
+        fun getLengthOfCode(unitSize: Size, addOne: Boolean = true): Int {//TODO optimize this fun
+            var bi = BigInteger("1")
+            for (i in 0 until unitSize.width) {
+                for (j in 0 until unitSize.height) {
+                    val base = if (addOne) baseMax[j].toLong() + 1 else baseMax[j].toLong()
+                    bi = bi.multiply(BigInteger.valueOf(base))
+                }
+            }
+            return bi.toByteArray().size
         }
     }
 
@@ -34,7 +63,8 @@ data class DataOpc2(
             var sign: Matrix<Boolean>? = null,
             var AC: Short? = null,
             var N: BigInteger? = null,
-            var vectorCode: List<Long>? = null
+            var vectorCode: List<Long>? = null,
+            var originSize: Size? = null
     ) {
 
         constructor(dataOpc: DataOpc2) : this(
@@ -44,6 +74,7 @@ data class DataOpc2(
                 AC = dataOpc.AC,
                 N = (dataOpc.code as? Code.BI)?.N,
                 vectorCode = (dataOpc.code as? Code.L)?.vectorCode
+//                originSize = dataOpc.originSize
         )
 
         fun build() = DataOpc2(
@@ -51,6 +82,7 @@ data class DataOpc2(
                 AC = AC,
                 sign = sign,
                 code = N?.let { Code.BI(it) } ?: vectorCode?.let { Code.L(it) }!!
+//                originSize = originSize!!
         )
     }
 }

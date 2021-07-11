@@ -3,6 +3,7 @@ package utils
 import data_model.generics.matrix.IteratorDefaultMatrix
 import data_model.generics.matrix.IteratorMatrix
 import data_model.generics.matrix.Matrix
+import data_model.interfaces.ICopyable
 import data_model.types.DataOpc
 import data_model.types.Size
 import kotlin.reflect.KClass
@@ -108,5 +109,9 @@ object MatrixUtils {
         return Matrix.create(newSize) { i, j ->
             splitted[i / childSize.width, j / childSize.height][i % childSize.width, j % childSize.height]
         }
+    }
+
+    inline fun <reified T : Any> copy(origin: Matrix<T>) = Matrix.create(origin.size) { i, j ->
+        origin[i, j].let { (it as? ICopyable<T>)?.copy() ?: it }
     }
 }
