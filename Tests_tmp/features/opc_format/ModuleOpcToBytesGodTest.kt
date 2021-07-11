@@ -43,8 +43,7 @@ internal class ModuleOpcToBytesGodTest {
         )
 
         val opcData = moduleOpc2.processDirectTyped(imageData)
-        val bytesData = moduleOpcToBytes.processDirectTyped(opcData)
-        val reverseOpc = moduleOpcToBytes.processReverseTyped(bytesData)
+        val reverseOpc  = moduleOpcToBytes.test(opcData)
         assertEquals(opcData, reverseOpc)
         opcData.triple.first[0,0].base.baseMax[0]++
         assertNotEquals(opcData, reverseOpc)
