@@ -22,12 +22,5 @@ sealed class ProcessingData {
         }
     }
 
-    data class Opc2AndBytes(
-            val byteVector: ByteVector?,
-            val triple: Triple<Matrix<DataOpc2>>?,
-            val tripleBases: Triple<Matrix<DataOpc2.Base>>?,
-            val tripleBasesOpc: Triple<Matrix<DataOpc2>>?
-    ) : ProcessingData()
-
     data class Bytes(val byteVector: ByteVector) : ProcessingData()
 }
