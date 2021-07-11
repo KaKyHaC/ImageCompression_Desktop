@@ -26,6 +26,6 @@ sealed class ProcessingData {
 
     data class BytesAndBases(
             val byteVector: ByteVector,
-            val triple: Triple<Matrix<DataOpc2.Base>>
+            val tripleBases: Triple<Matrix<DataOpc2.Base>>
     ) : ProcessingData()
 }
