@@ -2,6 +2,7 @@ package features.quantization.manager
 
 import data_model.generics.matrix.Matrix
 import data_model.types.Size
+import features.quantization.utils.QuantizationTable2021
 import features.quantization.utils.QuantizationTable8x8
 import features.quantization.utils.QuantizationTableExp
 import features.quantization.utils.QuantizationTableSmart
@@ -15,18 +16,18 @@ class QuantizationUnit(val parameters: Parameters) {
 
     sealed class TableType {
         object EXPERIMENTAL : TableType()
-        class EXPONENTIAL(val maxValue:Double): TableType()
-        class SMART(val coefficient: Double): TableType()
-        object CHROMATICITY : TableType()
-        object LUMINOSITY : TableType()
+        class EXPONENTIAL(val maxValue: Double) : TableType()
+        class SMART(val coefficient: Double) : TableType()
+        class CHROMATICITY(val isNew: Boolean = false) : TableType()
+        class LUMINOSITY(val isNew: Boolean = false) : TableType()
     }
 
     private val table = when (parameters.tableType) {
         is TableType.EXPERIMENTAL -> TODO()
         is TableType.EXPONENTIAL -> QuantizationTableExp(parameters.childSize, parameters.tableType.maxValue).table
         is TableType.SMART -> QuantizationTableSmart(parameters.tableType.coefficient, parameters.childSize).table
-        is TableType.CHROMATICITY -> QuantizationTable8x8.getChromaticityMatrix()
-        is TableType.LUMINOSITY -> QuantizationTable8x8.getLuminosityMatrix()
+        is TableType.CHROMATICITY -> if (parameters.tableType.isNew) QuantizationTable2021.getChromaticityMatrix() else QuantizationTable8x8.getChromaticityMatrix()
+        is TableType.LUMINOSITY -> if (parameters.tableType.isNew) QuantizationTable2021.getLuminosityMatrix() else QuantizationTable8x8.getLuminosityMatrix()
     }
 
     fun direct(origin: Matrix<Short>) = origin.applyEach { i, j, value ->
