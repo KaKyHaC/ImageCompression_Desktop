@@ -26,8 +26,23 @@ internal class DctUnitMax255Test {
     ), Int::class).map { i, j, value -> value.toShort() }
 
     @Test
-    fun test8R5() {
-        testMax(Size(8), 0..5, QuantizationUnit.TableType.LUMINOSITY(true))
+    fun test8R45LUMINOSITY() {
+        for ( i in 0..10000)
+        testMax(Size(8), 0..45, QuantizationUnit.TableType.LUMINOSITY(true))
+    }
+
+
+    @Test
+    fun test8R65CHROMATICITY() {
+        for ( i in 0..10000)
+            testMax(Size(8), 0..65, QuantizationUnit.TableType.CHROMATICITY(true))
+    }
+
+
+    @Test
+    fun test8R65EXPONENTIAL() {
+        for ( i in 0..10000)
+            testMax(Size(8), 0..65, QuantizationUnit.TableType.EXPONENTIAL(255.0))
     }
 
     @Test
@@ -41,7 +56,7 @@ internal class DctUnitMax255Test {
 
     fun testMax(imageSize: Size, range: IntRange, quantizationType: QuantizationUnit.TableType) {
         val origin = Matrix.create(imageSize) { i, j -> rand.nextInt(255).absoluteValue.toShort() }
-        val dctUnit = DctUnit(DctUnit.Parameters(imageSize)) // todo use manager
+        val dctUnit = DctManager() // todo use manager
         val quantizationUnit = QuantizationUnit(QuantizationUnit.Parameters(imageSize, quantizationType))
 
         val dct = dctUnit.direct(MatrixUtils.copy(origin))
@@ -56,7 +71,7 @@ internal class DctUnitMax255Test {
         println("reverseQunt = $reverseQunt")
         println("reverseDct = $reverseDct")
 
-//        MatrixUtilsTest.assertMatrixInRange(origin, reverseDct, range)
+        MatrixUtilsTest.assertMatrixInRange(origin, reverseDct, range)
         quant.applyEach { i, j, value -> if (value > 255) throw Exception() else null }
     }
 }
