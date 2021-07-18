@@ -25,6 +25,18 @@ internal class DctUnitMax255Test {
             arrayOf(-1, 0, -1, -2, 2, 0, 0, 0)
     ), Int::class).map { i, j, value -> value.toShort() }
 
+
+    val failedPreQuant = Matrix(arrayOf(
+            arrayOf(402, 170, -46, 25, -6, 4, 6, -6),
+            arrayOf(560, -87, -34, -37, -19, -20, -12, 0),
+            arrayOf(-168, -215, 41, -17, -3, 7, 0, 3),
+            arrayOf(-41, 151, 9, -22, 4, -22, 0, -8),
+            arrayOf(0, -20, -87, -18, -18, -3, -11, 0),
+            arrayOf(-14, -44, -9, 41, -7, 23, 1, 0),
+            arrayOf(20, -4, 40, -27, -33, -30, -10, 0),
+            arrayOf(-17, -10, -22, -30, 42, 11, 2, 2)
+    ), Int::class).map { i, j, value -> value.toShort() }
+
     @Test
     fun test8R45LUMINOSITY() {
         for ( i in 0..10000)
@@ -51,6 +63,13 @@ internal class DctUnitMax255Test {
         val quantizationUnit = QuantizationUnit(QuantizationUnit.Parameters(tableType = QuantizationUnit.TableType.LUMINOSITY(true)))
         val reverse = quantizationUnit.reverse(failedPreOpc)
         val reverse1 = dctUnit.reverse(reverse)
+        println(reverse1)
+    }
+
+    @Test
+    fun failedQuant() {
+        val dctUnit = DctManager()
+        val reverse1 = dctUnit.reverse(failedPreQuant)
         println(reverse1)
     }
 
