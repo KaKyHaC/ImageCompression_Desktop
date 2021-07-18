@@ -6,6 +6,7 @@ import features.quantization.utils.QuantizationTable2021
 import features.quantization.utils.QuantizationTable8x8
 import features.quantization.utils.QuantizationTableExp
 import features.quantization.utils.QuantizationTableSmart
+import utils.MatrixUtils
 
 class QuantizationUnit(val parameters: Parameters) {
 
@@ -28,7 +29,7 @@ class QuantizationUnit(val parameters: Parameters) {
         is TableType.SMART -> QuantizationTableSmart(parameters.tableType.coefficient, parameters.childSize).table
         is TableType.CHROMATICITY -> if (parameters.tableType.isNew) QuantizationTable2021.getChromaticityMatrix() else QuantizationTable8x8.getChromaticityMatrix()
         is TableType.LUMINOSITY -> if (parameters.tableType.isNew) QuantizationTable2021.getLuminosityMatrix() else QuantizationTable8x8.getLuminosityMatrix()
-    }.map { i, j, value -> value.toInt() }
+    }.map { i, j, value -> value.toInt() }.let { MatrixUtils.trans(it) }
 
     fun direct(origin: Matrix<Short>) = origin.applyEach { i, j, value ->
         (value / table[i, j]).toShort()
