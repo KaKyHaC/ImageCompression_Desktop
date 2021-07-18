@@ -5,7 +5,7 @@ import data_model.generics.matrix.Matrix
 object QuantizationTable2021 {
 
     private val yMatrix = Matrix(arrayOf(
-            arrayOf(4, 2, 2, 4, 5, 9, 11, 13),
+            arrayOf(4, 3, 3, 4, 5, 9, 11, 13),
             arrayOf(3, 3, 3, 4, 6, 13, 13, 12),
             arrayOf(3, 3, 4, 5, 9, 13, 15, 12),
             arrayOf(3, 4, 5, 6, 11, 19, 18, 14),
