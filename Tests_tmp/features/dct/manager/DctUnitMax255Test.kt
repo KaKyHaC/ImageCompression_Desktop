@@ -14,10 +14,29 @@ import kotlin.math.absoluteValue
 internal class DctUnitMax255Test {
     val rand = Random()
 
+    val failedPreOpc = Matrix(arrayOf(
+            arrayOf(100, 56, -15, 8, -1, 0, 0, 0),
+            arrayOf(280, -29, -11, -9, -3, -2, 0, 0),
+            arrayOf(-84, -71, 10, -3, 0, 0, 0, 0),
+            arrayOf(-10, 37, 1, -3, 0, -1, 0, 0),
+            arrayOf(0, -3, -9, -1, -1, 0, 0, 0),
+            arrayOf(-1, -3, 0, 2, 0, 1, 0, 0),
+            arrayOf(1, 0, 2, -1, -1, -1, 0, 0),
+            arrayOf(-1, 0, -1, -2, 2, 0, 0, 0)
+    ), Int::class).map { i, j, value -> value.toShort() }
 
     @Test
     fun test8R5() {
         testMax(Size(8), 0..5, QuantizationUnit.TableType.LUMINOSITY(true))
+    }
+
+    @Test
+    fun failedOpc() {
+        val dctUnit = DctManager()
+        val quantizationUnit = QuantizationUnit(QuantizationUnit.Parameters(tableType = QuantizationUnit.TableType.LUMINOSITY(true)))
+        val reverse = quantizationUnit.reverse(failedPreOpc)
+        val reverse1 = dctUnit.reverse(reverse)
+        println(reverse1)
     }
 
     fun testMax(imageSize: Size, range: IntRange, quantizationType: QuantizationUnit.TableType) {
