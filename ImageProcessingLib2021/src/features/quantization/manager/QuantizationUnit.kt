@@ -28,7 +28,7 @@ class QuantizationUnit(val parameters: Parameters) {
         is TableType.SMART -> QuantizationTableSmart(parameters.tableType.coefficient, parameters.childSize).table
         is TableType.CHROMATICITY -> if (parameters.tableType.isNew) QuantizationTable2021.getChromaticityMatrix() else QuantizationTable8x8.getChromaticityMatrix()
         is TableType.LUMINOSITY -> if (parameters.tableType.isNew) QuantizationTable2021.getLuminosityMatrix() else QuantizationTable8x8.getLuminosityMatrix()
-    }
+    }.map { i, j, value -> value.toInt() }
 
     fun direct(origin: Matrix<Short>) = origin.applyEach { i, j, value ->
         (value / table[i, j]).toShort()
