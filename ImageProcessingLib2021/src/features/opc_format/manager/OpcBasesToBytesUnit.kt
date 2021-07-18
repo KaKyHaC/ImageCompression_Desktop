@@ -12,7 +12,7 @@ class OpcBasesToBytesUnit(
 
     data class Parameters(
             val type: ByteVectorUtils.Bases.Type = ByteVectorUtils.Bases.Type.MAX,
-            val baseType: BaseType = BaseType.SHORT
+            val baseType: BaseType = BaseType.BYTE
     )
 
     enum class BaseType { BYTE, SHORT }
