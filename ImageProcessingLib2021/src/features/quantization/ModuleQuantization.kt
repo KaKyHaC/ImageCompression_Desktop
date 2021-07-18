@@ -4,6 +4,7 @@ import data_model.generics.Triple
 import data_model.processing_data.ProcessingData
 import features.AbsDataProcessor
 import features.quantization.manager.QuantizationManager
+import features.quantization.manager.QuantizationUnit
 
 class ModuleQuantization(
         val parameters: Parameters = Parameters()
@@ -12,9 +13,15 @@ class ModuleQuantization(
 ) {
 
     data class Parameters(
-            val first: QuantizationManager.Parameters = QuantizationManager.Parameters(),
-            val second: QuantizationManager.Parameters = QuantizationManager.Parameters(),
-            val third: QuantizationManager.Parameters = QuantizationManager.Parameters()
+            val first: QuantizationManager.Parameters = QuantizationManager.Parameters(
+                    QuantizationUnit.Parameters(tableType = QuantizationUnit.TableType.LUMINOSITY(true))
+            ),
+            val second: QuantizationManager.Parameters = QuantizationManager.Parameters(
+                    QuantizationUnit.Parameters(tableType = QuantizationUnit.TableType.CHROMATICITY(true))
+            ),
+            val third: QuantizationManager.Parameters = QuantizationManager.Parameters(
+                    QuantizationUnit.Parameters(tableType = QuantizationUnit.TableType.CHROMATICITY(true))
+            )
     )
 
     private val manager1 = QuantizationManager(parameters.first)

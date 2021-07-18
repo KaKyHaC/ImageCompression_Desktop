@@ -11,7 +11,7 @@ class OpcBasesToBytesUnit(
 ) {
 
     data class Parameters(
-            val type: ByteVectorUtils.Bases.Type = ByteVectorUtils.Bases.Type.MIN_AND_MAX,
+            val type: ByteVectorUtils.Bases.Type = ByteVectorUtils.Bases.Type.MAX,
             val baseType: BaseType = BaseType.SHORT
     )
 
