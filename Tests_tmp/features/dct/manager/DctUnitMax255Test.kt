@@ -22,7 +22,7 @@ internal class DctUnitMax255Test {
 
     fun testMax(imageSize: Size, range: IntRange, quantizationType: QuantizationUnit.TableType) {
         val origin = Matrix.create(imageSize) { i, j -> rand.nextInt(255).absoluteValue.toShort() }
-        val dctUnit = DctUnit(DctUnit.Parameters(imageSize))
+        val dctUnit = DctUnit(DctUnit.Parameters(imageSize)) // todo use manager
         val quantizationUnit = QuantizationUnit(QuantizationUnit.Parameters(imageSize, quantizationType))
 
         val dct = dctUnit.direct(MatrixUtils.copy(origin))
