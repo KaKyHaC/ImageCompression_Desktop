@@ -24,13 +24,16 @@ class ModuleBasesOpc2(
         val res1 = opcProcessingUnit1.direct(data.triple.first)
         val res2 = opcProcessingUnit2.direct(data.triple.second)
         val res3 = opcProcessingUnit3.direct(data.triple.third)
-        return ProcessingData.Opc2(Triple(res1, res2, res3))
+        val size1 = opcProcessingUnit1.calculateBaseShortMatrixSize(data.triple.first.size) // todo put baseSize
+        val size2 = opcProcessingUnit1.calculateBaseShortMatrixSize(data.triple.second.size)
+        val size3 = opcProcessingUnit1.calculateBaseShortMatrixSize(data.triple.third.size)
+        return ProcessingData.Opc2(Triple(res1, res2, res3), Triple(size1, size2, size3))
     }
 
     override fun processReverseTyped(data: ProcessingData.Opc2): ProcessingData.Opc2.Bases {
-        val res1 = opcProcessingUnit1.reverse(data.triple.first)
-        val res2 = opcProcessingUnit2.reverse(data.triple.second)
-        val res3 = opcProcessingUnit3.reverse(data.triple.third)
+        val res1 = opcProcessingUnit1.reverse(data.triple.first, data.originSize?.first)
+        val res2 = opcProcessingUnit2.reverse(data.triple.second, data.originSize?.second)
+        val res3 = opcProcessingUnit3.reverse(data.triple.third, data.originSize?.third)
         return ProcessingData.Opc2.Bases(Triple(res1, res2, res3))
     }
 }

@@ -5,6 +5,7 @@ import data_model.generics.matrix.Matrix
 import data_model.types.ByteVector
 import data_model.types.DataOpc
 import data_model.types.DataOpc2
+import data_model.types.Size
 
 sealed class ProcessingData {
 
@@ -14,7 +15,10 @@ sealed class ProcessingData {
 
     data class Opc(val triple: Triple<Matrix<out DataOpc>>) : ProcessingData()
 
-    data class Opc2(val triple: Triple<Matrix<DataOpc2>>) : ProcessingData() {
+    data class Opc2(
+            val triple: Triple<Matrix<DataOpc2>>,
+            val originSize: Triple<Size>? = null
+    ) : ProcessingData() {
         data class Bases(val triple: Triple<Matrix<DataOpc2.Base>>) : ProcessingData() {
             constructor(opc2: Opc2) : this(
                     opc2.triple.map { it.map { i, j, dataOpc2 -> dataOpc2.base } }
