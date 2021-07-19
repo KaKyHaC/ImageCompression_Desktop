@@ -5,6 +5,7 @@ import data_model.types.ByteVector
 import features.AbsDataProcessor
 import features.opc_format.manager.OpcBasesToBytesManager
 import features.opc_format.manager.OpcToBytesManager
+import features.opc_format.manager.SizeToBytesManager
 
 class ModuleOpcToBytes(
         val parameters: Parameters = Parameters()
@@ -13,26 +14,27 @@ class ModuleOpcToBytes(
 ) {
     class Parameters(
             val basesParams: OpcBasesToBytesManager.Parameters = OpcBasesToBytesManager.Parameters(),
-            val opcParams: OpcToBytesManager.Parameters = OpcToBytesManager.Parameters()
+            val opcParams: OpcToBytesManager.Parameters = OpcToBytesManager.Parameters(),
+            val sizeParams: SizeToBytesManager.Parameters? = SizeToBytesManager.Parameters()
     )
 
     private val baseManager = parameters.basesParams.let { OpcBasesToBytesManager(it) }
     private val opcManager = parameters.opcParams.let { OpcToBytesManager(it) }
+    private val sizeManager = parameters.sizeParams?.let { SizeToBytesManager(it) }
 
     override fun processDirectTyped(data: ProcessingData.Opc2): ProcessingData.Bytes {
         val byteVector = ByteVector()
+        data.originSize?. let { sizeManager?.direct(byteVector, it) }
         baseManager.direct(byteVector, data.triple.map { it.map { i, j, dataOpc -> dataOpc.base } }) //todo remove map
-        val len1 = byteVector.getBytes().size
         opcManager.direct(byteVector, data.triple)
-        val len2 = byteVector.getBytes().size - len1
-        println("len1 = ${len1}, len2 = $len2")
         return ProcessingData.Bytes(byteVector)
     }
 
     override fun processReverseTyped(data: ProcessingData.Bytes): ProcessingData.Opc2 {
         val reader = data.byteVector.getReader()
+        val size = sizeManager?.reverse(reader)
         val bases = baseManager.reverse(reader)
         val opcs = opcManager.reverse(reader, bases)
-        return ProcessingData.Opc2(opcs)
+        return ProcessingData.Opc2(opcs, size)
     }
 }
