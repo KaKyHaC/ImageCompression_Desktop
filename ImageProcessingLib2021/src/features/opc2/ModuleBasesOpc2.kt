@@ -24,9 +24,9 @@ class ModuleBasesOpc2(
         val res1 = opcProcessingUnit1.direct(data.triple.first)
         val res2 = opcProcessingUnit2.direct(data.triple.second)
         val res3 = opcProcessingUnit3.direct(data.triple.third)
-        val size1 = opcProcessingUnit1.calculateBaseShortMatrixSize(data.triple.first.size) // todo put baseSize
-        val size2 = opcProcessingUnit1.calculateBaseShortMatrixSize(data.triple.second.size)
-        val size3 = opcProcessingUnit1.calculateBaseShortMatrixSize(data.triple.third.size)
+        val size1 = (data.triple.first.size) // todo put baseSize
+        val size2 = (data.triple.second.size)
+        val size3 = (data.triple.third.size)
         return ProcessingData.Opc2(Triple(res1, res2, res3), Triple(size1, size2, size3))
     }
 
