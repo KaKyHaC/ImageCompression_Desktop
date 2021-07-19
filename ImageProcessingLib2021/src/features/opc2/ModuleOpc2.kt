@@ -24,13 +24,16 @@ class ModuleOpc2(
         val direct1 = opcProcessingUnit1.direct(data.triple.first)
         val direct2 = opcProcessingUnit2.direct(data.triple.second)
         val direct3 = opcProcessingUnit3.direct(data.triple.third)
-        return ProcessingData.Opc2(Triple(direct1, direct2, direct3))
+        val size1 = data.triple.first.size
+        val size2 = data.triple.second.size
+        val size3 = data.triple.third.size
+        return ProcessingData.Opc2(Triple(direct1, direct2, direct3), Triple(size1, size2, size3))
     }
 
     override fun processReverseTyped(data: ProcessingData.Opc2): ProcessingData.Image {
-        val direct1 = opcProcessingUnit1.reverse(data.triple.first)
-        val direct2 = opcProcessingUnit2.reverse(data.triple.second)
-        val direct3 = opcProcessingUnit3.reverse(data.triple.third)
+        val direct1 = opcProcessingUnit1.reverse(data.triple.first, data.originSize?.first)
+        val direct2 = opcProcessingUnit2.reverse(data.triple.second, data.originSize?.second)
+        val direct3 = opcProcessingUnit3.reverse(data.triple.third, data.originSize?.third)
         return ProcessingData.Image(Triple(direct1, direct2, direct3))
     }
 }
