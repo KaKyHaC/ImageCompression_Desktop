@@ -48,6 +48,17 @@ internal class RgbToYbrUtilsTest {
         val ybr = RgbToYbrUtils.direct(origin)
         val reverse = RgbToYbrUtils.reverse(ybr)
 
+        var maxY:Short = 0
+        var maxB:Short = 0
+        var maxR:Short = 0
+        ybr.pixelMatrix.applyEach { i, j, value ->
+            if (value.Y > maxY) maxY = value.Y
+            if (value.Cb > maxB) maxB = value.Cb
+            if (value.Cr > maxR) maxR = value.Cr
+            null
+        }
+        println("maxY = $maxY, maxB = $maxB, maxR = $maxR")
+
         origin.pixelMatrix.applyEach { i, j, value ->
             val reversePixel = reverse.pixelMatrix[i, j]
             val dR = (value.red - reversePixel.red).absoluteValue
