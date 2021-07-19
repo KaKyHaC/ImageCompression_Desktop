@@ -55,9 +55,9 @@ class ModuleOpc2God(
         //
         val reader = byteVector.getReader()
         val basesOpcBaseR = baseManager.reverse(reader)
+        assertEquals(basesOpcBase, basesOpcBaseR)
         val basesOpcR = opcManager.reverse(reader, basesOpcBaseR)
         val basesDataR = moduleBasesOpc2.processReverseTyped(ProcessingData.Opc2(basesOpcR))
-        assertEquals(basesOpcBase, basesOpcBaseR)
         assertEquals(basesOpc.triple, basesOpcR)
         val reverse = opcManager.reverse(reader, basesDataR.triple)
         return ProcessingData.Opc2(reverse)
