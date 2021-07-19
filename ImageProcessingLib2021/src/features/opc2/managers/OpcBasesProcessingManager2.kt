@@ -20,9 +20,12 @@ class OpcBasesProcessingManager2(
 
     fun direct(baseMatrix: Matrix<out DataOpc2.Base>): Matrix<DataOpc2> {
         val baseSize = Size(baseMatrix[0, 0].baseMax.size, 1)
+        val size = calculateBaseShortMatrixSize(baseMatrix.size, baseSize)
         val baseShortMatrix = when (parameters.type) {
-            BaseProcessType.MAX_ONLY -> Matrix.create(Size(baseMatrix.width * baseSize.width, baseMatrix.height * baseSize.height)) { i, j ->
-                baseMatrix[i / baseSize.width, j / baseSize.height].baseMax[i % baseSize.width]
+            BaseProcessType.MAX_ONLY -> {
+                Matrix.create(size) { i, j ->
+                    baseMatrix[i / baseSize.width, j / baseSize.height].baseMax[i % baseSize.width]
+                }
             }
             BaseProcessType.MAX_AND_MIN -> TODO()
             BaseProcessType.MIN_ONLY -> TODO()
@@ -42,11 +45,15 @@ class OpcBasesProcessingManager2(
                 BaseProcessType.MIN_ONLY -> TODO()
             }
         }
-        return baseMatrixSize?.let { MatrixUtils.cropMatrix(map, it)} ?: map
+        return baseMatrixSize?.let { MatrixUtils.cropMatrix(map, it) } ?: map
     }
 
-    private fun calculateBaseShortMatrixSize(
+    fun calculateBaseShortMatrixSize(
             baseOpcMatrixSize: Size,
             baseSize: Size = Size(8, 1)
-    ) = Size(baseOpcMatrixSize.width * baseSize.width, baseOpcMatrixSize.height * baseSize.height)
+    ) = when (parameters.type) {
+        BaseProcessType.MAX_ONLY -> Size(baseOpcMatrixSize.width * baseSize.width, baseOpcMatrixSize.height * baseSize.height)
+        BaseProcessType.MAX_AND_MIN -> TODO()
+        BaseProcessType.MIN_ONLY -> TODO()
+    }
 }
