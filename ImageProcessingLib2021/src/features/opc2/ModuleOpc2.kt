@@ -14,7 +14,9 @@ class ModuleOpc2(
             val first: OpcProcessingManager2.Parameters = OpcProcessingManager2.Parameters(),
             val second: OpcProcessingManager2.Parameters = OpcProcessingManager2.Parameters(),
             val third: OpcProcessingManager2.Parameters = OpcProcessingManager2.Parameters()
-    )
+    ) {
+        constructor(global: OpcProcessingManager2.Parameters = OpcProcessingManager2.Parameters()) : this(global, global, global)
+    }
 
     private val opcProcessingUnit1 = OpcProcessingManager2(parameters.first)
     private val opcProcessingUnit2 = OpcProcessingManager2(parameters.second)
