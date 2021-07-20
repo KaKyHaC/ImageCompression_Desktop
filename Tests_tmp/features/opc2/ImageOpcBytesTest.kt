@@ -23,6 +23,12 @@ internal class ImageOpcBytesTest {
         test(Size(16))
     }
 
+
+    @Test
+    fun test16Max1000() {
+        test(Size(16), 1000)
+    }
+
     @Test
     fun test1128() {
         test(Size(128))
@@ -39,14 +45,14 @@ internal class ImageOpcBytesTest {
         test(Size(1920,1080))
     }
 
-    fun test(matrixSize: Size) {
+    fun test(matrixSize: Size, max: Int = 255) {
         val moduleOpc2 = ModuleOpc2()
         val moduleOpcToBytes = ModuleOpcToBytes()
 
         val imageData = ProcessingData.Image(Triple(
-                Matrix.create(matrixSize) { i, j -> (-100 + rand.nextInt(2505)).toShort() },
-                Matrix.create(Size(8, 8)) { i, j -> (-100 + rand.nextInt(2505)).toShort() },
-                Matrix.create(Size(16, 16)) { i, j -> (-100 + rand.nextInt(2055)).toShort() })
+                Matrix.create(matrixSize) { i, j -> (-100 + rand.nextInt(max)).toShort() }, // todo test > 255
+                Matrix.create(Size(8, 8)) { i, j -> (-100 + rand.nextInt(max)).toShort() },
+                Matrix.create(Size(16, 16)) { i, j -> (-100 + rand.nextInt(max)).toShort() })
         )
 
         val copy = ProcessingData.Image(Triple(
