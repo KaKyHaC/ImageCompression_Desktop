@@ -6,6 +6,7 @@ import features.enlargement.ModuleEnlargement
 import features.image_format.ModuleRgbToYCbCr
 import features.opc2.ModuleBasesOpc2
 import features.opc2.ModuleOpc2
+import features.opc2_god_format.ModuleOpc2God
 import features.opc_format.ModuleOpcToBytes
 import features.quantization.ModuleQuantization
 import features.read_image.ModuleReadImage
@@ -24,6 +25,7 @@ object ProcessorModuleFactory {
             is ModuleParams.ReadImage -> ModuleReadImage(params.params)
             is ModuleParams.RgbToYbr -> ModuleRgbToYCbCr(params.params)
             is ModuleParams.WriteBytes -> ModuleWriteBytes(params.params)
+            is ModuleParams.OpcToBytesCascade -> ModuleOpc2God(params.params)
         }
     }
 
@@ -36,6 +38,7 @@ object ProcessorModuleFactory {
         data class Opc(val params: ModuleOpc2.Parameters = ModuleOpc2.Parameters()) : ModuleParams()
         data class OpcBases(val params: ModuleBasesOpc2.Parameters = ModuleBasesOpc2.Parameters()) : ModuleParams()
         data class OpcToBytes(val params: ModuleOpcToBytes.Parameters = ModuleOpcToBytes.Parameters()) : ModuleParams()
+        data class OpcToBytesCascade(val params: ModuleOpc2God.Parameters = ModuleOpc2God.Parameters()) : ModuleParams()
         data class WriteBytes(val params: ModuleWriteBytes.Parameters = ModuleWriteBytes.Parameters()) : ModuleParams()
     }
 }
