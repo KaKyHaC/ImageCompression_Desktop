@@ -47,7 +47,7 @@ internal class OpcBasesProcessingManager2Test {
             ) as DataOpc2.Base
         }
         val direct = manager.direct(matrix)
-        val reverse = manager.reverse(direct, matrixSize, Size(baseSize, 1))
+        val reverse = manager.reverse(direct, matrixSize, baseSize)
 
         assertEquals(matrix, reverse)
         matrix[0,0].baseMax[0]++
