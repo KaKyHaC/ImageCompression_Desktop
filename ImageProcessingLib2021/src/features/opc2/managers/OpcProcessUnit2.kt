@@ -19,7 +19,7 @@ class OpcProcessUnit2(
             val removeAC: Boolean = true, // flag.isChecked(Flag.Parameter.DC)
             val useLongCode: Boolean = false, // flag.isChecked(Flag.Parameter.LongCode)
             val decreaseBase: Boolean = true,
-            val useMinBase: Boolean = true
+            val useMinBase: Boolean = false
     )
 
     fun direct(dataOrigin: Matrix<Short>): DataOpc2 {

@@ -9,7 +9,7 @@ class OpcBasesProcessingManager2(
         val parameters: Parameters = Parameters()
 ) {
     data class Parameters(
-            val type: BaseProcessType = BaseProcessType.MAX_AND_MIN,
+            val type: BaseProcessType = BaseProcessType.MAX_ONLY,
             val needTrans: Boolean = true,
             val params: OpcProcessingManager2.Parameters = OpcProcessingManager2.Parameters()
     )
