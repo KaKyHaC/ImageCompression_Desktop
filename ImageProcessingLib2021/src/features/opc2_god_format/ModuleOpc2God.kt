@@ -56,17 +56,21 @@ class ModuleOpc2God(
         val basesData = ProcessingData.Opc2.Bases(data)
         val basesOpc = moduleBasesOpc2.processDirectTyped(basesData)
         val basesOpcBase = basesOpc.triple.map { it.map { i, j, value -> value.base } }
+        sizeManager.direct(byteVector, basesOpc.originSize!!)
+        sizeManager.direct(byteVector, data.originSize!!)
         baseManager.direct(byteVector, basesOpcBase)
         opcManager.direct(byteVector, basesOpc.triple)
         opcManager.direct(byteVector, data.triple)
         //
         val reader = byteVector.getReader()
+        val basesSize = sizeManager.reverse(reader)
+        val originSize = sizeManager.reverse(reader)
         val basesOpcBaseR = baseManager.reverse(reader)
         assertEquals(basesOpcBase, basesOpcBaseR)
         val basesOpcR = opcManager.reverse(reader, basesOpcBaseR)
-        val basesDataR = moduleBasesOpc2.processReverseTyped(ProcessingData.Opc2(basesOpcR))
+        val basesDataR = moduleBasesOpc2.processReverseTyped(ProcessingData.Opc2(basesOpcR, basesSize))
         assertEquals(basesOpc.triple, basesOpcR)
         val reverse = opcManager.reverse(reader, basesDataR.triple)
-        return ProcessingData.Opc2(reverse)
+        return ProcessingData.Opc2(reverse, originSize)
     }
 }
