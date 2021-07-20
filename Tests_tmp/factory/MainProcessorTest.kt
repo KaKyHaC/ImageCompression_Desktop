@@ -15,6 +15,14 @@ internal class MainProcessorTest {
         mainProcessor.run(ProcessingData.File(File("image.bar")), MainProcessor.Mode.REVERSE)
     }
 
+
+    @Test
+    fun testDefaultWithGod() {
+        val mainProcessor = MainProcessor(MainProcessor.Params(ProcessorModuleFactorySamples.defaultListWithGod))
+        mainProcessor.run(ProcessingData.File(File("outTest.bmp")))
+        mainProcessor.run(ProcessingData.File(File("image.bar")), MainProcessor.Mode.REVERSE)
+    }
+
     @Test
     fun testOpcOnly() {
         val mainProcessor = MainProcessor(MainProcessor.Params(ProcessorModuleFactorySamples.opcOnlyList))
