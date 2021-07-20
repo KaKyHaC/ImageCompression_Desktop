@@ -1,4 +1,4 @@
-package factory
+package processor
 
 import data_model.processing_data.ProcessingData
 import features.read_image.ModuleReadImage

@@ -1,4 +1,4 @@
-package factory
+package processor
 
 import features.IDataProcessor
 import features.dct.ModuleDct

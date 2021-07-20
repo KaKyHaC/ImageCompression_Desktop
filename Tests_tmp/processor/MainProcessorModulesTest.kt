@@ -1,4 +1,4 @@
-package factory
+package processor
 
 import data_model.processing_data.ProcessingData
 import features.dct.ModuleDct
@@ -10,7 +10,6 @@ import features.opc_format.ModuleOpcToBytes
 import features.quantization.ModuleQuantization
 import features.read_image.ModuleReadImage
 import features.write_bytes.ModuleWriteBytes
-import features.write_bytes.ModuleWriteBytesTest
 import org.junit.Test
 import java.io.File
 import kotlin.test.assertEquals
